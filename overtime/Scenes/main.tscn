@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=7 format=3 uid="uid://bbk5gwkxd35m"]
 
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Scenes/Player.tscn" id="1_4trrd"]
+[ext_resource type="PackedScene" uid="uid://boihhk60r6bii" path="res://Assets/OfficeTest.fbx" id="2_i5xea"]
+[ext_resource type="PackedScene" uid="uid://b383bejmrs8hr" path="res://Assets/OfficeTest2.fbx" id="3_17jkf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +18,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496047, -0.382936, -0.455353)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80b2s")
@@ -25,7 +28,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0.000587457, -0.000363283, -0.000587278, 1, 0.000504392, 0.000363572, -0.000504183, 1, -2.23618, -0.151021, -1.75546)
+transform = Transform3D(1, 0.000587461, -0.000363276, -0.000587278, 1, 0.000504396, 0.000363572, -0.000504183, 1, -2.24442, -0.132814, -1.8065)
 use_collision = true
 size = Vector3(17.9674, 0.7, 17.9508)
 
@@ -60,3 +63,9 @@ size = Vector3(0.6, 0.7, 0.3)
 
 [node name="Player" parent="." instance=ExtResource("1_4trrd")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.2, 2, 0)
+
+[node name="OfficeTest" parent="." instance=ExtResource("2_i5xea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97793, 0.200274, -0.0530547)
+
+[node name="OfficeTest2" parent="." instance=ExtResource("3_17jkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28961, 0.209162, -3.9935)
