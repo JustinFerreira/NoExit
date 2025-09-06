@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=5 format=3 uid="uid://bbk5gwkxd35m"]
 
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Scenes/Player.tscn" id="1_4trrd"]
-[ext_resource type="PackedScene" uid="uid://boihhk60r6bii" path="res://Assets/OfficeTest.fbx" id="2_i5xea"]
-[ext_resource type="PackedScene" uid="uid://b383bejmrs8hr" path="res://Assets/OfficeTest2.fbx" id="3_17jkf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,9 +61,3 @@ size = Vector3(0.6, 0.7, 0.3)
 
 [node name="Player" parent="." instance=ExtResource("1_4trrd")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.2, 2, 0)
-
-[node name="OfficeTest" parent="." instance=ExtResource("2_i5xea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97793, 0.200274, -0.0530547)
-
-[node name="OfficeTest2" parent="." instance=ExtResource("3_17jkf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28961, 0.209162, -3.9935)
