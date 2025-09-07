@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=6 format=3 uid="uid://bbk5gwkxd35m"]
 
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Scenes/Player.tscn" id="1_4trrd"]
+[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Scenes/Office.tscn" id="2_xioy2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -60,4 +61,7 @@ operation = 2
 size = Vector3(0.6, 0.7, 0.3)
 
 [node name="Player" parent="." instance=ExtResource("1_4trrd")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.2, 2, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.896047, 0.482936, -0.344647)
+
+[node name="Office" parent="." instance=ExtResource("2_xioy2")]
+transform = Transform3D(-6.99382e-08, 0, 1.6, 0, 1.6, 0, -1.6, 0, -6.99382e-08, -0.503953, 0.082936, -6.64465)
