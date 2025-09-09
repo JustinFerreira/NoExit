@@ -48,4 +48,4 @@ use_collision = true
 size = Vector3(100, 1, 100)
 
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_py6xf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3, 0, 25.9)
