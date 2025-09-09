@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
 
-const SPEED = 3.5
+const SPEED = 1.0
 
-@onready var nav = $NavigationAgent3D
+@onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
