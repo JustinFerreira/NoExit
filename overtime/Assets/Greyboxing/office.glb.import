@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b383bejmrs8hr"
-path="res://.godot/imported/OfficeTest2.fbx-bbb6ae2752c8a483bd9380e38ba99756.scn"
+uid="uid://chrlmlamfq8t7"
+path="res://.godot/imported/office.glb-f26b30dc851e4af286088928c2e49236.scn"
 
 [deps]
 
-source_file="res://Assets/OfficeTest2.fbx"
-dest_files=["res://.godot/imported/OfficeTest2.fbx-bbb6ae2752c8a483bd9380e38ba99756.scn"]
+source_file="res://Assets/Greyboxing/office.glb"
+dest_files=["res://.godot/imported/office.glb-f26b30dc851e4af286088928c2e49236.scn"]
 
 [params]
 
@@ -27,11 +27,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1
