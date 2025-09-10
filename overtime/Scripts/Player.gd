@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 2.0
-const SPRINT_SPEED = 2.5
+const WALK_SPEED = 3.0
+const SPRINT_SPEED = 4.5
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.01
 
 #bob variables
-const BOB_FREQ = 5.0 # How often you bob
+const BOB_FREQ = 4.0 # How often you bob
 const BOB_AMP = 0.08 # How high and low you bob
 var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
 

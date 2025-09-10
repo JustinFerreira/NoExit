@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 1.0
+const SPEED = 4.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
@@ -20,6 +20,4 @@ func _physics_process(delta: float) -> void:
 	
 func target_position(target):
 	nav.target_position = target
-
-
 	move_and_slide()
