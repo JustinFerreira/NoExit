@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5no614df1rmg"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 209.0
+offset_bottom = 53.0
+scale = Vector2(100, 100)
+theme_override_font_sizes/font_size = 25
+text = "You are paused"
