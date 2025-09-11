@@ -28,12 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_ESCAPE:
-			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			else:
-				get_tree().quit()
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()
 
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game

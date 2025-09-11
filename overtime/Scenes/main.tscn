@@ -27,9 +27,6 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.574477, -0.153989, -0.239899)
 script = ExtResource("1_mnhgp")
 
-[node name="Player" parent="." instance=ExtResource("1_4trrd")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -55.8484, 2.46483, 52.4813)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80b2s")
 
@@ -212,3 +209,6 @@ light_energy = 4.079
 
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_py6xf")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -58.6514, 1.62706, 22.5159)
+
+[node name="Player" parent="." instance=ExtResource("1_4trrd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -48.5, 2.9, 52.8)

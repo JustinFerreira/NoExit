@@ -116,6 +116,7 @@ layout_mode = 2
 [node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 62
 text = "NO EXIT
@@ -128,8 +129,8 @@ layout_mode = 2
 [node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_pressed_color = Color(0.940332, 0, 0.0172834, 1)
-theme_override_colors/font_hover_color = Color(0.952941, 0.447059, 0, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
@@ -148,8 +149,8 @@ text = "Start Game"
 [node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_pressed_color = Color(0.940332, 0, 0.0172834, 1)
-theme_override_colors/font_hover_color = Color(0.952941, 0.447059, 0, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
@@ -168,8 +169,8 @@ text = "Settings"
 [node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_pressed_color = Color(0.940332, 0, 0.0172834, 1)
-theme_override_colors/font_hover_color = Color(0.952941, 0.447059, 0, 1)
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
