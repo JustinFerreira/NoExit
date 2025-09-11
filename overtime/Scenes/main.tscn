@@ -211,4 +211,4 @@ light_energy = 4.079
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -58.6514, 1.62706, 22.5159)
 
 [node name="Player" parent="." instance=ExtResource("1_4trrd")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -48.5, 2.9, 52.8)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -56.5, 3.6, 51.1)

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 4.0
+const SPEED = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 

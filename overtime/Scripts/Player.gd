@@ -21,13 +21,13 @@ const FOV_CHANGE = 1.5
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
 # Any input that is detected automatically calls this function
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
 
@@ -41,7 +41,8 @@ func _physics_process(delta: float) -> void:
 	##  We don't want a jump so no jumping
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
-		
+	
+	
 	# Handle Sprint
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
@@ -75,3 +76,10 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("enemy"): 
+		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
