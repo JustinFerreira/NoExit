@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 	# Make the enemy face the direction it's moving
 	if new_velocity.length() > 0:
-		look_at(global_transform.origin + new_velocity, Vector3.UP)
+		look_at(global_transform.origin - new_velocity, Vector3.UP)
 
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()

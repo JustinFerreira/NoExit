@@ -38,10 +38,10 @@ shadow_enabled = true
 navigation_mesh = SubResource("NavigationMesh_hqtm0")
 
 [node name="Office" parent="NavigationRegion3D" instance=ExtResource("2_xioy2")]
-transform = Transform3D(-9.11233e-07, 0, 20.8466, 0, 20.8466, 0, -20.8466, 0, -9.11233e-07, -0.503953, -1.11706, -3.14465)
+transform = Transform3D(-9.11233e-07, 0, 20.8466, 0, 20.8466, 0, -20.8466, 0, -9.11233e-07, -0.496816, -1.20357, -3.23514)
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
-transform = Transform3D(1.21, 0.000710828, -0.000439564, -0.000710606, 1.21, 0.000610319, 0.000439922, -0.000610061, 1.21, -2.27641, -0.332815, -1.76608)
+transform = Transform3D(1.21, 0.000710828, -0.000439564, -0.000710606, 1.21, 0.000610319, 0.000439922, -0.000610061, 1.21, -2.29458, -0.41741, -1.77159)
 use_collision = true
 size = Vector3(100, 1, 100)
 
