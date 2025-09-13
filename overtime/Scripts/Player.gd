@@ -15,8 +15,11 @@ var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
+
 @onready var head = $Head
-@onready var camera = $Head/Camera3D
+@onready var camera:Camera3D = $Head/Camera3D
+@onready var interact_ray:RayCast3D = $"Head/Camera3D/InteractRay"
+@onready var prompt = $Head/Camera3D/InteractRay/Prompt
 
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
@@ -64,6 +67,17 @@ func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
 	
+	## Interactions
+	prompt.text = ""
+	
+	if interact_ray.is_colliding():
+		var collider = interact_ray.get_collider()
+		
+		if collider is Interactable:
+			prompt.text = collider.prompt_message
+			
+			if Input.is_action_just_pressed("Interact"):
+				collider.interact(owner)
 	
 	# Handle Sprint
 	if Input.is_action_pressed("sprint"):
