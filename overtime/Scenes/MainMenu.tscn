@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://vh5m0r3xogr1"]
+[gd_scene load_steps=19 format=3 uid="uid://vh5m0r3xogr1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_hn4jk"]
 [ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Scenes/ParkingGarage.tscn" id="1_uqko6"]
+[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Scenes/SettingsMenu.tscn" id="2_5eyd3"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_pcltc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xva8m"]
@@ -194,5 +195,9 @@ libraries = {
 autoplay = "camera_anim"
 speed_scale = 0.2
 
+[node name="SettingsMenu" parent="." instance=ExtResource("2_5eyd3")]
+visible = false
+
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

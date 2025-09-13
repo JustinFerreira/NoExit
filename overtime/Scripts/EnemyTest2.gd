@@ -6,6 +6,9 @@ const SPEED = 2.0
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _physics_process(delta: float) -> void:
+	$MeshInstance3D.visible = false
+	$Skeleton3D.visible = true
+	$AnimationPlayer.play("mixamo_com")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

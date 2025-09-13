@@ -1,0 +1,149 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbptuv1do4fe"]
+
+[ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="1_urev0"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_hb7d1"]
+[ext_resource type="Script" path="res://Scripts/SettingsLabel.gd" id="3_vyt64"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_urev0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SoundSettingsVbox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SoundLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.537255, 0.458824, 0.458824, 1)
+theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 24
+text = "Sound Settings"
+
+[node name="MuteCheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+text = "Mute"
+
+[node name="MasterVbox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MasterVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MasterVbox"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MasterVbox" node_paths=PackedStringArray("slider")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+script = ExtResource("3_vyt64")
+slider = NodePath("../MasterSlider")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MusicVbox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MusicVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MusicVbox"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MusicVbox" node_paths=PackedStringArray("slider")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+script = ExtResource("3_vyt64")
+slider = NodePath("../MusicSlider")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SFXVbox" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/SFXVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/SFXVbox"]
+layout_mode = 2
+
+[node name="NumberLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/SFXVbox" node_paths=PackedStringArray("slider")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+script = ExtResource("3_vyt64")
+slider = NodePath("../SFXSlider")
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 24
+text = "Close"
+
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MasterVbox/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MusicVbox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/SFXVbox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

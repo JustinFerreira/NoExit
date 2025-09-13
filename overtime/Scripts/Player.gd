@@ -21,6 +21,7 @@ const FOV_CHANGE = 1.5
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$MeshInstance3D.visible = false
 	
 # Any input that is detected automatically calls this function
 func _unhandled_input(event: InputEvent) -> void:
@@ -30,6 +31,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
+	## Foot Step SFX
+	if event.is_action_pressed("forward"):
+		AudioManager.play_sound_loop(AudioManager.step, "step")
+	if event.is_action_released("forward"):
+		AudioManager.stop_loop("step")
+	if event.is_action_pressed("backward"):
+		AudioManager.play_sound_loop(AudioManager.step, "step")
+	if event.is_action_released("backward"):
+		AudioManager.stop_loop("step")
+	if event.is_action_pressed("left"):
+		AudioManager.play_sound_loop(AudioManager.step, "step")
+	if event.is_action_released("left"):
+		AudioManager.stop_loop("step")
+	if event.is_action_pressed("right"):
+		AudioManager.play_sound_loop(AudioManager.step, "step")
+	if event.is_action_released("right"):
+		AudioManager.stop_loop("step")
+		
+		
+			
+			
 
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game

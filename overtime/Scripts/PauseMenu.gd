@@ -17,6 +17,7 @@ func pause():
 
 func _on_resume_btn_pressed() -> void:
 	resume()
+	$SettingsMenu.visible = false
 
 
 func _on_restart_btn_pressed() -> void:
@@ -29,7 +30,7 @@ func _on_quit_btn_pressed() -> void:
 
 
 func _on_settings_btn_pressed() -> void:
-	pass # Replace with function body.
+	$SettingsMenu.visible = true
 
 
 func _on_main_menu_btn_pressed() -> void:
