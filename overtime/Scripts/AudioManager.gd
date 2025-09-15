@@ -4,9 +4,9 @@ var MusicAudio = AudioStreamPlayer.new()
 var looping_players: Dictionary = {}
 
 ## MUSIC
-var MainMenuMusic = load("res://Assets/Audio/Music/chief-keef-save-me-official-audio-128-ytshorts.savetube.me.mp3")
+var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.wav")
 
-var GamePlayMusic = load("res://Assets/Audio/Music/water-temple-arrangement-the-legend-of-zelda-ocarina-of-time-128-ytshorts.savetube.me.mp3")
+var GamePlayMusic = load("res://Assets/Audio/Music/chief-keef-save-me-official-audio-128-ytshorts.savetube.me.mp3")
 
 ## SFX
 

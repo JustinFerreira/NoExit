@@ -25,11 +25,11 @@ material_override = SubResource("StandardMaterial3D_3ndg1")
 mesh = ExtResource("2_sf52k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06676, 0)
+transform = Transform3D(0.807074, 0, 0, 0, 0.807074, 0, 0, 0, 0.807074, 0, 1.06676, 0)
 shape = SubResource("ConvexPolygonShape3D_mf4ae")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06676, 0)
+transform = Transform3D(1.25362, 0, 0, 0, 1.25362, 0, 0, 0, 1.25362, 0, 1.23159, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
