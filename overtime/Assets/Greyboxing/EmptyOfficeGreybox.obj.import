@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://jhftpebg36u4"
+path="res://.godot/imported/EmptyOfficeGreybox.obj-d90467149288023ca7860095a7b42230.mesh"
+
+[deps]
+
+files=["res://.godot/imported/EmptyOfficeGreybox.obj-d90467149288023ca7860095a7b42230.mesh"]
+
+source_file="res://Assets/Greyboxing/EmptyOfficeGreybox.obj"
+dest_files=["res://.godot/imported/EmptyOfficeGreybox.obj-d90467149288023ca7860095a7b42230.mesh", "res://.godot/imported/EmptyOfficeGreybox.obj-d90467149288023ca7860095a7b42230.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
