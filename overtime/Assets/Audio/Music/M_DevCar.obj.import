@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c815jbno2u1jf"
+path="res://.godot/imported/M_DevCar.obj-1e8dacab586527bed41a2120235d305f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_DevCar.obj-1e8dacab586527bed41a2120235d305f.mesh"]
+
+source_file="res://Assets/Audio/Music/M_DevCar.obj"
+dest_files=["res://.godot/imported/M_DevCar.obj-1e8dacab586527bed41a2120235d305f.mesh", "res://.godot/imported/M_DevCar.obj-1e8dacab586527bed41a2120235d305f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
