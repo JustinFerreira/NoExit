@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cby3tqqlxqj2v" path="res://Assets/Greyboxing/ParkingGarageWalls.glb" id="1_qv5v2"]
 [ext_resource type="ArrayMesh" uid="uid://n1gxcahv2bxu" path="res://Assets/Greyboxing/ParkingGarageWalls.obj" id="2_ng4da"]
-[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Environments/Dev Textures/dev_texture_brick.png" id="2_qiweh"]
+[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="2_qiweh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymxsh"]
 albedo_texture = ExtResource("2_qiweh")

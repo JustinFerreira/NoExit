@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqbiktwssofkk"]
 
-[ext_resource type="Texture2D" uid="uid://ussgfebomim6" path="res://Assets/Environments/Dev Textures/dev_texture_floor.png" id="1_5up5k"]
+[ext_resource type="Texture2D" uid="uid://ussgfebomim6" path="res://Assets/Enviroments/Dev Textures/dev_texture_floor.png" id="1_5up5k"]
 [ext_resource type="ArrayMesh" uid="uid://jhftpebg36u4" path="res://Assets/Greyboxing/EmptyOfficeGreybox.obj" id="1_tdhng"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l86n"]

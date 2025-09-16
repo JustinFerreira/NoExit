@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://csk6gelfi52le"]
 
 [ext_resource type="Script" path="res://Scripts/interactable_object.gd" id="1_tg5kf"]
-[ext_resource type="Texture2D" uid="uid://cm14wagslbiae" path="res://Assets/Environments/Dev Textures/dev_texture_door_i.png" id="2_i1fss"]
+[ext_resource type="Texture2D" uid="uid://cm14wagslbiae" path="res://Assets/Enviroments/Dev Textures/dev_texture_door_i.png" id="2_i1fss"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1buac"]
 albedo_texture = ExtResource("2_i1fss")
@@ -13,6 +13,7 @@ data = PackedVector3Array(0, 0.5, 0, 0, 0.5, 0, 0, 0.4977, 0.0475, 0, 0.5, 0, 0.
 
 [node name="InteractableObject" type="StaticBody3D"]
 script = ExtResource("1_tg5kf")
+prompt_message = "Left Click Me to Go To Main Menu"
 
 [node name="MeshInstance" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_1buac")

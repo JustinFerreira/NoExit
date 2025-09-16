@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://by8u3cc6nes8t"]
+
+[ext_resource type="Script" path="res://Scripts/PickableItem.gd" id="1_8uyji"]
+[ext_resource type="Texture2D" uid="uid://b62mwgnm763uc" path="res://Assets/Enviroments/Dev Textures/dev_texture_hazard.png" id="2_ogeqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axhma"]
+albedo_texture = ExtResource("2_ogeqf")
+
+[sub_resource type="BoxMesh" id="BoxMesh_a62eu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qwogv"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+script = ExtResource("1_8uyji")
+prompt_message = "Pick Up Keys"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_axhma")
+mesh = SubResource("BoxMesh_a62eu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_qwogv")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]
