@@ -3,7 +3,11 @@
 importer="wavefront_obj"
 importer_version=1
 type="Mesh"
+<<<<<<< HEAD
 uid="uid://yx6nb11v5xmm"
+=======
+uid="uid://jhftpebg36u4"
+>>>>>>> origin/main
 path="res://.godot/imported/EmptyOfficeGreybox.obj-d90467149288023ca7860095a7b42230.mesh"
 
 [deps]
