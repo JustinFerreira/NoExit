@@ -10,7 +10,7 @@ var GamePlayMusic = load("res://Assets/Audio/Music/chief-keef-save-me-official-a
 
 ## SFX
 
-var step = load("res://Assets/Audio/SFX/620333__marb7e__footsteps_leather_wood_walk05.wav")
+var step = load("res://Assets/Audio/SFX/step_dev.wav")
 
 func _ready() -> void:
 	MusicAudio.bus = "Music"
