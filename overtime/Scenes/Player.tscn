@@ -29,10 +29,10 @@ transform = Transform3D(0.807074, 0, 0, 0, 0.807074, 0, 0, 0, 0.807074, 0, 1.066
 shape = SubResource("ConvexPolygonShape3D_mf4ae")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1.25362, 0, 0, 0, 1.25362, 0, 0, 0, 1.25362, 0, 1.23159, 0)
+transform = Transform3D(1.25362, 0, 0, 0, 1.25362, 0, 0, 0, 1.25362, 0, 1.58159, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+transform = Transform3D(0.398845, 0, 0, 0, 0.398845, 0, 0, 0, 0.398845, 0, 0.0219636, 0)
 
 [node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -4)

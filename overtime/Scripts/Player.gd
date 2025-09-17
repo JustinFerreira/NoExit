@@ -15,6 +15,10 @@ var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
 
+#Step variables
+var was_moving = false
+var is_moving = false
+
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
@@ -34,23 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
-	## Foot Step SFX
-	if event.is_action_pressed("forward"):
-		AudioManager.play_sound_loop(AudioManager.step, "step")
-	if event.is_action_released("forward"):
-		AudioManager.stop_loop("step")
-	if event.is_action_pressed("backward"):
-		AudioManager.play_sound_loop(AudioManager.step, "step")
-	if event.is_action_released("backward"):
-		AudioManager.stop_loop("step")
-	if event.is_action_pressed("left"):
-		AudioManager.play_sound_loop(AudioManager.step, "step")
-	if event.is_action_released("left"):
-		AudioManager.stop_loop("step")
-	if event.is_action_pressed("right"):
-		AudioManager.play_sound_loop(AudioManager.step, "step")
-	if event.is_action_released("right"):
-		AudioManager.stop_loop("step")
 		
 		
 			
@@ -96,12 +83,28 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 		velocity.z = 0.0
 		
+	# Check if player is moving (any movement key pressed)
+	is_moving = Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or \
+			   Input.is_action_pressed("left") or Input.is_action_pressed("right")
+	
+	# Handle step sounds
+	if is_moving and is_on_floor():
+		if not was_moving:  # Just started moving
+			AudioManager.play_sound_loop(AudioManager.step, "step")
+	elif was_moving:  # Was moving but now stopped
+		AudioManager.stop_loop("step")
+		
+		
+	# Update movement state for next frame
+	was_moving = is_moving
+	
+	
 	# Head Bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
@@ -119,3 +122,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"): 
 		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+		## Stop any sounds that could be playing
+		AudioManager.stop_loop("step")
