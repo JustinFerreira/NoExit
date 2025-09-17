@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://Scripts/AudioManager.gd"
 SettingsManager="*res://Scripts/SettingsManager.gd"
+PlayerManager="*res://Scripts/PlayerManager.gd"
 
 [display]
 

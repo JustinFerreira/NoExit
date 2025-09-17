@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://btfvsfntfas8m"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_nx34q"]
+[ext_resource type="Texture2D" uid="uid://dl3p0pukvbwih" path="res://Assets/Enviroments/Dev Textures/dev_texture_green.png" id="2_mckjm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26600"]
+albedo_texture = ExtResource("2_mckjm")
+
+[sub_resource type="PrismMesh" id="PrismMesh_pgw0t"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gm7rd"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Door" type="StaticBody3D"]
+script = ExtResource("1_nx34q")
+prompt_message = "Click me with Key"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0, 1.9, 0)
+material_override = SubResource("StandardMaterial3D_26600")
+mesh = SubResource("PrismMesh_pgw0t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, 0, 1.9, 0)
+shape = SubResource("ConcavePolygonShape3D_gm7rd")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

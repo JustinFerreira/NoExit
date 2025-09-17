@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/EnemyTest2.gd" id="1_6slwl"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_4n1ac"]
-[ext_resource type="Texture2D" uid="uid://dp80o6xf28che" path="res://Assets/Environments/Dev Textures/dev_texture_rainbow.png" id="2_brcy2"]
+[ext_resource type="Texture2D" uid="uid://dp80o6xf28che" path="res://Assets/Enviroments/Dev Textures/dev_texture_rainbow.png" id="2_brcy2"]
 [ext_resource type="PackedScene" uid="uid://bjvdnx44xhs6g" path="res://Assets/Characters/Killer/Animations/Walking.fbx" id="4_mgt00"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ii8d"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=16 format=3 uid="uid://bbk5gwkxd35m"]
 
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Scenes/Player.tscn" id="1_4trrd"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnhgp"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="6_sgklf"]
 [ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Scenes/ParkingGarageWalls.tscn" id="7_lp8g8"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Scenes/EmptyOfficeGreybox.tscn" id="9_usbu0"]
+[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="10_jw4kp"]
+[ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="11_80jm1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -244,3 +246,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.4721, 3.6, -59.0509)
 
 [node name="InteractableObject" parent="." instance=ExtResource("6_sgklf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.054, 18.167, 79.6853)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("10_jw4kp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7255, 1.35399, -56.7601)
+
+[node name="Door" parent="." instance=ExtResource("11_80jm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3787, 0.769288, -60.8924)
