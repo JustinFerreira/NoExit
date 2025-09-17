@@ -4,7 +4,7 @@ var MusicAudio = AudioStreamPlayer.new()
 var looping_players: Dictionary = {}
 
 ## MUSIC
-var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.wav")
+var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
 var GamePlayMusic = load("res://Assets/Audio/Music/chief-keef-save-me-official-audio-128-ytshorts.savetube.me.mp3")
 

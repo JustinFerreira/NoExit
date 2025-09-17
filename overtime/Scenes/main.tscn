@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="6_sgklf"]
 [ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Scenes/ParkingGarageWalls.tscn" id="7_lp8g8"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Scenes/EmptyOfficeGreybox.tscn" id="9_usbu0"]
-[ext_resource type="PackedScene" path="res://Scenes/PickupItem.tscn" id="10_jw4kp"]
-[ext_resource type="PackedScene" uid="uid://hy743fn37a8j" path="res://Scenes/Door.tscn" id="11_80jm1"]
+[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="10_jw4kp"]
+[ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="11_80jm1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
