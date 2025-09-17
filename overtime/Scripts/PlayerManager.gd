@@ -20,14 +20,11 @@ func AddToInventory(name: String, weight: float):
 	item.weight = weight
 	CurrentWeight += weight
 	Inventory.append(item)
-	print(CurrentWeight)
 	
 func RemoveItemByName(name: String) -> bool:
 	for item in Inventory:
 		if item.name == name:
 			CurrentWeight -= item.weight
 			Inventory.erase(item)
-			print(CurrentWeight)
 			return true
-	print(CurrentWeight)
 	return false
