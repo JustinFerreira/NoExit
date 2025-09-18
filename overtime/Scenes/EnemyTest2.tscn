@@ -341,14 +341,14 @@ material_override = SubResource("StandardMaterial3D_4ii8d")
 mesh = ExtResource("2_4n1ac")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.22232, 0, 0, 0, 0.22232, 0, 0, 0, 0.22232, 0, 0.264707, 0)
+transform = Transform3D(0.28218, 0, 0, 0, 0.28218, 0, 0, 0, 0.28218, 0.00487316, 0.265251, 0)
 shape = SubResource("ConvexPolygonShape3D_d5usc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(30.9449, 0, 0, 0, 30.9449, 0, 0, 0, 30.9449, 0, 0.0285032, -0.0253179)
+transform = Transform3D(30.9449, 0, 0, 0, 30.9449, 0, 0, 0, 30.9449, -0.000126884, 0.0053511, -0.025608)
 bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82499e-05, 0.0110836, 0.00438296)
