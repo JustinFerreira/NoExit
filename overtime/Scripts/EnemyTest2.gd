@@ -5,6 +5,11 @@ const SPEED = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
+func _ready():
+	nav.path_desired_distance = 1.0  # Increase for smoother turns
+	nav.target_desired_distance = 1.5  # Distance to consider target reached
+	nav.path_max_distance = 3.0  # Max distance to recalculate path
+
 func _physics_process(delta: float) -> void:
 	$MeshInstance3D.visible = false
 	$Skeleton3D.visible = true
