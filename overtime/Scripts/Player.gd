@@ -19,6 +19,9 @@ const FOV_CHANGE = 1.5
 var was_moving = false
 var is_moving = false
 
+var breathing_volume = 10.0  # Adjust as needed
+var heartbeat_volume = 15.0  # Adjust as needed
+
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
@@ -29,6 +32,9 @@ var is_moving = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$MeshInstance3D.visible = false
+	
+	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0)
+	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0)
 	
 # Any input that is detected automatically calls this function
 func _unhandled_input(event: InputEvent) -> void:
@@ -96,6 +102,9 @@ func _physics_process(delta: float) -> void:
 	elif was_moving:  # Was moving but now stopped
 		AudioManager.stop_loop("step")
 		
+	# Handle Heartbeat and Breathing sounds
+	apply_breathing_effects()
+	apply_heartbeat_effects()
 		
 	# Update movement state for next frame
 	was_moving = is_moving
@@ -127,3 +136,43 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		
 		## Stop any sounds that could be playing
 		AudioManager.stop_loop("step")
+		AudioManager.stop_loop("heartbeat")
+		AudioManager.stop_loop("breathing")
+
+
+func apply_breathing_effects():
+	# Adjust breathing sound based on current state
+	var target_pitch = 1.0
+	var target_volume = breathing_volume
+
+	# Make breathing slightly faster when moving
+	if is_moving:
+		target_pitch = 1.1
+	else:
+		target_pitch = 0.9
+
+	## Make breathing more intense when low on stamina
+	#if stamina < 30:
+		#target_pitch = 1.2
+		#target_volume = breathing_volume + 5.0  # Louder when exhausted
+
+	AudioManager.set_loop_pitch("breathing", target_pitch)
+	AudioManager.set_loop_volume("breathing", target_volume)
+	
+func apply_heartbeat_effects():
+	# Adjust heartbeat based on player state
+	var target_pitch = 1.0
+	var target_volume = heartbeat_volume
+
+	# Make heartbeat faster when sprinting or low health
+	if Input.is_action_pressed("sprint"):
+		target_pitch = 1.1
+		target_volume = heartbeat_volume + 2.0
+
+	# Make heartbeat even more intense when very low health
+	#if health < 20:
+		#target_pitch = 1.3
+		#target_volume = heartbeat_volume + 5.0
+
+	AudioManager.set_loop_pitch("heartbeat", target_pitch)
+	AudioManager.set_loop_volume("heartbeat", target_volume)

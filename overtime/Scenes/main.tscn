@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Scenes/EmptyOfficeGreybox.tscn" id="9_usbu0"]
 [ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="10_jw4kp"]
 [ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="11_80jm1"]
-[ext_resource type="ArrayMesh" uid="uid://bdbcolq7pgv7c" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="13_6kg5e"]
+[ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="13_6kg5e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

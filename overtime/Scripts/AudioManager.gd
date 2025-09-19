@@ -12,6 +12,10 @@ var GamePlayMusic = load("res://Assets/Audio/Music/chief-keef-save-me-official-a
 
 var step = load("res://Assets/Audio/SFX/step_dev.wav")
 
+var heartbeat = load("res://Assets/Audio/SFX/heartbeat_dev.wav")
+
+var breathing = load("res://Assets/Audio/SFX/breathing_dev.wav")
+
 func _ready() -> void:
 	MusicAudio.bus = "Music"
 	add_child(MusicAudio)
@@ -68,6 +72,15 @@ func stop_loop(sound_name: String):
 func _on_player_finished(player: AudioStreamPlayer):
 	# Restart the same player instead of creating a new one
 	player.play()
+	
+func set_loop_volume(sound_name: String, volume_db: float):
+	if looping_players.has(sound_name):
+		looping_players[sound_name].volume_db = volume_db
+
+func fade_loop_volume(sound_name: String, target_volume: float, duration: float = 1.0):
+	if looping_players.has(sound_name):
+		var tween = create_tween()
+		tween.tween_property(looping_players[sound_name], "volume_db", target_volume, duration)
 	
 func cancel_music():
 	MusicAudio.playing = false
