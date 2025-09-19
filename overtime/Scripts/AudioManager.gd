@@ -32,14 +32,16 @@ func play_music(sound_stream: AudioStream):
 	MusicAudio.stream = sound_stream
 	MusicAudio.play()
 	
-func play_sound_loop(sound_stream: AudioStream, sound_name: String):
+func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale: float = 1.0):
 	if looping_players.has(sound_name):
+		looping_players[sound_name].pitch_scale = pitch_scale
 		return
 	
 	var new_player = AudioStreamPlayer.new()
 	new_player.bus = "SFX"
 	new_player.stream = sound_stream
 	new_player.autoplay = true
+	new_player.pitch_scale = pitch_scale  # Add pitch control
 	
 	new_player.finished.connect(_on_player_finished.bind(new_player))
 	
@@ -51,6 +53,10 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String):
 		looping_players[sound_name] = new_player
 	
 	return new_player
+	
+func set_loop_pitch(sound_name: String, pitch: float):
+	if looping_players.has(sound_name):
+		looping_players[sound_name].pitch_scale = pitch
 
 func stop_loop(sound_name: String):
 	if looping_players.has(sound_name):

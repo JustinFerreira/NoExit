@@ -69,8 +69,10 @@ func _physics_process(delta: float) -> void:
 	# Handle Sprint
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
+		AudioManager.set_loop_pitch("step", 4)
 	else:
 		speed = WALK_SPEED
+		AudioManager.set_loop_pitch("step", 2)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -90,7 +92,7 @@ func _physics_process(delta: float) -> void:
 	# Handle step sounds
 	if is_moving and is_on_floor():
 		if not was_moving:  # Just started moving
-			AudioManager.play_sound_loop(AudioManager.step, "step")
+			AudioManager.play_sound_loop(AudioManager.step, "step", 2)
 	elif was_moving:  # Was moving but now stopped
 		AudioManager.stop_loop("step")
 		
