@@ -31,7 +31,6 @@ var heartbeat_volume = 15.0  # Adjust as needed
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$MeshInstance3D.visible = false
 	
 	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0)
 	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0)
@@ -119,6 +118,14 @@ func _physics_process(delta: float) -> void:
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
+	if velocity.length() > 0.1:
+		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
+		if horizontal_velocity.length() > 0.1:
+			
+			var forward = -transform.basis.z  # Forward direction in Godot is -Z
+			var movement_direction = horizontal_velocity.normalized()
+			var angle = forward.signed_angle_to(-movement_direction, Vector3.UP)
+			$MeshInstance3D.rotation.y = angle
 	move_and_slide()
 	
 func _headbob(time) -> Vector3:

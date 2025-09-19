@@ -299,5 +299,6 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8669, -10.1064, 
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn" to="." method="_on_loop_1_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn" to="." method="_on_grey_boxing_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn" to="." method="_on_main_btn_pressed"]

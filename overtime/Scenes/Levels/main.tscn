@@ -246,10 +246,7 @@ transform = Transform3D(-0.993751, -0.046782, -0.101347, -0.098035, 0.799937, 0.
 light_energy = 4.079
 
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("8_dnvtm")]
-transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -58.6514, 1.62706, -49.2131)
-
-[node name="Player" parent="." instance=ExtResource("9_eo481")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.4721, 0.2, -59.0509)
+transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -58.6514, 0.62706, -49.2131)
 
 [node name="InteractableObject" parent="." instance=ExtResource("10_k5roe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.054, 18.167, 79.6853)
@@ -263,3 +260,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3787, 0.769288, -60.8924)
 [node name="MDevCar" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.869, 0.958283, 14.0424)
 mesh = ExtResource("13_78vlu")
+
+[node name="Player" parent="." instance=ExtResource("9_eo481")]
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -36.1255, 0.653989, -57.8601)

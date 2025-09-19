@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://k1xve5p6csas"]
+
+[ext_resource type="Script" path="res://Scripts/loop1.gd" id="1_aadf4"]
+[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="1_rffta"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_1oq6x"]
+
+[sub_resource type="Animation" id="Animation_4c016"]
+resource_name = "Wakingup"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneCamera:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.520919, -1.5678, -0.0316491), Vector3(-0.171855, -1.56816, -0.0306093), Vector3(-0.171855, 0.00263691, -0.0306093)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(14, 1.6, 16.3), Vector3(14, 1.9, 16.3), Vector3(12.3, 2.4, 16.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneCamera/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutSceneCamera/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jgrr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneCamera:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.520919, -1.5678, -0.0316491)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(14, 1.6, 16.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneCamera/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutSceneCamera/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0hrr"]
+_data = {
+"RESET": SubResource("Animation_jgrr6"),
+"Wakingup": SubResource("Animation_4c016")
+}
+
+[node name="Loop1" type="Node3D"]
+script = ExtResource("1_aadf4")
+
+[node name="EmptyOfficeGreybox" parent="." instance=ExtResource("1_rffta")]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.56693, -11.5064, 2.58458)
+
+[node name="CutSceneCamera" type="Camera3D" parent="."]
+transform = Transform3D(-0.0127545, 0.497521, -0.867358, -0.0274466, 0.866928, 0.497678, 0.999542, 0.0301537, 0.00259803, 14, 1.6, 16.3)
+
+[node name="Control" type="Control" parent="CutSceneCamera"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CutSceneCamera/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p0hrr")
+}
+
+[node name="Player" parent="." instance=ExtResource("2_1oq6x")]
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 12.5, 0, 16.5)
