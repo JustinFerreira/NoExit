@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cqbiktwssofkk"]
 
 [ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="1_xhylo"]
-[ext_resource type="ArrayMesh" uid="uid://bxh5tgr5x05do" path="res://Assets/Greyboxing/EmptyOfficeGreybox2.obj" id="2_y5bo6"]
-[ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Scenes/Cubicle.tscn" id="3_8r1eh"]
+[ext_resource type="ArrayMesh" uid="uid://bxh5tgr5x05do" path="res://Assets/Greyboxing/Models/EmptyOfficeGreybox2.obj" id="2_y5bo6"]
+[ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxcpm"]
 albedo_texture = ExtResource("1_xhylo")
