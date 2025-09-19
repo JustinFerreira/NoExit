@@ -1,18 +1,18 @@
 [gd_scene load_steps=19 format=3 uid="uid://bbk5gwkxd35m"]
 
-[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_4trrd"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_mnhgp"]
-[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Assets/Greyboxing/Scenes/Office.tscn" id="2_xioy2"]
-[ext_resource type="Texture2D" uid="uid://uokhlg3waj3d" path="res://Assets/Enviroments/Dev Textures/dev_texture_carpet.png" id="3_ts77s"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_py6xf"]
-[ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Assets/Greyboxing/Scenes/ParkingGarage.tscn" id="5_1mtj1"]
-[ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="5_wtgv6"]
-[ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="6_sgklf"]
-[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="7_lp8g8"]
-[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="9_usbu0"]
-[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="10_jw4kp"]
-[ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="11_80jm1"]
-[ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="13_6kg5e"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_5smfm"]
+[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Assets/Greyboxing/Scenes/Office.tscn" id="2_5oy7g"]
+[ext_resource type="Texture2D" uid="uid://uokhlg3waj3d" path="res://Assets/Enviroments/Dev Textures/dev_texture_carpet.png" id="3_23hjv"]
+[ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Assets/Greyboxing/Scenes/ParkingGarage.tscn" id="4_2ipbt"]
+[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="5_i8bwv"]
+[ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="6_32ahb"]
+[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="7_k4trw"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="8_dnvtm"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="9_eo481"]
+[ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="10_k5roe"]
+[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="11_que20"]
+[ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="12_ptdn6"]
+[ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="13_78vlu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,11 +33,11 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 agent_radius = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1cx"]
-albedo_texture = ExtResource("3_ts77s")
+albedo_texture = ExtResource("3_23hjv")
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.574477, -0.153989, -0.239899)
-script = ExtResource("1_mnhgp")
+script = ExtResource("1_5smfm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80b2s")
@@ -49,7 +49,7 @@ shadow_enabled = true
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_hqtm0")
 
-[node name="Office" parent="NavigationRegion3D" instance=ExtResource("2_xioy2")]
+[node name="Office" parent="NavigationRegion3D" instance=ExtResource("2_5oy7g")]
 transform = Transform3D(-9.11233e-07, 0, 20.8466, 0, 20.8466, 0, -20.8466, 0, -9.11233e-07, -0.496816, -1.20357, -3.23514)
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
@@ -213,7 +213,7 @@ transform = Transform3D(1, 0.000587461, -0.000363276, -0.000587278, 1, 0.0005043
 use_collision = true
 size = Vector3(17.9674, 0.7, 17.9508)
 
-[node name="ParkingGarage2" parent="NavigationRegion3D" instance=ExtResource("5_1mtj1")]
+[node name="ParkingGarage2" parent="NavigationRegion3D" instance=ExtResource("4_2ipbt")]
 transform = Transform3D(-0.0557222, 0, 0.000486275, 0, 0.0557243, 0, -0.000486275, 0, -0.0557222, -52.6481, 0.174285, 81.1333)
 
 [node name="Pillar" type="CSGBox3D" parent="NavigationRegion3D"]
@@ -232,34 +232,34 @@ size = Vector3(1, 30, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.5644, 1.13804, 72.192)
 size = Vector3(1, 30, 1)
 
-[node name="ParkingGarageWalls" parent="NavigationRegion3D" instance=ExtResource("7_lp8g8")]
+[node name="ParkingGarageWalls" parent="NavigationRegion3D" instance=ExtResource("5_i8bwv")]
 transform = Transform3D(4.995, 0, 0, 0, 4.995, 0, 0, 0, 4.995, -95.9475, 0.147447, 9.46902)
 
-[node name="Cubicle" parent="NavigationRegion3D" instance=ExtResource("5_wtgv6")]
+[node name="Cubicle" parent="NavigationRegion3D" instance=ExtResource("6_32ahb")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -12.6739, -5.88137, 61.8194)
 
-[node name="EmptyOfficeGreybox" parent="NavigationRegion3D" instance=ExtResource("9_usbu0")]
+[node name="EmptyOfficeGreybox" parent="NavigationRegion3D" instance=ExtResource("7_k4trw")]
 transform = Transform3D(-6.99382e-09, 0, 0.16, 0, 0.16, 0, -0.16, 0, -6.99382e-09, -28.1156, -10.9552, -98.6371)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.993751, -0.046782, -0.101347, -0.098035, 0.799937, 0.592021, 0.0533753, 0.598257, -0.799525, -55.2118, 6.34309, 60.5086)
 light_energy = 4.079
 
-[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_py6xf")]
+[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("8_dnvtm")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -58.6514, 1.62706, -49.2131)
 
-[node name="Player" parent="." instance=ExtResource("1_4trrd")]
+[node name="Player" parent="." instance=ExtResource("9_eo481")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -30.4721, 0.2, -59.0509)
 
-[node name="InteractableObject" parent="." instance=ExtResource("6_sgklf")]
+[node name="InteractableObject" parent="." instance=ExtResource("10_k5roe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.054, 18.167, 79.6853)
 
-[node name="StaticBody3D" parent="." instance=ExtResource("10_jw4kp")]
+[node name="StaticBody3D" parent="." instance=ExtResource("11_que20")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7255, 1.35399, -56.7601)
 
-[node name="Door" parent="." instance=ExtResource("11_80jm1")]
+[node name="Door" parent="." instance=ExtResource("12_ptdn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3787, 0.769288, -60.8924)
 
 [node name="MDevCar" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.869, 0.958283, 14.0424)
-mesh = ExtResource("13_6kg5e")
+mesh = ExtResource("13_78vlu")

@@ -48,6 +48,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7ty4"]
 
 [node name="GameOverScreen" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_x34de")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -56,6 +57,7 @@ offset_bottom = 722.0
 color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

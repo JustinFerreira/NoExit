@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=10 format=3 uid="uid://bbk5gwkxd35m"]
 
-[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_4trrd"]
-[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Assets/Greyboxing/Scenes/Office.tscn" id="2_xioy2"]
-[ext_resource type="PackedScene" uid="uid://b8nyv77b06hn3" path="res://Assets/Characters/Killer/Scenes/Enemy.tscn" id="3_gll3m"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_3lhs1"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_wirc2"]
+[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Assets/Greyboxing/Scenes/Office.tscn" id="2_0aqcb"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="3_g62db"]
+[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="4_3726l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +25,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Arr
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.450905, -0.351665, -0.477432)
+script = ExtResource("1_3lhs1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80b2s")
@@ -30,9 +33,6 @@ environment = SubResource("Environment_80b2s")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5.8, 0)
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource("1_4trrd")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.896047, 0.482936, -0.344647)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_hqtm0")
@@ -192,7 +192,7 @@ transform = Transform3D(1, 0.000587461, -0.000363276, -0.000587278, 1, 0.0005043
 use_collision = true
 size = Vector3(17.9674, 0.7, 17.9508)
 
-[node name="Office" parent="NavigationRegion3D" instance=ExtResource("2_xioy2")]
+[node name="Office" parent="NavigationRegion3D" instance=ExtResource("2_0aqcb")]
 transform = Transform3D(-6.99382e-08, 0, 1.6, 0, 1.6, 0, -1.6, 0, -6.99382e-08, -0.503953, 0.082936, -6.64465)
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D"]
@@ -229,6 +229,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.192
 operation = 2
 size = Vector3(0.6, 0.7, 0.3)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("navigation_region") instance=ExtResource("3_gll3m")]
-transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0.6, 0.4, 1.9)
-navigation_region = NodePath("../NavigationRegion3D")
+[node name="Player" parent="." instance=ExtResource("1_wirc2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 3.6)
+
+[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("3_g62db")]
+transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -6.9, 0, 4)
+
+[node name="EmptyOfficeGreybox" parent="." instance=ExtResource("4_3726l")]
+transform = Transform3D(-6.99382e-09, 0, -0.16, 0, 0.16, 0, 0.16, 0, -6.99382e-09, 5.78397, -11.2547, 43.662)

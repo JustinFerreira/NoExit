@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="1_711cb"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_vffc8"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_t6j7w"]
-[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Scenes/SettingsMenu.tscn" id="4_dmox8"]
+[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="4_dmox8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li37s"]
 shader = ExtResource("1_711cb")

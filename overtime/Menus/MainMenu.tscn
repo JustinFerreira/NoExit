@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://vh5m0r3xogr1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_hn4jk"]
-[ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Assets/Greyboxing/Scenes/ParkingGarage.tscn" id="1_uqko6"]
 [ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="2_5eyd3"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_pcltc"]
+[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="4_yc7rf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xva8m"]
 
@@ -53,10 +53,10 @@ tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:p
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2.03333, 3.03333, 4),
+"times": PackedFloat32Array(0, 0.733333, 2.26667, 3.2, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.506871, 3.43768, 11.0719), Vector3(2.86638, 3.43768, 11.0719), Vector3(2.86638, 5.9925, 11.0719), Vector3(-0.526162, 5.9925, 11.0719), Vector3(-0.526162, 3.32426, 11.0719)]
+"values": [Vector3(2.67384, 3.32426, 11.0719), Vector3(3.27384, 3.32426, 11.0719), Vector3(2.99221, 3.62426, 10.0719), Vector3(2.82078, 4.76272, 10.6104), Vector3(2.67384, 3.32426, 11.0719)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4lbyd"]
@@ -69,9 +69,6 @@ _data = {
 script = ExtResource("1_hn4jk")
 
 [node name="BackGround" type="Node3D" parent="."]
-
-[node name="ParkingGarage" parent="BackGround" instance=ExtResource("1_uqko6")]
-transform = Transform3D(0.0156494, 0, 0, 0, 0.0156494, 0, 0, 0, 0.0156494, -0.275955, -1.19209e-07, 0.16324)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="BackGround"]
 anchors_preset = 15
@@ -89,9 +86,9 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="BackGround/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.954911, 0.296892, 0, -0.296892, 0.954911, 0.506871, 3.43768, 11.0719)
+transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165819, 0.506871, 3.43768, 11.0719)
 
-[node name="Control" type="Control" parent="."]
+[node name="MainMenuFirstScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,10 +108,10 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuFirstScreen/MarginContainer"]
 layout_mode = 2
 
-[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
@@ -123,11 +120,11 @@ theme_override_font_sizes/font_size = 62
 text = "NO EXIT
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="StartBtn" type="Button" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -145,9 +142,9 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
-text = "Start Game"
+text = "Loop Select"
 
-[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="SettingsBtn" type="Button" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -167,7 +164,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Settings"
 
-[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="QuitBtn" type="Button" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -188,6 +185,104 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Quit
 "
 
+[node name="MainMenuFirstScreen2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuFirstScreen2/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 62
+text = "NO EXIT
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Loop1Btn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "Loop 1"
+
+[node name="GreyBoxingBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "GreyBoxing Demos"
+
+[node name="MainBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "Main
+"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4lbyd")
@@ -198,6 +293,11 @@ speed_scale = 0.2
 [node name="SettingsMenu" parent="." instance=ExtResource("2_5eyd3")]
 visible = false
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[node name="EmptyOfficeGreybox" parent="." instance=ExtResource("4_yc7rf")]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8669, -10.1064, -11.9154)
+
+[connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn" to="." method="_on_grey_boxing_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn" to="." method="_on_main_btn_pressed"]

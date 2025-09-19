@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d27k4ukr6g7jr"]
+[gd_scene load_steps=9 format=3 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
 [ext_resource type="PackedScene" uid="uid://b6i75ojxg73j6" path="res://Menus/PauseMenu.tscn" id="2_1l65u"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_sf52k"]
 [ext_resource type="Texture2D" uid="uid://dl5qgwkg3d8b8" path="res://Assets/Enviroments/Dev Textures/dev_texture_blue.png" id="3_yn117"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="4_y3dep"]
+[ext_resource type="PackedScene" uid="uid://1k6pp1n6pfch" path="res://Menus/GameOverScreen.tscn" id="6_4tvxu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ndg1"]
 albedo_texture = ExtResource("3_yn117")
@@ -59,5 +60,8 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_mf4ae")
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_4tvxu")]
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
