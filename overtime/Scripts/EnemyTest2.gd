@@ -3,6 +3,11 @@ extends CharacterBody3D
 
 const SPEED = 2.0
 
+##stuck variables
+var is_stuck = false
+var stuck_timer = 0.0
+
+
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready():
@@ -19,6 +24,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		velocity.y -= 2
+	
+	
 	var next_location = nav.get_next_path_position()
 	var current_location = global_transform.origin
 	var new_velocity = (next_location - current_location).normalized() * SPEED
