@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bp1gw6theagm"
-path="res://.godot/imported/ParkingGarageV1GLB.glb-d39289b874c9e450e3b1aeed8054a326.scn"
+uid="uid://cby3tqqlxqj2v"
+path="res://.godot/imported/ParkingGarageWalls.glb-bd664aad8aa0500b35897245fab19873.scn"
 
 [deps]
 
-source_file="res://Assets/Greyboxing/ParkingGarageV1GLB.glb"
-dest_files=["res://.godot/imported/ParkingGarageV1GLB.glb-d39289b874c9e450e3b1aeed8054a326.scn"]
+source_file="res://Assets/Greyboxing/Models/ParkingGarageWalls.glb"
+dest_files=["res://.godot/imported/ParkingGarageWalls.glb-bd664aad8aa0500b35897245fab19873.scn"]
 
 [params]
 

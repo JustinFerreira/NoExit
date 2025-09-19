@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cautgs8f8ssti"]
 
-[ext_resource type="PackedScene" uid="uid://cby3tqqlxqj2v" path="res://Assets/Greyboxing/ParkingGarageWalls.glb" id="1_qv5v2"]
-[ext_resource type="ArrayMesh" uid="uid://n1gxcahv2bxu" path="res://Assets/Greyboxing/ParkingGarageWalls.obj" id="2_ng4da"]
+[ext_resource type="PackedScene" uid="uid://cby3tqqlxqj2v" path="res://Assets/Greyboxing/Models/ParkingGarageWalls.glb" id="1_qv5v2"]
+[ext_resource type="ArrayMesh" uid="uid://n1gxcahv2bxu" path="res://Assets/Greyboxing/Models/ParkingGarageWalls.obj" id="2_ng4da"]
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="2_qiweh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymxsh"]

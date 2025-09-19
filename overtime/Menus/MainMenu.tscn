@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://vh5m0r3xogr1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_hn4jk"]
-[ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Scenes/ParkingGarage.tscn" id="1_uqko6"]
-[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Scenes/SettingsMenu.tscn" id="2_5eyd3"]
+[ext_resource type="PackedScene" uid="uid://d2uplnyo3g08p" path="res://Assets/Greyboxing/Scenes/ParkingGarage.tscn" id="1_uqko6"]
+[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="2_5eyd3"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_pcltc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xva8m"]

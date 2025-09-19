@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://boihhk60r6bii"
-path="res://.godot/imported/OfficeTest.fbx-40e753a2da85f215fdf151b1fff70525.scn"
+path="res://.godot/imported/OfficeTest.fbx-1e773bee02eab748c13348e9fa34cad9.scn"
 
 [deps]
 
-source_file="res://Assets/Greyboxing/OfficeTest.fbx"
-dest_files=["res://.godot/imported/OfficeTest.fbx-40e753a2da85f215fdf151b1fff70525.scn"]
+source_file="res://Assets/Greyboxing/Models/OfficeTest.fbx"
+dest_files=["res://.godot/imported/OfficeTest.fbx-1e773bee02eab748c13348e9fa34cad9.scn"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbk5gwkxd35m"]
 
-[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Scenes/Player.tscn" id="1_4trrd"]
-[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Scenes/Office.tscn" id="2_xioy2"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemy.tscn" id="3_gll3m"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_4trrd"]
+[ext_resource type="PackedScene" uid="uid://0neis6g615f5" path="res://Assets/Greyboxing/Scenes/Office.tscn" id="2_xioy2"]
+[ext_resource type="PackedScene" uid="uid://b8nyv77b06hn3" path="res://Assets/Characters/Killer/Scenes/Enemy.tscn" id="3_gll3m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
