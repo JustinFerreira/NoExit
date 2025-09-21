@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfvwmc276erbx"
+path="res://.godot/imported/NewParkingGarage.obj-914f3a6f9cc7d375f4cf97c63c6c4654.mesh"
+
+[deps]
+
+files=["res://.godot/imported/NewParkingGarage.obj-914f3a6f9cc7d375f4cf97c63c6c4654.mesh"]
+
+source_file="res://Assets/Greyboxing/Models/NewParkingGarage.obj"
+dest_files=["res://.godot/imported/NewParkingGarage.obj-914f3a6f9cc7d375f4cf97c63c6c4654.mesh", "res://.godot/imported/NewParkingGarage.obj-914f3a6f9cc7d375f4cf97c63c6c4654.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
