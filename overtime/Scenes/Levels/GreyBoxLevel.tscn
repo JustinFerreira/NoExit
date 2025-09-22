@@ -50,8 +50,8 @@ transform = Transform3D(-6.99382e-09, 0, -0.16, 0, 0.16, 0, 0.16, 0, -6.99382e-0
 [node name="ParkingGarageWalls" parent="NavigationRegion3D" instance=ExtResource("3_qgb5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5491, -0.148335, -21.9226)
 
-[node name="Player" parent="." instance=ExtResource("1_wirc2")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -54.8751, 0, -21.028)
-
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("3_g62db")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -21.4, 0, -15.2)
+
+[node name="Player" parent="." instance=ExtResource("1_wirc2")]
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -53.4276, 0.428465, -19.2682)

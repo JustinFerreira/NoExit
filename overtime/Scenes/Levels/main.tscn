@@ -262,4 +262,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.869, 0.958283, 14.0424)
 mesh = ExtResource("13_78vlu")
 
 [node name="Player" parent="." instance=ExtResource("9_eo481")]
-transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -36.1255, 0.653989, -57.8601)
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -36.2941, 0.596418, -58.409)
