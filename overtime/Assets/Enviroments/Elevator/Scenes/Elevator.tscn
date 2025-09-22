@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://b84vywx2awoq2"]
+
+[ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
+[ext_resource type="Texture2D" uid="uid://brumvyo25vlhb" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
+[ext_resource type="Texture2D" uid="uid://dg7aepvjq5e6p" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="3_q7b7u"]
+[ext_resource type="Texture2D" uid="uid://dcncgn3rmmlna" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="4_kgo4q"]
+[ext_resource type="Texture2D" uid="uid://c8cdnjah3q4re" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="5_w8oe4"]
+[ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="6_k0to7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
+albedo_texture = ExtResource("1_qmffq")
+metallic = 1.0
+metallic_texture = ExtResource("2_wc20y")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_wc20y")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("3_q7b7u")
+normal_enabled = true
+normal_texture = ExtResource("5_w8oe4")
+ao_enabled = true
+ao_texture = ExtResource("2_wc20y")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_kgo4q")
+
+[node name="Elevator" type="Node3D"]
+
+[node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+material_override = SubResource("StandardMaterial3D_pwtol")
+mesh = ExtResource("6_k0to7")
