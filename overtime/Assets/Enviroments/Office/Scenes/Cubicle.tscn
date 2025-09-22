@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://naw1m1q2nbww" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Rougness.png" id="10_mrp3o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe347"]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_mj2u6")
 metallic = 1.0
 metallic_texture = ExtResource("3_u15s3")
@@ -65,7 +66,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("8_121jm")
 
 [node name="Cubicle" type="Node3D"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
 
 [node name="ModelCubicleUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412813, 1.19209e-07, 0.382276)

@@ -14,7 +14,6 @@ func pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 
-
 func _on_resume_btn_pressed() -> void:
 	resume()
 	$SettingsMenu.visible = false
@@ -35,4 +34,4 @@ func _on_settings_btn_pressed() -> void:
 
 func _on_main_menu_btn_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
