@@ -20,7 +20,6 @@ normal_enabled = true
 normal_texture = ExtResource("5_w8oe4")
 ao_enabled = true
 ao_texture = ExtResource("2_wc20y")
-heightmap_enabled = true
 heightmap_texture = ExtResource("4_kgo4q")
 
 [node name="Elevator" type="Node3D"]
