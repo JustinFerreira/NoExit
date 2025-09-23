@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="10_k5roe"]
 [ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="11_que20"]
 [ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="12_ptdn6"]
-[ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="13_78vlu"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="13_5n56h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -257,9 +257,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7255, 1.35399, -56.7601)
 [node name="Door" parent="." instance=ExtResource("12_ptdn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3787, 0.769288, -60.8924)
 
-[node name="MDevCar" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.869, 0.958283, 14.0424)
-mesh = ExtResource("13_78vlu")
-
 [node name="Player" parent="." instance=ExtResource("9_eo481")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -36.2941, 0.596418, -58.409)
+
+[node name="Car" parent="." instance=ExtResource("13_5n56h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.9062, 1.3162, 14.6776)
+
+[node name="Car2" parent="." instance=ExtResource("13_5n56h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.63274, 0.587681, -59.1186)
