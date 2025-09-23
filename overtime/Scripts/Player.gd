@@ -22,6 +22,15 @@ var is_moving = false
 var breathing_volume = 10.0  # Adjust as needed
 var heartbeat_volume = 15.0  # Adjust as needed
 
+#settings
+
+var TbobON = true
+var FOVON = true
+var Incar = false
+
+@onready var HEAD = $Head
+@onready var CAMERA = $Head/Camera3D
+@onready var INTERACT_RAY = $Head/Camera3D/InteractRay
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
@@ -38,9 +47,15 @@ func _ready() -> void:
 # Any input that is detected automatically calls this function
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		if Incar == false:
+			head.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(-event.relative.y * SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		elif Incar == true:
+			head.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(event.relative.y * SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
 		
@@ -72,7 +87,9 @@ func _physics_process(delta: float) -> void:
 				collider.interact(owner)
 	
 	# Handle Sprint
-	if Input.is_action_pressed("sprint"):
+	if Incar == true:
+		speed = 0
+	elif Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
 		AudioManager.set_loop_pitch("step", 4)
 	else:
@@ -111,12 +128,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Head Bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	if TbobON == true:
+		camera.transform.origin = _headbob(t_bob)
 	
 	# FOV
 	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
 	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	if FOVON == true:
+		camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 	if velocity.length() > 0.1:
 		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)

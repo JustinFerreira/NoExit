@@ -1,13 +1,15 @@
-extends Node3D
-
-@onready var target = $Player
+extends Interactable
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	target.camera.current = true
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	get_tree().call_group("enemy" , "target_position" , target.global_transform.origin)
+	pass
+
+
+func _on_interacted(body: Variant) -> void:
+	print("HOT WIRING")
