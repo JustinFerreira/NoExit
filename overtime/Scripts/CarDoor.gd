@@ -6,6 +6,7 @@ var open = false
 var unlocked = false
 var player 
 var backwards = false
+var entering = true
 @onready var animation_player = $"../../AnimationPlayer"
 @onready var car_camera = $"../../Head/Car_Cam"
 @onready var interact_ray = $"../../Head/Car_Cam/InteractRay"
@@ -25,6 +26,9 @@ func _on_animation_finished(anim_name: String):
 	print("Animation Finished: ", anim_name)
 	
 	if anim_name == "GettinginCar" && backwards == false:
+		print("ENTERING 4:",entering)
+		print("BACKWARDS 4: ",backwards)
+		print("OPEN 4:",open)
 		player.Incar = true
 		player.TbobON = false
 		player.head = $"../../Head"
@@ -35,32 +39,65 @@ func _on_animation_finished(anim_name: String):
 		prompt_message = "Exit Car"
 		backwards = true
 	elif anim_name == "GettinginCar" && backwards == true:
+		print("ENTERING 2:",entering)
+		print("BACKWARDS 2: ",backwards)
+		print("OPEN 2:",open)
 		car_camera.global_transform = initial_camera_transform
 		player.head = player.HEAD
 		player.camera = player.CAMERA
 		player.interact_ray = player.INTERACT_RAY
 		player.CAMERA.current = true
 		backwards = false
+	elif anim_name == "NoExitProps" && player.Incar == true && open == false && entering == false:
+		print("ENTERING 6:",entering)
+		print("BACKWARDS 6: ",backwards)
+		print("OPEN 6:",open)
+		player.Incar = false
+		player.TbobON = true
+		prompt_message = "Open Door"
+		animation_player.play_backwards("GettinginCar")
+		entering = true
+	elif anim_name == "NoExitProps" && open == true && entering == true:
+		entering = false
+		entering = false
+		print("ENTERING 3:",entering)
+		print("BACKWARDS 3: ",backwards)
+		print("OPEN 3:",open)
+	elif anim_name == "NoExitProps" && open == false && entering == true:
+		open = true
+		print("ENTERING 5:",entering)
+		print("BACKWARDS 5: ",backwards)
+		print("OPEN 5:",open)
 
 
 func _on_interacted(body: Variant) -> void:
 	if unlocked == false:
 		if PlayerManager.RemoveItemByName("DoorKey"):
 			if open == false:
+				## Open Car for the First Time
 				animation_player.play("NoExitProps")
-				if player.Incar == false:
-					prompt_message = "Get In Car"
-					open = true
-					unlocked = true
+				prompt_message = "Get In Car"
+				unlocked = true
+				print("ENTERING 1:",entering)
+				print("BACKWARDS 1: ",backwards)
+				print("OPEN 1:",open)
 	elif open == true:
+		## Getting in the Car
 		car_camera.current = true
-		animation_player.play("GettinginCar")	
+		animation_player.play("GettinginCar")
+		print("ENTERING 3:",entering)
+		print("BACKWARDS 3: ",backwards)
+		print("OPEN 3:",open)	
 	elif player.Incar == true:
-		animation_player.play_backwards("GettinginCar")
-		player.Incar = false
-		player.TbobON = true
-		prompt_message = "Open Door"
+		animation_player.play("NoExitProps")
+		print("ENTERING 7:",entering)
+		print("BACKWARDS 7: ",backwards)
+		print("OPEN 7:",open)
+		
 	elif unlocked == true && open == false && player.Incar == false:
 		animation_player.play("NoExitProps")
 		prompt_message = "Get In Car"
 		open = true
+		print("ENTERING 8:",entering)
+		print("BACKWARDS 8: ",backwards)
+		print("OPEN 8:",open)

@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=20 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="2_d8cag"]
 [ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="3_ffgir"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="3_wt8ov"]
-[ext_resource type="Script" path="res://Assets/Enviroments/Garage/Scenes/hot_wiring.gd" id="4_vamuy"]
+[ext_resource type="Script" path="res://Scripts/hot_wiring.gd" id="4_vamuy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58vsb"]
 albedo_texture = ExtResource("2_d8cag")
@@ -60,6 +60,58 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j2dle"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="Animation" id="Animation_ykfaq"]
+resource_name = "GettinginCar"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Car_Cam:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.966667, 1.33333, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.00194277, 0.00297737, -0.00329638), Vector3(0.00194287, 0.00297737, -0.00329638), Vector3(0.00194287, 0.00297737, -0.00329638), Vector3(0.00194287, 0.00297737, -0.00329638), Vector3(0.00194287, 0.00297737, -0.00329638), Vector3(0.00194287, 0.00297737, -0.00329638)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Car_Cam:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.966667, 1.33333, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0312908, -3.13179, -0.0020647), Vector3(-0.0312908, -3.13179, -0.0020647), Vector3(-0.0312908, -3.13179, -0.0020647), Vector3(-0.0312908, -3.13179, -0.0020647), Vector3(-0.0312908, -3.13179, -0.0020647), Vector3(-0.0312908, -3.13179, -0.0020647)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.966667, 1.33333, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(2, 1.99946, 0), Vector3(1.83616, 1.92052, 0), Vector3(1.14364, 1.43141, -0.340659), Vector3(0.764109, 1.43141, 0.0470368), Vector3(0.304738, 1.36424, 0.0470368), Vector3(0.0816883, 1.33178, 0.00371388)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.966667, 1.33333, 1.63333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, 0.000391243, -0.00895053)]
+}
+
 [sub_resource type="Animation" id="Animation_u6506"]
 resource_name = "NoExitProps"
 length = 1.98333
@@ -104,40 +156,52 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.66487, 2.10038, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.27356, -1.60392, -0.00895053)]
+}
 
-[sub_resource type="Animation" id="Animation_ykfaq"]
-resource_name = "GettinginCar"
-length = 2.0
+[sub_resource type="Animation" id="Animation_ifl34"]
+resource_name = "resetingstuff"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Car_Cam:position")
+tracks/0/path = NodePath("Head/Car_Cam:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2.5, 2, -0.1), Vector3(1.8, 1.65, -1.1), Vector3(1.1, 1.3, -0.1), Vector3(0.5, 1.3, -0.1), Vector3(0, 1.3, -0.1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Car_Cam:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.523599, 1.5708, -6.02223e-08), Vector3(-0.174533, 1.5708, -7.05288e-09), Vector3(0.174533, 1.5708, 4.61166e-08), Vector3(0.174533, 2.79253, 4.61166e-08), Vector3(0, 3.14159, 0)]
+"values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tr6wb"]
 _data = {
 "GettinginCar": SubResource("Animation_ykfaq"),
 "NoExitProps": SubResource("Animation_u6506"),
-"RESET": SubResource("Animation_2du3w")
+"RESET": SubResource("Animation_2du3w"),
+"resetingstuff": SubResource("Animation_ifl34")
 }
 
 [node name="Car" type="Node3D"]
@@ -217,9 +281,10 @@ libraries = {
 }
 
 [node name="Head" type="Node3D" parent="."]
+transform = Transform3D(-0.030695, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, 9.31323e-09, -0.0318818, 2.66487, 2.10038, 0)
 
 [node name="Car_Cam" type="Camera3D" parent="Head"]
-transform = Transform3D(-1.3281e-07, -0.5, 0.866025, -5.21541e-08, 0.866025, 0.5, -1, 2.1238e-08, -1.41093e-07, 2.5, 2, -0.1)
+transform = Transform3D(-3.58988e-06, -0.5, 0.866025, -5.2154e-08, 0.866025, 0.5, -1, 1.74977e-06, -3.135e-06, 2.5, 2, -0.1)
 current = true
 
 [node name="InteractRay" type="RayCast3D" parent="Head/Car_Cam"]
