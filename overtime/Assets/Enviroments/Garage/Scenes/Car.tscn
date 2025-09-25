@@ -252,7 +252,7 @@ skin = SubResource("Skin_htymr")
 [node name="CarDoor" type="StaticBody3D" parent="Mesh"]
 visible = false
 script = ExtResource("3_wt8ov")
-prompt_message = "Open Door"
+prompt_message = "Unlock Car"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/CarDoor"]
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0114031, 0, 0, 0, 0.00563094, 0.00986264, 0.00973579, 0.00203745)
@@ -281,7 +281,7 @@ libraries = {
 }
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(-0.030695, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, 9.31323e-09, -0.0318818, 2.66487, 2.10038, 0)
+transform = Transform3D(-0.0306996, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, -1.21724e-06, -0.0318861, 2.66487, 2.10038, 0)
 
 [node name="Car_Cam" type="Camera3D" parent="Head"]
 transform = Transform3D(-3.58988e-06, -0.5, 0.866025, -5.2154e-08, 0.866025, 0.5, -1, 1.74977e-06, -3.135e-06, 2.5, 2, -0.1)
