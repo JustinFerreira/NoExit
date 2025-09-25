@@ -53,6 +53,7 @@ func _on_animation_finished(anim_name: String):
 		player.CAMERA.current = true
 		player.AREA3D.monitoring = true
 		player.AREA3D.monitorable = true
+		player.visible = true
 		backwards = false
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
