@@ -61,6 +61,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
+	if event.is_action_pressed("Inventory"):
+		$Inventory.visible = !$Inventory.visible
+		print($Inventory.visible)
+		
+		if $Inventory.visible:
+			populate_inventory()
 		
 		
 			
@@ -207,3 +213,14 @@ func apply_heartbeat_effects():
 
 	AudioManager.set_loop_pitch("heartbeat", target_pitch)
 	AudioManager.set_loop_volume("heartbeat", target_volume)
+	
+func populate_inventory():
+	# Clear existing items
+	for child in $Inventory/ColorRect/HBoxContainer.get_children():
+		child.queue_free()
+
+	# Create labels for each item
+	for item in PlayerManager.Inventory:
+		var label = Label.new()
+		label.text = item.name
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cecwkfw6phxht"]
+
+[ext_resource type="Texture2D" uid="uid://cdf17hi201brc" path="res://Assets/Enviroments/Office/Textures/RubbishBin Textures/M_Rubbish_Unwrapped_BaseColor.png" id="1_ptl3v"]
+[ext_resource type="Texture2D" uid="uid://ti4ck41gu55s" path="res://Assets/Enviroments/Office/Textures/RubbishBin Textures/M_Rubbish_Unwrapped_Metalic_and_Rougness.png" id="2_bfdai"]
+[ext_resource type="Texture2D" uid="uid://dmvxqm8wg7du2" path="res://Assets/Enviroments/Office/Textures/RubbishBin Textures/M_Rubbish_Unwrapped_Normal.png" id="3_8y24g"]
+[ext_resource type="ArrayMesh" uid="uid://wpoqm2xfx13e" path="res://Assets/Enviroments/Office/Models/M_Rubbish_Unwrapped.obj" id="4_umycy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7b2w"]
+albedo_texture = ExtResource("1_ptl3v")
+metallic = 1.0
+metallic_texture = ExtResource("2_bfdai")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_bfdai")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_8y24g")
+ao_enabled = true
+ao_texture = ExtResource("2_bfdai")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MRubbishUnwrapped" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_f7b2w")
+mesh = ExtResource("4_umycy")
