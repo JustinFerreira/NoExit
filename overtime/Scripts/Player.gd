@@ -5,6 +5,7 @@ const WALK_SPEED = 3.0
 const SPRINT_SPEED = 4.5
 const JUMP_VELOCITY = 4.5
 const SENSITIVITY = 0.01
+var gravity = true
 
 #bob variables
 const BOB_FREQ = 4.0 # How often you bob
@@ -32,6 +33,7 @@ var Incar = false
 @onready var CAMERA = $Head/Camera3D
 @onready var INTERACT_RAY = $Head/Camera3D/InteractRay
 @onready var AREA3D = $Area3D
+@onready var COLLISIONSHAPE3D = $CollisionShape3D  
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
@@ -69,7 +71,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if gravity == true:
+			velocity += get_gravity() * delta
 
 	##  We don't want a jump so no jumping
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():

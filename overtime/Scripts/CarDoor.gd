@@ -53,6 +53,8 @@ func _on_animation_finished(anim_name: String):
 		player.CAMERA.current = true
 		player.AREA3D.monitoring = true
 		player.AREA3D.monitorable = true
+		player.COLLISIONSHAPE3D.disabled = false
+		player.gravity = true
 		player.visible = true
 		backwards = false
 		animation_player.play_backwards("NoExitProps")
@@ -68,6 +70,8 @@ func _on_interacted(body: Variant) -> void:
 			player.visible = false
 			player.AREA3D.monitoring = false
 			player.AREA3D.monitorable = false
+			player.COLLISIONSHAPE3D.disabled = true
+			player.gravity = false
 			# First time opening car
 			entering = true
 			unlocked = true

@@ -27,7 +27,7 @@ material_override = SubResource("StandardMaterial3D_3ndg1")
 mesh = ExtResource("2_sf52k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.807074, 0, 0, 0, 0.807074, 0, 0, 0, 0.807074, 0, 1.06676, 0)
+transform = Transform3D(0.807074, 0, 0, 0, 1.12777, 0, 0, 0, 0.807074, 0, 1.06676, 0)
 shape = SubResource("ConvexPolygonShape3D_mf4ae")
 
 [node name="Head" type="Node3D" parent="."]
@@ -60,6 +60,7 @@ horizontal_alignment = 1
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1.04526, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_mf4ae")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("6_4tvxu")]
