@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=12 format=3 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://brumvyo25vlhb" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dcncgn3rmmlna" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="4_kgo4q"]
 [ext_resource type="Texture2D" uid="uid://c8cdnjah3q4re" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="5_w8oe4"]
 [ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="6_k0to7"]
+[ext_resource type="Script" path="res://Scripts/ElevatorButtonPanel.gd" id="7_0bi4n"]
+[ext_resource type="Script" path="res://Scripts/ElevatorButton.gd" id="7_m0fas"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
 albedo_texture = ExtResource("1_qmffq")
@@ -22,9 +24,78 @@ ao_enabled = true
 ao_texture = ExtResource("2_wc20y")
 heightmap_texture = ExtResource("4_kgo4q")
 
+[sub_resource type="BoxMesh" id="BoxMesh_kk0d7"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wrjeu"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="Elevator" type="Node3D"]
+transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
 
 [node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
 material_override = SubResource("StandardMaterial3D_pwtol")
 mesh = ExtResource("6_k0to7")
+
+[node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292828, 0)
+visible = false
+use_collision = true
+
+[node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1.7, 0, 0, 0, -0.1, 0, 0, 0, 2.2, 0.17, -0.0326695, 0.225543)
+size = Vector3(1.4, 0.001, 1.00543)
+
+[node name="RoofCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1.7, 0, 0, 0, -0.1, 0, 0, 0, 2.2, 0.17, 2.3361, 0.225543)
+size = Vector3(1.4, 0.001, 1.00543)
+
+[node name="RightWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.00762523, -0.0999989, 0.0031485, 0, 0.000143115, 2.2, 1.69998, 0.000448543, -1.41223e-05, 1.36086, 1.19423, 0.181108)
+size = Vector3(1.33718, 0.001, 1.13576)
+
+[node name="LeftWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.00762523, -0.0999989, 0.0031485, 0, 0.000143115, 2.2, 1.69998, 0.000448543, -1.41223e-05, -1.01362, 1.19577, 0.185927)
+size = Vector3(1.33718, 0.001, 1.13576)
+
+[node name="BackWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1.7, 0, 0, 0, 0.000143115, 2.2, 0, 0.0999999, -0.00314853, 0.17, 1.194, -0.958712)
+size = Vector3(1.4, 0.001, 1.13576)
+
+[node name="ButtonPanelCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.669419, 1.11764, 1.20076)
+
+[node name="RightFrontCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.07589, 1.11764, 1.20076)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0, 2.23872, 0)
+
+[node name="InsideButtons" type="StaticBody3D" parent="."]
+transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.626322, 0.89162, 1.04682)
+script = ExtResource("7_0bi4n")
+prompt_message = "Go to Garage"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InsideButtons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
+mesh = SubResource("BoxMesh_kk0d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InsideButtons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
+shape = SubResource("ConcavePolygonShape3D_wrjeu")
+
+[node name="OutsideButton" type="StaticBody3D" parent="."]
+transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, 1.07625, 1.09874, 1.42827)
+script = ExtResource("7_m0fas")
+prompt_message = "Open Elevator"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OutsideButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
+mesh = SubResource("BoxMesh_kk0d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
+shape = SubResource("ConcavePolygonShape3D_wrjeu")
+
+[connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
+[connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]
