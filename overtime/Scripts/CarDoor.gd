@@ -1,11 +1,7 @@
 extends Interactable
 
-var initial_camera_transform: Transform3D
-
-var open = false
 var unlocked = false
 var player 
-var backwards = false
 var entering = true
 @onready var animation_player = $"../../AnimationPlayer"
 @onready var car_camera = $"../../Head/Car_Cam"
@@ -13,7 +9,6 @@ var entering = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	initial_camera_transform = car_camera.global_transform
 	animation_player.connect("animation_finished", _on_animation_finished)
 	player = get_tree().current_scene.get_node("Player")
 
@@ -56,7 +51,6 @@ func _on_animation_finished(anim_name: String):
 		player.COLLISIONSHAPE3D.disabled = false
 		player.gravity = true
 		player.visible = true
-		backwards = false
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Get in Car"

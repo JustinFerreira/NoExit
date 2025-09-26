@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5jyjwq0yt1y"]
+
+[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="1_qa0d2"]
+[ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="3_6pkc5"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_cqe1n"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="ParkingGarageWalls" parent="." instance=ExtResource("1_qa0d2")]
+transform = Transform3D(0.155874, 0, 0, 0, 0.155874, 0, 0, 0, 0.155874, 0.983649, 0, 5.81978)
+
+[node name="Player" parent="." instance=ExtResource("3_cqe1n")]
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -40.5135, 14.9234, 5.33969)
+
+[node name="ParkingGarageElevator" parent="." instance=ExtResource("3_6pkc5")]
+transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -40.7957, 14.5994, 5.89799)
