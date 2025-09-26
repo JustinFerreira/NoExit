@@ -224,3 +224,4 @@ func populate_inventory():
 		var label = Label.new()
 		label.text = item.name
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		$Inventory/ColorRect/HBoxContainer.add_child(label)
