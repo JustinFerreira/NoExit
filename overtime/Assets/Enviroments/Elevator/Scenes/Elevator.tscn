@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=15 format=3 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://brumvyo25vlhb" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -8,6 +8,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="6_k0to7"]
 [ext_resource type="Script" path="res://Scripts/ElevatorButtonPanel.gd" id="7_0bi4n"]
 [ext_resource type="Script" path="res://Scripts/ElevatorButton.gd" id="7_m0fas"]
+[ext_resource type="Script" path="res://Scripts/ElevatorMusic.gd" id="9_0fam1"]
+[ext_resource type="AudioStream" uid="uid://r55eo2cec3q4" path="res://Assets/Audio/Music/elevator_wip.mp3" id="9_w6g63"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
 albedo_texture = ExtResource("1_qmffq")
@@ -104,6 +106,11 @@ mesh = SubResource("BoxMesh_kk0d7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
 shape = SubResource("ConcavePolygonShape3D_k3kkb")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_w6g63")
+bus = &"Music"
+script = ExtResource("9_0fam1")
 
 [connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
 [connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]

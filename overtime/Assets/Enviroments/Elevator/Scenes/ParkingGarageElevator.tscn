@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cij8j1efhpoia"]
+[gd_scene load_steps=11 format=3 uid="uid://cij8j1efhpoia"]
 
 [ext_resource type="Script" path="res://ParkingGarageElevator.gd" id="1_lu5uw"]
 [ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="2_inelh"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dcncgn3rmmlna" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="5_a2e3v"]
 [ext_resource type="Texture2D" uid="uid://c8cdnjah3q4re" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="6_6ueen"]
 [ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="7_aqrve"]
+[ext_resource type="AudioStream" uid="uid://r55eo2cec3q4" path="res://Assets/Audio/Music/elevator_wip.mp3" id="8_cl1pq"]
+[ext_resource type="Script" path="res://Scripts/ElevatorMusic.gd" id="9_dkb5w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
 albedo_texture = ExtResource("2_inelh")
@@ -68,3 +70,8 @@ transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.07589, 
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0, 2.23872, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_cl1pq")
+bus = &"Music"
+script = ExtResource("9_dkb5w")
