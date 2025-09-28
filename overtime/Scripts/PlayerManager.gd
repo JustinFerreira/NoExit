@@ -1,5 +1,9 @@
 extends Node
 
+## Modes
+
+var MinigameMode = false
+
 var Inventory: Array = []
 var MaxWeight: float = 10.0
 var CurrentWeight: float = 0.0
@@ -19,7 +23,7 @@ func AddToInventory(name: String, weight: float):
 	item.name = name
 	item.weight = weight
 	CurrentWeight += weight
-	print(CurrentWeight)
+	#print(CurrentWeight)
 	Inventory.append(item)
 	
 func RemoveItemByName(name: String) -> bool:
@@ -27,9 +31,9 @@ func RemoveItemByName(name: String) -> bool:
 		if item.name == name:
 			CurrentWeight -= item.weight
 			Inventory.erase(item)
-			print(CurrentWeight)
+			#print(CurrentWeight)
 			return true
-	print(CurrentWeight)
+	#print(CurrentWeight)
 	return false
 	
 	

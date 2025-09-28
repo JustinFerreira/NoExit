@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dt5jyjwq0yt1y"]
+[gd_scene load_steps=9 format=3 uid="uid://5hlcss82wi1i"]
 
-[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="1_qa0d2"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfq4f"]
-[ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="3_6pkc5"]
-[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_cqe1n"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_15ken"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="6_3c14h"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_dkyqn"]
+[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="2_njf2w"]
+[ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="3_d0cau"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_2rfh5"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="5_3n1lr"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_lqut5"]
+[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="7_7fs5o"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_let0x"]
 vertices = PackedVector3Array(-38.2778, 22.703, -33.454, -38.2778, 22.703, 45.046, 40.2222, 22.703, 45.046, 40.2222, 22.703, -33.454, -0.527771, 0.702979, 4.04602, 0.972229, 0.702979, 4.04602, 0.972229, 0.702979, -32.704, -37.7778, 0.702979, 4.04602, -0.777771, 0.702979, 5.29602, -37.7778, 0.702979, -32.704, -37.7778, 7.70298, 4.29602, -38.2778, 7.70298, 4.54602, -38.2778, 7.70298, 6.79602, -37.7778, 7.70298, 7.04602, 23.4722, 7.70298, 37.296, 23.4722, 7.70298, -25.704, -37.7778, 7.70298, 44.546, 24.4722, 7.70298, 44.546, 24.4722, 7.70298, -25.954, 24.4722, 7.70298, -32.704, 24.4722, 7.70298, 37.546, -37.7778, 7.70298, -32.704, -37.7778, 14.953, 4.29602, -38.2778, 14.953, 4.54602, -38.2778, 14.953, 6.79602, -37.7778, 14.953, 7.04602, 23.4722, 14.953, 37.296, 23.4722, 14.953, -25.704, -37.7778, 14.953, 44.546, 24.4722, 14.953, 44.546, 25.2222, 14.953, -25.954, 24.9722, 14.953, -32.704, 24.4722, 14.953, 37.546, -37.7778, 14.953, -32.704, 23.4722, 0.702979, -25.704, 24.4722, 0.702979, -25.954, 24.4722, 0.702979, -32.704, 2.47223, 0.702979, 4.04602, 2.72223, 0.702979, 5.79602, 23.4722, 0.702979, 5.79602, 25.4722, 0.702979, -25.704, 25.4722, 0.952979, -23.954, 31.2222, 0.952979, -23.954, 31.2222, 0.702979, -25.704, 32.9722, 0.702979, -25.954, 32.7222, 0.702979, -32.704, 25.4722, 7.70298, -25.704, 25.4722, 7.70298, -23.954, 31.2222, 7.70298, -23.954, 31.2222, 7.70298, -25.704, 32.2222, 7.70298, -25.954, 32.2222, 7.70298, -32.704, 31.4722, 14.953, -25.954, 31.7222, 14.953, -32.704, 32.9722, 14.953, -25.954, 33.2222, 14.953, -24.204, 39.4722, 14.953, -24.454, 39.4722, 14.953, -32.704, 33.2222, 7.70298, -25.704, 33.2222, 7.45298, -24.204, 39.4722, 7.45298, -24.454, 39.4722, 7.70298, -32.704, 39.4722, 0.702979, -25.954, 39.4722, 0.702979, -32.704, 33.2222, 0.702979, -24.454, 33.2222, 0.702979, 19.796, 39.4722, 0.702979, 19.796, 39.4722, 0.702979, -24.454, 33.2222, 0.952979, 35.796, 39.4722, 0.702979, 36.046, 33.2222, 7.70298, 35.796, 39.4722, 7.70298, 36.046, 25.4722, 7.45298, 35.546, 31.2222, 7.45298, 35.546, 25.4722, 14.953, 35.546, 31.2222, 14.953, 35.546, 25.4722, 0.702979, -8.20398, 25.4722, 0.702979, 35.796, 31.2222, 0.702979, 35.796, 31.2222, 0.702979, -8.20398, -38.2778, 0.702979, 4.54602, -38.2778, 0.702979, 6.79602, -37.7778, 0.702979, 7.29602, -0.777771, 0.702979, 6.29602, 0.222229, 1.45298, 5.04602, 0.222229, 1.45298, 6.54602, 1.72223, 1.45298, 6.54602, 1.72223, 1.45298, 5.04602, 25.7222, 0.702979, 44.546, 25.7222, 0.702979, 37.546, 23.4722, 0.702979, 37.296, 2.47223, 0.702979, 7.54602, 0.972229, 0.702979, 44.546, 0.972229, 0.702979, 7.54602, -0.527771, 0.702979, 7.54602, -37.7778, 0.702979, 44.546, 31.2222, 7.70298, 37.296, 25.4722, 7.70298, 37.296, 32.2222, 7.70298, 37.546, 32.2222, 7.70298, 44.546, 25.4722, 14.953, 37.296, 31.4722, 14.953, 37.546, 33.4722, 14.953, 44.546, 33.4722, 14.953, 37.546, 32.9722, 0.702979, 37.546, 30.9722, 0.702979, 37.546, 30.9722, 0.702979, 44.546, 39.4722, 0.702979, 44.546, 33.2222, 7.70298, 37.296, 39.4722, 7.70298, 44.546, 39.4722, 14.953, 44.546, 39.4722, 14.953, 37.546)
@@ -14,22 +15,25 @@ agent_radius = 0.75
 
 [node name="Loop1" type="Node3D" groups=["enemy"]]
 transform = Transform3D(0.998655, 0, 0, 0, 0.998655, 0, 0, 0, 0.998655, 0, 0, 0)
-script = ExtResource("1_rfq4f")
+script = ExtResource("1_dkyqn")
 
 [node name="EnemyMap" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_let0x")
 
-[node name="ParkingGarageWalls" parent="EnemyMap" instance=ExtResource("1_qa0d2")]
+[node name="ParkingGarageWalls" parent="EnemyMap" instance=ExtResource("2_njf2w")]
 transform = Transform3D(0.155874, 0, 0, 0, 0.155874, 0, 0, 0, 0.155874, 0.983649, 0, 5.81978)
 
-[node name="ParkingGarageElevator" parent="." instance=ExtResource("3_6pkc5")]
+[node name="ParkingGarageElevator" parent="." instance=ExtResource("3_d0cau")]
 transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -40.9055, 14.5994, 5.89799)
 
-[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_15ken")]
+[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_2rfh5")]
 transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, -34.6072, 7.209, 5.63553)
 
-[node name="Car" parent="." instance=ExtResource("6_3c14h")]
+[node name="Car" parent="." instance=ExtResource("5_3n1lr")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.938517, 0.296924, 6.01675)
 
-[node name="Player" parent="." instance=ExtResource("3_cqe1n")]
-transform = Transform3D(1.30813, 0, 0, 0, 1.30813, 0, 0, 0, 1.30813, -41.2385, 14.5932, 5.40481)
+[node name="Player" parent="." instance=ExtResource("6_lqut5")]
+transform = Transform3D(1.30813, 0, 0, 0, 1.30813, 0, 0, 0, 1.30813, -2.39399, 0.671469, 2.55229)
+
+[node name="DoorKey" parent="." instance=ExtResource("7_7fs5o")]
+transform = Transform3D(1.00135, 0, 0, 0, 1.00135, 0, 0, 0, 1.00135, -4.09798, 1.37555, 5.64349)

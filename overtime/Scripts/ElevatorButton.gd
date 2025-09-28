@@ -20,6 +20,6 @@ func _on_animation_finished(anim_name: String):
 		door_collision.translate(Vector3(0,3,0))
 
 func _on_interacted(body: Variant) -> void:
-	print("Elevator Activated")
+	#print("Elevator Activated")
 	door_collision.translate(Vector3(0,3,0))
 	$".".queue_free()

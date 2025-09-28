@@ -12,4 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
-	print("HOT WIRING")
+	print(PlayerManager.MinigameMode)
+	PlayerManager.MinigameMode = true
+	print(PlayerManager.MinigameMode)
+	

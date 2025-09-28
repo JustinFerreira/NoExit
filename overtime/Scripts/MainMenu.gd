@@ -41,3 +41,15 @@ func _on_loop_1_btn_pressed() -> void:
 	AudioManager.cancel_music()
 	AudioManager.play_music(AudioManager.GamePlayMusic)
 	get_tree().change_scene_to_file("res://Scenes/Levels/Loop1.tscn")
+
+
+func _on_parking_keys_l_1_pressed() -> void:
+	AudioManager.cancel_music()
+	AudioManager.play_music(AudioManager.GamePlayMusic)
+	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageKeysLoop1.tscn")
+
+
+func _on_parking_l_1_pressed() -> void:
+	AudioManager.cancel_music()
+	AudioManager.play_music(AudioManager.GamePlayMusic)
+	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
