@@ -4,6 +4,11 @@ extends Node
 
 var MinigameMode = false
 
+## Pass Checks
+
+var gotKeys = false
+var minigameOne = false
+
 var Inventory: Array = []
 var MaxWeight: float = 10.0
 var CurrentWeight: float = 0.0

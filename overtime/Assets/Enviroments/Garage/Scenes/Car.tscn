@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=25 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="2_d8cag"]
 [ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="3_ffgir"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="3_wt8ov"]
 [ext_resource type="Script" path="res://Scripts/hot_wiring.gd" id="4_vamuy"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="6_3ixol"]
+[ext_resource type="Script" path="res://Scripts/StartCar.gd" id="6_hxs15"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58vsb"]
 albedo_texture = ExtResource("2_d8cag")
@@ -60,6 +61,11 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="BoxMesh" id="BoxMesh_3v8gc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j2dle"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bg5b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_00owm"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="Animation" id="Animation_ykfaq"]
@@ -277,6 +283,18 @@ mesh = SubResource("BoxMesh_3v8gc")
 transform = Transform3D(0.00461649, 0, 0, 0, 0.00461649, 0, 0, 0, 0.00461649, 0.00351914, 0.00478416, 0.00692104)
 shape = SubResource("ConcavePolygonShape3D_j2dle")
 
+[node name="StartCar" type="StaticBody3D" parent="Mesh"]
+process_mode = 1
+transform = Transform3D(0.00442181, 0, 0, 0, 0.00442181, 0, 0, 0, 0.00442181, 0.00428734, 0.0112642, 0.00827021)
+script = ExtResource("6_hxs15")
+prompt_message = "Start Car"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StartCar"]
+mesh = SubResource("BoxMesh_4bg5b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StartCar"]
+shape = SubResource("ConcavePolygonShape3D_00owm")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tr6wb")
@@ -292,7 +310,7 @@ current = true
 [node name="InteractRay" type="RayCast3D" parent="Head/Car_Cam"]
 target_position = Vector3(0, 0, -4)
 
-[node name="Control" type="Control" parent="Head/Car_Cam"]
+[node name="Minigame" type="Control" parent="Head/Car_Cam"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -305,7 +323,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("6_3ixol")
 
-[node name="Item1" type="ColorRect" parent="Head/Car_Cam/Control"]
+[node name="Item1" type="ColorRect" parent="Head/Car_Cam/Minigame"]
 layout_mode = 0
 offset_left = 156.0
 offset_top = 97.0
@@ -313,7 +331,7 @@ offset_right = 196.0
 offset_bottom = 137.0
 color = Color(0.570529, 0, 0.0720512, 1)
 
-[node name="Item2" type="ColorRect" parent="Head/Car_Cam/Control"]
+[node name="Item2" type="ColorRect" parent="Head/Car_Cam/Minigame"]
 layout_mode = 0
 offset_left = 1108.0
 offset_top = 331.0
@@ -321,7 +339,7 @@ offset_right = 1148.0
 offset_bottom = 371.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="Head/Car_Cam/Control"]
+[node name="Button" type="Button" parent="Head/Car_Cam/Minigame"]
 layout_mode = 0
 offset_left = 524.0
 offset_top = 248.0
@@ -331,4 +349,5 @@ text = "BIG OLD BUTTON"
 
 [connection signal="interacted" from="Mesh/CarDoor" to="Mesh/CarDoor" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/HotWiring" to="Mesh/HotWiring" method="_on_interacted"]
-[connection signal="pressed" from="Head/Car_Cam/Control/Button" to="Head/Car_Cam/Control" method="_on_button_pressed"]
+[connection signal="interacted" from="Mesh/StartCar" to="Mesh/StartCar" method="_on_interacted"]
+[connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
