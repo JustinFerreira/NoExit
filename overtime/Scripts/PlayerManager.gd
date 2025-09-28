@@ -1,5 +1,9 @@
 extends Node
 
+## Player
+
+var player;
+
 ## Modes
 
 var MinigameMode = false
@@ -15,7 +19,7 @@ var CurrentWeight: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,3 +49,6 @@ func RemoveItemByName(name: String) -> bool:
 func ResetInventory() -> void:
 	Inventory = []
 	CurrentWeight = 0.0
+	
+func Dialog(text: String, duration: float = 5.0):
+	player.get_node("DialogControl").show_temporary_dialog(text,duration)

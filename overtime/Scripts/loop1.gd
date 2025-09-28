@@ -10,6 +10,7 @@ func _ready() -> void:
 	cutscene_camera.current = true
 	animation_player.play("Wakingup")
 	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,3 +22,4 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Wakingup":
 		player_camera.current = true
+		PlayerManager.Dialog("Where did I leave my keys?", 5)

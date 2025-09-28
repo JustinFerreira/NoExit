@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d27k4ukr6g7jr"]
+[gd_scene load_steps=10 format=3 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
 [ext_resource type="PackedScene" uid="uid://b6i75ojxg73j6" path="res://Menus/PauseMenu.tscn" id="2_1l65u"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_sf52k"]
+[ext_resource type="Script" path="res://Scripts/Dialog.gd" id="3_8urho"]
 [ext_resource type="Texture2D" uid="uid://dl5qgwkg3d8b8" path="res://Assets/Enviroments/Dev Textures/dev_texture_blue.png" id="3_yn117"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="4_y3dep"]
 [ext_resource type="PackedScene" uid="uid://1k6pp1n6pfch" path="res://Menus/GameOverScreen.tscn" id="6_4tvxu"]
@@ -90,4 +91,37 @@ shape = SubResource("ConvexPolygonShape3D_mf4ae")
 [node name="GameOverScreen" parent="." instance=ExtResource("6_4tvxu")]
 visible = false
 
+[node name="DialogControl" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_8urho")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogControl"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 10.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="DialogLabel" type="Label" parent="DialogControl/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_y3dep")
+theme_override_font_sizes/font_size = 32
+text = "Closed Captions"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="DialogControl"]
+wait_time = 5.0
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="DialogControl/Timer" to="DialogControl" method="_on_timer_timeout"]

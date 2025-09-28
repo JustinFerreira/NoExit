@@ -42,6 +42,8 @@ var Incar = false
 
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
+	PlayerManager.player = self
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0)
