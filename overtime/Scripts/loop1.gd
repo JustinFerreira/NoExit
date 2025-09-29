@@ -22,4 +22,7 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Wakingup":
 		player_camera.current = true
-		PlayerManager.Dialog("Where did I leave my keys?", 5)
+		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
+			PlayerManager.Dialog("Where did I leave my keys?", 5)
+		else:
+			PlayerManager.Dialog("Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever.", 5)

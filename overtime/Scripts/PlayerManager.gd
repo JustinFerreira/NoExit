@@ -13,6 +13,10 @@ var MinigameMode = false
 var gotKeys = false
 var minigameOne = false
 
+## Death Count
+
+var deaths: int 
+
 var Inventory: Array = []
 var MaxWeight: float = 10.0
 var CurrentWeight: float = 0.0
