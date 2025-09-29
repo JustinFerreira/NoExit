@@ -213,7 +213,7 @@ _data = {
 }
 
 [node name="Car" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144601, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.144601, 0, 0)
 
 [node name="Car_Collision" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132568, 0, 0)

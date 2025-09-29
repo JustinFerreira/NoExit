@@ -29,11 +29,11 @@ transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.01418
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_2rfh5")]
 transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, -34.6072, 7.209, 5.63553)
 
-[node name="Car" parent="." instance=ExtResource("5_3n1lr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.938517, 0.296924, 6.01675)
-
 [node name="Player" parent="." instance=ExtResource("6_lqut5")]
 transform = Transform3D(1.30813, 0, 0, 0, 1.30813, 0, 0, 0, 1.30813, -2.39399, 0.671469, 2.55229)
 
 [node name="DoorKey" parent="." instance=ExtResource("7_7fs5o")]
 transform = Transform3D(1.00135, 0, 0, 0, 1.00135, 0, 0, 0, 1.00135, -4.09798, 1.37555, 5.64349)
+
+[node name="Car4" parent="." instance=ExtResource("5_3n1lr")]
+transform = Transform3D(-0.0695764, 0, -1.50041, 0, 1.50202, 0, 1.50041, 0, -0.0695764, 1.33137, 0.296924, 6.00639)
