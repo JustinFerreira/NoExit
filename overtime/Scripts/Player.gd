@@ -43,6 +43,7 @@ var Incar = false
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	PlayerManager.player = self
+	CAMERA.current = true
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

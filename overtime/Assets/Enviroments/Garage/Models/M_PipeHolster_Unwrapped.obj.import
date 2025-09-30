@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://57lruaausjkm"
+path="res://.godot/imported/M_PipeHolster_Unwrapped.obj-6304e48b429f48ec3411237f763b6761.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_PipeHolster_Unwrapped.obj-6304e48b429f48ec3411237f763b6761.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_PipeHolster_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_PipeHolster_Unwrapped.obj-6304e48b429f48ec3411237f763b6761.mesh", "res://.godot/imported/M_PipeHolster_Unwrapped.obj-6304e48b429f48ec3411237f763b6761.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

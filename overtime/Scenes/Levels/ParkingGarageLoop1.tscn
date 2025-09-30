@@ -24,7 +24,7 @@ navigation_mesh = SubResource("NavigationMesh_let0x")
 transform = Transform3D(0.155874, 0, 0, 0, 0.155874, 0, 0, 0, 0.155874, 0.983649, 0, 5.81978)
 
 [node name="ParkingGarageElevator" parent="." instance=ExtResource("3_6pkc5")]
-transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -40.9055, 14.5994, 5.89799)
+transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -41.0079, 14.5994, 5.89799)
 
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_15ken")]
 transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, -34.6072, 7.209, 5.63553)

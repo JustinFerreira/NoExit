@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cogjf7qq1qg0a"
+path="res://.godot/imported/M_Sign_Unwrapped.obj-c7e9bbb14d0a406f9ae5148c5da749ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Sign_Unwrapped.obj-c7e9bbb14d0a406f9ae5148c5da749ef.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Sign_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Sign_Unwrapped.obj-c7e9bbb14d0a406f9ae5148c5da749ef.mesh", "res://.godot/imported/M_Sign_Unwrapped.obj-c7e9bbb14d0a406f9ae5148c5da749ef.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://36uvw3kglxh3"
+path="res://.godot/imported/M_ElectricalPipes_WIP.obj-19f02107cc6522272eae1539c0f75db2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_ElectricalPipes_WIP.obj-19f02107cc6522272eae1539c0f75db2.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_ElectricalPipes_WIP.obj"
+dest_files=["res://.godot/imported/M_ElectricalPipes_WIP.obj-19f02107cc6522272eae1539c0f75db2.mesh", "res://.godot/imported/M_ElectricalPipes_WIP.obj-19f02107cc6522272eae1539c0f75db2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

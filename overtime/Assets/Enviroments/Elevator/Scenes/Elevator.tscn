@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=20 format=4 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://brumvyo25vlhb" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Scripts/ElevatorButton.gd" id="7_m0fas"]
 [ext_resource type="Script" path="res://Scripts/ElevatorMusic.gd" id="9_0fam1"]
 [ext_resource type="AudioStream" uid="uid://r55eo2cec3q4" path="res://Assets/Audio/Music/elevator_wip.mp3" id="9_w6g63"]
-[ext_resource type="PackedScene" uid="uid://ch2urd43ynjrv" path="res://Assets/Enviroments/Elevator/Animations/M_Elevator_v4.fbx" id="11_7ssqf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
 albedo_texture = ExtResource("1_qmffq")
@@ -116,6 +115,7 @@ mesh = ExtResource("6_k0to7")
 
 [node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292828, 0)
+visible = false
 use_collision = true
 
 [node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
@@ -148,7 +148,16 @@ transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.669419
 transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.01176, 1.11764, 1.33905)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0, 2.23872, 0)
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.301139, 2.23872, -0.253303)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.301139, 2.23872, 0.573945)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757, 2.23872, 0.573945)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757, 2.23872, -0.257555)
 
 [node name="InsideButtons" type="StaticBody3D" parent="."]
 transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.626322, 0.89162, 1.13758)
@@ -183,8 +192,6 @@ stream = ExtResource("9_w6g63")
 bus = &"Music"
 script = ExtResource("9_0fam1")
 
-[node name="M_Elevator_v4" parent="." instance=ExtResource("11_7ssqf")]
-
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 transform = Transform3D(101.094, 0, 0, 0, 101.094, 0, 0, 0, 101.094, 0.128768, 0, 0.235567)
 bones/0/name = "joint13"
@@ -198,7 +205,7 @@ bones/1/name = "joint9"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109021, 0, 0.0111451)
 bones/1/enabled = true
-bones/1/position = Vector3(-0.0166, 0, 0.0111451)
+bones/1/position = Vector3(-0.0109021, 0, 0.0111451)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "joint10"
@@ -212,7 +219,7 @@ bones/3/name = "joint11"
 bones/3/parent = 0
 bones/3/rest = Transform3D(-1, 1.22465e-16, 1.22465e-16, 1.22465e-16, 1, -1.22465e-16, -1.22465e-16, -1.22465e-16, -1, 0.0109021, 0, 0.0111451)
 bones/3/enabled = true
-bones/3/position = Vector3(0.0166035, 0, 0.0111451)
+bones/3/position = Vector3(0.0109021, 0, 0.0111451)
 bones/3/rotation = Quaternion(0, 1, 0, 6.12323e-17)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "joint12"

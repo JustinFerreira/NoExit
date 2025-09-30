@@ -1,15 +1,15 @@
 extends Interactable
 
-@onready var animation_player
+@onready var animation_player = $"../AnimationPlayer"
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
 var fall = false
 var fall_speed = 2.0
-var interactd = false
+var DoorClosed = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#animation_player.connect("animation_finished", _on_animation_finished)
+	animation_player.connect("animation_finished", _on_animation_finished)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,12 +24,13 @@ func _process(delta: float) -> void:
 func _on_animation_finished(anim_name: String):
 	print("Animation", anim_name)
 	
-	if anim_name == "DoorClosed":
-		door_collision.translate(Vector3(0,-3,0))
+	if anim_name == "Take 001" && DoorClosed:
 		fall = true
+		is_interactable = false
+		prompt_message = ""
+		DoorClosed = false
 
 func _on_interacted(body: Variant) -> void:
-	if interactd == false:
-		door_collision.translate(Vector3(0,-3,0))
-		fall = true
-		interactd = true
+	door_collision.translate(Vector3(0,-3,0))
+	DoorClosed = true
+	animation_player.play_backwards("Take 001")

@@ -5,7 +5,8 @@ extends Node3D
 func _ready() -> void:
 	#Play Open Animation and on Animation finish Move door Collision
 	$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-
+	$AnimationPlayer.play("Take 001")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
