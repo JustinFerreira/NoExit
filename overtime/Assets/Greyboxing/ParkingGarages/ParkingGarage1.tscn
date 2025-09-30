@@ -1,0 +1,555 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3aadkrso5gh6"]
+
+[ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="2_8fgnp"]
+[ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="2_xgf4x"]
+[ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="3_04c40"]
+[ext_resource type="PackedScene" uid="uid://bnh3sf8jtlyib" path="res://Assets/Greyboxing/Scenes/LargeParkingGarage.tscn" id="4_fs04o"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="4_q1kpn"]
+[ext_resource type="Texture2D" uid="uid://c88jid1751qg0" path="res://Assets/Enviroments/Dev Textures/dev_texture_misc.png" id="6_or3cy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwre"]
+albedo_texture = ExtResource("6_or3cy")
+
+[node name="ParkingGarage1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179306, 0.351059, -0.0991364)
+
+[node name="Pillars" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Pillar" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84496, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar2" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.20857, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar3" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7679, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar4" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84496, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar5" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.20857, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar6" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7679, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar7" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.6244, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar8" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5708, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar9" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0115, 0, -13.444)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar10" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.6244, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar11" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.5708, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="Pillar12" type="CSGBox3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0115, 0, 14.8562)
+size = Vector3(1, 50, 1)
+
+[node name="ParkingBlocks" type="Node3D" parent="."]
+
+[node name="ParkBlock" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0601, 0.302945, -12.3223)
+
+[node name="ParkBlock31" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, -14.8437)
+
+[node name="ParkBlock40" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -24.7544)
+
+[node name="ParkBlock144" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -29.8421)
+
+[node name="ParkBlock41" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -19.7345)
+
+[node name="ParkBlock42" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -14.9233)
+
+[node name="ParkBlock43" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -9.90342)
+
+[node name="ParkBlock44" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, -4.71907)
+
+[node name="ParkBlock45" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 0.300782)
+
+[node name="ParkBlock46" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 5.11205)
+
+[node name="ParkBlock47" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 10.1319)
+
+[node name="ParkBlock48" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 15.0569)
+
+[node name="ParkBlock49" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 20.0767)
+
+[node name="ParkBlock50" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 24.888)
+
+[node name="ParkBlock143" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.6078, 0.301485, 30.2299)
+
+[node name="ParkBlock107" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -24.7544)
+
+[node name="ParkBlock141" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -30.169)
+
+[node name="ParkBlock108" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -19.7345)
+
+[node name="ParkBlock109" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -14.9233)
+
+[node name="ParkBlock110" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -9.90342)
+
+[node name="ParkBlock111" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, -4.71907)
+
+[node name="ParkBlock112" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 0.300781)
+
+[node name="ParkBlock113" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 5.11205)
+
+[node name="ParkBlock114" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 10.1319)
+
+[node name="ParkBlock115" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 15.0569)
+
+[node name="ParkBlock116" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 20.0767)
+
+[node name="ParkBlock117" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 24.888)
+
+[node name="ParkBlock140" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3602, 0.301485, 30.0026)
+
+[node name="ParkBlock118" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -48.0435)
+
+[node name="ParkBlock119" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -43.0236)
+
+[node name="ParkBlock120" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -38.2124)
+
+[node name="ParkBlock121" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -33.1925)
+
+[node name="ParkBlock122" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -28.0082)
+
+[node name="ParkBlock123" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -22.9883)
+
+[node name="ParkBlock124" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -18.1771)
+
+[node name="ParkBlock125" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -13.1572)
+
+[node name="ParkBlock126" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -8.23222)
+
+[node name="ParkBlock127" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, -3.21242)
+
+[node name="ParkBlock128" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 1.59888)
+
+[node name="ParkBlock129" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 7.07725)
+
+[node name="ParkBlock130" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 12.0971)
+
+[node name="ParkBlock131" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 16.9083)
+
+[node name="ParkBlock132" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 21.9282)
+
+[node name="ParkBlock133" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 27.1126)
+
+[node name="ParkBlock134" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 32.1324)
+
+[node name="ParkBlock135" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 36.9437)
+
+[node name="ParkBlock136" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 41.9635)
+
+[node name="ParkBlock137" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 46.8885)
+
+[node name="ParkBlock139" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.481, 0.301485, 56.7197)
+
+[node name="ParkBlock34" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, -20.2441)
+
+[node name="ParkBlock35" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, -25.6863)
+
+[node name="ParkBlock39" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, -30.5697)
+
+[node name="ParkBlock36" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, 26.138)
+
+[node name="ParkBlock37" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, 20.7376)
+
+[node name="ParkBlock38" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1414, 0.301485, 15.2955)
+
+[node name="ParkBlock2" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0581, 0.301485, -12.3209)
+
+[node name="ParkBlock3" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07705, 0.301485, -12.3209)
+
+[node name="ParkBlock4" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91354, 0.301485, -12.3209)
+
+[node name="ParkBlock5" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18202, 0.301485, -12.3209)
+
+[node name="ParkBlock6" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34554, 0.301485, -12.3209)
+
+[node name="ParkBlock7" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2216, 0.253429, -14.761)
+
+[node name="ParkBlock8" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0581, 0.301485, -14.761)
+
+[node name="ParkBlock9" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07705, 0.301485, -14.761)
+
+[node name="ParkBlock10" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91354, 0.301485, -14.761)
+
+[node name="ParkBlock11" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18202, 0.301485, -14.761)
+
+[node name="ParkBlock12" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34554, 0.301485, -14.761)
+
+[node name="ParkBlock13" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2216, 0.301485, 16.082)
+
+[node name="ParkBlock14" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0581, 0.301485, 16.082)
+
+[node name="ParkBlock15" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07705, 0.301485, 16.082)
+
+[node name="ParkBlock16" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91354, 0.301485, 16.082)
+
+[node name="ParkBlock17" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18202, 0.301485, 16.082)
+
+[node name="ParkBlock18" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34554, 0.301485, 16.082)
+
+[node name="ParkBlock19" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2216, 0.301485, 13.6419)
+
+[node name="ParkBlock20" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0581, 0.301485, 13.6419)
+
+[node name="ParkBlock21" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.07705, 0.301485, 13.6419)
+
+[node name="ParkBlock22" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91354, 0.301485, 13.6419)
+
+[node name="ParkBlock23" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18202, 0.301485, 13.6419)
+
+[node name="ParkBlock24" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.34554, 0.301485, 13.6419)
+
+[node name="ParkBlock83" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2104, 0.127699, -12.1422)
+
+[node name="ParkBlock84" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2124, 0.301485, -12.3209)
+
+[node name="ParkBlock85" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.1934, 0.301485, -12.3209)
+
+[node name="ParkBlock86" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3569, 0.301485, -12.3209)
+
+[node name="ParkBlock87" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4525, 0.301485, -12.3209)
+
+[node name="ParkBlock88" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.616, 0.301485, -12.3209)
+
+[node name="ParkBlock89" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0489, 0.301485, -14.761)
+
+[node name="ParkBlock90" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2124, 0.301485, -14.761)
+
+[node name="ParkBlock91" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.1934, 0.301485, -14.761)
+
+[node name="ParkBlock92" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3569, 0.301485, -14.761)
+
+[node name="ParkBlock93" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4525, 0.301485, -14.761)
+
+[node name="ParkBlock94" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.616, 0.301485, -14.761)
+
+[node name="ParkBlock95" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0489, 0.301485, 16.082)
+
+[node name="ParkBlock96" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2124, 0.301485, 16.082)
+
+[node name="ParkBlock97" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.1934, 0.301485, 16.082)
+
+[node name="ParkBlock98" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3569, 0.301485, 16.082)
+
+[node name="ParkBlock99" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4525, 0.301485, 16.082)
+
+[node name="ParkBlock100" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.616, 0.301485, 16.082)
+
+[node name="ParkBlock101" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0489, 0.301485, 13.6419)
+
+[node name="ParkBlock102" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.2124, 0.301485, 13.6419)
+
+[node name="ParkBlock103" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.1934, 0.301485, 13.6419)
+
+[node name="ParkBlock104" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.3569, 0.301485, 13.6419)
+
+[node name="ParkBlock105" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.4525, 0.301485, 13.6419)
+
+[node name="ParkBlock106" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.616, 0.301485, 13.6419)
+
+[node name="ParkBlock25" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2377, 0.324418, 53.7722)
+
+[node name="ParkBlock26" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0742, 0.324418, 53.7722)
+
+[node name="ParkBlock27" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09316, 0.324418, 53.7722)
+
+[node name="ParkBlock32" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0712, 0.324418, 53.7722)
+
+[node name="ParkBlock33" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0902, 0.324418, 53.7722)
+
+[node name="ParkBlock28" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.92965, 0.324418, 53.7722)
+
+[node name="ParkBlock29" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16591, 0.324418, 53.7722)
+
+[node name="ParkBlock30" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32943, 0.324418, 53.7722)
+
+[node name="ParkBlock51" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.613, 0.324418, 53.7722)
+
+[node name="ParkBlock52" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7765, 0.324418, 53.7722)
+
+[node name="ParkBlock53" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7575, 0.324418, 53.7722)
+
+[node name="ParkBlock54" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7795, 0.324418, 53.7722)
+
+[node name="ParkBlock55" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7605, 0.324418, 53.7722)
+
+[node name="ParkBlock56" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.921, 0.324418, 53.7722)
+
+[node name="ParkBlock57" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0166, 0.324418, 53.7722)
+
+[node name="ParkBlock58" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.1801, 0.324418, 53.7722)
+
+[node name="ParkBlock59" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3068, 0.324418, 53.7722)
+
+[node name="ParkBlock60" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.4703, 0.324418, 53.7722)
+
+[node name="ParkBlock61" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.4514, 0.324418, 53.7722)
+
+[node name="ParkBlock62" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4733, 0.324418, 53.7722)
+
+[node name="ParkBlock63" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4543, 0.324418, 53.7722)
+
+[node name="ParkBlock64" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.6149, 0.324418, 53.7722)
+
+[node name="ParkBlock65" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7104, 0.324418, 53.7722)
+
+[node name="ParkBlock66" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.874, 0.324418, 53.7722)
+
+[node name="ParkBlock138" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4777, 0.324418, 53.7722)
+
+[node name="ParkBlock67" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.613, 0.324418, -53.7701)
+
+[node name="ParkBlock68" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7765, 0.324418, -53.7701)
+
+[node name="ParkBlock69" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7575, 0.324418, -53.7701)
+
+[node name="ParkBlock70" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7795, 0.324418, -53.7701)
+
+[node name="ParkBlock71" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7605, 0.324418, -53.7701)
+
+[node name="ParkBlock72" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.921, 0.324418, -53.7701)
+
+[node name="ParkBlock73" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.0166, 0.324418, -53.7701)
+
+[node name="ParkBlock74" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.1801, 0.324418, -53.7701)
+
+[node name="ParkBlock75" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.3068, 0.324418, -53.7701)
+
+[node name="ParkBlock76" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.4703, 0.324418, -53.7701)
+
+[node name="ParkBlock77" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.4514, 0.324418, -53.7701)
+
+[node name="ParkBlock78" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4733, 0.324418, -53.7701)
+
+[node name="ParkBlock79" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.4543, 0.324418, -53.7701)
+
+[node name="ParkBlock80" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.6149, 0.324418, -53.7701)
+
+[node name="ParkBlock81" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7104, 0.324418, -53.7701)
+
+[node name="ParkBlock82" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.874, 0.324418, -53.7701)
+
+[node name="ParkBlock142" parent="ParkingBlocks" instance=ExtResource("2_xgf4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.4309, 0.324418, -53.7701)
+
+[node name="ParkingDrum2" parent="ParkingBlocks" instance=ExtResource("2_8fgnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5017, 0.297258, 36.2075)
+
+[node name="ParkingDrum" parent="ParkingBlocks" instance=ExtResource("2_8fgnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3195, 0.297258, -35.9135)
+
+[node name="Cars" type="Node3D" parent="."]
+
+[node name="NpcCar" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -29.2205, 0.245159, 49.814)
+
+[node name="NpcCar7" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -34.3213, 0.245159, 15.7186)
+
+[node name="NpcCar8" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -34.3213, 0.245159, -25.3721)
+
+[node name="NpcCar9" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 18.1815, 0.245159, -24.16)
+
+[node name="NpcCar10" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 18.1815, 0.245159, -5.35042)
+
+[node name="NpcCar6" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.87247, 0.245159, -18.3017)
+
+[node name="NpcCar2" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14.0359, 0.171188, 49.534)
+
+[node name="NpcCar3" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, -14.7673, 0.245159, -8.49864)
+
+[node name="NpcCar5" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 5.4607, 0.245159, 19.8004)
+
+[node name="NpcCar4" parent="Cars" instance=ExtResource("3_04c40")]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 5.85177, 0.245159, -8.49864)
+
+[node name="Car" parent="Cars" instance=ExtResource("4_q1kpn")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.47061, 0.297164, 9.37356)
+
+[node name="LargeParkingGarage" parent="." instance=ExtResource("4_fs04o")]
+
+[node name="Toll Booth" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8628, 2.79754, -46.0418)
+material_override = SubResource("StandardMaterial3D_wiwre")
+size = Vector3(3, 5, 3)
+
+[node name="GarageDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3462, 3.04305, -53.8186)
+size = Vector3(8.95654, 5.58093, 1)
+
+[node name="GarageDoor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10722, 3.04305, -53.8069)
+size = Vector3(8.95654, 5.58093, 1)
