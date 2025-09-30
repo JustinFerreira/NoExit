@@ -18,12 +18,12 @@ func _on_animation_finished(anim_name: String):
 	print("Animation", anim_name)
 	
 	if anim_name == "Take 001" && DoorOpen:
-		$".".is_interactable = false
-		prompt_message = ""
 		DoorOpen = false;
 
 func _on_interacted(body: Variant) -> void:
 	door_collision.translate(Vector3(0,3,0))
 	DoorOpen = true;
+	$".".is_interactable = false
+	prompt_message = ""
 	animation_player.play("Take 001")
 	

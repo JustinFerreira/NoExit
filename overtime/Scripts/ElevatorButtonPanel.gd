@@ -26,11 +26,11 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Take 001" && DoorClosed:
 		fall = true
-		is_interactable = false
-		prompt_message = ""
 		DoorClosed = false
 
 func _on_interacted(body: Variant) -> void:
 	door_collision.translate(Vector3(0,-3,0))
 	DoorClosed = true
+	is_interactable = false
+	prompt_message = ""
 	animation_player.play_backwards("Take 001")

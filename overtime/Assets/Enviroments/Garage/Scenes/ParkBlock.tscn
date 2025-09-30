@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c42whtah5m5m3"]
+[gd_scene load_steps=6 format=3 uid="uid://c42whtah5m5m3"]
 
 [ext_resource type="Texture2D" uid="uid://cviwixognnoib" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Unwrapped_BaseColor.png" id="1_4etra"]
 [ext_resource type="Texture2D" uid="uid://d36ue5q1mjmj4" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Unwrapped_Metalic_and_Rougness.png" id="2_v1air"]
@@ -17,17 +17,9 @@ normal_texture = ExtResource("3_eunwp")
 ao_enabled = true
 ao_texture = ExtResource("2_v1air")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_scwsf"]
-data = PackedVector3Array(1.2442, 0, 0.139, -1.2442, 0, 0.139, 1.2442, 0.0918, 0.139, 1.2442, 0.0918, 0.139, -1.2442, 0, 0.139, -1.2442, 0.0918, 0.139, 1.2016, 0.1837, 0.0781, -1.2016, 0.1837, 0.0781, 1.2016, 0.1837, -0.0781, 1.2016, 0.1837, -0.0781, -1.2016, 0.1837, 0.0781, -1.2016, 0.1837, -0.0781, 1.2442, 0.0918, -0.139, -1.2442, 0.0918, -0.139, 1.2442, 0, -0.139, 1.2442, 0, -0.139, -1.2442, 0.0918, -0.139, -1.2442, 0, -0.139, 1.2442, 0, -0.139, 1.2442, 0, 0.139, 1.2442, 0.0918, -0.139, 1.2442, 0.0918, -0.139, 1.2442, 0, 0.139, 1.2442, 0.0918, 0.139, -1.2442, 0, 0.139, -1.2442, 0, -0.139, -1.2442, 0.0918, 0.139, -1.2442, 0.0918, 0.139, -1.2442, 0, -0.139, -1.2442, 0.0918, -0.139, -1.2442, 0.0918, 0.139, -1.2442, 0.0918, -0.139, -1.2016, 0.1837, 0.0781, -1.2016, 0.1837, 0.0781, -1.2442, 0.0918, -0.139, -1.2016, 0.1837, -0.0781, 1.2016, 0.1837, -0.0781, -1.2016, 0.1837, -0.0781, 1.2442, 0.0918, -0.139, 1.2442, 0.0918, -0.139, -1.2016, 0.1837, -0.0781, -1.2442, 0.0918, -0.139, 1.2442, 0.0918, -0.139, 1.2442, 0.0918, 0.139, 1.2016, 0.1837, -0.0781, 1.2016, 0.1837, -0.0781, 1.2442, 0.0918, 0.139, 1.2016, 0.1837, 0.0781, 1.2442, 0.0918, 0.139, -1.2442, 0.0918, 0.139, 1.2016, 0.1837, 0.0781, 1.2016, 0.1837, 0.0781, -1.2442, 0.0918, 0.139, -1.2016, 0.1837, 0.0781)
-
 [node name="ParkBlock" type="Node3D"]
 
 [node name="MParkBlockUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.70379, 0, 0, 0, 1.70379, 0, 0, 0, 1.70379, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_47dxp")
 mesh = ExtResource("4_tcru7")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MParkBlockUnwrapped"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MParkBlockUnwrapped/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_scwsf")
