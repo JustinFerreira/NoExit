@@ -8,7 +8,7 @@ var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
 var GamePlayMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
-var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip.mp3")
+var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 
 ## SFX
 
