@@ -22,10 +22,10 @@ navigation_mesh = SubResource("NavigationMesh_let0x")
 [node name="ParkingGarage1" parent="EnemyMap" instance=ExtResource("2_wqeg3")]
 
 [node name="ParkingGarageElevator" parent="." instance=ExtResource("3_6pkc5")]
-transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -42.1284, 14.9923, 0.0495898)
-
-[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_15ken")]
-transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, 98.7454, 16.698, -0.374239)
+transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -42.1714, 14.9923, 0.0495898)
 
 [node name="Player" parent="." instance=ExtResource("3_cqe1n")]
 transform = Transform3D(1.30813, 0, 0, 0, 1.30813, 0, 0, 0, 1.30813, -41.2385, 15.2691, -0.278827)
+
+[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_15ken")]
+transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 8.76884, 15.943, 0)

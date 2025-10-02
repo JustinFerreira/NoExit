@@ -121,10 +121,6 @@ use_collision = true
 [node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
 transform = Transform3D(1.20063, 0, 0, 0, 2.09287, 0, 0, 0, 0.129145, 0.202488, 1.02425, 1.19424)
 
-[node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(1.7, 0, 0, 0, -0.1, 0, 0, 0, 2.2, 0.17, -0.0326695, 0.225543)
-size = Vector3(1.4, 0.001, 1.00543)
-
 [node name="RoofCollision" type="CSGBox3D" parent="ElevatorCollisions"]
 transform = Transform3D(1.7, 0, 0, 0, -0.1, 0, 0, 0, 2.2, 0.17, 2.3361, 0.225543)
 size = Vector3(1.4, 0.001, 1.00543)
@@ -147,11 +143,14 @@ transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.669419
 [node name="RightFrontCollision" type="CSGBox3D" parent="ElevatorCollisions"]
 transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.01176, 1.11764, 1.33905)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(2.40328, 0, 0, 0, 0.177861, 0, 0, 0, 2.64458, 0, -0.128152, 0)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.301139, 2.23872, -0.253303)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.301139, 2.23872, 0.573945)
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.306087, 2.23872, 0.574074)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757, 2.23872, 0.573945)

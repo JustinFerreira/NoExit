@@ -26,7 +26,7 @@ transform = Transform3D(0.992465, 0, 0, 0, 0.992465, 0, 0, 0, 0.992465, 0.9557, 
 transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -40.9055, 14.5994, 5.89799)
 
 [node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("4_2rfh5")]
-transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, 98.1013, 14.9172, 9.964)
+transform = Transform3D(-1.9002e-07, 0, -4.34714, 0, 4.34714, 0, 4.34714, 0, -1.9002e-07, 16.1163, 14.9172, 9.964)
 
 [node name="Player" parent="." instance=ExtResource("6_lqut5")]
 transform = Transform3D(1.30813, 0, 0, 0, 1.30813, 0, 0, 0, 1.30813, -41.0575, 14.9487, 5.37471)

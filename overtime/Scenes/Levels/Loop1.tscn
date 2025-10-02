@@ -122,7 +122,7 @@ script = ExtResource("1_aadf4")
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.56693, -11.5064, 2.58458)
 
 [node name="CutSceneCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.0127536, 0.497521, -0.867358, -0.0274467, 0.866928, 0.497677, 0.999542, 0.0301533, 0.00259886, 14, 1.6, 16.3)
+transform = Transform3D(-0.0127536, 0.497521, -0.867358, -0.0274467, 0.866928, 0.497677, 0.999542, 0.0301532, 0.00259886, 14, 1.6, 16.3)
 
 [node name="Control" type="Control" parent="CutSceneCamera"]
 visible = false
@@ -151,7 +151,7 @@ libraries = {
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 12.5, 0, 16.5)
 
 [node name="Elevator" parent="." instance=ExtResource("4_k43tb")]
-transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.9, 0, 8.5)
+transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.9, 0.0400069, 8.4678)
 
 [node name="DoorKey" parent="." instance=ExtResource("5_jgepb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9807, 1.86603, 17.4284)
