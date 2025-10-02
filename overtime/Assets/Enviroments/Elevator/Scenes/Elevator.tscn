@@ -139,7 +139,7 @@ transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.75032,
 [node name="RightFrontCollision" type="CSGBox3D" parent="ElevatorCollisions"]
 transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.04014, 1.11764, 1.33905)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="ElevatorCollisions"]
+[node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
 transform = Transform3D(3.56177, 0, 0, 0, 0.159823, 0, 0, 0, 3.95991, 0, -0.20064, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
