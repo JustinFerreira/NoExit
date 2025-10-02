@@ -1134,7 +1134,7 @@ spot_attenuation = 2.64
 spot_angle = 91.76
 
 [node name="OmniLight3D4" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, 43.3477, 104.641, 0.146821)
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, 43.3477, 104.641, 0.146822)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -1145,36 +1145,6 @@ spot_angle = 91.76
 
 [node name="OmniLight3D10" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -119.545, 104.641, 11.3753)
-light_color = Color(1, 1, 0.768627, 1)
-light_energy = 16.0
-light_size = 1.0
-light_specular = 16.0
-spot_range = 8.922
-spot_attenuation = 2.64
-spot_angle = 91.76
-
-[node name="OmniLight3D14" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -181.554, 104.641, 11.3753)
-light_color = Color(1, 1, 0.768627, 1)
-light_energy = 16.0
-light_size = 1.0
-light_specular = 16.0
-spot_range = 8.922
-spot_attenuation = 2.64
-spot_angle = 91.76
-
-[node name="OmniLight3D16" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -181.554, 104.641, 38.7098)
-light_color = Color(1, 1, 0.768627, 1)
-light_energy = 16.0
-light_size = 1.0
-light_specular = 16.0
-spot_range = 8.922
-spot_attenuation = 2.64
-spot_angle = 91.76
-
-[node name="OmniLight3D18" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -181.554, 104.641, 68.4896)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -1265,6 +1235,16 @@ spot_angle = 91.76
 
 [node name="OmniLight3D36" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -181.554, 104.641, -14.6481)
+light_color = Color(1, 1, 0.768627, 1)
+light_energy = 16.0
+light_size = 1.0
+light_specular = 16.0
+spot_range = 8.922
+spot_attenuation = 2.64
+spot_angle = 91.76
+
+[node name="OmniLight3D37" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -179.423, 104.641, 35.3811)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -2354,7 +2334,7 @@ spot_attenuation = 2.64
 spot_angle = 91.76
 
 [node name="OmniLight3D8" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, 155.336, 104.641, 0.146821)
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, 155.336, 104.641, 0.146822)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
