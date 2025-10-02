@@ -70,13 +70,13 @@ visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.646327, 0, 0, 0, 2.2589, 0, 0, 0, 2.27695, 0.690812, 1.11824, -0.174544)
+transform = Transform3D(0.572724, 0, 0, 0, 1.20913, 0, 0, 0, 2.27695, 0.690812, 0.422142, -0.174544)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.00603499, 0, -2.34745, 0, 2.2589, 0, 1.03217, 0, 0.0137252, -0.164641, 1.11824, -0.799971)
+transform = Transform3D(0.00603586, 0, -2.28921, 0, 0.988832, 0, 1.03232, 0, 0.0133847, -0.164641, 0.528641, -0.799971)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(-0.0521713, 0, 0.0124592, 0, 2.2589, 0, -0.000285013, 0, -2.28064, -1.36489, 1.11824, -0.168737)
+transform = Transform3D(-0.0509361, 0, 0.0124608, 0, 2.2589, 0, -0.000278265, 0, -2.28093, -1.32894, 1.11824, -0.168737)
 
 [node name="MChairUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.122216, 0, 0.992503, 0, 1, 0, -0.992503, 0, -0.122216, -0.0295851, 0, 0.0387497)

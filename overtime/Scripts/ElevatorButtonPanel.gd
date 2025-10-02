@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 		$"..".position.y -= fall_speed * delta
 		
 	
-	if $"..".position.y <= -30:
+	if $"..".position.y <= -10:
 		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
 
 func _on_animation_finished(anim_name: String):
