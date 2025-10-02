@@ -18,8 +18,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	print("HELP ME")
 	visible = false
+	PlayerManager.Dialog("Great now I can start my car, cause hot wiring tottally does not start the car.")
 	$"../InteractRay".enabled = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PlayerManager.MinigameMode = false

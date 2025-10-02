@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://cij8j1efhpoia"]
 
-[ext_resource type="Script" path="res://ParkingGarageElevator.gd" id="1_lu5uw"]
+[ext_resource type="Script" path="res://Scripts/ParkingGarageElevator.gd" id="1_lu5uw"]
 [ext_resource type="Texture2D" uid="uid://bdo1mffy0emnt" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="2_inelh"]
 [ext_resource type="Texture2D" uid="uid://brumvyo25vlhb" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="3_68ion"]
 [ext_resource type="Texture2D" uid="uid://dg7aepvjq5e6p" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="4_p2blq"]

@@ -38,5 +38,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func target_position(target):
+	if position == target:
+		return
 	nav.target_position = target
 	move_and_slide()

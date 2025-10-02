@@ -54,5 +54,5 @@ func ResetInventory() -> void:
 	Inventory = []
 	CurrentWeight = 0.0
 	
-func Dialog(text: String, duration: float = 5.0):
+func Dialog(text: String, duration: float = 10.0):
 	player.get_node("DialogControl").show_temporary_dialog(text,duration)

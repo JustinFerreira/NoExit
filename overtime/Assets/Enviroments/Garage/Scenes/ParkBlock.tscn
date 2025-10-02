@@ -21,5 +21,6 @@ ao_texture = ExtResource("2_v1air")
 
 [node name="MParkBlockUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.70379, 0, 0, 0, 1.70379, 0, 0, 0, 1.70379, 0, 0, 0)
+layers = 131072
 material_override = SubResource("StandardMaterial3D_47dxp")
 mesh = ExtResource("4_tcru7")

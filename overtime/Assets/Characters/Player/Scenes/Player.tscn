@@ -85,7 +85,7 @@ horizontal_alignment = 1
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.725128, 0, -8.08e-08, 0, 1.9374, 0, 1.15797e-07, 0, 0.505974, 0, -0.0105784, 0)
+transform = Transform3D(0.797641, 0, -8.888e-08, 0, 2.13114, 0, 1.27377e-07, 0, 0.556571, 0, -0.0105784, 0)
 shape = SubResource("ConvexPolygonShape3D_ijnjj")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("6_4tvxu")]

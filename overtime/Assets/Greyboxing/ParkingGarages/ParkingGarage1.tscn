@@ -513,7 +513,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5017, 0.297258, 36.2075)
 [node name="ParkingDrum" parent="ParkingBlocksF1" instance=ExtResource("2_8fgnp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3195, 0.297258, -35.9135)
 
-[node name="ParkingBlocksF2" type="Node3D" parent="."]
+[node name="ParkingBlocksF2" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653015, 6.94289, 0.016037)
 
 [node name="ParkBlock" parent="ParkingBlocksF2" instance=ExtResource("2_xgf4x")]
