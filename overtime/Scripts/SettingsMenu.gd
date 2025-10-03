@@ -1,9 +1,18 @@
 extends Control
 
-@onready var master_slider = $ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MasterVbox/MasterSlider
-@onready var music_slider = $ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MusicVbox/MusicSlider
-@onready var sfx_slider = $ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/SFXVbox/SFXSlider
-@onready var mute_check = $ColorRect/MarginContainer/VBoxContainer/SoundSettingsVbox/MuteCheckBox
+## Sound Settings
+@onready var master_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MasterVbox/MasterSlider
+@onready var music_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MusicVbox/MusicSlider
+@onready var sfx_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/SFXVbox/SFXSlider
+@onready var mute_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MuteCheckBox
+
+## Visual Settings
+@onready var fullscreen_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/VisualSettingsVbox/FullScreenCheckBox
+
+## Game Settings
+@onready var shifthold_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/ShiftHoldRunCheckBox
+@onready var sensitivity_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/SensitivityVbox/SensitivitySlider
+@onready var headbob_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/HeadBobCheckBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +20,11 @@ func _ready() -> void:
 	music_slider.value = SettingsManager.settings.audio.music_volume
 	sfx_slider.value = SettingsManager.settings.audio.sfx_volume
 	mute_check.button_pressed = SettingsManager.settings.audio.muted
+	fullscreen_check.button_pressed = SettingsManager.settings.video.fullscreen
+	var normalized_value = (SettingsManager.settings.game.sensitivity - SettingsManager.min_sensitivity) / (SettingsManager.max_sensitivity - SettingsManager.min_sensitivity) * 100
+	sensitivity_slider.value = normalized_value
+	headbob_check.button_pressed = SettingsManager.settings.game.headbob
+	shifthold_check.button_pressed = SettingsManager.settings.game.hold_shift
 	# Connect signal
 	mute_check.toggled.connect(_on_mute_toggled)
 
@@ -52,3 +66,31 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_button_pressed() -> void:
 	$".".visible = false
+
+
+func _on_full_screen_check_box_toggled(toggled: bool) -> void:
+	SettingsManager.settings.video.fullscreen = toggled
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+		
+	
+
+
+func _on_sensitivity_slider_value_changed(value: float) -> void:
+	# Map slider value (0-100) to 0.001 - 0.05
+	var sensitivity_value = lerp(0.001, 0.05, value / 100.0)
+	SettingsManager.settings.game.sensitivity = sensitivity_value
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+
+
+func _on_shift_hold_run_check_box_toggled(toggled: bool) -> void:
+	SettingsManager.settings.game.hold_shift = toggled
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+
+
+func _on_head_bob_check_box_toggled(toggled: bool) -> void:
+	SettingsManager.settings.game.headbob = toggled
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()

@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_animation_finished(anim_name: String):
-	print("Animation Finished: ", anim_name)
+	#print("Animation Finished: ", anim_name)
 	
 	## Entering car animations
 	if anim_name == "NoExitProps" && player.Incar == false && entering == true:

@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
 
 func _on_animation_finished(anim_name: String):
-	print("Animation", anim_name)
+	#print("Animation", anim_name)
 	
 	if anim_name == "Take 001" && DoorClosed:
 		fall = true

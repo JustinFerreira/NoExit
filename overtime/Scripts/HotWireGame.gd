@@ -24,4 +24,4 @@ func _on_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PlayerManager.MinigameMode = false
 	PlayerManager.minigameOne = true
-	print("PlayerManger HotWireGame minigameOne:",PlayerManager.minigameOne)
+	#print("PlayerManger HotWireGame minigameOne:",PlayerManager.minigameOne)

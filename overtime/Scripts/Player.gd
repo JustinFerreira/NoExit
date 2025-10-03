@@ -4,8 +4,11 @@ var speed
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 4.5
 const JUMP_VELOCITY = 4.5
-const SENSITIVITY = 0.01
+var SENSITIVITY = PlayerManager.Sensitivity
 var gravity = true
+
+
+var is_sprinting = false
 
 #bob variables
 const BOB_FREQ = 4.0 # How often you bob
@@ -34,6 +37,8 @@ var Incar = false
 @onready var INTERACT_RAY = $Head/Camera3D/InteractRay
 @onready var AREA3D = $Area3D
 @onready var COLLISIONSHAPE3D = $CollisionShape3D  
+@onready var CURSOR = $Cursor
+@onready var DIALOG = $DialogControl
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
@@ -68,7 +73,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$PauseMenu.pause()
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
-		print($Inventory.visible)
+		#print($Inventory.visible)
 		
 		if $Inventory.visible:
 			populate_inventory()
@@ -80,6 +85,8 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
+	SENSITIVITY = PlayerManager.Sensitivity
+	
 	# Add the gravity.
 	if not is_on_floor():
 		if gravity == true:
@@ -104,12 +111,10 @@ func _physics_process(delta: float) -> void:
 	# Handle Sprint
 	if Incar == true:
 		speed = 0
-	elif Input.is_action_pressed("sprint"):
-		speed = SPRINT_SPEED
-		AudioManager.set_loop_pitch("step", 4)
+		is_sprinting = false
 	else:
-		speed = WALK_SPEED
-		AudioManager.set_loop_pitch("step", 2)
+		handle_sprint_input()
+		apply_sprint_speed()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -143,7 +148,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Head Bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
-	if TbobON == true:
+	if TbobON && PlayerManager.HeadBob:
 		camera.transform.origin = _headbob(t_bob)
 	
 	# FOV
@@ -230,3 +235,26 @@ func populate_inventory():
 		label.text = item.name
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		$Inventory/ColorRect/HBoxContainer.add_child(label)
+		
+func handle_sprint_input():
+	if PlayerManager.Hold_Shift:
+		# Hold-to-sprint mode (original behavior)
+		if Input.is_action_pressed("sprint"):
+			is_sprinting = true
+		else:
+			is_sprinting = false
+	else:
+		# Toggle-sprint mode
+		if Input.is_action_just_pressed("sprint"):
+			# Toggle sprint state when key is pressed
+			is_sprinting = !is_sprinting
+			# Optional: Add toggle sound feedback
+			# AudioManager.play_sound(AudioManager.sprint_toggle)
+
+func apply_sprint_speed():
+	if is_sprinting:
+		speed = SPRINT_SPEED
+		AudioManager.set_loop_pitch("step", 4)
+	else:
+		speed = WALK_SPEED
+		AudioManager.set_loop_pitch("step", 2)

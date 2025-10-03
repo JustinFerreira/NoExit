@@ -1,5 +1,13 @@
 extends Node
 
+## SETTINGS
+
+var Sensitivity: float = 0.01
+
+var Hold_Shift: bool = true
+
+var HeadBob: bool = true
+
 ## Player
 
 var player;

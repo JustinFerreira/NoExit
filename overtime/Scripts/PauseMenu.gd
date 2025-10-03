@@ -4,11 +4,13 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 
 func resume():
+	PlayerManager.player.CURSOR.visible = true
 	get_tree().paused = false
 	$AnimationPlayer.play("Unpause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func pause():
+	PlayerManager.player.CURSOR.visible = false
 	get_tree().paused = true
 	$AnimationPlayer.play("Pause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -5,6 +5,9 @@ var config = ConfigFile.new()
 ## path to reference file
 var settings_path = "user://settings.cfg"
 
+var min_sensitivity: float = 0.001
+var max_sensitivity: float = 0.05
+
 # Default values
 var settings = {
 	"audio": {
@@ -14,8 +17,13 @@ var settings = {
 		"muted": false
 	},
 	"video": {
-		"fullscreen": false
-		}
+		"fullscreen": false,
+	},
+	"game":{
+		"sensitivity": 0.01,
+		"hold_shift": true,
+		"headbob": true
+	}
 	}
 
 # Loads on start
@@ -71,3 +79,12 @@ func apply_settings():
 	)
 	# Video settings
 	get_window().mode = Window.MODE_FULLSCREEN if settings.video.fullscreen else Window.MODE_WINDOWED
+	
+	# Game settings
+	PlayerManager.Sensitivity = settings.game.sensitivity
+	
+	PlayerManager.HeadBob = settings.game.headbob
+	
+	PlayerManager.Hold_Shift = settings.game.hold_shift
+	
+	

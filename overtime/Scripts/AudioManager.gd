@@ -86,3 +86,16 @@ func fade_loop_volume(sound_name: String, target_volume: float, duration: float 
 	
 func cancel_music():
 	MusicAudio.playing = false
+	
+func cancel_loop_sfx():
+	# Collect all keys first
+	var keys = []
+	for loop in looping_players:
+		keys.append(loop)
+	
+	# Then iterate over the collected keys
+	for loop in keys:
+		var player = looping_players[loop]
+		player.stop()
+		player.queue_free()
+		looping_players.erase(loop)
