@@ -121,8 +121,8 @@ text = "NO EXIT
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_constants/margin_top = 60
 
 [node name="StartBtn" type="Button" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -219,8 +219,32 @@ text = "NO EXIT
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="PrevScreenBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "< Previous Screen"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
 
 [node name="Loop1Btn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -243,6 +267,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Loop 1"
 
 [node name="GreyBoxingBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -263,6 +288,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "GreyBoxing Demos"
 
 [node name="MainBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -284,6 +310,7 @@ text = "Main
 "
 
 [node name="ParkingKeysL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -304,6 +331,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage Keys L1"
 
 [node name="ParkingL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -339,6 +367,7 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8669, -10.1064, 
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/PrevScreenBtn" to="." method="_on_prev_screen_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn" to="." method="_on_loop_1_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn" to="." method="_on_grey_boxing_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn" to="." method="_on_main_btn_pressed"]

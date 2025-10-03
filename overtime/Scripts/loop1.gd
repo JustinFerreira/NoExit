@@ -6,6 +6,10 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.ResetInventory()
+	PlayerManager.gotKeys = false
+	PlayerManager.InAnimation = true;
+	PlayerManager.player.CURSOR.visible = false
 	animation_player.connect("animation_finished", _on_animation_finished)
 	cutscene_camera.current = true
 	animation_player.play("Wakingup")
@@ -21,6 +25,8 @@ func _on_animation_finished(anim_name: String):
 	#print("Animation Finished: ", anim_name)
 	
 	if anim_name == "Wakingup":
+		PlayerManager.InAnimation = false
+		PlayerManager.player.CURSOR.visible = true
 		player_camera.current = true
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog("Where did I leave my keys?")

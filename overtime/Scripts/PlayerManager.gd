@@ -16,6 +16,8 @@ var player;
 
 var MinigameMode = false
 
+var InAnimation = false
+
 ## Pass Checks
 
 var gotKeys = false

@@ -22,6 +22,7 @@ func _on_animation_finished(anim_name: String):
 	
 	## Entering car animations
 	if anim_name == "NoExitProps" && player.Incar == false && entering == true:
+		PlayerManager.InAnimation = false
 		player.head = $"../../Head"
 		player.camera = car_camera
 		player.interact_ray = interact_ray
@@ -34,7 +35,7 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Exit Car"
-		PlayerManager.Dialog("I better hot wire my own care like I always do right under the steering wheel.")
+		PlayerManager.Dialog("I better hot wire my own car like I always do right under the steering wheel.")
 	
 	## Exiting car animations
 	if anim_name == "NoExitProps" && player.Incar == true && entering == false:
@@ -72,6 +73,7 @@ func _on_interacted(body: Variant) -> void:
 			unlocked = true
 			# Open door animation
 			animation_player.play("NoExitProps")
+			PlayerManager.InAnimation = true
 		else:
 			# Play Car locked noise
 			# Play audio of player saying "Where did I leave my keys?"
@@ -83,5 +85,6 @@ func _on_interacted(body: Variant) -> void:
 		animation_player.play("NoExitProps")
 	##Entering Car after Unlocked
 	elif player.Incar == false && unlocked == true:
+		PlayerManager.InAnimation = true
 		entering = true
 		animation_player.play("NoExitProps")

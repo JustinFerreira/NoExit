@@ -325,6 +325,7 @@ mouse_filter = 1
 script = ExtResource("6_3ixol")
 
 [node name="Item1" type="ColorRect" parent="Head/Car_Cam/Minigame"]
+visible = false
 layout_mode = 0
 offset_left = 156.0
 offset_top = 97.0
@@ -333,6 +334,7 @@ offset_bottom = 137.0
 color = Color(0.570529, 0, 0.0720512, 1)
 
 [node name="Item2" type="ColorRect" parent="Head/Car_Cam/Minigame"]
+visible = false
 layout_mode = 0
 offset_left = 1108.0
 offset_top = 331.0

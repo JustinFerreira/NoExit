@@ -7,6 +7,9 @@ func _ready() -> void:
 	#Play Open Animation and on Animation finish Move door Collision
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Take 001")
+	if PlayerManager.gotKeys:
+		PlayerManager.ResetInventory()
+		PlayerManager.AddToInventory("DoorKey", 0.5)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,4 +22,4 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Take 001":
 		$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-		PlayerManager.Dialog("WHere did I leave that blue car that I drive all the time?")
+		PlayerManager.Dialog("Where did I leave that blue car that I drive all the time?")

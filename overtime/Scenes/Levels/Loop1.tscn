@@ -122,7 +122,7 @@ script = ExtResource("1_aadf4")
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.56693, -11.5064, 2.58458)
 
 [node name="CutSceneCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.0127536, 0.497521, -0.867358, -0.0274467, 0.866927, 0.497677, 0.999542, 0.0301532, 0.00259886, 14, 1.6, 16.3)
+transform = Transform3D(-0.0127536, 0.49752, -0.867358, -0.0274467, 0.866927, 0.497677, 0.999542, 0.0301532, 0.00259886, 14, 1.6, 16.3)
 
 [node name="Control" type="Control" parent="CutSceneCamera"]
 visible = false

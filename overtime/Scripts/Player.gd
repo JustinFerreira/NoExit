@@ -57,6 +57,8 @@ func _ready() -> void:
 	
 # Any input that is detected automatically calls this function
 func _unhandled_input(event: InputEvent) -> void:
+	if PlayerManager.InAnimation:
+		return
 	if event is InputEventMouseMotion:
 		if PlayerManager.MinigameMode == true:
 			return
@@ -85,6 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
+	if PlayerManager.InAnimation:
+		return
 	SENSITIVITY = PlayerManager.Sensitivity
 	
 	# Add the gravity.

@@ -345,7 +345,6 @@ transform = Transform3D(0.28218, 0, 0, 0, 0.28218, 0, 0, 0, 0.28218, 0.00487316,
 shape = SubResource("ConvexPolygonShape3D_d5usc")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 transform = Transform3D(30.9449, 0, 0, 0, 30.9449, 0, 0, 0, 30.9449, -0.000126884, 0.0053511, -0.025608)
