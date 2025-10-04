@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://k1xve5p6csas"]
+[gd_scene load_steps=10 format=3 uid="uid://k1xve5p6csas"]
 
 [ext_resource type="Script" path="res://Scripts/loop1.gd" id="1_aadf4"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="1_rffta"]
@@ -115,6 +115,9 @@ _data = {
 "Wakingup": SubResource("Animation_4c016")
 }
 
+[sub_resource type="Environment" id="Environment_x47e5"]
+background_mode = 1
+
 [node name="Loop1" type="Node3D"]
 script = ExtResource("1_aadf4")
 
@@ -155,3 +158,6 @@ transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7
 
 [node name="DoorKey" parent="." instance=ExtResource("5_jgepb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9807, 1.86603, 17.4284)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x47e5")

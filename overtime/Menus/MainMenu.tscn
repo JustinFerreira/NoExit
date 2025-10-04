@@ -267,7 +267,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Loop 1"
 
 [node name="GreyBoxingBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -288,7 +287,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "GreyBoxing Demos"
 
 [node name="MainBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -310,7 +308,6 @@ text = "Main
 "
 
 [node name="ParkingKeysL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -331,7 +328,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage Keys L1"
 
 [node name="ParkingL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
