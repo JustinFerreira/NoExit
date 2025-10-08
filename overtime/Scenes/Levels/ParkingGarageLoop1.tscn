@@ -14,6 +14,7 @@ agent_radius = 0.75
 
 [sub_resource type="Environment" id="Environment_3jtbc"]
 background_mode = 1
+background_color = Color(0.288518, 0.288518, 0.288518, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2
 
@@ -89,7 +90,117 @@ spot_attenuation = -1.21
 spot_angle = 46.44
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1.00135, 0, 0, 0, -4.37703e-08, 1.00135, 0, -1.00135, -4.37703e-08, -22.3952, 21.4532, 0)
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -22.3952, 23.7518, 0)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 13.975
+spot_attenuation = -1.45
+spot_angle = 63.91
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -22.3952, 21.4532, 10.9863)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -22.3952, 21.4532, 21.2023)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -31.618, 21.4532, 21.2023)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -33.6261, 21.4532, 8.87857)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -28.6743, 21.4532, 9.21186)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -28.6743, 21.4532, -7.6144)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -34.7196, 21.4532, -20.0056)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D14" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -34.7196, 21.4532, -11.2547)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D15" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, 2.28324, 21.4532, -9.09064)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D16" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, 2.28324, 21.4532, 7.48148)
+light_color = Color(1, 1, 0.980392, 1)
+light_energy = 0.353
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+spot_range = 12.936
+spot_attenuation = -1.21
+spot_angle = 46.44
+
+[node name="SpotLight3D13" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1.00135, 0, 0, 0, -4.37702e-08, 1.00135, 0, -1.00135, -4.37702e-08, -34.7196, 21.4532, -32.7949)
 light_color = Color(1, 1, 0.980392, 1)
 light_energy = 0.353
 light_indirect_energy = 0.0
