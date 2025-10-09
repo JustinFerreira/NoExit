@@ -7,7 +7,6 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(animation_player)
 	PlayerManager.ResetInventory()
 	PlayerManager.gotKeys = false
 	PlayerManager.InAnimation = true;

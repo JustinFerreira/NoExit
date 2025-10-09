@@ -4,6 +4,8 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.player = $"../Player"
+	PlayerManager.ApplyPlayerRotation()
 	#Play Open Animation and on Animation finish Move door Collision
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Take 001")

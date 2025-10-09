@@ -14,7 +14,7 @@ agent_radius = 0.75
 
 [sub_resource type="Environment" id="Environment_3jtbc"]
 background_mode = 1
-background_color = Color(0.288518, 0.288518, 0.288518, 1)
+background_color = Color(0.879776, 0.879776, 0.879776, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2
 

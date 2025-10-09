@@ -44,7 +44,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fwqbr"]
 resource_name = "camera_anim"
-length = 4.0
+length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -53,10 +53,10 @@ tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:p
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.733333, 2.26667, 3.2, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.06667, 2.03333, 3.03333, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(2.67384, 3.32426, 11.0719), Vector3(3.27384, 3.32426, 11.0719), Vector3(2.99221, 3.62426, 10.0719), Vector3(2.82078, 4.76272, 10.6104), Vector3(2.67384, 3.32426, 11.0719)]
+"values": [Vector3(-2.78358, 3.49605, 11.0719), Vector3(-2.78358, 3.49605, 10.1346), Vector3(-2.78358, 4.85656, 9.70558), Vector3(-2.78358, 5.16002, 11.6266), Vector3(-3.73254, 3.49605, 11.0719), Vector3(-2.78358, 3.49605, 11.0719)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4lbyd"]
@@ -86,7 +86,7 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="BackGround/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165819, 0.506871, 3.43768, 11.0719)
+transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165818, 0.506871, 3.43768, 11.0719)
 
 [node name="MainMenuFirstScreen" type="Control" parent="."]
 layout_mode = 3

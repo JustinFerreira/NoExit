@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 		
 	
 	if $"..".position.y <= -10:
+		PlayerManager.SavePlayerRotation()
 		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
 
 func _on_animation_finished(anim_name: String):

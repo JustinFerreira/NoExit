@@ -10,7 +10,11 @@ var HeadBob: bool = true
 
 ## Player
 
-var player;
+var player
+
+var player_rotation_x
+var player_rotation_y
+var player_rotation_z
 
 ## Modes
 
@@ -66,3 +70,14 @@ func ResetInventory() -> void:
 	
 func Dialog(text: String, duration: float = 10.0):
 	player.get_node("DialogControl").show_temporary_dialog(text,duration)
+	
+func SavePlayerRotation():
+	player_rotation_x = player.get_node("Head").rotation.x
+	player_rotation_y = player.get_node("Head").rotation.y
+	player_rotation_z = player.get_node("Head").rotation.z
+	print(player_rotation_x, player_rotation_y, player_rotation_z)
+	
+func ApplyPlayerRotation():
+	player.get_node("Head").rotation.x = player_rotation_x
+	player.get_node("Head").rotation.y = player_rotation_y
+	player.get_node("Head").rotation.z = player_rotation_z

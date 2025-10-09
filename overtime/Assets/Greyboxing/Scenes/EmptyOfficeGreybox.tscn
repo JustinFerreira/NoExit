@@ -1076,7 +1076,7 @@ spot_attenuation = 2.64
 spot_angle = 91.76
 
 [node name="OmniLight3D37" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -189.704, 108.426, 35.3811)
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -189.704, 118.023, 35.3811)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
