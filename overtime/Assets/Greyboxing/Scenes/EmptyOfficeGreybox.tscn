@@ -779,9 +779,6 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="RowOfCubicles23" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3394, 79.779, 144.725)
 
-[node name="Cubicle2" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
 [node name="Cubicle3" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
 
