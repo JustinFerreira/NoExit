@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://nhw36fcpo3ej"
+path="res://.godot/imported/M_Pipe_SmallMed.obj-de4b88ca23d33939f3113efd6369655f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Pipe_SmallMed.obj-de4b88ca23d33939f3113efd6369655f.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallMed.obj"
+dest_files=["res://.godot/imported/M_Pipe_SmallMed.obj-de4b88ca23d33939f3113efd6369655f.mesh", "res://.godot/imported/M_Pipe_SmallMed.obj-de4b88ca23d33939f3113efd6369655f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

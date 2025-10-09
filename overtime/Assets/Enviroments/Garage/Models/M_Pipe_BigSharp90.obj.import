@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://oi4khbk7cnnf"
+path="res://.godot/imported/M_Pipe_BigSharp90.obj-abb8799f209d354b4413a739aaa09ccc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Pipe_BigSharp90.obj-abb8799f209d354b4413a739aaa09ccc.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Pipe_BigSharp90.obj"
+dest_files=["res://.godot/imported/M_Pipe_BigSharp90.obj-abb8799f209d354b4413a739aaa09ccc.mesh", "res://.godot/imported/M_Pipe_BigSharp90.obj-abb8799f209d354b4413a739aaa09ccc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
