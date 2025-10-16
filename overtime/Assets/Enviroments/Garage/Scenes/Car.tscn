@@ -1,12 +1,15 @@
-[gd_scene load_steps=25 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=31 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="2_d8cag"]
 [ext_resource type="Texture2D" uid="uid://cbskkjvatl1r0" path="res://Assets/Enviroments/Dev Textures/dev_texture_window.png" id="3_1tyel"]
-[ext_resource type="ArrayMesh" uid="uid://bqtmg8k8ouugj" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="3_ffgir"]
+[ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="3_ffgir"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="3_wt8ov"]
 [ext_resource type="Script" path="res://Scripts/hot_wiring.gd" id="4_vamuy"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="6_3ixol"]
 [ext_resource type="Script" path="res://Scripts/StartCar.gd" id="6_hxs15"]
+[ext_resource type="Script" path="res://Scripts/GasIntake.gd" id="7_gp5vp"]
+[ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Alternate.obj" id="9_5q7s6"]
+[ext_resource type="Script" path="res://Scripts/GasIntakeCanister.gd" id="10_rkofp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58vsb"]
 albedo_texture = ExtResource("2_d8cag")
@@ -67,6 +70,11 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_00owm"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tb66f"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4rfmg"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="Animation" id="Animation_ykfaq"]
 resource_name = "GettinginCar"
@@ -212,6 +220,8 @@ _data = {
 "resetingstuff": SubResource("Animation_ifl34")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_jiv7g"]
+
 [node name="Car" type="Node3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.144601, 0, 0)
 
@@ -296,6 +306,17 @@ mesh = SubResource("BoxMesh_4bg5b")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StartCar"]
 shape = SubResource("ConcavePolygonShape3D_00owm")
 
+[node name="GasIntake" type="StaticBody3D" parent="Mesh"]
+transform = Transform3D(0.00474696, 0, 0, 0, 0.00474696, 0, 0, 0, 0.00474696, 0.00864008, 0.0100695, -0.0152023)
+visible = false
+script = ExtResource("7_gp5vp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/GasIntake"]
+mesh = SubResource("BoxMesh_tb66f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/GasIntake"]
+shape = SubResource("ConvexPolygonShape3D_4rfmg")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tr6wb")
@@ -350,7 +371,21 @@ offset_right = 667.0
 offset_bottom = 279.0
 text = "BIG OLD BUTTON"
 
+[node name="GasIntakeCam" type="Camera3D" parent="."]
+transform = Transform3D(-2.27565e-08, -0.416429, 0.520607, -1.82027e-08, 0.520607, 0.416429, -0.666667, 0, -2.91409e-08, 1.47459, 1.95023, -1.33715)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.21853e-10, -0.0944105, 0.0172575, -3.50477e-09, -0.00597619, -0.272631, 0.0803402, -3.87604e-16, -1.19409e-08, 0.826741, 1.23592, -1.528)
+mesh = SubResource("BoxMesh_jiv7g")
+skeleton = NodePath("../GasIntakeCanister")
+
+[node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.44019e-08, -0.57956, 0.329477, -2.53334e-08, -0.329477, -0.57956, 0.666667, -2.73155e-15, -2.91409e-08, 1.18106, 1.30847, -1.52814)
+mesh = ExtResource("9_5q7s6")
+script = ExtResource("10_rkofp")
+
 [connection signal="interacted" from="Mesh/CarDoor" to="Mesh/CarDoor" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/HotWiring" to="Mesh/HotWiring" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/StartCar" to="Mesh/StartCar" method="_on_interacted"]
+[connection signal="interacted" from="Mesh/GasIntake" to="Mesh/GasIntake" method="_on_interacted"]
 [connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4lxpig3fe0ym"
+path="res://.godot/imported/M_GasCanister_Compact.obj-c71f228fe98227e8283e60cb0dc8e460.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_GasCanister_Compact.obj-c71f228fe98227e8283e60cb0dc8e460.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_GasCanister_Compact.obj"
+dest_files=["res://.godot/imported/M_GasCanister_Compact.obj-c71f228fe98227e8283e60cb0dc8e460.mesh", "res://.godot/imported/M_GasCanister_Compact.obj-c71f228fe98227e8283e60cb0dc8e460.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

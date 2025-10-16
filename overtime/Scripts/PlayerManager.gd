@@ -24,8 +24,18 @@ var InAnimation = false
 
 ## Pass Checks
 
+var testing = true
 var gotKeys = false
+var gotGas_Canister = false
+
+## Hot Wiring
 var minigameOne = false
+
+## Gas Canister
+var minigameTwo = false
+
+var Gas_Canister
+
 
 ## Death Count
 
