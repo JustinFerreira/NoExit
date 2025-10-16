@@ -374,13 +374,32 @@ text = "BIG OLD BUTTON"
 [node name="GasIntakeCam" type="Camera3D" parent="."]
 transform = Transform3D(-2.27565e-08, -0.416429, 0.520607, -1.82027e-08, 0.520607, 0.416429, -0.666667, 0, -2.91409e-08, 1.47459, 1.95023, -1.33715)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="GasIntakeCam/GasIntakeGame"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 35.0
+offset_right = 949.0
+offset_bottom = 124.0
+
+[node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.21853e-10, -0.0944105, 0.0172575, -3.50477e-09, -0.00597619, -0.272631, 0.0803402, -3.87604e-16, -1.19409e-08, 0.826741, 1.23592, -1.528)
+visible = false
 mesh = SubResource("BoxMesh_jiv7g")
 skeleton = NodePath("../GasIntakeCanister")
 
 [node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.44019e-08, -0.57956, 0.329477, -2.53334e-08, -0.329477, -0.57956, 0.666667, -2.73155e-15, -2.91409e-08, 1.18106, 1.30847, -1.52814)
+transform = Transform3D(1.44019e-08, -0.57956, 0.329477, -2.53334e-08, -0.329477, -0.57956, 0.666667, -2.73155e-15, -2.91409e-08, 1.18106, 1.60507, -1.52814)
+visible = false
 mesh = ExtResource("9_5q7s6")
 script = ExtResource("10_rkofp")
 
@@ -389,3 +408,4 @@ script = ExtResource("10_rkofp")
 [connection signal="interacted" from="Mesh/StartCar" to="Mesh/StartCar" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/GasIntake" to="Mesh/GasIntake" method="_on_interacted"]
 [connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
+[connection signal="value_changed" from="GasIntakeCam/GasIntakeGame/ProgressBar" to="GasIntakeCanister" method="_on_progress_bar_value_changed"]

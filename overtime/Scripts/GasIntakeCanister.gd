@@ -10,9 +10,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print(self.position.y)
 	if self.visible == true && self.position.y >= 0.908:
 		self.position.y -= fall_speed * delta
 	if self.position.y <= 1.408 && self.position.y >= 1.308:
 		car_filled += .1
-		print(car_filled)
+		$"../GasIntakeCam/GasIntakeGame/ProgressBar".value += 1
+
+
+func _on_progress_bar_value_changed(value: float) -> void:
+	if value == 100:
+		PlayerManager.player.CAMERA.current = true
+		PlayerManager.minigameTwo = false
+		PlayerManager.gotGas_Canister = false
+		$".".visible = false
+		$"../GasIntakeCam/GasIntakeGame".visible = false
+		$"../Mesh/GasIntake"._on_interaction_complete()
+		$"../GasIntakeSweetSpot".visible = false

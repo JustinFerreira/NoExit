@@ -12,3 +12,7 @@ func interact(body):
 		prompt_message = ""
 	else:
 		interacted.emit(body)
+		
+func _on_interaction_complete() -> void:
+	is_interactable = false
+	prompt_message = ""
