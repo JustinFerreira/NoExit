@@ -411,14 +411,14 @@ offset_right = 949.0
 offset_bottom = 124.0
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.21853e-10, -0.0923117, 0.0111969, -3.50477e-09, -0.00584334, -0.176886, 0.0803402, -3.78987e-16, -7.74738e-09, 0.827, 1.23423, -1.528)
+transform = Transform3D(2.21853e-10, -0.0898637, 0.0062923, -3.50477e-09, -0.00568838, -0.0994042, 0.0803402, -3.68937e-16, -4.35378e-09, 0.827, 1.15797, -1.528)
 visible = false
 material_override = SubResource("StandardMaterial3D_133wm")
 mesh = SubResource("BoxMesh_jiv7g")
 skeleton = NodePath("../GasIntakeCanister")
 
 [node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.44019e-08, -0.57956, 0.329477, -2.53334e-08, -0.329477, -0.57956, 0.666667, -2.73155e-15, -2.91409e-08, 1.18106, 1.60507, -1.52814)
+transform = Transform3D(0.26266, -0.532682, 0.302827, -2.53334e-08, -0.329477, -0.57956, 0.612743, 0.228341, -0.129811, 1.09262, 1.60507, -1.77055)
 visible = false
 material_override = SubResource("StandardMaterial3D_xu5ox")
 mesh = ExtResource("9_5q7s6")
