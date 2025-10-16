@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 
 func _on_interacted(body: Variant) -> void:
 	PlayerManager.minigameTwo = true
+	PlayerManager.MinigameMode = true
+	AudioManager.stop_loop("step")
+	PlayerManager.player.visible = false
 	PlayerManager.Gas_Canister = $"../../GasIntakeCanister"
 	$"../../GasIntakeCanister".visible = true
 	$"../../GasIntakeCam".current = true

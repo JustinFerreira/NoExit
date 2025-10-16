@@ -91,7 +91,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
-	if PlayerManager.InAnimation:
+	if PlayerManager.InAnimation || PlayerManager.MinigameMode:
 		return
 	SENSITIVITY = PlayerManager.Sensitivity
 	

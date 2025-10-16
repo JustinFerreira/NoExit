@@ -10,7 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if PlayerManager.MinigameMode == true:
+	if PlayerManager.minigameOne == true:
 		visible = true
 		$"../InteractRay".enabled = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -23,5 +23,6 @@ func _on_button_pressed() -> void:
 	$"../InteractRay".enabled = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PlayerManager.MinigameMode = false
-	PlayerManager.minigameOne = true
+	PlayerManager.minigameOne = false
+	PlayerManager.minigameOnePassed = true
 	#print("PlayerManger HotWireGame minigameOne:",PlayerManager.minigameOne)

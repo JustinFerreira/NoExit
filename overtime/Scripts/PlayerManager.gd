@@ -30,9 +30,11 @@ var gotGas_Canister = false
 
 ## Hot Wiring
 var minigameOne = false
+var minigameOnePassed = false
 
 ## Gas Canister
 var minigameTwo = false
+var minigameTwoPassed = false
 
 var Gas_Canister
 var actioning = false
@@ -75,7 +77,8 @@ func RemoveItemByName(name: String) -> bool:
 	return false
 	
 	
-func ResetInventory() -> void:
+func ResetPlayer() -> void:
+	MinigameMode = false
 	Inventory = []
 	CurrentWeight = 0.0
 	
