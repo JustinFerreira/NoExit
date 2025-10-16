@@ -80,9 +80,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if $Inventory.visible:
 			populate_inventory()
 		
-	if event.is_action_pressed("action"):
+	if event.is_action("action"):
 		if PlayerManager.minigameTwo == true:
-			PlayerManager.Gas_Canister.position.y += .16     
+			PlayerManager.actioning = true
+	if event.is_action_released("action"):  
+		PlayerManager.actioning = false
 			
 			
 

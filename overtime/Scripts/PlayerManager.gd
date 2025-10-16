@@ -35,6 +35,7 @@ var minigameOne = false
 var minigameTwo = false
 
 var Gas_Canister
+var actioning = false
 
 
 ## Death Count
