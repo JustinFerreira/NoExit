@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://csk6gelfi52le" path="res://Scenes/InteractableObject.tscn" id="10_k5roe"]
 [ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="11_que20"]
 [ext_resource type="PackedScene" uid="uid://btfvsfntfas8m" path="res://Scenes/Door.tscn" id="12_ptdn6"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="13_5n56h"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="13_5n56h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt5jyjwq0yt1y"]
+[gd_scene load_steps=12 format=3 uid="uid://dt5jyjwq0yt1y"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_rfq4f"]
 [ext_resource type="PackedScene" uid="uid://b3aadkrso5gh6" path="res://Assets/Greyboxing/ParkingGarages/ParkingGarage1.tscn" id="2_wqeg3"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="3_6pkc5"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_cqe1n"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="3_knrm2"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_15ken"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Assets/Enviroments/Garage/Scenes/GasCanister.tscn" id="6_h33ws"]
 
@@ -36,6 +37,7 @@ script = ExtResource("1_rfq4f")
 navigation_mesh = SubResource("NavigationMesh_let0x")
 
 [node name="ParkingGarage1" parent="EnemyMap" instance=ExtResource("2_wqeg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.188435, 0.207953, -0.2562)
 
 [node name="ParkingGarageElevator" parent="." instance=ExtResource("3_6pkc5")]
 transform = Transform3D(-0.0141847, 0, 1.806, 0, 1.80606, 0, -1.806, 0, -0.0141847, -42.1714, 14.9923, 0.0495898)
@@ -91,3 +93,6 @@ spot_angle = 46.44
 
 [node name="Gas Canister" parent="." instance=ExtResource("6_h33ws")]
 transform = Transform3D(1.00135, 0, 0, 0, 1.00135, 0, 0, 0, 1.00135, 76.529, 7.56598, 7.96039)
+
+[node name="Car" parent="." instance=ExtResource("3_knrm2")]
+transform = Transform3D(1.00135, 0, 0, 0, 1.00135, 0, 0, 0, 1.00135, 83.4509, 7.42288, 9.25841)

@@ -22,7 +22,7 @@ func _on_button_pressed() -> void:
 	PlayerManager.Dialog("Great now I can start my car and get out of here, cause hot wiring tottally does not start the car.")
 	$"../InteractRay".enabled = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	PlayerManager.MinigameMode = false
+	PlayerManager.MiniGameModeOff()
 	PlayerManager.minigameOne = false
 	PlayerManager.minigameOnePassed = true
 	#print("PlayerManger HotWireGame minigameOne:",PlayerManager.minigameOne)

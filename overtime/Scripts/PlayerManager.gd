@@ -39,6 +39,11 @@ var minigameTwoPassed = false
 var Gas_Canister
 var actioning = false
 
+## Hood / Battery
+var minigameThree = false
+var minigameThreePassed = false
+
+
 
 ## Death Count
 
@@ -56,6 +61,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+		
 
 
 func AddToInventory(name: String, weight: float):
@@ -95,3 +101,13 @@ func ApplyPlayerRotation():
 	player.get_node("Head").rotation.x = player_rotation_x
 	player.get_node("Head").rotation.y = player_rotation_y
 	player.get_node("Head").rotation.z = player_rotation_z
+	
+func MiniGameModeOn():
+	MinigameMode = true
+	player.visible = false
+	player.CURSOR.visible = false
+	
+func MiniGameModeOff():
+	MinigameMode = false
+	player.visible = true
+	player.CURSOR.visible = true

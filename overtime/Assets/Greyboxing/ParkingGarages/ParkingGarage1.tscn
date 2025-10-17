@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3aadkrso5gh6"]
+[gd_scene load_steps=7 format=3 uid="uid://b3aadkrso5gh6"]
 
 [ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="2_8fgnp"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="2_xgf4x"]
 [ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="3_04c40"]
 [ext_resource type="PackedScene" uid="uid://bnh3sf8jtlyib" path="res://Assets/Greyboxing/Scenes/LargeParkingGarage.tscn" id="4_fs04o"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/Enviroments/Garage/Scenes/Car.tscn" id="4_q1kpn"]
 [ext_resource type="Texture2D" uid="uid://c88jid1751qg0" path="res://Assets/Enviroments/Dev Textures/dev_texture_misc.png" id="6_or3cy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwre"]
@@ -1693,9 +1692,6 @@ transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 
 
 [node name="NpcCar4" parent="CarsF2" instance=ExtResource("3_04c40")]
 transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 5.44972, 0.245159, -8.49864)
-
-[node name="Car" parent="CarsF2" instance=ExtResource("4_q1kpn")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 72.2415, 0.297164, 10.2904)
 
 [node name="CarsF3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.3038, 0)

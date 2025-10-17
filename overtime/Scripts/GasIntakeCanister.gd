@@ -23,7 +23,7 @@ func _on_progress_bar_value_changed(value: float) -> void:
 	if value == 100:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.minigameTwo = false
-		PlayerManager.MinigameMode = false
+		PlayerManager.MiniGameModeOff()
 		PlayerManager.gotGas_Canister = false
 		PlayerManager.player.visible = true
 		PlayerManager.minigameTwoPassed = true

@@ -45,6 +45,15 @@ var Incar = false
 @onready var interact_ray:RayCast3D = $"Head/Camera3D/InteractRay"
 @onready var prompt = $Head/Camera3D/InteractRay/Prompt
 
+## Grabbing Objects Variables
+var grabbed_object = null
+var mouse = Vector2()
+var original_position = Vector3()
+var grab_distance = Vector3()
+var grab_direction
+var grab_offset = Vector3()  # Add this to store the offset
+var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
+
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	PlayerManager.player = self
@@ -56,11 +65,18 @@ func _ready() -> void:
 	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0)
 	
 # Any input that is detected automatically calls this function
+
+func _process(delta: float) -> void:
+	if grabbed_object:
+		grabbed_object.position = get_grab_position()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if PlayerManager.InAnimation:
 		return
 	if event is InputEventMouseMotion:
 		if PlayerManager.MinigameMode == true:
+			if PlayerManager.minigameThree == true:
+				mouse = event.position
 			return
 		if Incar == false:
 			head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -71,6 +87,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(event.relative.y * SENSITIVITY)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
+	if event is InputEventMouseButton:
+		if PlayerManager.minigameThree == true && event.pressed == false && event.button_index == MOUSE_BUTTON_LEFT:
+				get_mouse_world_pos(mouse)
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
 	if event.is_action_pressed("Inventory"):
@@ -266,3 +285,53 @@ func apply_sprint_speed():
 	else:
 		speed = WALK_SPEED
 		AudioManager.set_loop_pitch("step", 2)
+		
+		
+func get_mouse_world_pos(mouse: Vector2):
+	var space = get_world_3d().direct_space_state
+	var camera = get_viewport().get_camera_3d()
+	var start = camera.project_ray_origin(mouse)
+	var end = start + camera.project_ray_normal(mouse) * 10
+
+	var params = PhysicsRayQueryParameters3D.create(start, end)
+
+	var result = space.intersect_ray(params)
+	if result:
+		grabbed_object = result.collider
+		original_position = grabbed_object.global_position
+		
+		# Store the distance from camera to object center
+		var camera_to_object = original_position - camera.global_position
+		grab_distance = camera_to_object.length()
+		
+		# Store the direction from camera to object
+		grab_direction = camera_to_object.normalized()
+		
+func get_grab_position():
+	if not grabbed_object:
+		return Vector3.ZERO
+		
+	var camera = get_viewport().get_camera_3d()
+	
+	# Get the mouse direction in world space
+	var mouse_dir = camera.project_ray_normal(mouse)
+	
+	# Calculate a point along this direction at the original distance
+	var new_pos = camera.global_position + mouse_dir * grab_distance
+	
+	# Apply axis locking
+	match lock_axis:
+		"XZ":  # Keep original Y, use new X and Z
+			return Vector3(new_pos.x, original_position.y, new_pos.z)
+		"XY":  # Keep original Z, use new X and Y
+			return Vector3(new_pos.x, new_pos.y, original_position.z)
+		"YZ":  # Keep original X, use new Y and Z
+			return Vector3(original_position.x, new_pos.y, new_pos.z)
+		"X":   # Only move on X axis
+			return Vector3(new_pos.x, original_position.y, original_position.z)
+		"Y":   # Only move on Y axis
+			return Vector3(original_position.x, new_pos.y, original_position.z)
+		"Z":   # Only move on Z axis
+			return Vector3(original_position.x, original_position.y, new_pos.z)
+		_:     # No locking
+			return new_pos
