@@ -25,6 +25,7 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		PlayerManager.minigameTwo = false
 		PlayerManager.MiniGameModeOff()
 		PlayerManager.gotGas_Canister = false
+		PlayerManager.RemoveItemByName("Gas Canister")
 		PlayerManager.player.visible = true
 		PlayerManager.minigameTwoPassed = true
 		$".".visible = false

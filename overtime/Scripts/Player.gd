@@ -88,8 +88,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
-		if PlayerManager.minigameThree == true && event.pressed == false && event.button_index == MOUSE_BUTTON_LEFT:
+		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				get_mouse_world_pos(mouse)
+		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
+				grabbed_object = null
 	if event.is_action_pressed("ui_cancel"):
 		$PauseMenu.pause()
 	if event.is_action_pressed("Inventory"):
@@ -296,7 +298,7 @@ func get_mouse_world_pos(mouse: Vector2):
 	var params = PhysicsRayQueryParameters3D.create(start, end)
 
 	var result = space.intersect_ray(params)
-	if result:
+	if result.collider.is_in_group("grabbable"):
 		grabbed_object = result.collider
 		original_position = grabbed_object.global_position
 		

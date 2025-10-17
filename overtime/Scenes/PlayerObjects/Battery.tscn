@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5ftu8i0cg6v5"]
+
+[ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="1_t68l8"]
+[ext_resource type="Script" path="res://Scripts/Battery.gd" id="1_yn3cf"]
+[ext_resource type="Texture2D" uid="uid://ecao2s4la2fa" path="res://Assets/Enviroments/Dev Textures/dev_texture_road.png" id="2_0f6xu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1p2d6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i6bk"]
+albedo_texture = ExtResource("1_t68l8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_3frxf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygwrk"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbim2"]
+albedo_texture = ExtResource("2_0f6xu")
+
+[node name="Battery" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109778, 0)
+visible = false
+mesh = SubResource("BoxMesh_1p2d6")
+script = ExtResource("1_yn3cf")
+
+[node name="PositiveBattery" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+transform = Transform3D(0.374128, 0, 0, 0, 0.374128, 0, 0, 0, 0.374128, 0.638988, 0.517436, -0.586071)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PositiveBattery"]
+material_override = SubResource("StandardMaterial3D_6i6bk")
+mesh = SubResource("BoxMesh_3frxf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PositiveBattery"]
+shape = SubResource("ConvexPolygonShape3D_ygwrk")
+
+[node name="Area3D" type="Area3D" parent="PositiveBattery"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PositiveBattery/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_ygwrk")
+
+[node name="NegativeBattery" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+transform = Transform3D(0.374128, 0, 0, 0, 0.374128, 0, 0, 0, 0.374128, -0.557409, 0.517436, 0.566966)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NegativeBattery"]
+material_override = SubResource("StandardMaterial3D_vbim2")
+mesh = SubResource("BoxMesh_3frxf")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NegativeBattery"]
+shape = SubResource("ConvexPolygonShape3D_ygwrk")
+
+[node name="Area3D" type="Area3D" parent="NegativeBattery"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NegativeBattery/Area3D"]
+shape = SubResource("ConvexPolygonShape3D_ygwrk")

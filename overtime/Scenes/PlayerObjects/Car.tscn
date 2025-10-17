@@ -345,6 +345,7 @@ shape = SubResource("ConvexPolygonShape3D_4rfmg")
 [node name="Hood" type="StaticBody3D" parent="Mesh"]
 visible = false
 script = ExtResource("8_51nsx")
+prompt_message = "Open Hood"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Hood"]
 transform = Transform3D(0.0129443, 0, 0, 0, 0.00631789, 0, 0, 0, 0.0119977, 0, 0.00858154, 0.0214983)

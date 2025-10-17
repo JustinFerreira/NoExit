@@ -27,6 +27,7 @@ var InAnimation = false
 var testing = true
 var gotKeys = false
 var gotGas_Canister = false
+var gotBattery = false
 
 ## Hot Wiring
 var minigameOne = false
@@ -42,6 +43,12 @@ var actioning = false
 ## Hood / Battery
 var minigameThree = false
 var minigameThreePassed = false
+var PositiveConnected = false
+var NegativeConnected = false
+
+var Battery
+var PositiveWire
+var NegativeWire
 
 
 
@@ -85,6 +92,8 @@ func RemoveItemByName(name: String) -> bool:
 	
 func ResetPlayer() -> void:
 	MinigameMode = false
+	PositiveConnected = false
+	NegativeConnected = false
 	Inventory = []
 	CurrentWeight = 0.0
 	
@@ -108,6 +117,22 @@ func MiniGameModeOn():
 	player.CURSOR.visible = false
 	
 func MiniGameModeOff():
+	if minigameOne == true:
+		MinigameMode = false
+		player.CURSOR.visible = true
+		return
 	MinigameMode = false
 	player.visible = true
 	player.CURSOR.visible = true
+	
+func TestConnection():
+	if PositiveConnected && NegativeConnected:
+		MiniGameModeOff()
+		minigameThreePassed = true
+		minigameThree = false
+		player.CAMERA.current = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		player.prompt.visible = true
+		PositiveWire.visible = false
+		NegativeWire.visible = false
+		Battery.visible = false

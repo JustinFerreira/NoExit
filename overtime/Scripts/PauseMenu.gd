@@ -4,6 +4,15 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 
 func resume():
+	if PlayerManager.MinigameMode == true && PlayerManager.minigameTwo == false:
+		get_tree().paused = false
+		$AnimationPlayer.play("Unpause")
+		return
+	elif PlayerManager.MinigameMode == true && PlayerManager.minigameTwo == true:
+		get_tree().paused = false
+		$AnimationPlayer.play("Unpause")
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		return
 	PlayerManager.player.CURSOR.visible = true
 	get_tree().paused = false
 	$AnimationPlayer.play("Unpause")
