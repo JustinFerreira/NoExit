@@ -50,7 +50,7 @@ var grabbed_object = null
 var mouse = Vector2()
 var original_position = Vector3()
 var grab_distance = Vector3()
-var grab_direction
+var grab_direction = Vector3()
 var grab_offset = Vector3()  # Add this to store the offset
 var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
@@ -68,6 +68,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if grabbed_object:
+		# Update mouse position to current position
+		mouse = get_viewport().get_mouse_position()
 		grabbed_object.position = get_grab_position()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -309,6 +311,9 @@ func get_mouse_world_pos(mouse: Vector2):
 		# Store the direction from camera to object
 		grab_direction = camera_to_object.normalized()
 		
+		# Calculate the offset from object center to the grab point
+		grab_offset = result.position - original_position
+		
 func get_grab_position():
 	if not grabbed_object:
 		return Vector3.ZERO
@@ -320,6 +325,9 @@ func get_grab_position():
 	
 	# Calculate a point along this direction at the original distance
 	var new_pos = camera.global_position + mouse_dir * grab_distance
+	
+	# Apply the grab offset to maintain the relative position where the object was grabbed
+	new_pos += grab_offset
 	
 	# Apply axis locking
 	match lock_axis:
