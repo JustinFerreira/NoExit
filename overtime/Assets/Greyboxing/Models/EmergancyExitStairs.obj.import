@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdwye6cbxp270"
+path="res://.godot/imported/EmergancyExitStairs.obj-5c4993b5c1d0756ffcd8f26736b397b6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/EmergancyExitStairs.obj-5c4993b5c1d0756ffcd8f26736b397b6.mesh"]
+
+source_file="res://Assets/Greyboxing/Models/EmergancyExitStairs.obj"
+dest_files=["res://.godot/imported/EmergancyExitStairs.obj-5c4993b5c1d0756ffcd8f26736b397b6.mesh", "res://.godot/imported/EmergancyExitStairs.obj-5c4993b5c1d0756ffcd8f26736b397b6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
