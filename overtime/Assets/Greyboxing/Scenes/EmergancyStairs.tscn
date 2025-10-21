@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7uec25qonwb7"]
+
+[ext_resource type="ArrayMesh" uid="uid://cdwye6cbxp270" path="res://Assets/Greyboxing/Models/EmergancyExitStairs.obj" id="1_rwp3n"]
+
+[node name="EmergancyStairs" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -48)
+mesh = ExtResource("1_rwp3n")

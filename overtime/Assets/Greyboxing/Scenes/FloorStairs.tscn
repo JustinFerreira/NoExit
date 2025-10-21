@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj5m26laxxem1"]
+
+[ext_resource type="ArrayMesh" uid="uid://cato6yg652rfq" path="res://Assets/Greyboxing/Models/FloorStairs.obj" id="1_0qeq4"]
+
+[node name="FloorStairs" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -42)
+mesh = ExtResource("1_0qeq4")
