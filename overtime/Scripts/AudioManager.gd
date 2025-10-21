@@ -12,9 +12,9 @@ var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 
 ## SFX
 
-var step = load("res://Assets/Audio/SFX/step_dev.wav")
+var step = load("res://Assets/Audio/SFX/Footsteps/SoftStep2.wav")
 
-var heartbeat = load("res://Assets/Audio/SFX/heartbeat_dev.wav")
+var heartbeat = load("res://Assets/Audio/SFX/heartbeat-single-383748.mp3")
 
 var breathing = load("res://Assets/Audio/SFX/breathing_dev.wav")
 
