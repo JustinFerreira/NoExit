@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://l37gv4luynjb"
+path="res://.godot/imported/AlternatingParkingGarage.obj-ecdfc5064793c50157e7bd6d2bda59a6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AlternatingParkingGarage.obj-ecdfc5064793c50157e7bd6d2bda59a6.mesh"]
+
+source_file="res://Assets/Greyboxing/Models/AlternatingParkingGarage.obj"
+dest_files=["res://.godot/imported/AlternatingParkingGarage.obj-ecdfc5064793c50157e7bd6d2bda59a6.mesh", "res://.godot/imported/AlternatingParkingGarage.obj-ecdfc5064793c50157e7bd6d2bda59a6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

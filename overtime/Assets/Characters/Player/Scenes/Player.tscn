@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
-[ext_resource type="PackedScene" uid="uid://b6i75ojxg73j6" path="res://Menus/PauseMenu.tscn" id="2_1l65u"]
+[ext_resource type="PackedScene" uid="uid://dym5cp4qr0nyb" path="res://Menus/SimplifiedPauseMenu.tscn" id="2_cqu1j"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_sf52k"]
 [ext_resource type="Script" path="res://Scripts/Dialog.gd" id="3_8urho"]
 [ext_resource type="Texture2D" uid="uid://dl5qgwkg3d8b8" path="res://Assets/Enviroments/Dev Textures/dev_texture_blue.png" id="3_yn117"]
@@ -45,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_1l65u")]
+[node name="SimplifiedPauseMenu" parent="." instance=ExtResource("2_cqu1j")]
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
