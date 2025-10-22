@@ -23,8 +23,8 @@ const FOV_CHANGE = 1.5
 var was_moving = false
 var is_moving = false
 
-var breathing_volume = 10.0  # Adjust as needed
-var heartbeat_volume = 15.0  # Adjust as needed
+var breathing_volume = -10  # Adjust as needed
+var heartbeat_volume = -20  # Adjust as needed
 
 #settings
 
@@ -50,7 +50,7 @@ var grabbed_object = null
 var mouse = Vector2()
 var original_position = Vector3()
 var grab_distance = Vector3()
-var grab_direction
+var grab_direction = Vector3()
 var grab_offset = Vector3()  # Add this to store the offset
 var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
@@ -61,13 +61,15 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0)
-	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0)
+	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
+	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
 	
 # Any input that is detected automatically calls this function
 
 func _process(delta: float) -> void:
 	if grabbed_object:
+		# Update mouse position to current position
+		mouse = get_viewport().get_mouse_position()
 		grabbed_object.position = get_grab_position()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -163,7 +165,7 @@ func _physics_process(delta: float) -> void:
 	# Handle step sounds
 	if is_moving and is_on_floor():
 		if not was_moving:  # Just started moving
-			AudioManager.play_sound_loop(AudioManager.step, "step", 2)
+			AudioManager.play_sound_loop(AudioManager.step, "step", 1, -24, 0.2)
 	elif was_moving:  # Was moving but now stopped
 		AudioManager.stop_loop("step")
 		
@@ -226,6 +228,10 @@ func apply_breathing_effects():
 		target_pitch = 1.1
 	else:
 		target_pitch = 0.9
+		
+	if PlayerManager.scared:
+		target_pitch = 2
+		target_volume = 10
 
 	## Make breathing more intense when low on stamina
 	#if stamina < 30:
@@ -244,6 +250,10 @@ func apply_heartbeat_effects():
 	if Input.is_action_pressed("sprint"):
 		target_pitch = 1.1
 		target_volume = heartbeat_volume + 2.0
+		
+	if PlayerManager.scared:
+		target_pitch = 2
+		target_volume = 10
 
 	# Make heartbeat even more intense when very low health
 	#if health < 20:
@@ -309,6 +319,9 @@ func get_mouse_world_pos(mouse: Vector2):
 		# Store the direction from camera to object
 		grab_direction = camera_to_object.normalized()
 		
+		# Calculate the offset from object center to the grab point
+		grab_offset = result.position - original_position
+		
 func get_grab_position():
 	if not grabbed_object:
 		return Vector3.ZERO
@@ -320,6 +333,9 @@ func get_grab_position():
 	
 	# Calculate a point along this direction at the original distance
 	var new_pos = camera.global_position + mouse_dir * grab_distance
+	
+	# Apply the grab offset to maintain the relative position where the object was grabbed
+	new_pos += grab_offset
 	
 	# Apply axis locking
 	match lock_axis:

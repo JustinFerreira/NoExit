@@ -37,8 +37,17 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()
 	
+	
+	
 func target_position(target):
 	if position == target:
 		return
 	nav.target_position = target
 	move_and_slide()
+	
+	var distance = global_position.distance_to(target)
+	if distance <= 10:
+		PlayerManager.scared = true
+	else:
+		PlayerManager.scared = false
+	
