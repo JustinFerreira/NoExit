@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bt2m5ajew0qwr"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_v1dgc"]
-[ext_resource type="ArrayMesh" uid="uid://ddv5nt3isqujm" path="res://Assets/Greyboxing/Models/GrarageFloorCombo.obj" id="1_xb2cs"]
+[ext_resource type="ArrayMesh" uid="uid://l37gv4luynjb" path="res://Assets/Greyboxing/Models/AlternatingParkingGarage.obj" id="2_myd8s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1eux"]
 albedo_texture = ExtResource("1_v1dgc")
@@ -15,7 +15,7 @@ data = PackedVector3Array(-4982.12, -11.139, 2450.65, -5002.36, -11.139, 2450.65
 [node name="ParkingGarageComboFloor" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 91)
 material_override = SubResource("StandardMaterial3D_b1eux")
-mesh = ExtResource("1_xb2cs")
+mesh = ExtResource("2_myd8s")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="ParkingGarageComboFloor"]
 
