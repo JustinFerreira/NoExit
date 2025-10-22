@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xr1akf1xrp74"
+path="res://.godot/imported/M_Camera_Unwrapped.obj-4825c1beec29e69c439407f1404eb470.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Camera_Unwrapped.obj-4825c1beec29e69c439407f1404eb470.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Camera_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Camera_Unwrapped.obj-4825c1beec29e69c439407f1404eb470.mesh", "res://.godot/imported/M_Camera_Unwrapped.obj-4825c1beec29e69c439407f1404eb470.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
