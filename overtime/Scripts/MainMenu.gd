@@ -39,7 +39,8 @@ func _on_grey_boxing_btn_pressed() -> void:
 
 func _on_loop_1_btn_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_sound_loop(AudioManager.OfficeWhiteNoise, "officeWhiteNoise")
+	AudioManager.play_music(AudioManager.OfficeWhiteNoise)
+	AudioManager.OfficeMusicOn = true
 	get_tree().change_scene_to_file("res://Scenes/Levels/Loop1.tscn")
 
 

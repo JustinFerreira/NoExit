@@ -95,7 +95,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				grabbed_object = null
 	if event.is_action_pressed("ui_cancel"):
-		$SimplifiedPauseMenu.pause()
+		if PlayerManager.DevMode:
+			$PauseMenu.pause()
+		else:
+			$SimplifiedPauseMenu.pause()
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
 		#print($Inventory.visible)

@@ -1,12 +1,14 @@
 extends Node
 
 var MusicAudio = AudioStreamPlayer.new()
+var OfficeMusicAudio = AudioStreamPlayer.new()
 var looping_players: Dictionary = {}
+var OfficeMusicOn: bool = false
 
 ## MUSIC
 var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
-var OfficeWhiteNoise = load("res://Assets/Audio/SFX/WhiteNoise.wav")
+var OfficeWhiteNoise = load("res://Assets/Audio/SFX/WhiteNoise.mp3")
 
 var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 
@@ -19,6 +21,8 @@ var heartbeat = load("res://Assets/Audio/SFX/heartbeat-single-383748.mp3")
 var breathing = load("res://Assets/Audio/SFX/breathing_dev.wav")
 
 var keys = load("res://Assets/Audio/SFX/Keys2.wav")
+
+var elevator_whitenoise = load("res://Assets/Audio/SFX/elevator_WhiteNoise.mp3")
 
 func _ready() -> void:
 	MusicAudio.bus = "Music"
@@ -37,8 +41,14 @@ func play_sound(sound_stream: AudioStream):
 	new_player.queue_free()
 	
 func play_music(sound_stream: AudioStream):
-	MusicAudio.stream = sound_stream
-	MusicAudio.play()
+	if sound_stream == OfficeWhiteNoise:
+		add_child(OfficeMusicAudio)
+		OfficeMusicAudio.volume_db = -12
+		OfficeMusicAudio.stream = sound_stream
+		OfficeMusicAudio.play()
+	else:
+		MusicAudio.stream = sound_stream
+		MusicAudio.play()
 	
 func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale: float = 1.0, volume_db: float = 1.0, wait: float = 0.0):
 	if looping_players.has(sound_name):
@@ -114,6 +124,8 @@ func fade_loop_volume(sound_name: String, target_volume: float, duration: float 
 		tween.tween_property(looping_players[sound_name], "volume_db", target_volume, duration)
 	
 func cancel_music():
+	if OfficeMusicOn:
+		OfficeMusicAudio.queue_free()
 	MusicAudio.playing = false
 	
 func cancel_loop_sfx():

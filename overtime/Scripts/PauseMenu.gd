@@ -27,7 +27,6 @@ func pause():
 
 func _on_resume_btn_pressed() -> void:
 	resume()
-	print("pee")
 	$SettingsMenu.visible = false
 
 

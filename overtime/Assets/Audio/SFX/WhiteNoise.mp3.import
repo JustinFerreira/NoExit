@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/WhiteNoise.mp3-c02dcb696b03e28a9a583660897cca
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
