@@ -1,18 +1,18 @@
 extends Control
 
 ## Sound Settings
-@onready var master_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MasterVbox/MasterSlider
-@onready var music_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MusicVbox/MusicSlider
-@onready var sfx_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/SFXVbox/SFXSlider
-@onready var mute_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/SoundSettingsVbox/MuteCheckBox
+@onready var master_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider
+@onready var music_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider
+@onready var sfx_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider
+@onready var mute_check = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MuteCheckBox
 
 ## Visual Settings
-@onready var fullscreen_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/VisualSettingsVbox/FullScreenCheckBox
+@onready var fullscreen_check = $ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
 
 ## Game Settings
-@onready var shifthold_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/ShiftHoldRunCheckBox
-@onready var sensitivity_slider = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/SensitivityVbox/SensitivitySlider
-@onready var headbob_check = $ColorRect/MarginContainer/VBoxContainer/HBoxContainer/GameSettingsVbox/HeadBobCheckBox
+@onready var shifthold_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
+@onready var sensitivity_slider = $ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
+@onready var headbob_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

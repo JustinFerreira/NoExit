@@ -1,0 +1,243 @@
+[gd_scene load_steps=35 format=3 uid="uid://dym5cp4qr0nyb"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_q5dj2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="2_ct66v"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="3_1oiy7"]
+[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="4_k588r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_li37s"]
+shader = ExtResource("2_ct66v")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_5r7n5"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_s5nud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_164d5"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i62js"]
+_data = {
+"Pause": SubResource("Animation_5r7n5"),
+"RESET": SubResource("Animation_s5nud"),
+"Unpause": SubResource("Animation_164d5")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub2nk"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 0.431373)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0rfk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76im8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2apfc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nb8wk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ird0d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fccnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vq3ws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbrr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4ihdc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3u50y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcs2e"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_qlybi"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_wn41i"]
+events = [SubResource("InputEventAction_qlybi")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejvvs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a0yxd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4mmmy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsgy2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2biq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vytxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rli0n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gows7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4x3q7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6llc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rd34l"]
+
+[node name="SimplifiedPauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q5dj2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_li37s")
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 718.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i62js")
+}
+
+[node name="SettingsMenu" parent="." instance=ExtResource("4_k588r")]
+visible = false
+layout_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ub2nk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 275
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1oiy7")
+theme_override_font_sizes/font_size = 150
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeBtn" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("3_1oiy7")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0rfk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_76im8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2apfc")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nb8wk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ird0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fccnp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vq3ws")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tbrr6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4ihdc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3u50y")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xcs2e")
+shortcut = SubResource("Shortcut_wn41i")
+
+[node name="MainMenuBtn" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("3_1oiy7")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ejvvs")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_a0yxd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4mmmy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dsgy2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_s2biq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vytxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rli0n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gows7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4x3q7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_s6llc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rd34l")
+text = "Main Menu
+"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
