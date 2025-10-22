@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://blm1bajtrp10y"
+uid="uid://c0fnfapes0ekf"
 path="res://.godot/imported/ticking-clock-background-sound-effect-331707.mp3-ae02a360e05a0b30efdd9508e42cd8dd.mp3str"
 
 [deps]
@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/ticking-clock-background-sound-effect-331707.
 
 [params]
 
-loop=true
-loop_offset=0.0
-bpm=0.0
+loop=false
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4
