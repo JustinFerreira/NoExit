@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cja1f1lpuu26i"]
+
+[ext_resource type="Texture2D" uid="uid://dla06rt1hhnqt" path="res://Assets/Enviroments/Dev Textures/dev_texture_dirt.png" id="1_m506l"]
+[ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_jm45i"]
+[ext_resource type="Script" path="res://Scripts/NpcSounds.gd" id="3_51aic"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag0cb"]
+albedo_texture = ExtResource("1_m506l")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a7pg1"]
+points = PackedVector3Array(-1.00714, 1.41862, -0.0168434, -1.00714, 1.41862, 0.0149908, 0.204448, -0.0159421, 0.269992, -0.210033, 0.016017, -0.112533, 0.0449873, 1.99268, 0.11054, 0.122981, 1.53558, -0.147038, -0.14613, -0.0159421, 0.30192, 0.204448, 0.016017, -0.112533, 1.00156, 1.41862, 0.0149908, 0.0131343, 1.48234, 0.20623, 0.0122822, 1.97005, -0.0729771, 1.00156, 1.48234, -0.0487712, -0.975093, 1.41862, -0.0487712, 0.140546, 0.047976, 0.30192, -1.00714, 1.5145, 0.0149908, -0.127116, 1.52946, -0.144621, 0.87395, 1.54606, 0.0469186, -0.210033, -0.0159421, 0.238111, -0.0505715, 1.99268, 0.11054, -0.210033, -0.0159421, -0.0806522, -0.0187186, 1.48234, 0.20623, 0.905802, 1.57821, 0.0149908, -0.847681, 1.54606, 0.0469186, -0.14613, 0.047976, 0.30192, 0.0116502, 1.90058, -0.0961953, 1.00156, 1.41862, -0.0487712, -0.0777081, 1.96421, -0.042164, -0.911387, 1.57821, 0.0149908, -0.0964742, 1.03087, -0.138155, 0.0722337, 1.96562, -0.0423178, 1.00156, 1.5145, 0.0149908, -0.0178178, 1.96693, -0.072539)
+
+[node name="Npc" type="Node3D"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="MKillerPrimitive" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ag0cb")
+mesh = ExtResource("2_jm45i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MKillerPrimitive"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MKillerPrimitive/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_a7pg1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+script = ExtResource("3_51aic")

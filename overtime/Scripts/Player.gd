@@ -23,8 +23,8 @@ const FOV_CHANGE = 1.5
 var was_moving = false
 var is_moving = false
 
-var breathing_volume = 10.0  # Adjust as needed
-var heartbeat_volume = 15.0  # Adjust as needed
+var breathing_volume = -10  # Adjust as needed
+var heartbeat_volume = -20  # Adjust as needed
 
 #settings
 
@@ -61,8 +61,8 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0)
-	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0)
+	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
+	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
 	
 # Any input that is detected automatically calls this function
 
@@ -165,7 +165,7 @@ func _physics_process(delta: float) -> void:
 	# Handle step sounds
 	if is_moving and is_on_floor():
 		if not was_moving:  # Just started moving
-			AudioManager.play_sound_loop(AudioManager.step, "step", 2)
+			AudioManager.play_sound_loop(AudioManager.step, "step", 1, -24, 0.2)
 	elif was_moving:  # Was moving but now stopped
 		AudioManager.stop_loop("step")
 		

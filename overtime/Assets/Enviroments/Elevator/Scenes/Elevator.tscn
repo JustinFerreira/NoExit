@@ -182,7 +182,7 @@ mesh = SubResource("BoxMesh_kk0d7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
 shape = SubResource("ConcavePolygonShape3D_k3kkb")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="ElevatorMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_w6g63")
 bus = &"Music"
 script = ExtResource("9_0fam1")

@@ -12,11 +12,13 @@ var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 
 ## SFX
 
-var step = load("res://Assets/Audio/SFX/Footsteps/SoftStep2.wav")
+var step = load("res://Assets/Audio/SFX/Footsteps/SoftStep1.wav")
 
 var heartbeat = load("res://Assets/Audio/SFX/heartbeat-single-383748.mp3")
 
 var breathing = load("res://Assets/Audio/SFX/breathing_dev.wav")
+
+var keys = load("res://Assets/Audio/SFX/Keys2.wav")
 
 func _ready() -> void:
 	MusicAudio.bus = "Music"
@@ -38,18 +40,23 @@ func play_music(sound_stream: AudioStream):
 	MusicAudio.stream = sound_stream
 	MusicAudio.play()
 	
-func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale: float = 1.0):
+func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale: float = 1.0, volume_db: float = 1.0, wait: float = 0.0):
 	if looping_players.has(sound_name):
 		looping_players[sound_name].pitch_scale = pitch_scale
+		looping_players[sound_name].volume_db = volume_db
 		return
 	
 	var new_player = AudioStreamPlayer.new()
 	new_player.bus = "SFX"
 	new_player.stream = sound_stream
-	new_player.autoplay = true
 	new_player.pitch_scale = pitch_scale  # Add pitch control
+	new_player.volume_db = volume_db
 	
-	new_player.finished.connect(_on_player_finished.bind(new_player))
+	
+	if wait > 0:
+		new_player.finished.connect(_on_player_finished.bind(new_player, wait))
+	else:
+		new_player.finished.connect(_on_player_finished.bind(new_player))
 	
 	add_child(new_player)
 	new_player.play()
@@ -59,7 +66,7 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale:
 		looping_players[sound_name] = new_player
 	
 	return new_player
-	
+
 func set_loop_pitch(sound_name: String, pitch: float):
 	if looping_players.has(sound_name):
 		looping_players[sound_name].pitch_scale = pitch
@@ -71,9 +78,31 @@ func stop_loop(sound_name: String):
 		player.queue_free()
 		looping_players.erase(sound_name)
 
-func _on_player_finished(player: AudioStreamPlayer):
+func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
+
 	# Restart the same player instead of creating a new one
-	player.play()
+	if wait > 0 && player:
+		 # Check if player already has a timer
+		if player.has_meta("restart_timer") and is_instance_valid(player.get_meta("restart_timer")):
+			return  # Timer already exists
+		
+		var timer = Timer.new()
+		timer.wait_time = wait
+		timer.one_shot = true
+		timer.timeout.connect(
+			func():
+				if is_instance_valid(player):
+					player.play()
+				if is_instance_valid(player) && is_instance_valid(timer):
+					timer.queue_free()
+					if player.has_meta("restart_timer"):
+						player.set_meta("restart_timer", null)
+		)
+		add_child(timer)
+		timer.start()
+		player.set_meta("restart_timer", timer)
+	else:
+		player.play()
 	
 func set_loop_volume(sound_name: String, volume_db: float):
 	if looping_players.has(sound_name):
