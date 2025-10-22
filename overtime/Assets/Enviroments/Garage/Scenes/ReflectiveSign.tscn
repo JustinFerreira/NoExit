@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://v5f68j5qj75g"]
+
+[ext_resource type="Texture2D" uid="uid://q33g0o6d1oua" path="res://Assets/Enviroments/Garage/Textures/Reflective Sign Textures/M_ReflectiveSign_Unwrapped_BaseColor.png" id="1_usn0m"]
+[ext_resource type="Texture2D" uid="uid://cceg30hhyou2s" path="res://Assets/Enviroments/Garage/Textures/Reflective Sign Textures/M_ReflectiveSign_Unwrapped_Height.png" id="2_ygq1h"]
+[ext_resource type="Texture2D" uid="uid://8hwgrubyrgdi" path="res://Assets/Enviroments/Garage/Textures/Reflective Sign Textures/M_ReflectiveSign_Unwrapped_Metalic_and_Rougness.png" id="3_xwibn"]
+[ext_resource type="Texture2D" uid="uid://cy35xobmj53s6" path="res://Assets/Enviroments/Garage/Textures/Reflective Sign Textures/M_ReflectiveSign_Unwrapped_Normal.png" id="4_luoy8"]
+[ext_resource type="ArrayMesh" uid="uid://d3v8yg66bjl2j" path="res://Assets/Enviroments/Garage/Models/M_ReflectiveSign_Unwrapped.obj" id="5_iowum"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aam0r"]
+albedo_texture = ExtResource("1_usn0m")
+metallic = 1.0
+metallic_texture = ExtResource("3_xwibn")
+roughness_texture = ExtResource("3_xwibn")
+normal_enabled = true
+normal_texture = ExtResource("4_luoy8")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_ygq1h")
+
+[node name="ReflectiveSign" type="Node3D"]
+transform = Transform3D(0.006, 0, 0, 0, 0.006, 0, 0, 0, 0.006, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_aam0r")
+mesh = ExtResource("5_iowum")

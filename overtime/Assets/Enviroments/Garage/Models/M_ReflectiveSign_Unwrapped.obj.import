@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3v8yg66bjl2j"
+path="res://.godot/imported/M_ReflectiveSign_Unwrapped.obj-ee53043a3fc283cf5e1ddfbcc766ec03.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_ReflectiveSign_Unwrapped.obj-ee53043a3fc283cf5e1ddfbcc766ec03.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_ReflectiveSign_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_ReflectiveSign_Unwrapped.obj-ee53043a3fc283cf5e1ddfbcc766ec03.mesh", "res://.godot/imported/M_ReflectiveSign_Unwrapped.obj-ee53043a3fc283cf5e1ddfbcc766ec03.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
