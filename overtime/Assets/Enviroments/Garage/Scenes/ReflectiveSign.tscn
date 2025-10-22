@@ -10,10 +10,14 @@
 albedo_texture = ExtResource("1_usn0m")
 metallic = 1.0
 metallic_texture = ExtResource("3_xwibn")
+roughness = 0.0
 roughness_texture = ExtResource("3_xwibn")
+roughness_texture_channel = 2
 normal_enabled = true
 normal_texture = ExtResource("4_luoy8")
-heightmap_enabled = true
+ao_enabled = true
+ao_texture = ExtResource("3_xwibn")
+ao_texture_channel = 1
 heightmap_texture = ExtResource("2_ygq1h")
 
 [node name="ReflectiveSign" type="Node3D"]
