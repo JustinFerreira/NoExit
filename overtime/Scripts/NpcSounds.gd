@@ -1,6 +1,6 @@
 extends AudioStreamPlayer3D
 
-@export var max_hearing_distance: float = 10.0
+@export var max_hearing_distance: float = 50.0
 @export var min_volume_db: float = 80.0
 
 var keyboard1 = load("res://Assets/Audio/SFX/Keyboard/Typing/Keyboard1.wav") 
@@ -8,11 +8,11 @@ var keyboard2 = load("res://Assets/Audio/SFX/Keyboard/Typing/Keyboard2.wav")
 var keyboard3 = load("res://Assets/Audio/SFX/Keyboard/Typing/Keyboard3.wav")
 var keyboard4 = load("res://Assets/Audio/SFX/Keyboard/Typing/Keyboard4.wav")
 var keyboard5 = load("res://Assets/Audio/SFX/Keyboard/Typing/Keyboard5.wav")
-var keysingle1 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle1.wav")
-var keysingle2 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle2.wav")
-var keysingle3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav")
-var keysingle4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
-var keysingle5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
+#var keysingle1 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle1.wav")
+#var keysingle2 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle2.wav")
+#var keysingle3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav")
+#var keysingle4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
+#var keysingle5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
 var keyspace1 = load("res://Assets/Audio/SFX/Keyboard/Spacebar/KeyboardSpace1.wav")
 var keyspace2 = load("res://Assets/Audio/SFX/Keyboard/Spacebar/KeyboardSpace2.wav")
 
@@ -20,12 +20,12 @@ var keyspace2 = load("res://Assets/Audio/SFX/Keyboard/Spacebar/KeyboardSpace2.wa
 var sounds = []
 var random_timer: Timer = null
 var min_interval: float = 1.0
-var max_interval: float = 120.0
+var max_interval: float = 20.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	max_distance = max_hearing_distance
-	sounds = [keyboard1, keyboard2, keyboard3, keyboard4, keyboard5, keysingle1, keysingle2, keysingle3, keysingle4, keysingle5, keyspace1, keyspace2]
+	sounds = [keyboard1, keyboard2, keyboard3, keyboard4, keyboard5, keyspace1, keyspace2]
 	
 	start_random_playback()
 

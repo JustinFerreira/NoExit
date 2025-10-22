@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://k1xve5p6csas"]
+[gd_scene load_steps=13 format=3 uid="uid://k1xve5p6csas"]
 
 [ext_resource type="Script" path="res://Scripts/loop1.gd" id="1_aadf4"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="1_rffta"]
@@ -11,8 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://bctbvoyd0rqro" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="9_magg0"]
 [ext_resource type="Script" path="res://Scenes/Levels/Phoneringing.gd" id="9_yxtsp"]
 [ext_resource type="PackedScene" uid="uid://cja1f1lpuu26i" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
-[ext_resource type="AudioStream" uid="uid://v8osoxtlf2b1" path="res://Assets/Audio/SFX/WhiteNoise.wav" id="11_xyg82"]
-[ext_resource type="Script" path="res://Scenes/Levels/WhiteNoise.gd" id="12_rstim"]
 
 [sub_resource type="Environment" id="Environment_x47e5"]
 background_mode = 1
@@ -51,11 +49,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.39484, 8.54776)
 stream = ExtResource("9_magg0")
 bus = &"SFX"
 script = ExtResource("9_yxtsp")
-
-[node name="WhiteNoise" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.66011, 8.03989)
-stream = ExtResource("11_xyg82")
-script = ExtResource("12_rstim")
 
 [node name="Npc" parent="." instance=ExtResource("11_bl3v1")]
 transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, -0.763295, 0.0156963, 6.54742)

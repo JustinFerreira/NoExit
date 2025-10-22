@@ -6,7 +6,7 @@ var looping_players: Dictionary = {}
 ## MUSIC
 var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
-var GamePlayMusic = load("res://Assets/Audio/SFX/Ambient.wav")
+var OfficeWhiteNoise = load("res://Assets/Audio/SFX/WhiteNoise.wav")
 
 var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 

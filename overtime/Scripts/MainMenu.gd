@@ -29,31 +29,27 @@ func _on_settings_btn_pressed() -> void:
 
 func _on_main_btn_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_music(AudioManager.GamePlayMusic)
 	get_tree().change_scene_to_file("res://Scenes/Levels/main.tscn")
 
 
 func _on_grey_boxing_btn_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_music(AudioManager.GamePlayMusic)
 	get_tree().change_scene_to_file("res://Scenes/Levels/GreyBoxLevel.tscn")
 
 
 func _on_loop_1_btn_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_music(AudioManager.GamePlayMusic)
+	AudioManager.play_sound_loop(AudioManager.OfficeWhiteNoise, "officeWhiteNoise")
 	get_tree().change_scene_to_file("res://Scenes/Levels/Loop1.tscn")
 
 
 func _on_parking_keys_l_1_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_music(AudioManager.GamePlayMusic)
 	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageKeysLoop1.tscn")
 
 
 func _on_parking_l_1_pressed() -> void:
 	AudioManager.cancel_music()
-	AudioManager.play_music(AudioManager.GamePlayMusic)
 	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
 
 
