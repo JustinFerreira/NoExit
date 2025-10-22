@@ -16,6 +16,8 @@ var player_rotation_x
 var player_rotation_y
 var player_rotation_z
 
+var scared = false
+
 ## Modes
 
 var MinigameMode = false
@@ -104,7 +106,7 @@ func SavePlayerRotation():
 	player_rotation_x = player.get_node("Head").rotation.x
 	player_rotation_y = player.get_node("Head").rotation.y
 	player_rotation_z = player.get_node("Head").rotation.z
-	print(player_rotation_x, player_rotation_y, player_rotation_z)
+	#print(player_rotation_x, player_rotation_y, player_rotation_z)
 	
 func ApplyPlayerRotation():
 	player.get_node("Head").rotation.x = player_rotation_x

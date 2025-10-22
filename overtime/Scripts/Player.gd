@@ -228,6 +228,10 @@ func apply_breathing_effects():
 		target_pitch = 1.1
 	else:
 		target_pitch = 0.9
+		
+	if PlayerManager.scared:
+		target_pitch = 2
+		target_volume = 10
 
 	## Make breathing more intense when low on stamina
 	#if stamina < 30:
@@ -246,6 +250,10 @@ func apply_heartbeat_effects():
 	if Input.is_action_pressed("sprint"):
 		target_pitch = 1.1
 		target_volume = heartbeat_volume + 2.0
+		
+	if PlayerManager.scared:
+		target_pitch = 2
+		target_volume = 10
 
 	# Make heartbeat even more intense when very low health
 	#if health < 20:
