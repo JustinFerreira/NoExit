@@ -1,6 +1,6 @@
 extends AudioStreamPlayer3D
 
-@export var max_hearing_distance: float = 50.0
+@export var max_hearing_distance: float = 80.0
 @export var min_volume_db: float = -30.0
 var random_play_timer: Timer = null
 
