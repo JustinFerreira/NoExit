@@ -10,7 +10,7 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="FloorStairs" parent="." instance=ExtResource("2_lxoox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6781, 3.94777, 95.3263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8119, 9.10287, 91.1767)
 
 [node name="Player" parent="." instance=ExtResource("3_o7hmn")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -30.5214, 8.4972, 86.8357)
