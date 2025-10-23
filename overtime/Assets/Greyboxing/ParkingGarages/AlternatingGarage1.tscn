@@ -40,31 +40,31 @@ albedo_texture = ExtResource("10_i2k14")
 albedo_texture = ExtResource("10_i2k14")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_odk5t"]
-size = Vector3(0.7, 12.4, 7.7)
+size = Vector3(0.8, 12.4, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2oorv"]
-size = Vector3(0.6, 14.4, 16.1)
+size = Vector3(0.8, 14.4, 17.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rqrke"]
-size = Vector3(0.5, 11.8, 8.9)
+size = Vector3(0.8, 11.8, 9.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q8w7e"]
-size = Vector3(0.4, 17.1, 15.7)
+size = Vector3(0.8, 17.1, 16.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c47v5"]
-size = Vector3(0.3, 9.3, 7.7)
+size = Vector3(0.3, 9.3, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jxgy6"]
-size = Vector3(0.5, 9.5, 7.4)
+size = Vector3(0.6, 9.5, 7.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tjru8"]
-size = Vector3(0.5, 15.8, 6.5)
+size = Vector3(0.7, 15.8, 6.6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8bj1g"]
-size = Vector3(0.5, 15.2, 6.3)
+size = Vector3(0.7, 15.2, 6.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7cnk"]
-size = Vector3(0.5, 11, 6.1)
+size = Vector3(0.7, 11, 6.9)
 
 [node name="AlternatingGarage1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -81)
@@ -4175,53 +4175,53 @@ size = Vector3(10.7, 4.8, 0.4)
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.25, 3.7, 91.35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.3, 3.7, 91.2)
 shape = SubResource("BoxShape3D_odk5t")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.1, 2.1, 95.45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 2.1, 95.2)
 shape = SubResource("BoxShape3D_2oorv")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.85, 3.4, 91.15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 3.4, 90.95)
 shape = SubResource("BoxShape3D_rqrke")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9, 2.15, 95.15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.9, 2.15, 94.95)
 shape = SubResource("BoxShape3D_q8w7e")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.95, 4.45, 99.15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.95, 4.45, 99.3)
 shape = SubResource("BoxShape3D_c47v5")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.05, 4.75, 99.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1, 4.75, 99.35)
 shape = SubResource("BoxShape3D_jxgy6")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.15, 2.6, 95.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.15, 2.6, 95.1)
 shape = SubResource("BoxShape3D_tjru8")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.15, 2.5, 95.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.05, 2.5, 95.15)
 shape = SubResource("BoxShape3D_8bj1g")
 
 [node name="StaticBody3D9" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.45, 4.5, 95.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.35, 4.5, 95.05)
 shape = SubResource("BoxShape3D_a7cnk")
