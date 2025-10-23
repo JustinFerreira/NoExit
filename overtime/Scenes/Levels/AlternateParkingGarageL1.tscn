@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cu34oa67umly4"]
+[gd_scene load_steps=17 format=3 uid="uid://cu34oa67umly4"]
 
 [ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="1_4wjrg"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qixy7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="5_vuqxf"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="6_j65yb"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="11_rikxf"]
+[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
 
 [sub_resource type="Environment" id="Environment_ks8si"]
 background_mode = 1
@@ -128,3 +129,9 @@ spot_angle = 46.44
 
 [node name="Gas Canister" parent="." instance=ExtResource("11_rikxf")]
 transform = Transform3D(1.85488, 0, 0, 0, 1.85488, 0, 0, 0, 1.85488, 18.9254, -4.99648, 126.27)
+
+[node name="Elevator" parent="." instance=ExtResource("12_60cos")]
+transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -7.9065, -5.04671, 134.474)
+
+[node name="Elevator2" parent="." instance=ExtResource("12_60cos")]
+transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -7.89525, 0.213352, 134.488)
