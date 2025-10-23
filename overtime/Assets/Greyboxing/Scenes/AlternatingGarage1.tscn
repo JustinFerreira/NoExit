@@ -355,7 +355,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, -5, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, -5, 3)
 
 [node name="ParkingBlocksF5&6" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3, 94)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 94)
 
 [node name="ParkBlock" parent="ParkingBlocksF5&6" instance=ExtResource("3_i1oob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, -5, 3)
