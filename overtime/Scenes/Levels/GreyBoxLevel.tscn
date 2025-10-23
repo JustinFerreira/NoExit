@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_3lhs1"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_wirc2"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="3_g62db"]
-[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/Scenes/ParkingGarageWalls.tscn" id="3_qgb5e"]
+[ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Assets/Greyboxing/ParkingGarages/ParkingGarageWalls.tscn" id="3_qgb5e"]
 [ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="4_2puch"]
-[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Scenes/EmptyOfficeGreybox.tscn" id="4_3726l"]
+[ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="4_3726l"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="7_83tbi"]
 [ext_resource type="PackedScene" uid="uid://b3aadkrso5gh6" path="res://Assets/Greyboxing/ParkingGarages/ParkingGarage1.tscn" id="8_efut0"]
-[ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/Scenes/AlternatingGarage1.tscn" id="9_4foeh"]
+[ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="9_4foeh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
