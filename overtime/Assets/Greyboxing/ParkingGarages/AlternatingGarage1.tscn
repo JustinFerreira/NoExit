@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bt2m5ajew0qwr"]
+[gd_scene load_steps=18 format=3 uid="uid://bt2m5ajew0qwr"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_v1dgc"]
 [ext_resource type="ArrayMesh" uid="uid://l37gv4luynjb" path="res://Assets/Greyboxing/Models/AlternatingParkingGarage.obj" id="2_myd8s"]
@@ -31,6 +31,9 @@ size = Vector3(3, 2, 0.4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2isp"]
 albedo_texture = ExtResource("1_v1dgc")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lujyw"]
+size = Vector3(21.4, 4.7, 0.3)
 
 [node name="AlternatingGarage1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -81)
@@ -3617,3 +3620,11 @@ size = Vector3(0.2, 13, 0.3)
 [node name="Pillar242" type="CSGBox3D" parent="Pillars2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.3, 3.5, 95.25)
 size = Vector3(0.2, 13, 0.3)
+
+[node name="ExitBarrier" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ExitBarrier"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitBarrier/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -2.25, 139.95)
+shape = SubResource("BoxShape3D_lujyw")
