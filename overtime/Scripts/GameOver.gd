@@ -6,7 +6,7 @@ func _on_quit_btn_pressed() -> void:
 
 
 func _on_restart_btn_pressed() -> void:
-	PlayerManager.ResetInventory()
+	PlayerManager.ResetPlayer()
 	get_tree().paused = false
 	var current_scene_path = get_tree().current_scene.scene_file_path
 	get_tree().change_scene_to_file(current_scene_path)

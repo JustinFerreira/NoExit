@@ -125,7 +125,7 @@ func fade_loop_volume(sound_name: String, target_volume: float, duration: float 
 	
 func cancel_music():
 	if OfficeMusicOn:
-		OfficeMusicAudio.queue_free()
+		OfficeMusicAudio.playing = false
 	MusicAudio.playing = false
 	
 func cancel_loop_sfx():

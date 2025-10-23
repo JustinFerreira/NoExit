@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_2rfh5"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_lqut5"]
 [ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="7_7fs5o"]
-[ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Assets/Enviroments/Garage/Scenes/GasCanister.tscn" id="7_ekekf"]
+[ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="7_ekekf"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="10_yium0"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="11_dts2d"]
 [ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Scenes/PlayerObjects/BatteryPickup.tscn" id="12_afyly"]

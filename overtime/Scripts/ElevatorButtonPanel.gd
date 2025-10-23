@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if $"..".position.y <= -10:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
-		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageL1.tscn")
 
 func _on_animation_finished(anim_name: String):
 	#print("Animation", anim_name)

@@ -89,7 +89,6 @@ render_target_update_mode = 4
 transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165818, 0.506871, 3.43768, 11.0719)
 
 [node name="MainMenuFirstScreen" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,6 +186,7 @@ text = "Quit
 "
 
 [node name="MainMenuFirstScreen2" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,6 +267,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Loop 1"
 
 [node name="GreyBoxingBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -287,6 +288,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "GreyBoxing Demos"
 
 [node name="MainBtn" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -308,6 +310,7 @@ text = "Main
 "
 
 [node name="ParkingKeysL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -328,6 +331,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage Keys L1"
 
 [node name="ParkingL1" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
@@ -348,6 +352,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage L1"
 
 [node name="AlternateParking" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)

@@ -8,7 +8,7 @@ var Hold_Shift: bool = true
 
 var HeadBob: bool = true
 
-var DevMode: bool = true
+var DevMode: bool = false
 
 ## Player
 
@@ -100,6 +100,9 @@ func ResetPlayer() -> void:
 	NegativeConnected = false
 	Inventory = []
 	CurrentWeight = 0.0
+	minigameOnePassed = false
+	minigameTwoPassed = false
+	minigameThreePassed = false
 	
 func Dialog(text: String, duration: float = 10.0):
 	player.get_node("DialogControl").show_temporary_dialog(text,duration)

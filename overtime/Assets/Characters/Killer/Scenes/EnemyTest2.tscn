@@ -335,7 +335,7 @@ _data = {
 "mixamo_com": SubResource("Animation_kqt3t")
 }
 
-[node name="EnemyTest2" type="CharacterBody3D"]
+[node name="EnemyTest2" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 0, 0, 0)
 script = ExtResource("1_6slwl")
 
