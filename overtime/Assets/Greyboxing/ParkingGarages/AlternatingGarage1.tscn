@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bt2m5ajew0qwr"]
+[gd_scene load_steps=20 format=3 uid="uid://bt2m5ajew0qwr"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_v1dgc"]
 [ext_resource type="ArrayMesh" uid="uid://l37gv4luynjb" path="res://Assets/Greyboxing/Models/AlternatingParkingGarage.obj" id="2_myd8s"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="3_i1oob"]
 [ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="4_udug5"]
 [ext_resource type="PackedScene" uid="uid://cecwkfw6phxht" path="res://Assets/Enviroments/Garage/Scenes/RubbishBin.tscn" id="5_apq3w"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="6_moaw6"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="7_yqs8e"]
+[ext_resource type="PackedScene" uid="uid://ggxuh5f2chv" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="6_moaw6"]
+[ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="7_yqs8e"]
 [ext_resource type="PackedScene" uid="uid://c4e6alwxo7csv" path="res://Assets/Enviroments/Garage/Scenes/GaragePole.tscn" id="8_cwd60"]
 [ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="9_8mqmv"]
+[ext_resource type="Texture2D" uid="uid://cp8s5ou30os63" path="res://Assets/Enviroments/Dev Textures/dev_texture_concrete.png" id="10_i2k14"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1eux"]
 albedo_texture = ExtResource("1_v1dgc")
@@ -32,8 +33,11 @@ size = Vector3(3, 2, 0.4)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2isp"]
 albedo_texture = ExtResource("1_v1dgc")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lujyw"]
-size = Vector3(21.4, 4.7, 0.3)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tutbi"]
+albedo_texture = ExtResource("10_i2k14")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egbvx"]
+albedo_texture = ExtResource("10_i2k14")
 
 [node name="AlternatingGarage1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -81)
@@ -3621,10 +3625,14 @@ size = Vector3(0.2, 13, 0.3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.3, 3.5, 95.25)
 size = Vector3(0.2, 13, 0.3)
 
-[node name="ExitBarrier" type="Node3D" parent="."]
+[node name="ExitBarrier" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.25, -2.6, 139.8)
+material_override = SubResource("StandardMaterial3D_tutbi")
+use_collision = true
+size = Vector3(10.5, 4.8, 0.4)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ExitBarrier"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitBarrier/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -2.25, 139.95)
-shape = SubResource("BoxShape3D_lujyw")
+[node name="ExitBarrier2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.55, -2.6, 139.8)
+material_override = SubResource("StandardMaterial3D_egbvx")
+use_collision = true
+size = Vector3(10.7, 4.8, 0.4)
