@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=41 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_qmrrf"]
 [ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="2_lbi2i"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Hood.gd" id="8_51nsx"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="9_smb81"]
 [ext_resource type="Texture2D" uid="uid://uokhlg3waj3d" path="res://Assets/Enviroments/Dev Textures/dev_texture_carpet.png" id="10_m2yu0"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="10_rs2y8"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="11_qlgp3"]
 [ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="12_2ynws"]
 [ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="13_5e30e"]
@@ -428,6 +429,17 @@ offset_left = 274.0
 offset_top = 35.0
 offset_right = 949.0
 offset_bottom = 124.0
+
+[node name="Label" type="Label" parent="GasIntakeCam/GasIntakeGame"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 129.0
+offset_right = 947.0
+offset_bottom = 172.0
+theme_override_fonts/font = ExtResource("10_rs2y8")
+theme_override_font_sizes/font_size = 20
+text = "Spacebar is action Key"
+horizontal_alignment = 1
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.21853e-10, -0.0898637, 0.0062923, -3.50477e-09, -0.00568838, -0.0994042, 0.0803402, -3.68937e-16, -4.35378e-09, 0.827, 1.15797, -1.528)
