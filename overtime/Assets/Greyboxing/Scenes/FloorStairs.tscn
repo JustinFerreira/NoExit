@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj5m26laxxem1"]
+[gd_scene load_steps=5 format=3 uid="uid://dj5m26laxxem1"]
 
 [ext_resource type="ArrayMesh" uid="uid://cato6yg652rfq" path="res://Assets/Greyboxing/Models/FloorStairs.obj" id="1_0qeq4"]
 [ext_resource type="Texture2D" uid="uid://c88jid1751qg0" path="res://Assets/Enviroments/Dev Textures/dev_texture_misc.png" id="1_mfgwy"]
@@ -8,10 +8,17 @@ albedo_texture = ExtResource("1_mfgwy")
 uv1_scale = Vector3(20, 20, 20)
 texture_filter = 0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ck7yt"]
+points = PackedVector3Array(-76.6773, -77.2088, -166.019, 85.3898, 65.7916, 139.048, -75.452, 65.7894, 139.043, 89.428, 24.6375, 106.903, 89.428, -59.8073, -171.319, -79.4926, -74.7179, -116.633, 89.428, -79.6929, -131.573, -79.4926, 54.4441, 77.086, -79.4926, 44.5085, 146.649, 89.428, 69.3547, 111.852, -79.4926, -59.8073, -171.319, 89.428, 44.5085, 146.649, 89.428, -15.1047, -76.8871, -79.4926, 69.3547, 111.852, 86.1029, -76.759, -165.06, -79.4926, 24.6375, 106.903, 89.428, -74.7179, -116.633, -79.4926, -44.9113, -141.471, -79.4926, -79.6929, -131.573, 89.428, 54.4441, 77.086, -79.4926, -15.1047, -76.8871, 89.428, -44.9113, -141.471, 89.428, -34.9757, -27.1812, -79.4926, -34.9757, -27.1812)
+
 [node name="FloorStairs" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.557, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -42)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_hqh57")
 mesh = ExtResource("1_0qeq4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ck7yt")

@@ -8,7 +8,7 @@ var Hold_Shift: bool = true
 
 var HeadBob: bool = true
 
-var DevMode: bool = false
+var DevMode: bool = true
 
 ## Player
 

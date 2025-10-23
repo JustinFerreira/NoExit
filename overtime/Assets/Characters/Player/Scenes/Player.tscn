@@ -47,7 +47,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_f74wo")]
-visible = false
 
 [node name="SimplifiedPauseMenu" parent="." instance=ExtResource("2_cqu1j")]
 visible = false

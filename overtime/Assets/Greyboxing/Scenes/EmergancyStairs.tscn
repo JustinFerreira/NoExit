@@ -9,7 +9,6 @@ uv1_scale = Vector3(20, 20, 20)
 texture_filter = 0
 
 [node name="EmergancyStairs" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
