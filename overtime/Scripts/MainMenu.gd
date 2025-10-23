@@ -57,3 +57,8 @@ func _on_parking_l_1_pressed() -> void:
 func _on_prev_screen_btn_pressed() -> void:
 	$MainMenuFirstScreen2.visible = false
 	$MainMenuFirstScreen.visible = true
+
+
+func _on_alternate_parking_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageL1.tscn")

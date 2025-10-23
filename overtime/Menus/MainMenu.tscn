@@ -89,6 +89,7 @@ render_target_update_mode = 4
 transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165818, 0.506871, 3.43768, 11.0719)
 
 [node name="MainMenuFirstScreen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,7 +187,6 @@ text = "Quit
 "
 
 [node name="MainMenuFirstScreen2" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -347,6 +347,26 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage L1"
 
+[node name="AlternateParking" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "Alternate Parking Garage L1"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4lbyd")
@@ -369,3 +389,4 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8669, -10.1064, 
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn" to="." method="_on_main_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1" to="." method="_on_parking_keys_l_1_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1" to="." method="_on_parking_l_1_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking" to="." method="_on_alternate_parking_pressed"]
