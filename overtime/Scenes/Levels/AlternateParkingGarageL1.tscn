@@ -10,7 +10,13 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="FloorStairs" parent="." instance=ExtResource("2_lxoox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8119, 9.10287, 91.1767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2407, 3.92121, 95.3262)
+
+[node name="FloorStairs2" parent="." instance=ExtResource("2_lxoox")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35.0838, 1.35965, 94.9952)
+
+[node name="FloorStairs3" parent="." instance=ExtResource("2_lxoox")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -35.0838, 6.49337, 94.8492)
 
 [node name="Player" parent="." instance=ExtResource("3_o7hmn")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -30.5214, 8.4972, 86.8357)
