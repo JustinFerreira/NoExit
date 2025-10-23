@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu34oa67umly4"]
+[gd_scene load_steps=3 format=3 uid="uid://cu34oa67umly4"]
 
 [ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="1_4wjrg"]
-[ext_resource type="PackedScene" uid="uid://dj5m26laxxem1" path="res://Assets/Greyboxing/Scenes/FloorStairs.tscn" id="2_lxoox"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_o7hmn"]
 
 [node name="Node3D" type="Node3D"]
@@ -11,6 +10,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_o7hmn")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -30.5214, 8.4972, 86.8357)
-
-[node name="FloorStairs" parent="." instance=ExtResource("2_lxoox")]
-transform = Transform3D(-1.21608, 0, -1.06313e-07, 0, 1.21608, 0, 1.06313e-07, 0, -1.21608, -34.9281, 6.57479, 95.3787)
