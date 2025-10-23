@@ -20,14 +20,15 @@ func _process(delta: float) -> void:
 	
 	if $"..".position.y <= -10:
 		PlayerManager.SavePlayerRotation()
+		AudioManager.cancel_music()
 		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageLoop1.tscn")
-		AudioManager.stop_loop("officeWhiteNoise")
 
 func _on_animation_finished(anim_name: String):
 	#print("Animation", anim_name)
 	
 	if anim_name == "Take 001" && DoorClosed:
 		fall = true
+		AudioManager.play_sound(AudioManager.elevator_whitenoise)
 		DoorClosed = false
 
 func _on_interacted(body: Variant) -> void:

@@ -11,8 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://c2eq8yxqeublc" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="9_magg0"]
 [ext_resource type="Script" path="res://Scenes/Levels/Phoneringing.gd" id="9_yxtsp"]
 [ext_resource type="PackedScene" uid="uid://cja1f1lpuu26i" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
-[ext_resource type="AudioStream" uid="uid://v8osoxtlf2b1" path="res://Assets/Audio/SFX/WhiteNoise.wav" id="11_xyg82"]
-[ext_resource type="Script" path="res://Scenes/Levels/WhiteNoise.gd" id="12_rstim"]
 
 [sub_resource type="Environment" id="Environment_x47e5"]
 background_mode = 1

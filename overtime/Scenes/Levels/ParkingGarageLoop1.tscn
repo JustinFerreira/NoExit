@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Scenes/PlayerObjects/Battery.tscn" id="9_xrdu8"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="10_g7nwn"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="11_ok7s0"]
-[ext_resource type="AudioStream" uid="uid://djg6ipwaqfxj" path="res://Assets/Audio/SFX/drips.wav" id="12_nj44i"]
+[ext_resource type="AudioStream" uid="uid://db26w5prw66ne" path="res://Assets/Audio/SFX/drips.wav" id="12_nj44i"]
 [ext_resource type="Script" path="res://Scenes/Levels/WaterDripping.gd" id="13_gqse2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_let0x"]
