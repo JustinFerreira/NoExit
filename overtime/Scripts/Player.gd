@@ -137,10 +137,16 @@ func _physics_process(delta: float) -> void:
 		var collider = interact_ray.get_collider()
 		
 		if collider is Interactable:
-			prompt.text = collider.prompt_message
+			#prompt.text = collider.prompt_message
+			$Cursor/Corsshair.visible = false
+			$Cursor/Hand.visible = true
 			
 			if Input.is_action_just_pressed("Interact"):
 				collider.interact(owner)
+		else:
+			$Cursor/Corsshair.visible = true
+			$Cursor/Hand.visible = false
+			
 	
 	# Handle Sprint
 	if Incar == true:

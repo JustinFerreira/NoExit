@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_cqe1n"]
 [ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="3_knrm2"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_15ken"]
-[ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="6_h33ws"]
+[ext_resource type="PackedScene" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="6_h33ws"]
 [ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Scenes/PlayerObjects/BatteryPickup.tscn" id="8_iy86k"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Scenes/PlayerObjects/Battery.tscn" id="9_xrdu8"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="10_g7nwn"]
@@ -35,7 +35,7 @@ edge_fade = 1.13137
 density = -8.0
 edge_fade = 1e-05
 
-[node name="Loop1" type="Node3D" groups=["enemy"]]
+[node name="Loop2" type="Node3D" groups=["enemy"]]
 transform = Transform3D(0.998655, 0, 0, 0, 0.998655, 0, 0, 0, 0.998655, 0, 0, 0)
 script = ExtResource("1_rfq4f")
 
