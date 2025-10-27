@@ -1,13 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=4 format=3 uid="uid://cqbiktwssofkk"]
 
-[ext_resource type="Texture2D" uid="uid://ussgfebomim6" path="res://Assets/Enviroments/Dev Textures/dev_texture_floor.png" id="1_opruw"]
-[ext_resource type="ArrayMesh" uid="uid://dxjx6tmenetnh" path="res://Assets/Greyboxing/Models/NewOffice.obj" id="2_bs5r7"]
+[ext_resource type="ArrayMesh" uid="uid://bawgy8x3jhlfw" path="res://Assets/Greyboxing/Models/EmptyOffice2.obj" id="1_37u2m"]
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vhy6"]
-albedo_texture = ExtResource("1_opruw")
-uv1_scale = Vector3(20, 20, 20)
-texture_filter = 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mxtdm"]
 data = PackedVector3Array(230.756, 5.2644, 205.637, -227.908, 5.2644, 205.637, 230.756, 5.2644, 15.3421, 230.756, 5.2644, 15.3421, -227.908, 5.2644, 205.637, -227.908, 5.2644, 11.9853, 230.756, 5.2644, 15.3421, -227.908, 5.2644, 11.9853, 231.148, 5.2644, -18.4697, 231.148, 5.2644, -18.4697, -227.908, 5.2644, 11.9853, -227.523, 5.2644, -12.3762, 231.148, 5.2644, -18.4697, -227.523, 5.2644, -12.3762, 230.756, 5.2644, -204.782, 230.756, 5.2644, -204.782, -227.523, 5.2644, -12.3762, -227.908, 5.2644, -204.782, 230.756, 5.2644, 205.637, 230.756, 5.2644, 15.3421, 230.756, 37.1248, 205.637, 230.756, 37.1248, 205.637, 230.756, 5.2644, 15.3421, 230.756, 37.1248, 15.3421, -227.908, 5.2644, 11.9853, -227.908, 5.2644, 205.637, -227.908, 33.4509, 11.9853, -227.908, 33.4509, 11.9853, -227.908, 5.2644, 205.637, -227.908, 37.1248, 205.637, -227.908, 5.2644, 205.637, 230.756, 5.2644, 205.637, -227.908, 37.1248, 205.637, -227.908, 37.1248, 205.637, 230.756, 5.2644, 205.637, 230.756, 37.1248, 205.637, 230.756, 5.2644, -204.782, -227.908, 5.2644, -204.782, 230.756, 37.1248, -204.782, 230.756, 37.1248, -204.782, -227.908, 5.2644, -204.782, -227.908, 37.1248, -204.782, 230.756, 5.2644, 15.3421, 231.148, 5.2644, -18.4697, 230.756, 37.1248, 15.3421, 230.756, 37.1248, 15.3421, 231.148, 5.2644, -18.4697, 231.148, 37.1248, -18.4697, 231.148, 5.2644, -18.4697, 230.756, 5.2644, -204.782, 231.148, 37.1248, -18.4697, 231.148, 37.1248, -18.4697, 230.756, 5.2644, -204.782, 230.756, 37.1248, -204.782, -227.908, 5.2644, -204.782, -227.523, 5.2644, -12.3762, -227.908, 37.1248, -204.782, -227.908, 37.1248, -204.782, -227.523, 5.2644, -12.3762, -227.523, 33.4509, -12.3762, -227.908, 33.4509, 11.9853, -227.908, 37.1248, 205.637, -227.908, 41.6123, 15.3421, -227.908, 41.6123, 15.3421, -227.908, 37.1248, 205.637, -227.908, 41.6123, 205.637, -227.908, 37.1248, 205.637, 230.756, 37.1248, 205.637, -227.908, 41.6123, 205.637, -227.908, 41.6123, 205.637, 230.756, 37.1248, 205.637, 230.756, 41.6123, 205.637, 230.756, 37.1248, 205.637, 230.756, 37.1248, 15.3421, 230.756, 41.6123, 205.637, 230.756, 41.6123, 205.637, 230.756, 37.1248, 15.3421, 230.756, 41.6123, 15.3421, 230.756, 37.1248, 15.3421, 231.148, 37.1248, -18.4697, 230.756, 41.6123, 15.3421, 230.756, 41.6123, 15.3421, 231.148, 37.1248, -18.4697, 231.148, 41.6123, -18.4697, 231.148, 37.1248, -18.4697, 230.756, 37.1248, -204.782, 231.148, 41.6123, -18.4697, 231.148, 41.6123, -18.4697, 230.756, 37.1248, -204.782, 230.756, 41.6123, -204.782, 230.756, 37.1248, -204.782, -227.908, 37.1248, -204.782, 230.756, 41.6123, -204.782, 230.756, 41.6123, -204.782, -227.908, 37.1248, -204.782, -227.908, 41.6123, -204.782, -227.908, 37.1248, -204.782, -227.523, 33.4509, -12.3762, -227.908, 41.6123, -204.782, -227.908, 41.6123, -204.782, -227.523, 33.4509, -12.3762, -227.523, 41.6123, -18.4697, -227.908, 33.4509, 11.9853, -227.908, 41.6123, 15.3421, -227.523, 33.4509, -12.3762, -227.523, 33.4509, -12.3762, -227.908, 41.6123, 15.3421, -227.523, 41.6123, -18.4697, 231.148, 41.6123, -18.4697, 230.756, 41.6123, -204.782, -227.523, 41.6123, -18.4697, -227.523, 41.6123, -18.4697, 230.756, 41.6123, -204.782, -227.908, 41.6123, -204.782, 230.756, 41.6123, 15.3421, 231.148, 41.6123, -18.4697, -227.908, 41.6123, 15.3421, -227.908, 41.6123, 15.3421, 231.148, 41.6123, -18.4697, -227.523, 41.6123, -18.4697, 230.756, 41.6123, 205.637, 230.756, 41.6123, 15.3421, -227.908, 41.6123, 205.637, -227.908, 41.6123, 205.637, 230.756, 41.6123, 15.3421, -227.908, 41.6123, 15.3421)
@@ -17,9 +11,8 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.23835, -2.17652, 
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6229, 66.7487, 34.4514)
-mesh = ExtResource("2_bs5r7")
+mesh = ExtResource("1_37u2m")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_2vhy6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
@@ -86,20 +79,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles3" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles3" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles3" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles2" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -159.56, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles2" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles2" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles2" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -158,20 +139,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles4" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles4" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles4" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles5" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -96.3867, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles5" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles5" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles5" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -230,20 +199,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles6" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles6" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles6" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles7" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -33.379, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles7" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles7" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles7" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -302,20 +259,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles8" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles8" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles8" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles9" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3394, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles9" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles9" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles9" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -344,44 +289,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle11" parent="RowOfCubicles9" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58506, -130.054)
 
-[node name="RowOfCubicles10" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.032, 79.7789, -74.9198)
-
-[node name="Cubicle2" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle11" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87339, -7.58506, 119.333)
-
-[node name="Cubicle12" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87339, -7.58506, 101.631)
-
-[node name="Cubicle4" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles10" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles11" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 101.532, 79.779, -89.133)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 105.907, 79.779, -89.133)
 
 [node name="Cubicle" parent="RowOfCubicles11" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
@@ -416,126 +325,6 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle11" parent="RowOfCubicles11" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58506, -130.054)
 
-[node name="RowOfCubicles12" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.358, 79.7789, -74.9198)
-
-[node name="Cubicle2" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle11" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle13" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.8734, -7.58506, 101.631)
-
-[node name="Cubicle14" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.8734, -7.58506, 119.333)
-
-[node name="Cubicle12" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles12" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
-[node name="RowOfCubicles13" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 172.859, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle12" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.8734, -7.58506, -112.374)
-
-[node name="Cubicle13" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.8734, -7.58506, -130.054)
-
-[node name="Cubicle10" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle11" parent="RowOfCubicles13" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="RowOfCubicles14" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 237.136, 79.779, -89.133)
-
-[node name="Cubicle" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.8734, -7.58506, -112.374)
-
-[node name="Cubicle11" parent="RowOfCubicles14" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87343, -7.58506, -130.054)
-
 [node name="RowOfCubicles15" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.692, 79.7789, 158.938)
 
@@ -568,12 +357,6 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 
 [node name="RowOfCubicles16" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.06, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles16" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles16" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles16" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -620,20 +403,32 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles17" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles17" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
+[node name="RowOfCubicles23" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.315, 79.779, 144.725)
 
-[node name="Cubicle10" parent="RowOfCubicles17" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
+[node name="Cubicle2" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
+
+[node name="Cubicle3" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
+
+[node name="Cubicle4" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
+
+[node name="Cubicle5" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
+
+[node name="Cubicle6" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
+
+[node name="Cubicle7" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
+
+[node name="Cubicle8" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
+transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
 [node name="RowOfCubicles18" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.8868, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles18" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles18" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles18" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -680,20 +475,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles19" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles19" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles19" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles20" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8791, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles20" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles20" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles20" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -740,20 +523,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle8" parent="RowOfCubicles21" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
 
-[node name="Cubicle9" parent="RowOfCubicles21" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles21" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
 [node name="RowOfCubicles22" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.8393, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles22" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles22" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
 
 [node name="Cubicle3" parent="RowOfCubicles22" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
@@ -776,65 +547,8 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle9" parent="RowOfCubicles22" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
 
-[node name="RowOfCubicles23" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 32.3394, 79.779, 144.725)
-
-[node name="Cubicle3" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles23" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
-[node name="RowOfCubicles24" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.032, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles24" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
 [node name="RowOfCubicles25" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 101.532, 79.779, 144.725)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 105.907, 79.779, 144.725)
 
 [node name="Cubicle2" parent="RowOfCubicles25" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
@@ -861,96 +575,6 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
 
 [node name="Cubicle10" parent="RowOfCubicles25" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
-[node name="RowOfCubicles26" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.358, 79.7789, 158.938)
-
-[node name="Cubicle" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 74.2516)
-
-[node name="Cubicle2" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles26" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="RowOfCubicles27" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 172.859, 79.779, 144.725)
-
-[node name="Cubicle2" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles27" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
-
-[node name="RowOfCubicles28" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 237.136, 79.779, 144.725)
-
-[node name="Cubicle2" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 56.5651)
-
-[node name="Cubicle3" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 38.8639)
-
-[node name="Cubicle4" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 21.2329)
-
-[node name="Cubicle5" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, 3.53158)
-
-[node name="Cubicle6" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -14.1858)
-
-[node name="Cubicle7" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -31.8925)
-
-[node name="Cubicle8" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -49.6068)
-
-[node name="Cubicle9" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
-transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
-
-[node name="Cubicle10" parent="RowOfCubicles28" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -84.9805)
 
 [node name="Lights" type="Node3D" parent="."]
