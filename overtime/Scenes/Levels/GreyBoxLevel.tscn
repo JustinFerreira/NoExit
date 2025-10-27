@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3063, 1.00517, -37.8226)
 [node name="AlternatingGarage1" parent="NavigationRegion3D" instance=ExtResource("9_4foeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3419, 0.837959, -253.156)
 
-[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("3_g62db")]
+[node name="EnemyTest2" parent="." instance=ExtResource("3_g62db")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -21.4, 18, -15.2)
 
 [node name="Player" parent="." instance=ExtResource("1_wirc2")]
