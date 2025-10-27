@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5qmviti3fchn"]
+[gd_scene load_steps=7 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="1_xey8r"]
@@ -103,7 +103,8 @@ text = "OVERTIME PRODUCTION"
 
 [node name="Gtfo" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(628, 476)
+position = Vector2(623, 492)
+scale = Vector2(0.183296, 0.183296)
 texture = ExtResource("2_mthcm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
