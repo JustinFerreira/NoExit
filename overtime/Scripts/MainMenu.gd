@@ -1,13 +1,26 @@
 extends CanvasLayer
 
-
+@onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animation_player.connect("animation_finished", _on_animation_finished)
+	if PlayerManager.FirstOpen == true:
+		animation_player.play("FadeIn")
+		PlayerManager.FirstOpen = false
+	else:
+		$MainMenuFirstScreen/ColorRect.visible = false
+	
 	AudioManager.cancel_loop_sfx()
 	AudioManager.play_music(AudioManager.MainMenuMusic)
 	
 
+
+func _on_animation_finished(anim_name: String):
+	
+	if anim_name == "FadeIn":
+		animation_player.play("camera_anim")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

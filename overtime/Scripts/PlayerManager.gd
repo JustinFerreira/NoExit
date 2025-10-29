@@ -22,6 +22,8 @@ var scared = false
 
 ## Modes
 
+var FirstOpen = true
+
 var MinigameMode = false
 
 var InAnimation = false
