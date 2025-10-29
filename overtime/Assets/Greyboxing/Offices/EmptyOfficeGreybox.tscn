@@ -1,12 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=11 format=3 uid="uid://cqbiktwssofkk"]
 
-[ext_resource type="ArrayMesh" uid="uid://bawgy8x3jhlfw" path="res://Assets/Greyboxing/Models/EmptyOffice2.obj" id="1_37u2m"]
-[ext_resource type="Texture2D" uid="uid://ussgfebomim6" path="res://Assets/Enviroments/Dev Textures/dev_texture_floor.png" id="1_rmoih"]
+[ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Assets/Greyboxing/office_ceiling_tile.png" id="1_d8rc4"]
+[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_xh4d2"]
+[ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Assets/Greyboxing/carpet.png" id="2_vyjoy"]
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
+[ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Assets/Greyboxing/office_wall.png" id="3_qawth"]
+[ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75t7p"]
-albedo_texture = ExtResource("1_rmoih")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54smm"]
+albedo_texture = ExtResource("2_vyjoy")
+uv1_scale = Vector3(20, 20, 20)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3xaa"]
+albedo_texture = ExtResource("3_qawth")
+uv1_scale = Vector3(20, 20, 20)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4pa6"]
+albedo_texture = ExtResource("1_d8rc4")
 uv1_scale = Vector3(40, 40, 40)
+texture_filter = 0
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v7mmk"]
 data = PackedVector3Array(100.23, 5.2644, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 205.637, -227.908, 5.2644, 11.9853, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 11.9853, 100.621, 5.2644, -18.4697, 100.621, 5.2644, -18.4697, -227.908, 5.2644, 11.9853, -227.522, 5.2644, -12.3762, 100.621, 5.2644, -18.4697, -227.522, 5.2644, -12.3762, 100.23, 5.2644, -204.782, 100.23, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 5.2644, -204.782, 100.23, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 32.0938, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, 15.3421, 100.23, 37.1247, 15.3421, -227.908, 5.2644, 11.9853, -227.908, 5.2644, 205.637, -227.908, 33.4509, 11.9853, -227.908, 33.4509, 11.9853, -227.908, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 32.0938, 205.637, 100.23, 5.2644, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, -204.782, -227.908, 5.2644, -204.782, 100.23, 32.0938, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.908, 37.1247, -204.782, 100.23, 5.2644, 15.3421, 100.621, 5.2644, -18.4697, 100.23, 37.1247, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 5.2644, -18.4697, 100.621, 37.1247, -18.4697, 100.621, 5.2644, -18.4697, 100.23, 5.2644, -204.782, 100.621, 37.1247, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 5.2644, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 37.1247, -204.782, -227.908, 37.1247, -204.782, -227.522, 5.2644, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 33.4509, 11.9853, -227.908, 32.0938, 205.637, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, -227.908, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 32.0938, 205.637, 100.23, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 37.1247, 15.3421, 100.23, 36.5812, 205.637, 100.23, 36.5812, 205.637, 100.23, 37.1247, 15.3421, 100.23, 37.6987, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 37.1247, -18.4697, 100.23, 37.6987, 15.3421, 100.23, 37.6987, 15.3421, 100.621, 37.1247, -18.4697, 100.621, 37.6445, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 32.0938, -204.782, 100.621, 37.6445, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 32.0938, -204.782, 100.23, 36.5812, -204.782, 100.23, 32.0938, -204.782, -227.908, 37.1247, -204.782, 100.23, 36.5812, -204.782, 100.23, 36.5812, -204.782, -227.908, 37.1247, -204.782, -227.908, 39.0935, -204.782, -227.908, 37.1247, -204.782, -227.522, 33.4509, -12.3762, -227.908, 39.0935, -204.782, -227.908, 39.0935, -204.782, -227.522, 33.4509, -12.3762, -227.522, 36.5812, -18.4697, -227.908, 33.4509, 11.9853, -227.908, 36.5812, 15.3421, -227.522, 33.4509, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 36.5812, 15.3421, -227.522, 36.5812, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 36.5812, -204.782, -227.522, 36.5812, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, -204.782, -227.908, 39.0935, -204.782, 100.23, 37.6987, 15.3421, 100.621, 37.6445, -18.4697, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, 100.621, 37.6445, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 15.3421)
@@ -16,9 +30,11 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.23835, -2.17652, 
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6229, 66.7487, 34.4514)
-material_override = SubResource("StandardMaterial3D_75t7p")
-mesh = ExtResource("1_37u2m")
+mesh = ExtResource("1_xh4d2")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_54smm")
+surface_material_override/1 = SubResource("StandardMaterial3D_w3xaa")
+surface_material_override/2 = SubResource("StandardMaterial3D_v4pa6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
@@ -586,7 +602,7 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="OmniLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -10.8536, 369.046, 11.3753)
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -10.8536, 537.796, 11.3753)
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -594,3 +610,98 @@ light_specular = 16.0
 spot_range = 4096.0
 spot_attenuation = 0.68
 spot_angle = 50.31
+
+[node name="CeilingLight" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 103.179, -132.955)
+
+[node name="CeilingLight2" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.97, 103.404, -132.955)
+
+[node name="CeilingLight27" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.145, 103.609, -132.955)
+
+[node name="CeilingLight30" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.16, 103.904, -132.955)
+
+[node name="CeilingLight28" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.685, 104.154, -132.955)
+
+[node name="CeilingLight29" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.59, 104.344, -132.955)
+
+[node name="CeilingLight3" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 103.835, -48.125)
+
+[node name="CeilingLight5" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 36.6)
+
+[node name="CeilingLight7" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 121.5)
+
+[node name="CeilingLight9" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 206.25)
+
+[node name="CeilingLight4" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.94, 104.085, -48.125)
+
+[node name="CeilingLight6" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.915, 104.535, 36.6)
+
+[node name="CeilingLight8" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.005, 104.58, 121.5)
+
+[node name="CeilingLight10" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.915, 104.375, 206.25)
+
+[node name="CeilingLight11" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.335, -48.125)
+
+[node name="CeilingLight12" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.725, 36.6)
+
+[node name="CeilingLight13" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.76, 121.5)
+
+[node name="CeilingLight14" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.375, 206.25)
+
+[node name="CeilingLight15" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.175, 104.525, -48.125)
+
+[node name="CeilingLight16" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.19, 104.9, 36.6)
+
+[node name="CeilingLight17" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.16, 104.925, 121.5)
+
+[node name="CeilingLight18" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.215, 104.375, 206.25)
+
+[node name="CeilingLight19" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6, 104.725, -48.125)
+
+[node name="CeilingLight20" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.69, 105.115, 36.6)
+
+[node name="CeilingLight21" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.69, 104.9, 121.5)
+
+[node name="CeilingLight22" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.675, 104.435, 206.25)
+
+[node name="CeilingLight23" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.605, 104.855, -48.125)
+
+[node name="CeilingLight24" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, 105.23, 36.6)
+
+[node name="CeilingLight25" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.57, 104.885, 121.5)
+
+[node name="CeilingLight26" parent="Lights" instance=ExtResource("6_spuqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.56, 104.445, 206.25)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, -6.25, 0, 6.25, -2.73196e-07, 0, -5.72205e-06, 43.75)
+light_energy = 0.277
+sky_mode = 1
