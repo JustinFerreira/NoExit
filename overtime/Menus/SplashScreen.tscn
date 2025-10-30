@@ -126,10 +126,10 @@ tracks/3/path = NodePath("NoExitTitleGlowing:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3, 6.33333, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, true, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -138,10 +138,10 @@ tracks/4/path = NodePath("NoExitTitleGlowing:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3.03333, 4, 5.76667, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(3.03333, 4.13333, 5.03333, 5.86667, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.188235), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -150,10 +150,10 @@ tracks/5/path = NodePath("NoExitTitleGlowing:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3.03333, 5.76667, 6.1, 6.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(3.03333, 4, 4.93333, 5.73333, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(3.764, 1, 1, 1), Color(1.882, 1, 1, 1), Color(2.957, 1, 1, 1), Color(1.075, 1, 1, 1)]
+"values": [Color(3.76471, 1, 1, 0), Color(2.00392, 1, 1, 0.541176), Color(1.40392, 1, 1, 0.4), Color(1, 1, 1, 1), Color(1.075, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73vy3"]
