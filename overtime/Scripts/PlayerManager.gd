@@ -4,7 +4,7 @@ extends Node
 
 var Sensitivity: float = 0.01
 
-var Hold_Shift: bool = true
+var Hold_Shift: bool = false
 
 var HeadBob: bool = true
 
@@ -146,7 +146,6 @@ func ApplyPlayerRotation():
 	
 func MiniGameModeOn():
 	MinigameMode = true
-	player.visible = false
 	player.CURSOR.visible = false
 	
 func MiniGameModeOff():
@@ -155,7 +154,6 @@ func MiniGameModeOff():
 		player.CURSOR.visible = true
 		return
 	MinigameMode = false
-	player.visible = true
 	player.CURSOR.visible = true
 	
 func TestConnection():

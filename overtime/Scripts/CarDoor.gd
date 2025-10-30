@@ -52,7 +52,6 @@ func _on_animation_finished(anim_name: String):
 		player.AREA3D.monitorable = true
 		player.COLLISIONSHAPE3D.disabled = false
 		player.gravity = true
-		player.visible = true
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Get in Car"
@@ -63,7 +62,6 @@ func _on_interacted(body: Variant) -> void:
 	if unlocked == false:
 		if PlayerManager.RemoveItemByName("DoorKey"):
 			player.interact_ray.enabled = false
-			player.visible = false
 			player.AREA3D.monitoring = false
 			player.AREA3D.monitorable = false
 			player.COLLISIONSHAPE3D.disabled = true

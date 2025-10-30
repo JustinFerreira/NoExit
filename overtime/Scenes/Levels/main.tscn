@@ -248,7 +248,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52988, 0.553989, -59.5601)
 transform = Transform3D(-0.993751, -0.046782, -0.101347, -0.098035, 0.799937, 0.592021, 0.0533753, 0.598257, -0.799525, -55.2118, 6.34309, 60.5086)
 light_energy = 4.079
 
-[node name="EnemyTest2" parent="." groups=["enemy"] instance=ExtResource("8_dnvtm")]
+[node name="EnemyTest2" parent="." instance=ExtResource("8_dnvtm")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -57.9972, 0.903413, -6.9462)
 
 [node name="InteractableObject" parent="." instance=ExtResource("10_k5roe")]

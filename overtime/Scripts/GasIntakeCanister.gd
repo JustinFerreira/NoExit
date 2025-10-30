@@ -26,7 +26,6 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		PlayerManager.MiniGameModeOff()
 		PlayerManager.gotGas_Canister = false
 		PlayerManager.RemoveItemByName("Gas Canister")
-		PlayerManager.player.visible = true
 		PlayerManager.minigameTwoPassed = true
 		$".".visible = false
 		$"../GasIntakeCam/GasIntakeGame".visible = false

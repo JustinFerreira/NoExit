@@ -54,6 +54,10 @@ var grab_direction = Vector3()
 var grab_offset = Vector3()  # Add this to store the offset
 var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
+## Outline help
+var last_collider = null
+
+
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
 	PlayerManager.player = self
@@ -145,15 +149,23 @@ func _physics_process(delta: float) -> void:
 		if distance <= 5.0 && collider is Interactable && collider.is_interactable:
 			$Cursor/Corsshair.visible = false
 			$Cursor/Hand.visible = true
+			if collider.show_outline():
+				last_collider = collider
 			
 			if Input.is_action_just_pressed("Interact"):
 				collider.interact(owner)
 		else:
 			$Cursor/Corsshair.visible = true
 			$Cursor/Hand.visible = false
+			if last_collider != null:
+				last_collider.hide_outline()
+				last_collider = null
 	else:
 		$Cursor/Corsshair.visible = true
 		$Cursor/Hand.visible = false
+		if last_collider != null:
+				last_collider.hide_outline()
+				last_collider = null
 			
 	
 	# Handle Sprint
@@ -320,53 +332,53 @@ func get_mouse_world_pos(mouse: Vector2):
 	var space = get_world_3d().direct_space_state
 	var camera = get_viewport().get_camera_3d()
 	var start = camera.project_ray_origin(mouse)
-	var end = start + camera.project_ray_normal(mouse) * 10
+	var end = start + camera.project_ray_normal(mouse) * 10.0
 
 	var params = PhysicsRayQueryParameters3D.create(start, end)
-
 	var result = space.intersect_ray(params)
-	if result.collider.is_in_group("grabbable"):
+
+	if result and result.collider and result.collider.is_in_group("grabbable"):
 		grabbed_object = result.collider
-		original_position = grabbed_object.global_position
+
+		# The world-space grab point
+		var hit_position = result.position
 		
-		# Store the distance from camera to object center
-		var camera_to_object = original_position - camera.global_position
-		grab_distance = camera_to_object.length()
+		# Distance from camera to the hit position
+		grab_distance = camera.global_position.distance_to(hit_position)
+
+		# Offset from object's origin to hit point
+		grab_offset = grabbed_object.global_transform.origin - hit_position
 		
-		# Store the direction from camera to object
-		grab_direction = camera_to_object.normalized()
-		
-		# Calculate the offset from object center to the grab point
-		grab_offset = result.position - original_position
-		
-func get_grab_position():
+func get_grab_position() -> Vector3:
 	if not grabbed_object:
 		return Vector3.ZERO
-		
+
 	var camera = get_viewport().get_camera_3d()
+	var ray_origin = camera.project_ray_origin(mouse)
+	var ray_dir = camera.project_ray_normal(mouse)
 	
-	# Get the mouse direction in world space
-	var mouse_dir = camera.project_ray_normal(mouse)
+	# Get where the hit point should be now (same distance from camera)
+	var target_hit_point = ray_origin + ray_dir * grab_distance
 	
-	# Calculate a point along this direction at the original distance
-	var new_pos = camera.global_position + mouse_dir * grab_distance
-	
-	# Apply the grab offset to maintain the relative position where the object was grabbed
-	new_pos += grab_offset
-	
+	# Maintain the object's offset from the grab point
+	var new_position = target_hit_point + grab_offset
+
 	# Apply axis locking
 	match lock_axis:
-		"XZ":  # Keep original Y, use new X and Z
-			return Vector3(new_pos.x, original_position.y, new_pos.z)
-		"XY":  # Keep original Z, use new X and Y
-			return Vector3(new_pos.x, new_pos.y, original_position.z)
-		"YZ":  # Keep original X, use new Y and Z
-			return Vector3(original_position.x, new_pos.y, new_pos.z)
-		"X":   # Only move on X axis
-			return Vector3(new_pos.x, original_position.y, original_position.z)
-		"Y":   # Only move on Y axis
-			return Vector3(original_position.x, new_pos.y, original_position.z)
-		"Z":   # Only move on Z axis
-			return Vector3(original_position.x, original_position.y, new_pos.z)
-		_:     # No locking
-			return new_pos
+		"XZ":
+			new_position.y = original_position.y
+		"XY":
+			new_position.z = original_position.z
+		"YZ":
+			new_position.x = original_position.x
+		"X":
+			new_position.y = original_position.y
+			new_position.z = original_position.z
+		"Y":
+			new_position.x = original_position.x
+			new_position.z = original_position.z
+		"Z":
+			new_position.x = original_position.x
+			new_position.y = original_position.y
+
+	return new_position
