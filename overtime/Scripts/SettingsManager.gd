@@ -17,7 +17,7 @@ var settings = {
 		"muted": false
 	},
 	"video": {
-		"fullscreen": false,
+		"fullscreen": true,
 	},
 	"game":{
 		"sensitivity": 0.01,
