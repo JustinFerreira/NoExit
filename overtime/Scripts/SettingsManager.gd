@@ -21,7 +21,7 @@ var settings = {
 	},
 	"game":{
 		"sensitivity": 0.01,
-		"hold_shift": true,
+		"hold_shift": false,
 		"headbob": true
 	}
 	}
