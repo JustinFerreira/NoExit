@@ -7,17 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Assets/Greyboxing/office_wall.png" id="3_qawth"]
 [ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54smm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
 albedo_texture = ExtResource("2_vyjoy")
 uv1_scale = Vector3(20, 20, 20)
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3xaa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm5w6"]
 albedo_texture = ExtResource("3_qawth")
 uv1_scale = Vector3(20, 20, 20)
 texture_filter = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4pa6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgd87"]
 albedo_texture = ExtResource("1_d8rc4")
 uv1_scale = Vector3(40, 40, 40)
 texture_filter = 0
@@ -32,9 +32,9 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.23835, -2.17652, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6229, 66.7487, 34.4514)
 mesh = ExtResource("1_xh4d2")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_54smm")
-surface_material_override/1 = SubResource("StandardMaterial3D_w3xaa")
-surface_material_override/2 = SubResource("StandardMaterial3D_v4pa6")
+surface_material_override/0 = SubResource("StandardMaterial3D_jjoxt")
+surface_material_override/1 = SubResource("StandardMaterial3D_xm5w6")
+surface_material_override/2 = SubResource("StandardMaterial3D_qgd87")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
