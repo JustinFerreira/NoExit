@@ -14,12 +14,15 @@ func resume():
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
 	PlayerManager.player.CURSOR.visible = true
+	if PlayerManager.dialoging == true: 
+		PlayerManager.RevealDialog()
 	get_tree().paused = false
 	$AnimationPlayer.play("Unpause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func pause():
 	PlayerManager.player.CURSOR.visible = false
+	PlayerManager.HideDialog()
 	get_tree().paused = true
 	$AnimationPlayer.play("Pause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -27,7 +30,8 @@ func pause():
 
 func _on_resume_btn_pressed() -> void:
 	resume()
-	$SettingsMenu.visible = false
+	if PlayerManager.DevMode == true:
+		$SettingsMenu.visible = false
 
 
 func _on_restart_btn_pressed() -> void:

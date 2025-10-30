@@ -99,16 +99,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			$PauseMenu.pause()
 		else:
 			$SimplifiedPauseMenu.pause()
-	if event.is_action_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
-		#print($Inventory.visible)
-		
-		if $Inventory.visible:
-			populate_inventory()
+	if event.is_action("Inventory"):
+		$Inventory.visible = true
+		populate_inventory()
+	if event.is_action_released("Inventory"):
+		$Inventory.visible = false
+			
 		
 	if event.is_action("action"):
 		if PlayerManager.minigameTwo == true:
 			PlayerManager.actioning = true
+		elif PlayerManager.hint == false && DIALOG.visible == true:
+			DIALOG.visible = false
+			PlayerManager.dialoging = false
 	if event.is_action_released("action"):  
 		PlayerManager.actioning = false
 			

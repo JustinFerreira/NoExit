@@ -20,6 +20,12 @@ var player_rotation_z
 
 var scared = false
 
+#Dialog Controls
+
+var hint = false
+
+var dialoging = false
+
 ## Modes
 
 var FirstOpen = true
@@ -106,8 +112,26 @@ func ResetPlayer() -> void:
 	minigameTwoPassed = false
 	minigameThreePassed = false
 	
-func Dialog(text: String, duration: float = 10.0):
-	player.get_node("DialogControl").show_temporary_dialog(text,duration)
+	
+## Dialog Functions
+
+func Hint(text: String, duration: float = 10.0):
+	hint = true
+	player.get_node("DialogControl").show_temporary_dialog(text,duration, "yellow")
+	
+func Dialog(text: String):
+	hint = false
+	player.get_node("DialogControl").player_interact_dialog(text)
+	
+func HideDialog():
+	player.DIALOG.animation_player.play("hide")
+	
+func RevealDialog():
+	player.DIALOG.animation_player.play("reveal")
+	
+func CharacterDialog(text: String, character: String = "player"):
+	player.get_node("DialogControl").player_interact_dialog_pic(text,character)
+##
 	
 func SavePlayerRotation():
 	player_rotation_x = player.get_node("Head").rotation.x
