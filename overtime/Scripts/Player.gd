@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var speed
-const WALK_SPEED = 3.0
-const SPRINT_SPEED = 4.5
+const WALK_SPEED = 5.0
+const SPRINT_SPEED = 7.5
 const JUMP_VELOCITY = 4.5
 var SENSITIVITY = PlayerManager.Sensitivity
 var gravity = true
@@ -138,9 +138,11 @@ func _physics_process(delta: float) -> void:
 	
 	if interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
+		var collision_point = interact_ray.get_collision_point()
+		var distance = interact_ray.global_position.distance_to(collision_point)
 		
-		if collider is Interactable:
-			#prompt.text = collider.prompt_message
+		# Only interact if within 1 meter
+		if distance <= 5.0 && collider is Interactable && collider.is_interactable:
 			$Cursor/Corsshair.visible = false
 			$Cursor/Hand.visible = true
 			
@@ -149,6 +151,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Cursor/Corsshair.visible = true
 			$Cursor/Hand.visible = false
+	else:
+		$Cursor/Corsshair.visible = true
+		$Cursor/Hand.visible = false
 			
 	
 	# Handle Sprint
