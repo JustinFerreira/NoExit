@@ -115,6 +115,7 @@ mesh = ExtResource("6_k0to7")
 
 [node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292828, 0)
+visible = false
 use_collision = true
 
 [node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]

@@ -26,7 +26,7 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.56693, -11.5064, 
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -1.84832, 0, 17.7201)
 
 [node name="Elevator" parent="." instance=ExtResource("4_k43tb")]
-transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.967, 0, 8.311)
+transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.9768, 0, 8.311)
 
 [node name="DoorKey" parent="." instance=ExtResource("5_jgepb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386568, 1.86603, 17.7744)
