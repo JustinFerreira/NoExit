@@ -1,17 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://cu34oa67umly4"]
+[gd_scene load_steps=18 format=3 uid="uid://3ttdeh8xrquh"]
 
-[ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="1_4wjrg"]
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_qixy7"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="2_re2nw"]
-[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_o7hmn"]
-[ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Scenes/PlayerObjects/BatteryPickup.tscn" id="3_rvstb"]
-[ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Scenes/PlayerObjects/Battery.tscn" id="4_0jo2u"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_kywcv"]
-[ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="5_66ggo"]
-[ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="5_vuqxf"]
-[ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="6_j65yb"]
-[ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="11_rikxf"]
-[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_vej6o"]
+[ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_n2qmr"]
+[ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="3_kk3s6"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Scenes/PlayerObjects/Car.tscn" id="4_qso0t"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="5_1ws8f"]
+[ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="6_x0bat"]
+[ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="7_crfl8"]
+[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="8_wpnte"]
+[ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Scenes/PlayerObjects/BatteryPickup.tscn" id="9_30wl1"]
+[ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="10_2mdtu"]
+[ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Scenes/PlayerObjects/Battery.tscn" id="11_m1gp8"]
+[ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="12_yxxkn"]
+[ext_resource type="PackedScene" uid="uid://bbmusn3or87np" path="res://Scenes/PlayerObjects/CarKeys.tscn" id="13_dm3ft"]
 
 [sub_resource type="Environment" id="Environment_ks8si"]
 background_mode = 1
@@ -37,7 +38,7 @@ agent_radius = 0.9
 
 [node name="Parking Garage" type="Node3D" node_paths=PackedStringArray("fog_remover")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.361246, -0.128026, -0.374771)
-script = ExtResource("1_qixy7")
+script = ExtResource("1_vej6o")
 fog_remover = NodePath("WorldEnvironment/FogRemover")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -78,22 +79,22 @@ transform = Transform3D(11.8071, 0, 0, 0, 11.8071, 0, 0, 0, 11.8071, -8.48348, 5
 shape = 0
 material = SubResource("FogMaterial_au07w")
 
-[node name="Player" parent="." instance=ExtResource("3_o7hmn")]
-transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -8.15978, 5.41384, 133.693)
+[node name="Player" parent="." instance=ExtResource("2_n2qmr")]
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 32.9187, -1.8882, 77.6606)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_8nci8")
 
-[node name="AlternatingGarage1" parent="NavigationRegion3D" instance=ExtResource("1_4wjrg")]
+[node name="AlternatingGarage1" parent="NavigationRegion3D" instance=ExtResource("3_kk3s6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Car" parent="NavigationRegion3D" instance=ExtResource("2_re2nw")]
+[node name="Car" parent="NavigationRegion3D" instance=ExtResource("4_qso0t")]
 transform = Transform3D(1.58923, 0, 0, 0, 1.58923, 0, 0, 0, 1.58923, 26.1426, -2.31337, 84.0891)
 
-[node name="EnemyTest2" parent="." instance=ExtResource("4_kywcv")]
+[node name="EnemyTest2" parent="." instance=ExtResource("5_1ws8f")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -38.056, 9.00296, 71.5706)
 
-[node name="ParkingGarageElevator" parent="." instance=ExtResource("5_66ggo")]
+[node name="ParkingGarageElevator" parent="." instance=ExtResource("6_x0bat")]
 transform = Transform3D(-1.80606, 0, -1.57891e-07, 0, 1.80606, 0, 1.57891e-07, 0, -1.80606, -8.20764, 5.31365, 134.416)
 
 [node name="sLIGHTrED2" type="SpotLight3D" parent="."]
@@ -106,24 +107,33 @@ spot_range = 4096.0
 spot_attenuation = 0.14
 spot_angle = 46.44
 
-[node name="Gas Canister" parent="." instance=ExtResource("11_rikxf")]
+[node name="Gas Canister" parent="." instance=ExtResource("7_crfl8")]
 transform = Transform3D(1.85488, 0, 0, 0, 1.85488, 0, 0, 0, 1.85488, 18.9254, -4.99648, 126.27)
 
-[node name="Elevator" parent="." instance=ExtResource("12_60cos")]
+[node name="Elevator" parent="." instance=ExtResource("8_wpnte")]
 transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -7.9065, -5.04671, 134.474)
 
-[node name="Elevator2" parent="." instance=ExtResource("12_60cos")]
+[node name="Elevator2" parent="." instance=ExtResource("8_wpnte")]
 transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -7.89525, 0.213352, 134.488)
 
-[node name="BatteryPickup" parent="." instance=ExtResource("3_rvstb")]
+[node name="BatteryPickup" parent="." instance=ExtResource("9_30wl1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1658, -3.98649, 126.369)
 
-[node name="WireNegative" parent="." instance=ExtResource("5_vuqxf")]
+[node name="WireNegative" parent="." instance=ExtResource("10_2mdtu")]
 transform = Transform3D(0.0863309, 0, 0, 0, 0.0863309, 0, 0, 0, 0.0863309, 26.3323, -0.0666747, 87.2661)
 
-[node name="Battery" parent="." instance=ExtResource("4_0jo2u")]
+[node name="Battery" parent="." instance=ExtResource("11_m1gp8")]
 transform = Transform3D(0.294551, 0, 0, 0, 0.294551, 0, 0, 0, 0.294551, 25.7153, -0.244396, 87.31)
 skeleton = NodePath("../WorldEnvironment")
 
-[node name="WirePositive" parent="." instance=ExtResource("6_j65yb")]
+[node name="WirePositive" parent="." instance=ExtResource("12_yxxkn")]
 transform = Transform3D(0.0802543, 0, 0, 0, 0.0802543, 0, 0, 0, 0.0802543, 25.2372, -0.0803943, 87.5608)
+
+[node name="Car Keys" parent="." instance=ExtResource("13_dm3ft")]
+transform = Transform3D(0.0772727, 0, 0, 0, 0.0772727, 0, 0, 0, 0.0772727, 30.4807, -2.4414, 88.6717)
+
+[node name="Gas Canister2" parent="." instance=ExtResource("7_crfl8")]
+transform = Transform3D(1.69698, 0, 0, 0, 1.69698, 0, 0, 0, 1.69698, 34.2846, -1.59698, 86.9458)
+
+[node name="BatteryPickup2" parent="." instance=ExtResource("9_30wl1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3374, -1.63895, 86.8076)

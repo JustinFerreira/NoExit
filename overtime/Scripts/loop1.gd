@@ -12,6 +12,8 @@ func _ready() -> void:
 	PlayerManager.gotKeys = false
 	PlayerManager.InAnimation = true;
 	PlayerManager.player.CURSOR.visible = false
+	PlayerManager.no_enemy = true
+	PlayerManager.Loop1 = true
 	animation_player.connect("animation_finished", _on_animation_finished)
 	cutscene_camera.current = true
 	animation_player.play("WakingUp")

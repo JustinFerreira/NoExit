@@ -4,6 +4,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.Loop1 = false
 	animation_player.connect("animation_finished", _on_animation_finished)
 	if PlayerManager.FirstOpen == true:
 		animation_player.play("FadeIn")
@@ -77,3 +78,8 @@ func _on_prev_screen_btn_pressed() -> void:
 func _on_alternate_parking_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageL1.tscn")
+
+
+func _on_alternate_parking_keys_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageKeysL1.tscn")

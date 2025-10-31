@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=38 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_qmrrf"]
 [ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="2_lbi2i"]
 [ext_resource type="Texture2D" uid="uid://cbskkjvatl1r0" path="res://Assets/Enviroments/Dev Textures/dev_texture_window.png" id="3_fo681"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="4_cnxni"]
-[ext_resource type="Script" path="res://Scripts/hot_wiring.gd" id="5_7d2qc"]
 [ext_resource type="Script" path="res://Scripts/StartCar.gd" id="6_0lq47"]
 [ext_resource type="Script" path="res://Scripts/GasIntake.gd" id="7_uaqgy"]
 [ext_resource type="Script" path="res://Scripts/Hood.gd" id="8_51nsx"]
@@ -65,11 +64,6 @@ bind/2/pose = Transform3D(6.12323e-17, 0, -1, 0, 1, 0, 1, 0, 6.12323e-17, -0.001
 [sub_resource type="BoxMesh" id="BoxMesh_s4pjl"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7wvcj"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3v8gc"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_j2dle"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4bg5b"]
@@ -306,27 +300,15 @@ mesh = SubResource("BoxMesh_s4pjl")
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0114031, 0, 0, 0, 0.00563094, 0.00986264, 0.00973579, 0.00203745)
 shape = SubResource("ConcavePolygonShape3D_7wvcj")
 
-[node name="HotWiring" type="StaticBody3D" parent="Mesh"]
-visible = false
-script = ExtResource("5_7d2qc")
-prompt_message = "Hot Wire?"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/HotWiring"]
-transform = Transform3D(0.00461649, 0, 0, 0, 0.00461649, 0, 0, 0, 0.00461649, 0.00351914, 0.00478416, 0.00692104)
-mesh = SubResource("BoxMesh_3v8gc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/HotWiring"]
-transform = Transform3D(0.00461649, 0, 0, 0, 0.00461649, 0, 0, 0, 0.00461649, 0.00351914, 0.00478416, 0.00692104)
-shape = SubResource("ConcavePolygonShape3D_j2dle")
-
 [node name="StartCar" type="StaticBody3D" parent="Mesh"]
 process_mode = 1
-transform = Transform3D(0.00442181, 0, 0, 0, 0.00442181, 0, 0, 0, 0.00442181, 0.00428734, 0.0112642, 0.00827021)
+transform = Transform3D(0.00811502, 0, 0, 0, 0.0126202, 0, 0, 0, 0.00442181, 0.00340134, 0.00584333, 0.00638816)
 visible = false
 script = ExtResource("6_0lq47")
 prompt_message = "Start Car"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StartCar"]
+transform = Transform3D(0.721354, 0, 0, 0, 0.721354, 0, 0, 0, 0.721354, 0.125114, 0.112198, 0.019061)
 mesh = SubResource("BoxMesh_4bg5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StartCar"]
@@ -459,7 +441,6 @@ script = ExtResource("15_n8dke")
 transform = Transform3D(0.666667, 1.98682e-08, -9.93411e-09, -8.86535e-09, 0.511346, 0.427749, 2.03676e-08, -0.427749, 0.511346, -0.267938, 1.72184, 3.13428)
 
 [connection signal="interacted" from="Mesh/CarDoor" to="Mesh/CarDoor" method="_on_interacted"]
-[connection signal="interacted" from="Mesh/HotWiring" to="Mesh/HotWiring" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/StartCar" to="Mesh/StartCar" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/GasIntake" to="Mesh/GasIntake" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/Hood" to="Mesh/Hood" method="_on_interacted"]

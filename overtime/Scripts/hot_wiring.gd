@@ -11,7 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_interacted(body: Variant) -> void:
-	PlayerManager.minigameOne = true
-	PlayerManager.MiniGameModeOn()
 	

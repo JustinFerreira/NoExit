@@ -23,6 +23,8 @@ var player_rotation_z
 var scaredPitch = 1
 var scaredVolume = -80
 
+var sprint_engaged = false
+
 #Dialog Controls
 
 var hint = false
@@ -43,6 +45,8 @@ var testing = true
 var gotKeys = false
 var gotGas_Canister = false
 var gotBattery = false
+
+var Loop1 = false
 
 ## Hot Wiring
 var minigameOne = false
@@ -126,6 +130,9 @@ func ResetPlayer() -> void:
 	scaredPitch = 1
 	scaredVolume = -80
 	
+	## Objects
+	Gas_Canister = null
+	
 	
 ## Dialog Functions
 
@@ -156,13 +163,13 @@ func SavePlayerRotation():
 	
 func ApplyPlayerRotation():
 	player.get_node("Head").rotation.x = player_rotation_x
-	player.get_node("Head").rotation.y = player_rotation_y
-	player.get_node("Head").rotation.z = player_rotation_z
+	player.get_node("Head").rotation.y = player_rotation_y + PI/2
+	player.get_node("Head").rotation.z = player_rotation_z 
 	
 func MiniGameModeOn():
 	MinigameMode = true
 	player.CURSOR.visible = false
-	player.is_moving = false
+	AudioManager.stop_loop("step")
 	
 func MiniGameModeOff():
 	if minigameOne == true:
