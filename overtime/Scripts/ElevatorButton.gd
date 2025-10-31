@@ -22,7 +22,7 @@ func _on_animation_finished(anim_name: String):
 
 func _on_interacted(body: Variant) -> void:
 	door_collision.translate(Vector3(0,3,0))
-	PlayerManager.Hint("To run hold shift, to see what you have in your inventory press E or Tab")
+	PlayerManager.Hint("Use shift to toggle sprint, Hold E to access your Inventory")
 	DoorOpen = true;
 	$".".is_interactable = false
 	prompt_message = ""

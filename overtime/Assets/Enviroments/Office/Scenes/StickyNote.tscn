@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://chaiu20v7k0we"]
+
+[ext_resource type="Texture2D" uid="uid://dchmfphg6wgg1" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_BaseColor.png" id="1_3fh77"]
+[ext_resource type="Texture2D" uid="uid://gikkql68hmpu" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_RMAO.png" id="2_8hrq1"]
+[ext_resource type="Texture2D" uid="uid://fxpcvlmgdhmu" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_Normal.png" id="3_5q5qx"]
+[ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Enviroments/Office/Models/Sticky_Note.obj" id="4_dph4x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wby3x"]
+albedo_texture = ExtResource("1_3fh77")
+metallic = 1.0
+metallic_texture = ExtResource("2_8hrq1")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_8hrq1")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_5q5qx")
+ao_enabled = true
+ao_texture = ExtResource("2_8hrq1")
+
+[node name="Sticky Note" type="Node3D"]
+
+[node name="StickyNote" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wby3x")
+mesh = ExtResource("4_dph4x")

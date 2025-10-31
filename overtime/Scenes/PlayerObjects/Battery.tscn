@@ -19,7 +19,6 @@ albedo_texture = ExtResource("2_0f6xu")
 
 [node name="Battery" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109778, 0)
-visible = false
 mesh = SubResource("BoxMesh_1p2d6")
 script = ExtResource("1_yn3cf")
 

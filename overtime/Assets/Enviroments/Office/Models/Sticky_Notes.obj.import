@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bip30krengfuq"
+path="res://.godot/imported/Sticky_Notes.obj-b53195d24227b120cdbdf2e3f8340e6f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Sticky_Notes.obj-b53195d24227b120cdbdf2e3f8340e6f.mesh"]
+
+source_file="res://Assets/Enviroments/Office/Models/Sticky_Notes.obj"
+dest_files=["res://.godot/imported/Sticky_Notes.obj-b53195d24227b120cdbdf2e3f8340e6f.mesh", "res://.godot/imported/Sticky_Notes.obj-b53195d24227b120cdbdf2e3f8340e6f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

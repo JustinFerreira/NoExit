@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="4_3726l"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="7_83tbi"]
 [ext_resource type="PackedScene" uid="uid://b3aadkrso5gh6" path="res://Assets/Greyboxing/ParkingGarages/ParkingGarage1.tscn" id="8_efut0"]
-[ext_resource type="PackedScene" uid="uid://brfx1goskilhx" path="res://Assets/Greyboxing/ParkingGarages/AlternatingParkingGarage2.tscn" id="9_halb8"]
+[ext_resource type="PackedScene" path="res://Assets/Greyboxing/ParkingGarages/AlternatingParkingGarage2.tscn" id="9_halb8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6phul"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

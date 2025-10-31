@@ -1,7 +1,7 @@
 extends Interactable
 
 func _on_interacted(body: Variant) -> void:
-	PlayerManager.AddToInventory("DoorKey", 0.5)
+	PlayerManager.AddToInventory("Object", 0.5)
 	PlayerManager.gotKeys = true
 	AudioManager.play_sound(AudioManager.keys)
 	

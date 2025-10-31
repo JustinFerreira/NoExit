@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvvic21svfacj"]
+
+[ext_resource type="Texture2D" uid="uid://cwoqi8w0xedre" path="res://Assets/Enviroments/Office/Textures/PictureFrame2 Textures/PictureFrame_2_Material.001_BaseColor.png" id="1_pp7ri"]
+[ext_resource type="Texture2D" uid="uid://cbdwd4s1w1u84" path="res://Assets/Enviroments/Office/Textures/PictureFrame2 Textures/PictureFrame_2_Material.001_RMAO.png" id="2_yxvl7"]
+[ext_resource type="Texture2D" uid="uid://dbtlwsqmk0333" path="res://Assets/Enviroments/Office/Textures/PictureFrame2 Textures/PictureFrame_2_Material.001_Normal.png" id="3_sb6ye"]
+[ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="4_wqihn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53bvs"]
+albedo_texture = ExtResource("1_pp7ri")
+metallic = 1.0
+metallic_texture = ExtResource("2_yxvl7")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_yxvl7")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_sb6ye")
+ao_enabled = true
+ao_texture = ExtResource("2_yxvl7")
+
+[node name="Picture Frame" type="Node3D"]
+
+[node name="PictureFrame2" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_53bvs")
+mesh = ExtResource("4_wqihn")

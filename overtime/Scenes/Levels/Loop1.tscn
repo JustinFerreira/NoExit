@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="1_rffta"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_1oq6x"]
 [ext_resource type="PackedScene" uid="uid://b84vywx2awoq2" path="res://Assets/Enviroments/Elevator/Scenes/Elevator.tscn" id="4_k43tb"]
-[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="5_jgepb"]
 [ext_resource type="PackedScene" uid="uid://d1fnud1p1j436" path="res://Assets/Enviroments/Office/Scenes/PlayerCubicle.tscn" id="6_yapp3"]
 [ext_resource type="AudioStream" uid="uid://c0fnfapes0ekf" path="res://Assets/Audio/SFX/ticking-clock-background-sound-effect-331707.mp3" id="7_t1ggc"]
 [ext_resource type="Script" path="res://Scripts/ClockTicking.gd" id="8_i7rwj"]
 [ext_resource type="AudioStream" uid="uid://c2eq8yxqeublc" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="9_magg0"]
 [ext_resource type="Script" path="res://Scripts/Phoneringing.gd" id="9_yxtsp"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
+[ext_resource type="PackedScene" uid="uid://cja1f1lpuu26i" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
 [ext_resource type="PackedScene" uid="uid://btsxvjv0kt28f" path="res://Assets/Characters/DialogNPC.tscn" id="12_ah1bj"]
+[ext_resource type="PackedScene" uid="uid://bbmusn3or87np" path="res://Scenes/PlayerObjects/CarKeys.tscn" id="12_v31s2"]
 
 [sub_resource type="Environment" id="Environment_x47e5"]
 background_mode = 1
@@ -27,9 +27,6 @@ transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -1.84832, 0
 
 [node name="Elevator" parent="." instance=ExtResource("4_k43tb")]
 transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.9768, 0, 8.311)
-
-[node name="DoorKey" parent="." instance=ExtResource("5_jgepb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386568, 1.86603, 17.7744)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x47e5")
@@ -81,3 +78,6 @@ transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, 
 
 [node name="DialogNpc" parent="." instance=ExtResource("12_ah1bj")]
 transform = Transform3D(-0.547161, 0, 1.17924, 0, 1.3, 0, -1.17924, 0, -0.547161, -6.42967, 0.015696, 22.6357)
+
+[node name="Car Keys" parent="." instance=ExtResource("12_v31s2")]
+transform = Transform3D(0.0196, 0, 0, 0, 0.0196, 0, 0, 0, 0.0196, -1.02344, 1.29637, 17.7574)

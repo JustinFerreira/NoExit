@@ -106,14 +106,25 @@ func RemoveItemByName(name: String) -> bool:
 	
 	
 func ResetPlayer() -> void:
-	MinigameMode = false
-	PositiveConnected = false
-	NegativeConnected = false
 	Inventory = []
 	CurrentWeight = 0.0
+	
+	##Minigames avtives
+	MinigameMode = false
+	minigameOne = false
+	minigameTwo = false
+	minigameThree = false
+	
+	## Minigames passed
 	minigameOnePassed = false
 	minigameTwoPassed = false
 	minigameThreePassed = false
+	PositiveConnected = false
+	NegativeConnected = false
+	
+	## Sound Mods
+	scaredPitch = 1
+	scaredVolume = -80
 	
 	
 ## Dialog Functions
@@ -133,6 +144,7 @@ func RevealDialog():
 	player.DIALOG.animation_player.play("reveal")
 	
 func CharacterDialog(text: String, character: String = "player"):
+	hint = false
 	player.get_node("DialogControl").player_interact_dialog_pic(text,character)
 ##
 	
@@ -150,6 +162,7 @@ func ApplyPlayerRotation():
 func MiniGameModeOn():
 	MinigameMode = true
 	player.CURSOR.visible = false
+	player.is_moving = false
 	
 func MiniGameModeOff():
 	if minigameOne == true:
@@ -173,6 +186,7 @@ func TestConnection():
 		
 func ProcessScared():
 	if no_enemy:
+		scaredVolume = -80
 		return -80
 	
 	if scaredPitch > 15:

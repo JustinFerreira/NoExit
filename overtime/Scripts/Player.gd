@@ -11,13 +11,16 @@ var gravity = true
 var is_sprinting = false
 
 #bob variables
-const BOB_FREQ = 4.0 # How often you bob
-const BOB_AMP = 0.04 # How high and low you bob
+const BOB_FREQ = 3.0 # How often you bob
+const BOB_AMP = 0.07 # How high and low you bob
 var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
 
 #fov variables
-const BASE_FOV = 75.0
-const FOV_CHANGE = 1.5
+#const BASE_FOV = 75.0
+#const FOV_CHANGE = 1.5
+#const MAX_FOV = 90.0  # Add this
+#const MIN_FOV = 70.0  # Add this
+#const FOV_TRANSITION_SPEED = 1.0  # Adjust this for smoother/faster transitions
 
 #Step variables
 var was_moving = false
@@ -29,7 +32,7 @@ var heartbeat_volume = -20  # Adjust as needed
 #settings
 
 var TbobON = true
-var FOVON = true
+var FOVON = false
 var Incar = false
 
 @onready var HEAD = $Head
@@ -111,11 +114,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 		
 	if event.is_action("action"):
-		if PlayerManager.minigameTwo == true:
-			PlayerManager.actioning = true
-		elif PlayerManager.hint == false && DIALOG.visible == true:
+		if PlayerManager.hint == false && DIALOG.visible == true:
 			DIALOG.visible = false
 			PlayerManager.dialoging = false
+		elif PlayerManager.minigameTwo == true:
+			PlayerManager.actioning = true
+		
 	if event.is_action_released("action"):  
 		PlayerManager.actioning = false
 			
@@ -124,6 +128,10 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
+	# Handle Heartbeat and Breathing sounds
+	apply_breathing_effects()
+	apply_heartbeat_effects()
+	
 	if PlayerManager.InAnimation || PlayerManager.MinigameMode:
 		return
 	SENSITIVITY = PlayerManager.Sensitivity
@@ -198,9 +206,7 @@ func _physics_process(delta: float) -> void:
 	elif was_moving:  # Was moving but now stopped
 		AudioManager.stop_loop("step")
 		
-	# Handle Heartbeat and Breathing sounds
-	apply_breathing_effects()
-	apply_heartbeat_effects()
+	
 		
 	# Update movement state for next frame
 	was_moving = is_moving
@@ -211,11 +217,25 @@ func _physics_process(delta: float) -> void:
 	if TbobON && PlayerManager.HeadBob:
 		camera.transform.origin = _headbob(t_bob)
 	
-	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
-	if FOVON == true:
-		camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+	## FOV - Smooth sliding between min and max
+	#var target_fov = BASE_FOV
+#
+	#if FOVON:
+		## When FOVON is true, slide to maximum FOV
+		#target_fov = MAX_FOV
+	#else:
+		## When FOVON is false, slide to minimum FOV  
+		#target_fov = MIN_FOV
+#
+	## Add slight FOV change based on velocity (optional - keep this if you want the speed effect)
+	#var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
+	#target_fov += FOV_CHANGE * velocity_clamped
+#
+	## Apply smooth FOV transition
+	#if FOVON:
+		#camera.fov = lerp(camera.fov, target_fov, delta * FOV_TRANSITION_SPEED)
+	#else:
+		#camera.fov = lerp(camera.fov, target_fov, delta * FOV_TRANSITION_SPEED)
 
 	if velocity.length() > 0.1:
 		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)

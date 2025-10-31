@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbmusn3or87np"]
+
+[ext_resource type="Script" path="res://Scripts/CarKeys.gd" id="1_e3rvt"]
+[ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Scenes/PlayerObjects/CarKeys/Models/M_CarKeys_Unwrapped.obj" id="2_4tk0o"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_k7qgf"]
+[ext_resource type="Texture2D" uid="uid://dla06rt1hhnqt" path="res://Assets/Enviroments/Dev Textures/dev_texture_dirt.png" id="2_ydowx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvrq0"]
+albedo_texture = ExtResource("2_ydowx")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qx8xk"]
+points = PackedVector3Array(4.25133, 0.318922, 5.69323, -0.919455, -0.0946791, -4.84993, -0.919455, 0.318922, -4.84993, -8.77408, -0.0946791, 0.318513, -1.95309, 2.38614, 1.97187, 1.97681, 1.76574, -1.95577, 4.45858, -0.30148, 5.27963, -4.43098, 1.76574, -0.301363, 1.97681, 2.38614, 0.937337, 2.59596, -0.0946791, -1.74949, -8.77408, 0.525723, -0.301363, 2.59596, 1.14534, -2.36937, -1.74585, 2.38614, 0.112239, 3.42365, 0.318922, 5.69323, -8.35959, 0.318922, 0.524788, 3.83684, -0.30148, 5.8995, -1.33265, 1.97254, 2.79907, 0.11548, 2.38614, 2.17709, -0.919455, 0.525723, -4.64365, 4.04409, 0.732524, 4.6587, -8.77408, -0.0946791, -0.0950882, 4.45858, -0.0946791, 4.86603, 2.60774, 1.33985, -2.05551, 1.97681, 2.38614, 0.524788, -8.77408, 0.525723, 0.112239, -8.15234, 0.732524, -0.301363, -8.77408, 0.112122, -0.301363, 4.45858, 0.318922, 5.48695, 3.13561, 0.356255, -0.258728, 2.50967, 1.91727, 0.912826, 1.56361, 1.76574, -1.95577, -0.712209, 0.525723, -4.64365)
+
+[node name="Car Keys" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_e3rvt")
+outline_material = ExtResource("2_k7qgf")
+mesh = NodePath("MCarKeysUnwrapped")
+has_outline = true
+
+[node name="MCarKeysUnwrapped" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qvrq0")
+mesh = ExtResource("2_4tk0o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(4.60878, 0, 0, 0, 4.60878, 0, 0, 0, 4.60878, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_qx8xk")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

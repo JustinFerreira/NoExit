@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 2.0
+const SPEED = 3.0
 
 ##stuck variables
 var is_stuck = false

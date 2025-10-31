@@ -60,7 +60,7 @@ func _on_animation_finished(anim_name: String):
 func _on_interacted(body: Variant) -> void:
 	##Entering car if locked
 	if unlocked == false:
-		if PlayerManager.RemoveItemByName("DoorKey"):
+		if PlayerManager.RemoveItemByName("Car Keys"):
 			player.interact_ray.enabled = false
 			player.AREA3D.monitoring = false
 			player.AREA3D.monitorable = false
