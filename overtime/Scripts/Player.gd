@@ -23,7 +23,7 @@ const FOV_CHANGE = 1.5
 var was_moving = false
 var is_moving = false
 
-var breathing_volume = -10  # Adjust as needed
+var breathing_volume = -80  # Adjust as needed
 var heartbeat_volume = -20  # Adjust as needed
 
 #settings
@@ -249,18 +249,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func apply_breathing_effects():
 	# Adjust breathing sound based on current state
-	var target_pitch = 1.0
-	var target_volume = breathing_volume
-
-	# Make breathing slightly faster when moving
-	if is_moving:
-		target_pitch = 1.1
-	else:
-		target_pitch = 0.9
-		
-	if PlayerManager.scared:
-		target_pitch = 2
-		target_volume = 10
+	var target_pitch = PlayerManager.ProcessScared()
+	var target_volume = PlayerManager.scaredVolume
 
 	## Make breathing more intense when low on stamina
 	#if stamina < 30:
@@ -272,17 +262,8 @@ func apply_breathing_effects():
 	
 func apply_heartbeat_effects():
 	# Adjust heartbeat based on player state
-	var target_pitch = 1.0
-	var target_volume = heartbeat_volume
-
-	# Make heartbeat faster when sprinting or low health
-	if Input.is_action_pressed("sprint"):
-		target_pitch = 1.1
-		target_volume = heartbeat_volume + 2.0
-		
-	if PlayerManager.scared:
-		target_pitch = 2
-		target_volume = 10
+	var target_pitch = PlayerManager.ProcessScared()
+	var target_volume = PlayerManager.scaredVolume
 
 	# Make heartbeat even more intense when very low health
 	#if health < 20:

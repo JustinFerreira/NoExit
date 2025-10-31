@@ -6,6 +6,7 @@ extends Control
 func _ready() -> void:
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Splash")
+	AudioManager.play_music(AudioManager.MainMenuMusic)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

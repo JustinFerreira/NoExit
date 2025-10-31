@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4e6alwxo7csv"]
+[gd_scene load_steps=7 format=3 uid="uid://c4e6alwxo7csv"]
 
 [ext_resource type="Texture2D" uid="uid://c2twr6n4hkn2t" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_BaseColor.png" id="1_o7wg1"]
 [ext_resource type="Texture2D" uid="uid://b4p3j36opssqu" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Metalic_and_Rougness.png" id="2_fy8ie"]
 [ext_resource type="Texture2D" uid="uid://cn0pq3lrbxfww" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Normal.png" id="3_hvd10"]
-[ext_resource type="ArrayMesh" uid="uid://hwfivfoebt3o" path="res://Assets/Enviroments/Garage/Models/M_GaragePole_Unwrapped.obj" id="4_5vgud"]
+[ext_resource type="ArrayMesh" uid="uid://nik4occeorhy" path="res://Assets/Enviroments/Garage/Models/M_GaragePole_Unwrapped.obj" id="4_5vgud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n31o4"]
 albedo_texture = ExtResource("1_o7wg1")
@@ -17,8 +17,16 @@ normal_texture = ExtResource("3_hvd10")
 ao_enabled = true
 ao_texture = ExtResource("2_fy8ie")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dxqrg"]
+points = PackedVector3Array(0.0722627, 1.35052, 0.0283336, -0.0814817, -0.0107067, -0.0375526, -0.0814817, -0.0107067, 0.0283336, -0.0814817, 1.35052, -0.0155805, 0.0722627, -0.0107067, -0.0595097, 0.0283336, 1.32864, -0.0814817, 0.0502906, -0.0107067, 0.0722627, -0.0595097, 1.30663, 0.0722627, -0.0375526, -0.0107067, -0.0814817, -0.0375526, 1.30663, -0.0814817, 0.0502906, 1.32864, 0.0722627, -0.0595097, -0.0107067, 0.0722627, 0.0722627, 1.30663, -0.0595097, 0.0722627, -0.0107067, 0.0502906, 0.0283336, -0.0107067, -0.0814817, -0.0814817, 1.32864, 0.0283336, -0.0814817, 1.30663, -0.0375526, -0.0375526, 1.37253, -0.0595097, -0.0375526, 1.35052, 0.0722627, 0.0722627, 1.32864, 0.0502906, 0.0722627, 1.35052, -0.0375526, 0.0269765, 1.3656, 0.0269765, -0.0595097, 1.37253, -0.0375526, 0.0283336, 1.35052, 0.0722627, 0.00636147, 1.35052, -0.0814817, -0.0595097, 1.35052, -0.0595097, -0.0595097, 1.35052, 0.0502906, -0.0155805, 1.35052, -0.0814817, 0.0502906, 1.35052, -0.0595097, -0.0814817, 1.35052, 0.00636147)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="MGaragePoleUnwrapped" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_n31o4")
 mesh = ExtResource("4_5vgud")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MGaragePoleUnwrapped"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MGaragePoleUnwrapped/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_dxqrg")

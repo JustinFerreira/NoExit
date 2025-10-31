@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 1.0
+const SPEED = 2.0
 
 ##stuck variables
 var is_stuck = false
@@ -11,6 +11,7 @@ var stuck_timer = 0.0
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready():
+	PlayerManager.no_enemy = false
 	nav.path_desired_distance = 1.0  # Increase for smoother turns
 	nav.target_desired_distance = 1.5  # Distance to consider target reached
 	nav.path_max_distance = 3.0  # Max distance to recalculate path
@@ -46,8 +47,6 @@ func target_position(target):
 	move_and_slide()
 	
 	var distance = global_position.distance_to(target)
-	if distance <= 10:
-		PlayerManager.scared = true
-	else:
-		PlayerManager.scared = false
+	PlayerManager.scaredPitch = distance
+
 	

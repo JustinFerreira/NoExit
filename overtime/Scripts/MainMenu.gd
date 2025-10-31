@@ -10,9 +10,11 @@ func _ready() -> void:
 		PlayerManager.FirstOpen = false
 	else:
 		$MainMenuFirstScreen/ColorRect.visible = false
+		AudioManager.cancel_loop_sfx()
+		AudioManager.play_music(AudioManager.MainMenuMusic)
 	
-	AudioManager.cancel_loop_sfx()
-	AudioManager.play_music(AudioManager.MainMenuMusic)
+	
+	
 	
 
 

@@ -12,13 +12,16 @@ var DevMode: bool = false
 
 ## Player
 
+var no_enemy = true
+
 var player
 
 var player_rotation_x
 var player_rotation_y
 var player_rotation_z
 
-var scared = false
+var scaredPitch = 1
+var scaredVolume = -80
 
 #Dialog Controls
 
@@ -167,3 +170,15 @@ func TestConnection():
 		PositiveWire.visible = false
 		NegativeWire.visible = false
 		Battery.visible = false
+		
+func ProcessScared():
+	if no_enemy:
+		return -80
+	
+	if scaredPitch > 15:
+		scaredVolume = -80
+		return 1
+	else:
+		scaredVolume = 1
+		return 4 - (scaredPitch / 10)
+		

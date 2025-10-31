@@ -23,7 +23,7 @@ func play_at_random():
 	
 	# Create a new timer
 	random_play_timer = Timer.new()
-	random_play_timer.wait_time = randf_range(20.0, 180.0)
+	random_play_timer.wait_time = randf_range(20.0, 60.0)
 	random_play_timer.one_shot = true
 	
 	# Connect the timeout signal
