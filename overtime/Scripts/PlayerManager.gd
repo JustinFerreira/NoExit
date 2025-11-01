@@ -12,6 +12,8 @@ var DevMode: bool = false
 
 ## Player
 
+var playerInRange = false
+
 var teleportEnemy = false
 
 var no_enemy = true
@@ -194,7 +196,7 @@ func TestConnection():
 		Battery.visible = false
 		
 func ProcessScared():
-	if no_enemy:
+	if no_enemy || playerInRange == false:
 		scaredVolume = -80
 		return -80
 	

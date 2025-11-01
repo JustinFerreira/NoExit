@@ -72,7 +72,7 @@ _data = {
 "reveal": SubResource("Animation_wt5t2")
 }
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 0, 0, 0)
 visible = false
 collision_layer = 17
@@ -140,10 +140,10 @@ theme_override_fonts/font = ExtResource("4_y3dep")
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Player" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.797641, 0, -8.888e-08, 0, 2.13114, 0, 1.27377e-07, 0, 0.556571, 0, -0.0105784, 0)
 shape = SubResource("ConvexPolygonShape3D_ijnjj")
 
@@ -262,5 +262,5 @@ position = Vector2(636, 341)
 scale = Vector2(0.0138326, 0.0142347)
 texture = ExtResource("10_o7qna")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Player" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="DialogControl/Timer" to="DialogControl" method="_on_timer_timeout"]

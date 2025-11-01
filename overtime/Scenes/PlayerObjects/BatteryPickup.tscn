@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://u7164itlys1a"]
+[gd_scene load_steps=8 format=3 uid="uid://u7164itlys1a"]
 
 [ext_resource type="Script" path="res://Scripts/BatteryPickup.gd" id="1_6d17v"]
-[ext_resource type="Texture2D" uid="uid://dvs7i3ccs15s3" path="res://Assets/Enviroments/Dev Textures/dev_texture_yellow.png" id="2_0p4m8"]
+[ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_BaseColor.png" id="2_6ydng"]
+[ext_resource type="Texture2D" uid="uid://dwj8otk3qg0fg" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Metalic_and_Rougness.png" id="3_ktux4"]
+[ext_resource type="Texture2D" uid="uid://dkr2eh5crsijf" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Normal.png" id="4_825vh"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Scenes/PlayerObjects/Battery/Models/M_Battery_Unwrapped.obj" id="5_fw4wm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrsi1"]
-albedo_texture = ExtResource("2_0p4m8")
-
-[sub_resource type="BoxMesh" id="BoxMesh_obsp0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi6v1"]
+albedo_texture = ExtResource("2_6ydng")
+metallic = 1.0
+metallic_texture = ExtResource("3_ktux4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_ktux4")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_825vh")
+ao_enabled = true
+ao_texture = ExtResource("3_ktux4")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cnt2j"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -15,8 +25,9 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 script = ExtResource("1_6d17v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_hrsi1")
-mesh = SubResource("BoxMesh_obsp0")
+transform = Transform3D(0.029514, 0, 0, 0, 0.029514, 0, 0, 0, 0.029514, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xi6v1")
+mesh = ExtResource("5_fw4wm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_cnt2j")

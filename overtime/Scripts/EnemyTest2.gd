@@ -41,6 +41,8 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()
 	
+		
+	
 	
 	
 func target_position(target):
@@ -48,6 +50,14 @@ func target_position(target):
 		return
 	nav.target_position = target
 	move_and_slide()
+	
+	var overlaps = $Area3D.get_overlapping_areas()
+	if overlaps.size() > 0:
+		for overlap in overlaps:
+			if overlap.name == "Player":
+				PlayerManager.playerInRange = true
+			else:
+				PlayerManager.playerInRange = false
 	
 	var distance = global_position.distance_to(target)
 	PlayerManager.scaredPitch = distance

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="5_vuqxf"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="6_j65yb"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="11_rikxf"]
-[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
 
 [sub_resource type="Environment" id="Environment_ks8si"]
 background_mode = 1
@@ -118,7 +118,7 @@ transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1
 transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -7.89525, 0.213352, 134.488)
 
 [node name="BatteryPickup" parent="." instance=ExtResource("3_rvstb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1658, -3.98649, 126.369)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1658, -4.63316, 126.369)
 
 [node name="WireNegative" parent="." instance=ExtResource("5_vuqxf")]
 transform = Transform3D(0.0863309, 0, 0, 0, 0.0863309, 0, 0, 0, 0.0863309, 24.7388, -0.139123, 88.0051)
