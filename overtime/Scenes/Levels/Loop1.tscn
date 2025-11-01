@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/ClockTicking.gd" id="8_i7rwj"]
 [ext_resource type="AudioStream" uid="uid://c2eq8yxqeublc" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="9_magg0"]
 [ext_resource type="Script" path="res://Scripts/Phoneringing.gd" id="9_yxtsp"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
+[ext_resource type="PackedScene" uid="uid://cja1f1lpuu26i" path="res://Assets/Characters/NPC.tscn" id="11_bl3v1"]
 [ext_resource type="PackedScene" uid="uid://btsxvjv0kt28f" path="res://Assets/Characters/DialogNPC.tscn" id="12_ah1bj"]
 [ext_resource type="PackedScene" uid="uid://bbmusn3or87np" path="res://Scenes/PlayerObjects/CarKeys.tscn" id="12_v31s2"]
 

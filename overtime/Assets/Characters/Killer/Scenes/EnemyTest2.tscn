@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b2xxyuv7fa0rx"]
+[gd_scene load_steps=14 format=4 uid="uid://b2xxyuv7fa0rx"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyTest2.gd" id="1_6slwl"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_4n1ac"]
@@ -335,10 +335,7 @@ _data = {
 "mixamo_com": SubResource("Animation_kqt3t")
 }
 
-[sub_resource type="PrismMesh" id="PrismMesh_aorof"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0oj8m"]
-points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="SphereShape3D" id="SphereShape3D_uky0l"]
 
 [node name="EnemyTest2" type="CharacterBody3D" groups=["enemy"]]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 0, 0, 0)
@@ -599,14 +596,10 @@ libraries = {
 "": SubResource("AnimationLibrary_8vrtg")
 }
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.255024, -0.000292611)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1.95001, 0, 0, 0, -2.22013e-07, 0.569828, 0, -5.07907, -2.4908e-08, 0, 0.634915, 2.67595)
-visible = false
-mesh = SubResource("PrismMesh_aorof")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.95001, 0, 0, 0, -2.22013e-07, 0.569828, 0, -5.07907, -2.4908e-08, 0, 0.634915, 2.67595)
-shape = SubResource("ConvexPolygonShape3D_0oj8m")
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(78.6966, 0, 0, 0, 78.6966, 0, 0, 0, 78.6966, 0, 0, 0)
+shape = SubResource("SphereShape3D_uky0l")
+target_position = Vector3(0, 0, 0)
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(7.46027e-07, 0.689482, 0.150052, 1)

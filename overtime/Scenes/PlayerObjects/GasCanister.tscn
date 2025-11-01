@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://lgmc2qagl07g"]
 
-[ext_resource type="Script" path="res://Scripts/gas_canister.gd" id="1_qhob5"]
+[ext_resource type="Script" path="res://Scripts/GasCanister.gd" id="1_qhob5"]
 [ext_resource type="ArrayMesh" uid="uid://c4lxpig3fe0ym" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Compact.obj" id="2_5mxio"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_noesk"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="2_stuh8"]

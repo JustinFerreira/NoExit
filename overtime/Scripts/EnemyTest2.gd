@@ -3,11 +3,6 @@ extends CharacterBody3D
 
 const SPEED = 2.0
 
-##stuck variables
-var is_stuck = false
-var stuck_timer = 0.0
-
-
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
 func _ready():
@@ -41,7 +36,12 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()
 	
-		
+	# Calculate path distance to target
+	var path_distance = calculate_path_distance()
+	PlayerManager.scaredPitch = path_distance
+	
+	# Update player detection
+	update_player_detection()
 	
 	
 	
@@ -50,16 +50,27 @@ func target_position(target):
 		return
 	nav.target_position = target
 	move_and_slide()
-	
-	var overlaps = $Area3D.get_overlapping_areas()
-	if overlaps.size() > 0:
-		for overlap in overlaps:
-			if overlap.name == "Player":
-				PlayerManager.playerInRange = true
-			else:
-				PlayerManager.playerInRange = false
-	
-	var distance = global_position.distance_to(target)
-	PlayerManager.scaredPitch = distance
 
+func calculate_path_distance() -> float:
+	# Get the full navigation path
+	var path = nav.get_current_navigation_path()
+	var total_distance = 0.0
 	
+	# Sum the distances between each point in the path
+	for i in range(path.size() - 1):
+		total_distance += path[i].distance_to(path[i + 1])
+	
+	return total_distance
+
+func update_player_detection():
+	$ShapeCast3D.force_shapecast_update()
+	
+	# Check if the ShapeCast3D is colliding with anything
+	if $ShapeCast3D.is_colliding():
+		var collider = $ShapeCast3D.get_collider(0)  # Get the first collider
+		if collider and collider.name == "Player":
+			PlayerManager.playerInRange = true
+		else:
+			PlayerManager.playerInRange = false
+	else:
+		PlayerManager.playerInRange = false
