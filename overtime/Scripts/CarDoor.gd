@@ -72,6 +72,7 @@ func _on_interacted(body: Variant) -> void:
 			# Open door animation
 			animation_player.play("NoExitProps")
 			PlayerManager.InAnimation = true
+			PlayerManager.teleportEnemy = true
 		else:
 			# Play Car locked noise
 			# Play audio of player saying "Where did I leave my keys?"
@@ -86,3 +87,4 @@ func _on_interacted(body: Variant) -> void:
 		PlayerManager.InAnimation = true
 		entering = true
 		animation_player.play("NoExitProps")
+		PlayerManager.teleportEnemy = true

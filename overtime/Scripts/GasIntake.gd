@@ -5,6 +5,7 @@ extends Interactable
 func _ready() -> void:
 	is_interactable = false
 	prompt_message = ""
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,9 +19,9 @@ func _on_interacted(body: Variant) -> void:
 	PlayerManager.minigameTwo = true
 	PlayerManager.MiniGameModeOn()
 	AudioManager.stop_loop("step")
-	PlayerManager.Gas_Canister = $"../../GasIntakeCanister"
 	$"../../GasIntakeCanister".visible = true
 	$"../../GasIntakeCam".current = true
+	PlayerManager.Gas_Canister = $"../../GasIntakeCanister"
 	$"../../GasIntakeCam/GasIntakeGame".visible = true
 	$"../../GasIntakeSweetSpot".visible = true
 	

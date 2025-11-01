@@ -10,13 +10,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if self.visible == true && self.position.y >= 1.098 && PlayerManager.actioning == false:
-		self.position.y -= fall_speed * delta
-	if self.position.y <= 1.358 && self.position.y >= 1.308:
-		car_filled += .1
-		$"../GasIntakeCam/GasIntakeGame/ProgressBar".value += 1
-	if PlayerManager.actioning == true:
-		PlayerManager.Gas_Canister.position.y += .5 * delta
+	if PlayerManager.minigameTwo:
+		if self.visible == true && self.position.y >= 1.098 && PlayerManager.actioning == false:
+			self.position.y -= fall_speed * delta
+		if self.position.y <= 1.358 && self.position.y >= 1.308:
+			car_filled += .1
+			$"../GasIntakeCam/GasIntakeGame/ProgressBar".value += 1
+		if PlayerManager.actioning == true && self.position.y <= 3:
+			PlayerManager.Gas_Canister.position.y += .3 * delta
 
 
 func _on_progress_bar_value_changed(value: float) -> void:

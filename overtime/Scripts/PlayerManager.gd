@@ -12,6 +12,8 @@ var DevMode: bool = false
 
 ## Player
 
+var teleportEnemy = false
+
 var no_enemy = true
 
 var player
@@ -196,10 +198,10 @@ func ProcessScared():
 		scaredVolume = -80
 		return -80
 	
-	if scaredPitch > 15:
+	if scaredPitch > 45:
 		scaredVolume = -80
 		return 1
 	else:
-		scaredVolume = 1
-		return 4 - (scaredPitch / 10)
+		scaredVolume = 4 - scaredPitch
+		return 4 
 		

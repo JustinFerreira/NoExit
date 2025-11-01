@@ -200,7 +200,7 @@ material_override = SubResource("StandardMaterial3D_njq4l")
 mesh = ExtResource("10_yakf6")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999351, 1.09703, -0.0955359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999351, 1.04811, -0.250276)
 material_override = SubResource("StandardMaterial3D_le8xh")
 mesh = ExtResource("15_y6l3j")
 

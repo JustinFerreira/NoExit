@@ -8,4 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if self.visible:
+		if PlayerManager.PositiveConnected:
+			$PositiveConnection.visible = true
+		if PlayerManager.NegativeConnected:
+			$NegativeConnection.visible = true

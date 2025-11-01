@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 3.0
+const SPEED = 2.0
 
 ##stuck variables
 var is_stuck = false
@@ -17,6 +17,9 @@ func _ready():
 	nav.path_max_distance = 3.0  # Max distance to recalculate path
 
 func _physics_process(delta: float) -> void:
+	if PlayerManager.teleportEnemy:
+		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
+		PlayerManager.teleportEnemy = false
 	$MeshInstance3D.visible = false
 	$Skeleton3D.visible = true
 	$AnimationPlayer.play("mixamo_com")

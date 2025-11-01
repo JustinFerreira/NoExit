@@ -7,6 +7,10 @@ func _ready() -> void:
 	PlayerManager.PositiveWire = self
 	$Area3D.body_entered.connect(_on_area_body_entered)
 	orginal_position = self.global_position
+	if self.is_in_group("grabbable"):
+		pass
+	else:
+		self.add_to_group("grabbable")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,7 +31,8 @@ func handle_collision(colliding_body):
 		PlayerManager.PositiveConnected = true
 		PlayerManager.TestConnection()
 		self.remove_from_group("grabbable")
-	if colliding_body.name == "NegativeBattery":
+		self.visible = false
+	if PlayerManager.PositiveConnected == false && colliding_body.name == "NegativeBattery" || "RestZone" || "RestZone2" || "RestZone3" || "RestZone4":
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
 	if colliding_body.name == "WireNegative":
