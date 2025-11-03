@@ -4725,6 +4725,93 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2, -5.8, 8.8)
 [node name="ParkingDrum6" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, -0.8, 8.8)
 
+[node name="ParkingDrum8" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 4.4, 8.8)
+
+[node name="ParkingDrum9" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 4.4, 24.8)
+
+[node name="ParkingDrum10" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 4.4, 24.8)
+
+[node name="ParkingDrum11" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4.4, 24.8)
+
+[node name="ParkingDrum12" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 4.4, 24.8)
+
+[node name="ParkingDrum13" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6, 4.4, 24.8)
+
+[node name="ParkingDrum24" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 1.9, -46.2)
+
+[node name="ParkingDrum30" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1, 1.9, -46.2)
+
+[node name="ParkingDrum29" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 1.9, -22.2)
+
+[node name="ParkingDrum25" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 1.9, -22.2)
+
+[node name="ParkingDrum26" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.9, -22.2)
+
+[node name="ParkingDrum27" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 1.9, -22.2)
+
+[node name="ParkingDrum31" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, -3.2, -46.2)
+
+[node name="ParkingDrum32" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1, -3.2, -46.2)
+
+[node name="ParkingDrum33" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -3.2, -22.2)
+
+[node name="ParkingDrum34" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, -3.2, -22.2)
+
+[node name="ParkingDrum35" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3.2, -22.2)
+
+[node name="ParkingDrum36" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, -3.2, -22.2)
+
+[node name="ParkingDrum28" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6, 1.9, -22.2)
+
+[node name="ParkingDrum14" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -0.8, 24.8)
+
+[node name="ParkingDrum15" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, -0.8, 24.8)
+
+[node name="ParkingDrum16" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.8, 24.8)
+
+[node name="ParkingDrum17" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, -0.8, 24.8)
+
+[node name="ParkingDrum18" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6, -0.8, 24.8)
+
+[node name="ParkingDrum19" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, -5.9, 24.8)
+
+[node name="ParkingDrum20" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, -5.9, 24.8)
+
+[node name="ParkingDrum21" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -5.9, 24.8)
+
+[node name="ParkingDrum22" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, -5.9, 24.8)
+
+[node name="ParkingDrum23" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.6, -5.9, 24.8)
+
 [node name="ParkingDrum7" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4, -0.8, 36.7)
 
@@ -4736,6 +4823,12 @@ transform = Transform3D(1.3111, 0, 0, 0, 1.3111, 0, 0, 0, 1.3111, -11.9667, -0.7
 
 [node name="RubbishBin2" parent="ParkingDrums" instance=ExtResource("7_yquvv")]
 transform = Transform3D(1.3111, 0, 0, 0, 1.3111, 0, 0, 0, 1.3111, -11.9667, 4.2444, 37.1955)
+
+[node name="RubbishBin4" parent="ParkingDrums" instance=ExtResource("7_yquvv")]
+transform = Transform3D(1.3111, 0, 0, 0, 1.3111, 0, 0, 0, 1.3111, -28.2243, 1.88442, -0.826401)
+
+[node name="RubbishBin5" parent="ParkingDrums" instance=ExtResource("7_yquvv")]
+transform = Transform3D(1.3111, 0, 0, 0, 1.3111, 0, 0, 0, 1.3111, -28.2243, -3.22887, -0.826401)
 
 [node name="RubbishBin3" parent="ParkingDrums" instance=ExtResource("7_yquvv")]
 transform = Transform3D(1.3111, 0, 0, 0, 1.3111, 0, 0, 0, 1.3111, -11.9667, -5.85107, 37.1955)
