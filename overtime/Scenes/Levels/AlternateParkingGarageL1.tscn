@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cu34oa67umly4"]
+[gd_scene load_steps=19 format=3 uid="uid://cu34oa67umly4"]
 
 [ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Assets/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="1_4wjrg"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qixy7"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="5_vuqxf"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="6_j65yb"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="11_rikxf"]
-[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
+[ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_amoy3"]
 
 [sub_resource type="Environment" id="Environment_ks8si"]
 background_mode = 1
@@ -137,3 +138,269 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.6087, 8.98239, 53.4409)
 visible = false
 mesh = SubResource("CapsuleMesh_ibqh1")
+
+[node name="SoundEffecfts" type="Node" parent="."]
+
+[node name="WaterDripping" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, 1.90448, 92.8351)
+
+[node name="WaterDripping7" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 1.90448, 92.8351)
+
+[node name="WaterDripping8" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 1.90448, 51.8119)
+
+[node name="WaterDripping16" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 1.90448, 51.8119)
+
+[node name="WaterDripping17" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 1.90448, 68.374)
+
+[node name="WaterDripping18" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9619, 1.90448, 68.374)
+
+[node name="WaterDripping19" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7458, 1.90448, 68.374)
+
+[node name="WaterDripping20" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 1.90448, 68.374)
+
+[node name="WaterDripping21" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 1.90448, 52.4159)
+
+[node name="WaterDripping9" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5543, 1.90448, 51.8119)
+
+[node name="WaterDripping10" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5211, 1.90448, 24.7969)
+
+[node name="WaterDripping11" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 1.90448, 24.7969)
+
+[node name="WaterDripping12" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 1.90448, 53.4269)
+
+[node name="WaterDripping13" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 1.90448, 79.0124)
+
+[node name="WaterDripping14" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9914, 1.90448, 90.034)
+
+[node name="WaterDripping15" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4539, 1.90448, 90.034)
+
+[node name="WaterDripping2" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6993, 1.90448, 92.8351)
+
+[node name="WaterDripping3" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2057, 1.90448, 92.8351)
+
+[node name="WaterDripping4" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.3706, 1.90448, 23.7605)
+
+[node name="WaterDripping5" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0585, 1.90448, 23.7605)
+
+[node name="WaterDripping6" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8213, 1.90448, 43.5735)
+
+[node name="WaterDripping22" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3697, 1.59875, 56.7995)
+
+[node name="WaterDripping23" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, 7.14861, 92.8351)
+
+[node name="WaterDripping24" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 7.14861, 92.8351)
+
+[node name="WaterDripping25" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 7.14861, 51.8119)
+
+[node name="WaterDripping26" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 7.14861, 51.8119)
+
+[node name="WaterDripping27" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 7.14861, 68.374)
+
+[node name="WaterDripping28" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9619, 7.14861, 68.374)
+
+[node name="WaterDripping29" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7458, 7.14861, 68.374)
+
+[node name="WaterDripping30" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 7.14861, 68.374)
+
+[node name="WaterDripping31" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 7.14861, 52.4159)
+
+[node name="WaterDripping32" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5543, 7.14861, 51.8119)
+
+[node name="WaterDripping33" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5211, 7.14861, 24.7969)
+
+[node name="WaterDripping34" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 7.14861, 24.7969)
+
+[node name="WaterDripping35" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 7.14861, 53.4269)
+
+[node name="WaterDripping36" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 7.14861, 79.0124)
+
+[node name="WaterDripping37" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9914, 7.14861, 90.034)
+
+[node name="WaterDripping38" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4539, 7.14861, 90.034)
+
+[node name="WaterDripping39" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6993, 7.14861, 92.8351)
+
+[node name="WaterDripping40" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2057, 7.14861, 92.8351)
+
+[node name="WaterDripping41" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.3706, 7.14861, 23.7605)
+
+[node name="WaterDripping42" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0585, 7.14861, 23.7605)
+
+[node name="WaterDripping43" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8213, 7.14861, 43.5735)
+
+[node name="WaterDripping44" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3697, 6.84288, 56.7995)
+
+[node name="WaterDripping45" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, 3.72203, 136.729)
+
+[node name="WaterDripping46" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 3.72203, 136.729)
+
+[node name="WaterDripping47" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, 3.72203, 95.7055)
+
+[node name="WaterDripping48" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 3.72203, 95.7055)
+
+[node name="WaterDripping49" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, 3.72203, 112.268)
+
+[node name="WaterDripping50" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9619, 3.72203, 112.268)
+
+[node name="WaterDripping51" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7458, 3.72203, 112.268)
+
+[node name="WaterDripping52" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 3.72203, 112.268)
+
+[node name="WaterDripping53" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, 3.72203, 96.3094)
+
+[node name="WaterDripping54" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5543, 3.72203, 95.7055)
+
+[node name="WaterDripping55" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5211, 3.72203, 68.6904)
+
+[node name="WaterDripping56" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 3.72203, 68.6904)
+
+[node name="WaterDripping57" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 3.72203, 97.3204)
+
+[node name="WaterDripping58" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, 3.72203, 122.906)
+
+[node name="WaterDripping59" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9914, 3.72203, 133.928)
+
+[node name="WaterDripping60" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4539, 3.72203, 133.928)
+
+[node name="WaterDripping61" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6993, 3.72203, 136.729)
+
+[node name="WaterDripping62" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2057, 3.72203, 136.729)
+
+[node name="WaterDripping63" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.3706, 3.72203, 67.654)
+
+[node name="WaterDripping64" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0585, 3.72203, 67.654)
+
+[node name="WaterDripping65" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8213, 3.72203, 87.4671)
+
+[node name="WaterDripping66" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3697, 3.41631, 100.693)
+
+[node name="WaterDripping67" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, -1.34692, 136.729)
+
+[node name="WaterDripping68" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, -1.34692, 136.729)
+
+[node name="WaterDripping69" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1034, -1.34692, 95.7055)
+
+[node name="WaterDripping70" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, -1.34692, 95.7055)
+
+[node name="WaterDripping71" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6014, -1.34692, 112.268)
+
+[node name="WaterDripping72" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9619, -1.34692, 112.268)
+
+[node name="WaterDripping73" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.7458, -1.34692, 112.268)
+
+[node name="WaterDripping74" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, -1.34692, 112.268)
+
+[node name="WaterDripping75" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.6682, -1.34692, 96.3094)
+
+[node name="WaterDripping76" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.5543, -1.34692, 95.7055)
+
+[node name="WaterDripping77" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.5211, -1.34692, 68.6904)
+
+[node name="WaterDripping78" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, -1.34692, 68.6904)
+
+[node name="WaterDripping79" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, -1.34692, 97.3204)
+
+[node name="WaterDripping80" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4261, -1.34692, 122.906)
+
+[node name="WaterDripping81" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.9914, -1.34692, 133.928)
+
+[node name="WaterDripping82" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.4539, -1.34692, 133.928)
+
+[node name="WaterDripping83" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6993, -1.34692, 136.729)
+
+[node name="WaterDripping84" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2057, -1.34692, 136.729)
+
+[node name="WaterDripping85" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.3706, -1.34692, 67.654)
+
+[node name="WaterDripping86" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0585, -1.34692, 67.654)
+
+[node name="WaterDripping87" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.8213, -1.34692, 87.4671)
+
+[node name="WaterDripping88" parent="SoundEffecfts" instance=ExtResource("13_amoy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.3697, -1.65265, 100.693)
