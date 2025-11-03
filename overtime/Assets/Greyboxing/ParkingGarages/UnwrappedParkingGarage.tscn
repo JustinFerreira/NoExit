@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b41rxvhwfex6q"]
+[gd_scene load_steps=12 format=3 uid="uid://b41rxvhwfex6q"]
 
 [ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="1_641tl"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -17,6 +17,15 @@ size = Vector3(43.5, 11, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_luvg1"]
 size = Vector3(109.2, 10.8, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0637w"]
+size = Vector3(0.5, 18, 14.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow34h"]
+size = Vector3(0.5, 18, 16)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1bba"]
+size = Vector3(9.6, 4.9, 0.5)
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
 
@@ -1239,6 +1248,650 @@ size = Vector3(1.3, 834, 7)
 
 [node name="CSGBox3D658" type="CSGBox3D" parent="InsideFences"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -154.712, 0, -2488.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D659" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2488.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D660" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2509.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D661" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2534.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D662" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2560.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D663" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2589.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D664" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2618.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D665" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2644.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D666" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2689.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D668" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2714.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D669" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2743.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D670" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2774.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D671" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2804.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D672" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2836.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D673" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2872.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D674" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2908.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D667" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.212, 0, -2665.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D675" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2488.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D676" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2509.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D677" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2534.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D678" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2560.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D679" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2589.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D680" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2618.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D681" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2644.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D682" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2689.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D683" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2714.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D684" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2743.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D685" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2774.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D686" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2804.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D687" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2836.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D688" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2872.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D689" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2908.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D690" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2665.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D694" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2116.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D695" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2145.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D696" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2174.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D697" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2200.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D698" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2245.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D699" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2270.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D700" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2299.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D701" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2330.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D702" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2360.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D703" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2392.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D704" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2428.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D705" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2464.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D706" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1566.61, 0, -2221.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D691" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2488.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D692" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2509.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D693" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2534.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D707" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2560.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D708" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2589.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D709" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2618.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D710" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2644.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D711" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2689.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D712" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2714.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D713" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2743.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D714" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2774.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D715" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2804.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D716" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2836.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D717" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2872.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D718" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2908.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D719" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2665.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D720" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2116.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D733" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2089.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D734" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D735" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1652.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D736" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1656.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D737" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1660.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D738" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1665.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D739" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1669.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D740" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1669.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D741" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1674.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D742" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1678.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D743" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1682.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D744" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1687.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D745" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1691.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D746" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1691.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D747" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1696.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D748" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1700.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D749" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1704.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D750" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1709.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D751" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1713.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D752" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1716.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D753" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1721.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D754" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1725.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D755" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1730.71, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D756" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.288, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D757" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.288, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D758" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28796, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D759" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.28796, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D760" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71204, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D762" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.71204, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D763" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D764" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D765" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D766" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D768" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D769" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D770" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D771" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D772" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D773" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D774" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D775" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D776" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D777" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.712, 263, -2058.89)
+size = Vector3(1.3, 276, 7)
+
+[node name="CSGBox3D721" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2145.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D722" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2174.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D723" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2200.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D724" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2245.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D725" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2270.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D726" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2299.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D727" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2330.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D728" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2360.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D729" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2392.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D730" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2428.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D731" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2464.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D732" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1647.71, 0, -2221.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D761" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2488.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D767" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2509.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D778" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2534.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D779" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2560.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D780" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2589.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D781" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2618.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D782" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2644.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D783" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2689.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D784" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2714.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D785" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2743.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D786" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2774.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D787" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2804.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D788" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2836.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D789" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2872.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D790" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2908.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D791" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2665.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D792" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2116.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D793" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2094.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D794" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2145.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D795" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2174.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D796" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2200.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D797" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2245.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D798" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2270.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D799" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2299.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D800" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2330.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D801" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2360.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D802" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2392.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D803" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2428.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D804" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2464.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D805" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.812, 0, -2221.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D806" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2116.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D807" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2094.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D808" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2145.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D809" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2174.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D810" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2200.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D811" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2245.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D812" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2270.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D813" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2299.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D814" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2330.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D815" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2360.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D816" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2392.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D817" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2428.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D819" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2456.89)
+size = Vector3(1.3, 834, 7)
+
+[node name="CSGBox3D818" type="CSGBox3D" parent="InsideFences"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2221.89)
 size = Vector3(1.3, 834, 7)
 
 [node name="OutsideFences" type="Node3D" parent="."]
@@ -2668,20 +3321,6 @@ size = Vector3(1.3, 834, 7)
 transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4974.15, 395.75, 77.2004)
 size = Vector3(1.3, 834, 7)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 12, 5.7)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, -4, 0.0999999)
-shape = SubResource("BoxShape3D_bh7cn")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 6)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -0.5, -0.249999)
-shape = SubResource("BoxShape3D_luvg1")
-
 [node name="ParkingBlocksF1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 24.4)
 
@@ -3806,3 +4445,61 @@ transform = Transform3D(1.5, 0, -8.9407e-08, 0, 1.5, 0, 8.9407e-08, 0, 1.5, 25.3
 
 [node name="NpcCar2" parent="CarsF5" instance=ExtResource("4_mqtxy")]
 transform = Transform3D(-1.44889, 0, -0.38823, 0, 1.5, 0, 0.38823, 0, -1.44889, -46.1807, 0.15, -14.6878)
+
+[node name="FenceCollision" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 12, 5.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, -4, 0.0999999)
+shape = SubResource("BoxShape3D_bh7cn")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -0.5, -0.249999)
+shape = SubResource("BoxShape3D_luvg1")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.850006, 8.5, 5.55)
+shape = SubResource("BoxShape3D_0637w")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.2, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500031, 8.5, 6.1)
+shape = SubResource("BoxShape3D_ow34h")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500031, 8.5, 6.1)
+shape = SubResource("BoxShape3D_ow34h")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500031, 8.5, 6.1)
+shape = SubResource("BoxShape3D_ow34h")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 12, 13.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.75, -0.25)
+shape = SubResource("BoxShape3D_l1bba")
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="FenceCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.1, 12, 13.7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FenceCollision/StaticBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.75, -0.25)
+shape = SubResource("BoxShape3D_l1bba")
