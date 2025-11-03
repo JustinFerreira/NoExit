@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2067qv7wner"
-path="res://.godot/imported/x_button.png-a87752e039dcc9ca9e5e4973ca7319fb.ctex"
+uid="uid://cjtargsm1an27"
+path="res://.godot/imported/folder_overlay.png-601e22720fd5a844076d80f7900e9e02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menus/Menu Assets/x_button.png"
-dest_files=["res://.godot/imported/x_button.png-a87752e039dcc9ca9e5e4973ca7319fb.ctex"]
+source_file="res://Menus/Menu Assets/folder_overlay.png"
+dest_files=["res://.godot/imported/folder_overlay.png-601e22720fd5a844076d80f7900e9e02.ctex"]
 
 [params]
 

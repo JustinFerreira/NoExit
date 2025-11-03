@@ -1,11 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://bbptuv1do4fe"]
+[gd_scene load_steps=45 format=3 uid="uid://bbptuv1do4fe"]
 
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="1_urev0"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_hb7d1"]
-[ext_resource type="Texture2D" uid="uid://b6md71omxg1id" path="res://Menus/Menu Assets/ComputerBackground.jpg" id="2_pc52w"]
+[ext_resource type="Texture2D" uid="uid://b6md71omxg1id" path="res://Menus/Menu Assets/computer_background.jpg" id="2_pc52w"]
 [ext_resource type="Script" path="res://Scripts/SettingsLabel.gd" id="3_vyt64"]
-[ext_resource type="Texture2D" uid="uid://cw583lwil43w2" path="res://Menus/Menu Assets/x_button.png" id="5_eiqve"]
-[ext_resource type="Texture2D" uid="uid://co1jvplcu4yfy" path="res://Menus/Menu Assets/folder.png" id="6_6cee8"]
+[ext_resource type="Texture2D" uid="uid://bcrhdkkxbi2kc" path="res://Menus/Menu Assets/slider_icon.png" id="4_gikmb"]
+[ext_resource type="Texture2D" uid="uid://bqvyyb2ydrqdo" path="res://Menus/Menu Assets/slider_sprite_sheet.png" id="5_03j2j"]
+[ext_resource type="Texture2D" uid="uid://cjtargsm1an27" path="res://Menus/Menu Assets/folder_overlay.png" id="5_bn5p2"]
+[ext_resource type="Texture2D" uid="uid://dg2067qv7wner" path="res://Menus/Menu Assets/x_button.png" id="5_eiqve"]
+[ext_resource type="Script" path="res://Scripts/SliderBar.gd" id="6_4lk7f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a8gj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -19,12 +22,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhea4"]
 content_margin_left = 20.0
 content_margin_right = 20.0
-bg_color = Color(0, 0.666667, 0, 1)
+bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl65t"]
 content_margin_left = 20.0
 content_margin_right = 20.0
-bg_color = Color(0, 0.666667, 0, 1)
+bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1ccc"]
@@ -49,46 +52,173 @@ TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_h7c6l")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ici7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is81i"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a0lj"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(0, 0, 427, 56)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0ece"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_214u3"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(427, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spbyj"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(854, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvc0m"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1281, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w30b"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1708, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj6r6"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2135, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eb15"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2562, 0, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ho8p"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(0, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n37tr"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(427, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k48tr"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(854, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgn58"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1281, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oqas"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1708, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3yrx"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2135, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kru0g"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2562, 56, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tiep"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(0, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlu0t"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(427, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hduw"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(854, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxyfm"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1281, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsdkx"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(1708, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4eue"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2135, 112, 427, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rmon"]
+atlas = ExtResource("5_03j2j")
+region = Rect2(2562, 112, 427, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hy3ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a0lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_214u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spbyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvc0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w30b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj6r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eb15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ho8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n37tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k48tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgn58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oqas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3yrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kru0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tiep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlu0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hduw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxyfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsdkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4eue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rmon")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug64c"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u4so"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70sst"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmd3u"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xr0rg"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y88po"]
-bg_color = Color(0, 0.666667, 0, 1)
+bg_color = Color(0, 0.666667, 0, 0)
 expand_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujhld"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_84xog"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_morys"]
-bg_color = Color(0, 0.666667, 0, 1)
-expand_margin_bottom = 16.0
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -115,35 +245,25 @@ offset_top = 121.0
 offset_right = 1151.0
 offset_bottom = 600.0
 theme = SubResource("Theme_4gq1q")
-theme_override_colors/font_unselected_color = Color(0, 0.666667, 0, 1)
+theme_override_colors/font_unselected_color = Color(0.6, 0.0156863, 0.0156863, 1)
 theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 50
-current_tab = 2
+current_tab = 0
 
 [node name="VOLUME" type="TabBar" parent="ColorRect/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="SoundSettingsVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME"]
 layout_mode = 2
 offset_left = 38.0
-offset_top = 38.0
-offset_right = 227.0
-offset_bottom = 298.0
-scale = Vector2(1.88225, 1.44437)
+offset_top = 22.5
+offset_right = 451.0
+offset_bottom = 416.5
+grow_vertical = 2
 size_flags_horizontal = 4
-
-[node name="SoundLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.537255, 0.458824, 0.458824, 1)
-theme_override_fonts/font = ExtResource("2_hb7d1")
-theme_override_font_sizes/font_size = 24
-text = "Sound Settings"
 
 [node name="MasterVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
@@ -152,27 +272,35 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Master Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="MasterSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
 layout_mode = 2
-theme_override_constants/grabber_offset = 7
+theme_override_icons/grabber = ExtResource("4_gikmb")
+theme_override_icons/grabber_highlight = ExtResource("4_gikmb")
+theme_override_icons/grabber_disabled = ExtResource("4_gikmb")
 theme_override_styles/slider = SubResource("StyleBoxFlat_6ici7")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_is81i")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_n0ece")
-tick_count = 100
-ticks_on_borders = true
+
+[node name="MasterSprite" type="AnimatedSprite2D" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox" node_paths=PackedStringArray("slider")]
+position = Vector2(206.5, 78)
+sprite_frames = SubResource("SpriteFrames_hy3ib")
+script = ExtResource("6_4lk7f")
+slider = NodePath("../MasterSlider")
 
 [node name="NumberLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox" node_paths=PackedStringArray("slider")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 20
 script = ExtResource("3_vyt64")
 slider = NodePath("../MasterSlider")
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
 
 [node name="MusicVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
@@ -181,27 +309,35 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Music Volume"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="MusicSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
 layout_mode = 2
-theme_override_constants/grabber_offset = 8
+theme_override_icons/grabber = ExtResource("4_gikmb")
+theme_override_icons/grabber_highlight = ExtResource("4_gikmb")
+theme_override_icons/grabber_disabled = ExtResource("4_gikmb")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ug64c")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_4u4so")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_70sst")
-tick_count = 100
-ticks_on_borders = true
+
+[node name="MusicSprite" type="AnimatedSprite2D" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox" node_paths=PackedStringArray("slider")]
+position = Vector2(206.5, 78)
+sprite_frames = SubResource("SpriteFrames_hy3ib")
+script = ExtResource("6_4lk7f")
+slider = NodePath("../MusicSlider")
 
 [node name="NumberLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox" node_paths=PackedStringArray("slider")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 20
 script = ExtResource("3_vyt64")
 slider = NodePath("../MusicSlider")
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
 
 [node name="SFXVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
@@ -210,20 +346,34 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "SFX Volume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="SFXSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
 layout_mode = 2
-theme_override_constants/grabber_offset = 8
+theme_override_icons/grabber = ExtResource("4_gikmb")
+theme_override_icons/grabber_highlight = ExtResource("4_gikmb")
+theme_override_icons/grabber_disabled = ExtResource("4_gikmb")
 theme_override_styles/slider = SubResource("StyleBoxFlat_qmd3u")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xr0rg")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_y88po")
-tick_count = 100
+
+[node name="SFXSprite" type="AnimatedSprite2D" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox" node_paths=PackedStringArray("slider")]
+position = Vector2(206.5, 78)
+sprite_frames = SubResource("SpriteFrames_hy3ib")
+script = ExtResource("6_4lk7f")
+slider = NodePath("../SFXSlider")
 
 [node name="NumberLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox" node_paths=PackedStringArray("slider")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 20
 script = ExtResource("3_vyt64")
 slider = NodePath("../SFXSlider")
 
@@ -231,6 +381,7 @@ slider = NodePath("../SFXSlider")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Mute"
 
 [node name="VISUAL" type="TabBar" parent="ColorRect/TabContainer"]
@@ -244,7 +395,6 @@ offset_left = 38.0
 offset_top = 38.0
 offset_right = 227.0
 offset_bottom = 298.0
-scale = Vector2(1.882, 1.444)
 size_flags_horizontal = 4
 
 [node name="VisualLabel" type="Label" parent="ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
@@ -260,6 +410,7 @@ text = "Visual Settings"
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "FullScreen"
 
 [node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
@@ -267,26 +418,17 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="GAME" type="TabBar" parent="ColorRect/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
 [node name="GameSettingsVbox" type="VBoxContainer" parent="ColorRect/TabContainer/GAME"]
 layout_mode = 2
 offset_left = 38.0
-offset_top = 38.0
-offset_right = 227.0
-offset_bottom = 298.0
-scale = Vector2(1.882, 1.444)
+offset_top = 22.5
+offset_right = 451.0
+offset_bottom = 416.5
 size_flags_horizontal = 4
-
-[node name="GameLabel" type="Label" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.537255, 0.458824, 0.458824, 1)
-theme_override_fonts/font = ExtResource("2_hb7d1")
-theme_override_font_sizes/font_size = 24
-text = "Game Settings"
 
 [node name="SensitivityVbox" type="VBoxContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
 layout_mode = 2
@@ -295,20 +437,34 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Mouse Sensitivity"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="SensitivitySlider" type="HSlider" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
 layout_mode = 2
-theme_override_constants/grabber_offset = 8
+theme_override_constants/grabber_offset = 0
+theme_override_icons/grabber = ExtResource("4_gikmb")
+theme_override_icons/grabber_highlight = ExtResource("4_gikmb")
+theme_override_icons/grabber_disabled = ExtResource("4_gikmb")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ujhld")
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_84xog")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_morys")
-tick_count = 99
+
+[node name="MasterSprite" type="AnimatedSprite2D" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox" node_paths=PackedStringArray("slider")]
+position = Vector2(206.5, 78)
+sprite_frames = SubResource("SpriteFrames_hy3ib")
+script = ExtResource("6_4lk7f")
+slider = NodePath("../SensitivitySlider")
 
 [node name="NumberLabel" type="Label" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox" node_paths=PackedStringArray("slider")]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 20
 script = ExtResource("3_vyt64")
 slider = NodePath("../SensitivitySlider")
 
@@ -316,6 +472,7 @@ slider = NodePath("../SensitivitySlider")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Hold Shift Run"
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
@@ -326,6 +483,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
 text = "Head Bob"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
@@ -334,10 +492,10 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 2
-offset_left = 1021.0
+offset_left = 1022.0
 offset_top = 190.0
-offset_right = 1129.0
-offset_bottom = 298.0
+offset_right = 1140.0
+offset_bottom = 308.0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
@@ -345,8 +503,9 @@ theme_override_font_sizes/font_size = 24
 theme_override_icons/icon = ExtResource("5_eiqve")
 
 [node name="Folder_Overlay" type="Sprite2D" parent="ColorRect"]
-position = Vector2(641, 355)
-texture = ExtResource("6_6cee8")
+position = Vector2(619, 412)
+scale = Vector2(1.0179, 1.05277)
+texture = ExtResource("5_bn5p2")
 
 [connection signal="value_changed" from="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider" to="." method="_on_music_slider_value_changed"]
