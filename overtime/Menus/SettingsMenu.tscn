@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bbptuv1do4fe"]
+[gd_scene load_steps=48 format=3 uid="uid://bbptuv1do4fe"]
 
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="1_urev0"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_hb7d1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cjtargsm1an27" path="res://Menus/Menu Assets/folder_overlay.png" id="5_bn5p2"]
 [ext_resource type="Texture2D" uid="uid://dg2067qv7wner" path="res://Menus/Menu Assets/x_button.png" id="5_eiqve"]
 [ext_resource type="Script" path="res://Scripts/SliderBar.gd" id="6_4lk7f"]
+[ext_resource type="Shader" path="res://Menus/Menu Assets/screen_effect.gdshader" id="10_wfh1f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a8gj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -220,6 +221,13 @@ expand_margin_bottom = 16.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujhld"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmlh4"]
+shader = ExtResource("10_wfh1f")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2i0i3"]
+size = Vector2(1073, 597)
+center_offset = Vector3(635, 350, 0)
+
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -268,18 +276,18 @@ size_flags_horizontal = 4
 [node name="MasterVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
+
 [node name="MasterLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
 text = "Master Volume"
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="MasterSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
 layout_mode = 2
@@ -305,18 +313,18 @@ slider = NodePath("../MasterSlider")
 [node name="MusicVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
 
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
+
 [node name="MusicLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
 text = "Music Volume"
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="MusicSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
 layout_mode = 2
@@ -342,18 +350,18 @@ slider = NodePath("../MusicSlider")
 [node name="SFXVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox"]
 layout_mode = 2
 
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
+
 [node name="SFXLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
 text = "SFX Volume"
-
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="SFXSlider" type="HSlider" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
 layout_mode = 2
@@ -506,6 +514,10 @@ theme_override_icons/icon = ExtResource("5_eiqve")
 position = Vector2(619, 412)
 scale = Vector2(1.0179, 1.05277)
 texture = ExtResource("5_bn5p2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ColorRect"]
+material = SubResource("ShaderMaterial_rmlh4")
+mesh = SubResource("QuadMesh_2i0i3")
 
 [connection signal="value_changed" from="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider" to="." method="_on_music_slider_value_changed"]
