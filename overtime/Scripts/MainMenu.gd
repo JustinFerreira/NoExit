@@ -83,3 +83,8 @@ func _on_alternate_parking_pressed() -> void:
 func _on_alternate_parking_keys_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageKeysL1.tscn")
+
+
+func _on_textured_parking_garage_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL1.tscn")
