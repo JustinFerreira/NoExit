@@ -37,11 +37,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Calculate path distance to target
-	var path_distance = calculate_path_distance()
-	PlayerManager.scaredPitch = path_distance
-	
-	# Update player detection
-	update_player_detection()
+	PlayerManager.scaredPitch = calculate_path_distance()
 	
 	
 	
@@ -61,16 +57,3 @@ func calculate_path_distance() -> float:
 		total_distance += path[i].distance_to(path[i + 1])
 	
 	return total_distance
-
-func update_player_detection():
-	$ShapeCast3D.force_shapecast_update()
-	
-	# Check if the ShapeCast3D is colliding with anything
-	if $ShapeCast3D.is_colliding():
-		var collider = $ShapeCast3D.get_collider(0)  # Get the first collider
-		if collider and collider.name == "Player":
-			PlayerManager.playerInRange = true
-		else:
-			PlayerManager.playerInRange = false
-	else:
-		PlayerManager.playerInRange = false

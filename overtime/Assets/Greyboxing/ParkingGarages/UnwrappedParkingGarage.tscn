@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b41rxvhwfex6q"]
+[gd_scene load_steps=20 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]

@@ -78,7 +78,7 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale:
 	return new_player
 
 func set_loop_pitch(sound_name: String, pitch: float):
-	if looping_players.has(sound_name):
+	if looping_players.has(sound_name) && pitch > 0.0:
 		looping_players[sound_name].pitch_scale = pitch
 
 func stop_loop(sound_name: String):

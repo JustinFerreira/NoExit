@@ -51,10 +51,11 @@ var Incar = false
 ## Grabbing Objects Variables
 var grabbed_object = null
 var mouse = Vector2()
-var original_position = Vector3()
-var grab_distance = Vector3()
-var grab_direction = Vector3()
-var grab_offset = Vector3()  # Add this to store the offset
+var original_mouse_pos = Vector2()  # Store initial mouse position
+var original_object_pos = Vector3()  # Store initial object position
+#var grab_distance = Vector3()
+#var grab_direction = Vector3()
+#var grab_offset = Vector3()  # Add this to store the offset
 var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
 ## Outline help
@@ -100,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				get_mouse_world_pos(mouse)
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
-				grabbed_object = null
+				release_grabbed_object()
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.DevMode:
 			$PauseMenu.pause()
@@ -341,46 +342,58 @@ func get_mouse_world_pos(mouse: Vector2):
 
 	if result and result.collider and result.collider.is_in_group("grabbable"):
 		grabbed_object = result.collider
-
-		# The world-space grab point
-		var hit_position = result.position
+		original_object_pos = grabbed_object.global_transform.origin
+		original_mouse_pos = mouse  # Store the initial mouse position
 		
-		# Distance from camera to the hit position
-		grab_distance = camera.global_position.distance_to(hit_position)
-
-		# Offset from object's origin to hit point
-		grab_offset = grabbed_object.global_transform.origin - hit_position
+		# Optional: Make the object kinematic while grabbed to prevent physics interference
+		if grabbed_object is RigidBody3D:
+			grabbed_object.freeze = true
 		
 func get_grab_position() -> Vector3:
 	if not grabbed_object:
 		return Vector3.ZERO
 
 	var camera = get_viewport().get_camera_3d()
-	var ray_origin = camera.project_ray_origin(mouse)
-	var ray_dir = camera.project_ray_normal(mouse)
 	
-	# Get where the hit point should be now (same distance from camera)
-	var target_hit_point = ray_origin + ray_dir * grab_distance
+	# Calculate mouse movement delta
+	var mouse_delta = mouse - original_mouse_pos
 	
-	# Maintain the object's offset from the grab point
-	var new_position = target_hit_point + grab_offset
-
+	# Convert mouse delta to world space movement
+	var sensitivity = 0.005  # Adjust this value to control movement sensitivity
+	
+	# Get camera's right and up vectors (ignoring rotation for simplicity)
+	var camera_right = camera.global_transform.basis.x
+	var camera_up = camera.global_transform.basis.y
+	
+	# Calculate movement in world space based on mouse delta
+	var world_movement = Vector3.ZERO
+	world_movement += camera_right * mouse_delta.x * sensitivity
+	world_movement -= camera_up * mouse_delta.y * sensitivity  # Inverted Y
+	
 	# Apply axis locking
 	match lock_axis:
 		"XZ":
-			new_position.y = original_position.y
+			world_movement.y = 0
 		"XY":
-			new_position.z = original_position.z
+			world_movement.z = 0
 		"YZ":
-			new_position.x = original_position.x
+			world_movement.x = 0
 		"X":
-			new_position.y = original_position.y
-			new_position.z = original_position.z
+			world_movement.y = 0
+			world_movement.z = 0
 		"Y":
-			new_position.x = original_position.x
-			new_position.z = original_position.z
+			world_movement.x = 0
+			world_movement.z = 0
 		"Z":
-			new_position.x = original_position.x
-			new_position.y = original_position.y
-
+			world_movement.x = 0
+			world_movement.y = 0
+	
+	# Calculate new position
+	var new_position = original_object_pos + world_movement
+	
 	return new_position
+
+func release_grabbed_object():
+	if grabbed_object is RigidBody3D:
+		grabbed_object.freeze = false
+	grabbed_object = null

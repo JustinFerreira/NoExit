@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="5_vuqxf"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="6_j65yb"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Scenes/PlayerObjects/GasCanister.tscn" id="11_rikxf"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
+[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="12_60cos"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_amoy3"]
 
 [sub_resource type="Environment" id="Environment_ks8si"]
