@@ -4575,7 +4575,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 25)
 transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -68.25, 0.15, -14.25)
 
 [node name="NpcCar4" parent="CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.388228, 0, 1.5, 0, 0.388228, 0, -1.44889, -24.6928, 0.15, -14.1155)
+transform = Transform3D(-0.0227503, 0, -1.49983, 0, 1.5, 0, 1.49983, 0, -0.0227503, -26.5202, 0.15, -10.1076)
 
 [node name="NpcCar5" parent="CarsF5" instance=ExtResource("4_mqtxy")]
 transform = Transform3D(-1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, -1.29904, -4.2, 0.15, -14.25)
