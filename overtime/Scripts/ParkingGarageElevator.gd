@@ -10,8 +10,7 @@ func _ready() -> void:
 	#Play Open Animation and on Animation finish Move door Collision
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Take 001")
-	PlayerManager.ResetPlayer()
-	if PlayerManager.gotKeys:
+	if !PlayerManager.has_item("Car Keys"):
 		PlayerManager.AddToInventory("Car Keys", 0.5)
 	#if PlayerManager.gotGas_Canister:
 		#PlayerManager.AddToInventory("Gas Canister", 1.5)

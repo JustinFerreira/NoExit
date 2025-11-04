@@ -114,6 +114,7 @@ func RemoveItemByName(name: String) -> bool:
 func ResetPlayer() -> void:
 	Inventory = []
 	CurrentWeight = 0.0
+	sprint_engaged = false
 	
 	##Minigames avtives
 	MinigameMode = false
@@ -127,6 +128,10 @@ func ResetPlayer() -> void:
 	minigameThreePassed = false
 	PositiveConnected = false
 	NegativeConnected = false
+	
+	Battery = null
+	PositiveWire = null
+	NegativeWire = null
 	
 	## Sound Mods
 	scaredPitch = 1
@@ -205,3 +210,9 @@ func ProcessScared():
 		scaredVolume = 4 - scaredPitch
 		return 4 
 		
+		
+func has_item(item_name: String) -> bool:
+	for item in Inventory:
+		if item.name == item_name:
+			return true
+	return false

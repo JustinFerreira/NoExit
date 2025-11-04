@@ -318,7 +318,7 @@ func handle_sprint_input():
 		if Input.is_action_just_pressed("sprint"):
 			# Toggle sprint state when key is pressed
 			is_sprinting = !is_sprinting
-			PlayerManager.sprint_engaged = !PlayerManager.sprint_engaged
+			PlayerManager.sprint_engaged = is_sprinting
 			# Optional: Add toggle sound feedback
 			# AudioManager.play_sound(AudioManager.sprint_toggle)
 

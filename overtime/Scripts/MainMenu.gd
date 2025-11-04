@@ -4,6 +4,7 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.ResetPlayer()
 	PlayerManager.Loop1 = false
 	animation_player.connect("animation_finished", _on_animation_finished)
 	if PlayerManager.FirstOpen == true:
