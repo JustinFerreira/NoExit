@@ -23,6 +23,7 @@ points = PackedVector3Array(0.0722627, 1.35052, 0.0283336, -0.0814817, -0.010706
 [node name="Node3D" type="Node3D"]
 
 [node name="MGaragePoleUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_n31o4")
 mesh = ExtResource("4_5vgud")
 

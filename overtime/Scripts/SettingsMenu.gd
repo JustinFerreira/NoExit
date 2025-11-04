@@ -66,6 +66,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_button_pressed() -> void:
 	$".".visible = false
+	
 
 
 func _on_full_screen_check_box_toggled(toggled: bool) -> void:
