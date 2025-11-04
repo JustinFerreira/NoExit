@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		get_tree().change_scene_to_file("res://Scenes/Levels/AlternateParkingGarageL1.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL1.tscn")
 
 func _on_animation_finished(anim_name: String):
 	#print("Animation", anim_name)
