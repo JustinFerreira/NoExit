@@ -121,8 +121,7 @@ transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1658, -4.99939, 126.369)
 
 [node name="WireNegative" parent="." instance=ExtResource("5_vuqxf")]
-transform = Transform3D(0.0863309, 0, 0, 0, 0.0863309, 0, 0, 0, 0.0863309, 24.7388, -0.139123, 88.0051)
-visible = false
+transform = Transform3D(0.0863309, 0, 0, 0, 0.0863309, 0, 0, 0, 0.0863309, 25.1059, 0.165579, 87.9515)
 
 [node name="Battery" parent="." instance=ExtResource("4_0jo2u")]
 transform = Transform3D(0.0179057, 0, 0, 0, 0.0179057, 0, 0, 0, 0.0179057, 25.7153, -0.558583, 87.8173)

@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		if self.position.y <= 1.358 && self.position.y >= 1.308:
 			car_filled += .1
 			$"../GasIntakeCam/GasIntakeGame/ProgressBar".value += 1
-		if PlayerManager.actioning == true && self.position.y <= 3:
+		if PlayerManager.actioning == true && self.position.y <= 1.6:
 			PlayerManager.Gas_Canister.position.y += .3 * delta
 
 
