@@ -57,10 +57,16 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale:
 		return
 	
 	var new_player = AudioStreamPlayer.new()
-	new_player.bus = "SFX"
+	if sound_name == "heartbeat" || sound_name == "breathing":
+		print(sound_name)
+		new_player.bus = "PitchShiftSFX"
+	else:
+		new_player.bus = "SFX"
 	new_player.stream = sound_stream
 	new_player.pitch_scale = pitch_scale  # Add pitch control
 	new_player.volume_db = volume_db
+	
+	
 	
 	
 	if wait > 0:

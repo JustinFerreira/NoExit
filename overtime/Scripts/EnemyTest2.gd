@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Calculate path distance to target
-	PlayerManager.scaredPitch = calculate_path_distance()
+	PlayerManager.scaredDistance = calculate_path_distance()
 	
 	
 	

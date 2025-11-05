@@ -10,12 +10,6 @@ var HeadBob: bool = true
 
 var DevMode: bool = true
 
-## Car
-
-
-
-
-
 ## Player
 
 var teleportEnemy = false
@@ -28,6 +22,7 @@ var player_rotation_x
 var player_rotation_y
 var player_rotation_z
 
+var scaredDistance = 0
 var scaredPitch = 1
 var scaredVolume = -80
 
@@ -211,13 +206,18 @@ func TestConnection():
 func ProcessScared():
 	if no_enemy:
 		scaredVolume = -80
+		scaredPitch = 1
 		return -80
 	
-	if scaredPitch > 45:
+	if scaredDistance > 45:
 		scaredVolume = -80
+		scaredPitch = 1
 		return 1
 	else:
-		scaredVolume = 4 - scaredPitch
+		scaredVolume = 4 - scaredDistance
+		scaredPitch = 4 - (scaredDistance / 10)  
+		if scaredPitch < 3:
+			scaredPitch = 3
 		return 4 
 		
 		

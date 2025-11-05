@@ -6,7 +6,6 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(PlayerManager.sprint_engaged)
 	if PlayerManager.sprint_engaged:
 		PlayerManager.player.is_sprinting = PlayerManager.sprint_engaged
 
