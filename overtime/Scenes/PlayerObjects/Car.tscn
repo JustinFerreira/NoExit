@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=39 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_qmrrf"]
 [ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="2_lbi2i"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/GasIntake.gd" id="7_uaqgy"]
 [ext_resource type="Script" path="res://Scripts/Hood.gd" id="8_51nsx"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="9_smb81"]
-[ext_resource type="Texture2D" uid="uid://uokhlg3waj3d" path="res://Assets/Enviroments/Dev Textures/dev_texture_carpet.png" id="10_m2yu0"]
+[ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="10_mmre8"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="10_rs2y8"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="11_qlgp3"]
 [ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="12_2ynws"]
@@ -225,8 +225,8 @@ _data = {
 "resetingstuff": SubResource("Animation_ifl34")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_133wm"]
-albedo_texture = ExtResource("10_m2yu0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_840ys"]
+albedo_texture = ExtResource("10_mmre8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_jiv7g"]
 
@@ -241,6 +241,9 @@ normal_enabled = true
 normal_texture = ExtResource("13_5e30e")
 ao_enabled = true
 ao_texture = ExtResource("12_2ynws")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lbt1v"]
+points = PackedVector3Array(-0.05444, 0.00727248, -0.150355, 0.0515564, 0.348158, 0.158352, -0.0519509, 0.348082, 0.158117, 0.0616084, 0.446558, -0.15588, 0.0633294, 0.0149189, 0.157524, -0.0685706, 0.432977, -0.15077, 0.018561, 0.597505, 0.135063, -0.0637179, 0.0152226, 0.157352, 0.0624685, 0.0187317, -0.158029, 0.0667452, 0.438686, 0.00285481, -0.0670398, 0.438341, 0.00284466, -0.0622399, 0.0394742, -0.165202, 0.0373948, 0.597505, 0.106851, -0.0691489, 0.0379892, 0.140767, 0.0666583, 0.329817, 0.144931, 0.0682511, 0.0396414, -0.142516, -0.0531129, 0.437314, -0.164357, -0.0674975, 0.32158, 0.145766, 0.0535068, 0.0276953, -0.167023, -0.0684411, 0.0406431, -0.141965, 0.0684394, 0.433628, -0.151483, 0.0689497, 0.0370221, 0.141299, 0.0542533, 0.00575411, 0.148481, 0.00915885, 0.597505, 0.125659, -0.0540078, 0.0185619, 0.164458, 0.0628038, 0.00821994, -0.140866, 0.0609765, 0.436203, -0.163071, -0.063502, 0.00711786, 0.138743, 0.0622589, 0.0286085, 0.163803, -0.0619831, 0.446358, -0.155673, -0.0689997, 0.442505, -0.134525, -0.0604844, 0.339438, 0.157906)
 
 [node name="Car" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144601, 0, 0)
@@ -424,9 +427,9 @@ text = "Spacebar is action Key"
 horizontal_alignment = 1
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.21853e-10, -0.0898637, 0.0062923, -3.50477e-09, -0.00568838, -0.0994042, 0.0803402, -3.68937e-16, -4.35378e-09, 0.827, 1.15797, -1.528)
+transform = Transform3D(9.2567e-11, -0.0374951, 0.00262543, -1.46235e-09, -0.00237345, -0.0414759, 0.0335215, -1.53937e-16, -1.81659e-09, 0.700287, 1.27795, -1.528)
 visible = false
-material_override = SubResource("StandardMaterial3D_133wm")
+material_override = SubResource("StandardMaterial3D_840ys")
 mesh = SubResource("BoxMesh_jiv7g")
 skeleton = NodePath("../GasIntakeCanister")
 
@@ -436,6 +439,11 @@ visible = false
 material_override = SubResource("StandardMaterial3D_xu5ox")
 mesh = ExtResource("14_j3r4x")
 script = ExtResource("15_n8dke")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GasIntakeCanister"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GasIntakeCanister/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_lbt1v")
 
 [node name="HoodCam" type="Camera3D" parent="."]
 transform = Transform3D(0.666667, 1.98682e-08, -9.93411e-09, -8.86535e-09, 0.511346, 0.427749, 2.03676e-08, -0.427749, 0.511346, -0.267938, 1.72184, 3.13428)

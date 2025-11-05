@@ -12,7 +12,7 @@ func _ready():
 	nav.path_max_distance = 3.0  # Max distance to recalculate path
 
 func _physics_process(delta: float) -> void:
-	if PlayerManager.teleportEnemy:
+	if PlayerManager.teleportEnemy && get_tree().get_first_node_in_group("teleport_target"):
 		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
 		PlayerManager.teleportEnemy = false
 	$MeshInstance3D.visible = false

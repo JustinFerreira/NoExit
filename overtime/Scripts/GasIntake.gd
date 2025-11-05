@@ -22,6 +22,8 @@ func _on_interacted(body: Variant) -> void:
 	$"../../GasIntakeCanister".visible = true
 	$"../../GasIntakeCam".current = true
 	PlayerManager.Gas_Canister = $"../../GasIntakeCanister"
+	PlayerManager.gasIntakeUI = $"../../GasIntakeCam/GasIntakeGame"
+	PlayerManager.gasIntakeSweetSpot = $"../../GasIntakeSweetSpot"
 	$"../../GasIntakeCam/GasIntakeGame".visible = true
 	$"../../GasIntakeSweetSpot".visible = true
 	

@@ -103,10 +103,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				release_grabbed_object()
 	if event.is_action_pressed("ui_cancel"):
-		if PlayerManager.DevMode:
-			$PauseMenu.pause()
+		if PlayerManager.minigameTwo:
+			PlayerManager.player.CAMERA.current = true
+			PlayerManager.minigameTwo = false
+			PlayerManager.gasIntakeUI.visible = false
+			PlayerManager.Gas_Canister.visible = false
+			PlayerManager.gasIntakeSweetSpot.visible = false
+			PlayerManager.MiniGameModeOff()
 		else:
-			$SimplifiedPauseMenu.pause()
+			if PlayerManager.DevMode:
+				$PauseMenu.pause()
+			else:
+				$SimplifiedPauseMenu.pause()
 	if event.is_action("Inventory"):
 		$Inventory.visible = true
 		populate_inventory()

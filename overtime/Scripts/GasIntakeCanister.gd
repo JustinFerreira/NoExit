@@ -1,7 +1,25 @@
 extends MeshInstance3D
 
-var fall_speed = 1.0
+@onready var GasIntakeSweetSpot = $"../GasIntakeSweetSpot"
+@onready var progress_bar = $"../GasIntakeCam/GasIntakeGame/ProgressBar"
+
+var fall_speed = 1.5
 var car_filled = 0.0
+
+var fill_speed = 0.1
+
+var lift_speed = .6
+
+var lowestPointSweetSpot = 1.098 
+var lowestPointGasCanister = 1.000
+
+var highestPointGasCanister = 1.9
+var highestPointSweetSpot = 1.6
+
+# Add these variables at the top of your script
+var sweet_spot_move_speed = 0.4  # Adjust for faster/slower movement
+var sweet_spot_direction = 1     # 1 for moving up, -1 for moving down
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,14 +28,39 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	## Make sure Minigame Two is on 
 	if PlayerManager.minigameTwo:
-		if self.visible == true && self.position.y >= 1.098 && PlayerManager.actioning == false:
+		
+		_move_sweet_spot(delta)
+		
+		
+		
+		## Get the sweet spot node's Y position
+		var sweet_spot_y = GasIntakeSweetSpot.global_position.y
+		var sweet_spot_tolerance = 0.025  # Adjust this value for how close it needs to be
+		
+		
+		var canister_height = 0.5  # Adjust this value based on your canister size
+		var canister_top_y = self.global_position.y 
+		var canister_bottom_y = self.global_position.y - (canister_height)
+			
+			
+		# Check if sweet spot is within canister bounds
+		if sweet_spot_y >= canister_bottom_y && sweet_spot_y <= canister_top_y:
+			car_filled += fill_speed
+			progress_bar.value += 0.1
+		## Test if Gas Canister should be rising
+		## checking if actioning is on
+		## checking if it has reached highest point
+		if PlayerManager.actioning == true && self.position.y <= highestPointGasCanister:
+			PlayerManager.Gas_Canister.position.y += lift_speed * delta
+		## Test to see if it should be falling by seeing visibility
+		## and checking if it has reached lowest point
+		## checking if actioing is off 
+		if self.visible == true && self.position.y >= lowestPointGasCanister && PlayerManager.actioning == false:
 			self.position.y -= fall_speed * delta
-		if self.position.y <= 1.358 && self.position.y >= 1.308:
-			car_filled += .1
-			$"../GasIntakeCam/GasIntakeGame/ProgressBar".value += 1
-		if PlayerManager.actioning == true && self.position.y <= 1.6:
-			PlayerManager.Gas_Canister.position.y += .3 * delta
+		
+		
 
 
 func _on_progress_bar_value_changed(value: float) -> void:
@@ -32,3 +75,17 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		$"../GasIntakeCam/GasIntakeGame".visible = false
 		$"../Mesh/GasIntake"._on_interaction_complete()
 		$"../GasIntakeSweetSpot".visible = false
+		
+		
+func _move_sweet_spot(delta: float) -> void:
+	
+	# Move the sweet spot
+	GasIntakeSweetSpot.position.y += sweet_spot_move_speed * sweet_spot_direction * delta
+	
+	# Reverse direction when hitting boundaries
+	if GasIntakeSweetSpot.position.y >= highestPointSweetSpot:
+		GasIntakeSweetSpot.position.y = highestPointSweetSpot
+		sweet_spot_direction = -1  # Start moving down
+	elif GasIntakeSweetSpot.position.y <= lowestPointSweetSpot:
+		GasIntakeSweetSpot.position.y = lowestPointSweetSpot
+		sweet_spot_direction = 1   # Start moving up

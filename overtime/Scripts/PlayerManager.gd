@@ -8,7 +8,13 @@ var Hold_Shift: bool = false
 
 var HeadBob: bool = true
 
-var DevMode: bool = false
+var DevMode: bool = true
+
+## Car
+
+
+
+
 
 ## Player
 
@@ -58,6 +64,8 @@ var minigameOnePassed = false
 var minigameTwo = false
 var minigameTwoPassed = false
 
+var gasIntakeUI
+var gasIntakeSweetSpot
 var Gas_Canister
 var actioning = false
 

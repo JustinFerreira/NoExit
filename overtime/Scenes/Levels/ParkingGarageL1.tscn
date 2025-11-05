@@ -50,6 +50,7 @@ visible = false
 
 [node name="WirePositive" parent="." instance=ExtResource("10_4hpyl")]
 transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 40.8232, 4.92833, -0.463853)
+visible = false
 axis_lock_linear_y = true
 axis_lock_angular_y = true
 
