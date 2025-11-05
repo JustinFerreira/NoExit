@@ -36,6 +36,7 @@ func _on_resume_btn_pressed() -> void:
 
 func _on_restart_btn_pressed() -> void:
 	resume()
+	PlayerManager.ResetPlayer()
 	get_tree().reload_current_scene()
 
 

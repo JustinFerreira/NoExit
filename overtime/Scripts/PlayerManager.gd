@@ -75,6 +75,7 @@ var minigameThreePassed = false
 var PositiveConnected = false
 var NegativeConnected = false
 
+var Hood
 var Battery
 var PositiveWire
 var NegativeWire
@@ -205,6 +206,7 @@ func TestConnection():
 		PositiveWire.visible = false
 		NegativeWire.visible = false
 		Battery.visible = false
+		Hood._on_interaction_complete()
 		
 func ProcessScared():
 	if no_enemy:

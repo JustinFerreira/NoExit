@@ -15,13 +15,15 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
-	_on_interaction_complete()
+	PlayerManager.Hood = self
 	PlayerManager.RemoveItemByName("Battery")
 	PlayerManager.gotBattery = false
 	PlayerManager.player.prompt.visible = false
 	$"../../HoodCam".current = true
-	PlayerManager.PositiveWire.visible = true
-	PlayerManager.NegativeWire.visible = true
+	if !PlayerManager.PositiveConnected:
+		PlayerManager.PositiveWire.visible = true
+	if !PlayerManager.NegativeConnected:
+		PlayerManager.NegativeWire.visible = true
 	PlayerManager.Battery.visible = true
 	PlayerManager.minigameThree = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

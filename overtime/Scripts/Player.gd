@@ -110,6 +110,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.Gas_Canister.visible = false
 			PlayerManager.gasIntakeSweetSpot.visible = false
 			PlayerManager.MiniGameModeOff()
+		elif PlayerManager.minigameThree:
+			PlayerManager.minigameThree = false
+			CAMERA.current = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			prompt.visible = true
+			PlayerManager.PositiveWire.visible = false
+			PlayerManager.NegativeWire.visible = false
+			PlayerManager.Battery.visible = false
+			PlayerManager. MiniGameModeOff()
 		else:
 			if PlayerManager.DevMode:
 				$PauseMenu.pause()

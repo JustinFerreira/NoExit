@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 2.0
+var SPEED = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 
@@ -24,6 +24,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y -= 2
 	
+	if PlayerManager.MinigameMode:
+		SPEED = 4.0
+	else:
+		SPEED = 2.0
 	
 	var next_location = nav.get_next_path_position()
 	var current_location = global_transform.origin
