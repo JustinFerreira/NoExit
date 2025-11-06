@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=26 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://nvhom04348vy" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
 [ext_resource type="PackedScene" uid="uid://c7jiwld2k88hl" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
 [ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="12_ew468"]
+[ext_resource type="PackedScene" uid="uid://26y46rfj10b3" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
+[ext_resource type="PackedScene" uid="uid://6hcw8v2lxr21" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
+[ext_resource type="PackedScene" uid="uid://cohln5revo0w" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_8qw4w")
@@ -3751,3 +3754,12 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 15.1538, 3
 
 [node name="GarageLight2" parent="." instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 10.0181, 34.1278)
+
+[node name="ParkingLineLight" parent="." instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1341, 10.3742, 45.6728)
+
+[node name="ParkingLineMedium" parent="." instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
+
+[node name="ParkingLineHeavy" parent="." instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)

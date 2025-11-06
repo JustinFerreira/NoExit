@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4k3u1crwskga"
+path="res://.godot/imported/M_ParkingLine.obj-7698e2e06ae6a5f1a5fe945d4c1fce3d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_ParkingLine.obj-7698e2e06ae6a5f1a5fe945d4c1fce3d.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_ParkingLine.obj"
+dest_files=["res://.godot/imported/M_ParkingLine.obj-7698e2e06ae6a5f1a5fe945d4c1fce3d.mesh", "res://.godot/imported/M_ParkingLine.obj-7698e2e06ae6a5f1a5fe945d4c1fce3d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
