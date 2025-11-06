@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Assets/Greyboxing/carpet.png" id="2_vyjoy"]
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
 [ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Assets/Greyboxing/office_wall.png" id="3_qawth"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
+[ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
 albedo_texture = ExtResource("2_vyjoy")

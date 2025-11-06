@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4e6alwxo7csv"]
 
-[ext_resource type="Texture2D" uid="uid://c2twr6n4hkn2t" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_BaseColor.png" id="1_o7wg1"]
-[ext_resource type="Texture2D" uid="uid://b4p3j36opssqu" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Metalic_and_Rougness.png" id="2_fy8ie"]
-[ext_resource type="Texture2D" uid="uid://cn0pq3lrbxfww" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Normal.png" id="3_hvd10"]
+[ext_resource type="Texture2D" uid="uid://bsmgh5juh5mkr" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_BaseColor.png" id="1_o7wg1"]
+[ext_resource type="Texture2D" uid="uid://b4ydgeiirsbos" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Metalic_and_Rougness.png" id="2_fy8ie"]
+[ext_resource type="Texture2D" uid="uid://bniihfe3bi3vb" path="res://Assets/Enviroments/Garage/Textures/GaragePole Textures/M_GaragePole_Unwrapped_Normal.png" id="3_hvd10"]
 [ext_resource type="ArrayMesh" uid="uid://nik4occeorhy" path="res://Assets/Enviroments/Garage/Models/M_GaragePole_Unwrapped.obj" id="4_5vgud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n31o4"]
