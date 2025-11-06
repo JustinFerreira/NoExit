@@ -288,7 +288,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func apply_breathing_effects():
 	# Adjust breathing sound based on current state
 	PlayerManager.ProcessScared()
-	var target_pitch = PlayerManager.scaredPitch
+	var target_pitch = PlayerManager.scaredPitch - 0.5
 	var target_volume = PlayerManager.scaredVolume
 
 	## Make breathing more intense when low on stamina

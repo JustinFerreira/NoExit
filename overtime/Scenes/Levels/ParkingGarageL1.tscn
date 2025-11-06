@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="5_nolbu"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="6_onva3"]
 [ext_resource type="Texture2D" uid="uid://ecao2s4la2fa" path="res://Assets/Enviroments/Dev Textures/dev_texture_road.png" id="7_sjx8e"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="7_wp5ll"]
+[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="7_wp5ll"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Scenes/PlayerObjects/WireNegative.tscn" id="8_ljxvc"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Scenes/PlayerObjects/Battery.tscn" id="9_5f5sb"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Scenes/PlayerObjects/WirePositive.tscn" id="10_4hpyl"]

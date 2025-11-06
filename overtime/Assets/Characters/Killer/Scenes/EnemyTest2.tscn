@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://b2xxyuv7fa0rx"]
+[gd_scene load_steps=17 format=4 uid="uid://b2xxyuv7fa0rx"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyTest2.gd" id="1_6slwl"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_4n1ac"]
 [ext_resource type="Texture2D" uid="uid://dp80o6xf28che" path="res://Assets/Enviroments/Dev Textures/dev_texture_rainbow.png" id="2_brcy2"]
 [ext_resource type="Texture2D" uid="uid://uokhlg3waj3d" path="res://Assets/Enviroments/Dev Textures/dev_texture_carpet.png" id="4_8f5xv"]
+[ext_resource type="Script" path="res://Scripts/EnemyStepping.gd" id="5_bslu2"]
+[ext_resource type="AudioStream" uid="uid://bwoa67pcjdwxu" path="res://Assets/Audio/SFX/Footsteps/LeftStep3.wav" id="6_iy5ja"]
+[ext_resource type="AudioStream" uid="uid://cybqxkrr7jrl3" path="res://Assets/Audio/SFX/Footsteps/RightStep3.wav" id="7_mfd4g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ii8d"]
 albedo_texture = ExtResource("2_brcy2")
@@ -603,3 +606,9 @@ target_position = Vector3(0, 0, 0)
 collide_with_areas = true
 collide_with_bodies = false
 debug_shape_custom_color = Color(7.46027e-07, 0.689482, 0.150052, 1)
+
+[node name="EnemyStepping" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.230036, 0, 0, 0, 0.230036, 0, 0, 0, 0.230036, 0, 0.179505, 0)
+script = ExtResource("5_bslu2")
+first_sound = ExtResource("6_iy5ja")
+second_sound = ExtResource("7_mfd4g")

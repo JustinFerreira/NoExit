@@ -25,6 +25,7 @@ var player_rotation_z
 var scaredDistance = 0
 var scaredPitch = 1
 var scaredVolume = -80
+var scaredVolumeSteps = -80
 
 var sprint_engaged = false
 
@@ -206,14 +207,20 @@ func TestConnection():
 func ProcessScared():
 	if no_enemy:
 		scaredVolume = -80
+		scaredVolumeSteps = -80
 		scaredPitch = 1
 		return -80
-	
-	if scaredDistance > 45:
+		
+	if scaredDistance > 70:
+		scaredVolumeSteps = -80
 		scaredVolume = -80
 		scaredPitch = 1
-		return 1
+	elif scaredDistance > 45:
+		scaredVolumeSteps = 4 - scaredDistance
+		scaredVolume = -80
+		scaredPitch = 1
 	else:
+		scaredVolumeSteps = 4 - scaredDistance
 		scaredVolume = 4 - scaredDistance
 		scaredPitch = 4 - (scaredDistance / 10)  
 		if scaredPitch < 3:
