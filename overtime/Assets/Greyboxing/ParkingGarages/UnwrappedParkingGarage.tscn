@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=22 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cecwkfw6phxht" path="res://Assets/Enviroments/Garage/Scenes/RubbishBin.tscn" id="7_yquvv"]
 [ext_resource type="PackedScene" uid="uid://ggxuh5f2chv" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="8_1yddk"]
 [ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
+[ext_resource type="PackedScene" uid="uid://nvhom04348vy" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
+[ext_resource type="PackedScene" uid="uid://c7jiwld2k88hl" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_8qw4w")
@@ -2037,1433 +2039,6 @@ size = Vector3(1.3, 834, 7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -149.812, 0, -2221.89)
 size = Vector3(1.3, 834, 7)
 
-[node name="OutsideFences" type="Node3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 49)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4945.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4920.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4895.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4870.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4845.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4820.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4795.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4770.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4745.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4720.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4695.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4670.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4640.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4615.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4590.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4565.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4540.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4515.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D19" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4490.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4465.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D21" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4440.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D22" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4415.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D23" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4390.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D24" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4365.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D25" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4335.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D26" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4310.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D27" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4285.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D28" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4260.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D29" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4235.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D30" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4210.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D31" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4185.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D32" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4160.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D33" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4135.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D34" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4110.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D35" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4085.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D36" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4060.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D37" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4030.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D38" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -4005.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D39" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3980.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D40" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3955.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D41" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3930.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D42" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3905.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D43" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3880.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D44" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3855.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D45" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3830.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D46" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3805.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D47" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3780.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D48" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3755.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D49" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3730.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D50" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3705.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D51" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3680.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D52" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3655.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D53" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3630.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D54" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3605.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D55" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3580.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D56" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3555.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D57" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3530.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D58" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3505.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D59" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3480.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D60" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3455.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D61" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3425.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D62" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3400.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D63" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3375.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D64" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3350.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D65" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3325.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D66" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3300.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D67" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3275.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D68" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3250.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D69" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3225.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D70" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3200.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D71" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3175.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D72" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3150.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D73" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3120.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D74" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3095.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D75" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3070.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D76" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3045.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D77" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -3020.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D78" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2995.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D79" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2970.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D80" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2945.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D81" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2920.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D82" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2895.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D83" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2870.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D84" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2845.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D85" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2815.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D86" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2790.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D87" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2765.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D88" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2740.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D89" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2715.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D90" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2690.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D91" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2665.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D92" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2640.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D93" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2615.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D94" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2590.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D95" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2565.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D96" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2540.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D97" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2515.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D98" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2490.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D99" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2465.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D100" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2440.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D101" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2415.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D102" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2390.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D103" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2365.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D104" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2340.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D105" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2315.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D106" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2290.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D107" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2265.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D108" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2240.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D109" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2210.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D110" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2185.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D111" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2160.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D112" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2135.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D113" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2110.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D114" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2085.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D115" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2060.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D116" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2035.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D117" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2010.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D118" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1985.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D119" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1960.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D120" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1935.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D121" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1905.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D122" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1880.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D123" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1855.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D124" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1830.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D125" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1805.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D126" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1780.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D127" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1755.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D128" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1730.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D129" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1705.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D130" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1680.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D131" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1655.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D132" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1630.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D133" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1600.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D134" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1575.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D135" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1550.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D136" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1525.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D137" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1500.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D138" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1475.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D139" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1450.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D140" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1425.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D141" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1400.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D142" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1375.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D143" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1350.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D144" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1325.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D145" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1300.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D146" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1275.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D147" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1250.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D148" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1225.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D149" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1200.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D150" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1175.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D151" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1150.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D152" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1125.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D153" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -1100.85, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D154" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -125.853, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D155" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -100.853, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D156" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -75.8534, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D157" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -50.8534, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D158" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -25.8534, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D159" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.853425, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D160" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 24.1466, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D161" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 49.1466, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D162" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 74.1466, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D163" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 99.1466, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D164" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 124.147, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D165" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 149.147, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D166" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 179.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D167" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 204.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D168" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 229.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D169" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 254.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D170" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 279.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D171" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 304.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D172" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 329.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D173" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 354.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D174" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 379.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D175" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 404.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D176" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 429.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D177" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 454.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D178" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 484.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D179" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 509.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D180" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 534.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D181" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 559.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D182" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 584.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D183" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 609.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D184" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 634.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D185" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 659.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D186" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 684.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D187" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 709.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D188" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 734.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D189" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 759.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D190" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 789.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D191" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 814.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D192" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 839.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D193" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 864.146, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D194" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 889.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D195" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 914.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D196" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 939.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D197" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 964.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D198" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 989.146, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D199" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 1014.15, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D200" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 1039.15, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D201" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 1064.15, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D202" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 1089.15, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D203" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.63, 0, 0, 0, 0.9, 1114.15, 520.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D204" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1139.15, 519.95, 77.2004)
-size = Vector3(1.3, 558, 7)
-
-[node name="CSGBox3D205" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1164.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D206" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1189.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D207" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1214.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D208" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1239.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D209" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1264.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D210" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1289.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D211" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1314.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D212" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1339.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D213" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1364.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D214" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1394.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D215" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1419.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D216" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1444.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D217" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1469.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D218" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1494.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D219" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1519.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D220" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1544.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D221" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1569.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D222" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1594.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D223" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1619.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D224" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1644.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D225" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1669.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D226" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1699.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D227" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1724.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D228" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1749.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D229" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1774.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D230" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1799.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D231" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1824.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D232" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1849.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D233" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1874.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D234" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1899.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D235" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1924.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D236" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1949.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D237" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1974.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D238" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2004.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D239" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2029.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D240" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2054.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D241" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2079.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D242" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2104.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D243" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2129.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D244" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2154.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D245" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2179.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D246" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2204.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D247" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2229.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D248" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2254.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D249" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2279.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D250" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2304.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D251" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2329.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D252" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2354.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D253" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2379.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D254" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2404.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D255" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2429.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D256" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2454.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D257" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2479.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D258" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2504.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D259" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2529.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D260" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2554.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D261" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2579.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D262" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2609.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D263" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2634.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D264" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2659.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D265" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2684.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D266" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2709.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D267" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2734.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D268" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2759.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D269" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2784.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D270" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2809.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D271" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2834.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D272" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2859.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D273" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2884.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D274" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2914.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D275" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2939.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D276" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2964.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D277" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2989.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D278" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3014.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D279" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3039.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D280" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3064.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D281" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3089.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D282" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3114.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D283" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3139.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D284" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3164.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D285" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3189.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D286" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3219.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D287" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3244.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D288" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3269.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D289" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3294.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D290" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3319.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D291" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3344.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D292" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3369.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D293" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3394.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D294" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3419.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D295" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3444.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D296" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3469.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D297" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3494.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D298" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3519.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D299" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3544.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D300" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3569.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D301" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3594.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D302" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3619.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D303" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3644.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D304" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3669.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D305" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3694.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D306" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3719.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D307" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3744.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D308" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3769.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D309" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3794.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D310" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3819.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D311" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3844.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D312" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3869.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D313" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3894.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D314" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3919.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D315" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3944.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D316" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3969.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D317" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3994.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D318" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4019.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D319" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4044.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D320" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4069.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D321" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4094.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D322" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4119.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D323" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4144.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D324" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4169.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D325" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4194.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D326" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4219.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D327" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4244.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D328" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4269.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D329" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4294.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D330" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4319.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D331" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4344.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D332" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4369.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D333" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4394.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D334" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4419.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D335" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4444.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D336" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4469.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D337" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4494.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D338" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4519.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D339" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4544.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D340" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4569.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D341" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4594.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D342" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4619.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D343" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4644.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D344" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4669.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D345" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4694.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D346" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4719.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D347" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4749.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D348" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4774.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D349" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4799.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D350" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4824.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D351" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4849.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D352" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4874.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D353" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4899.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D354" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4924.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D355" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4949.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
-[node name="CSGBox3D356" type="CSGBox3D" parent="OutsideFences"]
-transform = Transform3D(5.688, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4974.15, 395.75, 77.2004)
-size = Vector3(1.3, 834, 7)
-
 [node name="ParkingBlocksF1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.175, 24.4)
 
@@ -4960,3 +3535,212 @@ transform = Transform3D(6.0536e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, 6.0536e-09, -
 
 [node name="Camera7" parent="Cameras" instance=ExtResource("8_1yddk")]
 transform = Transform3D(6.0536e-09, 0, 0.03, 0, 0.03, 0, -0.03, 0, 6.0536e-09, -98.6293, 13.811, 45.7186)
+
+[node name="Fences" type="Node3D" parent="."]
+
+[node name="Fence" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -25.7388, 0.589399, 50.4044)
+
+[node name="Fence2" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -33.6193, 0.589399, 50.4044)
+
+[node name="Fence3" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -41.5956, 0.589399, 50.4044)
+
+[node name="Fence4" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -49.6, 0.589399, 50.4044)
+
+[node name="Fence5" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -57.4805, 0.589399, 50.4044)
+
+[node name="Fence6" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -65.4567, 0.589399, 50.4044)
+
+[node name="Fence7" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -73.3847, 0.589399, 50.4044)
+
+[node name="Fence8" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -81.2652, 0.589399, 50.4044)
+
+[node name="Fence9" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -89.2415, 0.589399, 50.4044)
+
+[node name="Fence10" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -97.2459, 0.589399, 50.4044)
+
+[node name="Fence11" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -25.7388, 5.65951, 50.4044)
+
+[node name="Fence12" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -33.6193, 5.65951, 50.4044)
+
+[node name="Fence13" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -41.5956, 5.65951, 50.4044)
+
+[node name="Fence14" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -49.6, 5.65951, 50.4044)
+
+[node name="Fence15" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -57.4805, 5.65951, 50.4044)
+
+[node name="Fence16" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -65.4567, 5.65951, 50.4044)
+
+[node name="Fence17" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -73.4119, 5.65951, 50.4044)
+
+[node name="Fence18" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -81.2924, 5.65951, 50.4044)
+
+[node name="Fence19" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -89.2686, 5.65951, 50.4044)
+
+[node name="Fence20" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -97.2731, 5.65951, 50.4044)
+
+[node name="Fence21" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -25.7388, 10.6695, 50.4044)
+
+[node name="Fence22" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -33.6193, 10.6695, 50.4044)
+
+[node name="Fence23" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -41.5956, 10.6695, 50.4044)
+
+[node name="Fence24" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -49.6, 10.6695, 50.4044)
+
+[node name="Fence25" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -57.4805, 10.6695, 50.4044)
+
+[node name="Fence26" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -65.4567, 10.6695, 50.4044)
+
+[node name="Fence27" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -73.3957, 10.6695, 50.4044)
+
+[node name="Fence28" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -81.2762, 10.6695, 50.4044)
+
+[node name="Fence29" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -89.2524, 10.6695, 50.4044)
+
+[node name="Fence30" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -97.2569, 10.6695, 50.4044)
+
+[node name="Fence31" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 72.5931, 0.589399, 50.4044)
+
+[node name="Fence32" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 64.7126, 0.589399, 50.4044)
+
+[node name="Fence33" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 56.7363, 0.589399, 50.4044)
+
+[node name="Fence34" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 48.7319, 0.589399, 50.4044)
+
+[node name="Fence35" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 40.8514, 0.589399, 50.4044)
+
+[node name="Fence36" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 32.8751, 0.589399, 50.4044)
+
+[node name="Fence40" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 1.08597, 0.589399, 50.4044)
+
+[node name="Fence41" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 72.5931, 5.65951, 50.4044)
+
+[node name="Fence42" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 64.7126, 5.65951, 50.4044)
+
+[node name="Fence43" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 56.7363, 5.65951, 50.4044)
+
+[node name="Fence44" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 48.7319, 5.65951, 50.4044)
+
+[node name="Fence45" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 40.8514, 5.65951, 50.4044)
+
+[node name="Fence46" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 32.8751, 5.65951, 50.4044)
+
+[node name="Fence47" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 24.92, 5.65951, 50.4044)
+
+[node name="Fence48" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 17.0395, 5.65951, 50.4044)
+
+[node name="Fence49" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 9.06327, 5.65951, 50.4044)
+
+[node name="Fence50" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 1.05882, 5.65951, 50.4044)
+
+[node name="Fence51" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 72.5931, 10.6695, 50.4044)
+
+[node name="Fence52" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 64.7126, 10.6695, 50.4044)
+
+[node name="Fence53" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 56.7363, 10.6695, 50.4044)
+
+[node name="Fence61" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 96.3875, 0.589399, 50.4044)
+
+[node name="Fence62" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 88.507, 0.589399, 50.4044)
+
+[node name="Fence63" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 80.5308, 0.589399, 50.4044)
+
+[node name="Fence64" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 96.3875, 5.65951, 50.4044)
+
+[node name="Fence65" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 88.507, 5.65951, 50.4044)
+
+[node name="Fence66" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 80.5308, 5.65951, 50.4044)
+
+[node name="Fence67" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 96.3875, 10.6695, 50.4044)
+
+[node name="Fence68" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 88.507, 10.6695, 50.4044)
+
+[node name="Fence69" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 80.5308, 10.6695, 50.4044)
+
+[node name="Fence54" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 48.7319, 10.6695, 50.4044)
+
+[node name="Fence55" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 40.8514, 10.6695, 50.4044)
+
+[node name="Fence56" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 32.8751, 10.6695, 50.4044)
+
+[node name="Fence57" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 24.9362, 10.6695, 50.4044)
+
+[node name="Fence58" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 17.0557, 10.6695, 50.4044)
+
+[node name="Fence59" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 9.07944, 10.6695, 50.4044)
+
+[node name="Fence60" parent="Fences" instance=ExtResource("10_preou")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 1.07499, 10.6695, 50.4044)
+
+[node name="RecyclingBin" parent="Fences" instance=ExtResource("11_c7r4h")]
+transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -11.0595, 10.3749, 42.1865)
+
+[node name="RecyclingBin2" parent="Fences" instance=ExtResource("11_c7r4h")]
+transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -11.0595, 5.26376, 42.1865)
+
+[node name="RecyclingBin3" parent="Fences" instance=ExtResource("11_c7r4h")]
+transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -11.0595, 0.197173, 42.1865)

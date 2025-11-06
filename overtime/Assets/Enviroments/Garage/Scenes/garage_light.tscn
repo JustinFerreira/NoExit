@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://bck6fufv48blt"]
+
+[ext_resource type="ArrayMesh" uid="uid://ilj3f1fqcesh" path="res://Assets/Enviroments/Garage/Models/M_GarageLightFixture.obj" id="1_3rxh4"]
+[ext_resource type="Texture2D" uid="uid://b8xy5nsth6270" path="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_BaseColor.png" id="2_mtbcq"]
+[ext_resource type="Texture2D" uid="uid://45n4ym74k5wa" path="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_Emissive.png" id="3_0mfgs"]
+[ext_resource type="Texture2D" uid="uid://t4hvi7pfqoh1" path="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_Height.png" id="4_7crtp"]
+[ext_resource type="Texture2D" uid="uid://bkuxkxtov45gg" path="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_Metalic_and_Rougness.png" id="5_onbue"]
+[ext_resource type="Texture2D" uid="uid://gv75vixqgnf8" path="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_Normal.png" id="6_wwvoo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhebv"]
+albedo_texture = ExtResource("2_mtbcq")
+metallic = 1.0
+metallic_texture = ExtResource("5_onbue")
+roughness_texture = ExtResource("5_onbue")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("3_0mfgs")
+normal_enabled = true
+normal_texture = ExtResource("6_wwvoo")
+heightmap_texture = ExtResource("4_7crtp")
+
+[node name="GarageLight" type="Node3D"]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+
+[node name="MGarageLightFixture" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = ExtResource("1_3rxh4")
+surface_material_override/0 = SubResource("StandardMaterial3D_uhebv")

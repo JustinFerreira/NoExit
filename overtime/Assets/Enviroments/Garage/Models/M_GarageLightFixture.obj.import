@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ilj3f1fqcesh"
+path="res://.godot/imported/M_GarageLightFixture.obj-89dfe0d991b643b48ac6082a04a3dae5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_GarageLightFixture.obj-89dfe0d991b643b48ac6082a04a3dae5.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_GarageLightFixture.obj"
+dest_files=["res://.godot/imported/M_GarageLightFixture.obj-89dfe0d991b643b48ac6082a04a3dae5.mesh", "res://.godot/imported/M_GarageLightFixture.obj-89dfe0d991b643b48ac6082a04a3dae5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
