@@ -14,6 +14,7 @@ metallic_texture = ExtResource("5_onbue")
 roughness_texture = ExtResource("5_onbue")
 roughness_texture_channel = 1
 emission_enabled = true
+emission_energy_multiplier = 3.15
 emission_texture = ExtResource("3_0mfgs")
 normal_enabled = true
 normal_texture = ExtResource("6_wwvoo")
@@ -26,3 +27,6 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = ExtResource("1_3rxh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_uhebv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)

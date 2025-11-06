@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=23 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
 [ext_resource type="PackedScene" uid="uid://nvhom04348vy" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
 [ext_resource type="PackedScene" uid="uid://c7jiwld2k88hl" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
+[ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="12_ew468"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_8qw4w")
@@ -3744,3 +3745,9 @@ transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 
 
 [node name="RecyclingBin3" parent="Fences" instance=ExtResource("11_c7r4h")]
 transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -11.0595, 0.197173, 42.1865)
+
+[node name="GarageLight" parent="." instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 15.1538, 34.1278)
+
+[node name="GarageLight2" parent="." instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 10.0181, 34.1278)
