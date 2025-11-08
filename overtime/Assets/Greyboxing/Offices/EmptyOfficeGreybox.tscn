@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=14 format=3 uid="uid://cqbiktwssofkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Assets/Greyboxing/office_ceiling_tile.png" id="1_d8rc4"]
 [ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_xh4d2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
 [ext_resource type="PackedScene" uid="uid://c48e8fdjpjnmm" path="res://Assets/Enviroments/Office/Scenes/small_bin.tscn" id="7_dnv3v"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="8_xv01g"]
+[ext_resource type="PackedScene" uid="uid://c78kfoga5e1u3" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="9_lu6ri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
 albedo_texture = ExtResource("2_vyjoy")
@@ -712,4 +713,7 @@ sky_mode = 1
 transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 71.7282, 53.6502)
 
 [node name="PottedPlant" parent="." instance=ExtResource("8_xv01g")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, 0.789894, 72.0131, 61.2239)
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -204.835, 72.0131, 52.4739)
+
+[node name="TissueBox" parent="." instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -208.168, 80.044, 85.355)

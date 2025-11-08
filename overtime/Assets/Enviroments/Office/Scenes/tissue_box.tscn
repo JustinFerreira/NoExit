@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c78kfoga5e1u3"]
+
+[ext_resource type="ArrayMesh" uid="uid://dodrnmti3js1j" path="res://Assets/Enviroments/Office/Models/Tissue_Box.obj" id="1_7tmwg"]
+[ext_resource type="Texture2D" uid="uid://boc5shpbqspvu" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_Albedo.png" id="2_l8ir2"]
+[ext_resource type="Texture2D" uid="uid://chh8s5xnrydic" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_MetallicRoughnessAO.png" id="3_s0xn7"]
+[ext_resource type="Texture2D" uid="uid://dy25m08hg0yg1" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_Normal.png" id="4_g4lf1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybslm"]
+albedo_texture = ExtResource("2_l8ir2")
+metallic = 1.0
+metallic_texture = ExtResource("3_s0xn7")
+metallic_texture_channel = 1
+roughness_texture = ExtResource("3_s0xn7")
+normal_enabled = true
+normal_texture = ExtResource("4_g4lf1")
+
+[node name="TissueBox" type="Node3D"]
+
+[node name="TissueBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_7tmwg")
+surface_material_override/0 = SubResource("StandardMaterial3D_ybslm")
