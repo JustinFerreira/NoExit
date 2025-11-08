@@ -58,7 +58,6 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale:
 	
 	var new_player = AudioStreamPlayer.new()
 	if sound_name == "heartbeat" || sound_name == "breathing":
-		print(sound_name)
 		new_player.bus = "PitchShiftSFX"
 	else:
 		new_player.bus = "SFX"

@@ -15,9 +15,10 @@ func _physics_process(delta: float) -> void:
 	if PlayerManager.teleportEnemy && get_tree().get_first_node_in_group("teleport_target"):
 		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
 		PlayerManager.teleportEnemy = false
-	$MeshInstance3D.visible = false
-	$Skeleton3D.visible = true
-	$AnimationPlayer.play("mixamo_com")
+	#$MeshInstance3D.visible = false
+	#$Skeleton3D.visible = true
+	#$AnimationPlayer.play("mixamo_com")
+	$"Killer UVs".visible = true
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

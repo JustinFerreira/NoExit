@@ -15,7 +15,22 @@ func _ready() -> void:
 		AudioManager.cancel_loop_sfx()
 		AudioManager.play_music(AudioManager.MainMenuMusic)
 	
-	
+	if PlayerManager.DevMode == true:
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = true
+	else:
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
 	
 	
 
