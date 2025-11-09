@@ -1,15 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=17 format=3 uid="uid://cqbiktwssofkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Assets/Greyboxing/office_ceiling_tile.png" id="1_d8rc4"]
 [ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_xh4d2"]
 [ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Assets/Greyboxing/carpet.png" id="2_vyjoy"]
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
 [ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Assets/Greyboxing/office_wall.png" id="3_qawth"]
+[ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="6_6k61k"]
 [ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="6_spuqb"]
 [ext_resource type="PackedScene" uid="uid://c48e8fdjpjnmm" path="res://Assets/Enviroments/Office/Scenes/small_bin.tscn" id="7_dnv3v"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="8_xv01g"]
 [ext_resource type="PackedScene" uid="uid://c78kfoga5e1u3" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="9_lu6ri"]
 [ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
+[ext_resource type="PackedScene" uid="uid://cfa6ee45ff6e3" path="res://Assets/Enviroments/Office/Scenes/folder_2.tscn" id="12_xaag6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
 albedo_texture = ExtResource("2_vyjoy")
@@ -381,6 +383,9 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 [node name="Cubicle9" parent="RowOfCubicles15" instance=ExtResource("3_8r1eh")]
 transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, -2.87338, -7.58505, -67.2865)
 
+[node name="Papers1" parent="RowOfCubicles15" instance=ExtResource("6_6k61k")]
+transform = Transform3D(-1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -1.86265e-07, -6.482, 0.502, -62.784)
+
 [node name="RowOfCubicles16" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.06, 79.7789, 158.938)
 
@@ -722,4 +727,7 @@ transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -204.835, 72.0131, 5
 transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -208.168, 80.044, 85.355)
 
 [node name="Folder1" parent="." instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-7.07084e-08, -4.59461e-07, 6.25, -2.63887e-07, 6.25, 4.59461e-07, -6.25, -2.63887e-07, -7.07084e-08, -198.51, 80.078, 84.275)
+transform = Transform3D(-7.07084e-08, -4.59461e-07, 6.25, -2.63887e-07, 6.25, 4.59461e-07, -6.25, -2.63887e-07, -7.07084e-08, -197.26, 80.078, 84.275)
+
+[node name="Folder2" parent="." instance=ExtResource("12_xaag6")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -202.885, 80.123, 83.65)
