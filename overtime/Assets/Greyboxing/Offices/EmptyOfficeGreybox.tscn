@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=15 format=3 uid="uid://cqbiktwssofkk"]
 
 [ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Assets/Greyboxing/office_ceiling_tile.png" id="1_d8rc4"]
 [ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_xh4d2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c48e8fdjpjnmm" path="res://Assets/Enviroments/Office/Scenes/small_bin.tscn" id="7_dnv3v"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="8_xv01g"]
 [ext_resource type="PackedScene" uid="uid://c78kfoga5e1u3" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="9_lu6ri"]
+[ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
 albedo_texture = ExtResource("2_vyjoy")
@@ -606,6 +607,7 @@ transform = Transform3D(-3.27835e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.27835e-07, 
 
 [node name="OmniLight3D2" type="SpotLight3D" parent="Lights"]
 transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -10.8536, 537.796, 11.3753)
+visible = false
 light_color = Color(1, 1, 0.768627, 1)
 light_energy = 16.0
 light_size = 1.0
@@ -706,6 +708,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.56, 104.445, 206.25)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, -6.25, 0, 6.25, -2.73196e-07, 0, -5.72205e-06, 43.75)
+visible = false
 light_energy = 0.277
 sky_mode = 1
 
@@ -717,3 +720,6 @@ transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -204.835, 72.0131, 5
 
 [node name="TissueBox" parent="." instance=ExtResource("9_lu6ri")]
 transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -208.168, 80.044, 85.355)
+
+[node name="Folder1" parent="." instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-7.07084e-08, -4.59461e-07, 6.25, -2.63887e-07, 6.25, 4.59461e-07, -6.25, -2.63887e-07, -7.07084e-08, -198.51, 80.078, 84.275)

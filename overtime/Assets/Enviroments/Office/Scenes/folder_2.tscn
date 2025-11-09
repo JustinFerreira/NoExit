@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfa6ee45ff6e3"]
+
+[ext_resource type="ArrayMesh" uid="uid://trsc1io0hi0f" path="res://Assets/Enviroments/Office/Models/Folder_2.obj" id="1_acj5e"]
+[ext_resource type="Texture2D" uid="uid://ccg7l70imwn7e" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Albedo.png" id="2_82h7k"]
+[ext_resource type="Texture2D" uid="uid://cco8rwxgj0rk1" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Height.png" id="3_qpqla"]
+[ext_resource type="Texture2D" uid="uid://nyjil04u5xi7" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_MetallicRoughnessAO.png" id="4_v2pt6"]
+[ext_resource type="Texture2D" uid="uid://dl1gqvn6ub5p1" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Normal.png" id="5_sb3a7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4ojj"]
+albedo_texture = ExtResource("2_82h7k")
+metallic_texture = ExtResource("4_v2pt6")
+roughness_texture = ExtResource("4_v2pt6")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_sb3a7")
+heightmap_texture = ExtResource("3_qpqla")
+
+[node name="Folder2" type="Node3D"]
+
+[node name="Folder2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_acj5e")
+surface_material_override/0 = SubResource("StandardMaterial3D_q4ojj")

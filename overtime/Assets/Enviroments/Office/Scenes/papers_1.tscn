@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfu7u57vr0wdg"]
+
+[ext_resource type="ArrayMesh" uid="uid://bu313kufj02ai" path="res://Assets/Enviroments/Office/Models/Papers_1.obj" id="1_p6u0a"]
+[ext_resource type="Texture2D" uid="uid://dbpiji1ueunag" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_Albedo.png" id="2_358x0"]
+[ext_resource type="Texture2D" uid="uid://diau280ywdg3d" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_MetallicRoughnessAO.png" id="3_uxqgi"]
+[ext_resource type="Texture2D" uid="uid://c31wm85hn286t" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_Normal.png" id="4_f204g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk8vy"]
+albedo_texture = ExtResource("2_358x0")
+metallic_texture = ExtResource("3_uxqgi")
+roughness_texture = ExtResource("3_uxqgi")
+normal_enabled = true
+normal_texture = ExtResource("4_f204g")
+texture_filter = 0
+
+[node name="Papers1" type="Node3D"]
+
+[node name="Papers1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_p6u0a")
+surface_material_override/0 = SubResource("StandardMaterial3D_fk8vy")

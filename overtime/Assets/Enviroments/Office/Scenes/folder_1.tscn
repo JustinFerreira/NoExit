@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://fo5o768q4lj3"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdnxqw7y6lrq3" path="res://Assets/Enviroments/Office/Models/Folder_1.obj" id="1_q88wu"]
+[ext_resource type="Texture2D" uid="uid://dotnxc8ug7odd" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_Albedo.png" id="2_s57ea"]
+[ext_resource type="Texture2D" uid="uid://chvbh06gibs1c" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_MetallicRoughnessAO.png" id="3_mrk4c"]
+[ext_resource type="Texture2D" uid="uid://cdo5ue8akjirx" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_Normal.png" id="4_hx13v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd65e"]
+albedo_texture = ExtResource("2_s57ea")
+metallic_texture = ExtResource("3_mrk4c")
+roughness_texture = ExtResource("3_mrk4c")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_hx13v")
+
+[node name="Folder1" type="Node3D"]
+
+[node name="Folder1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("1_q88wu")
+surface_material_override/0 = SubResource("StandardMaterial3D_rd65e")
