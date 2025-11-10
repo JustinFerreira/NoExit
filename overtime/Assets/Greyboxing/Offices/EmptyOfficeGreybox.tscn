@@ -718,10 +718,76 @@ light_energy = 0.277
 sky_mode = 1
 
 [node name="SmallBin" parent="." instance=ExtResource("7_dnv3v")]
-transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 71.7282, 53.6502)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -21.6353, 71.7282, 53.6502)
+
+[node name="SmallBin2" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -21.6353, 71.7282, 78.6502)
+
+[node name="SmallBin3" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -86.6353, 71.7282, 53.6502)
+
+[node name="SmallBin4" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -86.6353, 71.7282, 78.6502)
+
+[node name="SmallBin7" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 112.74, 71.7282, 53.6502)
+
+[node name="SmallBin8" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 112.74, 71.7282, 78.6502)
+
+[node name="SmallBin9" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 42.7397, 71.7282, 53.6502)
+
+[node name="SmallBin10" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 42.7397, 71.7282, 78.6501)
+
+[node name="SmallBin5" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -149.76, 71.7282, 53.6502)
+
+[node name="SmallBin6" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -149.76, 71.7282, 78.6502)
+
+[node name="SmallBin11" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -21.6353, 71.7282, -8.8498)
+
+[node name="SmallBin12" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -21.6353, 71.7282, 13.6502)
+
+[node name="SmallBin13" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -86.6353, 71.7282, -8.8498)
+
+[node name="SmallBin14" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -86.6353, 71.7282, 13.6502)
+
+[node name="SmallBin15" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 112.115, 71.7282, -8.8498)
+
+[node name="SmallBin16" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 112.74, 71.7282, 13.6502)
+
+[node name="SmallBin17" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 42.7397, 71.7282, -8.8498)
+
+[node name="SmallBin18" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, 42.7397, 71.7282, 13.6501)
+
+[node name="SmallBin19" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -149.76, 71.7282, -8.8498)
+
+[node name="SmallBin20" parent="." instance=ExtResource("7_dnv3v")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -149.76, 71.7282, 13.6502)
 
 [node name="PottedPlant" parent="." instance=ExtResource("8_xv01g")]
 transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -204.835, 72.0131, 52.4739)
+
+[node name="PottedPlant2" parent="." instance=ExtResource("8_xv01g")]
+transform = Transform3D(-1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, -1.61762, -204.835, 72.0131, 15.5989)
+
+[node name="PottedPlant3" parent="." instance=ExtResource("8_xv01g")]
+transform = Transform3D(-4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, -4.41942, 110.165, 72.0131, 65.5989)
+
+[node name="PottedPlant4" parent="." instance=ExtResource("8_xv01g")]
+transform = Transform3D(-6.25, 0, -9.31323e-08, 0, 6.25, 0, 9.31323e-08, 0, -6.25, 110.79, 72.0131, 2.47389)
 
 [node name="TissueBox" parent="." instance=ExtResource("9_lu6ri")]
 transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -208.168, 80.044, 85.355)

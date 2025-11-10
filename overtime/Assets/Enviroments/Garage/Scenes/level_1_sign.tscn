@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://de8w3pwcnty5d"]
+
+[ext_resource type="ArrayMesh" uid="uid://bycg5gikuxbnv" path="res://Assets/Enviroments/Garage/Models/M_GarageLevelSign_Unwrapped.obj" id="1_ple71"]
+[ext_resource type="Texture2D" uid="uid://dpq5uqfcg00uk" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap.png" id="2_y5f52"]
+[ext_resource type="Texture2D" uid="uid://c0dvrh18syitl" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_MaskMap.png" id="3_7twfi"]
+[ext_resource type="Texture2D" uid="uid://1pcnag7a84sj" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_Normal.png" id="4_y0bje"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6n80g"]
+transparency = 1
+albedo_texture = ExtResource("2_y5f52")
+metallic = 1.0
+metallic_texture = ExtResource("3_7twfi")
+roughness_texture = ExtResource("3_7twfi")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_y0bje")
+
+[node name="Level1Sign" type="Node3D"]
+
+[node name="MGarageLevelSignUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0382935, 0, 0.0575719)
+mesh = ExtResource("1_ple71")
+surface_material_override/0 = SubResource("StandardMaterial3D_6n80g")

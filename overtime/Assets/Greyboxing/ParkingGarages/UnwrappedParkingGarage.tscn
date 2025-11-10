@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=29 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://26y46rfj10b3" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
 [ext_resource type="PackedScene" uid="uid://6hcw8v2lxr21" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
 [ext_resource type="PackedScene" uid="uid://cohln5revo0w" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
+[ext_resource type="PackedScene" uid="uid://de8w3pwcnty5d" path="res://Assets/Enviroments/Garage/Scenes/level_1_sign.tscn" id="16_1u4oi"]
+[ext_resource type="PackedScene" uid="uid://3s0eu8xffyih" path="res://Assets/Enviroments/Garage/Scenes/level_2_sign.tscn" id="17_i4jcv"]
+[ext_resource type="PackedScene" uid="uid://bnc61esadkg4v" path="res://Assets/Enviroments/Garage/Scenes/level_3_sign.tscn" id="18_8xkra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_8qw4w")
@@ -3763,3 +3766,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
 
 [node name="ParkingLineHeavy" parent="." instance=ExtResource("15_5ow8q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)
+
+[node name="Level1Sign" parent="." instance=ExtResource("16_1u4oi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.14187, 3.64996, 42.733)
+
+[node name="Level2Sign" parent="." instance=ExtResource("17_i4jcv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.136, 8.81197, 42.725)
+
+[node name="Level3Sign" parent="." instance=ExtResource("18_8xkra")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.12837, 13.7413, 42.734)

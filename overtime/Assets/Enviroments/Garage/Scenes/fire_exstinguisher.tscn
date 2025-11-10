@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://v4ak5cnq1fu4"]
+
+[ext_resource type="ArrayMesh" uid="uid://de18ibvgqj8t2" path="res://Assets/Enviroments/Garage/Models/M_FireExtinguisher.obj" id="1_ai6ig"]
+[ext_resource type="Texture2D" uid="uid://d3ktr46lktqv5" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_BaseColor.png" id="2_rexc1"]
+[ext_resource type="Texture2D" uid="uid://ciwqxhxa2ik5y" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_Metalic_and_Rougness.png" id="3_a622x"]
+[ext_resource type="Texture2D" uid="uid://qk38fs8ck2ml" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_Normal.png" id="4_4dwct"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab4uh"]
+albedo_texture = ExtResource("2_rexc1")
+metallic = 1.0
+metallic_texture = ExtResource("3_a622x")
+roughness_texture = ExtResource("3_a622x")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_4dwct")
+
+[node name="FireExstinguisher" type="Node3D"]
+
+[node name="MFireExtinguisher" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+mesh = ExtResource("1_ai6ig")
+surface_material_override/0 = SubResource("StandardMaterial3D_ab4uh")
