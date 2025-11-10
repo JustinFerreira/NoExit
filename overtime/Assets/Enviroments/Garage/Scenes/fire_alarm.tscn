@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cievmv558laq4"]
+
+[ext_resource type="ArrayMesh" uid="uid://6lgwc8xp6fyr" path="res://Assets/Enviroments/Garage/Models/M_FireAlarm.obj" id="1_q3y68"]
+[ext_resource type="Texture2D" uid="uid://88wt4fkt2b2r" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_BaseColor.png" id="2_kekwq"]
+[ext_resource type="Texture2D" uid="uid://ckmycqxsohc7e" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_Metalic_and_Rougness.png" id="3_4s4sy"]
+[ext_resource type="Texture2D" uid="uid://v40shsjss8ws" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_Normal.png" id="4_qmbei"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8lqy"]
+albedo_texture = ExtResource("2_kekwq")
+metallic = 1.0
+metallic_texture = ExtResource("3_4s4sy")
+roughness_texture = ExtResource("3_4s4sy")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_qmbei")
+
+[node name="FireAlarm" type="Node3D"]
+
+[node name="MFireAlarm" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+mesh = ExtResource("1_q3y68")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8lqy")
