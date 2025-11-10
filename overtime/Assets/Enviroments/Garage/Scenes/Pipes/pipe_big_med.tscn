@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgqhrpyms3muy"]
+
+[ext_resource type="ArrayMesh" uid="uid://wbxpy65v8yqk" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigMed.obj" id="1_xdfuf"]
+[ext_resource type="Texture2D" uid="uid://c8wwbbaesxok" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_BaseColor.png" id="2_m0q61"]
+[ext_resource type="Texture2D" uid="uid://b88uvl4rnjido" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="3_20q6x"]
+[ext_resource type="Texture2D" uid="uid://ckg8xeohmmqbw" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Normal.png" id="4_pwvta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0hcb"]
+albedo_texture = ExtResource("2_m0q61")
+metallic = 1.0
+metallic_texture = ExtResource("3_20q6x")
+roughness_texture = ExtResource("3_20q6x")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_pwvta")
+
+[node name="PipeBigMed" type="Node3D"]
+
+[node name="MPipeBigMed" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xdfuf")
+surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")

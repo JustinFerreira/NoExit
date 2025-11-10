@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1anff0s5m4e8"]
+
+[ext_resource type="ArrayMesh" uid="uid://ce50pr3y58u7f" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallWide90.obj" id="1_tp81b"]
+[ext_resource type="Texture2D" uid="uid://c8wwbbaesxok" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_BaseColor.png" id="2_up1r8"]
+[ext_resource type="Texture2D" uid="uid://b88uvl4rnjido" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="3_lf4s2"]
+[ext_resource type="Texture2D" uid="uid://ckg8xeohmmqbw" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Normal.png" id="4_vgubo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddi20"]
+albedo_texture = ExtResource("2_up1r8")
+metallic = 1.0
+metallic_texture = ExtResource("3_lf4s2")
+roughness_texture = ExtResource("3_lf4s2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_vgubo")
+
+[node name="PipeSmallWide90" type="Node3D"]
+
+[node name="MPipeSmallWide90" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223575, 0, 0.254421)
+mesh = ExtResource("1_tp81b")
+surface_material_override/0 = SubResource("StandardMaterial3D_ddi20")

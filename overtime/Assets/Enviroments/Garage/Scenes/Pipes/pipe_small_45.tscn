@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhgh84jjyvgiu"]
+
+[ext_resource type="ArrayMesh" uid="uid://bo1s1khgdwy2u" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Small45.obj" id="1_5yq6j"]
+[ext_resource type="Texture2D" uid="uid://c8wwbbaesxok" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_BaseColor.png" id="2_a1t7v"]
+[ext_resource type="Texture2D" uid="uid://b88uvl4rnjido" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="3_6m33o"]
+[ext_resource type="Texture2D" uid="uid://ckg8xeohmmqbw" path="res://Assets/Enviroments/Garage/Textures/Pipe Textures/M_Pipes_Unwrapped_Normal.png" id="4_gkdhf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7vj7"]
+albedo_texture = ExtResource("2_a1t7v")
+metallic = 1.0
+metallic_texture = ExtResource("3_6m33o")
+roughness_texture = ExtResource("3_6m33o")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_gkdhf")
+
+[node name="PipeSmall45" type="Node3D"]
+
+[node name="MPipeSmall45" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_5yq6j")
+surface_material_override/0 = SubResource("StandardMaterial3D_v7vj7")
