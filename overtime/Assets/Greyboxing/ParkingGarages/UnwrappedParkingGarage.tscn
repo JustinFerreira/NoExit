@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=33 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://de8w3pwcnty5d" path="res://Assets/Enviroments/Garage/Scenes/level_1_sign.tscn" id="16_1u4oi"]
 [ext_resource type="PackedScene" uid="uid://3s0eu8xffyih" path="res://Assets/Enviroments/Garage/Scenes/level_2_sign.tscn" id="17_i4jcv"]
 [ext_resource type="PackedScene" uid="uid://bnc61esadkg4v" path="res://Assets/Enviroments/Garage/Scenes/level_3_sign.tscn" id="18_8xkra"]
+[ext_resource type="Texture2D" uid="uid://bg8og1n0b36e1" path="res://Assets/Greyboxing/garage_walls.png" id="19_qyy67"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_8qw4w")
@@ -50,6 +51,18 @@ size = Vector3(3.6, 4.7, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l03me"]
 size = Vector3(0.3, 4.9, 3.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6xae"]
+albedo_texture = ExtResource("19_qyy67")
+uv1_scale = Vector3(30, 3, 100)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ce2wl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_batbg"]
+albedo_texture = ExtResource("19_qyy67")
+uv1_scale = Vector3(30, 3, 40)
+texture_filter = 0
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
 
@@ -3903,3 +3916,38 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 12.587, -17
 
 [node name="GarageLight44" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 12.587, -17.0876)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.66639e-06, 20, -4.37114e-07, 0, -8.74228e-07, -10, -61, -8.74228e-07, 1.91069e-14, -99.156, 7.806, -10.271)
+material_override = SubResource("StandardMaterial3D_j6xae")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.66639e-06, -20, 4.37114e-07, 0, -8.74228e-07, -10, 61, -8.74228e-07, 1.91069e-14, 99.947, 7.806, -10.262)
+material_override = SubResource("StandardMaterial3D_j6xae")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, -44.117, 3.91039, -69.833)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, -0.44, 3.91039, -38.381)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 56.114, 3.91039, -69.663)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.50685e-06, 20, -4.37114e-07, 0, -8.74228e-07, -10, -57.35, -8.74228e-07, 1.91069e-14, 56.959, 3.91039, -95.762)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.50685e-06, -20, 4.37114e-07, 0, -8.74228e-07, -10, 57.35, -8.74228e-07, 1.91069e-14, -57.777, 3.91039, -95.762)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
