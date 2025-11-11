@@ -14,7 +14,7 @@ var janitor = load("res://Assets/hand.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	animation_player.connect("animation_finished", _on_animation_finished)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,7 +61,7 @@ func show_temporary_dialog(text: String, duration: float = 5.0, color: String = 
 	timer.start()
 	
 	
-func player_interact_dialog_pic(text: String, character: String = "player"):
+func player_interact_dialog_pic(text: String):
 	PlayerManager.dialoging = true
 	character_panel.visible = true
 	dialog_label.visible = false
@@ -71,19 +71,13 @@ func player_interact_dialog_pic(text: String, character: String = "player"):
 		"text": text
 	})
 	
-	## Switch Images for Charater Panel
-	if character == "player":
-		character_pic.texture = player
-	if character == "janitor":
-		character_pic.texture = janitor
-	
 	visible = true
 	
 	
 	
 	
 
-func show_temporary_dialog_pic(text: String, duration: float = 5.0, color: String = "white", character: String = "player"):
+func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 	# Enable BBCode and set colored text
 	PlayerManager.dialoging = true
 	character_panel.visible = true
@@ -96,15 +90,10 @@ func show_temporary_dialog_pic(text: String, duration: float = 5.0, color: Strin
 		})
 	else:
 		dialog_label_pic.text = "[center][color={color}]{text}[/color][/center]".format({
-			"color": color, 
+			"color": "white", 
 			"text": text
 		})
 	
-	## Switch Images for Charater Panel
-	if character == "player":
-		character_pic.texture = player
-	if character == "janitor":
-		character_pic.texture = janitor
 	
 	visible = true
 
@@ -117,3 +106,10 @@ func _on_timer_timeout():
 	dialog_label.text = ""
 	PlayerManager.dialoging = false
 	animation_player.play("hide")
+
+
+func _on_animation_finished(anim_name: String):
+	if anim_name == "reveal":
+		PlayerManager.finishedDialogAnimation = true
+	if anim_name == "hide":
+		PlayerManager.finishedDialogAnimation = false

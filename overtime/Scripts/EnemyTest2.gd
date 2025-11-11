@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	#$MeshInstance3D.visible = false
 	#$Skeleton3D.visible = true
 	#$AnimationPlayer.play("mixamo_com")
-	$"Killer UVs".visible = true
+	$MKillerLowUv.visible = true
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

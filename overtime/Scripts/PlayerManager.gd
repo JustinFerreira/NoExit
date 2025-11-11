@@ -35,6 +35,8 @@ var hint = false
 
 var dialoging = false
 
+var finishedDialogAnimation = false
+
 ## Modes
 
 var FirstOpen = true
@@ -158,13 +160,15 @@ func Dialog(text: String):
 	
 func HideDialog():
 	player.DIALOG.animation_player.play("hide")
+	finishedDialogAnimation = false
 	
 func RevealDialog():
 	player.DIALOG.animation_player.play("reveal")
+	finishedDialogAnimation = true
 	
-func CharacterDialog(text: String, character: String = "player"):
+func CharacterDialog(text: String):
 	hint = false
-	player.get_node("DialogControl").player_interact_dialog_pic(text,character)
+	player.get_node("DialogControl").player_interact_dialog_pic(text)
 ##
 	
 func SavePlayerRotation():

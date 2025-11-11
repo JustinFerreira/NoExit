@@ -98,10 +98,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
+		if PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
+			DIALOG.visible = false
+			PlayerManager.dialoging = false
+			PlayerManager.finishedDialogAnimation = false
+		if PlayerManager.minigameTwo == true:
+			PlayerManager.actioning = true
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				get_mouse_world_pos(mouse)
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				release_grabbed_object()
+	if event.is_action_released("Interact"):  
+		PlayerManager.actioning = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameTwo:
 			PlayerManager.player.CAMERA.current = true
@@ -130,16 +138,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("Inventory"):
 		$Inventory.visible = false
 			
-		
-	if event.is_action("action"):
-		if PlayerManager.hint == false && DIALOG.visible == true:
-			DIALOG.visible = false
-			PlayerManager.dialoging = false
-		elif PlayerManager.minigameTwo == true:
-			PlayerManager.actioning = true
-		
-	if event.is_action_released("action"):  
-		PlayerManager.actioning = false
 			
 			
 

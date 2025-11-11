@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			is_rotating = false
 
 func _on_interacted(body: Variant) -> void:
-	PlayerManager.CharacterDialog("HELLO FRIEND!", "janitor")
+	PlayerManager.CharacterDialog("HELLO FRIEND!")
 	
 	# Calculate target rotation (looking away from player)
 	if PlayerManager.player:

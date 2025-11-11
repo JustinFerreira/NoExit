@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d27k4ukr6g7jr"]
+[gd_scene load_steps=17 format=3 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
 [ext_resource type="PackedScene" uid="uid://dym5cp4qr0nyb" path="res://Menus/SimplifiedPauseMenu.tscn" id="2_cqu1j"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dl5qgwkg3d8b8" path="res://Assets/Enviroments/Dev Textures/dev_texture_blue.png" id="3_yn117"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="4_y3dep"]
 [ext_resource type="PackedScene" uid="uid://1k6pp1n6pfch" path="res://Menus/GameOverScreen.tscn" id="6_4tvxu"]
-[ext_resource type="Texture2D" uid="uid://nk1ak86d4slu" path="res://Assets/GTFO.png" id="9_l1x2c"]
 [ext_resource type="Texture2D" uid="uid://djm35mf18rhts" path="res://Assets/Crosshair.png" id="10_1g75w"]
 [ext_resource type="Texture2D" uid="uid://c51mwvydjqqcr" path="res://Assets/hand.png" id="10_o7qna"]
 
@@ -209,26 +208,12 @@ theme_override_constants/margin_right = 250
 [node name="CharacterPanel" type="Panel" parent="DialogControl/CharacterPanelMarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel"]
-layout_mode = 0
-offset_right = 240.0
-offset_bottom = 150.0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("9_l1x2c")
-expand_mode = 3
-stretch_mode = 5
-
 [node name="MarginContainer2" type="MarginContainer" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 24.0
 grow_horizontal = 2
-theme_override_constants/margin_left = 200
 theme_override_constants/margin_top = 10
 
 [node name="DialogLabel" type="RichTextLabel" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel/MarginContainer2"]
