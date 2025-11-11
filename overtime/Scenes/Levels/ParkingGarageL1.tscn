@@ -84,6 +84,7 @@ transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -38.056, 7.
 
 [node name="sLIGHTrED2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39839, 2028.32, 83.0694)
+visible = false
 light_color = Color(0.900306, 0.53777, 0.757611, 1)
 light_energy = 3.182
 light_indirect_energy = 0.0

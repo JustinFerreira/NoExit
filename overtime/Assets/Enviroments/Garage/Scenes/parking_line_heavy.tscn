@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ujtlj7hes64" path="res://Assets/Enviroments/Garage/Textures/Parking Line Textures/M_ParkingLine_DefaultMaterial_Normal_Heavy.png" id="4_wg00j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmnk7"]
+transparency = 1
 albedo_texture = ExtResource("2_ublep")
 metallic = 1.0
 metallic_texture = ExtResource("3_dd7s0")

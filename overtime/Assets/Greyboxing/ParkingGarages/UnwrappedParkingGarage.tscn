@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=33 format=3 uid="uid://b2jbahgstl1gh"]
 
-[ext_resource type="Texture2D" uid="uid://dn5sawtbdyayn" path="res://Assets/Greyboxing/garage_floor.png" id="1_8qw4w"]
+[ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="3_f4osh"]
 [ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="4_mqtxy"]
@@ -18,9 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://de8w3pwcnty5d" path="res://Assets/Enviroments/Garage/Scenes/level_1_sign.tscn" id="16_1u4oi"]
 [ext_resource type="PackedScene" uid="uid://3s0eu8xffyih" path="res://Assets/Enviroments/Garage/Scenes/level_2_sign.tscn" id="17_i4jcv"]
 [ext_resource type="PackedScene" uid="uid://bnc61esadkg4v" path="res://Assets/Enviroments/Garage/Scenes/level_3_sign.tscn" id="18_8xkra"]
+[ext_resource type="Texture2D" uid="uid://bg8og1n0b36e1" path="res://Assets/Greyboxing/garage_walls.png" id="19_qyy67"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
-albedo_texture = ExtResource("1_8qw4w")
+albedo_texture = ExtResource("1_nuqwi")
 uv1_scale = Vector3(300, 300, 300)
 texture_filter = 0
 
@@ -50,6 +51,18 @@ size = Vector3(3.6, 4.7, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l03me"]
 size = Vector3(0.3, 4.9, 3.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6xae"]
+albedo_texture = ExtResource("19_qyy67")
+uv1_scale = Vector3(30, 3, 100)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ce2wl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_batbg"]
+albedo_texture = ExtResource("19_qyy67")
+uv1_scale = Vector3(30, 3, 40)
+texture_filter = 0
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
 
@@ -2079,9 +2092,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8, 0, -17.7)
 [node name="ParkBlock10" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -17.7)
 
-[node name="ParkBlock25" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.4, 0, 25.2)
-
 [node name="ParkBlock26" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.4, 0, 25.2)
 
@@ -2133,9 +2143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.7, 0, 25.2)
 [node name="ParkBlock42" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.7, 0, 25.2)
 
-[node name="ParkBlock43" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7, 0, 25.2)
-
 [node name="ParkBlock11" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -17.7)
 
@@ -2178,17 +2185,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 
 [node name="ParkBlock24" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 13)
 
-[node name="ParkBlock44" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 20)
-
 [node name="ParkBlock46" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 3)
 
 [node name="ParkBlock47" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 10)
-
-[node name="ParkBlock48" parent="ParkingBlocksF1" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 17)
 
 [node name="ParkingBlocksF2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, -14.6)
@@ -2433,9 +2434,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8, 0, -17.7)
 [node name="ParkBlock10" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -17.7)
 
-[node name="ParkBlock25" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.4, 0, 25.2)
-
 [node name="ParkBlock26" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.4, 0, 25.2)
 
@@ -2535,26 +2533,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6, 0, -17.7)
 [node name="ParkBlock21" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, -17.7)
 
-[node name="ParkBlock22" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, -1)
-
 [node name="ParkBlock23" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 6)
 
 [node name="ParkBlock24" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 13)
-
-[node name="ParkBlock44" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 20)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 13.6865)
 
 [node name="ParkBlock46" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 3)
 
 [node name="ParkBlock47" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 10)
-
-[node name="ParkBlock48" parent="ParkingBlocksF3" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 17)
 
 [node name="ParkingBlocksF4" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.82, -14.6)
@@ -2817,9 +2806,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8, 0, -17.7)
 [node name="ParkBlock10" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0, -17.7)
 
-[node name="ParkBlock25" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.4, 0, 25.2)
-
 [node name="ParkBlock26" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.4, 0, 25.2)
 
@@ -2883,9 +2869,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.7, 0, 25.2)
 [node name="ParkBlock42" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.7, 0, 25.2)
 
-[node name="ParkBlock43" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7, 0, 25.2)
-
 [node name="ParkBlock11" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -17.7)
 
@@ -2922,23 +2905,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, -17.7)
 [node name="ParkBlock22" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, -1)
 
+[node name="ParkBlock24" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, -6.99196)
+
 [node name="ParkBlock23" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 6)
 
-[node name="ParkBlock24" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 13)
-
-[node name="ParkBlock44" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 20)
+[node name="ParkBlock25" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 99.8, 0, 13.5593)
 
 [node name="ParkBlock46" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 3)
 
+[node name="ParkBlock48" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, -4.09243)
+
 [node name="ParkBlock47" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 10)
-
-[node name="ParkBlock48" parent="ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.8, 0, 17)
 
 [node name="CarsF1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
@@ -3752,15 +3735,6 @@ transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 
 [node name="RecyclingBin3" parent="Fences" instance=ExtResource("11_c7r4h")]
 transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, -11.0595, 0.197173, 42.1865)
 
-[node name="ParkingLineLight" parent="." instance=ExtResource("13_llj1x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1341, 10.3742, 45.6728)
-
-[node name="ParkingLineMedium" parent="." instance=ExtResource("14_404qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
-
-[node name="ParkingLineHeavy" parent="." instance=ExtResource("15_5ow8q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)
-
 [node name="Level1Sign" parent="." instance=ExtResource("16_1u4oi")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.14187, 3.64996, 42.733)
 
@@ -3903,3 +3877,502 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 12.587, -17
 
 [node name="GarageLight44" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 12.587, -17.0876)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.66639e-06, 20, -4.37114e-07, 0, -8.74228e-07, -10, -61, -8.74228e-07, 1.91069e-14, -99.156, 7.806, -10.271)
+material_override = SubResource("StandardMaterial3D_j6xae")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.66639e-06, -20, 4.37114e-07, 0, -8.74228e-07, -10, 61, -8.74228e-07, 1.91069e-14, 99.947, 7.806, -10.262)
+material_override = SubResource("StandardMaterial3D_j6xae")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, -44.117, 3.91039, -69.833)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, -0.44, 3.91039, -38.381)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.35, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 56.114, 3.91039, -69.663)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.50685e-06, 20, -4.37114e-07, 0, -8.74228e-07, -10, -57.35, -8.74228e-07, 1.91069e-14, 56.959, 3.91039, -95.762)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.50685e-06, -20, 4.37114e-07, 0, -8.74228e-07, -10, 57.35, -8.74228e-07, 1.91069e-14, -57.777, 3.91039, -95.762)
+material_override = SubResource("StandardMaterial3D_batbg")
+mesh = SubResource("PlaneMesh_ce2wl")
+
+[node name="ParkingLinesF5" type="Node3D" parent="."]
+
+[node name="ParkingLineLight" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1341, 10.3742, 45.6728)
+
+[node name="ParkingLineLight2" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1477, 10.3811, 45.6728)
+
+[node name="ParkingLineLight3" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.4294, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium2" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5727, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium3" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3744, 10.3926, 45.6288)
+
+[node name="ParkingLineHeavy" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy2" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0729, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy3" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.9968, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy4" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.191, 10.4063, 45.9052)
+
+[node name="ParkingLineLight11" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.561, 10.4072, 30.4771)
+
+[node name="ParkingLineHeavy21" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.9382, 10.4004, 37.5456)
+
+[node name="ParkingLineHeavy22" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.6532, 10.4004, 23.6246)
+
+[node name="ParkingLineHeavy23" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.5059, 10.4324, 16.4319)
+
+[node name="ParkingLineLight14" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.9613, 10.4072, 27.0668)
+
+[node name="ParkingLineHeavy24" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 34.2399)
+
+[node name="ParkingLineHeavy27" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 41.7992)
+
+[node name="ParkingLineHeavy25" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.8691, 10.4004, 20.7339)
+
+[node name="ParkingLineHeavy26" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 95.0164, 10.4324, 14.4055)
+
+[node name="ParkingLineLight4" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.5336, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium4" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2049, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium5" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -78.7603, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy5" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.4588, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy6" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -64.3827, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy7" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -71.5769, 10.4293, 10.9633)
+
+[node name="ParkingLineLight5" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9989, 10.3897, 45.6728)
+
+[node name="ParkingLineLight6" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8073, 10.3811, 45.6728)
+
+[node name="ParkingLineLight7" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52562, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium6" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9418, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium7" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9254, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium8" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58059, 10.3926, 45.6288)
+
+[node name="ParkingLineHeavy8" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5732, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy9" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8821, 10.3743, 45.9052)
+
+[node name="ParkingLineLight12" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.8389, 10.4026, 45.6728)
+
+[node name="ParkingLineMedium15" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.957, 10.396, 45.6288)
+
+[node name="ParkingLineHeavy20" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9136, 10.3957, 45.9052)
+
+[node name="ParkingLineHeavy10" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9582, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy11" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.764, 10.4063, 45.9052)
+
+[node name="ParkingLineLight8" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.2806, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium9" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.5533, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium10" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.31251, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy12" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.2993, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy13" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.4315, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy14" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.2373, 10.4293, 10.9633)
+
+[node name="ParkingLineLight9" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.0988, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium11" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.173874, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy15" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.08006, 10.3973, 10.9633)
+
+[node name="ParkingLineMedium12" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 72.0647, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy18" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 78.9895, 10.4293, 10.9633)
+
+[node name="ParkingLineLight10" parent="ParkingLinesF5" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50.6534, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium13" parent="ParkingLinesF5" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.926, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy19" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 57.6721, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy16" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.9479, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy17" parent="ParkingLinesF5" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.1421, 10.4293, 10.9633)
+
+[node name="ParkingLinesF3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.069, 0)
+
+[node name="ParkingLineLight" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1341, 10.3742, 45.6728)
+
+[node name="ParkingLineLight2" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1477, 10.3811, 45.6728)
+
+[node name="ParkingLineLight3" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.4294, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium2" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5727, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium3" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3744, 10.3926, 45.6288)
+
+[node name="ParkingLineHeavy" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy2" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0729, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy3" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.9968, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy4" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.191, 10.4063, 45.9052)
+
+[node name="ParkingLineLight11" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.561, 10.4072, 30.4771)
+
+[node name="ParkingLineHeavy21" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.9382, 10.4004, 37.5456)
+
+[node name="ParkingLineHeavy22" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.6532, 10.4004, 23.6246)
+
+[node name="ParkingLineLight14" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.9613, 10.4072, 27.0668)
+
+[node name="ParkingLineHeavy24" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 34.2399)
+
+[node name="ParkingLineHeavy25" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 41.9265)
+
+[node name="ParkingLineLight4" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.5336, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium4" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2049, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium5" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -78.7603, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy5" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.4588, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy6" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -64.3827, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy7" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -71.5769, 10.4293, 10.9633)
+
+[node name="ParkingLineLight5" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9989, 10.3897, 45.6728)
+
+[node name="ParkingLineLight6" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8073, 10.3811, 45.6728)
+
+[node name="ParkingLineLight7" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52562, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium6" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9418, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium7" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9254, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium8" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.58059, 10.3926, 45.6288)
+
+[node name="ParkingLineHeavy8" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5732, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy9" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8821, 10.3743, 45.9052)
+
+[node name="ParkingLineLight12" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.8389, 10.4026, 45.6728)
+
+[node name="ParkingLineMedium15" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.957, 10.396, 45.6288)
+
+[node name="ParkingLineHeavy20" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9136, 10.3957, 45.9052)
+
+[node name="ParkingLineHeavy10" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9582, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy11" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.764, 10.4063, 45.9052)
+
+[node name="ParkingLineLight8" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.2806, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium9" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.5533, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium10" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.31251, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy12" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.2993, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy13" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.4315, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy14" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.2373, 10.4293, 10.9633)
+
+[node name="ParkingLineLight9" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.0988, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium11" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.173874, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy15" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.08006, 10.3973, 10.9633)
+
+[node name="ParkingLineMedium12" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 72.0647, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy18" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 78.9895, 10.4293, 10.9633)
+
+[node name="ParkingLineLight10" parent="ParkingLinesF3" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50.6534, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium13" parent="ParkingLinesF3" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.926, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy19" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 57.6721, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy16" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.9479, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy17" parent="ParkingLinesF3" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.1421, 10.4293, 10.9633)
+
+[node name="ParkingLinesF1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2, 0)
+
+[node name="ParkingLineLight" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1341, 10.3742, 45.6728)
+
+[node name="ParkingLineLight2" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.1477, 10.3811, 45.6728)
+
+[node name="ParkingLineLight3" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.4294, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1949, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium2" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.5727, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium3" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.3744, 10.3926, 45.6288)
+
+[node name="ParkingLineHeavy" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3818, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy2" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0729, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy3" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.9968, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy4" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.191, 10.4063, 45.9052)
+
+[node name="ParkingLineLight11" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.561, 10.4072, 30.4771)
+
+[node name="ParkingLineHeavy21" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.9382, 10.4004, 37.5456)
+
+[node name="ParkingLineHeavy22" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -94.6532, 10.4004, 23.6246)
+
+[node name="ParkingLineLight14" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.9613, 10.4072, 27.0668)
+
+[node name="ParkingLineHeavy24" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 34.2399)
+
+[node name="ParkingLineHeavy25" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 94.5841, 10.4004, 40.8085)
+
+[node name="ParkingLineLight4" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -57.5336, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium4" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -43.2049, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium5" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -78.7603, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy5" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -50.4588, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy6" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -64.3827, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy7" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -71.5769, 10.4293, 10.9633)
+
+[node name="ParkingLineLight5" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9989, 10.3897, 45.6728)
+
+[node name="ParkingLineLight6" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8073, 10.3811, 45.6728)
+
+[node name="ParkingLineMedium6" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.9418, 10.3746, 45.6288)
+
+[node name="ParkingLineMedium7" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9254, 10.3746, 45.6288)
+
+[node name="ParkingLineHeavy8" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.5732, 10.3743, 45.9052)
+
+[node name="ParkingLineHeavy9" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8821, 10.3743, 45.9052)
+
+[node name="ParkingLineLight12" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.8389, 10.4026, 45.6728)
+
+[node name="ParkingLineMedium15" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.957, 10.396, 45.6288)
+
+[node name="ParkingLineHeavy20" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.9136, 10.3957, 45.9052)
+
+[node name="ParkingLineLight8" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 28.2806, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium9" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.5533, 10.3976, 10.6869)
+
+[node name="ParkingLineMedium10" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.31251, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy12" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 35.2993, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy13" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.4315, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy14" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 14.2373, 10.4293, 10.9633)
+
+[node name="ParkingLineLight9" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.0988, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium11" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.173874, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy15" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.08006, 10.3973, 10.9633)
+
+[node name="ParkingLineMedium12" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 72.0647, 10.4156, 10.6869)
+
+[node name="ParkingLineHeavy18" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 78.9895, 10.4293, 10.9633)
+
+[node name="ParkingLineLight10" parent="ParkingLinesF1" instance=ExtResource("13_llj1x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 50.6534, 10.4042, 10.7309)
+
+[node name="ParkingLineMedium13" parent="ParkingLinesF1" instance=ExtResource("14_404qs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 64.926, 10.3976, 10.6869)
+
+[node name="ParkingLineHeavy19" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 57.6721, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy16" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20.9479, 10.3973, 10.9633)
+
+[node name="ParkingLineHeavy17" parent="ParkingLinesF1" instance=ExtResource("15_5ow8q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.1421, 10.4293, 10.9633)
