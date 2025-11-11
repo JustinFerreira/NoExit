@@ -5,6 +5,15 @@ extends Interactable
 var is_rotating: bool = false
 var target_rotation: float = 0.0
 
+var text_array: Array[String] = [
+	"Help",
+	"Fuck",
+	"Me",
+	"Please",
+	"I'm Cute",
+	"I promise"
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,7 +31,7 @@ func _process(delta: float) -> void:
 			is_rotating = false
 
 func _on_interacted(body: Variant) -> void:
-	PlayerManager.CharacterDialog("HELLO FRIEND!")
+	PlayerManager.MultiDialog(text_array)
 	
 	# Calculate target rotation (looking away from player)
 	if PlayerManager.player:

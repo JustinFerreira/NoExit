@@ -98,7 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
-		if PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
+		if PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
 			DIALOG.visible = false
 			PlayerManager.dialoging = false
 			PlayerManager.finishedDialogAnimation = false
@@ -110,6 +110,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				release_grabbed_object()
 	if event.is_action_released("Interact"):  
 		PlayerManager.actioning = false
+		if PlayerManager.multiDialog:
+			PlayerManager.NextDialog()
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameTwo:
 			PlayerManager.player.CAMERA.current = true

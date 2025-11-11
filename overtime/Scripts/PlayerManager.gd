@@ -37,6 +37,8 @@ var dialoging = false
 
 var finishedDialogAnimation = false
 
+var multiDialog = false
+
 ## Modes
 
 var FirstOpen = true
@@ -169,8 +171,13 @@ func RevealDialog():
 func CharacterDialog(text: String):
 	hint = false
 	player.get_node("DialogControl").player_interact_dialog_pic(text)
-##
+
+func NextDialog():
+	player.get_node("DialogControl").show_next_dialog()
 	
+func MultiDialog(text_array: Array[String]):
+	player.get_node("DialogControl").player_interact_multi_dialog_pic(text_array)
+
 func SavePlayerRotation():
 	player_rotation_x = player.get_node("Head").rotation.x
 	player_rotation_y = player.get_node("Head").rotation.y
