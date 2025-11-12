@@ -1,26 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://c42whtah5m5m3"]
 
-[ext_resource type="Texture2D" uid="uid://cviwixognnoib" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Unwrapped_BaseColor.png" id="1_4etra"]
-[ext_resource type="Texture2D" uid="uid://d36ue5q1mjmj4" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Unwrapped_Metalic_and_Rougness.png" id="2_v1air"]
-[ext_resource type="Texture2D" uid="uid://dt5qdo6vtkk1c" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Unwrapped_Normal.png" id="3_eunwp"]
-[ext_resource type="ArrayMesh" uid="uid://c8sbfu25waoph" path="res://Assets/Enviroments/Garage/Models/M_ParkBlock_Unwrapped.obj" id="4_tcru7"]
+[ext_resource type="ArrayMesh" uid="uid://dn7j65ahy0pqh" path="res://Assets/Enviroments/Garage/Models/M_ParkBlock.obj" id="1_735r3"]
+[ext_resource type="Texture2D" uid="uid://cuh8xjf6yylm2" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_BaseColor.png" id="2_sgbf4"]
+[ext_resource type="Texture2D" uid="uid://on1h55hydm5h" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Metalic_and_Rougness.png" id="3_ka2sr"]
+[ext_resource type="Texture2D" uid="uid://rif5fxsaxpbc" path="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Normal.png" id="4_k3xme"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47dxp"]
-albedo_texture = ExtResource("1_4etra")
-metallic = 1.0
-metallic_texture = ExtResource("2_v1air")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("2_v1air")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1c6r"]
+albedo_texture = ExtResource("2_sgbf4")
+metallic_texture = ExtResource("3_ka2sr")
+roughness_texture = ExtResource("3_ka2sr")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("3_eunwp")
-ao_enabled = true
-ao_texture = ExtResource("2_v1air")
+normal_texture = ExtResource("4_k3xme")
 
 [node name="ParkBlock" type="Node3D"]
 
 [node name="MParkBlockUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.70379, 0, 0, 0, 1.70379, 0, 0, 0, 1.70379, 0, 0, 0)
 layers = 131072
-material_override = SubResource("StandardMaterial3D_47dxp")
-mesh = ExtResource("4_tcru7")
+mesh = ExtResource("1_735r3")
+surface_material_override/0 = SubResource("StandardMaterial3D_p1c6r")
