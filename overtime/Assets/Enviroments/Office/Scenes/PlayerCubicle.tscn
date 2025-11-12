@@ -230,16 +230,16 @@ libraries = {
 }
 
 [node name="Picture Frame" parent="." instance=ExtResource("16_5qhdd")]
-transform = Transform3D(-0.0986928, 0, -0.100789, 0, 0.141063, 0, 0.100789, 0, -0.0986928, 1.02326, 1.21877, -0.477437)
+transform = Transform3D(-0.0986928, 0, -0.100789, 0, 0.141063, 0, 0.100789, 0, -0.0986928, 1.02326, 1.035, -0.477437)
 
 [node name="Picture Frame2" parent="." instance=ExtResource("17_jclrw")]
-transform = Transform3D(-0.148616, 0, -0.00119578, 0, 0.148621, 0, 0.00119578, 0, -0.148616, 1.19944, 1.20836, -0.0147994)
+transform = Transform3D(-0.148616, 0, -0.00119578, 0, 0.148621, 0, 0.00119578, 0, -0.148616, 1.19944, 1.035, -0.0147994)
 
 [node name="Picture Frame3" parent="." instance=ExtResource("18_ik2k0")]
-transform = Transform3D(0.000722157, 0, -0.208974, 0, 0.208975, 0, 0.208974, 0, 0.000722157, 0.522023, 1.24151, -0.610919)
+transform = Transform3D(0.000722157, 0, -0.208974, 0, 0.208975, 0, 0.208974, 0, 0.000722157, 0.522023, 1.035, -0.610919)
 
 [node name="Picture Frame4" parent="." instance=ExtResource("17_4jmqg")]
-transform = Transform3D(0.0961036, 0, -0.136534, 0, 0.166965, 0, 0.136534, 0, 0.0961036, -0.684979, 1.20471, -0.108035)
+transform = Transform3D(0.0961036, 0, -0.136534, 0, 0.166965, 0, 0.136534, 0, 0.0961036, -0.684979, 1.035, -0.108035)
 
 [node name="Node3D" parent="." instance=ExtResource("20_eyeoy")]
 transform = Transform3D(-0.0257012, 0, -0.0327957, 0, 0.0416666, 0, 0.0327957, 0, -0.0257012, 0.781397, 1.08672, -0.0218376)
