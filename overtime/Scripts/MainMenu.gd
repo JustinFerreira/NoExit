@@ -15,6 +15,8 @@ func _ready() -> void:
 		AudioManager.cancel_loop_sfx()
 		AudioManager.play_music(AudioManager.MainMenuMusic)
 	
+
+func _process(delta: float) -> void:
 	if PlayerManager.DevMode == true:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = true
@@ -31,8 +33,6 @@ func _ready() -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
-	
-	
 
 
 func _on_animation_finished(anim_name: String):
@@ -40,10 +40,6 @@ func _on_animation_finished(anim_name: String):
 	if anim_name == "FadeIn":
 		animation_player.play("camera_anim")
 		
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_start_btn_pressed() -> void:

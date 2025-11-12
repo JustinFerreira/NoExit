@@ -498,6 +498,17 @@ text = "Head Bob"
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
+[node name="DevModeCheckBox" type="CheckBox" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
+text = "Dev Mode"
+
+[node name="MarginContainer4" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 2
 offset_left = 1022.0
@@ -526,4 +537,5 @@ mesh = SubResource("QuadMesh_2i0i3")
 [connection signal="value_changed" from="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
 [connection signal="toggled" from="ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_toggled"]
 [connection signal="toggled" from="ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox" to="." method="_on_head_bob_check_box_toggled"]
+[connection signal="toggled" from="ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox" to="." method="_on_dev_mode_check_box_toggled"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

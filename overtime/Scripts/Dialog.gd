@@ -224,7 +224,6 @@ func end_multi_dialog():
 	PlayerManager.startMultiDialog = true
 
 func _on_timer_timeout():
-	print("Did i assist in that endevour?")
 	dialog_label.text = ""
 	PlayerManager.dialoging = false
 	animation_player.play("hide")

@@ -22,7 +22,8 @@ var settings = {
 	"game":{
 		"sensitivity": 0.01,
 		"hold_shift": false,
-		"headbob": true
+		"headbob": true,
+		"dev_mode": false
 	}
 	}
 
@@ -86,5 +87,7 @@ func apply_settings():
 	PlayerManager.HeadBob = settings.game.headbob
 	
 	PlayerManager.Hold_Shift = settings.game.hold_shift
+	
+	PlayerManager.DevMode = settings.game.dev_mode
 	
 	

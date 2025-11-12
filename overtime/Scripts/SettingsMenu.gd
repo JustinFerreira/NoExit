@@ -13,6 +13,7 @@ extends Control
 @onready var shifthold_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
 @onready var sensitivity_slider = $ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
 @onready var headbob_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
+@onready var devmode_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,6 +26,7 @@ func _ready() -> void:
 	sensitivity_slider.value = normalized_value
 	headbob_check.button_pressed = SettingsManager.settings.game.headbob
 	shifthold_check.button_pressed = SettingsManager.settings.game.hold_shift
+	devmode_check.button_pressed = SettingsManager.settings.game.dev_mode
 	# Connect signal
 	mute_check.toggled.connect(_on_mute_toggled)
 
@@ -93,5 +95,12 @@ func _on_shift_hold_run_check_box_toggled(toggled: bool) -> void:
 
 func _on_head_bob_check_box_toggled(toggled: bool) -> void:
 	SettingsManager.settings.game.headbob = toggled
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
+
+
+func _on_dev_mode_check_box_toggled(toggled: bool) -> void:
+	
+	SettingsManager.settings.game.dev_mode = toggled
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
