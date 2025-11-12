@@ -4,6 +4,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerManager.DevMode == true:
+		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Splash")
 	AudioManager.play_music(AudioManager.MainMenuMusic)

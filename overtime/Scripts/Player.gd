@@ -84,6 +84,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if PlayerManager.InAnimation:
 		return
 	if event is InputEventMouseMotion:
+		if PlayerManager.multiDialog:
+			return
 		if PlayerManager.MinigameMode == true:
 			if PlayerManager.minigameThree == true:
 				mouse = event.position
@@ -98,10 +100,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
-		if PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
-			DIALOG.visible = false
+		if DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
+			PlayerManager.HideDialog()
 			PlayerManager.dialoging = false
 			PlayerManager.finishedDialogAnimation = false
+			PlayerManager.startMultiDialog = true
 		if PlayerManager.minigameTwo == true:
 			PlayerManager.actioning = true
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
@@ -110,8 +113,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				release_grabbed_object()
 	if event.is_action_released("Interact"):  
 		PlayerManager.actioning = false
-		if PlayerManager.multiDialog:
+		if DIALOG.is_typing && PlayerManager.finishedDialogAnimation == true:
+			DIALOG.skip_typewriter_effect()
+			return
+		elif PlayerManager.startMultiDialog == false && PlayerManager.multiDialog:
 			PlayerManager.NextDialog()
+		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
+			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameTwo:
 			PlayerManager.player.CAMERA.current = true
@@ -150,7 +158,7 @@ func _physics_process(delta: float) -> void:
 	apply_breathing_effects()
 	apply_heartbeat_effects()
 	
-	if PlayerManager.InAnimation || PlayerManager.MinigameMode:
+	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog:
 		return
 	SENSITIVITY = PlayerManager.Sensitivity
 	

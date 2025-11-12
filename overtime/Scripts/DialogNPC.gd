@@ -6,12 +6,12 @@ var is_rotating: bool = false
 var target_rotation: float = 0.0
 
 var text_array: Array[String] = [
-	"Help",
-	"Fuck",
-	"Me",
-	"Please",
-	"I'm Cute",
-	"I promise"
+	"Sup I'm the coolest janitor dude you'll ever meet. I clean, clean some more and clean again.",
+	"Whats your name",
+	"Thats the coolest name ive ever heard",
+	"Maybe we should Kiss?",
+	"JK JK JK JK",
+	"Unless ;)"
 ]
 
 # Called when the node enters the scene tree for the first time.

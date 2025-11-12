@@ -8,7 +8,7 @@ var Hold_Shift: bool = false
 
 var HeadBob: bool = true
 
-var DevMode: bool = false
+var DevMode: bool = true
 
 ## Player
 
@@ -38,6 +38,8 @@ var dialoging = false
 var finishedDialogAnimation = false
 
 var multiDialog = false
+
+var startMultiDialog = true
 
 ## Modes
 
@@ -165,6 +167,7 @@ func HideDialog():
 	finishedDialogAnimation = false
 	
 func RevealDialog():
+	player.DIALOG.visible = true
 	player.DIALOG.animation_player.play("reveal")
 	finishedDialogAnimation = true
 	

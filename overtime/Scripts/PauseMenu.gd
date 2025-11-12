@@ -13,7 +13,10 @@ func resume():
 		$AnimationPlayer.play("Unpause")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		return
-	PlayerManager.player.CURSOR.visible = true
+	if PlayerManager.multiDialog:
+		pass
+	else:
+		PlayerManager.player.CURSOR.visible = true
 	if PlayerManager.dialoging == true: 
 		PlayerManager.RevealDialog()
 	get_tree().paused = false
@@ -22,7 +25,8 @@ func resume():
 	
 func pause():
 	PlayerManager.player.CURSOR.visible = false
-	PlayerManager.HideDialog()
+	if PlayerManager.player.DIALOG.visible:
+		PlayerManager.HideDialog()
 	get_tree().paused = true
 	$AnimationPlayer.play("Pause")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
