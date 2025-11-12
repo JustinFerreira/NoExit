@@ -167,7 +167,9 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 82.0
 grow_horizontal = 2
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 50
 
 [node name="DialogLabel" type="RichTextLabel" parent="DialogControl/MarginContainer"]

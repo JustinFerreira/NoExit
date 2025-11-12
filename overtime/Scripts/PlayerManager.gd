@@ -8,7 +8,7 @@ var Hold_Shift: bool = false
 
 var HeadBob: bool = true
 
-var DevMode: bool = false
+var DevMode: bool = true
 
 ## Player
 
@@ -151,6 +151,13 @@ func ResetPlayer() -> void:
 	## Objects
 	Gas_Canister = null
 	
+	# Dialog
+	hint = false
+	dialoging = false
+	finishedDialogAnimation = false
+	multiDialog = false
+	startMultiDialog = true
+	
 	
 ## Dialog Functions
 
@@ -163,6 +170,8 @@ func Dialog(text: String):
 	player.get_node("DialogControl").player_interact_dialog(text)
 	
 func HideDialog():
+	if player.DIALOG.timer:
+		player.DIALOG.timer.stop()
 	player.DIALOG.animation_player.play("hide")
 	finishedDialogAnimation = false
 	

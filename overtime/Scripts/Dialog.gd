@@ -98,7 +98,7 @@ func show_temporary_dialog(text: String, duration: float = 5.0, color: String = 
 	# Format text
 	var formatted_text: String
 	if PlayerManager.hint == true:
-		formatted_text = "[color={color}]Hint: {text}[/color]".format({
+		formatted_text = "[center][color={color}]Hint: {text}[/color][/center]".format({
 			"color": "red", 
 			"text": text
 		})
@@ -116,6 +116,7 @@ func show_temporary_dialog(text: String, duration: float = 5.0, color: String = 
 
 	# Set timer for automatic hide
 	timer.wait_time = duration
+	timer.one_shot = true
 	timer.start()
 	
 	
@@ -146,9 +147,11 @@ func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 	# Format text
 	var formatted_text: String
 	if PlayerManager.hint == true:
-		formatted_text = "[color={color}]Hint: {text}[/color]".format({
+		formatted_text = "[center]{content}[/center]".format({
+		"content": "[color={color}]Hint: {text}[/color]".format({
 			"color": "red", 
 			"text": text
+			})
 		})
 	else:
 		formatted_text = "[color={color}]{text}[/color]".format({
@@ -164,6 +167,7 @@ func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 
 	# Set timer for automatic hide
 	timer.wait_time = duration
+	timer.one_shot = true
 	timer.start()
 
 func player_interact_multi_dialog_pic(text_array: Array[String]):
@@ -220,10 +224,11 @@ func end_multi_dialog():
 	PlayerManager.startMultiDialog = true
 
 func _on_timer_timeout():
-	visible = false
+	print("Did i assist in that endevour?")
 	dialog_label.text = ""
 	PlayerManager.dialoging = false
 	animation_player.play("hide")
+	visible = false
 
 func _on_animation_finished(anim_name: String):
 	if anim_name == "reveal":

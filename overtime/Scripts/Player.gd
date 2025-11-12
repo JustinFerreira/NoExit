@@ -284,13 +284,15 @@ func _headbob(time) -> Vector3:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"): 
 		get_tree().paused = true
-		$GameOverScreen.visible = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
 		## Stop any sounds that could be playing
 		AudioManager.stop_loop("step")
 		AudioManager.stop_loop("heartbeat")
 		AudioManager.stop_loop("breathing")
+		
+		$GameOverScreen.visible = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+		
 
 
 func apply_breathing_effects():
