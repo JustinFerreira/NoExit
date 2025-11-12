@@ -4,6 +4,8 @@ extends CharacterBody3D
 var SPEED = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
+@onready var WalkingAnimator = $WalkingAnimation
+@onready var StabbingAnimator = $StabbingAnimation
 
 func _ready():
 	PlayerManager.no_enemy = false
@@ -15,10 +17,10 @@ func _physics_process(delta: float) -> void:
 	if PlayerManager.teleportEnemy && get_tree().get_first_node_in_group("teleport_target"):
 		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
 		PlayerManager.teleportEnemy = false
-	#$MeshInstance3D.visible = false
-	#$Skeleton3D.visible = true
-	#$AnimationPlayer.play("mixamo_com")
-	$MKillerLowUv.visible = true
+		
+	$Skeleton3D/killer_UV_unwrapped.visible = true
+	WalkingAnimator.play_backwards("mixamo_com")
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -62,3 +64,6 @@ func calculate_path_distance() -> float:
 		total_distance += path[i].distance_to(path[i + 1])
 	
 	return total_distance
+	
+func kill():
+	StabbingAnimator.play("mixamo_com")
