@@ -24,6 +24,12 @@ var keys = load("res://Assets/Audio/SFX/Keys2.wav")
 
 var elevator_whitenoise = load("res://Assets/Audio/SFX/elevator_WhiteNoise.mp3")
 
+var keypress1 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle1.wav")
+var keypress2 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle2.wav")
+var keypress3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav")
+var keypress4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
+var keypress5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
+
 func _ready() -> void:
 	MusicAudio.bus = "Music"
 	add_child(MusicAudio)
@@ -145,3 +151,9 @@ func cancel_loop_sfx():
 		player.stop()
 		player.queue_free()
 		looping_players.erase(loop)
+		
+		
+func GetKeyPress():
+	var keypress_sounds = [keypress1, keypress2, keypress3, keypress4, keypress5]
+	var random_index = randi() % keypress_sounds.size()
+	return keypress_sounds[random_index]

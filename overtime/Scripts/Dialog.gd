@@ -46,6 +46,8 @@ func start_typewriter_effect(label: RichTextLabel, text: String) -> void:
 	
 	# Start the typewriter effect
 	typewriter_timer.start(typewriter_speed)
+	
+	
 
 func _on_typewriter_timeout() -> void:
 	if current_label == null:
@@ -53,8 +55,8 @@ func _on_typewriter_timeout() -> void:
 		return
 	
 	# Increase visible ratio
-	current_label.visible_ratio += 0.01  # Small increment
-	
+	current_label.visible_ratio += 0.04  # Small increment
+	AudioManager.play_sound(AudioManager.GetKeyPress())
 	# Continue if there are more characters to show
 	if current_label.visible_ratio < 1.0:
 		# Calculate the time for the next character based on remaining time
