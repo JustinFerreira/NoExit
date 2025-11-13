@@ -29,6 +29,11 @@ var scaredVolumeSteps = -80
 
 var sprint_engaged = false
 
+## Enemy
+
+var Enemy
+
+
 #Dialog Controls
 
 var hint = false
@@ -261,3 +266,6 @@ func has_item(item_name: String) -> bool:
 
 func KeyFobSound():
 	car_audio_player.playsound()
+	
+func EnemyKill():
+	Enemy.kill()
