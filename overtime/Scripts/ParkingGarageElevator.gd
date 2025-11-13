@@ -10,7 +10,7 @@ func _ready() -> void:
 	#Play Open Animation and on Animation finish Move door Collision
 	animation_player.connect("animation_finished", _on_animation_finished)
 	$AnimationPlayer.play("Take 001")
-	if !PlayerManager.has_item("Car Keys"):
+	if !PlayerManager.Loop1 && !PlayerManager.has_item("Car Keys"):
 		PlayerManager.AddToInventory("Car Keys", 0.5)
 	#if PlayerManager.gotGas_Canister:
 		#PlayerManager.AddToInventory("Gas Canister", 1.5)
@@ -26,4 +26,4 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Take 001":
 		$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-		PlayerManager.CharacterDialog("Where did I leave that blue car that I drive all the time?")
+		PlayerManager.Hint("Press F to make your car sound off")

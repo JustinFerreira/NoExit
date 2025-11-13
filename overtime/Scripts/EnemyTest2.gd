@@ -108,11 +108,6 @@ func kill():
 		
 		# Wait for rotation to complete before stabbing
 		await tween.finished
-		
-		# Debug: Print the final rotation to verify
-		print("Camera rotation after tween: ", camera.global_rotation)
-		print("Enemy position: ", enemy_pos)
-		print("Camera position: ", camera_pos)
 	
 	# Play the stabbing animation
 	StabbingAnimator.play("Stabbing")

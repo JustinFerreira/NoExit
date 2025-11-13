@@ -36,7 +36,7 @@ func _ready() -> void:
 	
 
 
-func play_sound(sound_stream: AudioStream, volume_db: float = 24.0, pitch_scale: float = 1):
+func play_sound(sound_stream: AudioStream, volume_db: float = 12.0, pitch_scale: float = 1):
 	var new_player = AudioStreamPlayer.new()
 	new_player.volume_db = volume_db
 	new_player.pitch_scale = pitch_scale

@@ -35,7 +35,7 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Exit Car"
-		PlayerManager.Dialog("I better hot wire my own car like I always do right under the steering wheel.")
+		PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
 	
 	## Exiting car animations
 	if anim_name == "NoExitProps" && player.Incar == true && entering == false:
