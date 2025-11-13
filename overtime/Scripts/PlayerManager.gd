@@ -29,6 +29,8 @@ var scaredVolumeSteps = -80
 
 var sprint_engaged = false
 
+var dying = false
+
 ## Enemy
 
 var Enemy
@@ -133,6 +135,7 @@ func ResetPlayer() -> void:
 	Inventory = []
 	CurrentWeight = 0.0
 	sprint_engaged = false
+	dying = false
 	
 	##Minigames avtives
 	MinigameMode = false

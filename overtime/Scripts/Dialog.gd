@@ -56,7 +56,7 @@ func _on_typewriter_timeout() -> void:
 	
 	# Increase visible ratio
 	current_label.visible_ratio += 0.04  # Small increment
-	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.play_sound(AudioManager.GetKeyPress(), -20.0, randi() % 4)
 	# Continue if there are more characters to show
 	if current_label.visible_ratio < 1.0:
 		# Calculate the time for the next character based on remaining time

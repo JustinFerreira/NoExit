@@ -45,6 +45,7 @@ script = ExtResource("8_i7rwj")
 [node name="Phoneringing" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.39484, 8.54776)
 stream = ExtResource("9_magg0")
+volume_db = -15.687
 bus = &"SFX"
 script = ExtResource("9_yxtsp")
 min_volume_db = -60.0

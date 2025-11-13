@@ -82,7 +82,7 @@ func _process(delta: float) -> void:
 		grabbed_object.position = get_grab_position()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if PlayerManager.InAnimation:
+	if PlayerManager.InAnimation || PlayerManager.dying:
 		return
 	if event.is_action_pressed("Keysound"):
 		if PlayerManager.car_audio_player:
@@ -162,7 +162,7 @@ func _physics_process(delta: float) -> void:
 	apply_breathing_effects()
 	apply_heartbeat_effects()
 	
-	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog:
+	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog || PlayerManager.dying:
 		return
 	SENSITIVITY = PlayerManager.Sensitivity
 	

@@ -1,7 +1,7 @@
 extends AudioStreamPlayer3D
 
 @export var max_hearing_distance: float = 80.0
-@export var min_volume_db: float = -30.0
+@export var min_volume_db: float = -80.0
 var random_play_timer: Timer = null
 
 # Called when the node enters the scene tree for the first time.

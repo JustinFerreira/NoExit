@@ -68,52 +68,63 @@ func calculate_path_distance() -> float:
 	return total_distance
 	
 func kill():
-	# Make the player face the enemy before stabbing
-	if PlayerManager.player:
+	PlayerManager.dying = true
+	if PlayerManager.minigameTwo:
+		PlayerManager.minigameTwo = false
+		PlayerManager.gasIntakeUI.visible = false
+		PlayerManager.Gas_Canister.visible = false
+		PlayerManager.gasIntakeSweetSpot.visible = false
+	# Make the player's camera face the enemy before stabbing
+	if PlayerManager.player and PlayerManager.player.CAMERA:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.MiniGameModeOff()
-		var player = PlayerManager.player
+		var camera = PlayerManager.player.CAMERA
 		
-		# Get the positions
-		var enemy_pos = global_transform.origin
-		var player_pos = player.global_transform.origin
+		# Get the positions - raise enemy position to look at upper body/head
+		var enemy_pos = global_transform.origin + Vector3(0, 1.5, 0)  # Raise by 1.5 meters
+		var camera_pos = camera.global_transform.origin
 		
-		# Calculate the direction from player to enemy
-		var direction = (enemy_pos - player_pos).normalized()
+		# Calculate the direction from camera to enemy
+		var direction = (enemy_pos - camera_pos).normalized()
 		
-		# Calculate the target angle
-		var target_angle = atan2(-direction.x, -direction.z)
+		# Create a transform that looks at the enemy
+		var look_transform = camera.global_transform.looking_at(enemy_pos, Vector3.UP)
 		
-		# Get the current angle
-		var current_angle = player.rotation.y
+		# Get the target rotation for the camera
+		var target_rotation = look_transform.basis.get_euler()
 		
-		# Find the shortest angle difference
-		var angle_diff = fmod(target_angle - current_angle, TAU)
-		if angle_diff > PI:
-			angle_diff -= TAU
-		elif angle_diff < -PI:
-			angle_diff += TAU
+		# Get current camera rotation
+		var current_rotation = camera.global_rotation
 		
-		# Set the target angle to be the current angle plus the shortest difference
-		var shortest_target_angle = current_angle + angle_diff
+		# Calculate the shortest rotation path
+		var shortest_target_rotation = Vector3()
+		shortest_target_rotation.x = current_rotation.x  # Keep the same pitch
+		shortest_target_rotation.y = find_shortest_y_rotation(current_rotation.y, target_rotation.y)
+		shortest_target_rotation.z = current_rotation.z  # Keep the same roll
 		
-		# Create a tween to rotate the player
+		# Create a tween to rotate the camera smoothly
 		var tween = create_tween()
-		tween.tween_property(player, "rotation:y", shortest_target_angle, 0.5)
+		tween.tween_property(camera, "global_rotation", shortest_target_rotation, 0.5)
 		
 		# Wait for rotation to complete before stabbing
 		await tween.finished
 		
 		# Debug: Print the final rotation to verify
-		print("Current angle: ", current_angle)
-		print("Target angle: ", target_angle)
-		print("Angle difference: ", angle_diff)
-		print("Shortest target angle: ", shortest_target_angle)
-		print("Player rotation after tween: ", player.rotation)
+		print("Camera rotation after tween: ", camera.global_rotation)
 		print("Enemy position: ", enemy_pos)
-		print("Player position: ", player_pos)
+		print("Camera position: ", camera_pos)
+	
 	# Play the stabbing animation
 	StabbingAnimator.play("Stabbing")
+	
+# Helper function to find the shortest Y rotation path
+func find_shortest_y_rotation(current: float, target: float) -> float:
+	var difference = fmod(target - current, TAU)
+	if difference > PI:
+		difference -= TAU
+	elif difference < -PI:
+		difference += TAU
+	return current + difference
 
 func _on_animation_finished(anim_name: String):
 	
