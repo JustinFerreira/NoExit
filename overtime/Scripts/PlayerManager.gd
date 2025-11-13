@@ -82,7 +82,9 @@ var Battery
 var PositiveWire
 var NegativeWire
 
+## Key fob sound
 
+var car_audio_player
 
 ## Death Count
 
@@ -256,3 +258,6 @@ func has_item(item_name: String) -> bool:
 		if item.name == item_name:
 			return true
 	return false
+
+func KeyFobSound():
+	car_audio_player.playsound()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://hyre2bbhvslx"]
+[gd_scene load_steps=44 format=4 uid="uid://hyre2bbhvslx"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_qmrrf"]
 [ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="2_lbi2i"]
@@ -16,6 +16,8 @@
 [ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Alternate.obj" id="14_j3r4x"]
 [ext_resource type="Script" path="res://Scripts/GasIntakeCanister.gd" id="15_n8dke"]
 [ext_resource type="Script" path="res://Scripts/TireChangeInteract.gd" id="16_s7jky"]
+[ext_resource type="AudioStream" uid="uid://talggt083dq8" path="res://Assets/Audio/SFX/old-maruti-car-unlock-sound-keyless-entry-beep-327691.mp3" id="17_ahjlu"]
+[ext_resource type="Script" path="res://Scripts/CarKeyNoise.gd" id="18_sfl0c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58vsb"]
 albedo_texture = ExtResource("1_qmrrf")
@@ -467,6 +469,10 @@ mesh = SubResource("CylinderMesh_tlhjf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TireChange"]
 shape = SubResource("ConvexPolygonShape3D_awv06")
+
+[node name="CarKeyNoise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_ahjlu")
+script = ExtResource("18_sfl0c")
 
 [connection signal="interacted" from="Mesh/CarDoor" to="Mesh/CarDoor" method="_on_interacted"]
 [connection signal="interacted" from="Mesh/StartCar" to="Mesh/StartCar" method="_on_interacted"]

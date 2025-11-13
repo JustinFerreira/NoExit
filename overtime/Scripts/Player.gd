@@ -83,6 +83,9 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if PlayerManager.InAnimation:
 		return
+	if event.is_action_pressed("Keysound"):
+		if PlayerManager.car_audio_player:
+			PlayerManager.KeyFobSound()
 	if event is InputEventMouseMotion:
 		if PlayerManager.multiDialog:
 			return
