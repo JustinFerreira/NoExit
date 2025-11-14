@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://b2xxyuv7fa0rx"]
+[gd_scene load_steps=19 format=4 uid="uid://b2xxyuv7fa0rx"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyTest2.gd" id="1_6slwl"]
+[ext_resource type="AudioStream" uid="uid://cixq2tjvboyd1" path="res://Assets/Audio/SFX/breathing_dev.wav" id="2_1h4ge"]
 [ext_resource type="Material" uid="uid://cn7m7o488qqe5" path="res://Assets/Materials/Killer.tres" id="3_ywn5p"]
+[ext_resource type="AudioStream" uid="uid://talggt083dq8" path="res://Assets/Audio/SFX/old-maruti-car-unlock-sound-keyless-entry-beep-327691.mp3" id="4_wmvh7"]
 [ext_resource type="Script" path="res://Scripts/EnemyStepping.gd" id="5_bslu2"]
+[ext_resource type="AudioStream" uid="uid://xbbh6axg6w6f" path="res://Assets/Audio/SFX/gas_glug.mp3" id="5_id06y"]
 [ext_resource type="Texture2D" uid="uid://5ciyh51pei3s" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png" id="5_jf68l"]
 [ext_resource type="ArrayMesh" uid="uid://cclhgfvdbof4k" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="10_8mojt"]
 
@@ -1349,7 +1352,12 @@ shape = SubResource("ConvexPolygonShape3D_ctiee")
 
 [node name="EnemyStepping" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(0.230036, 0, 0, 0, 0.230036, 0, 0, 0, 0.230036, 0, 0.179505, 0)
+stream = ExtResource("2_1h4ge")
 script = ExtResource("5_bslu2")
+first_sound = ExtResource("2_1h4ge")
+second_sound = ExtResource("2_1h4ge")
+gas_sound = ExtResource("5_id06y")
+car_beep_sound = ExtResource("4_wmvh7")
 
 [node name="MKillerLowUv" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0022701, 0, 0, 0, 0.0022701, 0, 0, 0, 0.0022701, 0, 0, 0)
