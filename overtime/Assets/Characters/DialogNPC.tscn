@@ -23,4 +23,6 @@ script = ExtResource("3_wwfaq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MKillerPrimitive/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_a7pg1")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [connection signal="interacted" from="MKillerPrimitive/StaticBody3D" to="MKillerPrimitive/StaticBody3D" method="_on_interacted"]
