@@ -21,15 +21,20 @@ func _on_animation_finished(anim_name: String):
 	#print("Animation Finished: ", anim_name)
 	
 	## Entering car animations
-	if anim_name == "NoExitProps" && player.Incar == false && entering == true:
-		PlayerManager.InAnimation = false
-		player.head = $"../../Head"
-		player.camera = car_camera
-		player.interact_ray = interact_ray
-		player.interact_ray.enabled = false
-		player.TbobON = false
-		car_camera.current = true
-		animation_player.play("GettinginCar")
+	if anim_name == "NoExitProps":
+		if animation_player.current_animation_position == 0.0:
+			AudioManager.play_sound(AudioManager.CarDoorClose)
+		if player.Incar == false && entering == true:
+			PlayerManager.InAnimation = false
+			player.head = $"../../Head"
+			player.camera = car_camera
+			player.interact_ray = interact_ray
+			player.interact_ray.enabled = false
+			player.TbobON = false
+			car_camera.current = true
+			animation_player.play("GettinginCar")
+		if player.Incar == true && entering == false:
+			animation_player.play_backwards("GettinginCar")
 	if anim_name == "GettinginCar" && player.Incar == false && entering == true:
 		player.Incar = true
 		animation_player.play_backwards("NoExitProps")
@@ -38,8 +43,6 @@ func _on_animation_finished(anim_name: String):
 		PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
 	
 	## Exiting car animations
-	if anim_name == "NoExitProps" && player.Incar == true && entering == false:
-		animation_player.play_backwards("GettinginCar")
 	if anim_name == "GettinginCar" && player.Incar == true && entering == false:
 		player.Incar = false
 		player.TbobON = true
@@ -56,15 +59,18 @@ func _on_animation_finished(anim_name: String):
 		player.interact_ray.enabled = true
 		prompt_message = "Get in Car"
 		
+		
 		# Teleport player 5 meters next to the car
 		player.global_position = self.global_position + Vector3(5, 0, 0)
 		
+	
 
 
 func _on_interacted(body: Variant) -> void:
 	##Entering car if locked
 	if unlocked == false:
 		if PlayerManager.RemoveItemByName("Car Keys"):
+			AudioManager.play_sound(AudioManager.CarDoorOpen)
 			player.interact_ray.enabled = false
 			player.AREA3D.monitoring = false
 			player.AREA3D.monitorable = false
@@ -79,6 +85,8 @@ func _on_interacted(body: Variant) -> void:
 			PlayerManager.teleportEnemy = true
 		else:
 			# Play Car locked noise
+			AudioManager.play_sound(AudioManager.CarDoorLocked)
+			PlayerManager.CharacterDialog("Where did I leave my keys?")
 			# Play audio of player saying "Where did I leave my keys?"
 			pass
 	##Exiting car
@@ -86,8 +94,10 @@ func _on_interacted(body: Variant) -> void:
 		entering = false
 		player.interact_ray.enabled = false
 		animation_player.play("NoExitProps")
+		AudioManager.play_sound(AudioManager.CarDoorOpen)
 	##Entering Car after Unlocked
 	elif player.Incar == false && unlocked == true:
+		AudioManager.play_sound(AudioManager.CarDoorOpen)
 		PlayerManager.InAnimation = true
 		entering = true
 		animation_player.play("NoExitProps")

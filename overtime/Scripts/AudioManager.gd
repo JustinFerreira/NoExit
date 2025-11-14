@@ -30,6 +30,12 @@ var keypress3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav
 var keypress4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
 var keypress5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
 
+var CarDoorLocked = load("res://Assets/Audio/SFX/CarDoor/LockedCarDoor.mp3")
+
+var CarDoorOpen = load("res://Assets/Audio/SFX/CarDoor/OpenCarDoor.mp3")
+
+var CarDoorClose = load("res://Assets/Audio/SFX/CarDoor/CloseCarDoor.mp3")
+
 func _ready() -> void:
 	MusicAudio.bus = "Music"
 	add_child(MusicAudio)
