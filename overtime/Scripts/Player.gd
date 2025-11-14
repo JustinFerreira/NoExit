@@ -288,9 +288,7 @@ func _headbob(time) -> Vector3:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"): 
 		## Stop any sounds that could be playing
-		AudioManager.stop_loop("step")
-		AudioManager.stop_loop("heartbeat")
-		AudioManager.stop_loop("breathing")
+		AudioManager.cancel_loop_sfx()
 		
 		PlayerManager.EnemyKill()
 		

@@ -30,6 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	## Make sure Minigame Two is on 
 	if PlayerManager.minigameTwo:
+		AudioManager.play_sound_loop(AudioManager.Glug, "glug")
 		
 		_move_sweet_spot(delta)
 		
@@ -49,6 +50,9 @@ func _process(delta: float) -> void:
 		if sweet_spot_y >= canister_bottom_y && sweet_spot_y <= canister_top_y:
 			car_filled += fill_speed
 			progress_bar.value += 0.1
+			AudioManager.play_sound_loop(AudioManager.Glug, "glug")
+		else:
+			AudioManager.stop_loop("glug")
 		## Test if Gas Canister should be rising
 		## checking if actioning is on
 		## checking if it has reached highest point

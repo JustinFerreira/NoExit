@@ -22,6 +22,8 @@ func _on_animation_finished(anim_name: String):
 
 func _on_interacted(body: Variant) -> void:
 	door_collision.translate(Vector3(0,3,0))
+	AudioManager.play_sound(AudioManager.ElevatorDing)
+	AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 	PlayerManager.Hint("Use shift to toggle sprint, 
 Hold E to access your Inventory")
 	DoorOpen = true;

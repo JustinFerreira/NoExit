@@ -9,6 +9,8 @@ func _ready() -> void:
 		PlayerManager.ApplyPlayerRotation()
 	#Play Open Animation and on Animation finish Move door Collision
 	animation_player.connect("animation_finished", _on_animation_finished)
+	AudioManager.play_sound(AudioManager.ElevatorDing)
+	AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 	$AnimationPlayer.play("Take 001")
 	if !PlayerManager.Loop1 && !PlayerManager.has_item("Car Keys"):
 		PlayerManager.AddToInventory("Car Keys", 0.5)
