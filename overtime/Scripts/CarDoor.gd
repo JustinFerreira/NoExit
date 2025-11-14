@@ -40,7 +40,8 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Exit Car"
-		PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
+		if !PlayerManager.minigameOnePassed:
+			PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
 	
 	## Exiting car animations
 	if anim_name == "GettinginCar" && player.Incar == true && entering == false:
@@ -69,7 +70,7 @@ func _on_animation_finished(anim_name: String):
 func _on_interacted(body: Variant) -> void:
 	##Entering car if locked
 	if unlocked == false:
-		if PlayerManager.RemoveItemByName("Car Keys"):
+		if PlayerManager.has_item("Car Keys") && unlocked == false:
 			AudioManager.play_sound(AudioManager.CarDoorOpen)
 			player.interact_ray.enabled = false
 			player.AREA3D.monitoring = false

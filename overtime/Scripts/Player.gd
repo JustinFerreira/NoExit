@@ -126,6 +126,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameTwo:
+			AudioManager.stop_loop("glug")
 			PlayerManager.player.CAMERA.current = true
 			PlayerManager.minigameTwo = false
 			PlayerManager.gasIntakeUI.visible = false

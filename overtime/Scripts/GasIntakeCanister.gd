@@ -51,6 +51,8 @@ func _process(delta: float) -> void:
 			car_filled += fill_speed
 			progress_bar.value += 0.1
 			AudioManager.play_sound_loop(AudioManager.Glug, "glug")
+			if PlayerManager.minigameTwoPassed:
+				AudioManager.stop_loop("glug")
 		else:
 			AudioManager.stop_loop("glug")
 		## Test if Gas Canister should be rising
@@ -75,6 +77,7 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		PlayerManager.gotGas_Canister = false
 		PlayerManager.RemoveItemByName("Gas Canister")
 		PlayerManager.minigameTwoPassed = true
+		AudioManager.stop_loop("glug")
 		$".".visible = false
 		$"../GasIntakeCam/GasIntakeGame".visible = false
 		$"../Mesh/GasIntake"._on_interaction_complete()
