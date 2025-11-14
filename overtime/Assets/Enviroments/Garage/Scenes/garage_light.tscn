@@ -30,5 +30,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uhebv")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -91.8, 0)
-light_energy = 2.085
-omni_range = 35.098
+light_energy = 2.899
+omni_range = 49.981
