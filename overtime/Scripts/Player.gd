@@ -126,6 +126,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameTwo:
+			AudioManager.stop_loop("glug")
 			PlayerManager.player.CAMERA.current = true
 			PlayerManager.minigameTwo = false
 			PlayerManager.gasIntakeUI.visible = false
@@ -288,9 +289,7 @@ func _headbob(time) -> Vector3:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"): 
 		## Stop any sounds that could be playing
-		AudioManager.stop_loop("step")
-		AudioManager.stop_loop("heartbeat")
-		AudioManager.stop_loop("breathing")
+		AudioManager.cancel_loop_sfx()
 		
 		PlayerManager.EnemyKill()
 		

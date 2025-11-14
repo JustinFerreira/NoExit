@@ -30,6 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	## Make sure Minigame Two is on 
 	if PlayerManager.minigameTwo:
+		AudioManager.play_sound_loop(AudioManager.Glug, "glug")
 		
 		_move_sweet_spot(delta)
 		
@@ -49,6 +50,11 @@ func _process(delta: float) -> void:
 		if sweet_spot_y >= canister_bottom_y && sweet_spot_y <= canister_top_y:
 			car_filled += fill_speed
 			progress_bar.value += 0.1
+			AudioManager.play_sound_loop(AudioManager.Glug, "glug")
+			if PlayerManager.minigameTwoPassed:
+				AudioManager.stop_loop("glug")
+		else:
+			AudioManager.stop_loop("glug")
 		## Test if Gas Canister should be rising
 		## checking if actioning is on
 		## checking if it has reached highest point
@@ -71,6 +77,7 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		PlayerManager.gotGas_Canister = false
 		PlayerManager.RemoveItemByName("Gas Canister")
 		PlayerManager.minigameTwoPassed = true
+		AudioManager.stop_loop("glug")
 		$".".visible = false
 		$"../GasIntakeCam/GasIntakeGame".visible = false
 		$"../Mesh/GasIntake"._on_interaction_complete()

@@ -30,13 +30,35 @@ var keypress3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav
 var keypress4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
 var keypress5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
 
+var CarDoorLocked = load("res://Assets/Audio/SFX/CarDoor/LockedCarDoor.mp3")
+
+var CarDoorOpen = load("res://Assets/Audio/SFX/CarDoor/OpenCarDoor.mp3")
+
+var CarDoorClose = load("res://Assets/Audio/SFX/CarDoor/CloseCarDoor.mp3")
+
+var Glug = load("res://Assets/Audio/SFX/gas_glug.mp3")
+
+var SocketFast = load("res://Assets/Audio/SFX/SocketWrench/SocketFast.mp3")
+
+var socket1 = load("res://Assets/Audio/SFX/SocketWrench/Socket1.mp3")
+var socket2 = load("res://Assets/Audio/SFX/SocketWrench/Socket2.mp3")
+var socket3 = load("res://Assets/Audio/SFX/SocketWrench/Socket3.mp3")
+
+var ItemPickup = load("res://Assets/Audio/SFX/ItemPickup.mp3")
+
+var ElevatorDing = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding.mp3")
+
+var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DingDoorOpen.mp3")
+
+var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
+
 func _ready() -> void:
 	MusicAudio.bus = "Music"
 	add_child(MusicAudio)
 	
 
 
-func play_sound(sound_stream: AudioStream, volume_db: float = 24.0, pitch_scale: float = 1):
+func play_sound(sound_stream: AudioStream, volume_db: float = -8.0, pitch_scale: float = 1):
 	var new_player = AudioStreamPlayer.new()
 	new_player.volume_db = volume_db
 	new_player.pitch_scale = pitch_scale
@@ -159,3 +181,8 @@ func GetKeyPress():
 	var keypress_sounds = [keypress1, keypress2, keypress3, keypress4, keypress5]
 	var random_index = randi() % keypress_sounds.size()
 	return keypress_sounds[random_index]
+	
+func GetSocket():
+	var socket_sounds = [socket1, socket2, socket3]
+	var random_index = randi() % socket_sounds.size()
+	return socket_sounds[random_index]

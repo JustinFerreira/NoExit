@@ -27,10 +27,12 @@ func handle_collision(colliding_body):
 	# Your collision handling logic here
 	#print("Handling collision between ", self.name, " and ", colliding_body.name)
 	if colliding_body.name == "PositiveBattery":
+		AudioManager.play_sound(AudioManager.GetSocket())
 		PlayerManager.player.grabbed_object = null
 		PlayerManager.PositiveConnected = true
 		PlayerManager.TestConnection()
 		self.remove_from_group("grabbable")
+		self.remove_from_group("battery_minigame")
 		self.visible = false
 	if PlayerManager.PositiveConnected == false && colliding_body.name == "NegativeBattery" || "RestZone" || "RestZone2" || "RestZone3" || "RestZone4":
 		PlayerManager.player.grabbed_object = null

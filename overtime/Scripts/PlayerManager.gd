@@ -142,6 +142,8 @@ func ResetPlayer() -> void:
 	minigameOne = false
 	minigameTwo = false
 	minigameThree = false
+	gotGas_Canister = false
+	gotBattery = false
 	
 	## Minigames passed
 	minigameOnePassed = false
@@ -160,6 +162,7 @@ func ResetPlayer() -> void:
 	
 	## Objects
 	Gas_Canister = null
+	car_audio_player = null
 	
 	# Dialog
 	hint = false
@@ -217,10 +220,6 @@ func MiniGameModeOn():
 	AudioManager.stop_loop("step")
 	
 func MiniGameModeOff():
-	if minigameOne == true:
-		MinigameMode = false
-		player.CURSOR.visible = true
-		return
 	MinigameMode = false
 	player.CURSOR.visible = true
 	
@@ -268,7 +267,10 @@ func has_item(item_name: String) -> bool:
 	return false
 
 func KeyFobSound():
-	car_audio_player.playsound()
+	if has_item("Car Keys"):
+		car_audio_player.playsound()
+	else:
+		CharacterDialog("Damn where did I put those keys?")
 	
 func EnemyKill():
 	Enemy.kill()

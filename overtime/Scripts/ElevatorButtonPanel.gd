@@ -33,6 +33,7 @@ func _on_animation_finished(anim_name: String):
 		DoorClosed = false
 
 func _on_interacted(body: Variant) -> void:
+	AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
 	door_collision.translate(Vector3(0,-3,0))
 	DoorClosed = true
 	is_interactable = false
