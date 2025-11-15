@@ -17,6 +17,6 @@ normal_texture = ExtResource("4_ibchp")
 [node name="PipeSmall90" type="Node3D"]
 
 [node name="MPipeSmall90" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.131102)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0842819, 0, 0.197752)
 mesh = ExtResource("1_u5ndg")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")

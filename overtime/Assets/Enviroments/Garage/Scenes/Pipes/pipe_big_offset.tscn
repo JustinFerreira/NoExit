@@ -17,6 +17,6 @@ normal_texture = ExtResource("4_tx5kn")
 [node name="PipeBigOffset" type="Node3D"]
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.078665, 0.033744)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
 mesh = ExtResource("1_ffinf")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
