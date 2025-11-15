@@ -10,6 +10,12 @@ var HeadBob: bool = true
 
 var DevMode: bool = true
 
+## Location
+
+var Office = false
+
+var ParkingGarage = false
+
 ## Player
 
 var teleportEnemy = false
@@ -101,6 +107,13 @@ var Inventory: Array = []
 var MaxWeight: float = 10.0
 var CurrentWeight: float = 0.0
 
+## Close Up Objects
+
+var closeup = true
+var examining = false
+var PictureFrame1
+var PictureFrame2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -136,6 +149,11 @@ func ResetPlayer() -> void:
 	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
+	
+	## Location
+	
+	PlayerManager.Office = false
+	PlayerManager.ParkingGarage = false
 	
 	##Minigames avtives
 	MinigameMode = false
@@ -274,3 +292,10 @@ func KeyFobSound():
 	
 func EnemyKill():
 	Enemy.kill()
+	
+func EndFocus():
+	closeup = !closeup
+	if PictureFrame1.should_stay_in_focus && closeup == false:
+		PictureFrame1.end_focus()
+	if PictureFrame2.should_stay_in_focus && closeup == false:
+		PictureFrame2.end_focus()

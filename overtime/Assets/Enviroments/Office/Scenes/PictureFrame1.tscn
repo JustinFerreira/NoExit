@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bpiivsdgnrx8k" path="res://Assets/Materials/PictureFrame1.tres" id="1_27dp7"]
 [ext_resource type="ArrayMesh" uid="uid://dmmktqfmr8d26" path="res://Assets/Enviroments/Office/Models/PictureFrame_1.obj" id="3_8aqs7"]
-[ext_resource type="Script" path="res://PictureFrame1.gd" id="5_6tvrn"]
+[ext_resource type="Script" path="res://Scripts/PictureFrame1.gd" id="5_6tvrn"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="6_6ymlk"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_afyv7"]

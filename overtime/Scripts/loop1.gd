@@ -8,6 +8,8 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.ResetPlayer()
+	PlayerManager.Office = true
+	PlayerManager.ParkingGarage = false
 	PlayerManager.testing = false
 	PlayerManager.gotKeys = false
 	PlayerManager.InAnimation = true;

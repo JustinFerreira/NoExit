@@ -88,7 +88,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if PlayerManager.car_audio_player:
 			PlayerManager.KeyFobSound()
 	if event is InputEventMouseMotion:
-		if PlayerManager.multiDialog:
+		if PlayerManager.multiDialog || PlayerManager.examining:
 			return
 		if PlayerManager.MinigameMode == true:
 			if PlayerManager.minigameThree == true:
@@ -104,6 +104,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
+		if PlayerManager.Office && DIALOG.is_typing == false:
+			PlayerManager.EndFocus()
 		if DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
 			PlayerManager.HideDialog()
 			PlayerManager.dialoging = false
@@ -163,7 +165,7 @@ func _physics_process(delta: float) -> void:
 	apply_breathing_effects()
 	apply_heartbeat_effects()
 	
-	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog || PlayerManager.dying:
+	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog || PlayerManager.dying || PlayerManager.examining:
 		return
 	SENSITIVITY = PlayerManager.Sensitivity
 	

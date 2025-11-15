@@ -22,19 +22,16 @@ var debug_mesh: MeshInstance3D
 
 # Track if we're currently in an interaction
 var is_in_interaction: bool = false
+# New bool to track if we should stay in focus mode
+var should_stay_in_focus: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.PictureFrame1 = self
 	# Store original transform
 	original_position = global_position
 	original_rotation = global_rotation  # Use global_rotation instead of rotation
 	original_scale = scale
-	print("Stored original position: ", original_position)
-	
-	# Print some debug info about the node
-	print("Node name: ", name)
-	print("Node type: ", get_class())
-	print("Parent: ", get_parent().name if get_parent() else "None")
 	
 	# Create a debug mesh that looks like the original object
 	_create_debug_mesh()
@@ -52,23 +49,19 @@ func _create_debug_mesh() -> void:
 	# Use the exported mesh and material
 	if target_mesh:
 		debug_mesh.mesh = target_mesh
-		print("Debug mesh created with exported mesh")
 	else:
 		# Fallback to searching for a mesh
 		var found_mesh = _find_original_mesh()
 		if found_mesh:
 			debug_mesh.mesh = found_mesh.mesh
-			print("Debug mesh created with found mesh")
 		else:
 			# Final fallback to a box mesh
 			debug_mesh.mesh = BoxMesh.new()
 			debug_mesh.scale = Vector3(0.5, 0.5, 0.1)
-			print("Using fallback debug mesh")
 	
 	# Apply the material if provided
 	if target_material:
 		debug_mesh.material_override = target_material
-		print("Applied exported material to debug mesh")
 	
 	# Apply the scale if provided
 	if target_scale != Vector3.ONE:
@@ -101,19 +94,17 @@ func _on_interacted(body: Variant) -> void:
 	if is_in_interaction:
 		return
 	
+	PlayerManager.examining = true
+	PlayerManager.player.CURSOR.visible = false
 	is_in_interaction = true
-	print("=== INTERACTION STARTED ===")
-	print("Interaction started with: ", body)
+	should_stay_in_focus = true
 	
 	# Get the player's camera
 	var camera = PlayerManager.player.CAMERA
 	if not camera:
-		print("ERROR: Could not find camera at path PlayerManager.player.CAMERA")
 		is_in_interaction = false
+		should_stay_in_focus = false
 		return
-	
-	print("Camera position: ", camera.global_position)
-	print("Camera rotation: ", camera.rotation)
 	
 	# Calculate position directly in front of the camera
 	var camera_transform = camera.global_transform
@@ -122,9 +113,6 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Adjust height with vertical offset
 	focus_position.y = camera_transform.origin.y + vertical_offset
-	
-	print("Moving from: ", global_position, " to: ", focus_position)
-	print("Distance: ", global_position.distance_to(focus_position))
 	
 	# Set up the debug mesh at the original position
 	debug_mesh.global_position = global_position
@@ -138,7 +126,6 @@ func _on_interacted(body: Variant) -> void:
 	# Disable collision during focus to avoid issues
 	if has_node("CollisionShape3D"):
 		$CollisionShape3D.disabled = true
-		print("Collision disabled")
 	
 	# Create tween for animations on the debug mesh
 	tween = create_tween()
@@ -178,19 +165,22 @@ func _on_interacted(body: Variant) -> void:
 	# Scale up the debug mesh with adjustable multiplier
 	tween.tween_property(debug_mesh, "scale", original_scale * scale_multiplier, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
-	# Connect to tween for debugging
-	tween.finished.connect(_on_focus_tween_finished)
-	
 	PlayerManager.CharacterDialog("Wow I love that picture!")
 	
-	# Wait for dialog and then return
-	print("Waiting for dialog to finish...")
-	await get_tree().create_timer(3.0).timeout
+	# Wait for the second signal (should_stay_in_focus becomes false)
+	while should_stay_in_focus:
+		await get_tree().create_timer(0.1).timeout
 	
 	# Return to original position
 	await _return_to_original()
 	
 	is_in_interaction = false
+
+# Function to end the focus mode
+func end_focus() -> void:
+	PlayerManager.examining = false
+	PlayerManager.player.CURSOR.visible = true
+	should_stay_in_focus = false
 
 func _hide_original_object() -> void:
 	# Find and hide all MeshInstance3D children (including nested)
@@ -217,12 +207,9 @@ func _show_meshes_in_children(node: Node) -> void:
 	# Recursively show in children
 	for child in node.get_children():
 		_show_meshes_in_children(child)
-
-func _on_focus_tween_finished():
-	print("Focus tween finished - Position: ", debug_mesh.global_position, " Scale: ", debug_mesh.scale)
+	
 
 func _return_to_original() -> void:
-	print("Returning to original position")
 	
 	# Create new tween for return animation
 	tween = create_tween()
@@ -243,8 +230,3 @@ func _return_to_original() -> void:
 	# Re-enable collision
 	if has_node("CollisionShape3D"):
 		$CollisionShape3D.disabled = false
-		print("Collision re-enabled")
-	
-	print("Interaction completed")
-	print("Final position: ", global_position, " Final scale: ", scale)
-	print("=== INTERACTION ENDED ===\n")
