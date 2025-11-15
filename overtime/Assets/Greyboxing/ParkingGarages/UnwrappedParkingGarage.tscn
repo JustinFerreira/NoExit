@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=46 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -55,6 +55,24 @@ texture_filter = 0
 albedo_texture = ExtResource("19_qyy67")
 uv1_scale = Vector3(30, 3, 40)
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0wgu5"]
+albedo_texture = ExtResource("1_nuqwi")
+uv1_scale = Vector3(1, 48, 3.225)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxpgm"]
+albedo_texture = ExtResource("1_nuqwi")
+uv1_scale = Vector3(1, 12, 0.5)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_opkle"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_waxo1"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_itmpg"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
 
@@ -1618,94 +1636,91 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.128
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="GarageLight" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.8191, 15.1538, 28.3725)
 
 [node name="GarageLight2" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.8875, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.1451, 15.1538, 28.3725)
 
 [node name="GarageLight3" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -57.9636, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -62.8377, 15.1538, 28.3725)
 
 [node name="GarageLight4" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -94.1551, 15.1538, 28.3725)
 
 [node name="GarageLight5" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 84.2911, 15.1538, 28.3725)
 
 [node name="GarageLight6" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 56.497, 15.1538, 28.3725)
 
 [node name="GarageLight7" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.2888, 15.1538, 28.3725)
 
 [node name="GarageLight8" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 15.1538, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 3.36893, 15.1538, 28.3725)
 
 [node name="GarageLight9" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.2221, 10.0282, 28.3725)
 
 [node name="GarageLight10" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.8875, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.1437, 10.0282, 28.3725)
 
 [node name="GarageLight11" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -57.9636, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -61.5722, 10.0282, 28.3725)
 
 [node name="GarageLight12" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -94.6545, 10.0282, 28.3725)
 
 [node name="GarageLight13" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 83.4487, 10.0282, 28.3725)
 
 [node name="GarageLight14" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 56.6581, 10.0282, 28.3725)
 
 [node name="GarageLight15" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.0605, 10.0282, 28.3725)
 
 [node name="GarageLight16" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 10.0282, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 3.35968, 10.0282, 28.3725)
 
 [node name="GarageLight17" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -23.6573, 4.90007, 28.3725)
 
 [node name="GarageLight18" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.8875, 4.90007, 28.3725)
-
-[node name="GarageLight19" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -57.9636, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.2754, 4.90007, 28.3725)
 
 [node name="GarageLight20" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -76.8105, 4.90007, 28.3725)
 
 [node name="GarageLight21" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 81.7918, 4.90007, 28.3725)
 
 [node name="GarageLight22" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 57.2522, 4.90007, 28.3725)
 
 [node name="GarageLight23" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 31.1124, 4.90007, 28.3725)
 
 [node name="GarageLight24" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 4.71922, 4.90007, 28.3725)
 
 [node name="GarageLight25" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 7.484, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 2.90194, 7.484, -17.0876)
 
 [node name="GarageLight26" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.8875, 7.484, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -24.1547, 7.484, -17.0876)
 
 [node name="GarageLight27" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -57.9636, 7.484, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -49.6481, 7.484, -17.0876)
 
 [node name="GarageLight28" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 7.484, -17.0876)
 
 [node name="GarageLight29" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 7.484, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 82.4758, 7.484, -17.0876)
 
 [node name="GarageLight33" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 7.484, -47.8189)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 83.7398, 7.484, -47.8189)
 
 [node name="GarageLight34" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -78.6415, 7.484, -47.8189)
@@ -1713,41 +1728,38 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -78.6415, 7.484, -47
 [node name="GarageLight30" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 7.484, -17.0876)
 
-[node name="GarageLight31" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 7.484, -17.0876)
-
 [node name="GarageLight32" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 7.484, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.7263, 7.484, -17.0876)
 
 [node name="GarageLight35" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -15.2106, 12.587, -17.0876)
+transform = Transform3D(0.0199999, -4.57276e-05, 0, 4.57276e-05, 0.0199999, 0, 0, 0, 0.02, 3.71786, 12.587, -17.0876)
 
 [node name="GarageLight36" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.8875, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -23.8479, 12.587, -17.0876)
 
 [node name="GarageLight37" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -57.9636, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -49.8572, 12.587, -17.0876)
 
 [node name="GarageLight38" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 12.587, -17.0876)
 
 [node name="GarageLight39" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 84.0741, 12.587, -17.0876)
 
 [node name="GarageLight40" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 78.7679, 12.587, -47.8189)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 82.6707, 12.587, -47.8189)
 
 [node name="GarageLight41" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -78.6415, 12.587, -47.8189)
 
 [node name="GarageLight42" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 69.0261, 12.587, -17.0876)
 
 [node name="GarageLight43" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 36.0148, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 42.7459, 12.587, -17.0876)
 
 [node name="GarageLight44" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 13.0929, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 17.5552, 12.587, -17.0876)
 
 [node name="ParkingLinesF5" type="Node3D" parent="."]
 
@@ -3053,7 +3065,7 @@ transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.371
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -13.0267, 0.405596, -0.0273663)
 
 [node name="PipeSection8" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -54.3481, 13.7704, 7.74578)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -28.2311, 13.7704, 7.74578)
 
 [node name="PipeBigLong" parent="PipeSection8" instance=ExtResource("22_7fe87")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.79662, 0.41616, 0.681756)
@@ -3738,7 +3750,7 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.3
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.121554, 0, 1, -5.31328e-09, -0.402359, 1.0537, 6.99427)
 
 [node name="PipeSection15" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3902, 13.6917, 6.69057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3823, 14.0666, 6.69057)
 
 [node name="PipeBigOffset" parent="PipeSection15" instance=ExtResource("31_qerlm")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.403965, 0.297747, -0.257744)
@@ -3760,3 +3772,466 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.3
 
 [node name="PipeBigMed" parent="PipeSection15" instance=ExtResource("34_gv3cj")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.253204, 0, 1, -1.10679e-08, -0.402359, 1.13166, 6.99427)
+
+[node name="CeilingThingsF1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 23.5335, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 36.6, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 49.8207, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 62.972, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 76.116, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 89.2371, 4.601, 31.7438)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.9615)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -82.9938, 4.601, 31.7116)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 38.0259)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -69.9273, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -56.7066, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -43.6401, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -30.3568, 4.601, 29.7694)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 41.9102)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF1"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 4.601, 24.2425)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.0419)
+
+[node name="CeilingThingsF3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0746, 0.08)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 23.5335, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 36.6, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 49.8207, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 62.972, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 76.116, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 90.4091, 4.601, 31.7438)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.9615)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -89.4358, 4.601, 31.8689)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.7112)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -69.9273, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -56.7066, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -43.6401, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -30.3568, 4.601, 29.8133)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 41.8223)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF3"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 4.601, 24.2425)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.0419)
+
+[node name="CeilingThingsF5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1936, 0.08)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 4.53927, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.963457, 45.003)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 23.5335, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 36.6, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 49.8207, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 62.972, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 76.116, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 90.4091, 4.601, 31.7438)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.9615)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -89.4358, 4.601, 31.8689)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.7112)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -69.9273, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -56.7066, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -43.6401, 4.601, 28.223)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 45.003)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -30.3568, 4.57345, 27.3934)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.895098, 46.6621)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF5"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 4.601, 24.2425)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 37.0419)
+
+[node name="CeilingThingsF4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1936, -55.0005)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 23.5335, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 36.6, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 49.8207, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 62.972, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 76.116, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 90.4091, 2.013, 6.61936)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -89.4358, 2.013, 6.44636)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -69.9273, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -56.7066, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -43.6401, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -30.3568, 2.013, 13.4455)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.895098, 93.128)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF4"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 2.013, 10.2945)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CeilingThingsF6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07012, -55.0005)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 23.5335, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 36.6, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 49.8207, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 62.972, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 76.116, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, 90.4091, 2.013, 6.61936)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -89.4358, 2.013, 6.22876)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -69.9273, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -56.7066, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -43.6401, 2.013, 14.275)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -30.3568, 2.013, 13.4455)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.895098, 93.128)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF6"]
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 2.013, 10.2945)
+material_override = SubResource("StandardMaterial3D_0wgu5")
+size = Vector3(0.475708, 0.84, 93.128)
+
+[node name="Pillars" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94319, 0, 5.86131)
+
+[node name="CSGBox3D" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 0.119664, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D10" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -14.3329, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D2" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 13.2148, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D3" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 26.4807, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D4" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 39.5758, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D5" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 52.7925, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D6" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 65.8876, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D7" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 79.0923, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D11" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 93.366, 11.3665, 7.03371)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillars/CSGBox3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillars/CSGBox3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_waxo1")
+
+[node name="CSGBox3D16" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 93.366, 11.3665, -7.8244)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillars/CSGBox3D16"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillars/CSGBox3D16/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_waxo1")
+
+[node name="CSGBox3D17" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -86.5281, 11.3665, -7.8244)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillars/CSGBox3D17"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillars/CSGBox3D17/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_waxo1")
+
+[node name="CSGBox3D12" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -66.9529, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D15" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -86.531, 11.3161, 7.28942)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillars/CSGBox3D15"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillars/CSGBox3D15/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_itmpg")
+
+[node name="CSGBox3D13" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -53.7691, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
+
+[node name="CSGBox3D14" type="MeshInstance3D" parent="Pillars"]
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -40.6532, 7.59438, 0.0227814)
+material_override = SubResource("StandardMaterial3D_qxpgm")
+mesh = SubResource("BoxMesh_opkle")
