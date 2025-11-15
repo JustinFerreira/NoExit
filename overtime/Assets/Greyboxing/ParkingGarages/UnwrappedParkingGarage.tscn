@@ -4134,9 +4134,9 @@ material_override = SubResource("StandardMaterial3D_0wgu5")
 size = Vector3(0.475708, 0.895098, 90.7885)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="CeilingThingsF6"]
-transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 2.013, 10.2945)
+transform = Transform3D(1.55192, 0, 0, 0, 1, 0, 0, 0, 1, -17.2903, 2.013, 12.2283)
 material_override = SubResource("StandardMaterial3D_0wgu5")
-size = Vector3(0.475708, 0.84, 93.128)
+size = Vector3(0.475708, 0.84, 96.9956)
 
 [node name="Pillars" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94319, 0, 5.86131)
@@ -4192,7 +4192,7 @@ mesh = SubResource("BoxMesh_opkle")
 shape = SubResource("ConcavePolygonShape3D_waxo1")
 
 [node name="CSGBox3D16" type="MeshInstance3D" parent="Pillars"]
-transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 93.366, 11.3665, -7.8244)
+transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, 93.366, 7.71037, -7.8244)
 material_override = SubResource("StandardMaterial3D_qxpgm")
 mesh = SubResource("BoxMesh_opkle")
 
