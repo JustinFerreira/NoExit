@@ -3923,9 +3923,9 @@ size = Vector3(0.475708, 0.84, 37.0419)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.1936, 0.08)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CeilingThingsF5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 4.601, 28.223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81632, 4.53927, 28.223)
 material_override = SubResource("StandardMaterial3D_0wgu5")
-size = Vector3(0.475708, 0.84, 45.003)
+size = Vector3(0.475708, 0.963457, 45.003)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CeilingThingsF5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2502, 4.601, 28.223)
