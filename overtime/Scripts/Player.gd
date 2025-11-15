@@ -137,6 +137,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.MiniGameModeOff()
 		elif PlayerManager.minigameThree:
 			PlayerManager.minigameThree = false
+			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			prompt.visible = true

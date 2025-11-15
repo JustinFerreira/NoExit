@@ -407,7 +407,6 @@ text = "HOT WIRE CONFIRM"
 transform = Transform3D(-2.27565e-08, -0.416429, 0.520607, -1.82027e-08, 0.520607, 0.416429, -0.666667, 0, -2.91409e-08, 1.47459, 1.95023, -1.33715)
 
 [node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -431,7 +430,8 @@ offset_right = 947.0
 offset_bottom = 172.0
 theme_override_fonts/font = ExtResource("10_rs2y8")
 theme_override_font_sizes/font_size = 20
-text = "Spacebar is action Key"
+text = "Hold LMB to raise gas canister
+*Align gas canister with red cube*"
 horizontal_alignment = 1
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
