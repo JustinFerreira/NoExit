@@ -90,6 +90,7 @@ var minigameThreePassed = false
 var PositiveConnected = false
 var NegativeConnected = false
 
+var hoodUI
 var Hood
 var Battery
 var PositiveWire
@@ -189,6 +190,9 @@ func ResetPlayer() -> void:
 	multiDialog = false
 	startMultiDialog = true
 	
+	# Close Up
+	examining = false
+	
 	
 ## Dialog Functions
 
@@ -244,6 +248,7 @@ func MiniGameModeOff():
 func TestConnection():
 	if PositiveConnected && NegativeConnected:
 		MiniGameModeOff()
+		hoodUI.visible = false
 		minigameThreePassed = true
 		minigameThree = false
 		player.CAMERA.current = true

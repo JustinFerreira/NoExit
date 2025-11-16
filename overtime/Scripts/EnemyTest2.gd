@@ -74,11 +74,14 @@ func kill():
 		PlayerManager.gasIntakeUI.visible = false
 		PlayerManager.Gas_Canister.visible = false
 		PlayerManager.gasIntakeSweetSpot.visible = false
+	if PlayerManager.minigameThree:
+		PlayerManager.hoodUI.visible = false
 	# Make the player's camera face the enemy before stabbing
 	if PlayerManager.player and PlayerManager.player.CAMERA:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.MiniGameModeOff()
 		var camera = PlayerManager.player.CAMERA
+	
 		
 		# Get the positions - raise enemy position to look at upper body/head
 		var enemy_pos = global_transform.origin + Vector3(0, 1.5, 0)  # Raise by 1.5 meters

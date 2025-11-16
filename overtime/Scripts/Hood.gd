@@ -24,6 +24,8 @@ func _on_interacted(body: Variant) -> void:
 		PlayerManager.PositiveWire.visible = true
 	if !PlayerManager.NegativeConnected:
 		PlayerManager.NegativeWire.visible = true
+	$"../../HoodCam/HoodGame".visible = true
+	PlayerManager.hoodUI = $"../../HoodCam/HoodGame"
 	PlayerManager.Battery.visible = true
 	PlayerManager.minigameThree = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -432,7 +432,8 @@ offset_bottom = 172.0
 theme_override_fonts/font = ExtResource("10_rs2y8")
 theme_override_font_sizes/font_size = 20
 text = "Hold LMB to raise gas canister
-*Align gas canister with red cube*"
+*Align gas canister with red cube*
+Press ESC to leave minigame with progress intact"
 horizontal_alignment = 1
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
@@ -456,6 +457,24 @@ shape = SubResource("ConvexPolygonShape3D_lbt1v")
 
 [node name="HoodCam" type="Camera3D" parent="."]
 transform = Transform3D(0.666667, 1.98682e-08, -9.93411e-09, -8.86535e-09, 0.511346, 0.427749, 2.03676e-08, -0.427749, 0.511346, -0.267938, 1.72184, 3.13428)
+
+[node name="HoodGame" type="Control" parent="HoodCam"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 435.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HoodCam/HoodGame"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 30.0
+offset_right = 827.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_rs2y8")
+text = "Drag wire to same color on battery
+*Avoid gray parts on battery*
+Press ESC to leave minigame with progress intact"
 
 [node name="WheelCam" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50919, 0.559945, -1.75185)

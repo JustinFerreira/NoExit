@@ -141,6 +141,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			prompt.visible = true
+			PlayerManager.hoodUI.visible =  false
 			PlayerManager.PositiveWire.visible = false
 			PlayerManager.NegativeWire.visible = false
 			PlayerManager.Battery.visible = false
