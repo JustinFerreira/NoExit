@@ -27,7 +27,7 @@ func handle_collision(colliding_body):
 	# Your collision handling logic here
 	#print("Handling collision between ", self.name, " and ", colliding_body.name)
 	if colliding_body.name == "PositiveBattery":
-		AudioManager.play_sound(AudioManager.GetSocket())
+		AudioManager.play_sound(AudioManager.GetSocket(), -24)
 		PlayerManager.player.grabbed_object = null
 		PlayerManager.PositiveConnected = true
 		PlayerManager.TestConnection()
