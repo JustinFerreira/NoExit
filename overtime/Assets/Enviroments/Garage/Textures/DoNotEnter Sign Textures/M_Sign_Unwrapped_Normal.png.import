@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5lxai14ktne3"
-path.s3tc="res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-bdcbd7f60f2c7e8d7e97c728c506df37.s3tc.ctex"
+uid="uid://dq8vr1e40mk20"
+path.s3tc="res://.godot/imported/M_Sign_Unwrapped_Normal.png-c7494e274c39b001f0a150c6efce1086.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-bdcbd7f60f2c7e8d7e97c728c506df37.s3tc.ctex"]
+source_file="res://Assets/Enviroments/Garage/Textures/DoNotEnter Sign Textures/M_Sign_Unwrapped_Normal.png"
+dest_files=["res://.godot/imported/M_Sign_Unwrapped_Normal.png-c7494e274c39b001f0a150c6efce1086.s3tc.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Assets/Enviroments/Garage/Textures/NoEntrySign Textures/M_Sign_Unwrapped_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
