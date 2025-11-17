@@ -1,3 +1,13 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## Battery Script
+## - This script is attached to the Battery 
+## for the battery minigame this script changes
+## saves the battery instance into the playermanager
+## so it can be used across other scripts and
+## it changes the look of the battery as you progress
+## in the minigame
+
 extends MeshInstance3D
 
 

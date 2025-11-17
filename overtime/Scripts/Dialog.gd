@@ -1,3 +1,10 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## Dialog Script
+## - This script contains functions that
+## assits in making dialog apear on screen
+## and controling the effects of this dialog
+
 extends Control
 
 
@@ -20,6 +27,7 @@ var is_typing: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# connects animation player to animation finished
 	animation_player.connect("animation_finished", _on_animation_finished)
 	
 	# Create typewriter timer
@@ -33,8 +41,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-# Typewriter effect functions
+## start_typewriter_effect
+## makes the typewriter effect start on dialog
 func start_typewriter_effect(label: RichTextLabel, text: String) -> void:
 	current_label = label
 	current_label.visible_ratio = 0.0
@@ -48,7 +56,9 @@ func start_typewriter_effect(label: RichTextLabel, text: String) -> void:
 	typewriter_timer.start(typewriter_speed)
 	
 	
-
+## _on_typewriter_timeout
+## when timer is finished for type writer effect
+## this function is called to reset the effect
 func _on_typewriter_timeout() -> void:
 	if current_label == null:
 		is_typing = false
@@ -68,12 +78,19 @@ func _on_typewriter_timeout() -> void:
 	else:
 		is_typing = false
 
+## skip_typewriter_effect
+## stops the type writer effect early
+## allowing to see the full dialog immediately
 func skip_typewriter_effect() -> void:
 	if is_typing and current_label != null:
 		typewriter_timer.stop()
 		current_label.visible_ratio = 1.0
 		is_typing = false
 
+## player_interact_dialog
+## This function creates dialog
+## which appears at the top of the screen
+## and stays until the player clicks the Interact button
 func player_interact_dialog(text: String):
 	PlayerManager.dialoging = true
 	character_panel.visible = false
@@ -89,7 +106,11 @@ func player_interact_dialog(text: String):
 	
 	
 	
-
+## show_temporary_dialog
+## creates dialog which disapears after duration
+## and appears at the top of the screen
+## this dialog can also be cleared with interaction
+## this dialog can be modified with colors aswell
 func show_temporary_dialog(text: String, duration: float = 5.0, color: String = "white"):
 	# Enable BBCode and set colored text
 	PlayerManager.dialoging = true
@@ -121,7 +142,11 @@ func show_temporary_dialog(text: String, duration: float = 5.0, color: String = 
 	timer.one_shot = true
 	timer.start()
 	
-	
+## player_interact_dialog_pic
+## This function creates dialog
+## which appears at the bottom of the screen
+## in a box
+## and stays until the player clicks the Interact button
 func player_interact_dialog_pic(text: String):
 	PlayerManager.dialoging = true
 	character_panel.visible = true
@@ -138,7 +163,11 @@ func player_interact_dialog_pic(text: String):
 	
 	
 	
-
+## show_temporary_dialog_pic
+## This function creates dialog
+## which appears at the bottom of the screen
+## in a box
+## it will disapear after a duration
 func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 	# Enable BBCode and set colored text
 	PlayerManager.dialoging = true
@@ -172,6 +201,10 @@ func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 	timer.one_shot = true
 	timer.start()
 
+## player_interact_multi_dialog_pic
+## Starts a sequence of dialog which
+## appears at the bottom of the screen
+## in a box 
 func player_interact_multi_dialog_pic(text_array: Array[String]):
 	PlayerManager.player.CURSOR.visible = false
 	PlayerManager.dialoging = true
@@ -193,7 +226,10 @@ func player_interact_multi_dialog_pic(text_array: Array[String]):
 		
 	start_typewriter_effect(dialog_label_pic, current_dialog_array[0])
 	animation_player.play("reveal")
-	
+
+## show_next_dialog
+## this shows the next line of dialog
+## in a sequence of dialog
 func show_next_dialog() -> bool:
 	## Show the next dialog in the sequence. Returns true if there are more dialogs, false if finished.
 	if not PlayerManager.multiDialog or current_dialog_array.is_empty():
@@ -214,6 +250,10 @@ func show_next_dialog() -> bool:
 		end_multi_dialog()
 		return false
 
+## end_multi_dialog
+## this is called when a
+## sequence of dialog reaches
+## the last part of the sequence
 func end_multi_dialog():
 	## Clean up and end the multi-dialog sequence.
 	PlayerManager.player.CURSOR.visible = true
@@ -225,12 +265,16 @@ func end_multi_dialog():
 	PlayerManager.finishedDialogAnimation = false
 	PlayerManager.startMultiDialog = true
 
+## _on_timer_timeout
+## this is called on the finish of 
+## the timer for temporary dialog
 func _on_timer_timeout():
 	dialog_label.text = ""
 	PlayerManager.dialoging = false
 	animation_player.play("hide")
-	visible = false
 
+## _on_animation_finished
+## called when an animation is complete
 func _on_animation_finished(anim_name: String):
 	if anim_name == "reveal":
 		PlayerManager.finishedDialogAnimation = true

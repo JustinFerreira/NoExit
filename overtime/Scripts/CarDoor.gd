@@ -1,3 +1,11 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## CarDoor Script
+## - The CarDoor script controls the interaction
+## between the player and the door controling
+## its anmations and sounds. 
+## Also controling if the player is in the car or not 
+
 extends Interactable
 
 var unlocked = false
@@ -9,21 +17,27 @@ var entering = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	## connects animation player to animation finished 
 	animation_player.connect("animation_finished", _on_animation_finished)
-	player = get_tree().current_scene.get_node("Player")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+## _on_animation_finished
+## this function is called anytime an
+## animation is fished so it can process
+## what happens after the animation
 func _on_animation_finished(anim_name: String):
 	#print("Animation Finished: ", anim_name)
 	
-	## Entering car animations
+	## Car Door opening and Closing animation
 	if anim_name == "NoExitProps":
+		## checks if this is the first frame of animation to play sound at correct time  
 		if animation_player.current_animation_position == 0.0:
 			AudioManager.play_sound(AudioManager.CarDoorClose)
+		## checks to see if the player is trying to enter the car
 		if player.Incar == false && entering == true:
 			PlayerManager.InAnimation = false
 			player.head = $"../../Head"
@@ -33,8 +47,10 @@ func _on_animation_finished(anim_name: String):
 			player.TbobON = false
 			car_camera.current = true
 			animation_player.play("GettinginCar")
+		## checks to see if player is trying to exit car
 		if player.Incar == true && entering == false:
 			animation_player.play_backwards("GettinginCar")
+	## Animation of player getting in the Car
 	if anim_name == "GettinginCar" && player.Incar == false && entering == true:
 		player.Incar = true
 		animation_player.play_backwards("NoExitProps")
@@ -68,6 +84,7 @@ func _on_animation_finished(anim_name: String):
 
 
 func _on_interacted(body: Variant) -> void:
+	player = PlayerManager.player
 	##Entering car if locked
 	if unlocked == false:
 		if PlayerManager.has_item("Car Keys") && unlocked == false:
@@ -88,7 +105,6 @@ func _on_interacted(body: Variant) -> void:
 			# Play Car locked noise
 			AudioManager.play_sound(AudioManager.CarDoorLocked)
 			PlayerManager.CharacterDialog("Where did I leave my keys?")
-			# Play audio of player saying "Where did I leave my keys?"
 			pass
 	##Exiting car
 	elif player.Incar == true:

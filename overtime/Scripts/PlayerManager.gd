@@ -150,11 +150,12 @@ func ResetPlayer() -> void:
 	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
+	player = get_tree().current_scene.get_node("Player") 
 	
 	## Location
 	
-	PlayerManager.Office = false
-	PlayerManager.ParkingGarage = false
+	Office = false
+	ParkingGarage = false
 	
 	##Minigames avtives
 	MinigameMode = false

@@ -1,3 +1,10 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## ElevatorButton Script
+## - This script is for the button outside of the elevator
+## it opens the doors for the elevator and during Loop1
+## give a hint for tutorial
+
 extends Interactable
 
 @onready var animation_player = $"../AnimationPlayer"
@@ -24,7 +31,8 @@ func _on_interacted(body: Variant) -> void:
 	door_collision.translate(Vector3(0,3,0))
 	AudioManager.play_sound(AudioManager.ElevatorDing)
 	AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
-	PlayerManager.Hint("Use shift to toggle sprint, 
+	if PlayerManager.Loop1:
+		PlayerManager.Hint("Use shift to toggle sprint, 
 Hold E to access your Inventory")
 	DoorOpen = true;
 	$".".is_interactable = false

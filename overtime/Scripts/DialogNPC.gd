@@ -1,3 +1,11 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## DialogNPC Script
+## - This script was just a place older test of what
+## typical dialog interactions needed from an NPC
+## this stand as the current janitor but will most likely
+## be copied to the final janitor
+
 extends Interactable
 
 # Rotation variables
@@ -16,6 +24,7 @@ var wander_timer: float = 0.0
 var start_position: Vector3
 var nav_agent: NavigationAgent3D
 
+#Sequence of text given to multi dialog function
 var text_array: Array[String] = [
 	"Sup I'm the coolest janitor dude you'll ever meet. I clean, clean some more and clean again.",
 	"Whats your name",
@@ -54,6 +63,10 @@ func _process(delta: float) -> void:
 	if is_wandering and not is_interacting:
 		wander(delta)
 
+## wander
+## this function causes npc to move
+## to a random place from its starting 
+## position
 func wander(delta: float) -> void:
 	# Update timer
 	wander_timer -= delta
@@ -79,7 +92,9 @@ func wander(delta: float) -> void:
 	# Check if we need a new target (even if not finished with current path)
 	if wander_timer <= 0:
 		set_new_wander_target()
-
+## set_new_wander_target
+## picks a random position for the npc
+## to wander to
 func set_new_wander_target() -> void:
 	# Generate a random position within wander range
 	var random_offset = Vector3(
@@ -121,11 +136,14 @@ func _on_interacted(body: Variant) -> void:
 	is_wandering = true
 	set_new_wander_target()
 
+## wait_for_dialog_completion
+## Stops player from wandering while in dialog
 func wait_for_dialog_completion():
 	# Wait until the multi-dialog is finished
 	while PlayerManager.multiDialog:
 		await get_tree().create_timer(0.1).timeout
 
-# Helper function to calculate angle difference
+## angle_difference
+## Helper function to calculate angle difference
 func angle_difference(from: float, to: float) -> float:
 	return wrapf(to - from, -PI, PI)

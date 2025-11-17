@@ -16,6 +16,7 @@ func _ready() -> void:
 	PlayerManager.player.CURSOR.visible = false
 	PlayerManager.no_enemy = true
 	PlayerManager.Loop1 = true
+	PlayerManager.player = get_tree().current_scene.get_node("Player") 
 	animation_player.connect("animation_finished", _on_animation_finished)
 	cutscene_camera.current = true
 	animation_player.play("WakingUp")

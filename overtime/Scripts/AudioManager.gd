@@ -1,3 +1,15 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## AudioManager Script
+## - This Script contains functions for
+## controling Music and Sound effects
+## also storing many sound effects to be
+## used across the project
+## This does not control all sound this is
+## specfically for 2D sound that plays in the
+## players ears 3D sound is stored on seperately
+
+
 extends Node
 
 var MusicAudio = AudioStreamPlayer.new()
@@ -53,11 +65,17 @@ var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding
 var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
 
 func _ready() -> void:
+	## At creation of project assign the MusicAudio Player to the bus Music
 	MusicAudio.bus = "Music"
+	## Add the MusicAudio Player to child highest level of the project
 	add_child(MusicAudio)
 	
 
-
+## play_sound
+## plays a singluar instance of a sound 
+## then removes the player from queue
+## also allows for volume and pitch modification
+## these values do have defaults though so not nessacary for calling
 func play_sound(sound_stream: AudioStream, volume_db: float = -8.0, pitch_scale: float = 1):
 	var new_player = AudioStreamPlayer.new()
 	new_player.volume_db = volume_db
@@ -69,7 +87,12 @@ func play_sound(sound_stream: AudioStream, volume_db: float = -8.0, pitch_scale:
 	# Automatically remove after playback
 	await new_player.finished
 	new_player.queue_free()
-	
+
+## play_music
+## starts the playing of music 
+## this does not loop the music
+## the file used for this function
+## should be an mp3 that has loopable turned on
 func play_music(sound_stream: AudioStream):
 	if sound_stream == OfficeWhiteNoise:
 		add_child(OfficeMusicAudio)
@@ -80,6 +103,18 @@ func play_music(sound_stream: AudioStream):
 		MusicAudio.stream = sound_stream
 		MusicAudio.play()
 	
+## play_sound_loop
+## this function plays a sound 
+## and once that sound is complete
+## it will immediatelt play it again
+## it saves the sound with a name
+## and this information is stored
+## in the looping_players
+## this function also allows to change the pitch
+## and volume
+## there is also a wait parameter that can 
+## be used to give time between the last sound played
+## and the next
 func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale: float = 1.0, volume_db: float = 1.0, wait: float = 0.0):
 	if looping_players.has(sound_name):
 		looping_players[sound_name].pitch_scale = pitch_scale
@@ -112,10 +147,17 @@ func play_sound_loop(sound_stream: AudioStream, sound_name: String, pitch_scale:
 	
 	return new_player
 
+## set_loop_pitch
+## If a loop is already playing
+## this fucntion can find that loop by name
+## and chnage its pitch
 func set_loop_pitch(sound_name: String, pitch: float):
 	if looping_players.has(sound_name) && pitch > 0.0:
 		looping_players[sound_name].pitch_scale = pitch
 
+## stop loop
+## this function will
+## shut off a looping sound by name
 func stop_loop(sound_name: String):
 	if looping_players.has(sound_name):
 		var player = looping_players[sound_name]
@@ -123,6 +165,10 @@ func stop_loop(sound_name: String):
 		player.queue_free()
 		looping_players.erase(sound_name)
 
+## _on_player_finished
+## this is used to either wait before 
+## next sound is played when the first is finished
+## or just play the next sound
 func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
 
 	# Restart the same player instead of creating a new one
@@ -148,21 +194,33 @@ func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
 		player.set_meta("restart_timer", timer)
 	else:
 		player.play()
-	
+		
+## set_loop_volume
+## If a loop is already playing
+## this fucntion can find that loop by name
+## and change its volume
 func set_loop_volume(sound_name: String, volume_db: float):
 	if looping_players.has(sound_name):
 		looping_players[sound_name].volume_db = volume_db
 
+## fade_loop_volume
+## If a loop is already playing
+## this fucntion can find that loop by name
+## and fade its volume to a new value
 func fade_loop_volume(sound_name: String, target_volume: float, duration: float = 1.0):
 	if looping_players.has(sound_name):
 		var tween = create_tween()
 		tween.tween_property(looping_players[sound_name], "volume_db", target_volume, duration)
 	
+## cancel_music
+## this function turns off all music playing
 func cancel_music():
 	if OfficeMusicOn:
 		OfficeMusicAudio.playing = false
 	MusicAudio.playing = false
 	
+## cancel_loop_sfx
+## turns off all looping sounds
 func cancel_loop_sfx():
 	# Collect all keys first
 	var keys = []
@@ -176,12 +234,16 @@ func cancel_loop_sfx():
 		player.queue_free()
 		looping_players.erase(loop)
 		
-		
+
+## GetKeyPress
+## randomly returns a keypress sound
 func GetKeyPress():
 	var keypress_sounds = [keypress1, keypress2, keypress3, keypress4, keypress5]
 	var random_index = randi() % keypress_sounds.size()
 	return keypress_sounds[random_index]
-	
+
+## GetSocket
+## randomly returns a socket sound
 func GetSocket():
 	var socket_sounds = [socket1, socket2, socket3]
 	var random_index = randi() % socket_sounds.size()
