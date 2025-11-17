@@ -1,3 +1,10 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## door Script
+## - this is a test script that is for oppening a door
+## that is only one time use because the door is detroyed 
+## after opening.
+
 extends Interactable
 
 

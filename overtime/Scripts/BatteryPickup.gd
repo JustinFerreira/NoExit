@@ -1,3 +1,8 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## BatteryPickup Script
+## - This is the script for the pickup item battery
+
 extends Interactable
 
 func _on_interacted(body: Variant) -> void:

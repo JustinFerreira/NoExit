@@ -1,3 +1,10 @@
+## OverTime Production
+## Last upadated 11/16/25 by Justin Ferreira
+## ElevatorButtonPanel Script
+## - This is the Inside button of the elevator which
+## closes the elevator doors and moves the elevator down.
+## this also teleports the player to the parking garage
+
 extends Interactable
 
 @onready var animation_player = $"../AnimationPlayer"
