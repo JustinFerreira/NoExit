@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dq08ejjnraqec"]
+[gd_scene load_steps=48 format=3 uid="uid://dq08ejjnraqec"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Scenes/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gjgk8"]
@@ -49,6 +49,9 @@ albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ta0ie"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4v4y0"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_4bg5b"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_00owm"]
@@ -59,10 +62,29 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4rfmg"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_turjd"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_sw7fk"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sscfs"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_v0bey"]
+resource_name = "DoorFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/CarDoor/MeshInstance3D:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ykfaq"]
 resource_name = "GettinginCar"
@@ -196,6 +218,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_ifl34"]
 resource_name = "resetingstuff"
@@ -212,13 +258,29 @@ tracks/0/keys = {
 "values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
 }
 
-[sub_resource type="Animation" id="Animation_v0bey"]
-resource_name = "DoorFlash"
+[sub_resource type="Animation" id="Animation_vm5x0"]
+resource_name = "HotWireFlash"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/CarDoor/MeshInstance3D:transparency")
+tracks/0/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uyyri"]
+resource_name = "HoodFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -232,6 +294,8 @@ tracks/0/keys = {
 _data = {
 "DoorFlash": SubResource("Animation_v0bey"),
 "GettinginCar": SubResource("Animation_ykfaq"),
+"HoodFlash": SubResource("Animation_uyyri"),
+"HotWireFlash": SubResource("Animation_vm5x0"),
 "NoExitProps": SubResource("Animation_u6506"),
 "RESET": SubResource("Animation_2du3w"),
 "resetingstuff": SubResource("Animation_ifl34")
@@ -263,7 +327,7 @@ points = PackedVector3Array(-0.05444, 0.00727248, -0.150355, 0.0515564, 0.348158
 points = PackedVector3Array(-0.214183, -0.948028, -0.451129, 0.0227317, 0.952146, 0.498887, 0.171488, 0.951995, 0.469018, -0.125934, 0.952684, -0.483291, 0.499663, -0.953674, -0.00688883, -0.387646, -0.93796, 0.315653, -0.483292, 0.952686, -0.12593, 0.375097, 0.940128, -0.329816, 0.171488, -0.951995, 0.469018, 0.140783, -0.945485, -0.479579, 0.469014, 0.952011, 0.171499, -0.387646, 0.93796, 0.315653, -0.483292, -0.952686, -0.12593, -0.183511, -0.943076, 0.464698, 0.407412, -0.946994, 0.288983, 0.375097, -0.940128, -0.329816, -0.395154, 0.955761, -0.305523, -0.479555, 0.945437, 0.14088, 0.464698, 0.943099, -0.183512, 0.140783, 0.945485, -0.479579, -0.243203, 0.945955, 0.436491, -0.479555, -0.945437, 0.14088, 0.288971, 0.946988, 0.407421, -0.395154, -0.955761, -0.305523, -0.0069906, -0.953641, 0.499658, 0.499663, 0.953674, -0.00688883, -0.271948, 0.943071, -0.419217, 0.464698, -0.943099, -0.183512, -0.125934, -0.952684, -0.483291, 0.315648, 0.937973, -0.387651, 0.469014, -0.952011, 0.171499, 0.407412, 0.946994, 0.288983)
 
 [node name="Car" type="Node3D"]
-transform = Transform3D(1.53218, 0, 0, 0, 1.53218, 0, 0, 0, 1.53218, -0.144601, 0, 0)
+transform = Transform3D(1.53218, 0, 0, 0, 1.53218, 0, 0, 0, 1.53218, 0, 0, 0)
 
 [node name="Car_Collision" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0128484, 0, 0, 0, 0.0128484, 0, 0, 0, 0.0128484, -0.273234, 0.0311861, -0.0156854)
@@ -314,6 +378,7 @@ prompt_message = "Unlock Car"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/CarDoor"]
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0133092, 0, 0, 0, 0.0133022, 0.00986264, 0.0107043, 0.00558393)
+visible = false
 material_override = SubResource("StandardMaterial3D_as2o1")
 mesh = SubResource("BoxMesh_s4pjl")
 
@@ -323,13 +388,14 @@ shape = SubResource("ConvexPolygonShape3D_ta0ie")
 
 [node name="StartCar" type="StaticBody3D" parent="Mesh"]
 process_mode = 1
-transform = Transform3D(0.00811502, 0, 0, 0, 0.0126202, 0, 0, 0, 0.00442181, 0.00340134, 0.00584333, 0.00638816)
-visible = false
+transform = Transform3D(0.0103304, 0, 0, 0, 0.0161679, 0, 0, 0, 0.00442181, 0.00340134, 0.00748473, 0.0102582)
 script = ExtResource("5_cnxlx")
 prompt_message = "Start Car"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/StartCar"]
 transform = Transform3D(0.721354, 0, 0, 0, 0.721354, 0, 0, 0, 0.721354, 0.125114, 0.112198, 0.019061)
+visible = false
+material_override = SubResource("StandardMaterial3D_4v4y0")
 mesh = SubResource("BoxMesh_4bg5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StartCar"]
@@ -347,12 +413,14 @@ mesh = SubResource("BoxMesh_tb66f")
 shape = SubResource("ConvexPolygonShape3D_4rfmg")
 
 [node name="Hood" type="StaticBody3D" parent="Mesh"]
-visible = false
+transform = Transform3D(1.38061, 0, 0, 0, 1, 0, 0, 0, 1.08715, -0.000126825, 0.00107926, 0.000641372)
 script = ExtResource("7_6orr0")
 prompt_message = "Open Hood"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Hood"]
 transform = Transform3D(0.0129443, 0, 0, 0, 0.00631789, 0, 0, 0, 0.0119977, 0, 0.00858154, 0.0214983)
+visible = false
+material_override = SubResource("StandardMaterial3D_turjd")
 mesh = SubResource("BoxMesh_sw7fk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Hood"]
@@ -414,7 +482,8 @@ offset_bottom = 279.0
 text = "HOT WIRE CONFIRM"
 
 [node name="GasIntakeCam" type="Camera3D" parent="."]
-transform = Transform3D(-2.27565e-08, -0.416429, 0.520607, -1.82027e-08, 0.520607, 0.416429, -0.666667, 0, -2.91409e-08, 1.47459, 1.95023, -1.33715)
+transform = Transform3D(-2.22785e-08, -0.407683, 0.509673, -1.78204e-08, 0.509673, 0.407683, -0.652665, 1.92953e-14, -2.85289e-08, 1.64318, 1.95023, -1.33715)
+visible = false
 
 [node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
 visible = false
@@ -447,14 +516,14 @@ Press ESC to leave minigame with progress intact"
 horizontal_alignment = 1
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.2567e-11, -0.0374951, 0.00262543, -1.46235e-09, -0.00237345, -0.0414759, 0.0335215, -1.53937e-16, -1.81659e-09, 0.700287, 1.27795, -1.528)
+transform = Transform3D(9.2567e-11, -0.0374951, 0.00262543, -1.46235e-09, -0.00237345, -0.0414759, 0.0335215, -1.53937e-16, -1.81659e-09, 0.868876, 1.27795, -1.528)
 visible = false
 material_override = SubResource("StandardMaterial3D_840ys")
 mesh = SubResource("BoxMesh_jiv7g")
 skeleton = NodePath("../GasIntakeCanister")
 
 [node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.26266, -0.532682, 0.302827, -2.53334e-08, -0.329477, -0.57956, 0.612743, 0.228341, -0.129811, 1.09262, 1.60507, -1.77055)
+transform = Transform3D(0.26266, -0.532682, 0.302827, -2.53334e-08, -0.329477, -0.57956, 0.612743, 0.228341, -0.129811, 1.26121, 1.60507, -1.77055)
 visible = false
 material_override = SubResource("StandardMaterial3D_xu5ox")
 mesh = ExtResource("14_buw0t")

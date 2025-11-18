@@ -15,6 +15,7 @@ var entering = true
 @onready var car_camera = $"../../Head/Car_Cam"
 @onready var interact_ray = $"../../Head/Car_Cam/InteractRay"
 @onready var DoorFlash = $MeshInstance3D
+@onready var HotWireFlash = $"../StartCar/MeshInstance3D"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,6 +63,8 @@ func _on_animation_finished(anim_name: String):
 		player.interact_ray.enabled = true
 		prompt_message = "Exit Car"
 		if !PlayerManager.minigameOnePassed:
+			HotWireFlash.visible = true
+			animation_player.play("HotWireFlash")
 			PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
 	
 	## Exiting car animations
@@ -80,6 +83,7 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Get in Car"
+		HotWireFlash.visible = false
 		DoorFlash.visible = true
 		animation_player.play("DoorFlash")
 		
@@ -89,9 +93,16 @@ func _on_animation_finished(anim_name: String):
 		
 	## Door Flash
 	if anim_name == "DoorFlash":
+		DoorFlash.visible = true
 		if player.Incar == false:
 			animation_player.play("DoorFlash")
-			
+	
+	## HotWire Flash
+	if anim_name == "HotWireFlash":
+		if PlayerManager.minigameOnePassed:
+			return
+		if player.Incar == true:
+			animation_player.play("HotWireFlash")
 
 
 func _on_interacted(body: Variant) -> void:

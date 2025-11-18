@@ -81,24 +81,6 @@ bind/4/name = &"joint12"
 bind/4/bone = -1
 bind/4/pose = Transform3D(-1, 1.22465e-16, -1.22465e-16, 1.22465e-16, 1, -1.22465e-16, 1.22465e-16, -1.22465e-16, -1, -1.73711e-19, -0.0119662, 0.0105477)
 
-[sub_resource type="Animation" id="Animation_d4iyl"]
-resource_name = "Take 001"
-length = 3.33333
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton3D:joint9")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.0109021, 0, 0.0111451, 1.2, 1, -0.0119322, 0, 0.0111451, 2.33333, 1, -0.0159, 0, 0.0111451, 3, 1, -0.0166, 0, 0.0111451)
-tracks/1/type = "position_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton3D:joint11")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.0109021, 0, 0.0111451, 1.2, 1, 0.0119686, 0, 0.0111451, 2.36667, 1, 0.0159423, 0, 0.0111451, 3, 1, 0.0166035, 0, 0.0111451)
-
 [sub_resource type="Animation" id="Animation_nl8ef"]
 resource_name = "OutlinePulse"
 length = 2.0
@@ -153,6 +135,24 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+
+[sub_resource type="Animation" id="Animation_d4iyl"]
+resource_name = "Take 001"
+length = 3.33333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton3D:joint9")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0109021, 0, 0.0111451, 1.2, 1, -0.0119322, 0, 0.0111451, 2.33333, 1, -0.0159, 0, 0.0111451, 3, 1, -0.0166, 0, 0.0111451)
+tracks/1/type = "position_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton3D:joint11")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.0109021, 0, 0.0111451, 1.2, 1, 0.0119686, 0, 0.0111451, 2.36667, 1, 0.0159423, 0, 0.0111451, 3, 1, 0.0166035, 0, 0.0111451)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bclay"]
 _data = {
