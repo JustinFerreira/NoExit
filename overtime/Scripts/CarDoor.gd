@@ -14,11 +14,13 @@ var entering = true
 @onready var animation_player = $"../../AnimationPlayer"
 @onready var car_camera = $"../../Head/Car_Cam"
 @onready var interact_ray = $"../../Head/Car_Cam/InteractRay"
+@onready var DoorFlash = $MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## connects animation player to animation finished 
 	animation_player.connect("animation_finished", _on_animation_finished)
+	animation_player.play("DoorFlash")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +32,10 @@ func _process(delta: float) -> void:
 ## animation is fished so it can process
 ## what happens after the animation
 func _on_animation_finished(anim_name: String):
+	player = PlayerManager.player
 	#print("Animation Finished: ", anim_name)
+	
+	
 	
 	## Car Door opening and Closing animation
 	if anim_name == "NoExitProps":
@@ -75,15 +80,22 @@ func _on_animation_finished(anim_name: String):
 		animation_player.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		prompt_message = "Get in Car"
+		DoorFlash.visible = true
+		animation_player.play("DoorFlash")
 		
 		
 		# Teleport player 5 meters next to the car
 		player.global_position = self.global_position + Vector3(5, 0, 0)
 		
-	
+	## Door Flash
+	if anim_name == "DoorFlash":
+		if player.Incar == false:
+			animation_player.play("DoorFlash")
+			
 
 
 func _on_interacted(body: Variant) -> void:
+	DoorFlash.visible = false
 	player = PlayerManager.player
 	##Entering car if locked
 	if unlocked == false:
