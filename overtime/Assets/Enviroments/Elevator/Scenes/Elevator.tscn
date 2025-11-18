@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=24 format=4 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://cqtvr5khxey8w" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -99,10 +99,72 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.0109021, 0, 0.0111451, 1.2, 1, 0.0119686, 0, 0.0111451, 2.36667, 1, 0.0159423, 0, 0.0111451, 3, 1, 0.0166035, 0, 0.0111451)
 
+[sub_resource type="Animation" id="Animation_nl8ef"]
+resource_name = "OutlinePulse"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.965739, 0.145366, 0.364113, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v8wfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.965739, 0.145366, 0.364113, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bclay"]
 _data = {
+"OutlinePulse": SubResource("Animation_nl8ef"),
+"RESET": SubResource("Animation_v8wfy"),
 "Take 001": SubResource("Animation_d4iyl")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atf6u"]
+albedo_color = Color(0.965739, 0.145366, 0.364113, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6n637"]
 
 [node name="Elevator" type="Node3D"]
 transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
@@ -235,6 +297,11 @@ skin = SubResource("Skin_xpah6")
 libraries = {
 "": SubResource("AnimationLibrary_bclay")
 }
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0692717, 0, 0, 0, 0.0692717, 0, 0, 0, 0.0692717, 1.00033, 1.14701, 1.36919)
+material_override = SubResource("StandardMaterial3D_atf6u")
+mesh = SubResource("BoxMesh_6n637")
 
 [connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
 [connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]
