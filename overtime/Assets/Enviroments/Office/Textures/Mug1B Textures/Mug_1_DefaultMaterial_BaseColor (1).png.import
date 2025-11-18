@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgrl3xatnibt"
-path.s3tc="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-3213fd73aebe010ab7523524a515b653.s3tc.ctex"
+uid="uid://bpgpfcr68xv26"
+path.s3tc="res://.godot/imported/Mug_1_DefaultMaterial_BaseColor (1).png-b41aa0f15df8a2481ba10e739040a2aa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Textures/NoEntrySign Textures/M_Sign_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-3213fd73aebe010ab7523524a515b653.s3tc.ctex"]
+source_file="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_BaseColor (1).png"
+dest_files=["res://.godot/imported/Mug_1_DefaultMaterial_BaseColor (1).png-b41aa0f15df8a2481ba10e739040a2aa.s3tc.ctex"]
 
 [params]
 

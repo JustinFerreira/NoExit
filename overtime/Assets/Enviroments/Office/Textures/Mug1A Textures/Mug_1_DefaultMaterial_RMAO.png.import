@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qgrl3xatnibt"
-path.s3tc="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-3213fd73aebe010ab7523524a515b653.s3tc.ctex"
+uid="uid://db4s33kyaaehm"
+path.s3tc="res://.godot/imported/Mug_1_DefaultMaterial_RMAO.png-4e9d2a56c1511b741035de663aac6fbb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Textures/NoEntrySign Textures/M_Sign_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-3213fd73aebe010ab7523524a515b653.s3tc.ctex"]
+source_file="res://Assets/Enviroments/Office/Textures/Mug1A Textures/Mug_1_DefaultMaterial_RMAO.png"
+dest_files=["res://.godot/imported/Mug_1_DefaultMaterial_RMAO.png-4e9d2a56c1511b741035de663aac6fbb.s3tc.ctex"]
 
 [params]
 
@@ -24,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://Assets/Enviroments/Office/Textures/Mug1A Textures/Mug_1_DefaultMaterial_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
