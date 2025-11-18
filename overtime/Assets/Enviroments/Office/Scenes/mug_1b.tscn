@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://l6ssl2wjp0pk"]
+
+[ext_resource type="Texture2D" uid="uid://bpgpfcr68xv26" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_BaseColor (1).png" id="1_gx8el"]
+[ext_resource type="Texture2D" uid="uid://b6xlg8kbbc6px" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_RMAO (1).png" id="2_0btpc"]
+[ext_resource type="Texture2D" uid="uid://di71rnh80o15q" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_Normal (1).png" id="3_mn55k"]
+[ext_resource type="ArrayMesh" uid="uid://cgr3y6t1xgkib" path="res://Assets/Enviroments/Office/Models/Mug_1.obj" id="3_pvugw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mk0fp"]
+albedo_texture = ExtResource("1_gx8el")
+metallic = 1.0
+metallic_texture = ExtResource("2_0btpc")
+roughness_texture = ExtResource("2_0btpc")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_mn55k")
+ao_enabled = true
+ao_texture = ExtResource("2_0btpc")
+ao_texture_channel = 2
+
+[node name="Mug1B" type="Node3D"]
+
+[node name="Mug1" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_mk0fp")
+mesh = ExtResource("3_pvugw")
