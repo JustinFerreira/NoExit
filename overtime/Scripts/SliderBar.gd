@@ -7,4 +7,6 @@ func _ready():
 	update_sprite(slider.value)
 
 func update_sprite(value: float):
-	frame = max(0, 20 - (value / 5))
+	var percentage := int(round(value))
+	if percentage % 5 == 0:
+		frame = max(0, 20 - (value / 5))

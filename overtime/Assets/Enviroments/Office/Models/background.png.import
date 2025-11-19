@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqvyyb2ydrqdo"
-path="res://.godot/imported/slider_sprite_sheet.png-a8508fb0b0cc9a1668fafcba4c9f66d2.ctex"
+uid="uid://i2erb8l0osn8"
+path="res://.godot/imported/background.png-185678fb5b0bb62acf606a1537f125c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menus/Menu Assets/slider_sprite_sheet.png"
-dest_files=["res://.godot/imported/slider_sprite_sheet.png-a8508fb0b0cc9a1668fafcba4c9f66d2.ctex"]
+source_file="res://Assets/Enviroments/Office/Models/background.png"
+dest_files=["res://.godot/imported/background.png-185678fb5b0bb62acf606a1537f125c1.ctex"]
 
 [params]
 
