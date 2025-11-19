@@ -1,15 +1,17 @@
-[gd_scene load_steps=48 format=3 uid="uid://bbptuv1do4fe"]
+[gd_scene load_steps=105 format=3 uid="uid://bbptuv1do4fe"]
 
 [ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="1_urev0"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_hb7d1"]
-[ext_resource type="Texture2D" uid="uid://b6md71omxg1id" path="res://Menus/Menu Assets/computer_background.jpg" id="2_pc52w"]
+[ext_resource type="Texture2D" uid="uid://6w0vssn3kv74" path="res://Menus/Menu Assets/Images/background.png" id="2_wpq5o"]
 [ext_resource type="Script" path="res://Scripts/SettingsLabel.gd" id="3_vyt64"]
-[ext_resource type="Texture2D" uid="uid://bcrhdkkxbi2kc" path="res://Menus/Menu Assets/slider_icon.png" id="4_gikmb"]
-[ext_resource type="Texture2D" uid="uid://bqvyyb2ydrqdo" path="res://Menus/Menu Assets/slider_sprite_sheet.png" id="5_03j2j"]
-[ext_resource type="Texture2D" uid="uid://cjtargsm1an27" path="res://Menus/Menu Assets/folder_overlay.png" id="5_bn5p2"]
-[ext_resource type="Texture2D" uid="uid://dg2067qv7wner" path="res://Menus/Menu Assets/x_button.png" id="5_eiqve"]
+[ext_resource type="Texture2D" uid="uid://bcrhdkkxbi2kc" path="res://Menus/Menu Assets/Images/slider_icon.png" id="4_gikmb"]
+[ext_resource type="Texture2D" uid="uid://bqvyyb2ydrqdo" path="res://Menus/Menu Assets/Images/slider_sprite_sheet.png" id="5_03j2j"]
+[ext_resource type="Texture2D" uid="uid://cjtargsm1an27" path="res://Menus/Menu Assets/Images/folder_overlay.png" id="5_bn5p2"]
+[ext_resource type="Texture2D" uid="uid://dg2067qv7wner" path="res://Menus/Menu Assets/Images/x_button.png" id="5_eiqve"]
 [ext_resource type="Script" path="res://Scripts/SliderBar.gd" id="6_4lk7f"]
-[ext_resource type="Shader" path="res://Menus/Menu Assets/screen_effect.gdshader" id="10_wfh1f"]
+[ext_resource type="Texture2D" uid="uid://dayic4rttcukr" path="res://Menus/Menu Assets/Images/checked.png" id="8_neb0b"]
+[ext_resource type="Texture2D" uid="uid://bbpyqq2h7bd7b" path="res://Menus/Menu Assets/Images/unchecked.png" id="9_wxc5j"]
+[ext_resource type="Shader" path="res://Assets/Shaders/CRTFilter.gdshader" id="10_wfh1f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a8gj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -218,15 +220,125 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0, 0.666667, 0, 0)
 expand_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_igxie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ix5k1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hckj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bek17"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_po8qy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rny1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p28ff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imk88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_npe3p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g625d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ti4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uf7ew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whs08"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rluns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1fql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05a82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s43pn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q060x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_172lt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_awufq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1xfj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w181y"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujhld"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rebhu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0a8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4kwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qvuhf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uj45u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_km132"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0lj2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuhqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imur0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_07f2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rw65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dqu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y6s53"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6yr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvvcc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4xkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qj522"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4qg2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a855g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wpnav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jnr3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hyori"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0aof6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhuj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m65wq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nw2t2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy8em"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17vfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qf0d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7aip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lheky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxgjj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anfjb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rmlh4"]
 shader = ExtResource("10_wfh1f")
 
 [sub_resource type="QuadMesh" id="QuadMesh_2i0i3"]
-size = Vector2(1073, 597)
-center_offset = Vector3(635, 350, 0)
+size = Vector2(725, 540)
+center_offset = Vector3(660, 350, 0)
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -244,23 +356,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_pc52w")
+texture = ExtResource("2_wpq5o")
 
 [node name="TabContainer" type="TabContainer" parent="ColorRect"]
 layout_mode = 2
-offset_left = 144.0
-offset_top = 121.0
-offset_right = 1151.0
-offset_bottom = 600.0
+offset_left = 320.0
+offset_top = 100.0
+offset_right = 966.0
+offset_bottom = 579.0
 theme = SubResource("Theme_4gq1q")
 theme_override_colors/font_unselected_color = Color(0.6, 0.0156863, 0.0156863, 1)
 theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 50
-current_tab = 0
+current_tab = 2
 
 [node name="VOLUME" type="TabBar" parent="ColorRect/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -280,7 +393,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="MasterLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox"]
 layout_mode = 2
@@ -317,7 +430,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="MusicLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox"]
 layout_mode = 2
@@ -354,7 +467,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="SFXLabel" type="Label" parent="ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox"]
 layout_mode = 2
@@ -390,6 +503,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_igxie")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ix5k1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hckj8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bek17")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_po8qy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rny1p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p28ff")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_imk88")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npe3p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_g625d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0ti4o")
+theme_override_icons/checked = ExtResource("8_neb0b")
+theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "Mute"
 
 [node name="VISUAL" type="TabBar" parent="ColorRect/TabContainer"]
@@ -400,10 +526,16 @@ metadata/_tab_index = 1
 [node name="VisualSettingsVbox" type="VBoxContainer" parent="ColorRect/TabContainer/VISUAL"]
 layout_mode = 2
 offset_left = 38.0
-offset_top = 38.0
-offset_right = 227.0
-offset_bottom = 298.0
+offset_top = 9.0
+offset_right = 451.0
+offset_bottom = 403.0
 size_flags_horizontal = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
 
 [node name="VisualLabel" type="Label" parent="ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
 visible = false
@@ -419,27 +551,41 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uf7ew")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_whs08")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rluns")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1fql")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_05a82")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_s43pn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q060x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_172lt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_awufq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_l1xfj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w181y")
+theme_override_icons/checked = ExtResource("8_neb0b")
+theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "FullScreen"
 
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
 [node name="GAME" type="TabBar" parent="ColorRect/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
 [node name="GameSettingsVbox" type="VBoxContainer" parent="ColorRect/TabContainer/GAME"]
 layout_mode = 2
 offset_left = 38.0
-offset_top = 22.5
+offset_top = 9.0
 offset_right = 451.0
-offset_bottom = 416.5
+offset_bottom = 403.0
 size_flags_horizontal = 4
 
 [node name="SensitivityVbox" type="VBoxContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 15
 
 [node name="SensitivityLabel" type="Label" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
 layout_mode = 2
@@ -447,12 +593,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
 text = "Mouse Sensitivity"
-
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="SensitivitySlider" type="HSlider" parent="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox"]
 layout_mode = 2
@@ -481,6 +621,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rebhu")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s0a8e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d4kwt")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_qvuhf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_uj45u")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_km132")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j0lj2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_uuhqi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_imur0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_07f2d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4rw65")
+theme_override_icons/checked = ExtResource("8_neb0b")
+theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "Hold Shift Run"
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
@@ -492,6 +645,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0dqu2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_y6s53")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_f6yr6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xvvcc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x4xkf")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qj522")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n4qg2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_a855g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wpnav")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4jnr3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hyori")
+theme_override_icons/checked = ExtResource("8_neb0b")
+theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "Head Bob"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/TabContainer/GAME/GameSettingsVbox"]
@@ -511,18 +677,29 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 2
-offset_left = 1022.0
-offset_top = 190.0
-offset_right = 1140.0
-offset_bottom = 308.0
+offset_left = 881.0
+offset_top = 196.0
+offset_right = 999.0
+offset_bottom = 314.0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 24
 theme_override_icons/icon = ExtResource("5_eiqve")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0aof6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vhuj5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_m65wq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nw2t2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_sy8em")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_17vfo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4qf0d")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_d7aip")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lheky")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_mxgjj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_anfjb")
 
 [node name="Folder_Overlay" type="Sprite2D" parent="ColorRect"]
-position = Vector2(619, 412)
+position = Vector2(620, 366)
 scale = Vector2(1.0179, 1.05277)
 texture = ExtResource("5_bn5p2")
 
