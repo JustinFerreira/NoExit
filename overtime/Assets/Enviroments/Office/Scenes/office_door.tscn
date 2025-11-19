@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://djkmmpuymcplm"]
+
+[ext_resource type="Texture2D" uid="uid://cgq1r8skkk46y" path="res://Assets/Enviroments/Office/Textures/Other Textures/office_door.png" id="1_75cnb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bctkv"]
+albedo_texture = ExtResource("1_75cnb")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gwi8g"]
+
+[node name="OfficeDoor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bctkv")
+mesh = SubResource("PlaneMesh_gwi8g")
