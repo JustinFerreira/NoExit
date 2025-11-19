@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc52g54vem148"]
+
+[ext_resource type="Texture2D" uid="uid://cmr7ihx8k7svn" path="res://Assets/Enviroments/Office/Textures/Other Textures/clock.png" id="1_ynurh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsigu"]
+transparency = 1
+albedo_texture = ExtResource("1_ynurh")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_26d4p"]
+
+[node name="Clock" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qsigu")
+mesh = SubResource("PlaneMesh_26d4p")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://btbl427f7d5ow"
+path="res://.godot/imported/Pen_1.obj-73b1e642c200b763158f34a167ab25be.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pen_1.obj-73b1e642c200b763158f34a167ab25be.mesh"]
+
+source_file="res://Assets/Enviroments/Office/Models/Pen_1.obj"
+dest_files=["res://.godot/imported/Pen_1.obj-73b1e642c200b763158f34a167ab25be.mesh", "res://.godot/imported/Pen_1.obj-73b1e642c200b763158f34a167ab25be.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

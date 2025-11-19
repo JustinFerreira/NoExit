@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6w0xr44eunx7"]
+
+[ext_resource type="Texture2D" uid="uid://u30sweqx4h2q" path="res://Assets/Enviroments/Office/Textures/Other Textures/vent.png" id="1_aax2g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46dvq"]
+albedo_texture = ExtResource("1_aax2g")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ko1sf"]
+
+[node name="OfficeVent" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.195, 0, 0, 0, -7.725, 1.51751e-06, 0, -1.16644e-06, -10.05, 1, -1.13, 2)
+material_override = SubResource("StandardMaterial3D_46dvq")
+mesh = SubResource("PlaneMesh_ko1sf")

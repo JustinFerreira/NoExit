@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cynyerbywg3c6"]
+
+[ext_resource type="Texture2D" uid="uid://22lnk6tsuvxl" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_Albedo.png" id="1_uniwu"]
+[ext_resource type="Texture2D" uid="uid://d04lx5tlf8670" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png" id="2_4ia6h"]
+[ext_resource type="Texture2D" uid="uid://bpicrnqmbrmvc" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_Normal.png" id="3_d8vo7"]
+[ext_resource type="ArrayMesh" uid="uid://dvwisbdwh1pve" path="res://Assets/Enviroments/Office/Models/Pencil.obj" id="3_sose6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oflcg"]
+albedo_texture = ExtResource("1_uniwu")
+metallic = 1.0
+metallic_texture = ExtResource("2_4ia6h")
+roughness_texture = ExtResource("2_4ia6h")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_d8vo7")
+ao_enabled = true
+ao_texture = ExtResource("2_4ia6h")
+ao_texture_channel = 2
+
+[node name="Pencil1B" type="Node3D"]
+
+[node name="Pencil" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_oflcg")
+mesh = ExtResource("3_sose6")

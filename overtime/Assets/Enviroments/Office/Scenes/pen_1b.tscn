@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bigkpyey4v35f"]
+
+[ext_resource type="Texture2D" uid="uid://cvthmq4grhikm" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_Albedo.png" id="1_5qiem"]
+[ext_resource type="Texture2D" uid="uid://bjcsj4uiaqqc7" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_MetallicRoughnessAO.png" id="2_1sakx"]
+[ext_resource type="Texture2D" uid="uid://bjwtk3pkqxof6" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_Normal.png" id="3_vm2dx"]
+[ext_resource type="ArrayMesh" uid="uid://btbl427f7d5ow" path="res://Assets/Enviroments/Office/Models/Pen_1.obj" id="4_bv07r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwwlh"]
+albedo_texture = ExtResource("1_5qiem")
+metallic = 1.0
+metallic_texture = ExtResource("2_1sakx")
+roughness_texture = ExtResource("2_1sakx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_vm2dx")
+ao_enabled = true
+ao_texture = ExtResource("2_1sakx")
+ao_texture_channel = 2
+
+[node name="Pen1B" type="Node3D"]
+
+[node name="Pen1" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_uwwlh")
+mesh = ExtResource("4_bv07r")
