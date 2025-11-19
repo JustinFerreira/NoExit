@@ -36,16 +36,16 @@ script = ExtResource("1_vybo4")
 fog_remover = NodePath("WorldEnvironment/FogRemover")
 
 [node name="Battery" parent="." instance=ExtResource("9_5f5sb")]
-transform = Transform3D(0.0179057, 0, 0, 0, 0.0179057, 0, 0, 0, 0.0179057, 40.0587, 4.47024, 0.121401)
+transform = Transform3D(0.0179057, 0, 0, 0, 0.0179057, 0, 0, 0, 0.0179057, 54.619, 1.86724, 17.8927)
 visible = false
 skeleton = NodePath("../WorldEnvironment")
 
 [node name="WireNegative" parent="." instance=ExtResource("8_ljxvc")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 39.2437, 4.94153, -0.0170891)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 53.804, 2.33853, 17.7542)
 visible = false
 
 [node name="WirePositive" parent="." instance=ExtResource("10_4hpyl")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 40.8232, 4.92833, -0.463853)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 55.3835, 2.32533, 17.3074)
 visible = false
 axis_lock_linear_y = true
 axis_lock_angular_y = true

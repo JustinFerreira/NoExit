@@ -21,6 +21,8 @@ config/icon="res://Assets/GTFO.png"
 AudioManager="*res://Scripts/AudioManager.gd"
 SettingsManager="*res://Scripts/SettingsManager.gd"
 PlayerManager="*res://Scripts/PlayerManager.gd"
+AnimationManager="*res://Scripts/AnimationManager.gd"
+CameraManager="*res://Scripts/CameraManager.gd"
 
 [display]
 

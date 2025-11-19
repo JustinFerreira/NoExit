@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dq08ejjnraqec"]
+[gd_scene load_steps=50 format=3 uid="uid://dq08ejjnraqec"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Scenes/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gjgk8"]
@@ -70,13 +70,149 @@ albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sscfs"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
-[sub_resource type="Animation" id="Animation_v0bey"]
-resource_name = "DoorFlash"
+[sub_resource type="Animation" id="Animation_ifl34"]
+resource_name = "resetingstuff"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Car_Cam:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_2du3w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Car_Cam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.5, 2, -0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Car_Cam:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.66487, 2.10038, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.27356, -1.60392, -0.00895053)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Mesh/CarDoor/CollisionShapeMesh:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u6506"]
+resource_name = "NoExitProps"
+length = 1.98333
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Skeleton3D:joint2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0.00886645, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh/Skeleton3D:joint2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.0333333, 1, 0, 0.707107, 0, 0.707107, 0.05, 1, 0, 0.70667, 0, 0.707543, 0.0833333, 1, 0, 0.70363, 0, 0.710567, 0.116667, 1, 0, 0.698707, 0, 0.715408, 0.15, 1, 0, 0.693123, 0, 0.72082, 0.183333, 1, 0, 0.68813, 0, 0.725588, 0.233333, 1, 0, 0.684562, 0, 0.728955, 0.25, 1, 0, 0.684895, 0, 0.728641, 0.283333, 1, 0, 0.686928, 0, 0.726725, 0.316667, 1, 0, 0.689374, 0, 0.724405, 0.35, 1, 0, 0.690559, 0, 0.723276, 0.383333, 1, 0, 0.686795, 0, 0.726851, 0.416667, 1, 0, 0.677395, 0, 0.73562, 0.45, 1, 0, 0.665208, 0, 0.746658, 0.483333, 1, 0, 0.653213, 0, 0.757174, 0.516667, 1, 0, 0.643896, 0, 0.765113, 0.55, 1, 0, 0.635121, 0, 0.772412, 0.583333, 1, 0, 0.622939, 0, 0.782271, 0.616667, 1, 0, 0.603178, 0, 0.797606, 0.65, 1, 0, 0.566123, 0, 0.824321, 0.683333, 1, 0, 0.516192, 0, 0.856473, 0.733333, 1, 0, 0.45865, 0, 0.888617, 0.75, 1, 0, 0.450157, 0, 0.89295, 0.783333, 1, 0, 0.43704, 0, 0.899442, 0.816667, 1, 0, 0.428188, 0, 0.90369, 0.85, 1, 0, 0.422473, 0, 0.906376, 0.883333, 1, 0, 0.418728, 0, 0.908112, 0.916667, 1, 0, 0.415771, 0, 0.909469, 0.95, 1, 0, 0.412407, 0, 0.910999, 0.983333, 1, 0, 0.407436, 0, 0.913234, 1.01667, 1, 0, 0.400803, 0, 0.916164, 1.08333, 1, 0, 0.386301, 0, 0.922373, 1.11667, 1, 0, 0.379441, 0, 0.925216, 1.15, 1, 0, 0.373524, 0, 0.92762, 1.18333, 1, 0, 0.369068, 0, 0.929402, 1.23333, 1, 0, 0.366259, 0, 0.930513, 1.35, 1, 0, 0.367297, 0, 0.930104, 1.38333, 1, 0, 0.368276, 0, 0.929716, 1.41667, 1, 0, 0.369722, 0, 0.929142, 1.45, 1, 0, 0.371722, 0, 0.928344, 1.48333, 1, 0, 0.374365, 0, 0.927281, 1.51667, 1, 0, 0.379325, 0, 0.925263, 1.55, 1, 0, 0.386808, 0, 0.92216, 1.58333, 1, 0, 0.394712, 0, 0.918805, 1.61667, 1, 0, 0.400959, 0, 0.916096, 1.65, 1, 0, 0.403497, 0, 0.914981)
+
+[sub_resource type="Animation" id="Animation_vm5x0"]
+resource_name = "HotWireFlash"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/CarDoor/MeshInstance3D:transparency")
+tracks/0/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_uyyri"]
+resource_name = "HoodFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -138,149 +274,23 @@ tracks/3/keys = {
 "values": [Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, -1.60392, -0.00895053), Vector3(0.27356, 0.000391243, -0.00895053)]
 }
 
-[sub_resource type="Animation" id="Animation_u6506"]
-resource_name = "NoExitProps"
-length = 1.98333
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/Skeleton3D:joint2")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.0333333, 1, 0.00886645, 0, 0)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Mesh/Skeleton3D:joint2")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0.0333333, 1, 0, 0.707107, 0, 0.707107, 0.05, 1, 0, 0.70667, 0, 0.707543, 0.0833333, 1, 0, 0.70363, 0, 0.710567, 0.116667, 1, 0, 0.698707, 0, 0.715408, 0.15, 1, 0, 0.693123, 0, 0.72082, 0.183333, 1, 0, 0.68813, 0, 0.725588, 0.233333, 1, 0, 0.684562, 0, 0.728955, 0.25, 1, 0, 0.684895, 0, 0.728641, 0.283333, 1, 0, 0.686928, 0, 0.726725, 0.316667, 1, 0, 0.689374, 0, 0.724405, 0.35, 1, 0, 0.690559, 0, 0.723276, 0.383333, 1, 0, 0.686795, 0, 0.726851, 0.416667, 1, 0, 0.677395, 0, 0.73562, 0.45, 1, 0, 0.665208, 0, 0.746658, 0.483333, 1, 0, 0.653213, 0, 0.757174, 0.516667, 1, 0, 0.643896, 0, 0.765113, 0.55, 1, 0, 0.635121, 0, 0.772412, 0.583333, 1, 0, 0.622939, 0, 0.782271, 0.616667, 1, 0, 0.603178, 0, 0.797606, 0.65, 1, 0, 0.566123, 0, 0.824321, 0.683333, 1, 0, 0.516192, 0, 0.856473, 0.733333, 1, 0, 0.45865, 0, 0.888617, 0.75, 1, 0, 0.450157, 0, 0.89295, 0.783333, 1, 0, 0.43704, 0, 0.899442, 0.816667, 1, 0, 0.428188, 0, 0.90369, 0.85, 1, 0, 0.422473, 0, 0.906376, 0.883333, 1, 0, 0.418728, 0, 0.908112, 0.916667, 1, 0, 0.415771, 0, 0.909469, 0.95, 1, 0, 0.412407, 0, 0.910999, 0.983333, 1, 0, 0.407436, 0, 0.913234, 1.01667, 1, 0, 0.400803, 0, 0.916164, 1.08333, 1, 0, 0.386301, 0, 0.922373, 1.11667, 1, 0, 0.379441, 0, 0.925216, 1.15, 1, 0, 0.373524, 0, 0.92762, 1.18333, 1, 0, 0.369068, 0, 0.929402, 1.23333, 1, 0, 0.366259, 0, 0.930513, 1.35, 1, 0, 0.367297, 0, 0.930104, 1.38333, 1, 0, 0.368276, 0, 0.929716, 1.41667, 1, 0, 0.369722, 0, 0.929142, 1.45, 1, 0, 0.371722, 0, 0.928344, 1.48333, 1, 0, 0.374365, 0, 0.927281, 1.51667, 1, 0, 0.379325, 0, 0.925263, 1.55, 1, 0, 0.386808, 0, 0.92216, 1.58333, 1, 0, 0.394712, 0, 0.918805, 1.61667, 1, 0, 0.400959, 0, 0.916096, 1.65, 1, 0, 0.403497, 0, 0.914981)
-
-[sub_resource type="Animation" id="Animation_2du3w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Car_Cam:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(2.5, 2, -0.1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Car_Cam:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(2.66487, 2.10038, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Head:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.27356, -1.60392, -0.00895053)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Mesh/CarDoor/MeshInstance3D:transparency")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tr6wb"]
+_data = {
+"GettinginCar": SubResource("Animation_ykfaq"),
+"HoodFlash": SubResource("Animation_uyyri"),
+"HotWireFlash": SubResource("Animation_vm5x0"),
+"NoExitProps": SubResource("Animation_u6506"),
+"RESET": SubResource("Animation_2du3w"),
+"resetingstuff": SubResource("Animation_ifl34")
 }
 
-[sub_resource type="Animation" id="Animation_ifl34"]
-resource_name = "resetingstuff"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Car_Cam:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.523599, 1.5708, -6.02223e-08)]
-}
-
-[sub_resource type="Animation" id="Animation_vm5x0"]
-resource_name = "HotWireFlash"
+[sub_resource type="Animation" id="Animation_j80f4"]
+resource_name = "DoorFlash"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/StartCar/MeshInstance3D:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_uyyri"]
-resource_name = "HoodFlash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/Hood/MeshInstance3D:transparency")
+tracks/0/path = NodePath("Mesh/CarDoor/CarDoorVisual:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -290,15 +300,25 @@ tracks/0/keys = {
 "values": [0.0, 1.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tr6wb"]
+[sub_resource type="Animation" id="Animation_h8flc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/CarDoor/CarDoorVisual:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thmjb"]
 _data = {
-"DoorFlash": SubResource("Animation_v0bey"),
-"GettinginCar": SubResource("Animation_ykfaq"),
-"HoodFlash": SubResource("Animation_uyyri"),
-"HotWireFlash": SubResource("Animation_vm5x0"),
-"NoExitProps": SubResource("Animation_u6506"),
-"RESET": SubResource("Animation_2du3w"),
-"resetingstuff": SubResource("Animation_ifl34")
+"DoorFlash": SubResource("Animation_j80f4"),
+"RESET": SubResource("Animation_h8flc")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_840ys"]
@@ -376,7 +396,13 @@ skin = SubResource("Skin_htymr")
 script = ExtResource("4_of1nr")
 prompt_message = "Unlock Car"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/CarDoor"]
+[node name="CollisionShapeMesh" type="MeshInstance3D" parent="Mesh/CarDoor"]
+transform = Transform3D(0.00534786, 0, 0, 0, 0.0133092, 0, 0, 0, 0.0133022, 0.00986264, 0.0107043, 0.00558393)
+visible = false
+material_override = SubResource("StandardMaterial3D_as2o1")
+mesh = SubResource("BoxMesh_s4pjl")
+
+[node name="CarDoorVisual" type="MeshInstance3D" parent="Mesh/CarDoor"]
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0133092, 0, 0, 0, 0.0133022, 0.00986264, 0.0107043, 0.00558393)
 visible = false
 material_override = SubResource("StandardMaterial3D_as2o1")
@@ -430,6 +456,11 @@ shape = SubResource("ConvexPolygonShape3D_sscfs")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tr6wb")
+}
+
+[node name="DoorFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_thmjb")
 }
 
 [node name="Head" type="Node3D" parent="."]
