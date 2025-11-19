@@ -1,8 +1,13 @@
+
+
 extends Interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AnimationManager.HoodFlash = $MeshInstance3D
+	AnimationManager.HoodFlash = $CarHoodVisual
+	AnimationManager.HoodFlashAnimationPlayer = $"../../HoodFlashAnimationPlayer"
+	AnimationManager.ActivateHoodFlashAnimationPlayer()
+	AnimationManager.HoodFlashAnimationPlayer.play("HoodFlash")
 	is_interactable = false
 	prompt_message = ""
 
@@ -14,8 +19,6 @@ func _process(delta: float) -> void:
 		prompt_message = "Open Hood"
 		if !PlayerManager.minigameThree:
 			AnimationManager.HoodFlash.visible = true
-			AnimationManager.CarAnimationPlayer.play("HoodFlash")
-			
 
 
 func _on_interacted(body: Variant) -> void:

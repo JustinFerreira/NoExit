@@ -1,11 +1,12 @@
 extends Interactable
 
-@onready var DoorFlash = $MeshInstance3D
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-
+	AnimationManager.SteeringWheelFlash = $CarSteeringWheelVisual
+	AnimationManager.SteeringWheelFlashAnimationPlayer = $"../../SteeringWheelFlashAnimationPlayer"
+	
+	AnimationManager.ActivateSteeringWheelFlashAnimationPlayer()
+	AnimationManager.SteeringWheelFlashAnimationPlayer.play("SteeringWheelFlash")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if PlayerManager.minigameOnePassed:
@@ -14,7 +15,6 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
-	DoorFlash.visible = false
 	if PlayerManager.minigameOnePassed && PlayerManager.minigameTwoPassed && PlayerManager.minigameThreePassed:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

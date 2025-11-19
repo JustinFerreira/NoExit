@@ -17,12 +17,12 @@ func _ready() -> void:
 	AnimationManager.DoorFlashAnimationPlayer = $"../../DoorFlashAnimationPlayer"
 	
 	AnimationManager.DoorFlash = $CarDoorVisual
-	AnimationManager.HotWireFlash = $"../StartCar/MeshInstance3D"
 	AnimationManager.CarInteractRay = $"../../Head/Car_Cam/InteractRay"
 	AnimationManager.CarHead = $"../../Head"
+	CameraManager.CarCamera = $"../../Head/Car_Cam"
+	
 	AnimationManager.ActivateCarAnimationPlayer()
 	AnimationManager.ActivateDoorFlashAnimationPlayer()
-	CameraManager.CarCamera = $"../../Head/Car_Cam"
 	
 	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
 	AnimationManager.DoorFlash.visible = true
@@ -39,17 +39,13 @@ func _process(delta: float) -> void:
 func _on_animation_finished(anim_name: String):
 	pass
 	
-	## HotWire Flash
-	if anim_name == "HotWireFlash":
-		if PlayerManager.minigameOnePassed and (not PlayerManager.minigameTwoPassed or not PlayerManager.minigameThreePassed):
-			return
-		if player.Incar == true:
-			AnimationManager.CarAnimationPlayer.play("HotWireFlash")
+	
 
 
 func _on_interacted(body: Variant) -> void:
 	AnimationManager.DoorFlash.visible = false
-	AnimationManager.HotWireFlash.visible = false
+	AnimationManager.SteeringWheelFlash.visible = false
+	AnimationManager.HoodFlash.visible = false
 	player = PlayerManager.player
 	##Entering car if locked
 	if unlocked == false:
