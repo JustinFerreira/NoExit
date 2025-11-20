@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cewqx4x1brn8o"]
+
+[ext_resource type="Texture2D" uid="uid://d2vgocnmsrklj" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_BaseColor.png" id="1_dqydx"]
+[ext_resource type="Texture2D" uid="uid://ccer4eg6p1t6j" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_RMAO.png" id="2_k7sko"]
+[ext_resource type="Texture2D" uid="uid://cdwpytjiaev36" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_Height.png" id="3_2wme3"]
+[ext_resource type="Texture2D" uid="uid://dhh3bp8f08wp6" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_Normal.png" id="4_rgemx"]
+[ext_resource type="ArrayMesh" uid="uid://dbyqsfydae3x2" path="res://Assets/Enviroments/Office/Models/Answering_Machine.obj" id="5_4gyt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pdbf"]
+albedo_texture = ExtResource("1_dqydx")
+metallic = 1.0
+metallic_texture = ExtResource("2_k7sko")
+roughness_texture = ExtResource("2_k7sko")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_rgemx")
+ao_enabled = true
+ao_texture = ExtResource("2_k7sko")
+ao_texture_channel = 2
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_2wme3")
+texture_filter = 0
+
+[node name="AnsweringMachine" type="Node3D"]
+
+[node name="AnsweringMachine" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.5)
+material_override = SubResource("StandardMaterial3D_0pdbf")
+mesh = ExtResource("5_4gyt5")

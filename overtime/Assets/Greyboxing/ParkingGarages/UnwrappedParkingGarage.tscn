@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=58 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -27,15 +27,15 @@
 [ext_resource type="PackedScene" uid="uid://dml7j0v8y66qp" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_small_short.tscn" id="25_4nj6k"]
 [ext_resource type="PackedScene" uid="uid://dg44iwbdgyl60" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_wide_90.tscn" id="26_get21"]
 [ext_resource type="PackedScene" uid="uid://45y1na4xintm" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_holster.tscn" id="27_inpk3"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/sqaure_drain.tscn" id="28_ysgod"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/garage_railing.tscn" id="29_gbv3r"]
+[ext_resource type="PackedScene" uid="uid://1pg70pbkb6vm" path="res://Assets/Enviroments/Garage/Scenes/sqaure_drain.tscn" id="28_ysgod"]
+[ext_resource type="PackedScene" uid="uid://bsifgoem33d6a" path="res://Assets/Enviroments/Garage/Scenes/garage_railing.tscn" id="29_gbv3r"]
 [ext_resource type="PackedScene" uid="uid://b7igr81mtky0o" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_small_90.tscn" id="30_xmbkm"]
 [ext_resource type="PackedScene" uid="uid://xp82eoac5p0b" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_offset.tscn" id="31_qerlm"]
 [ext_resource type="PackedScene" uid="uid://ceq5uaoxhsos" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_90.tscn" id="32_nlghw"]
 [ext_resource type="PackedScene" uid="uid://c3phsveb0htb3" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_sharp_90.tscn" id="33_xoxpy"]
 [ext_resource type="PackedScene" uid="uid://bgqhrpyms3muy" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_med.tscn" id="34_gv3cj"]
 [ext_resource type="PackedScene" uid="uid://ds23wtah2s44g" path="res://Assets/Enviroments/Garage/Scenes/Pipes/pipe_big_junction.tscn" id="35_ik52y"]
-[ext_resource type="Texture2D" uid="uid://qgrl3xatnibt" path="res://Assets/Enviroments/Garage/Textures/DoNotEnter Sign Textures/M_Sign_Unwrapped_BaseColor.png" id="36_nl86c"]
+[ext_resource type="Texture2D" uid="uid://qgrl3xatnibt" path="res://Assets/Enviroments/Garage/Textures/NoEntrySign Textures/M_Sign_Unwrapped_BaseColor.png" id="36_nl86c"]
 [ext_resource type="Texture2D" uid="uid://bw638pimq6j0u" path="res://Assets/Enviroments/Garage/Textures/Exit Sign Textures/M_Sign_Unwrapped_BaseColor.png" id="38_amgkn"]
 [ext_resource type="Texture2D" uid="uid://dml8pd08r7co6" path="res://Assets/Enviroments/Garage/Textures/Exit Sign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png" id="39_4xjc8"]
 [ext_resource type="ArrayMesh" uid="uid://nadp4pi30o8s" path="res://Assets/Enviroments/Garage/Models/M_Sign_Unwrapped.obj" id="39_qbb3x"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://dvti3ue1c8d1j" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_BaseColor.png" id="41_4j71c"]
 [ext_resource type="Texture2D" uid="uid://5lxai14ktne3" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png" id="42_bpvk7"]
 [ext_resource type="Texture2D" uid="uid://dlquy46kgi6bt" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Normal.png" id="43_6kelg"]
+[ext_resource type="PackedScene" uid="uid://bjo521deyvqb0" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_light.tscn" id="44_vetxg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -82,6 +83,16 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_itmpg"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qh4uv"]
+albedo_texture = ExtResource("41_4j71c")
+metallic = 1.0
+metallic_texture = ExtResource("42_bpvk7")
+roughness_texture = ExtResource("42_bpvk7")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("43_6kelg")
+texture_filter = 0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwtup"]
 albedo_texture = ExtResource("36_nl86c")
 texture_filter = 0
@@ -94,16 +105,6 @@ roughness_texture = ExtResource("39_4xjc8")
 roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("40_i1v8s")
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qh4uv"]
-albedo_texture = ExtResource("41_4j71c")
-metallic = 1.0
-metallic_texture = ExtResource("42_bpvk7")
-roughness_texture = ExtResource("42_bpvk7")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("43_6kelg")
 texture_filter = 0
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
@@ -4265,31 +4266,6 @@ transform = Transform3D(1, 0, 0, 0, 12.4085, 0, 0, 0, 0.521831, -40.6532, 7.5943
 material_override = SubResource("StandardMaterial3D_qxpgm")
 mesh = SubResource("BoxMesh_opkle")
 
-[node name="DoNotEnterSign" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 32.9564)
-material_override = SubResource("StandardMaterial3D_cwtup")
-mesh = ExtResource("39_qbb3x")
-
-[node name="DoNotEnterSign2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 28.0452)
-material_override = SubResource("StandardMaterial3D_cwtup")
-mesh = ExtResource("39_qbb3x")
-
-[node name="DoNotEnterSign3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 22.4714)
-material_override = SubResource("StandardMaterial3D_cwtup")
-mesh = ExtResource("39_qbb3x")
-
-[node name="MSignUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.19443, 4.18609, 31.9828)
-material_override = SubResource("StandardMaterial3D_lixew")
-mesh = ExtResource("39_qbb3x")
-
-[node name="MSignUnwrapped2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.19443, 4.18609, 37.4229)
-material_override = SubResource("StandardMaterial3D_lixew")
-mesh = ExtResource("39_qbb3x")
-
 [node name="PipeSection" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51662, 25.1767)
 
@@ -4470,92 +4446,156 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67812, 1.11021, 0.560654)
 [node name="PipeJunction" parent="PipeSection26" instance=ExtResource("24_y81gg")]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
-[node name="Merging Traffic Sign" type="MeshInstance3D" parent="."]
+[node name="Signs" type="Node3D" parent="."]
+
+[node name="Merging Traffic Sign" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 6.67368, -12.8074)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign2" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign2" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 11.8019, -12.8074)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign11" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign11" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 11.8019, -19.1403)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign12" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign12" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 11.8019, -25.1403)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign13" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign13" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 6.61599, -19.1403)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign14" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign14" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 6.61599, -25.1403)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign6" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign6" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 9.28192, 27.6378)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign16" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign16" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 9.28192, 32.7694)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign15" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign15" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7243, 9.28192, 22.7276)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign3" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign3" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 6.67368, -12.8074)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign4" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign4" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 11.8019, -12.8074)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign7" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign7" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 11.8019, -18.6553)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign8" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign8" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 11.8019, -25.3251)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign9" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign9" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 6.68224, -18.6553)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign10" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign10" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 6.68224, -25.3251)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign5" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign5" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 9.23802, 28.7871)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign17" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign17" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 9.23802, 34.4143)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
 
-[node name="Merging Traffic Sign18" type="MeshInstance3D" parent="."]
+[node name="Merging Traffic Sign18" type="MeshInstance3D" parent="Signs"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -69.54, 9.23802, 23.1951)
 material_override = SubResource("StandardMaterial3D_qh4uv")
 mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="DoNotEnterSign" type="MeshInstance3D" parent="Signs"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 32.9564)
+material_override = SubResource("StandardMaterial3D_cwtup")
+mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="DoNotEnterSign2" type="MeshInstance3D" parent="Signs"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 28.0452)
+material_override = SubResource("StandardMaterial3D_cwtup")
+mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="DoNotEnterSign3" type="MeshInstance3D" parent="Signs"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.9207, 4.19528, 22.4714)
+material_override = SubResource("StandardMaterial3D_cwtup")
+mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="MSignUnwrapped" type="MeshInstance3D" parent="Signs"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.19443, 4.18609, 31.9828)
+material_override = SubResource("StandardMaterial3D_lixew")
+mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="MSignUnwrapped2" type="MeshInstance3D" parent="Signs"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.19443, 4.18609, 37.4229)
+material_override = SubResource("StandardMaterial3D_lixew")
+mesh = ExtResource("39_qbb3x")
+skeleton = NodePath("../..")
+
+[node name="Traffic Arrows" type="Node3D" parent="."]
+
+[node name="Directional Arrow Light" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.4852, 0.16386, 33.2395)
+
+[node name="Directional Arrow Light2" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.4852, 0.16386, 26.4884)
+
+[node name="Directional Arrow Light3" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72.3196, 0.16386, 33.2395)
+
+[node name="Directional Arrow Light4" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72.3196, 0.16386, 26.4884)
