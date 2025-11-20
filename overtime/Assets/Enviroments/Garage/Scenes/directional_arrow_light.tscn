@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjo521deyvqb0"]
+
+[ext_resource type="Texture2D" uid="uid://deppguadew6sx" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_BaseMap.png" id="1_7mtrv"]
+[ext_resource type="Texture2D" uid="uid://d2xndf3mb8t1g" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_MaskMap.png" id="2_b483o"]
+[ext_resource type="Texture2D" uid="uid://cbt7xivhjsd0m" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_Normal.png" id="3_hg8y0"]
+[ext_resource type="ArrayMesh" uid="uid://c2lyekdcrackv" path="res://Assets/Enviroments/Garage/Models/M_DirectionalArrow.obj" id="4_4v380"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2n3l"]
+transparency = 1
+albedo_texture = ExtResource("1_7mtrv")
+metallic = 1.0
+metallic_texture = ExtResource("2_b483o")
+roughness_texture = ExtResource("2_b483o")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_hg8y0")
+ao_enabled = true
+ao_texture = ExtResource("2_b483o")
+ao_texture_channel = 2
+
+[node name="Directional Arrow Light" type="Node3D"]
+
+[node name="MDirectionalArrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0.1, 0, 0)
+material_override = SubResource("StandardMaterial3D_j2n3l")
+mesh = ExtResource("4_4v380")
