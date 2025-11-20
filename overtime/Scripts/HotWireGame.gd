@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if PlayerManager.minigameOne == true:
 		visible = true
-		$"../InteractRay".enabled = false
+		AnimationManager.CarInteractRay.enabled = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 
@@ -21,7 +21,7 @@ func _on_button_pressed() -> void:
 	PlayerManager.minigameOne = false
 	visible = false
 	PlayerManager.CharacterDialog("Great now I can start my car and get out of here, cause hot wiring tottally does not start the car.")
-	$"../InteractRay".enabled = true
+	AnimationManager.CarInteractRay.enabled = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PlayerManager.MiniGameModeOff()
 	PlayerManager.minigameOnePassed = true

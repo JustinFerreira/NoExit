@@ -1,6 +1,7 @@
 extends Interactable
 
 func _on_interacted(body: Variant) -> void:
+	AnimationManager.GasIntakeFlash.visible = true
 	AudioManager.play_sound(AudioManager.ItemPickup)
 	PlayerManager.AddToInventory("Gas Canister", 1.5)
 	PlayerManager.gotGas_Canister = true

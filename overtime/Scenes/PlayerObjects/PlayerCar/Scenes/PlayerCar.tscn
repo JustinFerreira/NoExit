@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dq08ejjnraqec"]
+[gd_scene load_steps=59 format=3 uid="uid://dq08ejjnraqec"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Scenes/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gjgk8"]
@@ -59,7 +59,10 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_tb66f"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4rfmg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yein2"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e3r83"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_turjd"]
@@ -378,6 +381,43 @@ _data = {
 "SteeringWheelFlash": SubResource("Animation_phjj3")
 }
 
+[sub_resource type="Animation" id="Animation_j7cry"]
+resource_name = "GasIntakeFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/GasIntake/CarGasInatakeVisual:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0h2ml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh/GasIntake/CarGasInatakeVisual:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fog4b"]
+_data = {
+"GasIntakeFlash": SubResource("Animation_j7cry"),
+"RESET": SubResource("Animation_0h2ml")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_840ys"]
 albedo_texture = ExtResource("10_gyanv")
 
@@ -492,14 +532,22 @@ shape = SubResource("ConcavePolygonShape3D_00owm")
 
 [node name="GasIntake" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(0.00474696, 0, 0, 0, 0.00474696, 0, 0, 0, 0.00474696, 0.00864008, 0.0100695, -0.0152023)
-visible = false
 script = ExtResource("6_i3rep")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/GasIntake"]
+[node name="CollisionShapMesh" type="MeshInstance3D" parent="Mesh/GasIntake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155535, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_tb66f")
+
+[node name="CarGasInatakeVisual" type="MeshInstance3D" parent="Mesh/GasIntake"]
+transform = Transform3D(0.407177, 0, 0, 0, 0.407177, 0, 0, 0, 0.407177, 0.469059, 0.187494, 0.0248761)
+visible = false
+material_override = SubResource("StandardMaterial3D_yein2")
 mesh = SubResource("BoxMesh_tb66f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/GasIntake"]
-shape = SubResource("ConvexPolygonShape3D_4rfmg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155535, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_e3r83")
 
 [node name="Hood" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(1.38061, 0, 0, 0, 1, 0, 0, 0, 1.08715, -0.000126825, 0.00107926, 0.000641372)
@@ -540,6 +588,11 @@ libraries = {
 [node name="SteeringWheelFlashAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qui3h")
+}
+
+[node name="GasIntakeFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fog4b")
 }
 
 [node name="Head" type="Node3D" parent="."]
