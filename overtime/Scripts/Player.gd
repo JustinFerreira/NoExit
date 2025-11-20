@@ -127,6 +127,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
+		if PlayerManager.minigameOne:
+			AnimationManager.SteeringWheelFlash.visible = true
+			PlayerManager.minigameOne = false
+			
+			PlayerManager.MiniGameModeOff()
 		if PlayerManager.minigameTwo:
 			AudioManager.stop_loop("glug")
 			PlayerManager.player.CAMERA.current = true
@@ -137,6 +142,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.MiniGameModeOff()
 		elif PlayerManager.minigameThree:
 			PlayerManager.minigameThree = false
+			AnimationManager.HoodFlash.visible = true
 			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

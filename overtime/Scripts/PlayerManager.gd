@@ -259,6 +259,7 @@ func TestConnection():
 		NegativeWire.visible = false
 		Battery.visible = false
 		Hood._on_interaction_complete()
+		RemoveItemByName("Battery")
 		
 func ProcessScared():
 	if no_enemy:

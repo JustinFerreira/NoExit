@@ -23,6 +23,7 @@ SettingsManager="*res://Scripts/SettingsManager.gd"
 PlayerManager="*res://Scripts/PlayerManager.gd"
 AnimationManager="*res://Scripts/AnimationManager.gd"
 CameraManager="*res://Scripts/CameraManager.gd"
+UiManager="*res://Scripts/UIManager.gd"
 
 [display]
 

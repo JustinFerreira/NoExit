@@ -9,5 +9,4 @@ func _ready():
 func update_text(value: float):
 	var clamped_value := clampf(value, slider.min_value, slider.max_value)
 	var percentage := int(round(clamped_value))
-	if percentage % 5 == 0:
-		text = "%d%%" % [int(percentage)]
+	text = "%d%%" % [int(percentage)]

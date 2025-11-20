@@ -2,6 +2,7 @@ extends Interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	UiManager.HotWireUI = $"../../Head/Car_Cam/Minigame"
 	AnimationManager.SteeringWheelFlash = $CarSteeringWheelVisual
 	AnimationManager.SteeringWheelFlashAnimationPlayer = $"../../SteeringWheelFlashAnimationPlayer"
 	
@@ -15,11 +16,16 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
+	AnimationManager.SteeringWheelFlash.visible = false
 	if PlayerManager.minigameOnePassed && PlayerManager.minigameTwoPassed && PlayerManager.minigameThreePassed:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
-	elif PlayerManager.minigameOnePassed:
+	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog("Oh no! I don't have a battery or any gas! I better go get the spares that I think are on bottom floor.")
+	elif PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
+		PlayerManager.CharacterDialog("Oh no I have to fix my battery")
+	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed:
+		PlayerManager.CharacterDialog("Oh no I have to get my gas")
 	else:
 		PlayerManager.minigameOne = true
 		PlayerManager.MiniGameModeOn()

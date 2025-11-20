@@ -107,6 +107,8 @@ func _on_animation_finished(anim_name: String):
 		player.interact_ray.enabled = true
 		SteeringWheelFlash.visible = false
 		DoorFlash.visible = true
+		if not PlayerManager.minigameThreePassed && PlayerManager.has_item("Battery"):
+			AnimationManager.HoodFlash.visible = true
 		
 		
 		# Teleport player 5 meters next to the car
@@ -116,24 +118,23 @@ func _on_DoorFlash_animation_finished(anim_name: String):
 	var player = PlayerManager.player
 	## Door Flash
 	if anim_name == "DoorFlash":
-		if player.Incar == false:
-			DoorFlash.visible = true
 		DoorFlashAnimationPlayer.play("DoorFlash")
 
 func _on_HoodFlash_animation_finished(anim_name: String):
 	## Hood Flash
 	if anim_name == "HoodFlash":
-		if PlayerManager.minigameThree:
-			HoodFlash.visible = false
 		HoodFlashAnimationPlayer.play("HoodFlash")
+		#if PlayerManager.minigameThree:
+			#HoodFlash.visible = false
+		
 		
 func _on_SteeringWheelFlash_animation_finished(anim_name: String):
 	var player = PlayerManager.player
 	
 	if anim_name == "SteeringWheelFlash":
 		AnimationManager.SteeringWheelFlashAnimationPlayer.play("SteeringWheelFlash")
-		if PlayerManager.minigameOnePassed and (not PlayerManager.minigameTwoPassed or not PlayerManager.minigameThreePassed):
-			SteeringWheelFlash.visible = false
-		if player.Incar == true:
-			SteeringWheelFlash.visible = true
+		#if PlayerManager.minigameOnePassed and (not PlayerManager.minigameTwoPassed or not PlayerManager.minigameThreePassed):
+			#SteeringWheelFlash.visible = false
+		#if player.Incar == true:
+			#SteeringWheelFlash.visible = true
 		

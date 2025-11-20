@@ -8,5 +8,4 @@ func _ready():
 
 func update_sprite(value: float):
 	var percentage := int(round(value))
-	if percentage % 5 == 0:
-		frame = max(0, 20 - (value / 5))
+	frame = max(0, 20 - (value / 5))

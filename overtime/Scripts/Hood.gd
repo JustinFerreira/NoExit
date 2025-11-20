@@ -22,8 +22,8 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
+	AnimationManager.HoodFlash.visible = false
 	PlayerManager.Hood = self
-	PlayerManager.RemoveItemByName("Battery")
 	PlayerManager.gotBattery = false
 	PlayerManager.player.prompt.visible = false
 	$"../../HoodCam".current = true

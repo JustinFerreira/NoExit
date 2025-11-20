@@ -43,10 +43,10 @@ func _on_animation_finished(anim_name: String):
 
 
 func _on_interacted(body: Variant) -> void:
+	player = PlayerManager.player
+	AnimationManager.HoodFlash.visible = false
 	AnimationManager.DoorFlash.visible = false
 	AnimationManager.SteeringWheelFlash.visible = false
-	AnimationManager.HoodFlash.visible = false
-	player = PlayerManager.player
 	##Entering car if locked
 	if unlocked == false:
 		if PlayerManager.has_item("Car Keys") && unlocked == false:
