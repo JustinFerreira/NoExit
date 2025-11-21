@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=59 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://5lxai14ktne3" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png" id="42_bpvk7"]
 [ext_resource type="Texture2D" uid="uid://dlquy46kgi6bt" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Normal.png" id="43_6kelg"]
 [ext_resource type="PackedScene" uid="uid://bjo521deyvqb0" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_light.tscn" id="44_vetxg"]
+[ext_resource type="PackedScene" uid="uid://byduujr27ili7" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_heavy.tscn" id="45_mpm3x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -4594,8 +4595,68 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.485
 [node name="Directional Arrow Light2" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.4852, 0.16386, 26.4884)
 
+[node name="Directional Arrow Light12" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.6235, 0.16386, 33.2395)
+
+[node name="Directional Arrow Light13" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -31.6235, 0.16386, 26.4884)
+
+[node name="Directional Arrow Light14" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -64.384, 0.16386, 33.2395)
+
+[node name="Directional Arrow Light15" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -64.384, 0.16386, 26.4884)
+
 [node name="Directional Arrow Light3" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72.3196, 0.16386, 33.2395)
 
 [node name="Directional Arrow Light4" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72.3196, 0.16386, 26.4884)
+
+[node name="DirectionalArrowHeavy" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(-0.999932, 0, -0.0116586, 0, 1, 0, 0.0116586, 0, -0.999932, 85.0798, 10.4306, 17.6546)
+
+[node name="DirectionalArrowHeavy2" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(-0.999932, 0, -0.0116586, 0, 1, 0, 0.0116586, 0, -0.999932, 84.8028, 7.84596, -6.1058)
+
+[node name="DirectionalArrowHeavy3" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(-0.999932, 0, -0.0116586, 0, 1, 0, 0.0116586, 0, -0.999932, 85.0798, 5.36983, 17.6546)
+
+[node name="DirectionalArrowHeavy4" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(-0.999932, 0, -0.0116586, 0, 1, 0, 0.0116586, 0, -0.999932, 84.8028, 2.78518, -6.1058)
+
+[node name="Directional Arrow Light5" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5967, 2.71574, -7.03578)
+
+[node name="Directional Arrow Light6" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5967, 0.184225, 16.2009)
+
+[node name="Directional Arrow Light7" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5967, 7.91252, -7.03578)
+
+[node name="Directional Arrow Light8" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.5967, 5.381, 16.2009)
+
+[node name="DirectionalArrowHeavy5" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8413, 10.376, 18.1382)
+
+[node name="DirectionalArrowHeavy7" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.8413, 5.28207, 15.5032)
+
+[node name="DirectionalArrowHeavy6" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5194, 7.8311, -6.96227)
+
+[node name="Directional Arrow Light9" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-0.999796, 0, -0.0201747, 0, 1, 0, 0.0201747, 0, -0.999796, -95.6786, 7.8311, -7.28819)
+
+[node name="DirectionalArrowHeavy8" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.5194, 2.7205, -6.96227)
+
+[node name="DirectionalArrowHeavy9" parent="Traffic Arrows" instance=ExtResource("45_mpm3x")]
+transform = Transform3D(-0.844309, 0, -0.535856, 0, 1, 0, 0.535856, 0, -0.844309, -93.547, 0.170434, 16.8949)
+
+[node name="Directional Arrow Light11" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-0.999796, 0, -0.0201747, 0, 1, 0, 0.0201747, 0, -0.999796, -95.6786, 2.7205, -7.28819)
+
+[node name="Directional Arrow Light10" parent="Traffic Arrows" instance=ExtResource("44_vetxg")]
+transform = Transform3D(-0.875734, 0, -0.482793, 0, 1, 0, 0.482793, 0, -0.875734, -94.8005, 5.42447, 16.5024)
