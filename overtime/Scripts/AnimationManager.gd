@@ -14,6 +14,7 @@ var CarAnimationPlayer
 var DoorFlashAnimationPlayer
 var HoodFlashAnimationPlayer
 var SteeringWheelFlashAnimationPlayer
+var GasIntakeFlashAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -21,6 +22,7 @@ var SteeringWheelFlashAnimationPlayer
 var SteeringWheelFlash
 var DoorFlash
 var HoodFlash
+var GasIntakeFlash
 
 ## random stuff needed
 
@@ -41,6 +43,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func ActivateGasIntakeFlashAnimationPlayer():
+	GasIntakeFlashAnimationPlayer.connect("animation_finished", _on_GasIntakeFlash_animation_finished)
+
 func ActivateSteeringWheelFlashAnimationPlayer():
 	SteeringWheelFlashAnimationPlayer.connect("animation_finished", _on_SteeringWheelFlash_animation_finished)
 	
@@ -106,35 +111,31 @@ func _on_animation_finished(anim_name: String):
 		CarAnimationPlayer.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		SteeringWheelFlash.visible = false
-		DoorFlash.visible = true
+		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+			DoorFlash.visible = true
 		if not PlayerManager.minigameThreePassed && PlayerManager.has_item("Battery"):
 			AnimationManager.HoodFlash.visible = true
+		if not PlayerManager.minigameTwoPassed && PlayerManager.has_item("Gas Canister"):
+			AnimationManager.GasIntakeFlash.visible = true
 		
 		
 		# Teleport player 5 meters next to the car
 		player.global_position = DoorFlash.global_position + Vector3(5, 0, 0)
 
 func _on_DoorFlash_animation_finished(anim_name: String):
-	var player = PlayerManager.player
-	## Door Flash
 	if anim_name == "DoorFlash":
 		DoorFlashAnimationPlayer.play("DoorFlash")
 
 func _on_HoodFlash_animation_finished(anim_name: String):
-	## Hood Flash
 	if anim_name == "HoodFlash":
 		HoodFlashAnimationPlayer.play("HoodFlash")
-		#if PlayerManager.minigameThree:
-			#HoodFlash.visible = false
 		
 		
 func _on_SteeringWheelFlash_animation_finished(anim_name: String):
-	var player = PlayerManager.player
-	
 	if anim_name == "SteeringWheelFlash":
-		AnimationManager.SteeringWheelFlashAnimationPlayer.play("SteeringWheelFlash")
-		#if PlayerManager.minigameOnePassed and (not PlayerManager.minigameTwoPassed or not PlayerManager.minigameThreePassed):
-			#SteeringWheelFlash.visible = false
-		#if player.Incar == true:
-			#SteeringWheelFlash.visible = true
+		SteeringWheelFlashAnimationPlayer.play("SteeringWheelFlash")
 		
+
+func _on_GasIntakeFlash_animation_finished(anim_name: String):
+	if anim_name == "GasIntakeFlash":
+		GasIntakeFlashAnimationPlayer.play("GasIntakeFlash")

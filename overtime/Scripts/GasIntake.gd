@@ -3,6 +3,11 @@ extends Interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.GasIntakeFlashAnimationPlayer = $"../../GasIntakeFlashAnimationPlayer"
+	AnimationManager.GasIntakeFlash = $CarGasInatakeVisual
+	AnimationManager.ActivateGasIntakeFlashAnimationPlayer()
+	AnimationManager.GasIntakeFlashAnimationPlayer.play("GasIntakeFlash")
+	
 	is_interactable = false
 	prompt_message = ""
 	
@@ -16,6 +21,9 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
+	AnimationManager.GasIntakeFlash.visible = false
+	AnimationManager.DoorFlash.visible = false
+	AnimationManager.HoodFlash.visible = false
 	PlayerManager.minigameTwo = true
 	PlayerManager.MiniGameModeOn()
 	AudioManager.stop_loop("step")

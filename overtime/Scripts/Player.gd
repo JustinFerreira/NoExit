@@ -130,10 +130,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if PlayerManager.minigameOne:
 			AnimationManager.SteeringWheelFlash.visible = true
 			PlayerManager.minigameOne = false
-			
+			UiManager.HotWireUI.visible = false
+			AnimationManager.CarInteractRay.enabled = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			PlayerManager.MiniGameModeOff()
-		if PlayerManager.minigameTwo:
+		elif PlayerManager.minigameTwo:
 			AudioManager.stop_loop("glug")
+			AnimationManager.GasIntakeFlash.visible = true
+			if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+				AnimationManager.DoorFlash.visible = true
+			if not PlayerManager.minigameThreePassed and PlayerManager.has_item("Battery"):
+				AnimationManager.HoodFlash.visible = true
 			PlayerManager.player.CAMERA.current = true
 			PlayerManager.minigameTwo = false
 			PlayerManager.gasIntakeUI.visible = false
@@ -143,6 +150,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif PlayerManager.minigameThree:
 			PlayerManager.minigameThree = false
 			AnimationManager.HoodFlash.visible = true
+			if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+				AnimationManager.DoorFlash.visible = true
+			if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
+				AnimationManager.GasIntakeFlash.visible = true
 			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

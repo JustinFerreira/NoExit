@@ -17,12 +17,13 @@ func _process(delta: float) -> void:
 	if PlayerManager.gotBattery == true:
 		is_interactable = true
 		prompt_message = "Open Hood"
-		if !PlayerManager.minigameThree:
-			AnimationManager.HoodFlash.visible = true
+			
 
 
 func _on_interacted(body: Variant) -> void:
 	AnimationManager.HoodFlash.visible = false
+	AnimationManager.GasIntakeFlash.visible = false
+	AnimationManager.DoorFlash.visible = false
 	PlayerManager.Hood = self
 	PlayerManager.gotBattery = false
 	PlayerManager.player.prompt.visible = false

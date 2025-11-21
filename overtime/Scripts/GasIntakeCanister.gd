@@ -82,7 +82,10 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		$"../GasIntakeCam/GasIntakeGame".visible = false
 		$"../Mesh/GasIntake"._on_interaction_complete()
 		$"../GasIntakeSweetSpot".visible = false
-		
+		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+			AnimationManager.DoorFlash.visible = true
+		if not PlayerManager.minigameThreePassed and PlayerManager.has_item("Battery"):
+			AnimationManager.HoodFlash.visible = true
 		
 func _move_sweet_spot(delta: float) -> void:
 	

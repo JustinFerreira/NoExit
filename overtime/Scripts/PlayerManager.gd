@@ -260,6 +260,10 @@ func TestConnection():
 		Battery.visible = false
 		Hood._on_interaction_complete()
 		RemoveItemByName("Battery")
+		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+			AnimationManager.DoorFlash.visible = true
+		if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
+			AnimationManager.GasIntakeFlash.visible = true
 		
 func ProcessScared():
 	if no_enemy:

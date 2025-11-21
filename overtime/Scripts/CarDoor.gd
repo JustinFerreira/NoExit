@@ -47,6 +47,7 @@ func _on_interacted(body: Variant) -> void:
 	AnimationManager.HoodFlash.visible = false
 	AnimationManager.DoorFlash.visible = false
 	AnimationManager.SteeringWheelFlash.visible = false
+	AnimationManager.GasIntakeFlash.visible = false
 	##Entering car if locked
 	if unlocked == false:
 		if PlayerManager.has_item("Car Keys") && unlocked == false:
