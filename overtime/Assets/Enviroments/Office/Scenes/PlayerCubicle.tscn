@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d1fnud1p1j436"]
+[gd_scene load_steps=34 format=3 uid="uid://d1fnud1p1j436"]
 
 [ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="1_37age"]
 [ext_resource type="Texture2D" uid="uid://cxp5a5gn5xpic" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="2_60a02"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c01hvg8llia3e" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="24_5hmjg"]
 [ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="25_bnieb"]
 [ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="26_i0lv6"]
+[ext_resource type="PackedScene" uid="uid://cewqx4x1brn8o" path="res://Assets/Enviroments/Office/Scenes/answering_machine.tscn" id="26_krvmk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe347"]
 resource_local_to_scene = true
@@ -246,7 +247,7 @@ transform = Transform3D(0.000722157, 0, -0.208974, 0, 0.208975, 0, 0.208974, 0, 
 transform = Transform3D(-0.166294, 0, -0.0149611, 0, 0.166965, 0, 0.0149611, 0, -0.166294, 1.14835, 1.035, 0.475298)
 
 [node name="Node3D" parent="." instance=ExtResource("20_eyeoy")]
-transform = Transform3D(-0.0257012, 0, -0.0327957, 0, 0.0416666, 0, 0.0327957, 0, -0.0257012, 0.781397, 1.08672, -0.0218376)
+transform = Transform3D(-0.0308414, 0, -0.0393549, 0, 0.05, 0, 0.0393549, 0, -0.0308414, 0.781397, 1.08672, -0.0218376)
 
 [node name="Sticky Notes" parent="." instance=ExtResource("21_dw4qa")]
 transform = Transform3D(0.0143322, 0, 0.0506556, 0, 0.0526441, 0, -0.0506556, 0, 0.0143322, 0.509818, 1.05435, -0.144792)
@@ -268,3 +269,6 @@ transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.5, 1.
 
 [node name="Papers1" parent="." instance=ExtResource("26_i0lv6")]
 transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.62, 1.047, -0.272)
+
+[node name="AnsweringMachine" parent="." instance=ExtResource("26_krvmk")]
+transform = Transform3D(0.721688, 0, -0.416667, 0, 0.833333, 0, 0.416667, 0, 0.721688, 1.022, 1.04, -0.486)
