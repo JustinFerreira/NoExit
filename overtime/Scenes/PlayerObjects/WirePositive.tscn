@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckflqp7u7lhgm"]
+[gd_scene load_steps=7 format=3 uid="uid://ckflqp7u7lhgm"]
 
 [ext_resource type="Script" path="res://Scripts/WirePositive.gd" id="1_wo3ll"]
 [ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="2_11yw6"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="3_bllux"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nv8pf"]
 albedo_texture = ExtResource("2_11yw6")
@@ -17,6 +18,7 @@ script = ExtResource("1_wo3ll")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_nv8pf")
+material_overlay = ExtResource("3_bllux")
 mesh = SubResource("CylinderMesh_b8j2q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
