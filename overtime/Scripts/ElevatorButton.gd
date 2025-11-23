@@ -28,14 +28,19 @@ func _on_animation_finished(anim_name: String):
 		DoorOpen = false;
 
 func _on_interacted(body: Variant) -> void:
-	door_collision.translate(Vector3(0,3,0))
-	AudioManager.play_sound(AudioManager.ElevatorDing)
-	AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
-	if PlayerManager.Loop1:
-		PlayerManager.Hint("Use shift to toggle sprint, 
-Hold E to access your Inventory")
-	DoorOpen = true;
-	$".".is_interactable = false
-	prompt_message = ""
-	animation_player.play("Take 001")
+	if PlayerManager.has_item("Car Keys"):
+		door_collision.translate(Vector3(0,3,0))
+		AudioManager.play_sound(AudioManager.ElevatorDing)
+		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
+		if PlayerManager.Loop1:
+			if PlayerManager.Hold_Shift:
+				PlayerManager.Hint("Hold shift, to sprint, hold E to acces you inventory")
+			else:
+				PlayerManager.Hint("Use shift to toggle sprint, hold E to access you inventory")
+		DoorOpen = true;
+		$".".is_interactable = false
+		prompt_message = ""
+		animation_player.play("Take 001")
+	else:
+		PlayerManager.CharacterDialog("Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole")
 	
