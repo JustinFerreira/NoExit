@@ -5,6 +5,8 @@ var config = ConfigFile.new()
 ## path to reference file
 var settings_path = "user://settings.cfg"
 
+var KillerDisabled = false
+
 var min_sensitivity: float = 0.001
 var max_sensitivity: float = 0.05
 

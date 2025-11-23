@@ -35,12 +35,15 @@ func handle_collision(colliding_body):
 		PlayerManager.player.grabbed_object = null
 		PlayerManager.NegativeConnected = true
 		PlayerManager.TestConnection()
+		AnimationManager.NegativeBatteryFlash.visible = false
 		self.remove_from_group("grabbable")
 		self.remove_from_group("battery_minigame")
 		self.visible = false
 	if PlayerManager.NegativeConnected == false &&  colliding_body.name == "PositiveBattery" || "RestZone" || "RestZone2" || "RestZone3" || "RestZone4":
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
+		AnimationManager.NegativeBatteryFlash.visible = false
 	if colliding_body.name == "WirePositive":
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
+		AnimationManager.NegativeBatteryFlash.visible = false

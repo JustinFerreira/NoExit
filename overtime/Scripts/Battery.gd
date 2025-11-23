@@ -13,6 +13,14 @@ extends MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.PositiveBatteryFlash = $PositiveBattery/PositiveBatteryFlash
+	AnimationManager.NegativeBatteryFlash = $NegativeBattery/NegativeBatteryFlash
+	AnimationManager.PositiveBatteryFlashAnimationPlayer = $PositiveBatteryFlashAnimationPlayer
+	AnimationManager.NegativeBatteryFlashAnimationPlayer = $NegativeBatteryFlashAnimationPlayer
+	AnimationManager.ActivatePositiveBatteryFlashAnimationPlayer()
+	AnimationManager.ActivateNegativeBatteryFlashAnimationPlayer()
+	AnimationManager.PositiveBatteryFlashAnimationPlayer.play("PositiveBatteryFlash")
+	AnimationManager.NegativeBatteryFlashAnimationPlayer.play("NegativeBatteryFlash")
 	PlayerManager.Battery = self
 
 

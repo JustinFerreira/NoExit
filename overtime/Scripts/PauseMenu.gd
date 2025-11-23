@@ -55,3 +55,7 @@ func _on_settings_btn_pressed() -> void:
 func _on_main_menu_btn_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
+
+
+func _on_disable_killer_btn_toggled(toggled_on: bool) -> void:
+	SettingsManager.KillerDisabled = toggled_on

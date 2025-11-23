@@ -150,6 +150,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif PlayerManager.minigameThree:
 			PlayerManager.minigameThree = false
 			AnimationManager.HoodFlash.visible = true
+			AnimationManager.PositiveBatteryFlash.visible = false
+			AnimationManager.NegativeBatteryFlash.visible = false
 			if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
 				AnimationManager.DoorFlash.visible = true
 			if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
@@ -396,7 +398,14 @@ func get_mouse_world_pos(mouse: Vector2):
 		original_object_pos = grabbed_object.global_transform.origin
 		original_mouse_pos = mouse  # Store the initial mouse position
 		
-		
+		if PlayerManager.PositiveWire == grabbed_object:
+			AnimationManager.WirePositiveFlash.visible = false
+			AnimationManager.WireNegativeFlash.visible = false
+			AnimationManager.PositiveBatteryFlash.visible = true
+		if PlayerManager.NegativeWire == grabbed_object:
+			AnimationManager.WireNegativeFlash.visible = false
+			AnimationManager.WirePositiveFlash.visible = false
+			AnimationManager.NegativeBatteryFlash.visible = true
 		
 		# Optional: Make the object kinematic while grabbed to prevent physics interference
 		if grabbed_object is RigidBody3D:
@@ -449,4 +458,12 @@ func get_grab_position() -> Vector3:
 func release_grabbed_object():
 	if grabbed_object is RigidBody3D:
 		grabbed_object.freeze = false
+	if PlayerManager.PositiveWire == grabbed_object:
+		AnimationManager.WirePositiveFlash.visible = true
+		AnimationManager.WireNegativeFlash.visible = true
+		AnimationManager.PositiveBatteryFlash.visible = false
+	if PlayerManager.NegativeWire == grabbed_object:
+		AnimationManager.WireNegativeFlash.visible = true
+		AnimationManager.WirePositiveFlash.visible = true
+		AnimationManager.NegativeBatteryFlash.visible = false
 	grabbed_object = null

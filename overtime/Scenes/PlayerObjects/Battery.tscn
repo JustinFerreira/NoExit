@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5ftu8i0cg6v5"]
+[gd_scene load_steps=26 format=3 uid="uid://c5ftu8i0cg6v5"]
 
 [ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_BaseColor.png" id="1_q4wfy"]
 [ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="1_t68l8"]
@@ -25,6 +25,11 @@ albedo_texture = ExtResource("1_t68l8")
 
 [sub_resource type="BoxMesh" id="BoxMesh_3frxf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ua66h"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yep7w"]
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygwrk"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
@@ -37,12 +42,86 @@ albedo_texture = ExtResource("2_0f6xu")
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcvoy"]
-albedo_texture = ExtResource("1_t68l8")
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jto68"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o64dp"]
 albedo_texture = ExtResource("2_0f6xu")
+
+[sub_resource type="Animation" id="Animation_4m0ge"]
+resource_name = "PositiveBatteryFlash"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositiveBattery/PositiveBatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_l8fwv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PositiveBattery/PositiveBatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swrr2"]
+_data = {
+"PositiveBatteryFlash": SubResource("Animation_4m0ge"),
+"RESET": SubResource("Animation_l8fwv")
+}
+
+[sub_resource type="Animation" id="Animation_tgnbg"]
+resource_name = "NegativeBatteryFlash"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NegativeBattery/NegativeBatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5q0de"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NegativeBattery/NegativeBatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqwa4"]
+_data = {
+"NegativeBatteryFlash": SubResource("Animation_tgnbg"),
+"RESET": SubResource("Animation_5q0de")
+}
 
 [node name="Battery" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109778, 0)
@@ -54,9 +133,16 @@ script = ExtResource("1_yn3cf")
 transform = Transform3D(4.30399, 0, 0, 0, 48.643, 0, 0, 0, 4.30399, -8.27039, 4.75417, 3.67584)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PositiveBattery"]
+visible = false
 material_override = SubResource("StandardMaterial3D_6i6bk")
 mesh = SubResource("BoxMesh_3frxf")
 skeleton = NodePath("../..")
+
+[node name="PositiveBatteryFlash" type="MeshInstance3D" parent="PositiveBattery"]
+transform = Transform3D(0.548452, 0, 0, 0, 0.265364, 0, 0, 0, 0.548452, -0.128235, 0.0893684, 0.211141)
+visible = false
+material_override = SubResource("StandardMaterial3D_ua66h")
+mesh = SubResource("CylinderMesh_yep7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PositiveBattery"]
 shape = SubResource("ConvexPolygonShape3D_ygwrk")
@@ -70,9 +156,17 @@ shape = SubResource("ConvexPolygonShape3D_ygwrk")
 transform = Transform3D(4.30565, 0, 0, 0, 41.5111, 0, 0, 0, 4.30565, 8.82392, 8.43362, 4.44934)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NegativeBattery"]
+visible = false
 material_override = SubResource("StandardMaterial3D_vbim2")
 mesh = SubResource("BoxMesh_3frxf")
 skeleton = NodePath("../..")
+
+[node name="NegativeBatteryFlash" type="MeshInstance3D" parent="NegativeBattery"]
+transform = Transform3D(0.548241, 0, 0, 0, 0.310955, 0, 0, 0, 0.548241, 0.0196393, 0.0160848, 0.031412)
+visible = false
+material_override = SubResource("StandardMaterial3D_ua66h")
+mesh = SubResource("CylinderMesh_yep7w")
+skeleton = NodePath("../../PositiveBattery")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NegativeBattery"]
 shape = SubResource("ConvexPolygonShape3D_ygwrk")
@@ -83,7 +177,7 @@ shape = SubResource("ConvexPolygonShape3D_ygwrk")
 shape = SubResource("ConvexPolygonShape3D_ygwrk")
 
 [node name="ResetZone" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -7.75, 8.90527, 0.723499)
+transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -7.75, 8.90527, -5.36026)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone"]
 mesh = SubResource("BoxMesh_wlvhs")
@@ -97,7 +191,7 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
 [node name="ResetZone2" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 7.56943, 8.90527, 0.723499)
+transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 7.56943, 8.90527, -5.98164)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone2"]
 mesh = SubResource("BoxMesh_wlvhs")
@@ -111,7 +205,7 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
 [node name="ResetZone3" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -6.19667, 8.90527, 3.42422)
+transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -6.19667, 8.90527, -0.865329)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone3"]
 mesh = SubResource("BoxMesh_wlvhs")
@@ -125,7 +219,7 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
 [node name="ResetZone4" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 6.08717, 8.90527, 4.01215)
+transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 6.08717, 8.90527, -1.91405)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone4"]
 mesh = SubResource("BoxMesh_wlvhs")
@@ -139,13 +233,23 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
 [node name="PositiveConnection" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0397369, 14.2944, 0, -3.67796, -0.154438, 0, 0, 0, 3.75527, -22, 27.1535, 3.83295)
+transform = Transform3D(-0.0397369, 14.2944, 0, -3.67796, -0.154438, 0, 0, 0, 3.75527, -22, 21.3161, 4.20564)
 visible = false
 material_override = SubResource("StandardMaterial3D_qcvoy")
 mesh = SubResource("CylinderMesh_jto68")
 
 [node name="NegativeConnection" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0397369, 14.2944, 0, -3.67796, -0.154438, 0, 0, 0, 3.75527, 22.5949, 27.1535, 4.03853)
+transform = Transform3D(-0.0397369, 14.2944, 0, -3.67796, -0.154438, 0, 0, 0, 3.75527, 22.5949, 20.976, 4.03853)
 visible = false
 material_override = SubResource("StandardMaterial3D_o64dp")
 mesh = SubResource("CylinderMesh_jto68")
+
+[node name="PositiveBatteryFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_swrr2")
+}
+
+[node name="NegativeBatteryFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sqwa4")
+}

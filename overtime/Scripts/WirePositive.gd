@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 var orginal_position
+var grabbed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,12 +36,15 @@ func handle_collision(colliding_body):
 		PlayerManager.player.grabbed_object = null
 		PlayerManager.PositiveConnected = true
 		PlayerManager.TestConnection()
+		AnimationManager.PositiveBatteryFlash.visible = false
 		self.remove_from_group("grabbable")
 		self.remove_from_group("battery_minigame")
 		self.visible = false
 	if PlayerManager.PositiveConnected == false && colliding_body.name == "NegativeBattery" || "RestZone" || "RestZone2" || "RestZone3" || "RestZone4":
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
+		AnimationManager.PositiveBatteryFlash.visible = false
 	if colliding_body.name == "WireNegative":
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
+		AnimationManager.PositiveBatteryFlash.visible = false

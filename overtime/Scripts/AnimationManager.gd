@@ -17,6 +17,8 @@ var SteeringWheelFlashAnimationPlayer
 var GasIntakeFlashAnimationPlayer
 var WirePositiveFlashAnimationPlayer
 var WireNegativeFlashAnimationPlayer
+var PositiveBatteryFlashAnimationPlayer
+var NegativeBatteryFlashAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -27,6 +29,8 @@ var HoodFlash
 var GasIntakeFlash
 var WirePositiveFlash
 var WireNegativeFlash
+var PositiveBatteryFlash
+var NegativeBatteryFlash
 
 ## random stuff needed
 
@@ -46,6 +50,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func ActivatePositiveBatteryFlashAnimationPlayer():
+	PositiveBatteryFlashAnimationPlayer.connect("animation_finished", _on_PositiveBatteryFlash_animation_finished)
+	
+func ActivateNegativeBatteryFlashAnimationPlayer():
+	NegativeBatteryFlashAnimationPlayer.connect("animation_finished", _on_NegativeBatteryFlash_animation_finished)
 	
 func ActivateWireNegativeFlashAnimationPlayer():
 	WireNegativeFlashAnimationPlayer.connect("animation_finished", _on_WireNegativeFlash_animation_finished)
@@ -158,3 +168,10 @@ func _on_WireNegativeFlash_animation_finished(anim_name: String):
 	if anim_name == "WireNegativeFlash":
 		WireNegativeFlashAnimationPlayer.play("WireNegativeFlash")
 	
+func _on_PositiveBatteryFlash_animation_finished(anim_name: String):
+	if anim_name == "PositiveBatteryFlash":
+		PositiveBatteryFlashAnimationPlayer.play("PositiveBatteryFlash")
+		
+func _on_NegativeBatteryFlash_animation_finished(anim_name: String):
+	if anim_name == "NegativeBatteryFlash":
+		NegativeBatteryFlashAnimationPlayer.play("NegativeBatteryFlash")

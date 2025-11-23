@@ -100,7 +100,6 @@ func _on_head_bob_check_box_toggled(toggled: bool) -> void:
 
 
 func _on_dev_mode_check_box_toggled(toggled: bool) -> void:
-	
 	SettingsManager.settings.game.dev_mode = toggled
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
