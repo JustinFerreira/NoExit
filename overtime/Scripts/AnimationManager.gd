@@ -15,6 +15,8 @@ var DoorFlashAnimationPlayer
 var HoodFlashAnimationPlayer
 var SteeringWheelFlashAnimationPlayer
 var GasIntakeFlashAnimationPlayer
+var WirePositiveFlashAnimationPlayer
+var WireNegativeFlashAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -23,6 +25,8 @@ var SteeringWheelFlash
 var DoorFlash
 var HoodFlash
 var GasIntakeFlash
+var WirePositiveFlash
+var WireNegativeFlash
 
 ## random stuff needed
 
@@ -43,6 +47,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+func ActivateWireNegativeFlashAnimationPlayer():
+	WireNegativeFlashAnimationPlayer.connect("animation_finished", _on_WireNegativeFlash_animation_finished)
+	
+func ActivateWirePositiveFlashAnimationPlayer():
+	WirePositiveFlashAnimationPlayer.connect("animation_finished", _on_WirePositiveFlash_animation_finished)
+
 func ActivateGasIntakeFlashAnimationPlayer():
 	GasIntakeFlashAnimationPlayer.connect("animation_finished", _on_GasIntakeFlash_animation_finished)
 
@@ -139,3 +149,12 @@ func _on_SteeringWheelFlash_animation_finished(anim_name: String):
 func _on_GasIntakeFlash_animation_finished(anim_name: String):
 	if anim_name == "GasIntakeFlash":
 		GasIntakeFlashAnimationPlayer.play("GasIntakeFlash")
+		
+func _on_WirePositiveFlash_animation_finished(anim_name: String):
+	if anim_name == "WirePositiveFlash":
+		WirePositiveFlashAnimationPlayer.play("WirePositiveFlash")
+		
+func _on_WireNegativeFlash_animation_finished(anim_name: String):
+	if anim_name == "WireNegativeFlash":
+		WireNegativeFlashAnimationPlayer.play("WireNegativeFlash")
+	

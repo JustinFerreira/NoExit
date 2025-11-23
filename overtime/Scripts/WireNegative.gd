@@ -4,6 +4,10 @@ var orginal_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.WireNegativeFlashAnimationPlayer = $AnimationPlayer
+	AnimationManager.WireNegativeFlash = $WireNegativeFlash
+	AnimationManager.ActivateWireNegativeFlashAnimationPlayer()
+	AnimationManager.WireNegativeFlashAnimationPlayer.play("WireNegativeFlash")
 	PlayerManager.NegativeWire = self
 	$Area3D.body_entered.connect(_on_area_body_entered)
 	orginal_position = self.global_position

@@ -396,6 +396,8 @@ func get_mouse_world_pos(mouse: Vector2):
 		original_object_pos = grabbed_object.global_transform.origin
 		original_mouse_pos = mouse  # Store the initial mouse position
 		
+		
+		
 		# Optional: Make the object kinematic while grabbed to prevent physics interference
 		if grabbed_object is RigidBody3D:
 			grabbed_object.freeze = true
