@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ttsn64bqb4bd"]
+
+[ext_resource type="Texture2D" uid="uid://cvqlwvlh383oy" path="res://Assets/Enviroments/Garage/Textures/Handicap Space Heavy Textures/M_HandicapSign_Heavy_BaseMap.png" id="1_mgfcu"]
+[ext_resource type="ArrayMesh" uid="uid://dc87a1r6wnx38" path="res://Assets/Enviroments/Garage/Models/M_HandicapSign.obj" id="2_bh724"]
+[ext_resource type="Texture2D" uid="uid://on3mpwvo8obk" path="res://Assets/Enviroments/Garage/Textures/Handicap Space Heavy Textures/M_HandicapSign_Heavy_MaskMap.png" id="2_t5tl6"]
+[ext_resource type="Texture2D" uid="uid://h4myf1scudba" path="res://Assets/Enviroments/Garage/Textures/Handicap Space Heavy Textures/M_HandicapSign_Heavy_Normal.png" id="3_mbx17"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgtgr"]
+transparency = 1
+albedo_texture = ExtResource("1_mgfcu")
+metallic = 1.0
+metallic_texture = ExtResource("2_t5tl6")
+roughness_texture = ExtResource("2_t5tl6")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_mbx17")
+uv1_scale = Vector3(8, 8, 8)
+uv1_offset = Vector3(0.5, 0.5, 0)
+
+[node name="HandicapSpaceHeavy" type="Node3D"]
+
+[node name="MHandicapSign" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xgtgr")
+mesh = ExtResource("2_bh724")
