@@ -12,7 +12,8 @@ extends Interactable
 
 var fall = false
 var fall_speed = 2.0
-var DoorClosed = false;
+var DoorClosed = false
+var InElevator = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,9 +41,21 @@ func _on_animation_finished(anim_name: String):
 		DoorClosed = false
 
 func _on_interacted(body: Variant) -> void:
-	AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
-	door_collision.translate(Vector3(0,-3,0))
-	DoorClosed = true
-	is_interactable = false
-	prompt_message = ""
-	animation_player.play_backwards("Take 001")
+	if InElevator:
+		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
+		door_collision.translate(Vector3(0,-3,0))
+		DoorClosed = true
+		is_interactable = false
+		prompt_message = ""
+		animation_player.play_backwards("Take 001")
+	else:
+		PlayerManager.Hint("Get in the elevator bro")
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	InElevator = true
+
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	InElevator = false

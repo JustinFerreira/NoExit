@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=25 format=4 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://cqtvr5khxey8w" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -166,6 +166,9 @@ albedo_color = Color(0.965739, 0.145366, 0.364113, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6n637"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s23d0"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
 [node name="Elevator" type="Node3D"]
 transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
 
@@ -303,5 +306,13 @@ transform = Transform3D(0.0692717, 0, 0, 0, 0.0692717, 0, 0, 0, 0.0692717, 1.000
 material_override = SubResource("StandardMaterial3D_atf6u")
 mesh = SubResource("BoxMesh_6n637")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2.35603, 0, 0, 0, 2.73202, 0, 0, 0, 1.68395, 0, 0.973286, 0)
+shape = SubResource("ConvexPolygonShape3D_s23d0")
+
 [connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
 [connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]
+[connection signal="area_entered" from="Area3D" to="InsideButtons" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="InsideButtons" method="_on_area_3d_area_exited"]

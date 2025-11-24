@@ -1,28 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvvic21svfacj"]
+[gd_scene load_steps=3 format=3 uid="uid://dvvic21svfacj"]
 
 [ext_resource type="Material" uid="uid://dqtnck2jcy30o" path="res://Assets/Materials/PictureFrame2.tres" id="1_8mcqv"]
-[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_bm0ct"]
 [ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="4_wqihn"]
-[ext_resource type="Script" path="res://Scripts/PictureFrame2.gd" id="5_y6cbh"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbjbq"]
-points = PackedVector3Array(-0.0239955, 1.76623, 0.956644, 0.399246, -0.0172412, -1.09054, 0.399246, -0.0172412, 1.10354, -0.903441, -0.0172412, -0.37042, -0.249339, 1.8384, -1.05523, -0.252098, 1.73101, 1.10354, 0.513628, 0.278625, -0.942235, 0.534216, 0.19332, 1.01662, -0.0525409, 1.8214, -1.00245, -0.868955, 0.35992, -0.542021, -0.731876, -0.0172412, -0.0620114, -0.249339, 1.8384, 1.06823, -0.252098, 1.73101, -1.09054, 0.519984, 0.038672, -1.06503, -0.117026, 1.86766, 1.06364, 0.519984, 0.038672, 1.07803, 0.262023, 0.291516, 1.10354, -0.117026, 1.86766, -1.05064, 0.513628, 0.278625, 0.955235, -0.903441, 0.119943, -0.473294, -0.834757, 0.39431, -0.576169, -0.0239955, 1.76623, -0.943644, 0.54597, 0.081399, -1.02057, 0.364904, 0.0171487, -1.09054, -0.903441, 0.119943, -0.404783, -0.0525407, 1.8214, 1.01545, -0.0122806, 1.04546, 1.10354, 0.54597, 0.081399, 1.03357, 0.364904, 0.0171487, 1.10354, 0.534215, 0.193321, -1.00362, -0.0122806, 1.04546, -1.09054, -0.182698, 1.86226, 1.05746)
 
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_8mcqv")
 mesh = ExtResource("4_wqihn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="PictureFrame2" node_paths=PackedStringArray("mesh")]
-script = ExtResource("5_y6cbh")
-target_mesh = ExtResource("4_wqihn")
-target_material = ExtResource("1_8mcqv")
-outline_material = ExtResource("4_bm0ct")
-mesh = NodePath("..")
-has_outline = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame2/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_hbjbq")
-
-[connection signal="interacted" from="PictureFrame2/StaticBody3D" to="PictureFrame2/StaticBody3D" method="_on_interacted"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="1_rffta"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_1oq6x"]
 [ext_resource type="PackedScene" uid="uid://b84vywx2awoq2" path="res://Assets/Enviroments/Elevator/Scenes/Elevator.tscn" id="4_k43tb"]
-[ext_resource type="PackedScene" uid="uid://d1fnud1p1j436" path="res://Assets/Enviroments/Office/Scenes/PlayerCubicle.tscn" id="6_yapp3"]
+[ext_resource type="PackedScene" uid="uid://d1fnud1p1j436" path="res://Scenes/PlayerObjects/PlayerCubicle.tscn" id="6_yapp3"]
 [ext_resource type="AudioStream" uid="uid://c0fnfapes0ekf" path="res://Assets/Audio/SFX/ticking-clock-background-sound-effect-331707.mp3" id="7_t1ggc"]
 [ext_resource type="Script" path="res://Scripts/ClockTicking.gd" id="8_i7rwj"]
 [ext_resource type="AudioStream" uid="uid://c2eq8yxqeublc" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="9_magg0"]

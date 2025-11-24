@@ -15,18 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://bpoq753x4k803" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean.png" id="13_xjinb"]
 [ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="14_1kxfa"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="15_y6l3j"]
-[ext_resource type="PackedScene" uid="uid://nb5vr5umkk6w" path="res://Assets/Enviroments/Office/Scenes/PictureFrame1.tscn" id="16_5qhdd"]
-[ext_resource type="PackedScene" uid="uid://dvvic21svfacj" path="res://Assets/Enviroments/Office/Scenes/PictureFrame2.tscn" id="17_4jmqg"]
-[ext_resource type="PackedScene" uid="uid://dbb1xpsd2yyvb" path="res://Assets/Enviroments/Office/Scenes/PictureFrame4.tscn" id="17_jclrw"]
-[ext_resource type="PackedScene" uid="uid://cwi31kpkwlrm0" path="res://Assets/Enviroments/Office/Scenes/PictureFrame3.tscn" id="18_ik2k0"]
 [ext_resource type="PackedScene" uid="uid://cl4w2cqylilfm" path="res://Assets/Enviroments/Office/Scenes/Stapler.tscn" id="20_eyeoy"]
 [ext_resource type="PackedScene" uid="uid://dpsfen1q7xqma" path="res://Assets/Enviroments/Office/Scenes/StickyNotes.tscn" id="21_dw4qa"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="22_nemri"]
 [ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
 [ext_resource type="PackedScene" uid="uid://c01hvg8llia3e" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="24_5hmjg"]
+[ext_resource type="PackedScene" uid="uid://crvgose10vq0k" path="res://Scenes/PlayerObjects/PlayerPictureFrame1.tscn" id="24_f14f0"]
 [ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="25_bnieb"]
+[ext_resource type="PackedScene" uid="uid://b76ydw67odydg" path="res://Scenes/PlayerObjects/PlayerPictureFrame2.tscn" id="25_l0pen"]
+[ext_resource type="PackedScene" uid="uid://cwy6w72taehya" path="res://Scenes/PlayerObjects/PlayerPictureFrame3.tscn" id="26_cbpll"]
 [ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="26_i0lv6"]
 [ext_resource type="PackedScene" uid="uid://cewqx4x1brn8o" path="res://Assets/Enviroments/Office/Scenes/answering_machine.tscn" id="26_krvmk"]
+[ext_resource type="PackedScene" uid="uid://c6lh217nvquvj" path="res://Scenes/PlayerObjects/PlayerPictureFrame4.tscn" id="27_sxnwd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe347"]
 resource_local_to_scene = true
@@ -234,18 +234,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ojtb8")
 }
 
-[node name="Picture Frame" parent="." instance=ExtResource("16_5qhdd")]
-transform = Transform3D(-0.141055, 0, -0.00148225, 0, 0.141063, 0, 0.00148225, 0, -0.141055, 1.10659, 1.035, 0.855896)
-
-[node name="Picture Frame2" parent="." instance=ExtResource("17_jclrw")]
-transform = Transform3D(-0.148616, 0, -0.00119578, 0, 0.148621, 0, 0.00119578, 0, -0.148616, 1.19944, 1.035, -0.0147994)
-
-[node name="Picture Frame3" parent="." instance=ExtResource("18_ik2k0")]
-transform = Transform3D(0.000722157, 0, -0.208974, 0, 0.208975, 0, 0.208974, 0, 0.000722157, 0.522023, 1.035, -0.610919)
-
-[node name="Picture Frame4" parent="." instance=ExtResource("17_4jmqg")]
-transform = Transform3D(-0.166294, 0, -0.0149611, 0, 0.166965, 0, 0.0149611, 0, -0.166294, 1.14835, 1.035, 0.475298)
-
 [node name="Node3D" parent="." instance=ExtResource("20_eyeoy")]
 transform = Transform3D(-0.0308414, 0, -0.0393549, 0, 0.05, 0, 0.0393549, 0, -0.0308414, 0.781397, 1.08672, -0.0218376)
 
@@ -272,3 +260,15 @@ transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.62, 1
 
 [node name="AnsweringMachine" parent="." instance=ExtResource("26_krvmk")]
 transform = Transform3D(0.721688, 0, -0.416667, 0, 0.833333, 0, 0.416667, 0, 0.721688, 1.022, 1.04, -0.486)
+
+[node name="Picture Frame" parent="." instance=ExtResource("24_f14f0")]
+transform = Transform3D(-0.111667, 0, -0.00434056, 0, 0.111751, 0, 0.00434056, 0, -0.111667, 1.15887, 1.02974, 1.13102)
+
+[node name="Picture Frame2" parent="." instance=ExtResource("25_l0pen")]
+transform = Transform3D(-0.1381, 0, -0.000457951, 0, 0.1381, 0, 0.000457951, 0, -0.1381, 1.18195, 1.02974, 0.688514)
+
+[node name="Picture Frame3" parent="." instance=ExtResource("26_cbpll")]
+transform = Transform3D(-0.107122, 0, -0.0557406, 0, 0.120757, 0, 0.0557406, 0, -0.107122, 1.12971, 1.02974, 0.23535)
+
+[node name="Picture Frame4" parent="." instance=ExtResource("27_sxnwd")]
+transform = Transform3D(-0.000487538, 0, -0.136264, 0, 0.136265, 0, 0.136264, 0, -0.000487538, 0.474733, 1.02609, -0.643631)

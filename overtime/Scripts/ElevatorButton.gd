@@ -14,6 +14,10 @@ var DoorOpen = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.ElevatorAnimationPlayer = $"../AnimationPlayer"
+	AnimationManager.ElevatorButtonFlash = $"../MeshInstance3D"
+	AnimationManager.ActivateElevatorAnimationPlayer()
+	AnimationManager.ElevatorAnimationPlayer.play("OutlinePulse")
 	animation_player.connect("animation_finished", _on_animation_finished)
 	pass
 
@@ -29,6 +33,7 @@ func _on_animation_finished(anim_name: String):
 
 func _on_interacted(body: Variant) -> void:
 	if PlayerManager.has_item("Car Keys"):
+		AnimationManager.ElevatorButtonFlash.visible = false
 		door_collision.translate(Vector3(0,3,0))
 		AudioManager.play_sound(AudioManager.ElevatorDing)
 		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
