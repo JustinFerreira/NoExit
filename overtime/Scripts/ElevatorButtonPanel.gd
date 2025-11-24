@@ -17,6 +17,10 @@ var InElevator = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.ElevatorPanelAnimationPlayer = $"../ElevatorPanelAnimationPlayer"
+	AnimationManager.ElevatorPanelFlash = $"../ElevatorPanelFlash"
+	AnimationManager.ActivateElevatorPanelAnimationPlayer()
+	AnimationManager.ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
 	animation_player.connect("animation_finished", _on_animation_finished)
 	pass
 
@@ -42,6 +46,7 @@ func _on_animation_finished(anim_name: String):
 
 func _on_interacted(body: Variant) -> void:
 	if InElevator:
+		AnimationManager.ElevatorPanelFlash.visible = false
 		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
 		door_collision.translate(Vector3(0,-3,0))
 		DoorClosed = true

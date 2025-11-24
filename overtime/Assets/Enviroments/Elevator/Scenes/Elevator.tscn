@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=30 format=4 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://cqtvr5khxey8w" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -87,7 +87,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:material_override:albedo_color")
+tracks/0/path = NodePath("ElevatorOutsideButtonFlash:material_override:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -99,7 +99,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:transparency")
+tracks/1/path = NodePath("ElevatorOutsideButtonFlash:transparency")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +114,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:material_override:albedo_color")
+tracks/0/path = NodePath("ElevatorOutsideButtonFlash:material_override:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -126,7 +126,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:transparency")
+tracks/1/path = NodePath("ElevatorOutsideButtonFlash:transparency")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -168,6 +168,48 @@ albedo_color = Color(0.965739, 0.145366, 0.364113, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s23d0"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_4lcpa"]
+resource_name = "ElevatorPanelFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorPanelFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xo3co"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ElevatorPanelFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8q15r"]
+_data = {
+"ElevatorPanelFlash": SubResource("Animation_4lcpa"),
+"RESET": SubResource("Animation_xo3co")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pwgt"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_28gsd"]
 
 [node name="Elevator" type="Node3D"]
 transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
@@ -301,8 +343,9 @@ libraries = {
 "": SubResource("AnimationLibrary_bclay")
 }
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="ElevatorOutsideButtonFlash" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0692717, 0, 0, 0, 0.0692717, 0, 0, 0, 0.0692717, 1.00033, 1.14701, 1.36919)
+visible = false
 material_override = SubResource("StandardMaterial3D_atf6u")
 mesh = SubResource("BoxMesh_6n637")
 
@@ -311,6 +354,16 @@ mesh = SubResource("BoxMesh_6n637")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(2.35603, 0, 0, 0, 2.73202, 0, 0, 0, 1.68395, 0, 0.973286, 0)
 shape = SubResource("ConvexPolygonShape3D_s23d0")
+
+[node name="ElevatorPanelAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8q15r")
+}
+
+[node name="ElevatorPanelFlash" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.42837, 0, 0, 0, 0.336117, 0, 0, 0, 0.0416481, -0.71832, 1.00532, 1.21599)
+material_override = SubResource("StandardMaterial3D_7pwgt")
+mesh = SubResource("BoxMesh_28gsd")
 
 [connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
 [connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]

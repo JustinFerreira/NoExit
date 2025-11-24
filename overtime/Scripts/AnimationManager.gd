@@ -20,6 +20,7 @@ var WireNegativeFlashAnimationPlayer
 var PositiveBatteryFlashAnimationPlayer
 var NegativeBatteryFlashAnimationPlayer
 var ElevatorAnimationPlayer
+var ElevatorPanelAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -33,6 +34,7 @@ var WireNegativeFlash
 var PositiveBatteryFlash
 var NegativeBatteryFlash
 var ElevatorButtonFlash
+var ElevatorPanelFlash
 
 ## random stuff needed
 
@@ -52,6 +54,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func ActivateElevatorPanelAnimationPlayer():
+	ElevatorPanelAnimationPlayer.connect("animation_finished", _on_ElevatorPanelFlash_animation_finished)
 	
 func ActivateElevatorAnimationPlayer():
 	ElevatorAnimationPlayer.connect("animation_finished", _on_ElevatorButtonFlash_animation_finished)
@@ -184,3 +189,7 @@ func _on_NegativeBatteryFlash_animation_finished(anim_name: String):
 func _on_ElevatorButtonFlash_animation_finished(anim_name: String):
 	if anim_name == "OutlinePulse":
 		ElevatorAnimationPlayer.play("OutlinePulse")
+		
+func  _on_ElevatorPanelFlash_animation_finished(anim_name: String):
+	if anim_name == "ElevatorPanelFlash":
+		ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
