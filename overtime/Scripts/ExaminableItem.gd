@@ -1,4 +1,5 @@
 extends Interactable
+class_name ExaminableItem
 
 # Store original position and rotation
 var original_position: Vector3
@@ -26,18 +27,30 @@ var is_in_interaction: bool = false
 var should_stay_in_focus: bool = false
 
 # Rotation speed (radians per second)
-@export var rotation_speed: float = 1.5
+@export var rotation_speed: float = 3.0
 
 # Current rotation angle
 var current_rotation: float = 0.0
 
+# Dialog and behavior customization
+@export var player_manager_reference: String = ""  # e.g., "PictureFrame1", "Mug1A"
+@export var animation_name: String = ""  # e.g., "PictureFrame1Fade", "Mug1AFade"
+@export var animation_fade_player: AnimationPlayer
+@export var first_time_dialog: String = "I like this item!"
+@export var first_time_hint: String = "Press A or D to rotate object while examing"
+@export var normal_dialog: String = "I like this item!"
+@export var keys_hint_dialog: String = "I should grab my keys and get out of here"
+@export var can_be_stored: bool = false  # If this item can be stored in the box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerManager.PictureFrame3 = self
+	# Set the PlayerManager reference if specified
+	if player_manager_reference != "":
+		PlayerManager.set(player_manager_reference, self)
+	
 	# Store original transform
 	original_position = global_position
-	original_rotation = global_rotation  # Use global_rotation instead of rotation
+	original_rotation = global_rotation
 	original_scale = scale
 	
 	# Create a debug mesh that looks like the original object
@@ -98,7 +111,11 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 
 func _on_interacted(body: Variant) -> void:
 	PlayerManager.ExamingItem = self
-	$"../../PictureFrame3Fade".play("PictureFrame3Fade")
+	
+	# Play animation if specified
+	if animation_name != "" and animation_fade_player:
+		animation_fade_player.play(animation_name)
+	
 	# Prevent multiple simultaneous interactions
 	if is_in_interaction:
 		return
@@ -117,7 +134,7 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Calculate position directly in front of the camera
 	var camera_transform = camera.global_transform
-	var focus_offset = camera_transform.basis.z * -focus_distance  # Adjustable distance in front of camera
+	var focus_offset = camera_transform.basis.z * -focus_distance
 	var focus_position = camera_transform.origin + focus_offset
 	
 	# Adjust height with vertical offset
@@ -125,11 +142,10 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Set up the debug mesh at the original position
 	debug_mesh.global_position = global_position
-	debug_mesh.global_rotation = global_rotation  # Use global_rotation
+	debug_mesh.global_rotation = global_rotation
 	debug_mesh.scale = scale
 	
 	# Hide the original object immediately and show the debug mesh
-	_hide_original_object()
 	debug_mesh.visible = true
 	
 	# Disable collision during focus to avoid issues
@@ -144,19 +160,15 @@ func _on_interacted(body: Variant) -> void:
 	tween.tween_property(debug_mesh, "global_position", focus_position, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	# Make debug mesh face the camera properly
-	# Get camera's position and forward direction
 	var camera_position = camera.global_position
-	var camera_forward = -camera.global_transform.basis.z
-	
-	# Calculate the direction from focus position to camera
 	var direction_to_camera = (camera_position - focus_position).normalized()
 	
 	# Create a basis that faces the camera
 	var target_basis = Basis()
-	target_basis.z = direction_to_camera  # Forward faces camera
-	target_basis.y = Vector3.UP  # Keep upright
-	target_basis.x = target_basis.y.cross(target_basis.z).normalized()  # Calculate right vector
-	target_basis = target_basis.orthonormalized()  # Ensure valid rotation
+	target_basis.z = direction_to_camera
+	target_basis.y = Vector3.UP
+	target_basis.x = target_basis.y.cross(target_basis.z).normalized()
+	target_basis = target_basis.orthonormalized()
 	
 	# Convert to rotation
 	var target_rotation = target_basis.get_euler()
@@ -167,21 +179,22 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Apply rotation intensity
 	if rotation_intensity < 1.0:
-		var current_rotation = debug_mesh.global_rotation
-		target_rotation = current_rotation.lerp(target_rotation, rotation_intensity)
+		var current_rot = debug_mesh.global_rotation
+		target_rotation = current_rot.lerp(target_rotation, rotation_intensity)
 	
 	tween.tween_property(debug_mesh, "global_rotation", target_rotation, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
 	# Scale up the debug mesh with adjustable multiplier
 	tween.tween_property(debug_mesh, "scale", original_scale * scale_multiplier, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
+	# Handle dialog based on game state
 	if not PlayerManager.examed:
-		PlayerManager.CharacterHintDialog("This was a great day!","Press A or D to rotate object while examing")
+		PlayerManager.CharacterHintDialog(first_time_dialog, first_time_hint)
 		PlayerManager.examed = true
 	elif PlayerManager.DeskItems.size() == 3 and not PlayerManager.has_item("Car Keys"):
-		PlayerManager.CharacterHintDialog("This was a great day!","I should grab my keys and get out of here")
+		PlayerManager.CharacterHintDialog(normal_dialog, keys_hint_dialog)
 	else:
-		PlayerManager.CharacterDialog("This was a great day!")
+		PlayerManager.CharacterDialog(normal_dialog)
 	
 	# Wait for the second signal (should_stay_in_focus becomes false)
 	while should_stay_in_focus:
@@ -197,16 +210,15 @@ func end_focus() -> void:
 	PlayerManager.examining = false
 	PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
-	if PlayerManager.EquippedItem == "Box":
+	
+	if PlayerManager.EquippedItem == "Box" and can_be_stored:
 		_on_interaction_complete()
 		PlayerManager.DeskItems.append(self)
 		get_parent().visible = false
 	else:
-		$"../../PictureFrame3Fade".play_backwards("PictureFrame3Fade")
-
-func _hide_original_object() -> void:
-	# Find and hide all MeshInstance3D children (including nested)
-	_hide_meshes_in_children(self)
+		# Play animation backwards if specified
+		if animation_name != "" and animation_fade_player:
+			animation_fade_player.play_backwards(animation_name)
 	
 func _hide_meshes_in_children(node: Node) -> void:
 	# Hide if this node is a MeshInstance3D (but not our debug mesh)
@@ -229,10 +241,8 @@ func _show_meshes_in_children(node: Node) -> void:
 	# Recursively show in children
 	for child in node.get_children():
 		_show_meshes_in_children(child)
-	
 
 func _return_to_original() -> void:
-	
 	# Create new tween for return animation
 	tween = create_tween()
 	tween.set_parallel(true)
@@ -247,13 +257,13 @@ func _return_to_original() -> void:
 	
 	# Hide debug mesh and show original object
 	debug_mesh.visible = false
-	_show_original_object()  # This is where the original object becomes visible again
+	_show_original_object()
 	
 	# Re-enable collision
 	if has_node("CollisionShape3D"):
 		$CollisionShape3D.disabled = false
 
-# Function to rotate the debug mesh left (counter-clockwise)
+# Function to rotate the debug mesh right (clockwise)
 func rotate_right() -> void:
 	if not is_in_interaction or not debug_mesh.visible:
 		return
@@ -261,7 +271,7 @@ func rotate_right() -> void:
 	current_rotation += rotation_speed * get_process_delta_time()
 	_apply_rotation()
 
-# Function to rotate the debug mesh right (clockwise)
+# Function to rotate the debug mesh left (counter-clockwise)
 func rotate_left() -> void:
 	if not is_in_interaction or not debug_mesh.visible:
 		return
@@ -272,6 +282,5 @@ func rotate_left() -> void:
 # Apply the current rotation to the debug mesh
 func _apply_rotation() -> void:
 	if debug_mesh and debug_mesh.visible:
-		# Get the current rotation and apply the Y rotation
 		var current_rot = debug_mesh.global_rotation
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)

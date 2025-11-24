@@ -120,10 +120,10 @@ var closeup = true
 var examining = false
 var ExamingItem
 var PictureFrame1
-var PictureFrame2
-var PictureFrame3
-var PictureFrame4
+var Stapler
+var StickyNotes
 var Mug1A
+var Mug2A
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -326,16 +326,20 @@ func EnemyKill():
 	
 func EndFocus():
 	closeup = !closeup
-	if PictureFrame1.should_stay_in_focus && closeup == false:
+	if PictureFrame1 and PictureFrame1.should_stay_in_focus && closeup == false:
 		PictureFrame1.end_focus()
-	if PictureFrame2.should_stay_in_focus && closeup == false:
-		PictureFrame2.end_focus()
-	if PictureFrame3.should_stay_in_focus && closeup == false:
-		PictureFrame3.end_focus()
-	if PictureFrame4.should_stay_in_focus && closeup == false:
-		PictureFrame4.end_focus()
-	if Mug1A.should_stay_in_focus && closeup == false:
+		
+	if Stapler and Stapler.should_stay_in_focus && closeup == false:
+		Stapler.end_focus()
+		
+	if StickyNotes and StickyNotes.should_stay_in_focus && closeup == false:
+		StickyNotes.end_focus()
+		
+	if Mug1A and Mug1A.should_stay_in_focus && closeup == false:
 		Mug1A.end_focus()
+		
+	if Mug2A and Mug2A.should_stay_in_focus && closeup == false:
+		Mug2A.end_focus()
 		
 func SwitchEquippedItem(direction: bool):
 	if direction:

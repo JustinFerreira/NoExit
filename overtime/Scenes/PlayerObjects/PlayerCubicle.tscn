@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d1fnud1p1j436"]
+[gd_scene load_steps=33 format=3 uid="uid://d1fnud1p1j436"]
 
 [ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="1_37age"]
 [ext_resource type="Texture2D" uid="uid://cxp5a5gn5xpic" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="2_60a02"]
@@ -15,18 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://bpoq753x4k803" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean.png" id="13_xjinb"]
 [ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="14_1kxfa"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="15_y6l3j"]
-[ext_resource type="PackedScene" uid="uid://cl4w2cqylilfm" path="res://Assets/Enviroments/Office/Scenes/Stapler.tscn" id="20_eyeoy"]
-[ext_resource type="PackedScene" uid="uid://dpsfen1q7xqma" path="res://Assets/Enviroments/Office/Scenes/StickyNotes.tscn" id="21_dw4qa"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="22_nemri"]
 [ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
 [ext_resource type="PackedScene" uid="uid://crvgose10vq0k" path="res://Scenes/PlayerObjects/PlayerPictureFrame1.tscn" id="24_f14f0"]
-[ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="25_bnieb"]
-[ext_resource type="PackedScene" uid="uid://b76ydw67odydg" path="res://Scenes/PlayerObjects/PlayerPictureFrame2.tscn" id="25_l0pen"]
-[ext_resource type="PackedScene" uid="uid://cwy6w72taehya" path="res://Scenes/PlayerObjects/PlayerPictureFrame3.tscn" id="26_cbpll"]
+[ext_resource type="PackedScene" uid="uid://df63p4gkori84" path="res://Scenes/PlayerObjects/PlayerStapler.tscn" id="26_gijd4"]
 [ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="26_i0lv6"]
 [ext_resource type="PackedScene" uid="uid://cewqx4x1brn8o" path="res://Assets/Enviroments/Office/Scenes/answering_machine.tscn" id="26_krvmk"]
+[ext_resource type="PackedScene" uid="uid://6mck78rv063b" path="res://Scenes/PlayerObjects/PlayerStickyNotes.tscn" id="26_ktd7e"]
+[ext_resource type="PackedScene" uid="uid://dlljbrdpjyl6c" path="res://Scenes/PlayerObjects/PlayerMug2A.tscn" id="26_wiom0"]
 [ext_resource type="PackedScene" uid="uid://blxprvfviyb7m" path="res://Scenes/PlayerObjects/PlayerMug1A.tscn" id="27_6x5x2"]
-[ext_resource type="PackedScene" uid="uid://c6lh217nvquvj" path="res://Scenes/PlayerObjects/PlayerPictureFrame4.tscn" id="27_sxnwd"]
 [ext_resource type="PackedScene" uid="uid://cjmh8scjiewro" path="res://Scenes/PlayerObjects/Box.tscn" id="28_cbylc"]
 [ext_resource type="PackedScene" uid="uid://bbmusn3or87np" path="res://Scenes/PlayerObjects/CarKeys.tscn" id="29_ojgvq"]
 
@@ -236,12 +233,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ojtb8")
 }
 
-[node name="Node3D" parent="." instance=ExtResource("20_eyeoy")]
-transform = Transform3D(-0.0308414, 0, -0.0393549, 0, 0.05, 0, 0.0393549, 0, -0.0308414, 0.781397, 1.08672, -0.0218376)
-
-[node name="Sticky Notes" parent="." instance=ExtResource("21_dw4qa")]
-transform = Transform3D(0.0143322, 0, 0.0506556, 0, 0.0526441, 0, -0.0506556, 0, 0.0143322, 0.509818, 1.05435, -0.144792)
-
 [node name="Sticky Note" parent="." instance=ExtResource("22_nemri")]
 transform = Transform3D(0.00278832, 2.28717e-09, 0.0550422, 0.0550422, -2.40597e-09, -0.00278832, 2.28717e-09, 0.0551128, -2.40597e-09, 0.539668, 1.6742, -0.86574)
 
@@ -251,9 +242,6 @@ transform = Transform3D(0.721687, 0.416667, 3.1546e-08, 3.64261e-08, -1.89686e-1
 [node name="Folder2" parent="." instance=ExtResource("23_jrv6m")]
 transform = Transform3D(0.721688, 0.41627, 0.0181747, 0, 0.0363494, -0.83254, -0.416667, 0.721, 0.0314795, -0.705836, 1.25, -0.737005)
 
-[node name="Mug2B" parent="." instance=ExtResource("25_bnieb")]
-transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.5, 1.058, -0.155)
-
 [node name="Papers1" parent="." instance=ExtResource("26_i0lv6")]
 transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.62, 1.047, -0.272)
 
@@ -261,16 +249,7 @@ transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.62, 1
 transform = Transform3D(0.721688, 0, -0.416667, 0, 0.833333, 0, 0.416667, 0, 0.721688, 1.022, 1.04, -0.486)
 
 [node name="Picture Frame" parent="." instance=ExtResource("24_f14f0")]
-transform = Transform3D(-0.111667, 0, -0.00434056, 0, 0.111751, 0, 0.00434056, 0, -0.111667, 1.15887, 1.02974, 1.13102)
-
-[node name="Picture Frame2" parent="." instance=ExtResource("25_l0pen")]
-transform = Transform3D(-0.1381, 0, -0.000457951, 0, 0.1381, 0, 0.000457951, 0, -0.1381, 1.18195, 1.02974, 0.688514)
-
-[node name="Picture Frame3" parent="." instance=ExtResource("26_cbpll")]
-transform = Transform3D(-0.107122, 0, -0.0557406, 0, 0.120757, 0, 0.0557406, 0, -0.107122, 1.12971, 1.02974, 0.23535)
-
-[node name="Picture Frame4" parent="." instance=ExtResource("27_sxnwd")]
-transform = Transform3D(-0.000487538, 0, -0.136264, 0, 0.136265, 0, 0.136264, 0, -0.000487538, 0.474733, 1.02609, -0.643631)
+transform = Transform3D(-0.0105284, 0, -0.111254, 0, 0.111751, 0, 0.111254, 0, -0.0105284, 0.448532, 1.02974, -0.588553)
 
 [node name="Mug1A" parent="." instance=ExtResource("27_6x5x2")]
 transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0.440102, 1.05795, -0.332523)
@@ -280,3 +259,12 @@ transform = Transform3D(-0.0108239, 0, 0.0189012, 0, 0.021781, 0, -0.0189012, 0,
 
 [node name="Box" parent="." instance=ExtResource("28_cbylc")]
 transform = Transform3D(0.304939, 0, 0, 0, 0.0858038, 0, 0, 0, 0.304939, 0.871682, 1.09252, 0.494225)
+
+[node name="Sticky Notes" parent="." instance=ExtResource("26_ktd7e")]
+transform = Transform3D(0.0676512, 0, 0, 0, 0.0676512, 0, 0, 0, 0.0676512, 0.571072, 1.04901, -0.0913759)
+
+[node name="Mug2B" parent="." instance=ExtResource("26_wiom0")]
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 1.05984, 1.04441, -0.00472795)
+
+[node name="Stapler" parent="." instance=ExtResource("26_gijd4")]
+transform = Transform3D(-0.0256742, 0, -0.0365606, 0, 0.0446748, 0, 0.0365606, 0, -0.0256742, 0.821431, 1.08929, -0.0426506)

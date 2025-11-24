@@ -17,7 +17,7 @@ normal_texture = ExtResource("3_lv7nv")
 ao_enabled = true
 ao_texture = ExtResource("2_5wub6")
 
-[node name="Node3D" type="Node3D"]
+[node name="Stapler" type="Node3D"]
 
 [node name="Stapler" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_pwp3h")
