@@ -174,7 +174,13 @@ func _on_interacted(body: Variant) -> void:
 	# Scale up the debug mesh with adjustable multiplier
 	tween.tween_property(debug_mesh, "scale", original_scale * scale_multiplier, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
-	PlayerManager.CharacterDialog("Wow I love that picture!")
+	if not PlayerManager.examed:
+		PlayerManager.CharacterHintDialog("This is a great mug!","Press A or D to rotate object while examing")
+		PlayerManager.examed = true
+	elif PlayerManager.DeskItems.size() == 3 && not PlayerManager.has_item("Car Keys"):
+		PlayerManager.CharacterHintDialog("This is a great mug!","I should grab my keys and get out of here")
+	else:
+		PlayerManager.CharacterDialog("This is a great mug!")
 	
 	# Wait for the second signal (should_stay_in_focus becomes false)
 	while should_stay_in_focus:

@@ -87,7 +87,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Keysound"):
 		if PlayerManager.car_audio_player && PlayerManager.EquippedItem == "Car Keys":
 			PlayerManager.KeyFobSound()
-			
+		elif PlayerManager.Office && PlayerManager.EquippedItem == "Car Keys":
+			PlayerManager.Hint("Can only use this in the parking garage")
 	if event.is_action("left"):
 		if PlayerManager.examining:
 			PlayerManager.ExamingItem.rotate_left()
@@ -224,6 +225,12 @@ func _physics_process(delta: float) -> void:
 		if distance <= 5.0 && collider is Interactable && collider.is_interactable:
 			$Cursor/Corsshair.visible = false
 			$Cursor/Hand.visible = true
+			
+			# If we have a new collider, hide the previous one's outline
+			if last_collider != null && last_collider != collider:
+				last_collider.hide_outline()
+			
+			# Show outline for current collider
 			if collider.show_outline():
 				last_collider = collider
 			
@@ -239,8 +246,8 @@ func _physics_process(delta: float) -> void:
 		$Cursor/Corsshair.visible = true
 		$Cursor/Hand.visible = false
 		if last_collider != null:
-				last_collider.hide_outline()
-				last_collider = null
+			last_collider.hide_outline()
+			last_collider = null
 			
 	
 	# Handle Sprint

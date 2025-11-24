@@ -38,5 +38,5 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog("Where did I leave my keys?")
 		else:
-			PlayerManager.CharacterDialog("(Click to Skip Dialog)
-That was a great nap... Looks late guess I should get to the elevator and head out. Let me just grab my keys before I go.")
+			PlayerManager.CharacterHintDialog("That was a great nap... I'm so glad I'm finally leaving this place. I should pack up my things in my box and go.",
+			"Click to skip dialog")

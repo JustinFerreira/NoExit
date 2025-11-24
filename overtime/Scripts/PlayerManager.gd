@@ -114,6 +114,8 @@ var CurrentWeight: float = 0.0
 
 ## Close Up Objects
 
+var examed = false
+
 var closeup = true
 var examining = false
 var ExamingItem
@@ -164,6 +166,7 @@ func ResetPlayer() -> void:
 	player = get_tree().current_scene.get_node("Player") 
 	EquippedItem = null
 	DeskItems = []
+	examed = false
 	
 	## Location
 	
@@ -211,8 +214,8 @@ func ResetPlayer() -> void:
 ## Dialog Functions
 
 func Hint(text: String, duration: float = 10.0):
-	hint = true
-	player.get_node("DialogControl").show_temporary_dialog(text,duration, "yellow")
+	text = "Hint: " + text
+	player.get_node("DialogControl").show_temporary_dialog(text,duration, "red")
 	
 func Dialog(text: String):
 	hint = false
@@ -232,6 +235,10 @@ func RevealDialog():
 func CharacterDialog(text: String):
 	hint = false
 	player.get_node("DialogControl").player_interact_dialog_pic(text)
+	
+func CharacterHintDialog(characterText: String, hintText: String):
+	hint = true
+	player.DIALOG.player_interact_dialog_pic_and_hint(characterText, hintText)
 
 func NextDialog():
 	player.get_node("DialogControl").show_next_dialog()

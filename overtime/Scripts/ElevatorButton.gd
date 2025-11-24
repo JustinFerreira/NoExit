@@ -39,9 +39,9 @@ func _on_interacted(body: Variant) -> void:
 		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 		if PlayerManager.Loop1:
 			if PlayerManager.Hold_Shift:
-				PlayerManager.Hint("Hold shift, to sprint, hold E to acces you inventory")
+				PlayerManager.Hint("Hold shift, to sprint")
 			else:
-				PlayerManager.Hint("Use shift to toggle sprint, hold E to access you inventory")
+				PlayerManager.Hint("Use shift to toggle sprint")
 		DoorOpen = true;
 		$".".is_interactable = false
 		prompt_message = ""

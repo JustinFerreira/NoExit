@@ -6,7 +6,7 @@
 extends Interactable
 
 func _on_interacted(body: Variant) -> void:
-	if PlayerManager.DeskItems.size() >= 5:
+	if PlayerManager.DeskItems.size() >= 3:
 		if AnimationManager.ElevatorButtonFlash:
 			AnimationManager.ElevatorButtonFlash.visible = true
 		PlayerManager.AddToInventory("Car Keys", 0.5, true)
@@ -16,5 +16,6 @@ func _on_interacted(body: Variant) -> void:
 		if is_inside_tree():
 			get_parent().remove_child(self)
 			queue_free()
+		PlayerManager.CharacterHintDialog("Great now I can head to the elevator and get to my car.","Use the scroll on the mouse to change your equipped item. If the item you pick up is equippable it will automaticly be equipped.")
 	else:
 		PlayerManager.CharacterDialog("I should pick up all my stuff from my desk.")

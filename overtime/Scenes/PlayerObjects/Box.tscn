@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjmh8scjiewro"]
+[gd_scene load_steps=6 format=3 uid="uid://cjmh8scjiewro"]
 
 [ext_resource type="Script" path="res://Scripts/Box.gd" id="1_6wcn3"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_j02v1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_op4ji"]
+albedo_color = Color(0.678431, 0.631373, 0.572549, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xvbb8"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dcbsh"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[node name="Box" type="StaticBody3D"]
+[node name="Box" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 0.28138, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_6wcn3")
+outline_material = ExtResource("2_j02v1")
+mesh = NodePath("MeshInstance3D")
+has_outline = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_op4ji")
 mesh = SubResource("BoxMesh_xvbb8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -174,7 +174,14 @@ func _on_interacted(body: Variant) -> void:
 	# Scale up the debug mesh with adjustable multiplier
 	tween.tween_property(debug_mesh, "scale", original_scale * scale_multiplier, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	
-	PlayerManager.CharacterDialog("Wow I love that picture!")
+	if not PlayerManager.examed:
+		PlayerManager.CharacterHintDialog("Wow I love that picture!","Press A or D to rotate object while examing")
+		PlayerManager.examed = true
+	elif PlayerManager.DeskItems.size() == 3 and  not PlayerManager.has_item("Car Keys"):
+		PlayerManager.CharacterHintDialog("Wow I love that picture!","I should grab my keys and get out of here")
+	else:
+		PlayerManager.CharacterDialog("Wow I love that picture!")
+		
 	
 	# Wait for the second signal (should_stay_in_focus becomes false)
 	while should_stay_in_focus:
@@ -200,6 +207,7 @@ func end_focus() -> void:
 func _hide_original_object() -> void:
 	# Find and hide all MeshInstance3D children (including nested)
 	_hide_meshes_in_children(self)
+	
 	
 func _hide_meshes_in_children(node: Node) -> void:
 	# Hide if this node is a MeshInstance3D (but not our debug mesh)
