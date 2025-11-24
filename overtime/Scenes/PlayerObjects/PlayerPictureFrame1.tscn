@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crvgose10vq0k"]
+[gd_scene load_steps=9 format=3 uid="uid://crvgose10vq0k"]
 
 [ext_resource type="Material" uid="uid://bpiivsdgnrx8k" path="res://Assets/Materials/PictureFrame1.tres" id="1_i6lp4"]
 [ext_resource type="ArrayMesh" uid="uid://dmmktqfmr8d26" path="res://Assets/Enviroments/Office/Models/PictureFrame_1.obj" id="2_o57ay"]
@@ -7,6 +7,43 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_afyv7"]
 points = PackedVector3Array(0.136417, -0.0240405, -1.09896, 0.00014949, 1.58621, 1.03967, 0.0439011, 1.4019, 1.03586, -1.72104, -0.0240405, -0.805601, -0.499127, 3.10434, -1.09874, -0.499127, 3.10434, 1.10026, 0.136417, -0.0240405, 1.10048, -1.62311, 0.660369, -1.14782, 0.304338, 0.362115, -0.975183, -0.27279, 2.98908, -1.0052, -1.42765, -0.0240405, -0.316811, 0.343483, 0.0788153, 1.01298, -0.272608, 2.98974, 1.00486, 0.300255, 0.0253196, -1.06503, -0.450365, 2.6643, 1.10026, 0.304338, 0.362115, 0.972942, -1.72104, 0.171636, -0.952172, -1.52517, 0.513688, -1.14782, -0.238997, 2.85643, -0.976804, -1.67207, 0.513688, -1.04989, 0.300255, 0.0253196, 1.06501, 0.343483, 0.0788153, -1.01341, -1.72104, 0.122641, -0.854458, -0.321258, 3.02926, -1.04714, -1.6745, 0.0452327, -0.911052, -0.238997, 2.85643, 0.97464, -0.321095, 3.02996, 1.04682, -1.67207, 0.416003, -1.09874, -1.52517, 0.0249554, -0.463382, -0.499127, 2.90866, 1.10026, -1.47662, 0.660369, -1.14782, -1.72104, 0.0249554, -0.805601)
+
+[sub_resource type="Animation" id="Animation_m47hj"]
+resource_name = "PictureFrame1Fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7b6mq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j005i"]
+_data = {
+"PictureFrame1Fade": SubResource("Animation_m47hj"),
+"RESET": SubResource("Animation_7b6mq")
+}
 
 [node name="Picture Frame" type="Node3D"]
 
@@ -24,5 +61,10 @@ has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame1/PictureFrame1"]
 shape = SubResource("ConvexPolygonShape3D_afyv7")
+
+[node name="PictureFrame1Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j005i")
+}
 
 [connection signal="interacted" from="PictureFrame1/PictureFrame1" to="PictureFrame1/PictureFrame1" method="_on_interacted"]

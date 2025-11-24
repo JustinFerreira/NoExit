@@ -85,8 +85,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	if PlayerManager.InAnimation || PlayerManager.dying:
 		return
 	if event.is_action_pressed("Keysound"):
-		if PlayerManager.car_audio_player:
+		if PlayerManager.car_audio_player && PlayerManager.EquippedItem == "Car Keys":
 			PlayerManager.KeyFobSound()
+			
+	if event.is_action("left"):
+		if PlayerManager.examining:
+			PlayerManager.ExamingItem.rotate_left()
+			return
+	if event.is_action("right"):
+		if PlayerManager.examining:
+			PlayerManager.ExamingItem.rotate_right()
+			return
+	if event.is_action_pressed("scrollUp"):
+		PlayerManager.SwitchEquippedItem(true)
+	if event.is_action_pressed("scrollDown"):
+		PlayerManager.SwitchEquippedItem(false)
 	if event is InputEventMouseMotion:
 		if PlayerManager.multiDialog || PlayerManager.examining:
 			return
@@ -357,6 +370,13 @@ func populate_inventory():
 		var label = Label.new()
 		label.text = item.name
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		
+		# Set color based on whether this item is equipped
+		if item.name == PlayerManager.EquippedItem:
+			label.add_theme_color_override("font_color", Color("#990404"))
+		else:
+			label.add_theme_color_override("font_color", Color.WHITE)
+		
 		$Inventory/ColorRect/HBoxContainer.add_child(label)
 		
 func handle_sprint_input():

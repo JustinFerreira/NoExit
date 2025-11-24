@@ -25,6 +25,12 @@ var is_in_interaction: bool = false
 # New bool to track if we should stay in focus mode
 var should_stay_in_focus: bool = false
 
+# Rotation speed (radians per second)
+@export var rotation_speed: float = 1.5
+
+# Current rotation angle
+var current_rotation: float = 0.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.PictureFrame1 = self
@@ -90,6 +96,8 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 	return null
 
 func _on_interacted(body: Variant) -> void:
+	PlayerManager.ExamingItem = self
+	$"../../PictureFrame1Fade".play("PictureFrame1Fade")
 	# Prevent multiple simultaneous interactions
 	if is_in_interaction:
 		return
@@ -154,6 +162,7 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Rotate 90 degrees to the right (in radians)
 	target_rotation.y -= PI/2
+	current_rotation = target_rotation.y
 	
 	# Apply rotation intensity
 	if rotation_intensity < 1.0:
@@ -181,6 +190,12 @@ func end_focus() -> void:
 	PlayerManager.examining = false
 	PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
+	if PlayerManager.EquippedItem == "Box":
+		_on_interaction_complete()
+		PlayerManager.DeskItems.append(self)
+		get_parent().visible = false
+	else:
+		$"../../PictureFrame1Fade".play_backwards("PictureFrame1Fade")
 
 func _hide_original_object() -> void:
 	# Find and hide all MeshInstance3D children (including nested)
@@ -230,3 +245,26 @@ func _return_to_original() -> void:
 	# Re-enable collision
 	if has_node("CollisionShape3D"):
 		$CollisionShape3D.disabled = false
+		
+# Function to rotate the debug mesh left (counter-clockwise)
+func rotate_right() -> void:
+	if not is_in_interaction or not debug_mesh.visible:
+		return
+	
+	current_rotation += rotation_speed * get_process_delta_time()
+	_apply_rotation()
+
+# Function to rotate the debug mesh right (clockwise)
+func rotate_left() -> void:
+	if not is_in_interaction or not debug_mesh.visible:
+		return
+	
+	current_rotation -= rotation_speed * get_process_delta_time()
+	_apply_rotation()
+
+# Apply the current rotation to the debug mesh
+func _apply_rotation() -> void:
+	if debug_mesh and debug_mesh.visible:
+		# Get the current rotation and apply the Y rotation
+		var current_rot = debug_mesh.global_rotation
+		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)

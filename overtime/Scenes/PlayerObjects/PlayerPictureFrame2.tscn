@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b76ydw67odydg"]
+[gd_scene load_steps=9 format=3 uid="uid://b76ydw67odydg"]
 
 [ext_resource type="Material" uid="uid://dqtnck2jcy30o" path="res://Assets/Materials/PictureFrame2.tres" id="1_7hyn2"]
 [ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="2_ac3b4"]
@@ -8,13 +8,50 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbjbq"]
 points = PackedVector3Array(-0.0239955, 1.76623, 0.956644, 0.399246, -0.0172412, -1.09054, 0.399246, -0.0172412, 1.10354, -0.903441, -0.0172412, -0.37042, -0.249339, 1.8384, -1.05523, -0.252098, 1.73101, 1.10354, 0.513628, 0.278625, -0.942235, 0.534216, 0.19332, 1.01662, -0.0525409, 1.8214, -1.00245, -0.868955, 0.35992, -0.542021, -0.731876, -0.0172412, -0.0620114, -0.249339, 1.8384, 1.06823, -0.252098, 1.73101, -1.09054, 0.519984, 0.038672, -1.06503, -0.117026, 1.86766, 1.06364, 0.519984, 0.038672, 1.07803, 0.262023, 0.291516, 1.10354, -0.117026, 1.86766, -1.05064, 0.513628, 0.278625, 0.955235, -0.903441, 0.119943, -0.473294, -0.834757, 0.39431, -0.576169, -0.0239955, 1.76623, -0.943644, 0.54597, 0.081399, -1.02057, 0.364904, 0.0171487, -1.09054, -0.903441, 0.119943, -0.404783, -0.0525407, 1.8214, 1.01545, -0.0122806, 1.04546, 1.10354, 0.54597, 0.081399, 1.03357, 0.364904, 0.0171487, 1.10354, 0.534215, 0.193321, -1.00362, -0.0122806, 1.04546, -1.09054, -0.182698, 1.86226, 1.05746)
 
+[sub_resource type="Animation" id="Animation_b1ju7"]
+resource_name = "PictureFrame2Fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame2:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cx1os"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame2:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbi27"]
+_data = {
+"PictureFrame2Fade": SubResource("Animation_b1ju7"),
+"RESET": SubResource("Animation_cx1os")
+}
+
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_7hyn2")
 mesh = ExtResource("2_ac3b4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PictureFrame2" node_paths=PackedStringArray("mesh")]
+[node name="PictureFrame2" type="StaticBody3D" parent="PictureFrame2" node_paths=PackedStringArray("mesh")]
 script = ExtResource("3_wlyfn")
 target_mesh = ExtResource("2_ac3b4")
 target_material = ExtResource("1_7hyn2")
@@ -22,7 +59,12 @@ outline_material = ExtResource("4_43ndc")
 mesh = NodePath("..")
 has_outline = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame2/PictureFrame2"]
 shape = SubResource("ConvexPolygonShape3D_hbjbq")
 
-[connection signal="interacted" from="PictureFrame2/StaticBody3D" to="PictureFrame2/StaticBody3D" method="_on_interacted"]
+[node name="PictureFrame2Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lbi27")
+}
+
+[connection signal="interacted" from="PictureFrame2/PictureFrame2" to="PictureFrame2/PictureFrame2" method="_on_interacted"]

@@ -34,7 +34,7 @@ var current_rotation: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerManager.PictureFrame2 = self
+	PlayerManager.PictureFrame4 = self
 	# Store original transform
 	original_position = global_position
 	original_rotation = global_rotation  # Use global_rotation instead of rotation
@@ -98,7 +98,7 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 
 func _on_interacted(body: Variant) -> void:
 	PlayerManager.ExamingItem = self
-	$"../../PictureFrame2Fade".play("PictureFrame2Fade")
+	$"../../PictureFrame4Fade".play("PictureFrame4Fade")
 	# Prevent multiple simultaneous interactions
 	if is_in_interaction:
 		return
@@ -196,7 +196,7 @@ func end_focus() -> void:
 		PlayerManager.DeskItems.append(self)
 		get_parent().visible = false
 	else:
-		$"../../PictureFrame2Fade".play_backwards("PictureFrame2Fade")
+		$"../../PictureFrame4Fade".play_backwards("PictureFrame4Fade")
 
 func _hide_original_object() -> void:
 	# Find and hide all MeshInstance3D children (including nested)

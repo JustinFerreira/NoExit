@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://d0k4t5nkqe4td"]
+
+[ext_resource type="Texture2D" uid="uid://d3mwx8do50ja0" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_BaseColor.png" id="1_k0hh2"]
+[ext_resource type="Texture2D" uid="uid://tom7xgpdrrf2" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_RMAO.png" id="2_abxf0"]
+[ext_resource type="Texture2D" uid="uid://cltyhvoq7rywn" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_Normal.png" id="3_m0np8"]
+
+[resource]
+albedo_texture = ExtResource("1_k0hh2")
+metallic = 1.0
+metallic_texture = ExtResource("2_abxf0")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_abxf0")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_m0np8")
+ao_enabled = true
+ao_texture = ExtResource("2_abxf0")

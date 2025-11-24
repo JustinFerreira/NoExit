@@ -1,24 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6lh217nvquvj"]
+[gd_scene load_steps=9 format=3 uid="uid://c6lh217nvquvj"]
 
-[ext_resource type="Texture2D" uid="uid://d3mwx8do50ja0" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_BaseColor.png" id="1_b1hug"]
-[ext_resource type="Texture2D" uid="uid://tom7xgpdrrf2" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_RMAO.png" id="2_sf5sc"]
-[ext_resource type="Texture2D" uid="uid://cltyhvoq7rywn" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_Normal.png" id="3_rlpm3"]
+[ext_resource type="Material" uid="uid://d0k4t5nkqe4td" path="res://Assets/Materials/PictureFrame4.tres" id="1_6bnvm"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_busgw"]
 [ext_resource type="ArrayMesh" uid="uid://dvb4vdxujcrnh" path="res://Assets/Enviroments/Office/Models/PictureFrame_4.obj" id="4_nos2b"]
+[ext_resource type="Script" path="res://Scripts/PictureFrame4.gd" id="5_uenfi"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb0bc"]
-albedo_texture = ExtResource("1_b1hug")
-metallic = 1.0
-metallic_texture = ExtResource("2_sf5sc")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("2_sf5sc")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("3_rlpm3")
-ao_enabled = true
-ao_texture = ExtResource("2_sf5sc")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kecfy"]
+points = PackedVector3Array(0.303867, -0.000323, -0.117992, -0.71904, -0.000107301, -0.159781, -0.915132, 0.000755496, -0.504346, 0.291798, 0.0430326, -1.24039, 0.415475, 0.0307377, -0.117992, 0.303867, -0.000323, 0.184785, 0.291798, 0.0430326, 1.29616, 0.0367155, 0.955009, 1.34, -0.0400398, 1.22916, 1.34, -0.294987, 2.14136, 1.29616, -0.859939, 0.369386, -0.639711, 0.0367155, 0.955009, -1.27911, 0.403405, 0.0740933, -1.24039, 0.470261, 0.109899, -0.117992, 0.415475, 0.0307377, 0.184785, 0.403405, 0.0740933, 1.29616, 0.148458, 0.986286, 1.34, 0.0717029, 1.26044, 1.34, -0.183244, 2.17263, 1.29616, -0.30353, 2.17198, 0.18299, -0.30353, 2.17198, -0.116197, -0.294987, 2.14136, -1.24039, -0.0400398, 1.22916, -1.27911, 0.148458, 0.986286, -1.27911, 0.219654, 1.00613, -1.19681, 0.458056, 0.153255, -1.16041, 0.407067, 0.336168, -1.16041, 0.470261, 0.109899, 0.184785, 0.458056, 0.153255, 1.21643, 0.219654, 1.00613, 1.25745, 0.142898, 1.28028, 1.25745, -0.191788, 2.20326, 0.18299, -0.0955044, 2.13316, 1.21643, -0.104048, 2.16379, 0.18299, -0.191788, 2.20326, -0.116197, -0.183244, 2.17263, -1.24039, 0.0717029, 1.26044, -1.27911, 0.142898, 1.28028, -1.19681, -0.0955044, 2.13316, -1.16041, -0.104048, 2.16379, -0.116197, 0.407067, 0.336168, 1.21643)
+
+[sub_resource type="Animation" id="Animation_f4emo"]
+resource_name = "PictureFrame4Fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame4:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_58w47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame4:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u541n"]
+_data = {
+"PictureFrame4Fade": SubResource("Animation_f4emo"),
+"RESET": SubResource("Animation_58w47")
+}
 
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame4" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_yb0bc")
+material_override = ExtResource("1_6bnvm")
 mesh = ExtResource("4_nos2b")
+
+[node name="PictureFrame4" type="StaticBody3D" parent="PictureFrame4" node_paths=PackedStringArray("mesh")]
+script = ExtResource("5_uenfi")
+target_mesh = ExtResource("4_nos2b")
+target_material = ExtResource("1_6bnvm")
+outline_material = ExtResource("4_busgw")
+mesh = NodePath("..")
+has_outline = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame4/PictureFrame4"]
+shape = SubResource("ConvexPolygonShape3D_kecfy")
+
+[node name="PictureFrame4Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u541n")
+}
+
+[connection signal="interacted" from="PictureFrame4/PictureFrame4" to="PictureFrame4/PictureFrame4" method="_on_interacted"]

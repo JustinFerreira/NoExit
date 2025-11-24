@@ -37,6 +37,10 @@ var sprint_engaged = false
 
 var dying = false
 
+var EquippedItem = null
+
+var DeskItems = []
+
 ## Enemy
 
 var Enemy
@@ -112,8 +116,12 @@ var CurrentWeight: float = 0.0
 
 var closeup = true
 var examining = false
+var ExamingItem
 var PictureFrame1
 var PictureFrame2
+var PictureFrame3
+var PictureFrame4
+var Mug1A
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -126,10 +134,13 @@ func _process(delta: float) -> void:
 		
 
 
-func AddToInventory(name: String, weight: float):
+func AddToInventory(name: String, weight: float, equippable: bool = false):
 	var item: Dictionary
 	item.name = name
 	item.weight = weight
+	item.equippable = equippable
+	if equippable:
+		EquippedItem = item.name
 	CurrentWeight += weight
 	#print(CurrentWeight)
 	Inventory.append(item)
@@ -151,6 +162,8 @@ func ResetPlayer() -> void:
 	sprint_engaged = false
 	dying = false
 	player = get_tree().current_scene.get_node("Player") 
+	EquippedItem = null
+	DeskItems = []
 	
 	## Location
 	
@@ -310,3 +323,65 @@ func EndFocus():
 		PictureFrame1.end_focus()
 	if PictureFrame2.should_stay_in_focus && closeup == false:
 		PictureFrame2.end_focus()
+	if PictureFrame3.should_stay_in_focus && closeup == false:
+		PictureFrame3.end_focus()
+	if PictureFrame4.should_stay_in_focus && closeup == false:
+		PictureFrame4.end_focus()
+	if Mug1A.should_stay_in_focus && closeup == false:
+		Mug1A.end_focus()
+		
+func SwitchEquippedItem(direction: bool):
+	if direction:
+		_switch_equipped_up()
+	else:
+		_switch_equipped_down()
+		
+func _switch_equipped_up():
+	if Inventory.size() == 0:
+		EquippedItem = null
+		return
+	
+	var current_index = -1
+	# Find current equipped item index
+	if EquippedItem != null:
+		for i in range(Inventory.size()):
+			if Inventory[i].name == EquippedItem:
+				current_index = i
+				break
+	
+	# Search upwards from current position
+	var search_index = current_index
+	for i in range(Inventory.size()):
+		search_index = (search_index + 1) % Inventory.size()
+		if Inventory[search_index].equippable:
+			EquippedItem = Inventory[search_index].name
+			return
+	
+	# If no equippable items found
+	EquippedItem = null
+
+func _switch_equipped_down():
+	if Inventory.size() == 0:
+		EquippedItem = null
+		return
+	
+	var current_index = -1
+	# Find current equipped item index
+	if EquippedItem != null:
+		for i in range(Inventory.size()):
+			if Inventory[i].name == EquippedItem:
+				current_index = i
+				break
+	
+	# Search downwards from current position
+	var search_index = current_index
+	for i in range(Inventory.size()):
+		search_index = (search_index - 1) % Inventory.size()
+		if search_index < 0:
+			search_index = Inventory.size() - 1
+		if Inventory[search_index].equippable:
+			EquippedItem = Inventory[search_index].name
+			return
+	
+	# If no equippable items found
+	EquippedItem = null
