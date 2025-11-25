@@ -5,6 +5,19 @@
 
 extends Interactable
 
+func _ready() -> void:
+	AnimationManager.CarKeysFlashAnimationPlayer = $CarKeysFlashAnimationPlayer
+	AnimationManager.ActivateCarKeysFlashAnimationPlayer()
+	$CarKeysFlashAnimationPlayer.play("CarKeysFlash")
+
+func _process(delta: float) -> void:
+	if PlayerManager.DeskItems.size() < 3:
+		$CarKeysFlash.visible = false
+	elif not PlayerManager.player.interact_ray.get_collider() == self:
+		$CarKeysFlash.visible = true
+	else:
+		$CarKeysFlash.visible = false
+
 func _on_interacted(body: Variant) -> void:
 	if PlayerManager.DeskItems.size() >= 3:
 		if AnimationManager.ElevatorButtonFlash:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6mck78rv063b"]
+[gd_scene load_steps=13 format=3 uid="uid://6mck78rv063b"]
 
 [ext_resource type="Material" uid="uid://bi00vjan8blbr" path="res://Assets/Materials/StickyNotes.tres" id="1_2tww5"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_82m4l"]
@@ -7,6 +7,24 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mo14c"]
 points = PackedVector3Array(-1.16221, -0.0303366, -1.16414, -1.16221, -0.075966, -1.16232, -1.16221, 0.032741, -1.16414, -1.14566, -0.0303366, -1.16414, -1.16221, -0.075966, 1.16211, 1.16208, -0.075966, -1.16232, -1.16221, 0.0979927, -1.16232, -1.15685, 0.119046, -1.16232, 1.20751, 0.205186, -1.16232, 1.18375, 0.063977, -1.16414, 1.04744, -0.0281625, -1.16414, -1.16221, -0.0303366, 1.16325, 1.16208, -0.075966, 1.16211, 1.1707, -0.0199062, -1.16414, 1.21823, 0.163547, -1.16232, -1.16221, 0.0979927, 1.16211, -1.15685, 0.119046, 1.16211, 1.20751, 0.205186, -1.13976, 1.20984, 0.197398, -1.16232, 1.21707, 0.171666, -1.16232, -1.16221, 0.032741, 1.16325, -1.14566, -0.0303366, 1.16325, 1.0507, 0.0391258, 1.16348, 1.21823, 0.163547, -1.13976, 1.218, 0.163547, 1.16211, 1.1707, -0.0199062, 1.16325, 1.04744, -0.0281625, 1.16325, 1.20751, 0.205159, 1.16211, 1.20984, 0.197398, 1.16211, 1.21707, 0.171666, -1.13976, 1.18375, 0.063977, 1.16348, 1.21707, 0.171638, 1.16211)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rx00e"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="Animation" id="Animation_43v18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StickyNotes:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_h7n3s"]
 resource_name = "StickyNotesFade"
@@ -24,12 +42,34 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_43v18"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t16q"]
+_data = {
+"RESET": SubResource("Animation_43v18"),
+"StickyNotesFade": SubResource("Animation_h7n3s")
+}
+
+[sub_resource type="Animation" id="Animation_uomng"]
+resource_name = "StickyNotesFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StickyNotesFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8lcek"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StickyNotes:transparency")
+tracks/0/path = NodePath("StickyNotesFlash:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,10 +79,10 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6t16q"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ophac"]
 _data = {
-"RESET": SubResource("Animation_43v18"),
-"StickyNotesFade": SubResource("Animation_h7n3s")
+"RESET": SubResource("Animation_8lcek"),
+"StickyNotesFlash": SubResource("Animation_uomng")
 }
 
 [node name="Sticky Notes" type="Node3D"]
@@ -51,7 +91,7 @@ _data = {
 material_override = ExtResource("1_2tww5")
 mesh = ExtResource("4_ylcem")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("animation_fade_player", "flash_animation_player", "flash_mesh", "mesh")]
 script = ExtResource("5_8x4ar")
 target_mesh = ExtResource("4_ylcem")
 target_material = ExtResource("1_2tww5")
@@ -61,6 +101,10 @@ animation_fade_player = NodePath("../../StickyNotesFade")
 first_time_dialog = "My handy dandy sticky notes."
 normal_dialog = "My handy dandy sticky notes."
 can_be_stored = true
+flash_animation_manager_reference = "StickyNotesFlashAnimationPlayer"
+flash_animation_player = NodePath("../../StickyNotesFlashAnimationPlayer")
+flash_animation_name = "StickyNotesFlash"
+flash_mesh = NodePath("../../StickyNotesFlash")
 outline_material = ExtResource("4_82m4l")
 mesh = NodePath("..")
 has_outline = true
@@ -68,9 +112,19 @@ has_outline = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StickyNotes/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mo14c")
 
+[node name="StickyNotesFlash" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.01404, 0, 0, 0, 1.01404, 0, 0, 0, 1.01404, 0.0111251, 0.0184575, -0.00607729)
+material_override = SubResource("StandardMaterial3D_rx00e")
+mesh = ExtResource("4_ylcem")
+
 [node name="StickyNotesFade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_6t16q")
+}
+
+[node name="StickyNotesFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ophac")
 }
 
 [connection signal="interacted" from="StickyNotes/StaticBody3D" to="StickyNotes/StaticBody3D" method="_on_interacted"]

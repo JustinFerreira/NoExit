@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlljbrdpjyl6c"]
+[gd_scene load_steps=13 format=3 uid="uid://dlljbrdpjyl6c"]
 
 [ext_resource type="Material" uid="uid://b5rkydj44oqmh" path="res://Assets/Materials/Mug2A.tres" id="1_3a8vh"]
 [ext_resource type="ArrayMesh" uid="uid://dnlyqtr1mgfmg" path="res://Assets/Enviroments/Office/Models/Mug_2.obj" id="4_db6b8"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8cmf5"]
 points = PackedVector3Array(0.0831764, 0.213376, -1.66968e-05, 0.131489, 0.175484, 0.00599843, 0.0853421, 0.211747, -1.66968e-05, 0.131465, 0.175484, -0.00561411, 0.058806, 0.213376, -0.0588313, 0.058806, 0.213376, 0.0587979, 0.129537, 0.172915, 0.0121472, 0.150742, 0.142773, 0.0120971, 0.153694, 0.143859, 0.00594831, 0.15367, 0.14388, -0.00566424, 0.0603291, 0.211747, 0.0603351, 0.150695, 0.142815, -0.011813, 0.129514, 0.172915, -0.0117629, 0.0603291, 0.211747, -0.0603518, -1.93715e-06, 0.211747, -0.085348, -1.93715e-06, 0.213376, -0.0831926, -1.93715e-06, 0.213376, 0.0831592, -1.93715e-06, 0.211747, 0.0853313, 0.154883, 0.104108, 0.012047, 0.157787, 0.103816, 0.00588147, 0.157739, 0.103837, -0.00571436, 0.154836, 0.10415, -0.0118632, 0.0603291, 0.1782, 0.0603351, 0.0603291, 0.1782, -0.0603518, -1.93715e-06, 0.1782, -0.085348, -0.0603568, 0.211747, -0.0603518, -0.0588337, 0.213376, -0.0588313, -0.0588337, 0.213376, 0.0587979, -0.0603568, 0.211747, 0.0603351, -1.93715e-06, 0.1782, 0.0853313, 0.145887, 0.0643575, 0.0119801, 0.148529, 0.0629162, 0.00583135, 0.0563546, 0.0139953, 0.0563584, 0.056307, 0.0121989, 0.0563083, 0.148529, 0.062958, -0.0057812, 0.14584, 0.0644202, -0.0119133, 0.056307, 0.0121989, -0.056325, 0.0563546, 0.0139953, -0.0563751, -1.93715e-06, 0.0139953, -0.0797172, -0.0563823, 0.0139953, -0.0563751, -0.0603568, 0.1782, -0.0603518, -0.085346, 0.211747, -1.66968e-05, -0.0831803, 0.213376, -1.66968e-05, -0.0603568, 0.1782, 0.0603351, -1.93715e-06, 0.0139953, 0.0797005, -0.0563823, 0.0139953, 0.0563584, 0.119542, 0.0357611, 0.0127153, 0.0543317, 0.00561901, 0.05432, 0.121184, 0.0330247, 0.00601514, 0.121184, 0.0330665, -0.00604854, -1.93715e-06, 0.0121989, 0.0796336, 0.119518, 0.0358656, -0.0127487, 0.0543317, 0.00561901, -0.0543367, -1.93715e-06, 0.0121989, -0.0796503, -0.0563347, 0.0121989, -0.056325, -0.0797294, 0.0139953, -1.66968e-05, -0.085346, 0.1782, -1.66968e-05, -0.0563347, 0.0121989, 0.0563083, -1.93715e-06, 0.00561901, 0.0768266, -1.93715e-06, 0, 0.0645791, 0.045645, 0, 0.0456649, 0.0645654, 0, -1.66968e-05, 0.076822, 0.00561901, -1.66968e-05, 0.045645, 0, -0.0456816, -1.93715e-06, 0, -0.0645958, -1.93715e-06, 0.00561901, -0.0768433, -0.0543356, 0.00561901, -0.0543367, -0.0768497, 0.00561901, -1.66968e-05, -0.079658, 0.0121989, -1.66968e-05, -0.0543356, 0.00561901, 0.05432, -0.0456727, 0, 0.0456649, -0.0456727, 0, -0.0456816, -0.0645931, 0, -1.66968e-05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgb2v"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="Animation" id="Animation_afht1"]
 resource_name = "Mug2AFade"
@@ -45,13 +48,50 @@ _data = {
 "RESET": SubResource("Animation_o02f7")
 }
 
+[sub_resource type="Animation" id="Animation_yyxm5"]
+resource_name = "Mug2AFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mug2AFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_en263"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mug2AFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckao7"]
+_data = {
+"Mug2AFlash": SubResource("Animation_yyxm5"),
+"RESET": SubResource("Animation_en263")
+}
+
 [node name="Mug2B" type="Node3D"]
 
 [node name="Mug2" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_3a8vh")
 mesh = ExtResource("4_db6b8")
 
-[node name="Mug2" type="StaticBody3D" parent="Mug2" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="Mug2" type="StaticBody3D" parent="Mug2" node_paths=PackedStringArray("animation_fade_player", "flash_animation_player", "flash_mesh", "mesh")]
 script = ExtResource("5_18jmj")
 target_mesh = ExtResource("4_db6b8")
 target_material = ExtResource("1_3a8vh")
@@ -61,6 +101,10 @@ animation_fade_player = NodePath("../../Mug2AFade")
 first_time_dialog = "What an awesome mug!"
 normal_dialog = "What an awesome mug!"
 can_be_stored = true
+flash_animation_manager_reference = "Mug2AFlashAnimationPlayer"
+flash_animation_player = NodePath("../../Mug2AFlashAnimationPlayer")
+flash_animation_name = "Mug2AFlash"
+flash_mesh = NodePath("../../Mug2AFlash")
 outline_material = ExtResource("4_psrv5")
 mesh = NodePath("..")
 has_outline = true
@@ -68,9 +112,19 @@ has_outline = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mug2/Mug2"]
 shape = SubResource("ConvexPolygonShape3D_8cmf5")
 
+[node name="Mug2AFlash" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.0138, 0, 0, 0, 1.0138, 0, 0, 0, 1.0138, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xgb2v")
+mesh = ExtResource("4_db6b8")
+
 [node name="Mug2AFade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xgnm2")
+}
+
+[node name="Mug2AFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ckao7")
 }
 
 [connection signal="interacted" from="Mug2/Mug2" to="Mug2/Mug2" method="_on_interacted"]

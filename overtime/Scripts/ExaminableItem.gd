@@ -42,8 +42,18 @@ var current_rotation: float = 0.0
 @export var keys_hint_dialog: String = "I should grab my keys and get out of here"
 @export var can_be_stored: bool = false  # If this item can be stored in the box
 
+# Flash system
+@export var flash_animation_manager_reference: String
+@export var flash_animation_player: AnimationPlayer
+@export var flash_animation_name: String
+@export var flash_mesh: MeshInstance3D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if flash_animation_player and flash_animation_manager_reference:
+		AnimationManager.set(flash_animation_manager_reference, flash_animation_player)
+		AnimationManager.ExaminItemActivation(flash_animation_name)
+		flash_animation_player.play(flash_animation_name)
 	# Set the PlayerManager reference if specified
 	if player_manager_reference != "":
 		PlayerManager.set(player_manager_reference, self)
@@ -55,6 +65,12 @@ func _ready() -> void:
 	
 	# Create a debug mesh that looks like the original object
 	_create_debug_mesh()
+
+func _process(delta: float) -> void:
+	if PlayerManager.EquippedItem == "Box" and can_be_stored and flash_mesh and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
+		flash_mesh.visible = true
+	elif flash_mesh:
+		flash_mesh.visible = false
 
 func _create_debug_mesh() -> void:
 	# Remove any existing debug mesh
@@ -111,6 +127,8 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 
 func _on_interacted(body: Variant) -> void:
 	PlayerManager.ExamingItem = self
+	if flash_mesh:
+		flash_mesh.visible = false
 	
 	# Play animation if specified
 	if animation_name != "" and animation_fade_player:
@@ -219,6 +237,8 @@ func end_focus() -> void:
 		# Play animation backwards if specified
 		if animation_name != "" and animation_fade_player:
 			animation_fade_player.play_backwards(animation_name)
+		if PlayerManager.EquippedItem == "Box" and can_be_stored:
+			flash_mesh.visible = false
 	
 func _hide_meshes_in_children(node: Node) -> void:
 	# Hide if this node is a MeshInstance3D (but not our debug mesh)

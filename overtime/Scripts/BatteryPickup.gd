@@ -5,6 +5,18 @@
 
 extends Interactable
 
+func _ready() -> void:
+	AnimationManager.BatteryFlashAnimationPlayer = $AnimationPlayer
+	AnimationManager.ActivateBatteryFlashAnimationPlayer()
+	$AnimationPlayer.play("BatteryFlash")
+	
+func _process(delta: float) -> void:
+	if not PlayerManager.player.interact_ray.get_collider() == self:
+		$BatteryFlash.visible = true
+	else: 
+		$BatteryFlash.visible = false
+		
+
 func _on_interacted(body: Variant) -> void:
 	AudioManager.play_sound(AudioManager.ItemPickup)
 	PlayerManager.AddToInventory("Battery", 1.0)

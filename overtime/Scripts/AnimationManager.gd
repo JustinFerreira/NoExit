@@ -21,6 +21,15 @@ var PositiveBatteryFlashAnimationPlayer
 var NegativeBatteryFlashAnimationPlayer
 var ElevatorAnimationPlayer
 var ElevatorPanelAnimationPlayer
+var BoxFlashAnimationPlayer
+var PictureFrame1FlashAnimationPlayer
+var StaplerFlashAnimationPlayer
+var StickyNotesFlashAnimationPlayer
+var Mug1AFlashAnimationPlayer
+var Mug2AFlashAnimationPlayer
+var CarKeysFlashAnimationPlayer
+var BatteryFlashAnimationPlayer
+var GasCanisterFlashAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -33,8 +42,12 @@ var WirePositiveFlash
 var WireNegativeFlash
 var PositiveBatteryFlash
 var NegativeBatteryFlash
+
+## Office
 var ElevatorButtonFlash
 var ElevatorPanelFlash
+var BoxFlash
+
 
 ## random stuff needed
 
@@ -54,7 +67,46 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func ExaminItemActivation(anim_string: String):
+	if anim_string == "PictureFrame1Flash":
+		ActivatePictureFrame1AnimationPlayer()
+	if anim_string == "StaplerFlash":
+		ActivateStaplerFlashAnimationPlayer()
+	if anim_string == "StickyNotesFlash":
+		ActivateStickyNotesFlashAnimationPlayer()
+	if anim_string == "Mug1AFlash":
+		ActivateMug1AFlashAnimationPlayer()
+	if anim_string == "Mug2AFlash":
+		ActivateMug2AFlashAnimationPlayer()
 	
+func ActivateGasCanisterFlashAnimationPlayer():
+	GasCanisterFlashAnimationPlayer.connect("animation_finished", _on_GasCanisterFlash_animation_finished)
+	
+func ActivateBatteryFlashAnimationPlayer():
+	BatteryFlashAnimationPlayer.connect("animation_finished", _on_BatteryFlash_animation_finished)
+
+func ActivateCarKeysFlashAnimationPlayer():
+	CarKeysFlashAnimationPlayer.connect("animation_finished", _on_CarKeysFlash_animation_finished)
+	
+func ActivateMug2AFlashAnimationPlayer():
+	Mug2AFlashAnimationPlayer.connect("animation_finished", _on_Mug2AFlash_animation_finished)
+	
+func ActivateMug1AFlashAnimationPlayer():
+	Mug1AFlashAnimationPlayer.connect("animation_finished", _on_Mug1AFlash_animation_finished)
+	
+func ActivateStickyNotesFlashAnimationPlayer():
+	StickyNotesFlashAnimationPlayer.connect("animation_finished", _on_StickyNotesFlash_animation_finished)
+	
+func ActivateStaplerFlashAnimationPlayer():
+	StaplerFlashAnimationPlayer.connect("animation_finished", _on_StaplerFlash_animation_finished)
+
+func ActivatePictureFrame1AnimationPlayer():
+	PictureFrame1FlashAnimationPlayer.connect("animation_finished", _on_PictureFrame1Flash_animation_finished)
+	
+func ActivateBoxFlashAnimationPlayer():
+	BoxFlashAnimationPlayer.connect("animation_finished", _on_BoxFlash_animation_finished)
+
 func ActivateElevatorPanelAnimationPlayer():
 	ElevatorPanelAnimationPlayer.connect("animation_finished", _on_ElevatorPanelFlash_animation_finished)
 	
@@ -193,3 +245,39 @@ func _on_ElevatorButtonFlash_animation_finished(anim_name: String):
 func  _on_ElevatorPanelFlash_animation_finished(anim_name: String):
 	if anim_name == "ElevatorPanelFlash":
 		ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
+		
+func _on_BoxFlash_animation_finished(anim_name: String):
+	if anim_name == "BoxFlash":
+		BoxFlashAnimationPlayer.play("BoxFlash")
+		
+func _on_PictureFrame1Flash_animation_finished(anim_name: String):
+	if anim_name == "PictureFrame1Flash":
+		PictureFrame1FlashAnimationPlayer.play("PictureFrame1Flash")
+
+func _on_StaplerFlash_animation_finished(anim_name: String):
+	if anim_name == "StaplerFlash":
+		StaplerFlashAnimationPlayer.play("StaplerFlash")
+
+func _on_StickyNotesFlash_animation_finished(anim_name: String):
+	if anim_name == "StickyNotesFlash":
+		StickyNotesFlashAnimationPlayer.play("StickyNotesFlash")
+
+func _on_Mug1AFlash_animation_finished(anim_name: String):
+	if anim_name == "Mug1AFlash":
+		Mug1AFlashAnimationPlayer.play("Mug1AFlash")
+		
+func _on_Mug2AFlash_animation_finished(anim_name: String):
+	if anim_name == "Mug2AFlash":
+		Mug2AFlashAnimationPlayer.play("Mug2AFlash")
+
+func _on_CarKeysFlash_animation_finished(anim_name: String):
+	if anim_name == "CarKeysFlash":
+		CarKeysFlashAnimationPlayer.play("CarKeysFlash")
+		
+func _on_BatteryFlash_animation_finished(anim_name: String):
+	if anim_name == "BatteryFlash":
+		BatteryFlashAnimationPlayer.play("BatteryFlash")
+		
+func _on_GasCanisterFlash_animation_finished(anim_name: String):
+	if anim_name == "GasCanisterFlash":
+		GasCanisterFlashAnimationPlayer.play("GasCanisterFlash")

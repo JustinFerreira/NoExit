@@ -13,7 +13,7 @@ func _ready() -> void:
 	AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 	$AnimationPlayer.play("Take 001")
 	if !PlayerManager.Loop1 && !PlayerManager.has_item("Car Keys"):
-		PlayerManager.AddToInventory("Car Keys", 0.5)
+		PlayerManager.AddToInventory("Car Keys", 0.5, true)
 	#if PlayerManager.gotGas_Canister:
 		#PlayerManager.AddToInventory("Gas Canister", 1.5)
 	
