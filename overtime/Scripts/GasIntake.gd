@@ -44,3 +44,4 @@ func _on_interacted(body: Variant) -> void:
 
 func _on_mouse_clicking_timer_timeout() -> void:
 	$"../../GasIntakeCam/GasIntakeGame/MouseClicking".visible = false
+	$"../../GasIntakeCam/GasIntakeGame/MouseClickingTimer".queue_free()

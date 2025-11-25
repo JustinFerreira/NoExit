@@ -70,6 +70,9 @@ func _process(delta: float) -> void:
 
 
 func _on_progress_bar_value_changed(value: float) -> void:
+	if value >= 35:
+		if $"../GasIntakeCam/GasIntakeGame/MouseClickingTimer":
+			$"../GasIntakeCam/GasIntakeGame/MouseClickingTimer".start()
 	if value == 100:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.minigameTwo = false
