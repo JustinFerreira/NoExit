@@ -267,6 +267,7 @@ func MiniGameModeOff():
 	player.CURSOR.visible = true
 	
 func TestConnection():
+	AnimationManager.HideResetZones()
 	if PositiveConnected && NegativeConnected:
 		MiniGameModeOff()
 		hoodUI.visible = false
