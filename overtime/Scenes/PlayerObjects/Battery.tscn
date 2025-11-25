@@ -130,7 +130,7 @@ mesh = ExtResource("2_ilnr1")
 script = ExtResource("1_yn3cf")
 
 [node name="PositiveBattery" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(4.30399, 0, 0, 0, 48.643, 0, 0, 0, 4.30399, -8.27039, 4.75417, 3.67584)
+transform = Transform3D(7.11561, 0, 0, 0, 80.4194, 0, 0, 0, 7.11561, -8.27039, -5.50344, 3.67584)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PositiveBattery"]
 visible = false
@@ -140,7 +140,6 @@ skeleton = NodePath("../..")
 
 [node name="PositiveBatteryFlash" type="MeshInstance3D" parent="PositiveBattery"]
 transform = Transform3D(0.548452, 0, 0, 0, 0.265364, 0, 0, 0, 0.548452, -0.128235, 0.0893684, 0.211141)
-visible = false
 material_override = SubResource("StandardMaterial3D_ua66h")
 mesh = SubResource("CylinderMesh_yep7w")
 
@@ -153,7 +152,7 @@ shape = SubResource("ConvexPolygonShape3D_ygwrk")
 shape = SubResource("ConvexPolygonShape3D_ygwrk")
 
 [node name="NegativeBattery" type="StaticBody3D" parent="." groups=["battery_minigame"]]
-transform = Transform3D(4.30565, 0, 0, 0, 41.5111, 0, 0, 0, 4.30565, 8.82392, 8.43362, 4.44934)
+transform = Transform3D(8.36777, 0, 0, 0, 80.6743, 0, 0, 0, 8.36777, 8.82392, -8.60621, 4.44934)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NegativeBattery"]
 visible = false
@@ -162,8 +161,7 @@ mesh = SubResource("BoxMesh_3frxf")
 skeleton = NodePath("../..")
 
 [node name="NegativeBatteryFlash" type="MeshInstance3D" parent="NegativeBattery"]
-transform = Transform3D(0.548241, 0, 0, 0, 0.310955, 0, 0, 0, 0.548241, 0.0196393, 0.0160848, 0.031412)
-visible = false
+transform = Transform3D(0.548241, 0, 0, 0, 0.310955, 0, 0, 0, 0.548241, 0.0196393, 0.0787879, 0.0314119)
 material_override = SubResource("StandardMaterial3D_ua66h")
 mesh = SubResource("CylinderMesh_yep7w")
 skeleton = NodePath("../../PositiveBattery")
