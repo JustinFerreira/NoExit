@@ -9,6 +9,8 @@ extends Node
 
 var CarAnimationPlayer
 
+var MouseClickingAnimationPlayer
+
 ## Flashing Animation Players
 
 var DoorFlashAnimationPlayer
@@ -79,6 +81,9 @@ func ExaminItemActivation(anim_string: String):
 		ActivateMug1AFlashAnimationPlayer()
 	if anim_string == "Mug2AFlash":
 		ActivateMug2AFlashAnimationPlayer()
+	
+func ActivateMouseClickingAnimationPlayer():
+	MouseClickingAnimationPlayer.connect("animation_finished", _on_MouseClicking_animation_finished)
 	
 func ActivateGasCanisterFlashAnimationPlayer():
 	GasCanisterFlashAnimationPlayer.connect("animation_finished", _on_GasCanisterFlash_animation_finished)
@@ -281,3 +286,7 @@ func _on_BatteryFlash_animation_finished(anim_name: String):
 func _on_GasCanisterFlash_animation_finished(anim_name: String):
 	if anim_name == "GasCanisterFlash":
 		GasCanisterFlashAnimationPlayer.play("GasCanisterFlash")
+
+func _on_MouseClicking_animation_finished(anim_name: String):
+	if anim_name == "MouseClicking":
+		MouseClickingAnimationPlayer.play("MouseClicking")

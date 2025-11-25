@@ -8,6 +8,10 @@ func _ready() -> void:
 	AnimationManager.ActivateGasIntakeFlashAnimationPlayer()
 	AnimationManager.GasIntakeFlashAnimationPlayer.play("GasIntakeFlash")
 	
+	AnimationManager.MouseClickingAnimationPlayer = $"../../GasIntakeCam/GasIntakeGame/MouseClicking/MouseClickingAnimationPlayer"
+	AnimationManager.ActivateMouseClickingAnimationPlayer()
+	AnimationManager.MouseClickingAnimationPlayer.play("MouseClicking")
+	
 	is_interactable = false
 	prompt_message = ""
 	
@@ -21,6 +25,7 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
+	$"../../GasIntakeCam/GasIntakeGame/MouseClickingTimer".start()
 	AnimationManager.GasIntakeFlash.visible = false
 	AnimationManager.DoorFlash.visible = false
 	AnimationManager.HoodFlash.visible = false
@@ -35,3 +40,7 @@ func _on_interacted(body: Variant) -> void:
 	$"../../GasIntakeCam/GasIntakeGame".visible = true
 	$"../../GasIntakeSweetSpot".visible = true
 	
+
+
+func _on_mouse_clicking_timer_timeout() -> void:
+	$"../../GasIntakeCam/GasIntakeGame/MouseClicking".visible = false

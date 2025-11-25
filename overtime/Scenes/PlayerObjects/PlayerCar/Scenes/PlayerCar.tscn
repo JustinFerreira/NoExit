@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dq08ejjnraqec"]
+[gd_scene load_steps=62 format=3 uid="uid://dq08ejjnraqec"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Scenes/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gjgk8"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://obn7dwcmegqc" path="res://Scenes/PlayerObjects/SpareTire/Scenes/SpareTireMesh.tscn" id="7_ionc6"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="8_lp8a8"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="9_jwfu5"]
-[ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="10_gyanv"]
+[ext_resource type="Texture2D" uid="uid://b8lpi3qwwdkek" path="res://Assets/LMB_icon.png" id="9_syjav"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="11_drwes"]
 [ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="12_2emh0"]
 [ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="13_2ukr4"]
@@ -418,8 +418,44 @@ _data = {
 "RESET": SubResource("Animation_0h2ml")
 }
 
+[sub_resource type="Animation" id="Animation_sseij"]
+resource_name = "MouseClicking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_j10hk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t71il"]
+_data = {
+"MouseClicking": SubResource("Animation_sseij"),
+"RESET": SubResource("Animation_j10hk")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_840ys"]
-albedo_texture = ExtResource("10_gyanv")
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jiv7g"]
 
@@ -678,6 +714,20 @@ text = "Hold LMB to raise gas canister
 Press ESC to leave minigame with progress intact"
 horizontal_alignment = 1
 
+[node name="MouseClicking" type="Sprite2D" parent="GasIntakeCam/GasIntakeGame"]
+texture_filter = 1
+position = Vector2(606, 245)
+texture = ExtResource("9_syjav")
+hframes = 2
+
+[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
+libraries = {
+"": SubResource("AnimationLibrary_t71il")
+}
+
+[node name="MouseClickingTimer" type="Timer" parent="GasIntakeCam/GasIntakeGame"]
+wait_time = 3.5
+
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
 transform = Transform3D(9.2567e-11, -0.0374951, 0.00262543, -1.46235e-09, -0.00237345, -0.0414759, 0.0335215, -1.53937e-16, -1.81659e-09, 0.868876, 1.27795, -1.528)
 visible = false
@@ -754,3 +804,4 @@ transform = Transform3D(0.415379, 0, 0, 0, 0.415379, 0, 0, 0, 0.415379, -1.21396
 [connection signal="interacted" from="Mesh/Hood" to="Mesh/Hood" method="_on_interacted"]
 [connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
 [connection signal="value_changed" from="GasIntakeCam/GasIntakeGame/ProgressBar" to="GasIntakeCanister" method="_on_progress_bar_value_changed"]
+[connection signal="timeout" from="GasIntakeCam/GasIntakeGame/MouseClickingTimer" to="Mesh/GasIntake" method="_on_mouse_clicking_timer_timeout"]
