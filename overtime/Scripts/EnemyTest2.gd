@@ -68,6 +68,7 @@ func calculate_path_distance() -> float:
 	return total_distance
 	
 func kill():
+	PlayerManager.HideDialog()
 	PlayerManager.dying = true
 	if PlayerManager.minigameTwo:
 		PlayerManager.minigameTwo = false

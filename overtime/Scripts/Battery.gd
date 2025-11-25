@@ -13,6 +13,12 @@ extends MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.PositiveBatteryResetZone = $PositiveBattery/MeshInstance3D
+	AnimationManager.NegativeBatteryResetZone = $NegativeBattery/MeshInstance3D
+	AnimationManager.ResetZones.clear()
+	for Resetzone in get_tree().get_nodes_in_group("resetzone"):
+		AnimationManager.ResetZones.append(Resetzone)
+	
 	AnimationManager.PositiveBatteryFlash = $PositiveBattery/PositiveBatteryFlash
 	AnimationManager.NegativeBatteryFlash = $NegativeBattery/NegativeBatteryFlash
 	AnimationManager.PositiveBatteryFlashAnimationPlayer = $PositiveBatteryFlashAnimationPlayer

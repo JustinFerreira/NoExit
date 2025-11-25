@@ -1,12 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://c5ftu8i0cg6v5"]
+[gd_scene load_steps=24 format=3 uid="uid://c5ftu8i0cg6v5"]
 
 [ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_BaseColor.png" id="1_q4wfy"]
-[ext_resource type="Texture2D" uid="uid://bb021gbespka0" path="res://Assets/Enviroments/Dev Textures/dev_texture_red.png" id="1_t68l8"]
 [ext_resource type="Script" path="res://Scripts/Battery.gd" id="1_yn3cf"]
 [ext_resource type="Texture2D" uid="uid://ecao2s4la2fa" path="res://Assets/Enviroments/Dev Textures/dev_texture_road.png" id="2_0f6xu"]
 [ext_resource type="Texture2D" uid="uid://dwj8otk3qg0fg" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Metalic_and_Rougness.png" id="2_1l3ll"]
 [ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Scenes/PlayerObjects/Battery/Models/M_Battery_Unwrapped.obj" id="2_ilnr1"]
 [ext_resource type="Texture2D" uid="uid://dkr2eh5crsijf" path="res://Scenes/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Normal.png" id="3_xi0i6"]
+[ext_resource type="Material" uid="uid://dsfs472iyd13w" path="res://Assets/Materials/WeirdWhite.tres" id="6_rpfuf"]
+[ext_resource type="Material" uid="uid://b1pito3qmgnij" path="res://Assets/Materials/Flashing.tres" id="7_uxtid"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_byxhq"]
 albedo_texture = ExtResource("1_q4wfy")
@@ -20,21 +21,12 @@ normal_texture = ExtResource("3_xi0i6")
 ao_enabled = true
 ao_texture = ExtResource("2_1l3ll")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i6bk"]
-albedo_texture = ExtResource("1_t68l8")
-
 [sub_resource type="BoxMesh" id="BoxMesh_3frxf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ua66h"]
-albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yep7w"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ygwrk"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbim2"]
-albedo_texture = ExtResource("2_0f6xu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_wlvhs"]
 
@@ -134,13 +126,14 @@ transform = Transform3D(7.11561, 0, 0, 0, 80.4194, 0, 0, 0, 7.11561, -8.27039, -
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PositiveBattery"]
 visible = false
-material_override = SubResource("StandardMaterial3D_6i6bk")
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_3frxf")
 skeleton = NodePath("../..")
 
 [node name="PositiveBatteryFlash" type="MeshInstance3D" parent="PositiveBattery"]
 transform = Transform3D(0.548452, 0, 0, 0, 0.265364, 0, 0, 0, 0.548452, -0.128235, 0.0893684, 0.211141)
-material_override = SubResource("StandardMaterial3D_ua66h")
+visible = false
+material_override = ExtResource("7_uxtid")
 mesh = SubResource("CylinderMesh_yep7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PositiveBattery"]
@@ -156,13 +149,14 @@ transform = Transform3D(8.36777, 0, 0, 0, 80.6743, 0, 0, 0, 8.36777, 8.82392, -8
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NegativeBattery"]
 visible = false
-material_override = SubResource("StandardMaterial3D_vbim2")
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_3frxf")
 skeleton = NodePath("../..")
 
 [node name="NegativeBatteryFlash" type="MeshInstance3D" parent="NegativeBattery"]
 transform = Transform3D(0.548241, 0, 0, 0, 0.310955, 0, 0, 0, 0.548241, 0.0196393, 0.0787879, 0.0314119)
-material_override = SubResource("StandardMaterial3D_ua66h")
+visible = false
+material_override = ExtResource("7_uxtid")
 mesh = SubResource("CylinderMesh_yep7w")
 skeleton = NodePath("../../PositiveBattery")
 
@@ -174,10 +168,12 @@ shape = SubResource("ConvexPolygonShape3D_ygwrk")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="NegativeBattery/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_ygwrk")
 
-[node name="ResetZone" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+[node name="ResetZone" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
 transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -7.75, 8.90527, -5.36026)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone"]
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_wlvhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZone"]
@@ -188,10 +184,12 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZone/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
-[node name="ResetZone2" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+[node name="ResetZone2" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
 transform = Transform3D(5.48764, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 7.56943, 8.90527, -5.98164)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone2"]
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_wlvhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZone2"]
@@ -202,10 +200,12 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZone2/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
-[node name="ResetZone3" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+[node name="ResetZone3" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
 transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, -6.19667, 8.90527, -0.865329)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone3"]
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_wlvhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZone3"]
@@ -216,10 +216,12 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZone3/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_egq5q")
 
-[node name="ResetZone4" type="StaticBody3D" parent="." groups=["battery_minigame"]]
+[node name="ResetZone4" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
 transform = Transform3D(2.43422, 0, 0, 0, 40.2799, 0, 0, 0, 4.5687, 6.08717, 8.90527, -1.91405)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZone4"]
+material_override = ExtResource("6_rpfuf")
 mesh = SubResource("BoxMesh_wlvhs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZone4"]
@@ -251,3 +253,8 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_sqwa4")
 }
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0363821, 0.999338, 0, -0.999338, 0.0363821, 0, 93.8943, 0)
+light_energy = 10.43
+spot_range = 2687.69

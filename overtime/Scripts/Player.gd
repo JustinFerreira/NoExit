@@ -429,10 +429,12 @@ func get_mouse_world_pos(mouse: Vector2):
 			AnimationManager.WirePositiveFlash.visible = false
 			AnimationManager.WireNegativeFlash.visible = false
 			AnimationManager.PositiveBatteryFlash.visible = true
+			AnimationManager.RevealResetZones(PlayerManager.PositiveWire)
 		if PlayerManager.NegativeWire == grabbed_object:
 			AnimationManager.WireNegativeFlash.visible = false
 			AnimationManager.WirePositiveFlash.visible = false
 			AnimationManager.NegativeBatteryFlash.visible = true
+			AnimationManager.RevealResetZones(PlayerManager.NegativeWire)
 		
 		# Optional: Make the object kinematic while grabbed to prevent physics interference
 		if grabbed_object is RigidBody3D:
@@ -489,8 +491,10 @@ func release_grabbed_object():
 		AnimationManager.WirePositiveFlash.visible = true
 		AnimationManager.WireNegativeFlash.visible = true
 		AnimationManager.PositiveBatteryFlash.visible = false
+		AnimationManager.HideResetZones()
 	if PlayerManager.NegativeWire == grabbed_object:
 		AnimationManager.WireNegativeFlash.visible = true
 		AnimationManager.WirePositiveFlash.visible = true
 		AnimationManager.NegativeBatteryFlash.visible = false
+		AnimationManager.HideResetZones()
 	grabbed_object = null

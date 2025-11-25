@@ -11,6 +11,21 @@ points = PackedVector3Array(2.5342, 1.55614, 0.389828, 2.77822, 1.00094, 0.38982
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa4l5"]
 albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
+[sub_resource type="Animation" id="Animation_n6c5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stapler:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_dvqf5"]
 resource_name = "StaplerFade"
 length = 0.1
@@ -27,12 +42,18 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_n6c5f"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abrpa"]
+_data = {
+"RESET": SubResource("Animation_n6c5f"),
+"StaplerFade": SubResource("Animation_dvqf5")
+}
+
+[sub_resource type="Animation" id="Animation_76t0x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Stapler:transparency")
+tracks/0/path = NodePath("StaplerFlash:transparency")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,12 +61,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_abrpa"]
-_data = {
-"RESET": SubResource("Animation_n6c5f"),
-"StaplerFade": SubResource("Animation_dvqf5")
 }
 
 [sub_resource type="Animation" id="Animation_ywtav"]
@@ -62,21 +77,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_76t0x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaplerFlash:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ddh62"]

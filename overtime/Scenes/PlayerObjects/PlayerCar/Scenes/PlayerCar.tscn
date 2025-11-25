@@ -759,14 +759,15 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="HoodCam/HoodGame"]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 30.0
-offset_right = 827.0
-offset_bottom = 53.0
+offset_left = 86.0
+offset_top = 1.0
+offset_right = 1182.0
+offset_bottom = 127.0
 theme_override_fonts/font = ExtResource("9_jwfu5")
-text = "Drag wire to same color on battery
-*Avoid gray parts on battery*
-Press ESC to leave minigame with progress intact"
+theme_override_font_sizes/font_size = 39
+text = "* Click then drag flashing wire to flashing red
+* Avoid bright white on battery
+* Press ESC to leave minigame with progress intact"
 
 [node name="WheelCam" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50919, 0.559945, -1.75185)

@@ -32,6 +32,7 @@ var Mug2AFlashAnimationPlayer
 var CarKeysFlashAnimationPlayer
 var BatteryFlashAnimationPlayer
 var GasCanisterFlashAnimationPlayer
+var CubicleFlashAnimationPlayer
 
 ## Meshes to toggle visiblity
 
@@ -61,6 +62,15 @@ var CarHead
 var CarEntering = true
 
 
+## Reset Zones
+
+var ResetZones: Array = []
+
+var NegativeBatteryResetZone
+
+var PositiveBatteryResetZone
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -69,6 +79,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func RevealResetZones(wire):
+	if wire == PlayerManager.PositiveWire:
+		for RestZone in ResetZones:
+			RestZone.visible = true
+		NegativeBatteryResetZone.visible = true
+	if wire == PlayerManager.NegativeWire:
+		for RestZone in ResetZones:
+			RestZone.visible = true
+		PositiveBatteryResetZone.visible = true
+		
+func HideResetZones():
+	for RestZone in ResetZones:
+		RestZone.visible = false
+	NegativeBatteryResetZone.visible = false
+	PositiveBatteryResetZone.visible = false
 
 func ExaminItemActivation(anim_string: String):
 	if anim_string == "PictureFrame1Flash":
@@ -81,6 +107,9 @@ func ExaminItemActivation(anim_string: String):
 		ActivateMug1AFlashAnimationPlayer()
 	if anim_string == "Mug2AFlash":
 		ActivateMug2AFlashAnimationPlayer()
+	
+func ActivateCubicleFlashAnimationPlayer():
+	CubicleFlashAnimationPlayer.connect("animation_finished", _on_CubicleFlash_animation_finished)
 	
 func ActivateMouseClickingAnimationPlayer():
 	MouseClickingAnimationPlayer.connect("animation_finished", _on_MouseClicking_animation_finished)
@@ -174,14 +203,16 @@ func _on_animation_finished(anim_name: String):
 		player.Incar = true
 		CarAnimationPlayer.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
+		DoorFlash.visible = true
 		if PlayerManager.minigameOnePassed && PlayerManager.minigameTwoPassed && PlayerManager.minigameThreePassed:
 			SteeringWheelFlash.visible = true
+			DoorFlash.visible = false
 			CarAnimationPlayer.play("HotWireFlash")
 		if !PlayerManager.minigameOnePassed:
 			SteeringWheelFlash.visible = true
+			DoorFlash.visible = false
 			CarAnimationPlayer.play("HotWireFlash")
 			PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
-	
 	## Exiting car animations
 	if anim_name == "GettinginCar" && player.Incar && not CarEntering:
 		player.Incar = false
@@ -290,3 +321,7 @@ func _on_GasCanisterFlash_animation_finished(anim_name: String):
 func _on_MouseClicking_animation_finished(anim_name: String):
 	if anim_name == "MouseClicking":
 		MouseClickingAnimationPlayer.play("MouseClicking")
+		
+func _on_CubicleFlash_animation_finished(anim_name: String):
+	if anim_name == "CubicleFlash":
+		CubicleFlashAnimationPlayer.play("CubicleFlash")

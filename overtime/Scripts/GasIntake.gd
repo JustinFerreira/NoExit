@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
-	$"../../GasIntakeCam/GasIntakeGame/MouseClickingTimer".start()
 	AnimationManager.GasIntakeFlash.visible = false
 	AnimationManager.DoorFlash.visible = false
 	AnimationManager.HoodFlash.visible = false
