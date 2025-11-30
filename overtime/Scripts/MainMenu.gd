@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = true
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = true
 	else:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
-
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
 
 func _on_animation_finished(anim_name: String):
 	
@@ -100,3 +101,18 @@ func _on_alternate_parking_keys_pressed() -> void:
 func _on_textured_parking_garage_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL1.tscn")
+
+
+func _on_loop_0_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/OpeningCutscene.tscn")
+
+
+func _on_opening_cutscene_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/OpeningCutscene.tscn")
+
+
+func _on_parking_garage_l_0_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL0.tscn")

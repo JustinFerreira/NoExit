@@ -128,6 +128,10 @@ func find_shortest_y_rotation(current: float, target: float) -> float:
 func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Stabbing":
+		if PlayerManager.OpeningCutscene:
+			PlayerManager.OpeningCutscene = false
+			get_tree().change_scene_to_file("res://Scenes/Levels/Loop0.tscn")
+			return
 		PlayerManager.player.GAMEOVER.visible =  true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
