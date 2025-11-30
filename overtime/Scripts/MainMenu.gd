@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = true
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = true
 	else:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
 
 func _on_animation_finished(anim_name: String):
 	

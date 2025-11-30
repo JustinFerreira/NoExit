@@ -143,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, 3.97227, 47.1349)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9671, 0.610023, 44.922)
 
 [node name="CutSceneCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.975465, 0, 0.220153, 0, 1, 0, -0.220153, 0, -0.975465, 37.009, 2.18967, 37.9654)
+transform = Transform3D(-0.975465, 0, 0.220154, 0, 1, 0, -0.220154, 0, -0.975465, 37.009, 2.18967, 37.9654)
 
 [node name="Player" parent="." instance=ExtResource("5_stf2d")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 36.2377, 0.68006, 42.3073)
