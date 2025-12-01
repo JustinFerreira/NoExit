@@ -8,6 +8,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("OpeningCutscene")
 	AudioManager.cancel_loop_sfx()
 	PlayerManager.OpeningCutscene = true
+	PlayerManager.InAnimation = true
 	PlayerManager.Loop0 = true
 
 

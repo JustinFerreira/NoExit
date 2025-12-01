@@ -36,4 +36,4 @@ environment = SubResource("Environment_r2m6c")
 transform = Transform3D(-0.547161, 0, 1.17924, 0, 1.3, 0, -1.17924, 0, -0.547161, -8.33801, 11.6254, 22.6357)
 
 [node name="ElevatorL0" parent="." instance=ExtResource("6_mtgra")]
-transform = Transform3D(-0.030228, 0, 1.80581, 0, 1.80606, 0, -1.80581, 0, -0.030228, -36.1611, 11.4038, 5.63715)
+transform = Transform3D(-0.030228, 0, 1.80581, 0, 1.80606, 0, -1.80581, 0, -0.030228, -36.3541, 11.506, 5.637)

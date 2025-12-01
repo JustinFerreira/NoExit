@@ -70,6 +70,7 @@ func calculate_path_distance() -> float:
 func kill():
 	PlayerManager.HideDialog()
 	PlayerManager.dying = true
+	PlayerManager.InAnimation = true
 	if PlayerManager.minigameTwo:
 		PlayerManager.minigameTwo = false
 		PlayerManager.gasIntakeUI.visible = false

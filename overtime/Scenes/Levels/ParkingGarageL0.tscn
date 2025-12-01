@@ -149,6 +149,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.5849, 14.3777, 11.2399)
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 0, 72.8161, 353.777)
 
 [node name="TeleportTarget" type="MeshInstance3D" parent="." groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6569, 12.0929, 27.7427)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6569, 12.0929, 22.3325)
 visible = false
 mesh = SubResource("CylinderMesh_54s5j")

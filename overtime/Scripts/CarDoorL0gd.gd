@@ -44,7 +44,6 @@ func _on_interacted(body: Variant) -> void:
 			# Open door animation
 			AnimationManager.CarAnimationPlayer.play("NoExitProps")
 			PlayerManager.InAnimation = true
-			PlayerManager.teleportEnemy = true
 		else:
 			# Play Car locked noise
 			AudioManager.play_sound(AudioManager.CarDoorLocked)
@@ -62,4 +61,3 @@ func _on_interacted(body: Variant) -> void:
 		PlayerManager.InAnimation = true
 		AnimationManager.CarEntering = true
 		AnimationManager.CarAnimationPlayer.play("NoExitProps")
-		PlayerManager.teleportEnemy = true
