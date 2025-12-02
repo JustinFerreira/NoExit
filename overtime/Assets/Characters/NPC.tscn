@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dla06rt1hhnqt" path="res://Assets/Enviroments/Dev Textures/dev_texture_dirt.png" id="1_m506l"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_jm45i"]
 [ext_resource type="Script" path="res://Scripts/NpcSounds.gd" id="3_51aic"]
-[ext_resource type="Script" path="res://Scripts/NPCrandomdailogue.gd" id="3_eepod"]
+[ext_resource type="Script" path="res://Scripts/NpcRandomDialogue.gd" id="3_eepod"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag0cb"]
 albedo_texture = ExtResource("1_m506l")
