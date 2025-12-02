@@ -208,11 +208,16 @@ func _on_animation_finished(anim_name: String):
 			SteeringWheelFlash.visible = true
 			DoorFlash.visible = false
 			CarAnimationPlayer.play("HotWireFlash")
-		if !PlayerManager.minigameOnePassed:
+		if !PlayerManager.minigameOnePassed && !PlayerManager.Loop0:
 			SteeringWheelFlash.visible = true
 			DoorFlash.visible = false
 			CarAnimationPlayer.play("HotWireFlash")
 			PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
+		if PlayerManager.Loop0:
+			SteeringWheelFlash.visible = true
+			DoorFlash.visible = false
+			CarAnimationPlayer.play("HotWireFlash")
+			PlayerManager.CharacterDialog("Can't wait to get home let me start this car and get out of here!")
 	## Exiting car animations
 	if anim_name == "GettinginCar" && player.Incar && not CarEntering:
 		player.Incar = false
@@ -229,12 +234,14 @@ func _on_animation_finished(anim_name: String):
 		CarAnimationPlayer.play_backwards("NoExitProps")
 		player.interact_ray.enabled = true
 		SteeringWheelFlash.visible = false
-		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
+		if not PlayerManager.Loop0 and not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
 			DoorFlash.visible = true
 		if not PlayerManager.minigameThreePassed && PlayerManager.has_item("Battery"):
 			AnimationManager.HoodFlash.visible = true
 		if not PlayerManager.minigameTwoPassed && PlayerManager.has_item("Gas Canister"):
-			AnimationManager.GasIntakeFlash.visible = true
+			GasIntakeFlash.visible = true
+		if PlayerManager.Loop0:
+			HoodFlash.visible = true
 		
 		
 		# Teleport player 5 meters next to the car

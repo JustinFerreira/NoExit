@@ -73,7 +73,10 @@ var gotKeys = false
 var gotGas_Canister = false
 var gotBattery = false
 
+# Loop control
+var OpeningCutscene = false
 var Loop1 = false
+var Loop0 = false
 
 ## Hot Wiring
 var minigameOne = false
@@ -224,7 +227,8 @@ func Dialog(text: String):
 func HideDialog():
 	if player.DIALOG.timer:
 		player.DIALOG.timer.stop()
-	player.DIALOG.animation_player.play("hide")
+	if finishedDialogAnimation:
+		player.DIALOG.animation_player.play("hide")
 	finishedDialogAnimation = false
 	
 func RevealDialog():

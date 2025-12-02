@@ -73,17 +73,6 @@ transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -7.29435, 1
 [node name="EnemyTest2" parent="." instance=ExtResource("5_nolbu")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -38.056, 7.88327, -34.2015)
 
-[node name="sLIGHTrED2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.39839, 2028.32, 83.0694)
-visible = false
-light_color = Color(0.900306, 0.53777, 0.757611, 1)
-light_energy = 3.182
-light_indirect_energy = 0.0
-light_specular = 2.278
-spot_range = 4096.0
-spot_attenuation = 0.14
-spot_angle = 46.44
-
 [node name="ParkingGarageElevator" parent="." instance=ExtResource("6_onva3")]
 transform = Transform3D(-1.80606, 0, -1.57891e-07, 0, 1.80606, 0, 1.57891e-07, 0, -1.80606, -7.02858, 10.4295, 45.4625)
 
