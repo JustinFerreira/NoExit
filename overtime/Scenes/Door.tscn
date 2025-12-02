@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://btfvsfntfas8m"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_nx34q"]
+[ext_resource type="Script" path="res://Scripts/Door.gd" id="1_nx34q"]
 [ext_resource type="Texture2D" uid="uid://dl3p0pukvbwih" path="res://Assets/Enviroments/Dev Textures/dev_texture_green.png" id="2_mckjm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26600"]

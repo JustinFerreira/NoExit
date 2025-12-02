@@ -26,12 +26,14 @@ var nav_agent: NavigationAgent3D
 
 #Sequence of text given to multi dialog function
 var text_array: Array[String] = [
-	"Sup I'm the coolest janitor dude you'll ever meet. I clean, clean some more and clean again.",
-	"Whats your name",
-	"Thats the coolest name ive ever heard",
-	"Maybe we should Kiss?",
-	"JK JK JK JK",
-	"Unless ;)"
+	"Last day, right?",
+	"Quite a familiar sight, watching a kid turn their back on this, and pardon my French",
+	"lumpy pile of dog shit",
+	"Let me guess, your heart wasn’t in it? Corporate life didn’t suit you?",
+	"Oh, it doesn’t matter. Just a quick word of advice.",
+	"This life has a knack for following you.",
+	"It’s kinda like chronic depression or my ex-wife",
+	"Once it’s got its claws in you, it won’t want to let go."
 ]
 
 # Called when the node enters the scene tree for the first time.

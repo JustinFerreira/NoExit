@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dl5qgwkg3d8b8" path="res://Assets/Enviroments/Dev Textures/dev_texture_blue.png" id="1_8eppk"]
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_1ixya"]
-[ext_resource type="Script" path="res://Scripts/DialogNPC.gd" id="3_wwfaq"]
+[ext_resource type="Script" path="res://Scripts/DialogNpc.gd" id="3_wwfaq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q33ub"]
 albedo_texture = ExtResource("1_8eppk")
