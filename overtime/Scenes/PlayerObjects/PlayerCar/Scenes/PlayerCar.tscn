@@ -537,7 +537,6 @@ mesh = SubResource("BoxMesh_s4pjl")
 
 [node name="CarDoorVisual" type="MeshInstance3D" parent="Mesh/CarDoor"]
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0133092, 0, 0, 0, 0.0133022, 0.00986264, 0.0107043, 0.00558393)
-visible = false
 material_override = SubResource("StandardMaterial3D_as2o1")
 mesh = SubResource("BoxMesh_s4pjl")
 

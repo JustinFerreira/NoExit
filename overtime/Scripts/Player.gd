@@ -11,8 +11,8 @@ var gravity = true
 var is_sprinting = false
 
 #bob variables
-const BOB_FREQ = 3.0 # How often you bob
-const BOB_AMP = 0.07 # How high and low you bob
+const BOB_FREQ = 4.0 # How often you bob
+const BOB_AMP = 0.03 # How high and low you bob
 var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
 
 #fov variables
@@ -324,7 +324,7 @@ func _physics_process(delta: float) -> void:
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
+	#pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
 	
 
