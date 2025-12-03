@@ -16,14 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="14_ibjrd"]
 [ext_resource type="PackedScene" uid="uid://cl4w2cqylilfm" path="res://Assets/Enviroments/Office/Scenes/Stapler.tscn" id="14_qhn26"]
 [ext_resource type="PackedScene" uid="uid://nb5vr5umkk6w" path="res://Assets/Enviroments/Office/Scenes/PictureFrame1.tscn" id="16_5lago"]
-[ext_resource type="PackedScene" uid="uid://c01hvg8llia3e" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="18_5hnf5"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="18_5hnf5"]
 [ext_resource type="PackedScene" uid="uid://v4ak5cnq1fu4" path="res://Assets/Enviroments/Garage/Scenes/fire_exstinguisher.tscn" id="18_ph13l"]
-[ext_resource type="PackedScene" uid="uid://p7n02gmgn3my" path="res://Assets/Enviroments/Office/Scenes/mug_2a.tscn" id="19_go4is"]
-[ext_resource type="PackedScene" uid="uid://l6ssl2wjp0pk" path="res://Assets/Enviroments/Office/Scenes/mug_1b.tscn" id="19_qixa2"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_2a.tscn" id="19_go4is"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_1b.tscn" id="19_qixa2"]
 [ext_resource type="PackedScene" uid="uid://dbb1xpsd2yyvb" path="res://Assets/Enviroments/Office/Scenes/PictureFrame4.tscn" id="20_de3t3"]
 [ext_resource type="PackedScene" uid="uid://bq87sfek8ftj7" path="res://Assets/Enviroments/Office/Scenes/pen_1a.tscn" id="20_lyhxk"]
 [ext_resource type="PackedScene" uid="uid://cwi31kpkwlrm0" path="res://Assets/Enviroments/Office/Scenes/PictureFrame3.tscn" id="20_sa0sg"]
-[ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="21_3plfg"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="21_3plfg"]
 [ext_resource type="PackedScene" uid="uid://bigkpyey4v35f" path="res://Assets/Enviroments/Office/Scenes/pen_1b.tscn" id="21_ygvux"]
 [ext_resource type="PackedScene" uid="uid://dkdxdrv0m2mln" path="res://Assets/Enviroments/Office/Scenes/pencil_1a.tscn" id="22_aeq10"]
 [ext_resource type="PackedScene" uid="uid://djkmmpuymcplm" path="res://Assets/Enviroments/Office/Scenes/office_door.tscn" id="23_fxkj8"]
@@ -1412,10 +1412,10 @@ transform = Transform3D(0.433013, 0, -0.25, 0, 0.5, 0, 0.25, 0, 0.433013, -8.51,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.585, 81.25, 160.625)
 
 [node name="Papers1" parent="CubicleDecor/CublicleItemSet106" instance=ExtResource("6_6k61k")]
-transform = Transform3D(-1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -1.86265e-07, -9.17401, -0.969101, 6.15403)
+transform = Transform3D(-1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -1.86265e-07, -9.174, -1.219, 6.154)
 
 [node name="TissueBox" parent="CubicleDecor/CublicleItemSet106" instance=ExtResource("9_lu6ri")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -8.16801, -1.20601, -4.64498)
+transform = Transform3D(1.0853, 0, 6.15505, 0, 6.25, 0, -6.15505, 0, 1.0853, -6.918, -1.20602, 6.60503)
 
 [node name="Folder1" parent="CubicleDecor/CublicleItemSet106" instance=ExtResource("10_v3k4h")]
 transform = Transform3D(-7.07084e-08, -4.59461e-07, 6.25, -2.63887e-07, 6.25, 4.59461e-07, -6.25, -2.63887e-07, -7.07084e-08, 2.74001, -1.172, -5.72498)
@@ -1429,20 +1429,41 @@ transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 
 [node name="Sticky Note2" parent="CubicleDecor/CublicleItemSet106" instance=ExtResource("14_ibjrd")]
 transform = Transform3D(-2.18557e-08, 0.5, 0, -0.433013, -1.89276e-08, 0.25, 0.25, 1.09278e-08, 0.433013, -11.6353, 4.22823, 1.77525)
 
+[node name="AnsweringMachine" parent="CubicleDecor/CublicleItemSet106" instance=ExtResource("33_5c7rn")]
+transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -8.925, -1.317, -3.22499)
+
 [node name="CublicleItemSet18" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 81.25, 108.125)
 
 [node name="TissueBox2" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
 transform = Transform3D(-2.73196e-07, 0, -6.25, 0, 6.25, 0, 6.25, 0, -2.73196e-07, -8.16801, -1.20602, 5.98002)
 
+[node name="TissueBox3" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, -0.668015, -1.20602, -6.51998)
+
+[node name="TissueBox4" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, 1.397, -1.206, -6.51998)
+
+[node name="TissueBox5" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, 3.437, -1.206, -6.52)
+
+[node name="TissueBox6" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, 2.372, 0.0139999, -6.52)
+
+[node name="TissueBox7" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, 0.211998, 0.0139999, -6.52)
+
+[node name="TissueBox8" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("9_lu6ri")]
+transform = Transform3D(6.25, 0, 1.77636e-13, 0, 6.25, 0, -1.77636e-13, 0, 6.25, 1.10199, 1.154, -6.52)
+
 [node name="Folder3" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("10_v3k4h")]
 transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -11.495, 0.702995, -5.09998)
 
 [node name="Folder4" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.702995, -3.84997)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.173, -3.84997)
 
 [node name="Folder5" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.702995, -5.72498)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.173, -5.72498)
 
 [node name="Folder6" parent="CubicleDecor/CublicleItemSet18" instance=ExtResource("12_xaag6")]
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -6.00996, -1.217, -5.34967)
@@ -1457,10 +1478,10 @@ transform = Transform3D(-2.73196e-07, 0, -6.25, 0, 6.25, 0, 6.25, 0, -2.73196e-0
 transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -11.495, 0.702995, -5.09998)
 
 [node name="Folder4" parent="CubicleDecor/CublicleItemSet94" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.702995, -3.84997)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.183, -3.84997)
 
 [node name="Folder5" parent="CubicleDecor/CublicleItemSet94" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.702995, -5.72498)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.183, -5.72498)
 
 [node name="Folder6" parent="CubicleDecor/CublicleItemSet94" instance=ExtResource("12_xaag6")]
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -6.00996, -1.217, -5.34967)
@@ -2597,7 +2618,7 @@ transform = Transform3D(-1.3089e-07, 2.9944, 0.183146, -3, -1.31134e-07, 0, 8.00
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.5, 82.5, 160)
 
 [node name="Picture Frame" parent="CubicleDecor/CublicleItemSet79" instance=ExtResource("16_5lago")]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 7.73969, -2.64674, 6.77522)
+transform = Transform3D(-1, 0, 1.86265e-07, 0, 1, 0, -1.86265e-07, 0, -1, 7.73969, -2.64674, -5.72478)
 
 [node name="Mug1A" parent="CubicleDecor/CublicleItemSet79" instance=ExtResource("18_5hnf5")]
 transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, 3.36469, -2.64677, 3.65022)
@@ -2619,6 +2640,9 @@ transform = Transform3D(9.17174e-08, 2.95442, 0.520945, -3, 9.31323e-08, 0, -1.6
 
 [node name="Pen2A3" parent="CubicleDecor/CublicleItemSet79" instance=ExtResource("24_qclyo")]
 transform = Transform3D(-1.3089e-07, 2.9944, 0.183146, -3, -1.31134e-07, 0, 8.00555e-09, -0.183146, 2.9944, 3.99, -2.437, 5.2)
+
+[node name="Picture Frame2" parent="CubicleDecor/CublicleItemSet79" instance=ExtResource("36_a3usj")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 7.11469, -2.64674, 7.40022)
 
 [node name="CublicleItemSet37" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.25, 82.5, 195.625)
@@ -2744,13 +2768,109 @@ transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -6.00999, -2.472, 5.
 transform = Transform3D(2.09548e-07, 3, 0, -3, 2.09548e-07, 0, 0, 0, 3, -2.885, -2.427, 4.9)
 
 [node name="Pen2B" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("25_xebpw")]
-transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 0, -3.394e-08, 0.776457, 2.89778, -3.13, -2.022, 4.96)
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 0, -3.394e-08, 0.776457, 2.89778, -3.13, -2.447, 4.96)
 
 [node name="Pen1A2" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("20_lyhxk")]
 transform = Transform3D(1.81473e-07, 2.59808, -1.5, -3, 2.09548e-07, -3.44402e-15, 1.04774e-07, 1.5, 2.59808, -2.88641, -2.42699, 5.175)
 
 [node name="Pen2B2" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("25_xebpw")]
-transform = Transform3D(-9.27258e-08, 2.12132, -2.12132, -3, -1.31134e-07, -8.47354e-15, -9.27258e-08, 2.12132, 2.12132, -3.12857, -2.022, 5.175)
+transform = Transform3D(-9.27258e-08, 2.12132, -2.12132, -3, -1.31134e-07, -8.47354e-15, -9.27258e-08, 2.12132, 2.12132, -3.12857, -2.447, 5.175)
+
+[node name="Pen1A3" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(1.81474e-07, 2.59808, -1.5, -3, 2.09548e-07, 7.30964e-15, 1.04774e-07, 1.5, 2.59808, 4.89001, -2.42699, 5.09999)
+
+[node name="Pen2B3" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 7.84304e-15, -3.394e-08, 0.776457, 2.89778, 3.64001, -2.44699, 6.97498)
+
+[node name="Pen1A4" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(-2.02407e-07, -2.89778, 0.776456, -3, 2.09548e-07, -2.08887e-14, -5.42353e-08, -0.776456, -2.89778, 3.01501, -2.42699, 4.47499)
+
+[node name="Pen2B4" parent="CubicleDecor/CublicleItemSet29" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-6.5567e-08, 1.5, 2.59808, -3, -1.31134e-07, 1.47165e-14, 1.13565e-07, -2.59808, 1.5, 5.51501, -2.44699, 3.22498)
+
+[node name="CublicleItemSet136" type="Node3D" parent="CubicleDecor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.125, 82.5, -126.875)
+
+[node name="Picture Frame" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("16_5lago")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 7.73969, -2.64674, 6.77522)
+
+[node name="Mug1A" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("18_5hnf5")]
+transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, 3.36469, -2.64677, 3.65022)
+
+[node name="Node3D" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("14_qhn26")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.084, -2.008, 7.109)
+
+[node name="Folder1" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, 4.61501, -2.432, -5.725)
+
+[node name="Mug1B" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("19_qixa2")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -6.00999, -2.472, 5.52499)
+
+[node name="Pen1A" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(2.09548e-07, 3, 0, -3, 2.09548e-07, 0, 0, 0, 3, -2.885, -2.427, 4.9)
+
+[node name="Pen2B" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 0, -3.394e-08, 0.776457, 2.89778, -3.13, -2.447, 4.96)
+
+[node name="Pen1A2" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(1.81473e-07, 2.59808, -1.5, -3, 2.09548e-07, -3.44402e-15, 1.04774e-07, 1.5, 2.59808, -2.88641, -2.42699, 5.175)
+
+[node name="Pen2B2" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-9.27258e-08, 2.12132, -2.12132, -3, -1.31134e-07, -8.47354e-15, -9.27258e-08, 2.12132, 2.12132, -3.12857, -2.447, 5.175)
+
+[node name="Pen1A3" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(1.81474e-07, 2.59808, -1.5, -3, 2.09548e-07, 7.30964e-15, 1.04774e-07, 1.5, 2.59808, 4.89001, -2.42699, 5.09999)
+
+[node name="Pen2B3" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 7.84304e-15, -3.394e-08, 0.776457, 2.89778, 3.64001, -2.44699, 6.97498)
+
+[node name="Pen1A4" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(-2.02407e-07, -2.89778, 0.776456, -3, 2.09548e-07, -2.08887e-14, -5.42353e-08, -0.776456, -2.89778, 3.01501, -2.42699, 4.47499)
+
+[node name="Pen2B4" parent="CubicleDecor/CublicleItemSet136" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-6.5567e-08, 1.5, 2.59808, -3, -1.31134e-07, 1.47165e-14, 1.13565e-07, -2.59808, 1.5, 5.51501, -2.44699, 3.22498)
+
+[node name="CublicleItemSet135" type="Node3D" parent="CubicleDecor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.125, 82.5, 89.375)
+
+[node name="Picture Frame" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("16_5lago")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 7.73969, -2.64674, 6.77522)
+
+[node name="Mug1A" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("18_5hnf5")]
+transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, 3.36469, -2.64677, 3.65022)
+
+[node name="Node3D" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("14_qhn26")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.084, -2.008, 7.109)
+
+[node name="Folder1" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, 4.61501, -2.432, -5.725)
+
+[node name="Mug1B" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("19_qixa2")]
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -6.00999, -2.472, 5.52499)
+
+[node name="Pen1A" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(2.09548e-07, 3, 0, -3, 2.09548e-07, 0, 0, 0, 3, -2.885, -2.427, 4.9)
+
+[node name="Pen2B" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 0, -3.394e-08, 0.776457, 2.89778, -3.13, -2.447, 4.96)
+
+[node name="Pen1A2" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(1.81473e-07, 2.59808, -1.5, -3, 2.09548e-07, -3.44402e-15, 1.04774e-07, 1.5, 2.59808, -2.88641, -2.42699, 5.175)
+
+[node name="Pen2B2" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-9.27258e-08, 2.12132, -2.12132, -3, -1.31134e-07, -8.47354e-15, -9.27258e-08, 2.12132, 2.12132, -3.12857, -2.447, 5.175)
+
+[node name="Pen1A3" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(1.81474e-07, 2.59808, -1.5, -3, 2.09548e-07, 7.30964e-15, 1.04774e-07, 1.5, 2.59808, 4.89001, -2.42699, 5.09999)
+
+[node name="Pen2B3" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-1.26666e-07, 2.89778, -0.776457, -3, -1.31134e-07, 7.84304e-15, -3.394e-08, 0.776457, 2.89778, 3.64001, -2.44699, 6.97498)
+
+[node name="Pen1A4" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("20_lyhxk")]
+transform = Transform3D(-2.02407e-07, -2.89778, 0.776456, -3, 2.09548e-07, -2.08887e-14, -5.42353e-08, -0.776456, -2.89778, 3.01501, -2.42699, 4.47499)
+
+[node name="Pen2B4" parent="CubicleDecor/CublicleItemSet135" instance=ExtResource("25_xebpw")]
+transform = Transform3D(-6.5567e-08, 1.5, 2.59808, -3, -1.31134e-07, 1.47165e-14, 1.13565e-07, -2.59808, 1.5, 5.51501, -2.44699, 3.22498)
 
 [node name="CublicleItemSet12" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.875, 82.62, 124.375)
@@ -2867,16 +2987,16 @@ transform = Transform3D(-1, 0, 6.98492e-08, 0, 1, 0, -6.98492e-08, 0, -1, 5.8650
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, 4.615, -2.39201, 4.27501)
 
 [node name="Sticky Note" parent="CubicleDecor/CublicleItemSet31" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0, 0.5, 3.765, 2.178, -1.35001)
+transform = Transform3D(0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0, 0.5, 3.765, 2.178, -1.97502)
 
 [node name="Sticky Note2" parent="CubicleDecor/CublicleItemSet31" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 0, 0.466506, 0.125, 0.12941, -0.125, -0.0334936, 0.482963, 8.505, 2.178, 3.64999)
+transform = Transform3D(0.12941, -0.482963, 3.01306e-09, 0.482963, 0.129409, 4.30737e-07, -8.14907e-08, 5.23869e-08, 0.5, 8.505, 2.178, 3.64998)
 
 [node name="Sticky Note3" parent="CubicleDecor/CublicleItemSet31" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 2.81121e-09, 0.418258, 0.112072, -0.25, 0.241481, 0.0647048, 0.433013, 8.505, 2.80299, 2.40004)
+transform = Transform3D(0.12941, -0.482963, 5.62242e-09, 0.482963, 0.12941, 1.62981e-07, -2.79397e-07, 5.82077e-09, 0.5, 8.505, 2.80299, -1.34998)
 
 [node name="Sticky Note4" parent="CubicleDecor/CublicleItemSet31" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 1.14432e-08, 0.475626, 0.127444, -0.086824, 0.0838657, 0.0224717, 0.492404, 8.505, 0.927979, 2.40004)
+transform = Transform3D(0.12941, -0.482963, 1.28548e-08, 0.481125, 0.128918, 0.043578, -0.042093, -0.0112789, 0.498097, 8.505, -0.322014, 1.77502)
 
 [node name="CublicleItemSet30" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.645, 82.5, 142.5)
@@ -2990,7 +3110,7 @@ transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -2.25998, -2.472, 5.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.95, 82.5, -73.75)
 
 [node name="Mug2A" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("19_go4is")]
-transform = Transform3D(-4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, -4.41942, 1.48999, -2.50201, 3.64999)
+transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -2.88501, -2.50201, 6.14999)
 
 [node name="Picture Frame" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("20_de3t3")]
 transform = Transform3D(-1, 0, 6.98492e-08, 0, 1, 0, -6.98492e-08, 0, -1, 5.86501, -2.562, -5.72501)
@@ -2998,17 +3118,20 @@ transform = Transform3D(-1, 0, 6.98492e-08, 0, 1, 0, -6.98492e-08, 0, -1, 5.8650
 [node name="Folder2" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("12_xaag6")]
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, 4.615, -2.39201, 4.27501)
 
+[node name="Folder3" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("12_xaag6")]
+transform = Transform3D(-5.1197, 0, -3.58485, 0, 6.25, 0, 3.58485, 0, -5.1197, -1.635, -2.39201, 5.52501)
+
 [node name="Sticky Note" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("14_ibjrd")]
 transform = Transform3D(0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0, 0.5, 3.765, 2.178, -1.35001)
 
 [node name="Sticky Note2" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 0, 0.466506, 0.125, 0.12941, -0.125, -0.0334936, 0.482963, 8.505, 2.178, 3.64999)
+transform = Transform3D(0.12941, -0.482963, 0, 0.466506, 0.125, 0.12941, -0.125, -0.0334936, 0.482963, 8.505, 0.303001, 6.14999)
 
 [node name="Sticky Note3" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("14_ibjrd")]
 transform = Transform3D(0.12941, -0.482963, 2.81121e-09, 0.418258, 0.112072, -0.25, 0.241481, 0.0647048, 0.433013, 8.505, 2.80299, 2.40004)
 
 [node name="Sticky Note4" parent="CubicleDecor/CublicleItemSet124" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 1.14432e-08, 0.475626, 0.127444, -0.086824, 0.0838657, 0.0224717, 0.492404, 8.505, 0.927979, 2.40004)
+transform = Transform3D(0.12941, -0.482963, 1.14432e-08, 0.475626, 0.127444, -0.086824, 0.0838657, 0.0224717, 0.492404, 8.505, 3.42798, -6.34995)
 
 [node name="CublicleItemSet125" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.95, 82.5, -56.25)
@@ -3689,19 +3812,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.83, 82.45, -56.25)
 transform = Transform3D(-4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, -4.41942, 1.48999, -2.50201, 3.64999)
 
 [node name="Picture Frame" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("20_de3t3")]
-transform = Transform3D(-1, 0, 6.98492e-08, 0, 1, 0, -6.98492e-08, 0, -1, 5.86501, -2.562, -5.72501)
+transform = Transform3D(-1, 0, 6.98492e-08, 0, 1, 0, -6.98492e-08, 0, -1, 5.865, -2.382, -5.725)
 
 [node name="Folder2" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("12_xaag6")]
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, 4.615, -2.39201, 4.27501)
 
 [node name="Sticky Note" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0, 0.5, 3.765, 2.178, -1.35001)
+transform = Transform3D(0.12941, -0.482963, 0, 0.482963, 0.12941, 0, 0, 0, 0.5, 3.98, 1.073, -1.35)
 
 [node name="Sticky Note2" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 0, 0.466506, 0.125, 0.12941, -0.125, -0.0334936, 0.482963, 8.705, 2.178, 3.64999)
+transform = Transform3D(0.12941, -0.482963, 0, 0.466506, 0.125, 0.12941, -0.125, -0.0334936, 0.482963, 8.705, 2.80301, 6.77499)
 
 [node name="Sticky Note3" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("14_ibjrd")]
-transform = Transform3D(0.12941, -0.482963, 2.81121e-09, 0.418258, 0.112072, -0.25, 0.241481, 0.0647048, 0.433013, 8.705, 2.80299, 2.40004)
+transform = Transform3D(0.12941, -0.482963, 2.81121e-09, 0.418258, 0.112072, -0.25, 0.241481, 0.0647048, 0.433013, 8.705, 3.428, -5.72496)
 
 [node name="Sticky Note4" parent="CubicleDecor/CublicleItemSet23" instance=ExtResource("14_ibjrd")]
 transform = Transform3D(0.12941, -0.482963, 1.14432e-08, 0.475626, 0.127444, -0.086824, 0.0838657, 0.0224717, 0.492404, 8.705, 0.927979, 2.40004)
@@ -4766,10 +4889,10 @@ transform = Transform3D(-2.73196e-07, 0, -6.25, 0, 6.25, 0, 6.25, 0, -2.73196e-0
 transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -11.495, 0.702995, -5.09998)
 
 [node name="Folder4" parent="CubicleDecor/CublicleItemSet100" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.702995, -3.84997)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.68, 0.183, -3.84997)
 
 [node name="Folder5" parent="CubicleDecor/CublicleItemSet100" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.702995, -5.72498)
+transform = Transform3D(-0.272621, 6.03129, 1.61608, 0, 1.61762, -6.03704, -6.24405, -0.263332, -0.0705596, -10.45, 0.183, -5.72498)
 
 [node name="Folder6" parent="CubicleDecor/CublicleItemSet100" instance=ExtResource("12_xaag6")]
 transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -6.00996, -1.217, -5.34967)
@@ -5299,206 +5422,215 @@ transform = Transform3D(-4.57096, -1.63118, 3.93803, 0, 5.77425, 2.39177, -4.262
 [node name="CublicleItemSet93" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.09, 80.81, 91.525)
 
+[node name="AnsweringMachine" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("33_5c7rn")]
+transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, -8.92, -0.837, -3.5)
+
 [node name="Folder1" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, -0.771767, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.771767, -7.59978)
 
 [node name="Folder2" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.76031, -0.771767, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.771767, -7.59978)
 
 [node name="Folder3" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, -0.692, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.692001, -7.59978)
 
 [node name="Folder4" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, -5.41266, 0, 6.25, 0, 5.41266, 0, 3.125, -4.76, -0.612007, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, -0.612015, -7.60001)
 
 [node name="Folder5" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76025, -0.427, -5.72475)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13525, -0.427002, -7.59975)
 
 [node name="Folder6" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76, -0.337, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, -0.336998, -7.60001)
 
 [node name="Folder7" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76, -0.157, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, -0.156998, -7.60001)
 
 [node name="Folder8" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03704, -4.76, -0.247, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, -0.247002, -7.60001)
 
 [node name="Folder9" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, -0.146767, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.146767, -7.59978)
 
 [node name="Folder10" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.76031, -0.146767, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.146767, -7.59978)
 
 [node name="Folder11" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, -0.0670013, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, -0.0670013, -7.59978)
 
 [node name="Folder12" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, -5.41266, 0, 6.25, 0, 5.41266, 0, 3.125, -4.76, 0.0129852, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 0.0129852, -7.60001)
 
 [node name="Folder13" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76025, 0.197998, -5.72475)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13525, 0.197998, -7.59975)
 
 [node name="Folder14" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76, 0.288002, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 0.288002, -7.60001)
 
 [node name="Folder15" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76, 0.468002, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 0.468002, -7.60001)
 
 [node name="Folder16" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03703, -4.76, 0.377998, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.135, 0.377998, -7.60001)
 
 [node name="Folder17" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, -3.125, 0, 6.25, 0, 3.125, 0, 5.41266, -4.76035, 0.478226, -5.72488)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 0.478226, -7.59988)
 
 [node name="Folder18" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76022, 0.478226, -5.72468)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13522, 0.478226, -7.59968)
 
 [node name="Folder19" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76022, 0.557999, -5.72468)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13522, 0.557999, -7.59968)
 
 [node name="Folder20" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03703, -4.76017, 0.637985, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.13517, 0.637985, -7.60004)
 
 [node name="Folder21" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, -4.76016, 0.822998, -5.7247)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13516, 0.822998, -7.5997)
 
 [node name="Folder22" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-1.61762, 0, 6.03703, 0, 6.25, 0, -6.03703, 0, -1.61762, -4.76017, 0.912994, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.13517, 0.912994, -7.60004)
 
 [node name="Folder23" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, -4.76017, 1.09299, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13517, 1.09299, -7.60004)
 
 [node name="Folder24" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, 3.125, 0, 6.25, 0, -3.125, 0, 5.41266, -4.76017, 1.003, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13517, 1.003, -7.60004)
 
 [node name="Folder25" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76022, 1.10323, -5.72468)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13522, 1.10323, -7.59968)
 
 [node name="Folder26" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76022, 1.10323, -5.72468)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13522, 1.10323, -7.59968)
 
 [node name="Folder27" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76022, 1.18299, -5.72468)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13522, 1.18299, -7.59968)
 
 [node name="Folder28" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03703, -4.76017, 1.26299, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.13517, 1.26299, -7.60004)
 
 [node name="Folder29" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, -4.76016, 1.448, -5.7247)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13516, 1.448, -7.5997)
 
 [node name="Folder30" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-1.61762, 0, 6.03703, 0, 6.25, 0, -6.03703, 0, -1.61762, -4.76017, 1.538, -5.72504)
-
-[node name="Folder66" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-1.85644e-06, 5.41266, 3.125, 2.09703e-06, 3.125, -5.41265, -6.24999, -5.59211e-07, -2.7443e-06, -1.78, 0.573, -5.165)
-
-[node name="Folder67" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.24999, 0, 2.42144e-06, 2.09703e-06, 3.125, -5.41265, -1.21072e-06, 5.41266, 3.125, -4.76, 0.572998, -2.915)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.13517, 1.538, -7.60004)
 
 [node name="Folder31" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, -4.76017, 1.718, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13517, 1.718, -7.60004)
 
 [node name="Folder32" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, 3.125, 0, 6.25, 0, -3.125, 0, 5.41266, -4.76017, 1.628, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13517, 1.628, -7.60004)
 
 [node name="Folder33" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, -4.76014, 1.72823, -5.72469)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13514, 1.72823, -7.59969)
 
 [node name="Folder34" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-9.31323e-08, 0, 6.25, 0, 6.25, 0, -6.25, 0, -9.31323e-08, -4.76014, 1.72823, -5.72469)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13514, 1.72823, -7.59969)
 
 [node name="Folder35" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, -4.76014, 1.808, -5.72469)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13514, 1.808, -7.59969)
 
 [node name="Folder36" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03703, -4.76025, 1.88798, -5.72504)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.13525, 1.88798, -7.60004)
 
 [node name="Folder37" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(-3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, -3.125, -4.76008, 2.07299, -5.72474)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13508, 2.07299, -7.59974)
 
 [node name="Folder38" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76, 2.16299, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.16299, -7.60001)
 
 [node name="Folder39" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76, 2.34299, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.34299, -7.60001)
 
 [node name="Folder40" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03703, -4.76, 2.25299, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.135, 2.25299, -7.60001)
 
 [node name="Folder41" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, 2.35323, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 2.35323, -7.59978)
 
 [node name="Folder42" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.76031, 2.35323, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 2.35323, -7.59978)
 
 [node name="Folder43" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -4.76031, 2.43299, -5.72478)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 2.43299, -7.59978)
 
 [node name="Folder44" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, -5.41266, 0, 6.25, 0, 5.41266, 0, 3.125, -4.76, 2.51299, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.51299, -7.60001)
 
 [node name="Folder45" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76025, 2.698, -5.72475)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13525, 2.698, -7.59975)
 
 [node name="Folder46" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(3.125, 0, 5.41266, 0, 6.25, 0, -5.41266, 0, 3.125, -4.76, 2.788, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.788, -7.60001)
 
 [node name="Folder47" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, 4.41942, 0, 6.25, 0, -4.41942, 0, 4.41942, -4.76, 2.968, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.968, -7.60001)
 
 [node name="Folder48" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03703, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03703, -4.76, 2.878, -5.725)
+transform = Transform3D(-2.73196e-07, 0, 6.24999, 0, 6.25, 0, -6.24999, 0, -2.73196e-07, -9.135, 2.878, -7.60001)
 
 [node name="Folder49" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, -3.125, 0, 6.25, 0, 3.125, 0, 5.41266, -4.76035, 2.97822, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 2.97822, -7.59987)
 
 [node name="Folder50" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03704, -4.76035, 2.97822, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 2.97822, -7.59987)
 
 [node name="Folder51" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, -3.125, 0, 6.25, 0, 3.125, 0, 5.41266, -4.76035, 3.058, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 3.058, -7.59987)
 
 [node name="Folder52" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.58794e-07, 0, -6.25, 0, 6.25, 0, 6.25, 0, 5.58794e-07, -4.75998, 3.13797, -5.72491)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13498, 3.13797, -7.59991)
 
 [node name="Folder53" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.76031, 3.32298, -5.72482)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 3.32298, -7.59982)
 
 [node name="Folder54" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, 3.125, 0, 6.25, 0, -3.125, 0, 5.41266, -4.75998, 3.41299, -5.72491)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13498, 3.41299, -7.59991)
 
 [node name="Folder55" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.75998, 3.59298, -5.72491)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13498, 3.59298, -7.59991)
 
 [node name="Folder56" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, 4.41942, -4.75998, 3.50298, -5.72491)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13498, 3.50298, -7.59991)
 
 [node name="Folder57" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, -3.125, 0, 6.25, 0, 3.125, 0, 5.41266, -4.76035, 3.60323, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 3.60323, -7.59987)
 
 [node name="Folder58" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, -1.61762, 0, 6.25, 0, 1.61762, 0, 6.03704, -4.76035, 3.60323, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 3.60323, -7.59987)
 
 [node name="Folder59" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, -3.125, 0, 6.25, 0, 3.125, 0, 5.41266, -4.76035, 3.68298, -5.72487)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13535, 3.68298, -7.59987)
 
 [node name="Folder60" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.58794e-07, 0, -6.25, 0, 6.25, 0, 6.25, 0, 5.58794e-07, -4.75998, 3.76299, -5.72491)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13498, 3.76299, -7.59991)
 
 [node name="Folder61" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.76031, 3.948, -5.72482)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.13531, 3.948, -7.59982)
 
 [node name="Folder62" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(5.41266, 0, 3.125, 0, 6.25, 0, -3.125, 0, 5.41266, -4.75998, 4.03799, -4.4749)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 2.628, -7.6)
+
+[node name="Folder68" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 1.978, -7.6)
+
+[node name="Folder69" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 1.348, -7.6)
+
+[node name="Folder70" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 0.727997, -7.6)
+
+[node name="Folder72" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, -0.522003, -7.6)
+
+[node name="Folder71" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 0.0979996, -7.6)
 
 [node name="Folder63" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.03704, 0, 1.61762, 0, 6.25, 0, -1.61762, 0, 6.03704, -4.75998, 4.21799, -4.4749)
-
-[node name="Folder65" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(6.12737, 1.14383, 0.457646, -0.457646, 4.26883, -4.54204, -1.14383, 4.41942, 4.26883, 3.365, -7.657, -4.48)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 3.853, -7.6)
 
 [node name="Folder64" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("10_v3k4h")]
-transform = Transform3D(4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, 4.41942, -4.75998, 4.128, -4.4749)
+transform = Transform3D(-2.73196e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -2.73196e-07, -9.135, 3.233, -7.6)
 
 [node name="Papers2" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(-2.75941, 0, 5.60786, 0, 6.25, 0, -5.60786, 0, -2.75941, -8.996, -0.766998, 2.24902)
@@ -5506,20 +5638,11 @@ transform = Transform3D(-2.75941, 0, 5.60786, 0, 6.25, 0, -5.60786, 0, -2.75941,
 [node name="Papers5" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(3.47685, 0, 5.19365, 0, 6.25, 0, -5.19365, 0, 3.47685, -8.996, -0.766998, 2.24902)
 
-[node name="Papers6" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(3.47685, 0, 5.19365, 0, 6.25, 0, -5.19365, 0, 3.47685, -8.996, -0.717, 4.124)
-
-[node name="Papers9" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(-0.186426, 6.08577, 1.41109, -0.311614, 1.4009, -6.083, -6.23944, -0.251798, 0.261639, -10.871, 1.78299, 4.12401)
-
 [node name="Papers4" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(-0.359775, 0, -6.23963, 0, 6.25, 0, 6.23963, 0, -0.359775, -6.991, -0.737, 5.174)
 
 [node name="Papers13" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(-0.359775, 0, -6.23963, 0, 6.25, 0, 6.23963, 0, -0.359775, -5.11601, -0.737, 1.42401)
-
-[node name="Papers14" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(-5.58357, 0, -2.80824, 0, 6.25, 0, 2.80824, 0, -5.58357, -7.61601, -0.737, -4.82598)
 
 [node name="Papers10" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(-0.359775, 0, -6.23963, 0, 6.25, 0, 6.23963, 0, -0.359775, 1.13399, -0.737, -7.32599)
@@ -5527,35 +5650,17 @@ transform = Transform3D(-0.359775, 0, -6.23963, 0, 6.25, 0, 6.23963, 0, -0.35977
 [node name="Papers11" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
 transform = Transform3D(4.54858, 0, -4.28636, 0, 6.25, 0, 4.28636, 0, 4.54858, -1.99101, -0.737, -7.32598)
 
-[node name="Papers3" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(0, 1.86265e-07, 6.25, -1.86265e-07, 6.25, 9.31323e-08, -6.25, -3.72529e-07, -5.58794e-07, -5.24601, -8.27201, 4.74901)
-
-[node name="Papers12" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(-6.03703, -3.11627e-07, 1.61762, -1.86265e-07, 6.25, 9.31323e-08, -1.61762, -2.76335e-07, -6.03703, -0.871002, -8.27201, 3.49901)
-
-[node name="Papers7" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(6.03703, 4.08044e-07, 1.61762, -1.86265e-07, 6.25, 9.31323e-08, -1.61762, 8.35001e-08, 6.03703, -2.74601, -8.27201, -1.50098)
-
-[node name="Papers8" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("6_6k61k")]
-transform = Transform3D(4.41941, 3.95127e-07, 4.41942, -1.86265e-07, 6.25, 9.31323e-08, -4.41942, -1.31709e-07, 4.41941, -7.12102, -8.27201, -7.12598)
-
 [node name="Mug1A" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("18_5hnf5")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -1.01, -0.756996, -7.59999)
-
-[node name="Mug1A3" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("18_5hnf5")]
-transform = Transform3D(-1.61762, 0, -6.03704, 0, 6.25, 0, 6.03704, 0, -1.61762, -9.13499, 3.618, 1.77502)
-
-[node name="Mug1A2" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("18_5hnf5")]
-transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -9.13499, 3.618, 0.525009)
+transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -2.885, -0.756996, -7.59999)
 
 [node name="Mug1B" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("19_qixa2")]
-transform = Transform3D(6.25, 0, 0, 0, -0.174512, -6.24756, 0, 6.24756, -0.174512, 1.993, -0.312012, -10.05)
-
-[node name="Mug1B2" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("19_qixa2")]
-transform = Transform3D(-2.73196e-07, 6.24756, -0.174512, 0, -0.174512, -6.24756, -6.25, -2.7309e-07, 7.62816e-09, -8.007, -0.172, 4.325)
+transform = Transform3D(6.25, 0, 0, 0, -0.174512, -6.24756, 0, 6.24756, -0.174512, -4.882, -0.312012, -10.05)
 
 [node name="Mug2A" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("19_go4is")]
-transform = Transform3D(-4.57096, -1.63118, 3.93803, 0, 5.77425, 2.39177, -4.26249, 1.74923, -4.22302, -0.344994, -0.646996, -8.85)
+transform = Transform3D(-4.57096, 0, 4.26249, 0, 6.25, 0, -4.26249, 0, -4.57096, -5.34499, -0.646996, -7.60001)
+
+[node name="Picture Frame2" parent="CubicleDecor/CublicleItemSet93" instance=ExtResource("20_de3t3")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -8.94201, -0.876999, 5.41804)
 
 [node name="CublicleItemSet53" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.375, 81.25, -73.125)
@@ -5669,7 +5774,7 @@ transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.07390
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.875, 81.25, -108.125)
 
 [node name="TissueBox3" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("9_lu6ri")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, 5.51402, -1.20602, -6.07727)
+transform = Transform3D(-1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, -1.61762, 6.13902, -1.20602, -6.70227)
 
 [node name="Folder7" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
 transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 8.47935, 0.0779877, 5.18579)
@@ -5677,32 +5782,44 @@ transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.0
 [node name="Folder8" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
 transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 7.34266, 0.0779877, 6.69463)
 
+[node name="Folder9" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 8.47935, 0.07798, 3.3108)
+
+[node name="Folder10" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 7.34266, 0.07798, 4.81963)
+
+[node name="Folder11" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 7.22935, 0.07798, 4.5608)
+
+[node name="Folder12" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("10_v3k4h")]
+transform = Transform3D(-2.88593, -5.35492, -1.43485, 6.90777e-08, 1.61762, -6.03704, 5.54382, -2.78759, -0.746933, 6.09266, 0.07798, 6.06963)
+
 [node name="Node3D2" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.48969, -0.771767, 5.52524)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.86469, -0.771767, 4.90024)
 
 [node name="Node3D3" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.48969, -0.771767, 6.77525)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.86469, -0.771767, 6.15025)
 
 [node name="Node3D4" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.48969, -0.771767, 4.27525)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.86469, -0.771767, 3.65025)
 
 [node name="Node3D9" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.492404, -0.0868241, 0, 0.0868241, 0.492404, 0, 0, 0, 0.5, 1.48999, 1.578, 5.38501)
+transform = Transform3D(0.492404, -0.0868241, 0, 0.0868241, 0.492404, 0, 0, 0, 0.5, 0.86499, 1.578, 4.76)
 
 [node name="Node3D10" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.492404, -0.0868241, 0, 0.0838656, 0.475626, -0.12941, 0.0224717, 0.127443, 0.482963, 1.48999, 1.578, 6.63501)
+transform = Transform3D(0.492404, -0.0868241, 0, 0.0838656, 0.475626, -0.12941, 0.0224717, 0.127443, 0.482963, 0.86499, 1.578, 6.01)
 
 [node name="Node3D5" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.48969, -0.771767, 8.02525)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.86469, -0.771767, 7.40025)
 
 [node name="Node3D6" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 2.115, 0.478, 5.905)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 1.49, 0.477997, 5.27999)
 
 [node name="Node3D7" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.0739047, -0.5, 3.23048e-09, -2.16156e-08, 1.03, 0.287994, 5.905)
+transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.0739047, -0.5, 3.23048e-09, -2.16156e-08, 0.405, 0.287987, 5.27999)
 
 [node name="Node3D8" parent="CubicleDecor/CublicleItemSet57" instance=ExtResource("14_qhn26")]
-transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.0739047, -0.5, 3.23048e-09, -2.16156e-08, -0.22, 0.013, 5.905)
+transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.0739047, -0.5, 3.23048e-09, -2.16156e-08, -0.845, 0.0129929, 5.27999)
 
 [node name="CublicleItemSet58" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.625, 81.25, -73.125)
@@ -5747,7 +5864,7 @@ transform = Transform3D(-2.18557e-08, -0.0739047, 0.494508, 0, 0.494508, 0.07390
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.75, 81.25, -90.625)
 
 [node name="TissueBox3" parent="CubicleDecor/CublicleItemSet59" instance=ExtResource("9_lu6ri")]
-transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, 5.51402, -1.20602, -6.07727)
+transform = Transform3D(1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, 1.86265e-07, 5.51402, -1.20602, -6.70227)
 
 [node name="Folder7" parent="CubicleDecor/CublicleItemSet59" instance=ExtResource("10_v3k4h")]
 transform = Transform3D(0.272621, -6.03129, -1.61608, 5.81871e-08, 1.61762, -6.03704, 6.24405, 0.263332, 0.0705596, 8.651, 0.702995, 3.75269)
@@ -5756,7 +5873,7 @@ transform = Transform3D(0.272621, -6.03129, -1.61608, 5.81871e-08, 1.61762, -6.0
 transform = Transform3D(0.272621, -6.03129, -1.61608, 5.81871e-08, 1.61762, -6.03704, 6.24405, 0.263332, 0.0705596, 8.42102, 0.702995, 5.62772)
 
 [node name="Folder9" parent="CubicleDecor/CublicleItemSet59" instance=ExtResource("12_xaag6")]
-transform = Transform3D(-4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, -4.41942, 3.35597, -0.757439, 5.2524)
+transform = Transform3D(-4.41942, 0, -4.41942, 0, 6.25, 0, 4.41942, 0, -4.41942, 3.35597, -0.757439, 4.6274)
 
 [node name="CublicleItemSet60" type="Node3D" parent="CubicleDecor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.375, 82.5, -125.625)
@@ -6012,9 +6129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.125, 82.5, -55.625)
 
 [node name="Picture Frame" parent="CubicleDecor/CublicleItemSet67" instance=ExtResource("16_5lago")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 7.73969, -2.64674, 6.77522)
-
-[node name="Mug1A" parent="CubicleDecor/CublicleItemSet67" instance=ExtResource("18_5hnf5")]
-transform = Transform3D(1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, 1.61762, 3.36469, -2.64677, 3.65022)
 
 [node name="Node3D" parent="CubicleDecor/CublicleItemSet67" instance=ExtResource("14_qhn26")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.084, -2.008, 7.109)
@@ -6891,9 +7005,6 @@ transform = Transform3D(0.452694, -0.0245994, 0.210863, -0.0149045, 0.491724, 0.
 
 [node name="TissueBox" parent="CubicleDecor/CublicleItemSet87" instance=ExtResource("9_lu6ri")]
 transform = Transform3D(-1.86265e-07, 0, 6.25, 0, 6.25, 0, -6.25, 0, -1.86265e-07, 4.69469, -2.59672, -5.72479)
-
-[node name="Picture Frame" parent="CubicleDecor/CublicleItemSet87" instance=ExtResource("16_5lago")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -6.55531, -2.59672, -5.72479)
 
 [node name="AnsweringMachine" parent="CubicleDecor/CublicleItemSet87" instance=ExtResource("33_5c7rn")]
 transform = Transform3D(-1.61762, 0, 6.03704, 0, 6.25, 0, -6.03704, 0, -1.61762, -5.93, -2.432, 6.415)

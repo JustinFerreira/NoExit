@@ -27,7 +27,7 @@ var is_in_interaction: bool = false
 var should_stay_in_focus: bool = false
 
 # Rotation speed (radians per second)
-@export var rotation_speed: float = 3.0
+@export var rotation_speed: float = 35.0
 
 # Current rotation angle
 var current_rotation: float = 0.0
