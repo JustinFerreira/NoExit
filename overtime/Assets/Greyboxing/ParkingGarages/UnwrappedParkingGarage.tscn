@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=79 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -153,6 +153,13 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6exbs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq4bi"]
+albedo_texture = ExtResource("1_nuqwi")
+uv1_scale = Vector3(0.25, 2, 0.25)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4vrf2"]
 
 [node name="UnwrappedParkingGarage" type="Node3D"]
 
@@ -690,7 +697,7 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 81.7918, 4.90007, 28
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 57.2522, 4.90007, 28.3725)
 
 [node name="GarageLight23" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.0193185, -0.00517638, 0, 0.00517638, 0.0193185, 31.1124, 4.90007, 28.3725)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 31.1124, 4.90007, 28.3725)
 
 [node name="GarageLight24" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 4.71922, 4.90007, 28.3725)
@@ -11045,3 +11052,60 @@ mesh = SubResource("BoxMesh_6exbs")
 [node name="Node3D2" type="MeshInstance3D" parent="Booth"]
 transform = Transform3D(0.151573, 0, 0, 0, 1.91706, 0, 0, 0, 0.120525, 1.19676, 2.9746, 2.17548)
 mesh = SubResource("BoxMesh_6exbs")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.302, 6.859, 41.822)
+
+[node name="ElevatorFix" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, 2.71659, -4.40921, 0.851969)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, -1.51439, -4.40921, 0.852051)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, 2.75245, 0.694744, 0.851995)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, -1.51439, 0.694744, 0.852051)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix5" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, 2.66475, 5.88101, 0.851932)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix6" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.185, 0.000533781, 7.88254e-11, 0, -3.23464e-08, 2.5, 0.000133445, -0.74, -1.09278e-07, -1.51439, 5.88101, 0.852051)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix7" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.53477e-16, -3.23464e-08, 2.5, -0.185, -3.23464e-08, 0, 8.08661e-09, -0.74, -1.09278e-07, 0.404262, 8.12481, 0.878235)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix8" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.91141e-16, -3.23464e-08, 2.5, -0.204712, -3.23464e-08, 0, 8.94826e-09, -0.74, -1.09278e-07, 0.404262, 2.97016, 0.852051)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
+
+[node name="ElevatorFix9" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(3.91141e-16, -3.23464e-08, 2.5, -0.204712, -3.23464e-08, 0, 8.94826e-09, -0.74, -1.09278e-07, 0.404262, -2.1429, 0.852051)
+material_override = SubResource("StandardMaterial3D_aq4bi")
+mesh = SubResource("PlaneMesh_4vrf2")
+skeleton = NodePath("../..")
