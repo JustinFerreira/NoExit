@@ -40,5 +40,5 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog("Where did I leave my keys?")
 		else:
-			PlayerManager.CharacterHintDialog("Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever.",
+			PlayerManager.CharacterHintDialog("Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever. Might as well pack up.",
 			"Click to skip dialog")
