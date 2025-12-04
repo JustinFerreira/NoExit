@@ -33,6 +33,9 @@ func _on_animation_finished(anim_name: String):
 
 func _on_interacted(body: Variant) -> void:
 	if PlayerManager.has_item("Car Keys"):
+		if not PlayerManager.talkToJanitor:
+			PlayerManager.janitor.talkToPlayer()
+			return
 		AnimationManager.ElevatorButtonFlash.visible = false
 		door_collision.translate(Vector3(0,3,0))
 		AudioManager.play_sound(AudioManager.ElevatorDing)

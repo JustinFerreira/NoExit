@@ -10,6 +10,7 @@ func _ready() -> void:
 	AudioManager.play_music(AudioManager.OfficeWhiteNoise)
 	AudioManager.OfficeMusicOn = true
 	PlayerManager.ResetPlayer()
+	PlayerManager.talkToJanitor = false
 	PlayerManager.Office = true
 	PlayerManager.ParkingGarage = false
 	PlayerManager.testing = false

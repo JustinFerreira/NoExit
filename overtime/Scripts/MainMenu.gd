@@ -17,7 +17,18 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if PlayerManager.DevMode == true:
+	if SettingsManager.Loop0Pass:
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
+	elif PlayerManager.DevMode:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = true
@@ -27,6 +38,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = true
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
 	else:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
@@ -37,6 +49,7 @@ func _process(delta: float) -> void:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = false
 
 func _on_animation_finished(anim_name: String):
 	

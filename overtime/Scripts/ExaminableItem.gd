@@ -37,7 +37,7 @@ var current_rotation: float = 0.0
 @export var animation_name: String = ""  # e.g., "PictureFrame1Fade", "Mug1AFade"
 @export var animation_fade_player: AnimationPlayer
 @export var first_time_dialog: String = "I like this item!"
-@export var first_time_hint: String = "Press A or D to rotate object while examing"
+@export var first_time_hint: String = "Press A, D or the Left, Right arrow keys to rotate object while examing"
 @export var normal_dialog: String = "I like this item!"
 @export var keys_hint_dialog: String = "I should grab my keys and get out of here"
 @export var can_be_stored: bool = false  # If this item can be stored in the box

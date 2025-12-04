@@ -45,6 +45,9 @@ var DeskItems = []
 
 var Enemy
 
+## Janitor
+
+var janitor
 
 #Dialog Controls
 
@@ -72,6 +75,7 @@ var testing = true
 var gotKeys = false
 var gotGas_Canister = false
 var gotBattery = false
+var talkToJanitor = false
 
 # Loop control
 var OpeningCutscene = false
@@ -171,6 +175,10 @@ func ResetPlayer() -> void:
 	DeskItems = []
 	examed = false
 	
+	if not Loop0:
+		AddToInventory("Box", 0.5, true)
+		AddToInventory("Car Keys", 0.5, true)
+	
 	## Location
 	
 	Office = false
@@ -257,9 +265,10 @@ func SavePlayerRotation():
 	#print(player_rotation_x, player_rotation_y, player_rotation_z)
 	
 func ApplyPlayerRotation():
-	player.get_node("Head").rotation.x = player_rotation_x
-	player.get_node("Head").rotation.y = player_rotation_y + PI/2
-	player.get_node("Head").rotation.z = player_rotation_z 
+	if player:
+		player.get_node("Head").rotation.x = player_rotation_x
+		player.get_node("Head").rotation.y = player_rotation_y + PI/2
+		player.get_node("Head").rotation.z = player_rotation_z 
 	
 func MiniGameModeOn():
 	MinigameMode = true

@@ -7,6 +7,8 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SettingsManager.Loop0Pass = true
+	SettingsManager.save_settings()
 	PlayerManager.ResetPlayer()
 	PlayerManager.Office = true
 	PlayerManager.ParkingGarage = false

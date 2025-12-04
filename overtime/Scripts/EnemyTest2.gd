@@ -4,12 +4,14 @@ extends CharacterBody3D
 var SPEED = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
-@onready var WalkingAnimator = $WalkingAnimation
+@onready var WalkingAnimator = $AnimationPlayer
 @onready var StabbingAnimator = $StabbingAnimation
 
 func _ready():
 	PlayerManager.Enemy = self
 	PlayerManager.no_enemy = false
+	WalkingAnimator.speed_scale = 2.0
+	$Armature.visible = true
 	nav.path_desired_distance = 1.0  # Increase for smoother turns
 	nav.target_desired_distance = 1.5  # Distance to consider target reached
 	nav.path_max_distance = 3.0  # Max distance to recalculate path
@@ -19,9 +21,9 @@ func _physics_process(delta: float) -> void:
 	if PlayerManager.teleportEnemy && get_tree().get_first_node_in_group("teleport_target"):
 		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
 		PlayerManager.teleportEnemy = false
-		
-	$Skeleton3D/killer_UV_unwrapped.visible = true
-	WalkingAnimator.play_backwards("mixamo_com")
+	
+	if not PlayerManager.dying:
+		WalkingAnimator.play("Scene")
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -68,6 +70,9 @@ func calculate_path_distance() -> float:
 	return total_distance
 	
 func kill():
+	$Armature.visible = false
+	$Skeleton3D.visible = true
+	$Skeleton3D/killer_UV_unwrapped.visible = true
 	PlayerManager.HideDialog()
 	PlayerManager.dying = true
 	PlayerManager.InAnimation = true
@@ -132,6 +137,10 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.OpeningCutscene:
 			PlayerManager.OpeningCutscene = false
 			get_tree().change_scene_to_file("res://Scenes/Levels/Loop0.tscn")
+			return
+		elif PlayerManager.Loop0:
+			PlayerManager.Loop0 = false
+			get_tree().change_scene_to_file("res://Scenes/Levels/Loop1.tscn")
 			return
 		PlayerManager.player.GAMEOVER.visible =  true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

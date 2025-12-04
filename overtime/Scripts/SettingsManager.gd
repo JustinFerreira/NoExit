@@ -6,6 +6,8 @@ var config = ConfigFile.new()
 var settings_path = "user://settings.cfg"
 
 var KillerDisabled = false
+var Loop0Pass = false
+var Loop1Pass = false
 
 var min_sensitivity: float = 0.001
 var max_sensitivity: float = 0.05
@@ -26,6 +28,10 @@ var settings = {
 		"hold_shift": false,
 		"headbob": true,
 		"dev_mode": false
+	},
+	"loops":{
+		"loop0": false,
+		"loop1": false
 	}
 	}
 
@@ -38,6 +44,7 @@ func _ready():
 ## takes current settings and writes them into
 ## the file we have made for config
 func save_settings():
+	settings.loops.loop0 = Loop0Pass
 	for section in settings.keys():
 		for key in settings[section]:
 			config.set_value(section, key, settings[section][key])
@@ -91,5 +98,9 @@ func apply_settings():
 	PlayerManager.Hold_Shift = settings.game.hold_shift
 	
 	PlayerManager.DevMode = settings.game.dev_mode
+	
+	Loop0Pass = settings.loops.loop0
+	
+	Loop1Pass = settings.loops.loop1
 	
 	

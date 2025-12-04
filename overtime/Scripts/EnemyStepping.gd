@@ -32,7 +32,7 @@ func _play_next_sound():
 		if PlayerManager.car_audio_player && !PlayerManager.car_audio_player.was_audible:
 			stream = car_beep_sound
 		## Set back to default around car
-		if PlayerManager.minigameThree || PlayerManager.player.Incar:
+		if PlayerManager.minigameThree || PlayerManager.player && PlayerManager.player.Incar:
 			stream = first_sound
 		## Gas Minigame
 		if PlayerManager.minigameTwo:

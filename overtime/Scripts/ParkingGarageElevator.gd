@@ -28,4 +28,5 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "Take 001":
 		$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-		PlayerManager.Hint("Equip your keys and Press F to make your car sound off")
+		if not PlayerManager.Loop0:
+			PlayerManager.Hint("Equip your keys and Press F to make your car sound off")

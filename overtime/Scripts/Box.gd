@@ -6,6 +6,10 @@
 extends Interactable
 
 func _ready() -> void:
+	if not PlayerManager.Loop0:
+		self.visible = false
+		_on_interaction_complete()
+		return
 	AnimationManager.BoxFlashAnimationPlayer = $BoxFlashAnimationPlayer
 	AnimationManager.BoxFlash = $BoxFlash
 	AnimationManager.ActivateBoxFlashAnimationPlayer()
