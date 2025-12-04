@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=81 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Assets/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Assets/Greyboxing/Models/WorkingUnwrappedParkingGarage.obj" id="2_3ks60"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://byduujr27ili7" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_heavy.tscn" id="45_mpm3x"]
 [ext_resource type="PackedScene" uid="uid://ttsn64bqb4bd" path="res://Assets/Enviroments/Garage/Scenes/handicap_space_heavy.tscn" id="47_m03i3"]
 [ext_resource type="PackedScene" uid="uid://de1xldypx7t2k" path="res://Assets/Enviroments/Garage/Scenes/stop_sign.tscn" id="49_33t6n"]
+[ext_resource type="PackedScene" uid="uid://b4u8236jo4cgw" path="res://Assets/Enviroments/Garage/Scenes/yield_sign.tscn" id="50_dop06"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -11113,3 +11114,18 @@ skeleton = NodePath("../..")
 
 [node name="Stop Sign" parent="." instance=ExtResource("49_33t6n")]
 transform = Transform3D(-0.00914538, 0, -0.999958, 0, 1, 0, 0.999958, 0, -0.00914538, 18.8903, 0.162681, 33.8487)
+
+[node name="Yield Sign" parent="." instance=ExtResource("50_dop06")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.1112, 7.8311, -3.48505)
+
+[node name="Yield Sign2" parent="." instance=ExtResource("50_dop06")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.1112, 2.65625, -3.48505)
+
+[node name="Yield Sign3" parent="." instance=ExtResource("50_dop06")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.2545, 9.82425, 16.4561)
+
+[node name="Yield Sign4" parent="." instance=ExtResource("50_dop06")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.2545, 5.27375, 16.4561)
+
+[node name="Yield Sign5" parent="." instance=ExtResource("50_dop06")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.2545, 0.0583527, 16.4561)

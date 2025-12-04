@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://de1xldypx7t2k"]
+[gd_scene load_steps=7 format=3 uid="uid://de1xldypx7t2k"]
 
 [ext_resource type="Texture2D" uid="uid://ctnle41iptee6" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_BaseColor.png" id="1_sib4s"]
 [ext_resource type="Texture2D" uid="uid://iiir7e4qsu0k" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Metalic_and_Rougness.png" id="2_ixrce"]
 [ext_resource type="ArrayMesh" uid="uid://dluvqun6263yi" path="res://Assets/Enviroments/Garage/Models/M_StopSign.obj" id="3_tfg6k"]
+[ext_resource type="Texture2D" uid="uid://dxhqgbu6wwn5g" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Normal.png" id="3_uwrlk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bqsv"]
 albedo_texture = ExtResource("1_sib4s")
@@ -10,6 +11,8 @@ metallic = 1.0
 metallic_texture = ExtResource("2_ixrce")
 roughness_texture = ExtResource("2_ixrce")
 roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_uwrlk")
 ao_enabled = true
 ao_texture = ExtResource("2_ixrce")
 ao_texture_channel = 2
