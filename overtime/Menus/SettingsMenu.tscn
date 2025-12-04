@@ -370,10 +370,9 @@ theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 50
-current_tab = 2
+current_tab = 0
 
 [node name="VOLUME" type="TabBar" parent="ColorRect/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -567,6 +566,7 @@ theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "FullScreen"
 
 [node name="GAME" type="TabBar" parent="ColorRect/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

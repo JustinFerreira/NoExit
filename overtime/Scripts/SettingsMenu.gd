@@ -15,6 +15,8 @@ extends Control
 @onready var headbob_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
 @onready var devmode_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
 
+var DumbStupidBool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	master_slider.value = SettingsManager.settings.audio.master_volume
@@ -64,6 +66,10 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.audio.sfx_volume = value
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+	if DumbStupidBool:
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+	else:
+		DumbStupidBool = true
 
 
 func _on_button_pressed() -> void:
