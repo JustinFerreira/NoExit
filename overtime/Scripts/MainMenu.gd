@@ -54,7 +54,8 @@ func _process(delta: float) -> void:
 func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "FadeIn":
-		animation_player.play("camera_anim")
+		pass
+		#animation_player.play("camera_anim")
 		
 
 

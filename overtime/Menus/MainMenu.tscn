@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://vh5m0r3xogr1"]
+[gd_scene load_steps=21 format=3 uid="uid://vh5m0r3xogr1"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_hn4jk"]
 [ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="2_5eyd3"]
+[ext_resource type="PackedScene" uid="uid://bexynbhcvlv2i" path="res://Assets/Greyboxing/Offices/MainMenuOfficeGreybox.tscn" id="2_i02da"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_pcltc"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Assets/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="4_yc7rf"]
 
@@ -60,7 +61,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("MainMenuOfficeGreybox/SubViewportContainer/SubViewport/Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,6 +94,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenuOfficeGreybox/SubViewportContainer/SubViewport/Camera3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -3.33814, 3.2612, 10.707)
 
 [sub_resource type="Animation" id="Animation_fwqbr"]
 resource_name = "camera_anim"
@@ -100,16 +108,23 @@ length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BackGround/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/enabled = false
+tracks/0/path = NodePath("MainMenuOfficeGreybox/SubViewportContainer/SubViewport/Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.06667, 2.03333, 3.03333, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(-0.0333333, 0, 1.06667, 2.03333, 3.03333, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-2.78358, 3.49605, 11.0719), Vector3(-2.78358, 3.49605, 10.1346), Vector3(-2.78358, 4.85656, 9.70558), Vector3(-2.78358, 5.16002, 11.6266), Vector3(-3.73254, 3.49605, 11.0719), Vector3(-2.78358, 3.49605, 11.0719)]
+"values": [Vector3(-2.85585, 3.1997, 10.7221), Vector3(-2.85585, 3.2612, 10.3629), Vector3(-2.78358, 3.49605, 10.1346), Vector3(-2.78358, 4.85656, 9.70558), Vector3(-2.78358, 5.16002, 11.6266), Vector3(-3.73254, 3.49605, 11.0719), Vector3(-2.78358, 3.49605, 11.0719)]
 }
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainMenuOfficeGreybox/SubViewportContainer/SubViewport/Camera3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -3.41999, 3.32228, 11.6187)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4lbyd"]
 _data = {
@@ -121,16 +136,17 @@ _data = {
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_hn4jk")
 
-[node name="BackGround" type="Node3D" parent="."]
+[node name="MainMenuOfficeGreybox" parent="." instance=ExtResource("2_i02da")]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8691, -10.1122, -11.9224)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="BackGround"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MainMenuOfficeGreybox"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="BackGround/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="MainMenuOfficeGreybox/SubViewportContainer"]
 handle_input_locally = false
 msaa_3d = 3
 use_taa = true
@@ -138,8 +154,10 @@ use_debanding = true
 size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="BackGround/SubViewportContainer/SubViewport"]
-transform = Transform3D(-0.173648, -0.292382, 0.940404, 0, 0.954911, 0.296892, -0.984808, 0.0515548, -0.165818, 0.506871, 3.43768, 11.0719)
+[node name="Camera3D" type="Camera3D" parent="MainMenuOfficeGreybox/SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.132271, -0.117329, 0.984245, -0.0156272, 0.993093, 0.116284, -0.99109, -9.23025e-10, -0.133191, -3.33814, 3.2612, 10.707)
+
+[node name="BackGround" type="Node3D" parent="."]
 
 [node name="MainMenuFirstScreen" type="Control" parent="."]
 layout_mode = 3
@@ -541,6 +559,7 @@ visible = false
 
 [node name="EmptyOfficeGreybox" parent="." instance=ExtResource("4_yc7rf")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -11.8669, -10.1064, -11.9154)
+visible = false
 
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen/MarginContainer/VBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
