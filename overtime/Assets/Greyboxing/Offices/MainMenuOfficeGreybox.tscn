@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bexynbhcvlv2i"]
+[gd_scene load_steps=46 format=3 uid="uid://bexynbhcvlv2i"]
 
 [ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_dl6dl"]
 [ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Assets/Greyboxing/carpet.png" id="2_cn7u6"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="14_6p2gf"]
 [ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="15_7ye46"]
 [ext_resource type="PackedScene" uid="uid://xx3k6n6ppm8m" path="res://Assets/Enviroments/Office/Scenes/MainMenuCubicle.tscn" id="15_8udj8"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="16_5k5t2"]
+[ext_resource type="PackedScene" uid="uid://dgsb084lt5fqm" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="16_5k5t2"]
 [ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/folder_2.tscn" id="17_202jd"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="18_8w4ko"]
 [ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="19_5hvkh"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/pen_2b.tscn" id="34_ss7aq"]
 [ext_resource type="PackedScene" uid="uid://dbb1xpsd2yyvb" path="res://Assets/Enviroments/Office/Scenes/PictureFrame4.tscn" id="35_yb3al"]
 [ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/pencil_1b.tscn" id="36_k8xhl"]
+[ext_resource type="PackedScene" uid="uid://dqbxp2qlvts5m" path="res://Assets/Enviroments/Office/Scenes/lamp.tscn" id="38_y8j3m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v16il"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -7474,3 +7475,6 @@ transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -154.76, 79.8532, 91
 
 [node name="Mug2B" parent="." instance=ExtResource("19_5hvkh")]
 transform = Transform3D(6.25, 0, 0, 0, 6.25, 0, 0, 0, 6.25, -139.135, 79.8532, 154.9)
+
+[node name="Lamp" parent="." instance=ExtResource("38_y8j3m")]
+transform = Transform3D(0.0666619, 0, 0.0604665, 0, 0.09, 0, -0.0604665, 0, 0.0666619, 45.9665, 80.1894, 140.866)

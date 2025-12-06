@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i2erb8l0osn8"
-path="res://.godot/imported/background.png-185678fb5b0bb62acf606a1537f125c1.ctex"
+uid="uid://dt67fvsvauaan"
+path="res://.godot/imported/M_Lamp_Height.png-4f649eeac1171ee071f556ffd4e96e5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enviroments/Office/Models/background.png"
-dest_files=["res://.godot/imported/background.png-185678fb5b0bb62acf606a1537f125c1.ctex"]
+source_file="res://Assets/Enviroments/Office/Textures/Lamp Textures/M_Lamp_Height.png"
+dest_files=["res://.godot/imported/M_Lamp_Height.png-4f649eeac1171ee071f556ffd4e96e5f.ctex"]
 
 [params]
 

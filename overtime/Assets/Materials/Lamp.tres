@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://ba8ap4ouu4ljc"]
+
+[ext_resource type="Texture2D" uid="uid://daiookqcw8nd1" path="res://Assets/Enviroments/Office/Textures/Lamp Textures/M_Lamp_BaseColor.png" id="1_5c32a"]
+[ext_resource type="Texture2D" uid="uid://c4lfvavhskph4" path="res://Assets/Enviroments/Office/Textures/Lamp Textures/M_Lamp_Metalic_and_Rougness.png" id="2_8tww7"]
+[ext_resource type="Texture2D" uid="uid://dhbjj0p0h73kh" path="res://Assets/Enviroments/Office/Textures/Lamp Textures/M_Lamp_Emissive.png" id="3_peyu4"]
+[ext_resource type="Texture2D" uid="uid://bbnt0r3c50ygl" path="res://Assets/Enviroments/Office/Textures/Lamp Textures/M_Lamp_Normal.png" id="4_vt0x1"]
+
+[resource]
+albedo_texture = ExtResource("1_5c32a")
+metallic = 1.0
+metallic_texture = ExtResource("2_8tww7")
+roughness_texture = ExtResource("2_8tww7")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_energy_multiplier = 16.0
+emission_texture = ExtResource("3_peyu4")
+normal_enabled = true
+normal_texture = ExtResource("4_vt0x1")
+ao_enabled = true
+ao_texture = ExtResource("2_8tww7")
+ao_texture_channel = 2

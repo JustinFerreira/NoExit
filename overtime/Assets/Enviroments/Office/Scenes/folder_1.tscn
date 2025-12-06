@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://fo5o768q4lj3"]
+[gd_scene load_steps=6 format=3 uid="uid://dgsb084lt5fqm"]
 
 [ext_resource type="ArrayMesh" uid="uid://bdnxqw7y6lrq3" path="res://Assets/Enviroments/Office/Models/Folder_1.obj" id="1_q88wu"]
 [ext_resource type="Texture2D" uid="uid://dotnxc8ug7odd" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_Albedo.png" id="2_s57ea"]
