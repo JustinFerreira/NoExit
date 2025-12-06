@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqbxp2qlvts5m"]
+
+[ext_resource type="Material" uid="uid://ba8ap4ouu4ljc" path="res://Assets/Materials/Lamp.tres" id="1_fhm0e"]
+[ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="2_ovwh5"]
+
+[node name="Lamp" type="Node3D"]
+
+[node name="MLamp" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_fhm0e")
+mesh = ExtResource("2_ovwh5")
