@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 	if $"..".position.y <= -10:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
-		AudioManager.cancel_loop_sfx()
 		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL0.tscn")
 
 func _on_animation_finished(anim_name: String):

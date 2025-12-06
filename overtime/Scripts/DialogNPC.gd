@@ -55,6 +55,7 @@ func _ready() -> void:
 	nav_agent.target_desired_distance = 0.5
 	
 	PlayerManager.janitor = self
+	PlayerManager.talkToJanitor = false
 	
 	set_new_wander_target()
 
@@ -262,6 +263,7 @@ func angle_difference(from: float, to: float) -> float:
 func talkToPlayer():
 	#print("talkToPlayer called - starting interaction")
 	# Start walking to player
+	AudioManager.cancel_loop_sfx()
 	is_walking_to_player = true
 	
 	# Play initial dialog to freeze player

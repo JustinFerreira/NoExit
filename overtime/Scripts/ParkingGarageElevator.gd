@@ -4,6 +4,7 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.stop_loop("step")
 	PlayerManager.player = $"../Player"
 	if PlayerManager.testing == false:
 		PlayerManager.ApplyPlayerRotation()

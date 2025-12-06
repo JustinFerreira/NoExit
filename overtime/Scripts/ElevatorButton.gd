@@ -19,7 +19,8 @@ func _ready() -> void:
 	AnimationManager.ActivateElevatorAnimationPlayer()
 	AnimationManager.ElevatorAnimationPlayer.play("OutlinePulse")
 	animation_player.connect("animation_finished", _on_animation_finished)
-	pass
+	if not PlayerManager.Loop0:
+		AnimationManager.ElevatorButtonFlash.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

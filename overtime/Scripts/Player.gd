@@ -70,8 +70,9 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
-	AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
+	if not PlayerManager.Loop0:
+		AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
+		AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
 	
 # Any input that is detected automatically calls this function
 
@@ -340,6 +341,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func apply_breathing_effects():
+	if PlayerManager.Loop0:
+		return
 	# Adjust breathing sound based on current state
 	PlayerManager.ProcessScared()
 	var target_pitch = PlayerManager.scaredPitch - 1
@@ -354,6 +357,8 @@ func apply_breathing_effects():
 	AudioManager.set_loop_volume("breathing", target_volume)
 	
 func apply_heartbeat_effects():
+	if PlayerManager.Loop0:
+		return
 	# Adjust heartbeat based on player state
 	PlayerManager.ProcessScared()
 	var target_pitch = PlayerManager.scaredPitch

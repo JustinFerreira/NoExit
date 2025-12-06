@@ -21,11 +21,6 @@ func _ready() -> void:
 	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
 	AnimationManager.DoorFlash.visible = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	AudioManager.cancel_loop_sfx()
-
 func _on_interacted(body: Variant) -> void:
 	player = PlayerManager.player
 	AnimationManager.DoorFlash.visible = false
