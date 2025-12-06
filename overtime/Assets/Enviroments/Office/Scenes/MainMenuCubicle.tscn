@@ -1,0 +1,89 @@
+[gd_scene load_steps=19 format=3 uid="uid://xx3k6n6ppm8m"]
+
+[ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="1_dpbpx"]
+[ext_resource type="Texture2D" uid="uid://cxp5a5gn5xpic" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="2_gfh4q"]
+[ext_resource type="Texture2D" uid="uid://c06hnp8qa4ppa" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Height.png" id="3_1niuf"]
+[ext_resource type="Texture2D" uid="uid://bkdo3qi0884et" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="4_u58or"]
+[ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Enviroments/Office/Models/Model_Cubicle_Unwrapped.obj" id="5_773m8"]
+[ext_resource type="Texture2D" uid="uid://qrid5wfad8b4" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_BaseColor.png" id="6_vfrik"]
+[ext_resource type="Texture2D" uid="uid://b4k8olv5joggl" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Metalic_and_Rougness.png" id="7_13vkg"]
+[ext_resource type="Texture2D" uid="uid://ffwia3uj6ib8" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Height.png" id="8_ki18c"]
+[ext_resource type="Texture2D" uid="uid://4e5db3kqh1m3" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Normal.png" id="9_2dj6x"]
+[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="10_ippv7"]
+[ext_resource type="Texture2D" uid="uid://bime7ftkfqejm" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_BaseColor.png" id="11_kgolm"]
+[ext_resource type="Texture2D" uid="uid://naw1m1q2nbww" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Rougness.png" id="12_18s6k"]
+[ext_resource type="Texture2D" uid="uid://bpoq753x4k803" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean.png" id="13_jkt0l"]
+[ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="14_ml8n6"]
+[ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="15_d66jf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe347"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("1_dpbpx")
+metallic = 1.0
+metallic_texture = ExtResource("2_gfh4q")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_gfh4q")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_u58or")
+ao_enabled = true
+ao_texture = ExtResource("2_gfh4q")
+heightmap_texture = ExtResource("3_1niuf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njq4l"]
+albedo_texture = ExtResource("6_vfrik")
+metallic = 1.0
+metallic_texture = ExtResource("7_13vkg")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("7_13vkg")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("9_2dj6x")
+ao_enabled = true
+ao_texture = ExtResource("7_13vkg")
+heightmap_texture = ExtResource("8_ki18c")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_le8xh"]
+albedo_texture = ExtResource("11_kgolm")
+metallic = 1.0
+metallic_texture = ExtResource("12_18s6k")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("12_18s6k")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("14_ml8n6")
+ao_enabled = true
+ao_texture = ExtResource("12_18s6k")
+heightmap_texture = ExtResource("13_jkt0l")
+
+[node name="Cubicle" type="Node3D"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
+
+[node name="ModelCubicleUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413408, 0.00303121, 0.381135)
+material_override = SubResource("StandardMaterial3D_pe347")
+mesh = ExtResource("5_773m8")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ModelCubicleUnwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137866, 1.98605e-07, 0.000156581)
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
+transform = Transform3D(0.572724, 0, 0, 0, 1.20913, 0, 0, 0, 2.27695, 0.690812, 0.422142, -0.174544)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
+transform = Transform3D(0.00603586, 0, -2.28921, 0, 0.988832, 0, 1.03232, 0, 0.0133847, -0.164641, 0.528641, -0.799971)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
+transform = Transform3D(-0.0509361, 0, 0.0124608, 0, 2.2589, 0, -0.000278265, 0, -2.28093, -1.32894, 1.11824, -0.168737)
+
+[node name="MChairUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.502038, 0, 0.864845, 0, 1, 0, -0.864845, 0, 0.502038, -0.362762, 0, 0.434157)
+material_override = SubResource("StandardMaterial3D_njq4l")
+mesh = ExtResource("10_ippv7")
+
+[node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999351, 1.05011, -0.234978)
+material_override = SubResource("StandardMaterial3D_le8xh")
+mesh = ExtResource("15_d66jf")
