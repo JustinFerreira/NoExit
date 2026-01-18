@@ -337,7 +337,7 @@ material_override = SubResource("StandardMaterial3D_pwtol")
 mesh = SubResource("ArrayMesh_hs6xa")
 skin = SubResource("Skin_xpah6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="ElevatorDoorButtonAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bclay")
 }

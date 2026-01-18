@@ -8,7 +8,7 @@ extends Interactable
 func _ready() -> void:
 	AnimationManager.BatteryFlashAnimationPlayer = $AnimationPlayer
 	AnimationManager.ActivateBatteryFlashAnimationPlayer()
-	$AnimationPlayer.play("BatteryFlash")
+	AnimationManager.BatteryFlashAnimationPlayer.play("BatteryFlash")
 	
 func _process(delta: float) -> void:
 	if not PlayerManager.player.interact_ray.get_collider() == self:

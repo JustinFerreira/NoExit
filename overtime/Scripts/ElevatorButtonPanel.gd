@@ -10,7 +10,6 @@ extends Interactable
 @onready var animation_player = $"../AnimationPlayer"
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
-var fall = false
 var fall_speed = 2.0
 var DoorClosed = false
 var InElevator = false
@@ -19,14 +18,12 @@ var InElevator = false
 func _ready() -> void:
 	AnimationManager.ElevatorPanelAnimationPlayer = $"../ElevatorPanelAnimationPlayer"
 	AnimationManager.ElevatorPanelFlash = $"../ElevatorPanelFlash"
-	AnimationManager.ActivateElevatorPanelAnimationPlayer()
+	AnimationManager.ActivateElevatorPanelFlashAnimationPlayer()
 	AnimationManager.ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
-	animation_player.connect("animation_finished", _on_animation_finished)
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if fall == true:
+	if AnimationManager.ElevatorFall == true:
 		$"..".position.y -= fall_speed * delta
 		
 	
@@ -34,15 +31,7 @@ func _process(delta: float) -> void:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		get_tree().change_scene_to_file("res://Scenes/Levels/ParkingGarageL1.tscn")
-
-func _on_animation_finished(anim_name: String):
-	#print("Animation", anim_name)
-	
-	if anim_name == "Take 001" && DoorClosed:
-		fall = true
-		AudioManager.play_sound(AudioManager.elevator_whitenoise)
-		DoorClosed = false
+		get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
 
 func _on_interacted(body: Variant) -> void:
 	if InElevator:
@@ -52,7 +41,7 @@ func _on_interacted(body: Variant) -> void:
 		DoorClosed = true
 		is_interactable = false
 		prompt_message = ""
-		animation_player.play_backwards("Take 001")
+		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
 	else:
 		PlayerManager.Hint("Get in the elevator bro")
 

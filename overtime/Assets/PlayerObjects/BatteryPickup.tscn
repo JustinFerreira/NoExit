@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://u7164itlys1a"]
+
+[ext_resource type="Script" path="res://Scripts/BatteryPickup.gd" id="1_6d17v"]
+[ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_BaseColor.png" id="2_6ydng"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_r3aqc"]
+[ext_resource type="Texture2D" uid="uid://dwj8otk3qg0fg" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Metalic_and_Rougness.png" id="3_ktux4"]
+[ext_resource type="Texture2D" uid="uid://dkr2eh5crsijf" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Normal.png" id="4_825vh"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Assets/PlayerObjects/Battery/Models/M_Battery_Unwrapped.obj" id="5_fw4wm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi6v1"]
+albedo_texture = ExtResource("2_6ydng")
+metallic = 1.0
+metallic_texture = ExtResource("3_ktux4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_ktux4")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_825vh")
+ao_enabled = true
+ao_texture = ExtResource("3_ktux4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6beh0"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cnt2j"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_a5bwa"]
+resource_name = "BatteryFlash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rp60t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatteryFlash:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wan0w"]
+_data = {
+"BatteryFlash": SubResource("Animation_a5bwa"),
+"RESET": SubResource("Animation_rp60t")
+}
+
+[node name="BatteryPickup" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_6d17v")
+outline_material = ExtResource("2_r3aqc")
+mesh = NodePath("MeshInstance3D")
+has_outline = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.029514, 0, 0, 0, 0.029514, 0, 0, 0, 0.029514, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xi6v1")
+mesh = ExtResource("5_fw4wm")
+
+[node name="BatteryFlash" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0304297, 0, 0, 0, 0.0304297, 0, 0, 0, 0.0304297, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6beh0")
+mesh = ExtResource("5_fw4wm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_cnt2j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wan0w")
+}
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

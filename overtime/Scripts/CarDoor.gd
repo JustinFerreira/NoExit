@@ -13,7 +13,7 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AnimationManager.CarAnimationPlayer = $"../../AnimationPlayer"
+	AnimationManager.GetInCarAnimationPlayer = $"../../GetInCarAnimationPlayer"
 	AnimationManager.DoorFlashAnimationPlayer = $"../../DoorFlashAnimationPlayer"
 	
 	AnimationManager.DoorFlash = $CarDoorVisual
@@ -21,7 +21,7 @@ func _ready() -> void:
 	AnimationManager.CarHead = $"../../Head"
 	CameraManager.CarCamera = $"../../Head/Car_Cam"
 	
-	AnimationManager.ActivateCarAnimationPlayer()
+	AnimationManager.ActivateGetInCarAnimationPlayer()
 	AnimationManager.ActivateDoorFlashAnimationPlayer()
 	
 	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
@@ -31,16 +31,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-## _on_animation_finished
-## this function is called anytime an
-## animation is fished so it can process
-## what happens after the animation
-func _on_animation_finished(anim_name: String):
-	pass
-	
-	
-
 
 func _on_interacted(body: Variant) -> void:
 	player = PlayerManager.player
@@ -61,7 +51,7 @@ func _on_interacted(body: Variant) -> void:
 			AnimationManager.CarEntering = true
 			unlocked = true
 			# Open door animation
-			AnimationManager.CarAnimationPlayer.play("NoExitProps")
+			AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
 			PlayerManager.InAnimation = true
 			PlayerManager.teleportEnemy = true
 		else:
@@ -73,12 +63,12 @@ func _on_interacted(body: Variant) -> void:
 	elif player.Incar == true:
 		AnimationManager.CarEntering = false
 		player.interact_ray.enabled = false
-		AnimationManager.CarAnimationPlayer.play("NoExitProps")
+		AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 	##Entering Car after Unlocked
 	elif player.Incar == false && unlocked == true:
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 		PlayerManager.InAnimation = true
 		AnimationManager.CarEntering = true
-		AnimationManager.CarAnimationPlayer.play("NoExitProps")
+		AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
 		PlayerManager.teleportEnemy = true

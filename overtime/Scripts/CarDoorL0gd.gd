@@ -7,7 +7,7 @@ var player
 func _ready() -> void:
 	PlayerManager.Loop0 = true
 	SettingsManager.KillerDisabled = true
-	AnimationManager.CarAnimationPlayer = $"../../AnimationPlayer"
+	AnimationManager.GetInCarAnimationPlayer = $"../../AnimationPlayer"
 	AnimationManager.DoorFlashAnimationPlayer = $"../../DoorFlashAnimationPlayer"
 	
 	AnimationManager.DoorFlash = $CarDoorVisual
@@ -15,7 +15,7 @@ func _ready() -> void:
 	AnimationManager.CarHead = $"../../Head"
 	CameraManager.CarCamera = $"../../Head/Car_Cam"
 	
-	AnimationManager.ActivateCarAnimationPlayer()
+	AnimationManager.ActivateGetInCarAnimationPlayer()
 	AnimationManager.ActivateDoorFlashAnimationPlayer()
 	
 	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
@@ -37,7 +37,7 @@ func _on_interacted(body: Variant) -> void:
 			AnimationManager.CarEntering = true
 			unlocked = true
 			# Open door animation
-			AnimationManager.CarAnimationPlayer.play("NoExitProps")
+			AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
 			PlayerManager.InAnimation = true
 		else:
 			# Play Car locked noise
@@ -48,11 +48,11 @@ func _on_interacted(body: Variant) -> void:
 	elif player.Incar == true:
 		AnimationManager.CarEntering = false
 		player.interact_ray.enabled = false
-		AnimationManager.CarAnimationPlayer.play("NoExitProps")
+		AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 	##Entering Car after Unlocked
 	elif player.Incar == false && unlocked == true:
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 		PlayerManager.InAnimation = true
 		AnimationManager.CarEntering = true
-		AnimationManager.CarAnimationPlayer.play("NoExitProps")
+		AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")

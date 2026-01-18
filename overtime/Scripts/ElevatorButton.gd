@@ -7,30 +7,22 @@
 
 extends Interactable
 
-@onready var animation_player = $"../AnimationPlayer"
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
 var DoorOpen = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AnimationManager.ElevatorAnimationPlayer = $"../AnimationPlayer"
+	AnimationManager.ElevatorDoorButtonAnimationPlayer = $"../ElevatorDoorButtonAnimationPlayer"
 	AnimationManager.ElevatorButtonFlash = $"../ElevatorOutsideButtonFlash"
-	AnimationManager.ActivateElevatorAnimationPlayer()
-	AnimationManager.ElevatorAnimationPlayer.play("OutlinePulse")
-	animation_player.connect("animation_finished", _on_animation_finished)
+	AnimationManager.ActivateElevatorButtonAnimationPlayer()
+	AnimationManager.ElevatorDoorButtonAnimationPlayer.play("OutlinePulse")
 	if not PlayerManager.Loop0:
 		AnimationManager.ElevatorButtonFlash.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _on_animation_finished(anim_name: String):
-	#print("Animation", anim_name)
-	
-	if anim_name == "Take 001" && DoorOpen:
-		DoorOpen = false;
 
 func _on_interacted(body: Variant) -> void:
 	if PlayerManager.has_item("Car Keys"):
@@ -46,10 +38,9 @@ func _on_interacted(body: Variant) -> void:
 				PlayerManager.Hint("Hold shift, to sprint")
 			else:
 				PlayerManager.Hint("Use shift to toggle sprint")
-		DoorOpen = true;
 		$".".is_interactable = false
 		prompt_message = ""
-		animation_player.play("Take 001")
+		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
 	else:
 		PlayerManager.CharacterDialog("Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole")
 	

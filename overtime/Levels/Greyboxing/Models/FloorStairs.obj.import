@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cato6yg652rfq"
+path="res://.godot/imported/FloorStairs.obj-2178a40ad371c131c14721eacc5e6219.mesh"
+
+[deps]
+
+files=["res://.godot/imported/FloorStairs.obj-2178a40ad371c131c14721eacc5e6219.mesh"]
+
+source_file="res://Levels/Greyboxing/Models/FloorStairs.obj"
+dest_files=["res://.godot/imported/FloorStairs.obj-2178a40ad371c131c14721eacc5e6219.mesh", "res://.godot/imported/FloorStairs.obj-2178a40ad371c131c14721eacc5e6219.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

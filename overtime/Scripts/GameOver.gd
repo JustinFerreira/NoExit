@@ -10,6 +10,6 @@ func _on_restart_btn_pressed() -> void:
 	get_tree().paused = false
 	var current_scene_path = get_tree().current_scene.scene_file_path
 	if PlayerManager.Loop1:
-		get_tree().change_scene_to_file("res://Scenes/Levels/Loop1.tscn")
+		get_tree().change_scene_to_file("res://Levels/Loop1.tscn")
 	else:
 		get_tree().change_scene_to_file(current_scene_path)
