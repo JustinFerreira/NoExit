@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 		
 	
 	if $"..".position.y <= -10:
+		AnimationManager.ElevatorFall = false
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()

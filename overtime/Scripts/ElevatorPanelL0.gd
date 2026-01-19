@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		
 	
 	if $"..".position.y <= -10:
+		AnimationManager.ElevatorFall = false
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		get_tree().change_scene_to_file("res://Levels/ParkingGarageL0.tscn")
