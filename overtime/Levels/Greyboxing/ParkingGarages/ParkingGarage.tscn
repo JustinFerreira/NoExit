@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2uplnyo3g08p"]
 
-[ext_resource type="Texture2D" uid="uid://b62mwgnm763uc" path="res://Assets/Enviroments/Dev Textures/dev_texture_hazard.png" id="1_32y4x"]
+[ext_resource type="Texture2D" uid="uid://b62mwgnm763uc" path="res://Assets/Dev Textures/dev_texture_hazard.png" id="1_32y4x"]
 [ext_resource type="ArrayMesh" uid="uid://cnnon2v4nh3ax" path="res://Levels/Greyboxing/Models/GarageParkV1OBJ.obj" id="2_4hi8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawlh"]

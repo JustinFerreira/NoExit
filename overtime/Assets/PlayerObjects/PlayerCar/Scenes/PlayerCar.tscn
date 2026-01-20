@@ -1,6 +1,6 @@
 [gd_scene load_steps=62 format=3 uid="uid://dq08ejjnraqec"]
 
-[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
+[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Dev Textures/dev_texture_brick.png" id="1_a3n50"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gjgk8"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="4_of1nr"]
 [ext_resource type="Script" path="res://Scripts/StartCar.gd" id="5_cnxlx"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/Hood.gd" id="7_6orr0"]
 [ext_resource type="PackedScene" uid="uid://obn7dwcmegqc" path="res://Assets/PlayerObjects/SpareTire/Scenes/SpareTireMesh.tscn" id="7_ionc6"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="8_lp8a8"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="9_jwfu5"]
-[ext_resource type="Texture2D" uid="uid://b8lpi3qwwdkek" path="res://Assets/LMB_icon.png" id="9_syjav"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="9_jwfu5"]
+[ext_resource type="Texture2D" uid="uid://b8lpi3qwwdkek" path="res://Assets/UI/LMB_icon.png" id="9_syjav"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="11_drwes"]
 [ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="12_2emh0"]
 [ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="13_2ukr4"]

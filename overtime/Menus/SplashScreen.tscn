@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="1_xey8r"]
-[ext_resource type="Texture2D" uid="uid://nk1ak86d4slu" path="res://Assets/GTFO.png" id="2_mthcm"]
-[ext_resource type="Texture2D" uid="uid://bt7uhesddl3s" path="res://Assets/no_exit_title_glow.png" id="4_evfik"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="1_xey8r"]
+[ext_resource type="Texture2D" uid="uid://nk1ak86d4slu" path="res://Assets/Logos/GTFO.png" id="2_mthcm"]
+[ext_resource type="Texture2D" uid="uid://bt7uhesddl3s" path="res://Assets/Logos/no_exit_title_glow.png" id="4_evfik"]
 
 [sub_resource type="Animation" id="Animation_ft30g"]
 length = 0.001

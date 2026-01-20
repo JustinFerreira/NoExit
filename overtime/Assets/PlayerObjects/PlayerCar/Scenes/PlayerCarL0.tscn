@@ -1,9 +1,9 @@
 [gd_scene load_steps=43 format=3 uid="uid://dxgl6yxhalqbk"]
 
-[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_sj1lu"]
+[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Dev Textures/dev_texture_brick.png" id="1_sj1lu"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_04f8w"]
 [ext_resource type="PackedScene" uid="uid://obn7dwcmegqc" path="res://Assets/PlayerObjects/SpareTire/Scenes/SpareTireMesh.tscn" id="3_68mli"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="4_hip2c"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="4_hip2c"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="5_ybgjj"]
 [ext_resource type="Script" path="res://Scripts/StartCarL0.gd" id="6_11ikw"]
 [ext_resource type="Script" path="res://Scripts/CarDoorL0gd.gd" id="6_hkcgu"]

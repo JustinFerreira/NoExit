@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://xeppf4mc7clj"]
 
-[ext_resource type="Texture2D" uid="uid://dmam35hghesxv" path="res://Assets/Enviroments/Dev Textures/dev_texture_metal.png" id="1_lca55"]
+[ext_resource type="Texture2D" uid="uid://dmam35hghesxv" path="res://Assets/Dev Textures/dev_texture_metal.png" id="1_lca55"]
 [ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="2_bwe67"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m2g3"]

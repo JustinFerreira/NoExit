@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://coht1t14xbt41"]
 
-[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_siojw"]
+[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Dev Textures/dev_texture_brick.png" id="1_siojw"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_gw0to"]
 [ext_resource type="PackedScene" uid="uid://obn7dwcmegqc" path="res://Assets/PlayerObjects/SpareTire/Scenes/SpareTireMesh.tscn" id="3_xkeui"]
 

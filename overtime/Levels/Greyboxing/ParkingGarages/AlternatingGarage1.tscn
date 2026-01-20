@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://bt2m5ajew0qwr"]
 
-[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Enviroments/Dev Textures/dev_texture_brick.png" id="1_v1dgc"]
+[ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Dev Textures/dev_texture_brick.png" id="1_v1dgc"]
 [ext_resource type="ArrayMesh" uid="uid://l37gv4luynjb" path="res://Levels/Greyboxing/Models/AlternatingParkingGarage.obj" id="2_myd8s"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="3_i1oob"]
 [ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="4_udug5"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="7_yqs8e"]
 [ext_resource type="PackedScene" uid="uid://c4e6alwxo7csv" path="res://Assets/Enviroments/Garage/Scenes/GaragePole.tscn" id="8_cwd60"]
 [ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="9_8mqmv"]
-[ext_resource type="Texture2D" uid="uid://cp8s5ou30os63" path="res://Assets/Enviroments/Dev Textures/dev_texture_concrete.png" id="10_i2k14"]
+[ext_resource type="Texture2D" uid="uid://cp8s5ou30os63" path="res://Assets/Dev Textures/dev_texture_concrete.png" id="10_i2k14"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1eux"]
 albedo_texture = ExtResource("1_v1dgc")

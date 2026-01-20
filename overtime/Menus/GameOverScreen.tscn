@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://1k6pp1n6pfch"]
 
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_x34de"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Asimovian-Regular.ttf" id="2_astw6"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="2_astw6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x11hh"]
 

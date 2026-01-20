@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="2_xgf4x"]
 [ext_resource type="PackedScene" uid="uid://xeppf4mc7clj" path="res://Assets/Enviroments/Garage/Scenes/NpcCar.tscn" id="3_04c40"]
 [ext_resource type="PackedScene" uid="uid://bnh3sf8jtlyib" path="res://Levels/Greyboxing/ParkingGarages/LargeParkingGarage.tscn" id="4_fs04o"]
-[ext_resource type="Texture2D" uid="uid://c88jid1751qg0" path="res://Assets/Enviroments/Dev Textures/dev_texture_misc.png" id="6_or3cy"]
+[ext_resource type="Texture2D" uid="uid://c88jid1751qg0" path="res://Assets/Dev Textures/dev_texture_misc.png" id="6_or3cy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiwre"]
 albedo_texture = ExtResource("6_or3cy")

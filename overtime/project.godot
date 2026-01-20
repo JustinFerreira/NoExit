@@ -13,8 +13,8 @@ config_version=5
 config/name="Overtime"
 run/main_scene="res://Menus/SplashScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://Assets/GTFO.png"
-config/icon="res://Assets/GTFO.png"
+boot_splash/image="res://Assets/Logos/GTFO.png"
+config/icon="res://Assets/Logos/GTFO.png"
 
 [autoload]
 

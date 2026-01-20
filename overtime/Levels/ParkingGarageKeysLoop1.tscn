@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/Car.tscn" id="3_e5t2c"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="4_2rfh5"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_lqut5"]
-[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Scenes/PickupItem.tscn" id="7_7fs5o"]
+[ext_resource type="PackedScene" uid="uid://by8u3cc6nes8t" path="res://Assets/PlayerObjects/Reference Scences/PickupItem.tscn" id="7_7fs5o"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Assets/PlayerObjects/GasCanister.tscn" id="7_ekekf"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Assets/PlayerObjects/WireNegative.tscn" id="10_yium0"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Assets/PlayerObjects/WirePositive.tscn" id="11_dts2d"]
