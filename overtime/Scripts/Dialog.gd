@@ -1,5 +1,5 @@
-## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/20/26 by Justin Ferreira
 ## Dialog Script
 ## - This script contains functions that
 ## assits in making dialog apear on screen

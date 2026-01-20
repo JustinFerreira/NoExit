@@ -1,5 +1,5 @@
-## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/20/26 by Justin Ferreira
 ## ElevatorButtonPanel Script
 ## - This is the Inside button of the elevator which
 ## closes the elevator doors and moves the elevator down.
@@ -43,12 +43,14 @@ func _on_interacted(body: Variant) -> void:
 		is_interactable = false
 		prompt_message = ""
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
+		AnimationManager.DoorClosed = true
 	else:
 		PlayerManager.Hint("Get in the elevator bro")
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	InElevator = true
+	print(AnimationManager.ElevatorFall)
 
 
 

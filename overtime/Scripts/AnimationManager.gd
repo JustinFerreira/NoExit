@@ -9,6 +9,9 @@ extends Node
 
 ## Animation Players
 
+# The Animation Player attached to the opening cutscne
+var OpeningCutSceneAnimationPlayer 
+
 # The Animation Player attached to the car
 var GetInCarAnimationPlayer
 
@@ -77,6 +80,7 @@ var PositiveBatteryResetZone
 ## Elevator
 
 var DoorOpen = false
+var DoorClosed = false
 var ElevatorFall = false
 
 
@@ -409,8 +413,7 @@ func _on_ElevatorButtonFlash_animation_finished(anim_name: String):
 		ElevatorDoorButtonAnimationPlayer.play("OutlinePulse")
 	if anim_name == "Take 001" && !DoorOpen:
 		DoorOpen = true
-	if anim_name == "Take 001" && DoorOpen:
-		DoorOpen = false
+	if anim_name == "Take 001" && DoorClosed:
 		ElevatorFall = true
 		AudioManager.play_sound(AudioManager.elevator_whitenoise)
 

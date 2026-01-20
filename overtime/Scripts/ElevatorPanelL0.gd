@@ -40,6 +40,7 @@ func _on_interacted(body: Variant) -> void:
 		is_interactable = false
 		prompt_message = ""
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
+		AnimationManager.DoorClosed = true
 	else:
 		PlayerManager.Hint("Get in the elevator bro")
 

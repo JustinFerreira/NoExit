@@ -1,11 +1,14 @@
 extends Node3D
 
 @onready var target = $Player
+@onready var animation_player = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AnimationManager.OpeningCutSceneAnimationPlayer = animation_player
+	PlayerManager.player.CURSOR.visible = false
 	$CutSceneCamera.current = true
-	$AnimationPlayer.play("OpeningCutscene")
+	AnimationManager.OpeningCutSceneAnimationPlayer.play("OpeningCutscene")
 	AudioManager.cancel_loop_sfx()
 	PlayerManager.OpeningCutscene = true
 	PlayerManager.InAnimation = true

@@ -1,6 +1,9 @@
 ## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## Last upadated 1/20/26 by Justin Ferreira
 ## DialogNPC Script
+## This script is what the Janitor uses for all its 
+## operations such as wander and talking to player
+
 
 extends Interactable
 
@@ -30,18 +33,6 @@ var original_camera_rotation: Vector3 = Vector3.ZERO
 var original_player_rotation: float = 0.0
 var original_player_transform: Transform3D  # Store complete transform
 var has_initial_dialog_played: bool = false  # Track if initial dialog played
-
-#Sequence of text given to multi dialog function
-var text_array: Array[String] = [
-	"Last day, right?",
-	"Quite a familiar sight, watching a kid turn their back on this, and pardon my French",
-	"lumpy pile of dog shit",
-	"Let me guess, your heart wasn't in it? Corporate life didn't suit you?",
-	"Oh, it doesn't matter. Just a quick word of advice.",
-	"This life has a knack for following you.",
-	"It's kinda like chronic depression or my ex-wife",
-	"Once it's got its claws in you, it won't want to let go."
-]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -228,7 +219,7 @@ func start_dialog() -> void:
 	
 	# Start the dialog
 	PlayerManager.talkToJanitor = true
-	PlayerManager.MultiDialog(text_array)
+	PlayerManager.MultiDialog(EventManager.janitor_text_array)
 	
 	# Wait for dialog to finish
 	await wait_for_dialog_completion()
@@ -343,7 +334,7 @@ func start_multi_dialog_with_camera():
 	# Start the multi-dialog
 	#print("Starting MultiDialog with text_array")
 	PlayerManager.talkToJanitor = true
-	PlayerManager.MultiDialog(text_array)
+	PlayerManager.MultiDialog(EventManager.janitor_text_array)
 	#print("MultiDialog called, waiting for completion...")
 	
 	# Wait for dialog to finish

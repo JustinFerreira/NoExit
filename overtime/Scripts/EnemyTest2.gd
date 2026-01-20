@@ -87,6 +87,7 @@ func kill():
 	if PlayerManager.player and PlayerManager.player.CAMERA:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.MiniGameModeOff()
+		PlayerManager.player.CURSOR.visible = false
 		var camera = PlayerManager.player.CAMERA
 	
 		

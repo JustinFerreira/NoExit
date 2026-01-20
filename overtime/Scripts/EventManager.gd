@@ -8,6 +8,20 @@
 
 extends Node
 
+## Janitor Dialog
+
+var janitor_text_array: Array[String] = [
+	"Last day, right?",
+	"Quite a familiar sight, watching a kid turn their back on this, and pardon my French",
+	"lumpy pile of dog shit",
+	"Let me guess, your heart wasn't in it? Corporate life didn't suit you?",
+	"Oh, it doesn't matter. Just a quick word of advice.",
+	"This life has a knack for following you.",
+	"It's kinda like chronic depression or my ex-wife",
+	"Once it's got its claws in you, it won't want to let go."
+]
+
+
 ## Solo Hints
 
 var car_distance: String = "Must be too far to hear the car."

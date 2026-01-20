@@ -21,6 +21,7 @@ func _on_interacted(body: Variant) -> void:
 	$"../../HoodCam".current = true
 	
 	PlayerManager.CharacterDialog("Huh I guess I have no battery")
+	PlayerManager.InAnimation = true
 	
 	AudioManager.cancel_loop_sfx()
 	
