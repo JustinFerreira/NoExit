@@ -1,11 +1,12 @@
-## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/19/26 by Justin Ferreira
 ## CarKeyNoise Script
 ## - Script for a 3D noise node
 ## this sound can only be heard from a certain distance
 
 extends AudioStreamPlayer3D
 
+#editable field for sound strength
 @export var max_hearing_distance: float = 120.0
 @export var min_volume_db: float = -80.0
 @export var same_floor_threshold: float = 3.0
@@ -100,6 +101,6 @@ func check_and_print_help():
 ## dialog is put on screen
 func playsound():
 	if !was_audible:
-		PlayerManager.Hint("Must be too far to hear the car.")
+		PlayerManager.Hint(EventManager.car_distance)
 	self.play()
 	was_audible = true  # When we start playing, sound is audible

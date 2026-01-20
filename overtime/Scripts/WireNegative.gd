@@ -39,7 +39,7 @@ func handle_collision(colliding_body):
 		self.remove_from_group("grabbable")
 		self.remove_from_group("battery_minigame")
 		self.visible = false
-	if PlayerManager.NegativeConnected == false &&  (colliding_body.name == "PositiveBattery" or colliding_body.is_in_group("resetzone")):
+	if PlayerManager.NegativeConnected == false && (colliding_body.name == "PositiveBattery" or colliding_body.is_in_group("resetzone")):
 		AnimationManager.HideResetZones()
 		PlayerManager.CharacterDialog("Oh I probbaly shouldn't do that")
 		PlayerManager.player.grabbed_object = null

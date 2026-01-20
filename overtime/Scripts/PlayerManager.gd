@@ -286,7 +286,7 @@ func TestConnection():
 		hoodUI.visible = false
 		minigameThreePassed = true
 		minigameThree = false
-		player.CAMERA.current = true
+		CameraManager.FPCamera.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		player.prompt.visible = true
 		PositiveWire.visible = false

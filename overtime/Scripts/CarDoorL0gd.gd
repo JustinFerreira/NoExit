@@ -42,7 +42,7 @@ func _on_interacted(body: Variant) -> void:
 		else:
 			# Play Car locked noise
 			AudioManager.play_sound(AudioManager.CarDoorLocked)
-			PlayerManager.CharacterDialog("Where did I leave my keys?")
+			PlayerManager.CharacterDialog(EventManager.forgot_keys)
 			pass
 	##Exiting car
 	elif player.Incar == true:

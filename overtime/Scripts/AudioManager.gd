@@ -1,4 +1,4 @@
-## OverTime Production
+## OverTime Studios
 ## Last upadated 11/16/25 by Justin Ferreira
 ## AudioManager Script
 ## - This Script contains functions for
@@ -64,6 +64,7 @@ var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding
 
 var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## At creation of project assign the MusicAudio Player to the bus Music
 	MusicAudio.bus = "Music"

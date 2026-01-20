@@ -1,31 +1,41 @@
-## OverTime Production
-## Last upadated 11/24/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/19/26 by Justin Ferreira
 ## Box Script
 ## - This is the script for the pickup item box
 
 extends Interactable
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#make it so when it is not Loop 0 box is invisible
+	#maybe make it so it is deleted from scene? save space?
+	#put Loops in Event Manager?
 	if not PlayerManager.Loop0:
 		self.visible = false
 		_on_interaction_complete()
 		return
+	#set up flashing animation
 	AnimationManager.BoxFlashAnimationPlayer = $BoxFlashAnimationPlayer
 	AnimationManager.BoxFlash = $BoxFlash
 	AnimationManager.ActivateBoxFlashAnimationPlayer()
 	AnimationManager.BoxFlashAnimationPlayer.play("BoxFlash")
 
 func _process(delta: float) -> void:
+	#stop flashing when player is about to interact
 	if PlayerManager.player.interact_ray.get_collider() == self:
 		$BoxFlash.visible = false
 	else:
 		$BoxFlash.visible = true
 
 func _on_interacted(body: Variant) -> void:
-	PlayerManager.CharacterHintDialog("I've got to pack up all this stuff!","With your box equipped now you can pick up these items from your desk. hold E to see Inventory, and see your Box is highlighted red as equipped items are highlighted red.")
-	PlayerManager.AddToInventory("Box", 0.5, true)
+	#pick up sound
 	AudioManager.play_sound(AudioManager.ItemPickup)
+	#show next Dialog
+	PlayerManager.CharacterHintDialog(EventManager.box_pickup, EventManager.box_pickup_hint)
+	#add to inventory
+	PlayerManager.AddToInventory("Box", 0.5, true)
 	
+	#get rid of object in scene 
 	if is_inside_tree():
 		get_parent().remove_child(self)
 		queue_free()

@@ -1,5 +1,5 @@
-## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/19/26 by Justin Ferreira
 ## Battery Script
 ## - This script is attached to the Battery 
 ## for the battery minigame this script changes
@@ -13,6 +13,8 @@ extends MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#set up flashing for positive and negative zone of battery
+	#also setting up reset zones so visibilty for them can be toggled
 	AnimationManager.PositiveBatteryResetZone = $PositiveBattery/MeshInstance3D
 	AnimationManager.NegativeBatteryResetZone = $NegativeBattery/MeshInstance3D
 	AnimationManager.ResetZones.clear()
@@ -27,11 +29,14 @@ func _ready() -> void:
 	AnimationManager.ActivateNegativeBatteryFlashAnimationPlayer()
 	AnimationManager.PositiveBatteryFlashAnimationPlayer.play("PositiveBatteryFlash")
 	AnimationManager.NegativeBatteryFlashAnimationPlayer.play("NegativeBatteryFlash")
+	
+	#giving the player battery itself so the player interactions work properly
 	PlayerManager.Battery = self
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#making wires visible if battery visible (Can prob move out of here)
 	if self.visible:
 		if PlayerManager.PositiveConnected:
 			$PositiveConnection.visible = true

@@ -67,6 +67,7 @@ var last_collider = null
 func _ready() -> void:
 	PlayerManager.player = self
 	CAMERA.current = true
+	CameraManager.FPCamera = CAMERA
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

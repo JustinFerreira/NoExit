@@ -1,11 +1,12 @@
-## OverTime Production
-## Last upadated 11/16/25 by Justin Ferreira
+## OverTime Studios
+## Last upadated 1/19/26 by Justin Ferreira
 ## ClockTicking Script
 ## - Script for a 3D noise node
 ## this sound can only be heard from a certain distance
 
 extends AudioStreamPlayer3D
 
+#editable field for sound strength
 @export var max_hearing_distance: float = 80.0
 @export var min_volume_db: float = -50.0
 

@@ -1,4 +1,4 @@
-## OverTime Production
+## OverTime Studios
 ## Last upadated 1/15/26 by Justin Ferreira
 ## AnimationManager Script
 ## - This is a manager script which allows for all
@@ -309,12 +309,12 @@ func _on_GetInCar_animation_finished(anim_name: String):
 			SteeringWheelFlash.visible = true
 			DoorFlash.visible = false
 			GetInCarAnimationPlayer.play("HotWireFlash")
-			PlayerManager.CharacterDialog("I better hot wire my own car like I always do right under the steering wheel.")
+			PlayerManager.CharacterDialog(EventManager.hotwire_reminder)
 		if PlayerManager.Loop0:
 			SteeringWheelFlash.visible = true
 			DoorFlash.visible = false
 			GetInCarAnimationPlayer.play("HotWireFlash")
-			PlayerManager.CharacterDialog("Can't wait to get home let me start this car and get out of here!")
+			PlayerManager.CharacterDialog(EventManager.loop0_get_in_car)
 	## Exiting car animations
 	if anim_name == "GettinginCar" && PlayerManager.player.Incar && not CarEntering:
 		PlayerManager.player.Incar = false

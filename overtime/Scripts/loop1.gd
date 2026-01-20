@@ -40,6 +40,7 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog("Where did I leave my keys?")
 		else:
+			PlayerManager.startMultiDialog = false
 			PlayerManager.MultiDialog(["Oh thank god…oh thank god it was just a dream. Ok…Ok, good. I need to stop pulling all-nighters like that. It’s screwing with my head.",
 			"It looks like I already took everything down.",
 			"Why would I come back up ... It doesn’t matter, I’m leaving for good"])

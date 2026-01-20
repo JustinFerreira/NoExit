@@ -24,6 +24,7 @@ PlayerManager="*res://Scripts/PlayerManager.gd"
 AnimationManager="*res://Scripts/AnimationManager.gd"
 CameraManager="*res://Scripts/CameraManager.gd"
 UiManager="*res://Scripts/UIManager.gd"
+EventManager="*res://Scripts/EventManager.gd"
 
 [display]
 
