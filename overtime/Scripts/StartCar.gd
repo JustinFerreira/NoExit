@@ -10,6 +10,7 @@ func _ready() -> void:
 	AnimationManager.SteeringWheelFlashAnimationPlayer.play("SteeringWheelFlash")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#Event Manager fix when finished minigame one it does this, unsure if the is_interactable even applies here.
 	if PlayerManager.minigameOnePassed:
 		is_interactable = true
 		prompt_message = "Start Car"
@@ -21,12 +22,16 @@ func _on_interacted(body: Variant) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
-		PlayerManager.CharacterDialog("Oh no! I don't have a battery or any gas! I better go get the spares that I think are on bottom floor.")
+		PlayerManager.CharacterDialog(EventManager.need_battery_and_gas)
 	elif PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
-		PlayerManager.CharacterDialog("Oh no I have to fix my battery")
+		PlayerManager.CharacterDialog(EventManager.need_battery)
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed:
-		PlayerManager.CharacterDialog("Oh no I have to get my gas")
-	else:
+		PlayerManager.CharacterDialog(EventManager.need_gas)
+	elif not PlayerManager.Loop0:
 		PlayerManager.minigameOne = true
 		PlayerManager.MiniGameModeOn()
+	else:
+		AnimationManager.SteeringWheelFlash.visible = false
+		AnimationManager.DoorFlash.visible = true
+		PlayerManager.CharacterDialog("Huh the cars not starting I better check my battery")
 	

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Levels/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="1_4wjrg"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_qixy7"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/Car.tscn" id="2_re2nw"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/DevCar.tscn" id="2_re2nw"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="3_o7hmn"]
 [ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Assets/PlayerObjects/BatteryPickup.tscn" id="3_rvstb"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Assets/PlayerObjects/Battery.tscn" id="4_0jo2u"]

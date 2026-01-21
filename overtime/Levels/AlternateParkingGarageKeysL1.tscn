@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_vej6o"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_n2qmr"]
 [ext_resource type="PackedScene" uid="uid://bt2m5ajew0qwr" path="res://Levels/Greyboxing/ParkingGarages/AlternatingGarage1.tscn" id="3_kk3s6"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/Car.tscn" id="4_qso0t"]
+[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/DevCar.tscn" id="4_qso0t"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="5_1ws8f"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="6_x0bat"]
 [ext_resource type="PackedScene" uid="uid://lgmc2qagl07g" path="res://Assets/PlayerObjects/GasCanister.tscn" id="7_crfl8"]

@@ -1,13 +1,12 @@
-[gd_scene load_steps=43 format=3 uid="uid://dxgl6yxhalqbk"]
+[gd_scene load_steps=43 format=3 uid="uid://d0tftsj8ipsdn"]
 
 [ext_resource type="Texture2D" uid="uid://c1k7m4ust1kyv" path="res://Assets/Dev Textures/dev_texture_brick.png" id="1_sj1lu"]
 [ext_resource type="ArrayMesh" uid="uid://b2ub36cubty0k" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarPrimitive.obj" id="2_04f8w"]
 [ext_resource type="PackedScene" uid="uid://obn7dwcmegqc" path="res://Assets/PlayerObjects/SpareTire/Scenes/SpareTireMesh.tscn" id="3_68mli"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="4_hip2c"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="5_ybgjj"]
-[ext_resource type="Script" path="res://Scripts/StartCarL0.gd" id="6_11ikw"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="6_x5hj3"]
-[ext_resource type="Script" path="res://Scripts/HoodL0.gd" id="8_d6q31"]
+[ext_resource type="Script" path="res://Scripts/Hood.gd" id="8_dowmi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bpxk"]
 albedo_texture = ExtResource("1_sj1lu")
@@ -38,6 +37,29 @@ albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4vwr3"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="GDScript" id="GDScript_6t2d3"]
+script/source = "extends Interactable
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	AnimationManager.SteeringWheelFlash = $CarSteeringWheelVisual
+	AnimationManager.SteeringWheelFlashAnimationPlayer = $\"../../SteeringWheelFlashAnimationPlayer\"
+	
+	AnimationManager.ActivateSteeringWheelFlashAnimationPlayer()
+	AnimationManager.SteeringWheelFlashAnimationPlayer.play(\"SteeringWheelFlash\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_interacted(body: Variant) -> void:
+	AnimationManager.SteeringWheelFlash.visible = false
+	AnimationManager.DoorFlash.visible = true
+	PlayerManager.CharacterDialog(\"Huh the cars not starting I better check my battery\")
+"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdk5i"]
 albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
@@ -559,7 +581,7 @@ shape = SubResource("ConvexPolygonShape3D_4vwr3")
 [node name="StartCar" type="StaticBody3D" parent="Mesh"]
 process_mode = 1
 transform = Transform3D(0.0103304, 0, 0, 0, 0.0161679, 0, 0, 0, 0.00442181, 0.00340134, 0.00748473, 0.0102582)
-script = ExtResource("6_11ikw")
+script = SubResource("GDScript_6t2d3")
 
 [node name="CollisionShapeMesh" type="MeshInstance3D" parent="Mesh/StartCar"]
 transform = Transform3D(0.721354, 0, 0, 0, 0.721354, 0, 0, 0, 0.721354, 0.125114, 0.112198, 0.019061)
@@ -596,7 +618,7 @@ shape = SubResource("ConvexPolygonShape3D_syelk")
 
 [node name="Hood" type="StaticBody3D" parent="Mesh"]
 transform = Transform3D(1.38061, 0, 0, 0, 1, 0, 0, 0, 1.08715, -0.000126825, 0.00107926, 0.000641372)
-script = ExtResource("8_d6q31")
+script = ExtResource("8_dowmi")
 
 [node name="CollisionShapeMesh" type="MeshInstance3D" parent="Mesh/Hood"]
 transform = Transform3D(0.0129443, 0, 0, 0, 0.00631789, 0, 0, 0, 0.0119977, 0, 0.00858154, 0.0214983)

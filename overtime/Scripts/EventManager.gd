@@ -26,14 +26,22 @@ var janitor_text_array: Array[String] = [
 
 var car_distance: String = "Must be too far to hear the car."
 
-## idk what to call this
+## Reminders?
 
 var forgot_keys: String = "Where did I leave my keys?"
+
+var need_battery_and_gas: String = "Oh no! I don't have a battery or any gas! I better go get the spares that I think are on bottom floor."
+
+var need_battery: String = "Oh no I have to fix my battery"
+
+var need_gas: String = "Oh no I have to get my gas"
 
 
 ## Loop0
 
 var loop0_get_in_car: String = "Can't wait to get home let me start this car and get out of here!"
+
+var loop0_hood_no_battery: String = "Huh I guess I have no battery"
 
 ## Minigame
 
