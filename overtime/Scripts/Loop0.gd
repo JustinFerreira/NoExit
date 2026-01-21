@@ -7,13 +7,17 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.ResetPlayer()
+	
 	AudioManager.play_music(AudioManager.OfficeWhiteNoise)
 	AudioManager.OfficeMusicOn = true
-	PlayerManager.ResetPlayer()
-	PlayerManager.talkToJanitor = false
+	
+	
 	PlayerManager.Office = true
 	PlayerManager.ParkingGarage = false
+	
 	PlayerManager.testing = false
+	#Needed?
 	PlayerManager.gotKeys = false
 	PlayerManager.InAnimation = true;
 	PlayerManager.player.CURSOR.visible = false
