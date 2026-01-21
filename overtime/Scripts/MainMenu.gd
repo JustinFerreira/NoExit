@@ -130,3 +130,8 @@ func _on_opening_cutscene_pressed() -> void:
 func _on_parking_garage_l_0_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/ParkingGarageL0.tscn")
+
+
+func _on_new_office_pressed() -> void:
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Levels/New_Office.tscn")

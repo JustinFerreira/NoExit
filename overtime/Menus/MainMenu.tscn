@@ -547,6 +547,26 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Parking Garage L0"
 
+[node name="New_Office" type="Button" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_fonts/font = ExtResource("2_pcltc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xva8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wc08n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ogt36")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_urixd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_dw7fr")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_repn0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p22on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4aa3f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
+text = "New_Office"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4lbyd")
@@ -576,3 +596,4 @@ visible = false
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage" to="." method="_on_textured_parking_garage_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene" to="." method="_on_opening_cutscene_pressed"]
 [connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0" to="." method="_on_parking_garage_l_0_pressed"]
+[connection signal="pressed" from="MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office" to="." method="_on_new_office_pressed"]

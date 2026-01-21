@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgy0esfqyj01s"
+path="res://.godot/imported/Office_Test.obj-a437bfcaf7754d57f0b7f1d7bc0a6d59.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Office_Test.obj-a437bfcaf7754d57f0b7f1d7bc0a6d59.mesh"]
+
+source_file="res://Levels/Greyboxing/Models/Office_Test.obj"
+dest_files=["res://.godot/imported/Office_Test.obj-a437bfcaf7754d57f0b7f1d7bc0a6d59.mesh", "res://.godot/imported/Office_Test.obj-a437bfcaf7754d57f0b7f1d7bc0a6d59.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
