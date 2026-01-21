@@ -7,15 +7,14 @@
 
 extends Interactable
 
-@onready var animation_player = $"../AnimationPlayer"
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
 var fall_speed = 2.0
-var DoorClosed = false
 var InElevator = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#set up animations for 
 	AnimationManager.ElevatorPanelAnimationPlayer = $"../ElevatorPanelAnimationPlayer"
 	AnimationManager.ElevatorPanelFlash = $"../ElevatorPanelFlash"
 	AnimationManager.ActivateElevatorPanelFlashAnimationPlayer()
@@ -32,14 +31,16 @@ func _process(delta: float) -> void:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
+		if PlayerManager.Loop0:
+			get_tree().change_scene_to_file("res://Levels/ParkingGarageL0.tscn")
+		elif PlayerManager.Loop1:
+			get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
 
 func _on_interacted(body: Variant) -> void:
 	if InElevator:
 		AnimationManager.ElevatorPanelFlash.visible = false
 		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
 		door_collision.translate(Vector3(0,-3,0))
-		DoorClosed = true
 		is_interactable = false
 		prompt_message = ""
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
@@ -50,7 +51,6 @@ func _on_interacted(body: Variant) -> void:
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	InElevator = true
-	print(AnimationManager.ElevatorFall)
 
 
 
