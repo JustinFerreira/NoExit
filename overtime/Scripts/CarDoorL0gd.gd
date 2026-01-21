@@ -5,9 +5,12 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Event or Loop Manager???
 	PlayerManager.Loop0 = true
 	SettingsManager.KillerDisabled = true
-	AnimationManager.GetInCarAnimationPlayer = $"../../AnimationPlayer"
+	######
+	
+	AnimationManager.GetInCarAnimationPlayer = $"../../GetInCarAnimationPlayer"
 	AnimationManager.DoorFlashAnimationPlayer = $"../../DoorFlashAnimationPlayer"
 	
 	AnimationManager.DoorFlash = $CarDoorVisual

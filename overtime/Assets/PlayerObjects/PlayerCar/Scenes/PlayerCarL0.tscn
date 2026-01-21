@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="4_hip2c"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="5_ybgjj"]
 [ext_resource type="Script" path="res://Scripts/StartCarL0.gd" id="6_11ikw"]
-[ext_resource type="Script" path="res://Scripts/CarDoorL0gd.gd" id="6_hkcgu"]
+[ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="6_x5hj3"]
 [ext_resource type="Script" path="res://Scripts/HoodL0.gd" id="8_d6q31"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bpxk"]
@@ -538,7 +538,7 @@ mesh = ExtResource("2_04f8w")
 skin = SubResource("Skin_7lmtv")
 
 [node name="CarDoor" type="StaticBody3D" parent="Mesh"]
-script = ExtResource("6_hkcgu")
+script = ExtResource("6_x5hj3")
 
 [node name="CollisionShapeMesh" type="MeshInstance3D" parent="Mesh/CarDoor"]
 transform = Transform3D(0.00534786, 0, 0, 0, 0.0133092, 0, 0, 0, 0.0133022, 0.00986264, 0.0107043, 0.00558393)
@@ -614,7 +614,7 @@ mesh = SubResource("BoxMesh_vdw77")
 transform = Transform3D(0.0129443, 0, 0, 0, 0.00631789, 0, 0, 0, 0.0119977, 0, 0.00858154, 0.0214983)
 shape = SubResource("ConvexPolygonShape3D_3nwjy")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="GetInCarAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tr6wb")
 }

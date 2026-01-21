@@ -13,6 +13,9 @@ var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Should be fixed?
+	if PlayerManager.Loop0:
+		SettingsManager.KillerDisabled = true
 	#animation players assocaited with car door
 	AnimationManager.GetInCarAnimationPlayer = $"../../GetInCarAnimationPlayer"
 	AnimationManager.DoorFlashAnimationPlayer = $"../../DoorFlashAnimationPlayer"
@@ -29,18 +32,16 @@ func _ready() -> void:
 	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
 	AnimationManager.DoorFlash.visible = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_interacted(body: Variant) -> void:
 	#(Event Manager function for car door interaction?)
 	#turning off flash for car objects when car animation is about to start
 	AnimationManager.HoodFlash.visible = false
 	AnimationManager.DoorFlash.visible = false
 	AnimationManager.SteeringWheelFlash.visible = false
-	AnimationManager.GasIntakeFlash.visible = false
+	
+	#Should be fixed?
+	if not PlayerManager.Loop0:
+		AnimationManager.GasIntakeFlash.visible = false
 	#First time entering the car
 	if unlocked == false:
 		#check for keys? currently un-needed feature which is being talked about
@@ -63,7 +64,9 @@ func _on_interacted(body: Variant) -> void:
 			PlayerManager.InAnimation = true
 			#Event Manager?
 			#turn on teleport enemy to give player time in car so enemy isn't on their ass
-			PlayerManager.teleportEnemy = true
+			#Should be fixed?
+			if not PlayerManager.Loop0:
+				PlayerManager.teleportEnemy = true
 		else:
 			#doesnt happen ever
 			#Play Car locked noise
@@ -87,4 +90,7 @@ func _on_interacted(body: Variant) -> void:
 		#car entering turns on to show the direction of animation
 		AnimationManager.CarEntering = true
 		AnimationManager.GetInCarAnimationPlayer.play("NoExitProps")
-		PlayerManager.teleportEnemy = true
+		
+		#Should be fixed?
+		if not PlayerManager.Loop0:
+			PlayerManager.teleportEnemy = true
