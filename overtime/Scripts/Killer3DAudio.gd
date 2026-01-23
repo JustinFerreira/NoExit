@@ -32,14 +32,14 @@ func _play_next_sound():
 		# Play first sound
 		stream = first_sound
 		## Killer can copy sounds
-		if PlayerManager.car_audio_player && !PlayerManager.car_audio_player.was_audible:
-			stream = car_beep_sound
-		## Set back to default around car
-		if PlayerManager.minigameThree || PlayerManager.player && PlayerManager.player.Incar:
-			stream = first_sound
-		## Gas Minigame
-		if PlayerManager.minigameTwo:
-			stream = gas_sound
+		#if PlayerManager.car_audio_player && !PlayerManager.car_audio_player.was_audible:
+			#stream = car_beep_sound
+		### Set back to default around car
+		#if PlayerManager.minigameThree || PlayerManager.player && PlayerManager.player.Incar:
+			#stream = first_sound
+		### Gas Minigame
+		#if PlayerManager.minigameTwo:
+			#stream = gas_sound
 		play()
 		current_sound_index = 1
 		# Set timer for when first sound ends

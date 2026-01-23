@@ -115,9 +115,6 @@ func _on_sensitivity_slider_value_changed(value: float) -> void:
 
 
 func _on_shift_hold_run_check_box_toggled(toggled: bool) -> void:
-	#Button Click Noise
-	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
 	SettingsManager.settings.game.hold_shift = toggled
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
@@ -149,5 +146,10 @@ func _on_dev_mode_check_box_pressed() -> void:
 
 
 func _on_full_screen_check_box_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+
+
+func _on_shift_hold_run_check_box_pressed() -> void:
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())

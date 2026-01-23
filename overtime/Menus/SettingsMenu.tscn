@@ -727,6 +727,7 @@ mesh = SubResource("QuadMesh_2i0i3")
 [connection signal="pressed" from="ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
 [connection signal="toggled" from="ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_toggled"]
 [connection signal="value_changed" from="ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
+[connection signal="pressed" from="ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_pressed"]
 [connection signal="toggled" from="ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_toggled"]
 [connection signal="pressed" from="ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox" to="." method="_on_head_bob_check_box_pressed"]
 [connection signal="toggled" from="ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox" to="." method="_on_head_bob_check_box_toggled"]
