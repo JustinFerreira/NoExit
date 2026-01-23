@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_3lhs1"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_wirc2"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="3_g62db"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="3_g62db"]
 [ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Levels/Greyboxing/ParkingGarages/ParkingGarageWalls.tscn" id="3_qgb5e"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Levels/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="4_3726l"]
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_vgsjq"]

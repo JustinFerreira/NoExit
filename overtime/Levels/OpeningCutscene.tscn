@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="2_54wop"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="3_ei4b1"]
 [ext_resource type="PackedScene" uid="uid://coht1t14xbt41" path="res://Assets/PlayerObjects/PlayerCar/Scenes/PlayerCarModel.tscn" id="4_h5tux"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="5_rw1gg"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="5_rw1gg"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_vwy3y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37hau"]

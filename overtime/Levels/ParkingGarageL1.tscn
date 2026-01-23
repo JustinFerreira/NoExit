@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_eoltr"]
 [ext_resource type="PackedScene" uid="uid://dq08ejjnraqec" path="res://Assets/PlayerObjects/PlayerCar/Scenes/PlayerCar.tscn" id="6_2gego"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="7_dl5js"]
-[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="8_qe6bt"]
+[ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="8_qe6bt"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="9_jxjbf"]
 [ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="10_c0a42"]
 [ext_resource type="PackedScene" uid="uid://u7164itlys1a" path="res://Assets/PlayerObjects/BatteryPickup.tscn" id="11_gr8nx"]
