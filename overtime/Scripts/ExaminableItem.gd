@@ -1,5 +1,11 @@
 ## No Exit
 ## Overtime Studios
+## Last upadated 1/23/26 by Justin Ferreira
+## Examinable Item Script
+## - This script makes an item which can be viewed 
+## this item state of viewing locks the player in an animation
+## the aniamtion consist of dialogue and bringing the viewed object
+## closer to the players camera
 
 extends Interactable
 class_name ExaminableItem

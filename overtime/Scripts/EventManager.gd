@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/19/26 by Justin Ferreira
+## Last upadated 1/23/26 by Justin Ferreira
 ## Event Manager Script
 ## - This script manages actual dialog that is going to be 
 ## fed into where dialog is called, also specfic event functions

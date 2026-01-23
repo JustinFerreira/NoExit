@@ -46,46 +46,74 @@ func _on_animation_finished(anim_name: String):
 
 
 func _on_start_btn_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	$MainMenuFirstScreen.visible = false
 	$MainMenuFirstScreen2.visible = true
 
 
 func _on_quit_btn_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	get_tree().quit()
 
 
 func _on_settings_btn_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	$SettingsMenu.visible = true
 
 
 func _on_loop_1_btn_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	AudioManager.cancel_music()
 	PlayerManager.Loop0 = false
 	get_tree().change_scene_to_file("res://Levels/Office.tscn")
 
 
 func _on_prev_screen_btn_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	
 	$MainMenuFirstScreen2.visible = false
 	$MainMenuFirstScreen.visible = true
 
 
 func _on_textured_parking_garage_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	AudioManager.cancel_music()
 	PlayerManager.testing = true
 	get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
 
 
 func _on_loop_0_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 
 
 func _on_opening_cutscene_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 
 
 
 func _on_new_office_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/New_Office.tscn")

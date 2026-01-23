@@ -1,6 +1,3 @@
-## No Exit
-## Overtime Studios
-
 extends Control
 
 ## Sound Settings
@@ -18,7 +15,11 @@ extends Control
 @onready var headbob_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
 @onready var devmode_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
 
+# So sliders don't make noises when first start screen
 var DumbStupidBool = false
+var StupidDumbBool = false
+var ReallyDumbBool = false
+var ReallyStupidBool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,11 +59,21 @@ func _on_master_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.audio.master_volume = value
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+	if ReallyDumbBool:
+		#Button Click Noise
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+	else:
+		ReallyDumbBool = true
 
 func _on_music_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.audio.music_volume = value
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+	if StupidDumbBool:
+		#Button Click Noise
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+	else:
+		StupidDumbBool = true
 
 
 func _on_sfx_slider_value_changed(value: float) -> void:
@@ -76,6 +87,9 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	$".".visible = false
 	
 
@@ -94,9 +108,16 @@ func _on_sensitivity_slider_value_changed(value: float) -> void:
 	SettingsManager.settings.game.sensitivity = sensitivity_value
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+	if ReallyStupidBool:
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+	else:
+		ReallyStupidBool = true
 
 
 func _on_shift_hold_run_check_box_toggled(toggled: bool) -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	SettingsManager.settings.game.hold_shift = toggled
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
@@ -112,3 +133,21 @@ func _on_dev_mode_check_box_toggled(toggled: bool) -> void:
 	SettingsManager.settings.game.dev_mode = toggled
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
+
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+
+func _on_head_bob_check_box_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+
+
+func _on_dev_mode_check_box_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+
+
+func _on_full_screen_check_box_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())

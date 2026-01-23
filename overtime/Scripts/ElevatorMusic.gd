@@ -1,8 +1,12 @@
 ## No Exit
 ## Overtime Studios
+## Last upadated 1/23/26 by Justin Ferreira
+## ElevatorMusic Script
+## - This plays music inside the elevator
 
 extends AudioStreamPlayer3D
 
+#sound radius variables
 @export var max_hearing_distance: float = 4.0
 @export var min_volume_db: float = -80.0
 

@@ -18,6 +18,8 @@ var OfficeMusicAudio = AudioStreamPlayer.new()
 var looping_players: Dictionary = {}
 var OfficeMusicOn: bool = false
 
+var KillerShutUp = false
+
 ## MUSIC
 var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 

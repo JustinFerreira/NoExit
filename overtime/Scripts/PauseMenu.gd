@@ -27,6 +27,9 @@ func resume():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func pause():
+	#Button clikc sound
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	PlayerManager.player.CURSOR.visible = false
 	if PlayerManager.player.DIALOG.visible:
 		PlayerManager.HideDialog()
@@ -36,6 +39,7 @@ func pause():
 		
 
 func _on_resume_btn_pressed() -> void:
+	
 	resume()
 	if PlayerManager.DevMode == true:
 		$SettingsMenu.visible = false
@@ -56,6 +60,9 @@ func _on_settings_btn_pressed() -> void:
 
 
 func _on_main_menu_btn_pressed() -> void:
+	#Button clikc sound
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 

@@ -146,6 +146,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
+		#Button clikc sound
+		AudioManager.play_sound(AudioManager.GetKeyPress())
 		if PlayerManager.minigameOne:
 			AnimationManager.SteeringWheelFlash.visible = true
 			PlayerManager.minigameOne = false

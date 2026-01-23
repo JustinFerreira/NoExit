@@ -55,8 +55,11 @@ func _play_next_sound():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	volume_db = PlayerManager.scaredVolumeSteps
-	if (PlayerManager.OpeningCutscene || PlayerManager.Loop0) && not PlayerManager.dying:
-		volume_db = 100
+	if AudioManager.KillerShutUp:
+		volume_db = -100
+	else:
+		volume_db = PlayerManager.scaredVolumeSteps
+		if (PlayerManager.OpeningCutscene || PlayerManager.Loop0) && not PlayerManager.dying:
+			volume_db = 100
 	
 	

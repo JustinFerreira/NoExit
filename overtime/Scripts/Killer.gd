@@ -141,6 +141,7 @@ func kill():
 	
 	# Play the stabbing animation
 	StabbingAnimator.play("Stabbing")
+	AudioManager.KillerShutUp = true
 	AudioManager.play_sound_loop(AudioManager.SkullCrush, "Kill")
 	
 # Helper function to find the shortest Y rotation path
