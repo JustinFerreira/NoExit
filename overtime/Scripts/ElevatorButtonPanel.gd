@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
 		if PlayerManager.Loop0:
-			get_tree().change_scene_to_file("res://Levels/ParkingGarageL0.tscn")
+			get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
 		elif PlayerManager.Loop1:
 			get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
 

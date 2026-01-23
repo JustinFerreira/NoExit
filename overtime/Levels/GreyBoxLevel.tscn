@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbk5gwkxd35m"]
+[gd_scene load_steps=13 format=3 uid="uid://c412hh5mjivjd"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_3lhs1"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_wirc2"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/EnemyTest2.tscn" id="3_g62db"]
 [ext_resource type="PackedScene" uid="uid://cautgs8f8ssti" path="res://Levels/Greyboxing/ParkingGarages/ParkingGarageWalls.tscn" id="3_qgb5e"]
-[ext_resource type="PackedScene" uid="uid://hyre2bbhvslx" path="res://Assets/PlayerObjects/PlayerCar/Scenes/DevCar.tscn" id="4_2puch"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Levels/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="4_3726l"]
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_vgsjq"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="7_83tbi"]
@@ -86,9 +85,6 @@ size = Vector3(1, 5, 1)
 [node name="Pillar6" type="CSGBox3D" parent="NavigationRegion3D/Pillars"]
 transform = Transform3D(1.6, 0, 0, 0, 6.37, 0, 0, 0, 1.5, -18, 11, 18)
 size = Vector3(1, 5, 1)
-
-[node name="Car" parent="NavigationRegion3D" instance=ExtResource("4_2puch")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.3063, 1.00517, -37.8226)
 
 [node name="EnemyTest2" parent="." instance=ExtResource("3_g62db")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -21.4, 18.2, -156.2)

@@ -18,38 +18,24 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if PlayerManager.DevMode:
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = true
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = true
 	elif SettingsManager.Loop0Pass:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
 	else:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/MainBtn.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingKeysL1.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingL1.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParking.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/AlternateParkingKeys.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/TexturedParkingGarage.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = false
+		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
 
 func _on_animation_finished(anim_name: String):
 	
@@ -72,44 +58,14 @@ func _on_settings_btn_pressed() -> void:
 	$SettingsMenu.visible = true
 
 
-func _on_main_btn_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/main.tscn")
-
-
-func _on_grey_boxing_btn_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/GreyBoxLevel.tscn")
-
-
 func _on_loop_1_btn_pressed() -> void:
 	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/Loop1.tscn")
-
-
-func _on_parking_keys_l_1_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/ParkingGarageKeysLoop1.tscn")
-
-
-func _on_parking_l_1_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/ParkingGarageLoop1.tscn")
+	get_tree().change_scene_to_file("res://Levels/Office.tscn")
 
 
 func _on_prev_screen_btn_pressed() -> void:
 	$MainMenuFirstScreen2.visible = false
 	$MainMenuFirstScreen.visible = true
-
-
-func _on_alternate_parking_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/AlternateParkingGarageL1.tscn")
-
-
-func _on_alternate_parking_keys_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/AlternateParkingGarageKeysL1.tscn")
 
 
 func _on_textured_parking_garage_pressed() -> void:

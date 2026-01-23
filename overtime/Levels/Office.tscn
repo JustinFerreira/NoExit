@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://k1xve5p6csas"]
 
-[ext_resource type="Script" path="res://Scripts/Loop1.gd" id="1_1ip3b"]
+[ext_resource type="Script" path="res://Scripts/Office.gd" id="1_1ip3b"]
 [ext_resource type="PackedScene" uid="uid://cqbiktwssofkk" path="res://Levels/Greyboxing/Offices/EmptyOfficeGreybox.tscn" id="2_ui0bb"]
 [ext_resource type="PackedScene" uid="uid://d1fnud1p1j436" path="res://Assets/PlayerObjects/PlayerCubicle.tscn" id="3_7ldia"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="4_ci211"]
@@ -20,7 +20,7 @@ agent_height = 0.5
 [sub_resource type="Environment" id="Environment_x47e5"]
 background_mode = 1
 
-[node name="Loop1" type="Node3D"]
+[node name="Office" type="Node3D"]
 script = ExtResource("1_1ip3b")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

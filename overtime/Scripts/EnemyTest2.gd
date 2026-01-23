@@ -7,6 +7,8 @@ var SPEED = 2.0
 @onready var WalkingAnimator = $AnimationPlayer
 @onready var StabbingAnimator = $StabbingAnimation
 
+var teleports
+
 func _ready():
 	PlayerManager.Enemy = self
 	PlayerManager.no_enemy = false
@@ -16,10 +18,18 @@ func _ready():
 	nav.target_desired_distance = 1.5  # Distance to consider target reached
 	nav.path_max_distance = 3.0  # Max distance to recalculate path
 	StabbingAnimator.connect("animation_finished", _on_animation_finished)
+	if not PlayerManager.OpeningCutscene:
+		teleports = get_tree().get_nodes_in_group("teleport_target")
+	if PlayerManager.Loop0:
+		find_teleport_target("OutOfBoundsTeleport")
+	
 
 func _physics_process(delta: float) -> void:
-	if PlayerManager.teleportEnemy && get_tree().get_first_node_in_group("teleport_target"):
-		self.global_position = get_tree().get_first_node_in_group("teleport_target").global_position
+	if PlayerManager.teleportEnemy && teleports:
+		if PlayerManager.Loop0:
+			find_teleport_target("NearCarTeleport")
+		else: 
+			find_teleport_target("FarTeleport")
 		PlayerManager.teleportEnemy = false
 	
 	if not PlayerManager.dying:
@@ -57,6 +67,11 @@ func target_position(target):
 		return
 	nav.target_position = target
 	move_and_slide()
+	
+func find_teleport_target(targetname):
+	for target in teleports:
+		if target.name == targetname:
+			self.global_position = target.global_position
 
 func calculate_path_distance() -> float:
 	# Get the full navigation path
