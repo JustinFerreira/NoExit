@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends CollisionObject3D
 class_name Interactable
 

@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Interactable
 class_name ExaminableItem
 

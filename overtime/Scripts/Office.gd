@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Node3D
 
 @onready var player_cubicle = $NavigationRegion3D/Cubicle

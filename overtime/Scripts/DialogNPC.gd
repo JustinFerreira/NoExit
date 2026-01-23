@@ -1,4 +1,5 @@
-## OverTime Production
+## No Exit
+## Overtime Studios
 ## Last upadated 1/20/26 by Justin Ferreira
 ## DialogNPC Script
 ## This script is what the Janitor uses for all its 

@@ -1,4 +1,5 @@
-## OverTime Studios
+## No Exit
+## Overtime Studios
 ## Last upadated 11/16/25 by Justin Ferreira
 ## AudioManager Script
 ## - This Script contains functions for
@@ -63,6 +64,8 @@ var ElevatorDing = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding.mp3
 var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DingDoorOpen.mp3")
 
 var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
+
+var SkullCrush = load("res://Assets/Audio/SFX/headcrushFinal.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

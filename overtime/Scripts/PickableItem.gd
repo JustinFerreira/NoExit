@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Interactable
 
 func _on_interacted(body: Variant) -> void:

@@ -1,3 +1,10 @@
+## No Exit
+## Overtime Studios
+## Last upadated 1/23/26 by Justin Ferreira
+## OpeningCutScne Script
+## - This is the scene at the begining of the game
+## gets scene ready to start game and 
+## 
 extends Node3D
 
 @onready var target = $Player
@@ -5,15 +12,21 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	AnimationManager.OpeningCutSceneAnimationPlayer = animation_player
-	PlayerManager.player.CURSOR.visible = false
-	$CutSceneCamera.current = true
-	AnimationManager.OpeningCutSceneAnimationPlayer.play("OpeningCutscene")
-	AudioManager.cancel_loop_sfx()
+	#Event Manager?
 	PlayerManager.OpeningCutscene = true
+	PlayerManager.player.CURSOR.visible = false
 	PlayerManager.InAnimation = true
+	#deaths 0?
 	PlayerManager.Loop0 = true
-
+	
+	#set up animation manager
+	AnimationManager.OpeningCutSceneAnimationPlayer = animation_player
+	AnimationManager.OpeningCutSceneAnimationPlayer.play("OpeningCutscene")
+	
+	#Fix Audio
+	AudioManager.cancel_loop_sfx()
+	
+	$CutSceneCamera.current = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

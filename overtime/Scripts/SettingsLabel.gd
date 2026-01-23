@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Label
 
 @export var slider: HSlider

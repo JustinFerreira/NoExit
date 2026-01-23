@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends CharacterBody3D
 
 var speed
@@ -320,7 +323,8 @@ func _physics_process(delta: float) -> void:
 			var forward = -transform.basis.z  # Forward direction in Godot is -Z
 			var movement_direction = horizontal_velocity.normalized()
 			var angle = forward.signed_angle_to(-movement_direction, Vector3.UP)
-			$MeshInstance3D.rotation.y = angle
+			$arms.rotation.y = angle
+			$body.rotation.y = angle
 	move_and_slide()
 	
 func _headbob(time) -> Vector3:

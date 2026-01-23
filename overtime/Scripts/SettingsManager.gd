@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Node
 
 ## config file for reference

@@ -1,4 +1,5 @@
-## OverTime Studios
+## No Exit
+## Overtime Studios
 ## Last upadated 1/20/26 by Justin Ferreira
 ## ElevatorButtonPanel Script
 ## - This is the Inside button of the elevator which
@@ -19,6 +20,7 @@ func _ready() -> void:
 	AnimationManager.ElevatorPanelFlash = $"../ElevatorPanelFlash"
 	AnimationManager.ActivateElevatorPanelFlashAnimationPlayer()
 	AnimationManager.ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
+	AnimationManager.DoorClosed = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,10 +33,8 @@ func _process(delta: float) -> void:
 		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		if PlayerManager.Loop0:
-			get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
-		elif PlayerManager.Loop1:
-			get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
+		get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
+
 
 func _on_interacted(body: Variant) -> void:
 	if InElevator:

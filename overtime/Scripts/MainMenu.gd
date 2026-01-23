@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends CanvasLayer
 
 @onready var animation_player = $AnimationPlayer
@@ -20,20 +23,17 @@ func _process(delta: float) -> void:
 	if PlayerManager.DevMode:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = true
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = true
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = true
 	elif SettingsManager.Loop0Pass:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
 	else:
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/Opening Cutscene".visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarageL0.visible = false
+		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
 
@@ -70,7 +70,8 @@ func _on_prev_screen_btn_pressed() -> void:
 
 func _on_textured_parking_garage_pressed() -> void:
 	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/ParkingGarageL1.tscn")
+	PlayerManager.testing = true
+	get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
 
 
 func _on_loop_0_pressed() -> void:
@@ -82,10 +83,6 @@ func _on_opening_cutscene_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 
-
-func _on_parking_garage_l_0_pressed() -> void:
-	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/ParkingGarageL0.tscn")
 
 
 func _on_new_office_pressed() -> void:

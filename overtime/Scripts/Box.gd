@@ -1,4 +1,5 @@
-## OverTime Studios
+## No Exit
+## Overtime Studios
 ## Last upadated 1/19/26 by Justin Ferreira
 ## Box Script
 ## - This is the script for the pickup item box

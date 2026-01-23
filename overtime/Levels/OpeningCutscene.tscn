@@ -154,4 +154,4 @@ libraries = {
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 37.3475, 0.217728, 21.1955)
 
 [node name="Player" parent="." instance=ExtResource("6_vwy3y")]
-transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 36.3495, 0.162086, 42.1288)
+transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 36.978, 0.162086, 42.9961)

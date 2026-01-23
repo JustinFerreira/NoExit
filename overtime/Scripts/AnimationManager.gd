@@ -1,4 +1,5 @@
-## OverTime Studios
+## No Exit
+## Overtime Studios
 ## Last upadated 1/15/26 by Justin Ferreira
 ## AnimationManager Script
 ## - This is a manager script which allows for all

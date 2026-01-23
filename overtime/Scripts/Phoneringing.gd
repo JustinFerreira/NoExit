@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends AudioStreamPlayer3D
 
 @export var max_hearing_distance: float = 80.0

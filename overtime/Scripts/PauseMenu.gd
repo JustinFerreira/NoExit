@@ -1,3 +1,6 @@
+## No Exit
+## Overtime Studios
+
 extends Control
 
 func _ready() -> void:

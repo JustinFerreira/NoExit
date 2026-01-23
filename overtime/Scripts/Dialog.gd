@@ -1,4 +1,5 @@
-## OverTime Studios
+## No Exit
+## Overtime Studios
 ## Last upadated 1/20/26 by Justin Ferreira
 ## Dialog Script
 ## - This script contains functions that
