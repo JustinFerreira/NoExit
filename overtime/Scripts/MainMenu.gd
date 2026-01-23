@@ -60,6 +60,7 @@ func _on_settings_btn_pressed() -> void:
 
 func _on_loop_1_btn_pressed() -> void:
 	AudioManager.cancel_music()
+	PlayerManager.Loop0 = false
 	get_tree().change_scene_to_file("res://Levels/Office.tscn")
 
 

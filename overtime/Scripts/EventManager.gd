@@ -70,6 +70,22 @@ var keys_pickup_hint: String = "Use the scroll on the mouse to change your equip
 var stapler_first_pick_dialog: String  = "Eh, I can probably take this. Corporate can cry about for all care."
 var stapler_normal_dialog: String  = "Eh, I can probably take this. Corporate can cry about for all care."
 
+#Sticky Notes
+var stickynotes_first_pick_dialog: String  = "Maybe I can finally start drawing again. I mean, I got nothing else better to do in the mean time, so why not."
+var stickynotes_normal_dialog: String  = "Maybe I can finally start drawing again. I mean, I got nothing else better to do in the mean time, so why not."
+
+#Mug1A
+var mug1a_first_pick_dialog: String  = "That was a fun pottery class. Wish I had more time to make something else besides a mug."
+var mug1a_normal_dialog: String  = "That was a fun pottery class. Wish I had more time to make something else besides a mug."
+
+#Mug2A
+var mug2a_first_pick_dialog: String  = "I forgot why I have two mugs. Well, guess it doesn't matter anymore."
+var mug2a_normal_dialog: String  = "I forgot why I have two mugs. Well, guess it doesn't matter anymore."
+
+#Picture Frame 1
+var pictureframe1_first_pick_dialog: String  = "What would they think? Probably go on some kind of tirade about “building their business with their own two hands,” or some meaningless garbage like that."
+var pictureframe1_normal_dialog: String  = "What would they think? Probably go on some kind of tirade about “building their business with their own two hands,” or some meaningless garbage like that."
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
