@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/OpeningCutScene.gd" id="1_4vnnq"]
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="2_54wop"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="3_ei4b1"]
-[ext_resource type="PackedScene" uid="uid://coht1t14xbt41" path="res://Assets/PlayerObjects/PlayerCar/Scenes/PlayerCarModel.tscn" id="4_h5tux"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="5_rw1gg"]
+[ext_resource type="PackedScene" uid="uid://dq08ejjnraqec" path="res://Assets/PlayerObjects/PlayerCar/Scenes/PlayerCar.tscn" id="6_2eruw"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_vwy3y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_37hau"]
@@ -139,9 +139,6 @@ material = SubResource("FogMaterial_c16gt")
 [node name="WaterDripping" parent="." instance=ExtResource("3_ei4b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8123, 3.97227, 47.1349)
 
-[node name="PlayerCarModel" parent="." instance=ExtResource("4_h5tux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9671, 0.610023, 44.922)
-
 [node name="CutSceneCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.975465, 0, 0.220154, 0, 1, 0, -0.220154, 0, -0.975465, 37.009, 2.18967, 37.9654)
 
@@ -155,3 +152,6 @@ transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, 37.3475, 0.
 
 [node name="Player" parent="." instance=ExtResource("6_vwy3y")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 36.978, 0.162086, 42.9961)
+
+[node name="Car" parent="." instance=ExtResource("6_2eruw")]
+transform = Transform3D(1.53218, 0, 0, 0, 1.53218, 0, 0, 0, 1.53218, 33.4808, 0.174376, 44.0859)

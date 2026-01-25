@@ -224,6 +224,8 @@ func ResetPlayer() -> void:
 	# Close Up
 	examining = false
 	
+	AudioManager.KillerShutUp = false
+	
 	
 ## Dialog Functions
 

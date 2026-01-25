@@ -160,6 +160,7 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.OpeningCutscene:
 			PlayerManager.OpeningCutscene = false
 			get_tree().change_scene_to_file("res://Levels/Office.tscn")
+			PlayerManager.Loop0 = true
 			return
 		elif PlayerManager.Loop0:
 			PlayerManager.Loop0 = false

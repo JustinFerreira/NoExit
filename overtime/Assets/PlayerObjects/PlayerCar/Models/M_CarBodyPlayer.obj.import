@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbkbutiyvkc4o"
+path="res://.godot/imported/M_CarBodyPlayer.obj-1213511e025c1607aadcbdadd4a08a8c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_CarBodyPlayer.obj-1213511e025c1607aadcbdadd4a08a8c.mesh"]
+
+source_file="res://Assets/PlayerObjects/PlayerCar/Models/M_CarBodyPlayer.obj"
+dest_files=["res://.godot/imported/M_CarBodyPlayer.obj-1213511e025c1607aadcbdadd4a08a8c.mesh", "res://.godot/imported/M_CarBodyPlayer.obj-1213511e025c1607aadcbdadd4a08a8c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

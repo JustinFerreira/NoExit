@@ -72,7 +72,9 @@ func _on_loop_1_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	AudioManager.cancel_music()
+	PlayerManager.OpeningCutscene = false
 	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = true
 	get_tree().change_scene_to_file("res://Levels/Office.tscn")
 
 
@@ -98,6 +100,10 @@ func _on_loop_0_pressed() -> void:
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
+	#deaths 0?
+	PlayerManager.OpeningCutscene = true
+	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = false
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 
@@ -106,6 +112,10 @@ func _on_opening_cutscene_pressed() -> void:
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
+	#deaths 0?
+	PlayerManager.OpeningCutscene = true
+	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = false
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 

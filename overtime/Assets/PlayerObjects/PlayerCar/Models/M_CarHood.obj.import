@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bpumhcy83xlu5"
+path="res://.godot/imported/M_CarHood.obj-eea9e25d133fce440b95fc089520882d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_CarHood.obj-eea9e25d133fce440b95fc089520882d.mesh"]
+
+source_file="res://Assets/PlayerObjects/PlayerCar/Models/M_CarHood.obj"
+dest_files=["res://.godot/imported/M_CarHood.obj-eea9e25d133fce440b95fc089520882d.mesh", "res://.godot/imported/M_CarHood.obj-eea9e25d133fce440b95fc089520882d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

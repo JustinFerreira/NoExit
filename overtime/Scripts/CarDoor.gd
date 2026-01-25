@@ -30,8 +30,11 @@ func _ready() -> void:
 	AnimationManager.ActivateGetInCarAnimationPlayer()
 	AnimationManager.ActivateDoorFlashAnimationPlayer()
 	
-	AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
-	AnimationManager.DoorFlash.visible = true
+	if PlayerManager.OpeningCutscene:
+		return
+	else:
+		AnimationManager.DoorFlashAnimationPlayer.play("DoorFlash")
+		AnimationManager.DoorFlash.visible = true
 
 func _on_interacted(body: Variant) -> void:
 	#(Event Manager function for car door interaction?)

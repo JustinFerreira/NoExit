@@ -13,11 +13,9 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Event Manager?
-	PlayerManager.OpeningCutscene = true
 	PlayerManager.player.CURSOR.visible = false
 	PlayerManager.InAnimation = true
-	#deaths 0?
-	PlayerManager.Loop0 = true
+
 	
 	#set up animation manager
 	AnimationManager.OpeningCutSceneAnimationPlayer = animation_player

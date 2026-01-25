@@ -60,6 +60,6 @@ func _process(delta: float) -> void:
 	else:
 		volume_db = PlayerManager.scaredVolumeSteps
 		if (PlayerManager.OpeningCutscene || PlayerManager.Loop0) && not PlayerManager.dying:
-			volume_db = 100
+			volume_db = -12
 	
 	
