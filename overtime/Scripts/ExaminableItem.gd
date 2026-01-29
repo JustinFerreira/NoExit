@@ -59,6 +59,7 @@ var current_rotation: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	if flash_animation_player and flash_animation_manager_reference:
 		AnimationManager.set(flash_animation_manager_reference, flash_animation_player)
 		AnimationManager.ExaminItemActivation(flash_animation_name)
@@ -76,10 +77,14 @@ func _ready() -> void:
 	_create_debug_mesh()
 
 func _process(delta: float) -> void:
-	if PlayerManager.EquippedItem == "Box" and can_be_stored and flash_mesh and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
-		flash_mesh.visible = true
-	elif flash_mesh:
-		flash_mesh.visible = false
+	if PlayerManager.EquippedItem == "Box" and can_be_stored and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
+		if flash_mesh:
+			flash_mesh.visible = true
+		start_flashing()
+	else:
+		if flash_mesh:
+			flash_mesh.visible = false
+		stop_flashing()
 
 func _create_debug_mesh() -> void:
 	# Remove any existing debug mesh

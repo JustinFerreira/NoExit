@@ -286,6 +286,9 @@ func MiniGameModeOff():
 	
 func TestConnection():
 	AnimationManager.HideResetZones()
+	AnimationManager.HoodCollision.disabled = false
+	AnimationManager.CarCollision.disabled = false
+	print("fr fr ")
 	if PositiveConnected && NegativeConnected:
 		MiniGameModeOff()
 		hoodUI.visible = false
@@ -293,16 +296,21 @@ func TestConnection():
 		minigameThree = false
 		CameraManager.FPCamera.current = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		player.prompt.visible = true
 		PositiveWire.visible = false
 		NegativeWire.visible = false
 		Battery.visible = false
 		Hood._on_interaction_complete()
 		RemoveItemByName("Battery")
+		if PlayerManager.Hood.open == true:
+			AnimationManager.HoodAnimationPlayer.play_backwards("Hood")
+			PlayerManager.Hood.open = false
 		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
-			AnimationManager.DoorFlash.visible = true
+			AnimationManager.DoorFlash.start_flashing()
 		if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
-			AnimationManager.GasIntakeFlash.visible = true
+			AnimationManager.GasIntakeFlash.start_flashing()
+		
+		
+		
 		
 func ProcessScared():
 	if no_enemy:

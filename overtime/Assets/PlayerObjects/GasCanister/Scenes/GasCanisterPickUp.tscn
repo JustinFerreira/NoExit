@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkn32km2rbo1c"]
+
+[ext_resource type="Script" path="res://Scripts/GasCanister.gd" id="1_2r1op"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_y8d0h"]
+[ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="3_pryob"]
+[ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="4_77dqk"]
+[ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="5_brh4v"]
+[ext_resource type="ArrayMesh" uid="uid://c4lxpig3fe0ym" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Compact.obj" id="6_jc1iv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_735p3"]
+albedo_texture = ExtResource("3_pryob")
+metallic = 1.0
+metallic_texture = ExtResource("4_77dqk")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_77dqk")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_brh4v")
+ao_enabled = true
+ao_texture = ExtResource("4_77dqk")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cp8ot"]
+points = PackedVector3Array(-0.0508645, 0.00403146, -0.147543, 0.0530681, 0.338024, 0.164026, -0.050007, 0.339046, 0.165558, -0.0578239, 0.445943, -0.16145, 0.0779686, 0.417233, -0.145277, 0.0611831, 0.0119709, 0.153611, 0.0604787, 0.0352643, -0.165928, -0.0639182, 0.0212118, 0.158893, -0.0381343, 0.446236, 0.0941573, -0.0692411, 0.4382, -0.142166, 0.0604605, 0.44956, -0.000157148, -0.0640354, 0.0277417, -0.159491, -0.0684173, 0.322125, 0.140204, 0.065266, 0.328826, 0.153585, 0.0659062, 0.0193447, -0.141935, 0.0605954, 0.429259, -0.166257, 0.0416743, 0.40996, 0.144963, -0.0693681, 0.032167, -0.13564, 0.0658383, 0.0330443, 0.154971, 0.0608928, 0.0339003, 0.166783, -0.0506544, 0.0259046, -0.167945, -0.0637412, 0.4493, -0.00699457, -0.057259, 0.00635708, 0.145703, 0.0540561, 0.0055179, -0.146568, 0.0608839, 0.451154, -0.146191, -0.0689391, 0.0333517, 0.141248, -0.0575779, 0.43109, -0.167773, -0.0504582, 0.0197265, 0.167002, 0.0541891, 0.00495042, 0.146626, -0.063648, 0.324956, 0.165131, -0.0578109, 0.452966, -0.147381, 0.056189, 0.40996, 0.130437)
+
+[node name="GasCanisterPickUp" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_2r1op")
+outline_material = ExtResource("2_y8d0h")
+mesh = NodePath("GasCanisterObject")
+has_outline = true
+
+[node name="GasCanisterObject" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_735p3")
+mesh = ExtResource("6_jc1iv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_cp8ot")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

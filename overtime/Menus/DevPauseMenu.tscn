@@ -1,12 +1,12 @@
 [gd_scene load_steps=23 format=3 uid="uid://b6i75ojxg73j6"]
 
-[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="1_711cb"]
-[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_vffc8"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="2_t6j7w"]
-[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="4_dmox8"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_qni82"]
+[ext_resource type="Shader" path="res://Assets/Shaders/PauseMenu.gdshader" id="2_bb7gr"]
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="3_vnwb4"]
+[ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="4_kfqge"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_li37s"]
-shader = ExtResource("1_711cb")
+shader = ExtResource("2_bb7gr")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqwde"]
@@ -164,7 +164,7 @@ _data = {
 "Unpause": SubResource("Animation_164d5")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="DevPauseMenu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -172,7 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vffc8")
+script = ExtResource("1_qni82")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_li37s")
@@ -196,7 +196,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 64
 text = "Paused Game"
 horizontal_alignment = 1
@@ -210,7 +210,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -235,7 +235,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -259,7 +259,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -284,7 +284,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -308,7 +308,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -332,7 +332,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
 theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
-theme_override_fonts/font = ExtResource("2_t6j7w")
+theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqwde")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xs26u")
@@ -352,7 +352,7 @@ libraries = {
 "": SubResource("AnimationLibrary_i62js")
 }
 
-[node name="SettingsMenu" parent="." instance=ExtResource("4_dmox8")]
+[node name="SettingsMenu" parent="." instance=ExtResource("4_kfqge")]
 visible = false
 layout_mode = 1
 

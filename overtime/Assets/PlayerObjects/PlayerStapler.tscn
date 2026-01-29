@@ -1,15 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://df63p4gkori84"]
+[gd_scene load_steps=9 format=3 uid="uid://df63p4gkori84"]
 
 [ext_resource type="Material" uid="uid://csuwr7n64oba" path="res://Assets/Materials/Stapler.tres" id="1_ajhvy"]
-[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_b8uef"]
 [ext_resource type="ArrayMesh" uid="uid://bhyefe7gw0h6e" path="res://Assets/Enviroments/Office/Models/Stapler.obj" id="4_jr0hb"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_ys5ta"]
 [ext_resource type="Script" path="res://Scripts/Stapler.gd" id="5_eysno"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c6th0"]
 points = PackedVector3Array(2.5342, 1.55614, 0.389828, 2.77822, 1.00094, 0.389828, 2.5342, 1.55614, -0.389815, 2.50243, 1.55614, 0.61194, 2.77822, 1.00094, -0.389815, 2.74573, 1.00094, 0.61194, 2.83814, 0.752894, 0.389828, 2.50243, 1.55614, -0.612059, 0.299027, 1.37325, 0.67701, 2.39919, 1.54507, 0.67701, 2.74573, 1.00094, -0.612059, 2.83814, 0.752894, -0.389815, 2.63816, 0.989615, 0.67701, 3.05761, -0.908184, 0.605976, 3.13631, -0.907932, 0.528317, 2.39919, 1.54507, -0.676864, 0.299027, 1.37325, -0.676864, -1.9643, 0.979553, 0.389828, -1.9643, 0.911379, 0.606904, -3.65006, 0.489254, 0.606904, -3.72947, -0.430212, 0.606904, -3.8125, -0.927051, 0.605711, 0.413096, 0.806477, 0.67701, 3.13631, -0.907932, -0.528304, 3.05761, -0.908184, -0.605963, 2.63816, 0.989615, -0.676864, 2.72768, -0.908938, 0.639638, 3.04967, -0.992709, 0.587423, 3.11753, -0.993464, 0.520498, -3.8125, -0.927051, -0.605698, -3.72947, -0.430212, -0.606891, -3.65006, 0.489254, -0.606891, -1.9643, 0.911379, -0.606891, -1.9643, 0.979553, -0.389815, 0.413096, 0.806477, -0.676864, -3.65006, 0.557428, 0.389828, -3.88614, 0.489506, 0.389828, -3.83127, 0.457809, 0.536931, -3.8883, 0.285488, 0.536931, -4.05941, -0.433482, 0.536931, -4.17709, -0.928309, 0.536136, -4.16337, -1.01359, 0.520233, -3.81033, -1.01258, 0.585568, 1.84617, -0.910951, 0.639638, 3.11753, -0.993464, -0.520485, 3.04967, -0.992709, -0.58741, 2.72768, -0.908938, -0.639625, 2.72696, -0.992206, 0.607302, 0.832551, -0.99925, 0.585435, -3.81033, -1.01258, -0.585554, -4.16337, -1.01359, -0.52022, -4.17709, -0.928309, -0.536123, 1.84617, -0.910951, -0.639625, -4.05941, -0.433482, -0.536918, -3.8883, 0.285488, -0.536918, -3.83127, 0.457809, -0.536918, -3.88614, 0.489506, -0.389815, -3.65006, 0.557428, -0.389815, -3.95111, 0.285488, 0.389828, -4.12294, -0.433482, 0.389828, -4.23917, -0.92856, 0.389563, -4.21968, -1.01359, 0.385455, 1.8469, -0.994219, 0.607169, 0.832551, -0.99925, -0.585422, 2.72696, -0.992206, -0.607288, 1.8469, -0.994219, -0.607288, -4.21968, -1.01359, -0.385574, -4.23917, -0.92856, -0.38955, -4.12294, -0.433482, -0.389815, -3.95111, 0.285488, -0.389815)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa4l5"]
-albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
 [sub_resource type="Animation" id="Animation_n6c5f"]
 length = 0.001
@@ -48,50 +45,13 @@ _data = {
 "StaplerFade": SubResource("Animation_dvqf5")
 }
 
-[sub_resource type="Animation" id="Animation_76t0x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaplerFlash:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_ywtav"]
-resource_name = "StaplerFlash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaplerFlash:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddh62"]
-_data = {
-"RESET": SubResource("Animation_76t0x"),
-"StaplerFlash": SubResource("Animation_ywtav")
-}
-
 [node name="Stapler" type="Node3D"]
 
 [node name="Stapler" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_ajhvy")
 mesh = ExtResource("4_jr0hb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Stapler" node_paths=PackedStringArray("animation_fade_player", "flash_animation_player", "flash_mesh", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="Stapler" node_paths=PackedStringArray("animation_fade_player", "mesh")]
 script = ExtResource("5_eysno")
 target_mesh = ExtResource("4_jr0hb")
 target_material = ExtResource("1_ajhvy")
@@ -100,29 +60,17 @@ animation_name = "StaplerFade"
 animation_fade_player = NodePath("../../StaplerFade")
 can_be_stored = true
 flash_animation_manager_reference = "StaplerFlashAnimationPlayer"
-flash_animation_player = NodePath("../../StaplerFlashAnimationPlayer")
 flash_animation_name = "StaplerFlash"
-flash_mesh = NodePath("../../StaplerFlash")
-outline_material = ExtResource("4_b8uef")
+outline_material = ExtResource("4_ys5ta")
 mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stapler/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_c6th0")
 
-[node name="StaplerFlash" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.04072, 0, 0, 0, 1.04072, 0, 0, 0, 1.04072, 0, 0.0577487, 0)
-material_override = SubResource("StandardMaterial3D_fa4l5")
-mesh = ExtResource("4_jr0hb")
-
 [node name="StaplerFade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_abrpa")
-}
-
-[node name="StaplerFlashAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ddh62")
 }
 
 [connection signal="interacted" from="Stapler/StaticBody3D" to="Stapler/StaticBody3D" method="_on_interacted"]

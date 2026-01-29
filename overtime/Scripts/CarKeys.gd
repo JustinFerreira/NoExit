@@ -7,6 +7,7 @@
 extends Interactable
 
 func _ready() -> void:
+	super._ready()
 	#make it so when it is not Loop 0 keys is invisible
 	#maybe make it so it is deleted from scene? save space?
 	#put Loops in Event Manager?
@@ -14,22 +15,19 @@ func _ready() -> void:
 		self.visible = false
 		_on_interaction_complete()
 		return
-	#set up flashing animation
-	AnimationManager.CarKeysFlashAnimationPlayer = $CarKeysFlashAnimationPlayer
-	#AnimationManager.CarKeysFlash = $CarKeysFlash
-	AnimationManager.ActivateCarKeysFlashAnimationPlayer()
-	AnimationManager.CarKeysFlashAnimationPlayer.play("CarKeysFlash")
+	
 
 func _process(delta: float) -> void:
 	#checks if there is more deskitems than needed so keys will flash
 	#should change this so that everytime an item is picked up it checks instead of process
 	#also add CarKeyFlash to Animation Manager
+	#Chnage this to event manager!!!
 	if PlayerManager.DeskItems.size() < 3:
-		$CarKeysFlash.visible = false
+		stop_flashing()
 	elif not PlayerManager.player.interact_ray.get_collider() == self:
-		$CarKeysFlash.visible = true
+		start_flashing()
 	else:
-		$CarKeysFlash.visible = false
+		stop_flashing()
 
 func _on_interacted(body: Variant) -> void:
 	#checks if there is more deskitems than needed so keys are pickupable

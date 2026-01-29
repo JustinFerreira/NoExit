@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://d1kl5fsqmbh7v"]
+
+[ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_BaseColor.png" id="1_3e8er"]
+[ext_resource type="Texture2D" uid="uid://dwj8otk3qg0fg" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Metalic_and_Rougness.png" id="2_wcxy4"]
+[ext_resource type="Texture2D" uid="uid://dkr2eh5crsijf" path="res://Assets/PlayerObjects/Battery/Textures/M_Battery_Unwrapped_Normal.png" id="3_3es47"]
+
+[resource]
+albedo_texture = ExtResource("1_3e8er")
+metallic = 1.0
+metallic_texture = ExtResource("2_wcxy4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_wcxy4")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_3es47")
+ao_enabled = true
+ao_texture = ExtResource("2_wcxy4")

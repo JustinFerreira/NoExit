@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwy6w72taehya"]
+[gd_scene load_steps=8 format=3 uid="uid://cwy6w72taehya"]
 
 [ext_resource type="Material" uid="uid://bgbe00nx7pw8l" path="res://Assets/Materials/PictureFrame3.tres" id="1_43nf4"]
-[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_gus38"]
 [ext_resource type="ArrayMesh" uid="uid://b5dq637ukfxap" path="res://Assets/Enviroments/Office/Models/PictureFrame_3.obj" id="4_jo7hi"]
 
 [sub_resource type="GDScript" id="GDScript_ibocl"]
@@ -334,9 +333,7 @@ mesh = ExtResource("4_jo7hi")
 script = SubResource("GDScript_ibocl")
 target_mesh = ExtResource("4_jo7hi")
 target_material = ExtResource("1_43nf4")
-outline_material = ExtResource("4_gus38")
 mesh = NodePath("..")
-has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame3/PictureFrame3"]
 shape = SubResource("ConvexPolygonShape3D_evabs")

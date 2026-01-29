@@ -7,15 +7,7 @@
 ## they haven't finished the actions at it the cubicle will
 ## flash
 
-extends Node3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#set up flash
-	AnimationManager.CubicleFlashAnimationPlayer = $CubicleFlashAnimationPlayer
-	AnimationManager.ActivateCubicleFlashAnimationPlayer()
-	$CubicleFlashAnimationPlayer.play("CubicleFlash")
+extends Interactable
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,9 +15,9 @@ func _process(delta: float) -> void:
 
 #detect when player is in cubicle range to not flash
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	$CubicleFlash.visible = false
+	stop_flashing()
 
 #detect when player walks away and see whether to flash or not
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if not PlayerManager.has_item("Car Keys"):
-		$CubicleFlash.visible = true
+		start_flashing()

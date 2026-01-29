@@ -169,14 +169,18 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.gasIntakeSweetSpot.visible = false
 			PlayerManager.MiniGameModeOff()
 		elif PlayerManager.minigameThree:
+			AnimationManager.HoodCollision.disabled = false
+			AnimationManager.CarCollision.disabled = false
+			print("Gaming momemt")
 			PlayerManager.minigameThree = false
 			AnimationManager.HoodFlash.visible = true
 			AnimationManager.PositiveBatteryFlash.visible = false
 			AnimationManager.NegativeBatteryFlash.visible = false
 			if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
-				AnimationManager.DoorFlash.visible = true
+				AnimationManager.DoorFlash.start_flashing()
+				pass
 			if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
-				AnimationManager.GasIntakeFlash.visible = true
+				AnimationManager.GasIntakeFlash.start_flashing()
 			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -188,7 +192,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager. MiniGameModeOff()
 		else:
 			if PlayerManager.DevMode:
-				$PauseMenu.pause()
+				$DevPauseMenu.pause()
 			else:
 				$SimplifiedPauseMenu.pause()
 	if event.is_action("Inventory"):

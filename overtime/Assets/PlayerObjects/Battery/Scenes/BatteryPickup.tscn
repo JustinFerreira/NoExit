@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt20akn0ptkqf"]
+
+[ext_resource type="Script" path="res://Scripts/BatteryPickup.gd" id="1_el2a5"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_31p3h"]
+[ext_resource type="Material" uid="uid://d1kl5fsqmbh7v" path="res://Assets/Materials/Battery.tres" id="3_ljm1w"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Assets/PlayerObjects/Battery/Models/M_Battery_Unwrapped.obj" id="3_rf2fs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wfuoj"]
+points = PackedVector3Array(-1.70816, 26.1199, 2.81196, -12.8944, 0.113216, -8.65, 13, 0.198613, -8.59395, -12.8659, 0.142168, 8.64998, 13, 0.198613, 8.61293, 13, 20.2691, -8.59395, -12.8286, 20.279, -8.60614, 13, 20.2691, 8.61293, -12.8286, 20.279, 8.62512, -1.72425, 25.8317, -6.05081, 9.99968, 22.2003, -6.0551, -1.72712, 25.8515, 4.46041, -2.14427, 26.3438, -4.06498, -10.214, 22.2003, -6.0551, -2.12186, 26.2133, 2.83241, -0.90832, 25.3514, -6.4157, -0.91498, 25.4313, 4.85996, -1.31176, 25.7758, 4.43354)
+
+[node name="BatteryPickup" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_el2a5")
+outline_material = ExtResource("2_31p3h")
+mesh = NodePath("BatteryObject")
+has_outline = true
+
+[node name="BatteryObject" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_ljm1w")
+mesh = ExtResource("3_rf2fs")
+
+[node name="BatteryCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_wfuoj")
+
+[connection signal="interacted" from="." to="." method="_on_interacted"]

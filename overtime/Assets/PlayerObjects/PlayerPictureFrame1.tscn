@@ -1,12 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://crvgose10vq0k"]
+[gd_scene load_steps=9 format=3 uid="uid://crvgose10vq0k"]
 
 [ext_resource type="Material" uid="uid://bpiivsdgnrx8k" path="res://Assets/Materials/PictureFrame1.tres" id="1_i6lp4"]
 [ext_resource type="ArrayMesh" uid="uid://dmmktqfmr8d26" path="res://Assets/Enviroments/Office/Models/PictureFrame_1.obj" id="2_o57ay"]
 [ext_resource type="Script" path="res://Scripts/PictureFrame1.gd" id="3_a4uh0"]
-[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_r6myc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vapxc"]
-albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_7mdxu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_afyv7"]
 points = PackedVector3Array(0.136417, -0.0240405, -1.09896, 0.00014949, 1.58621, 1.03967, 0.0439011, 1.4019, 1.03586, -1.72104, -0.0240405, -0.805601, -0.499127, 3.10434, -1.09874, -0.499127, 3.10434, 1.10026, 0.136417, -0.0240405, 1.10048, -1.62311, 0.660369, -1.14782, 0.304338, 0.362115, -0.975183, -0.27279, 2.98908, -1.0052, -1.42765, -0.0240405, -0.316811, 0.343483, 0.0788153, 1.01298, -0.272608, 2.98974, 1.00486, 0.300255, 0.0253196, -1.06503, -0.450365, 2.6643, 1.10026, 0.304338, 0.362115, 0.972942, -1.72104, 0.171636, -0.952172, -1.52517, 0.513688, -1.14782, -0.238997, 2.85643, -0.976804, -1.67207, 0.513688, -1.04989, 0.300255, 0.0253196, 1.06501, 0.343483, 0.0788153, -1.01341, -1.72104, 0.122641, -0.854458, -0.321258, 3.02926, -1.04714, -1.6745, 0.0452327, -0.911052, -0.238997, 2.85643, 0.97464, -0.321095, 3.02996, 1.04682, -1.67207, 0.416003, -1.09874, -1.52517, 0.0249554, -0.463382, -0.499127, 2.90866, 1.10026, -1.47662, 0.660369, -1.14782, -1.72104, 0.0249554, -0.805601)
@@ -48,49 +45,7 @@ _data = {
 "RESET": SubResource("Animation_7b6mq")
 }
 
-[sub_resource type="Animation" id="Animation_jebph"]
-resource_name = "PictureFrame1Flash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PictureFrame1Flash:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_5f0vw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PictureFrame1Flash:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgwma"]
-_data = {
-"PictureFrame1Flash": SubResource("Animation_jebph"),
-"RESET": SubResource("Animation_5f0vw")
-}
-
 [node name="Picture Frame" type="Node3D"]
-
-[node name="PictureFrame1Flash" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00559, 0, 0, 0, 1.00559, 0, 0, 0, 1.00559, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_vapxc")
-mesh = ExtResource("2_o57ay")
 
 [node name="PictureFrame1" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_i6lp4")
@@ -105,10 +60,10 @@ animation_name = "PictureFrame1Fade"
 animation_fade_player = NodePath("../../PictureFrame1Fade")
 can_be_stored = true
 flash_animation_manager_reference = "PictureFrame1FlashAnimationPlayer"
-flash_animation_player = NodePath("../../PictureFrame1FlashAnimationPlayer")
+flash_animation_player = NodePath("")
 flash_animation_name = "PictureFrame1Flash"
-flash_mesh = NodePath("../../PictureFrame1Flash")
-outline_material = ExtResource("4_r6myc")
+flash_mesh = NodePath("")
+outline_material = ExtResource("4_7mdxu")
 mesh = NodePath("..")
 has_outline = true
 
@@ -118,11 +73,6 @@ shape = SubResource("ConvexPolygonShape3D_afyv7")
 [node name="PictureFrame1Fade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_j005i")
-}
-
-[node name="PictureFrame1FlashAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_wgwma")
 }
 
 [connection signal="interacted" from="PictureFrame1/PictureFrame1" to="PictureFrame1/PictureFrame1" method="_on_interacted"]

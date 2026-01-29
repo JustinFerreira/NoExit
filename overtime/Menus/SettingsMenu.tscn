@@ -13,44 +13,44 @@
 [ext_resource type="Texture2D" uid="uid://bbpyqq2h7bd7b" path="res://Assets/Settings Menu Assets/unchecked.png" id="9_wxc5j"]
 [ext_resource type="Shader" path="res://Assets/Shaders/CRTFilter.gdshader" id="10_wfh1f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a8gj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x6fc8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2b7ve"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lgkf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iidk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wssuf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhea4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_270pa"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl65t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6nqv"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1ccc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ert5t"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7c6l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q4rpw"]
 content_margin_left = 20.0
 content_margin_right = 20.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_4gq1q"]
-TabContainer/styles/panel = SubResource("StyleBoxFlat_2a8gj")
-TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_2b7ve")
-TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_1iidk")
-TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_lhea4")
-TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_sl65t")
-TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_q1ccc")
-TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_h7c6l")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_x6fc8")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_1lgkf")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_wssuf")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_270pa")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_b6nqv")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ert5t")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_q4rpw")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ici7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

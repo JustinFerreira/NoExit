@@ -42,7 +42,6 @@ func _on_interacted(body: Variant) -> void:
 		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
 		door_collision.translate(Vector3(0,-3,0))
 		is_interactable = false
-		prompt_message = ""
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
 		AnimationManager.DoorClosed = true
 	else:

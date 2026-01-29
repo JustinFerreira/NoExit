@@ -265,7 +265,6 @@ transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757
 transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.721237, 0.89162, 1.13758)
 visible = false
 script = ExtResource("7_0bi4n")
-prompt_message = "Go to Garage"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InsideButtons"]
 transform = Transform3D(1.69092, 0, 0, 0, 3.88817, 0, 0, 0, 0.190962, 0, 0.504236, 0)
@@ -279,7 +278,6 @@ shape = SubResource("ConcavePolygonShape3D_d36ht")
 transform = Transform3D(0.49154, 0, 0, 0, 0.854857, 0, 0, 0, 0.0491027, 1.12537, 0.787326, 1.36623)
 visible = false
 script = ExtResource("7_m0fas")
-prompt_message = "Open Elevator"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OutsideButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)

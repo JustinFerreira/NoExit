@@ -24,6 +24,9 @@ func _on_restart_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
+	PlayerManager.dying = false
+	PlayerManager.InAnimation = false
+	
 	PlayerManager.ResetPlayer()
 	get_tree().paused = false
 	var current_scene_path = get_tree().current_scene.scene_file_path

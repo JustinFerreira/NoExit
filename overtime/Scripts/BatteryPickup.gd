@@ -8,20 +8,15 @@ extends Interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#set up flashing animation
-	AnimationManager.BatteryFlashAnimationPlayer = $AnimationPlayer
-	AnimationManager.ActivateBatteryFlashAnimationPlayer()
-	AnimationManager.BatteryFlashAnimationPlayer.play("BatteryFlash")
+	super._ready()
+	start_flashing()
 	
 func _process(delta: float) -> void:
-	#stop flashing when player is about to interact
-	if not PlayerManager.player.interact_ray.get_collider() == self:
-		$BatteryFlash.visible = true
-	else: 
-		$BatteryFlash.visible = false
+	pass
 		
 
 func _on_interacted(body: Variant) -> void:
+	AnimationManager.HoodFlash.toggle_interactable(true)
 	#pick up sound
 	AudioManager.play_sound(AudioManager.ItemPickup)
 	#add to inventory
@@ -29,7 +24,7 @@ func _on_interacted(body: Variant) -> void:
 	#changes player state (EventManager?)
 	PlayerManager.gotBattery = true
 	#turns Hood Flash on (EventManager?)
-	AnimationManager.HoodFlash.visible = true
+	AnimationManager.HoodFlash.start_flashing()
 	
 	#get rid of object in scene 
 	if is_inside_tree():

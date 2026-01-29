@@ -40,7 +40,6 @@ func _on_interacted(body: Variant) -> void:
 			else:
 				PlayerManager.Hint("Use shift to toggle sprint")
 		$".".is_interactable = false
-		prompt_message = ""
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
 	else:
 		PlayerManager.CharacterDialog("Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole")

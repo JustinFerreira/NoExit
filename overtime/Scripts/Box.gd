@@ -8,6 +8,8 @@ extends Interactable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
+	start_flashing()
 	#make it so when it is not Loop 0 box is invisible
 	#maybe make it so it is deleted from scene? save space?
 	#put Loops in Event Manager?
@@ -15,18 +17,13 @@ func _ready() -> void:
 		self.visible = false
 		_on_interaction_complete()
 		return
-	#set up flashing animation
-	AnimationManager.BoxFlashAnimationPlayer = $BoxFlashAnimationPlayer
-	AnimationManager.BoxFlash = $BoxFlash
-	AnimationManager.ActivateBoxFlashAnimationPlayer()
-	AnimationManager.BoxFlashAnimationPlayer.play("BoxFlash")
 
 func _process(delta: float) -> void:
 	#stop flashing when player is about to interact
 	if PlayerManager.player.interact_ray.get_collider() == self:
-		$BoxFlash.visible = false
+		stop_flashing()
 	else:
-		$BoxFlash.visible = true
+		start_flashing()
 
 func _on_interacted(body: Variant) -> void:
 	#pick up sound
