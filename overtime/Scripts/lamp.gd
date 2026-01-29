@@ -13,7 +13,8 @@ func _process(delta: float) -> void:
 	pass
 func flash():
 	var material = m_lamp.get_surface_override_material(0)
-	var emission_energy = lamp_light
+	print(material)
+	var emission_energy = lamp_light.light_energy * 3
 	lamp_light.light_energy = randf()
 	material.set("emission_energy_multiplier",emission_energy)
 	await get_tree().create_timer(randf_range(0.06, 0.1)).timeout

@@ -10,6 +10,7 @@ script = ExtResource("1_hhw1o")
 [node name="MLamp" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_fhm0e")
 mesh = ExtResource("2_ovwh5")
+surface_material_override/0 = ExtResource("1_fhm0e")
 
 [node name="LampLight" type="SpotLight3D" parent="."]
 transform = Transform3D(0.999615, 0.026901, -0.00682636, 0.019517, -0.506487, 0.862027, 0.0197319, -0.861828, -0.506817, -0.476066, 40.2853, 9.91086)
