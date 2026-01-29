@@ -1,9 +1,9 @@
 [gd_scene load_steps=46 format=3 uid="uid://bexynbhcvlv2i"]
 
-[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Assets/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_dl6dl"]
-[ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Assets/Greyboxing/carpet.png" id="2_cn7u6"]
-[ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Assets/Greyboxing/office_wall.png" id="3_vsnds"]
-[ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Assets/Greyboxing/office_ceiling_tile.png" id="4_a55p6"]
+[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_dl6dl"]
+[ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Levels/Greyboxing/carpet.png" id="2_cn7u6"]
+[ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Levels/Greyboxing/office_wall.png" id="3_vsnds"]
+[ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Levels/Greyboxing/office_ceiling_tile.png" id="4_a55p6"]
 [ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="5_2hqwo"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="6_efbxo"]
 [ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="7_1mn10"]
@@ -91,108 +91,126 @@ surface_material_override/2 = SubResource("StandardMaterial3D_qgd87")
 shape = SubResource("ConcavePolygonShape3D_v7mmk")
 
 [node name="Lights" type="Node3D" parent="."]
-visible = false
-
-[node name="OmniLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, 6.25, 0, -6.25, -2.73196e-07, -10.8536, 537.796, 11.3753)
-visible = false
-light_color = Color(1, 1, 0.768627, 1)
-light_energy = 16.0
-light_size = 1.0
-light_specular = 16.0
-spot_range = 4096.0
-spot_attenuation = 0.68
-spot_angle = 50.31
 
 [node name="CeilingLight" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 103.179, -132.955)
+visible = false
 
 [node name="CeilingLight2" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.97, 103.404, -132.955)
+visible = false
 
 [node name="CeilingLight27" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.145, 103.609, -132.955)
+visible = false
 
 [node name="CeilingLight30" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.16, 103.904, -132.955)
+visible = false
 
 [node name="CeilingLight28" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.685, 104.154, -132.955)
+visible = false
 
 [node name="CeilingLight29" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.59, 104.344, -132.955)
+visible = false
 
 [node name="CeilingLight3" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 103.835, -48.125)
+visible = false
 
 [node name="CeilingLight5" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 36.6)
+visible = false
 
 [node name="CeilingLight7" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 121.5)
+visible = false
 
 [node name="CeilingLight9" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.875, 104.375, 206.25)
+visible = false
 
 [node name="CeilingLight4" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.94, 104.085, -48.125)
+visible = false
 
 [node name="CeilingLight6" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.915, 104.535, 36.6)
+visible = false
 
 [node name="CeilingLight8" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -131.005, 104.58, 121.5)
+visible = false
 
 [node name="CeilingLight10" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130.915, 104.375, 206.25)
+visible = false
 
 [node name="CeilingLight11" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.335, -48.125)
+visible = false
 
 [node name="CeilingLight12" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.725, 36.6)
+visible = false
 
 [node name="CeilingLight13" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.76, 121.5)
+visible = false
 
 [node name="CeilingLight14" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.125, 104.375, 206.25)
+visible = false
 
 [node name="CeilingLight15" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.175, 104.525, -48.125)
+visible = false
 
 [node name="CeilingLight16" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.19, 104.9, 36.6)
+visible = false
 
 [node name="CeilingLight17" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.16, 104.925, 121.5)
+visible = false
 
 [node name="CeilingLight18" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.215, 104.375, 206.25)
+visible = false
 
 [node name="CeilingLight19" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6, 104.725, -48.125)
+visible = false
 
 [node name="CeilingLight20" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.69, 105.115, 36.6)
+visible = false
 
 [node name="CeilingLight21" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.69, 104.9, 121.5)
+visible = false
 
 [node name="CeilingLight22" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.675, 104.435, 206.25)
+visible = false
 
 [node name="CeilingLight23" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.605, 104.855, -48.125)
+visible = false
 
 [node name="CeilingLight24" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, 105.23, 36.6)
+visible = false
 
 [node name="CeilingLight25" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.57, 104.885, 121.5)
+visible = false
 
 [node name="CeilingLight26" parent="Lights" instance=ExtResource("5_2hqwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.56, 104.445, 206.25)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(6.25, 0, 0, 0, -2.73196e-07, -6.25, 0, 6.25, -2.73196e-07, 0, -5.72205e-06, 43.75)

@@ -160,6 +160,7 @@ transform = Transform3D(0.258387, -0.108337, 0.959948, -0.0156272, 0.993093, 0.1
 [node name="BackGround" type="Node3D" parent="."]
 
 [node name="MainMenuFirstScreen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqbxp2qlvts5m"]
+[gd_scene load_steps=4 format=3 uid="uid://dqbxp2qlvts5m"]
 
 [ext_resource type="Material" uid="uid://ba8ap4ouu4ljc" path="res://Assets/Materials/Lamp.tres" id="1_fhm0e"]
+[ext_resource type="Script" path="res://Scripts/lamp.gd" id="1_hhw1o"]
 [ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="2_ovwh5"]
 
 [node name="Lamp" type="Node3D"]
+script = ExtResource("1_hhw1o")
 
 [node name="MLamp" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_fhm0e")
 mesh = ExtResource("2_ovwh5")
+
+[node name="LampLight" type="SpotLight3D" parent="."]
+transform = Transform3D(0.999615, 0.026901, -0.00682636, 0.019517, -0.506487, 0.862027, 0.0197319, -0.861828, -0.506817, -0.476066, 40.2853, 9.91086)
+light_energy = 0.587
+light_volumetric_fog_energy = 1.206
+spot_range = 34.512
+spot_attenuation = 0.87
+spot_angle = 32.23
