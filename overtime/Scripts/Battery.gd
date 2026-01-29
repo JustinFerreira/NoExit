@@ -21,7 +21,10 @@ func _ready() -> void:
 	AnimationManager.ResetZones.clear()
 	for Resetzone in get_tree().get_nodes_in_group("resetzone"):
 		AnimationManager.ResetZones.append(Resetzone)
+		
 	
+	AnimationManager.PositiveConnection = $PositiveConnection
+	AnimationManager.NegativeConnection = $NegativeConnection
 	AnimationManager.PositiveBatteryFlash = $PositiveBattery/PositiveBatteryFlash
 	AnimationManager.NegativeBatteryFlash = $NegativeBattery/NegativeBatteryFlash
 	AnimationManager.PositiveBatteryFlashAnimationPlayer = $PositiveBatteryFlashAnimationPlayer
@@ -37,9 +40,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#making wires visible if battery visible (Can prob move out of here)
-	if self.visible:
-		if PlayerManager.PositiveConnected:
-			$PositiveConnection.visible = true
-		if PlayerManager.NegativeConnected:
-			$NegativeConnection.visible = true
+	pass

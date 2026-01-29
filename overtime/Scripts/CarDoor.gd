@@ -46,6 +46,7 @@ func _on_interacted(body: Variant) -> void:
 	if unlocked == false:
 		#check for keys? currently un-needed feature which is being talked about
 		if PlayerManager.has_item("Car Keys") && unlocked == false:
+			AnimationManager.HoodCollision.call_deferred("set_disabled", true)
 			#car door open sound
 			AudioManager.play_sound(AudioManager.CarDoorOpen)
 			#switching off player interact ray, collision, and gravity
@@ -89,6 +90,7 @@ func _on_interacted(body: Variant) -> void:
 			pass
 	#Exiting car
 	elif PlayerManager.player.Incar == true:
+		AnimationManager.HoodCollision.call_deferred("set_disabled", false)
 		#car entering turns off to show the direction of animation
 		AnimationManager.CarEntering = false
 		#turn off player interact ray
@@ -98,6 +100,7 @@ func _on_interacted(body: Variant) -> void:
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 	#Entering Car after Unlocked
 	elif PlayerManager.player.Incar == false && unlocked == true:
+		AnimationManager.HoodCollision.call_deferred("set_disabled", true)
 		#car door open sound
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 		

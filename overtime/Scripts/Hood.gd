@@ -10,8 +10,9 @@ func _ready() -> void:
 	is_interactable = false
 	AnimationManager.HoodFlash = self
 	AnimationManager.HoodAnimationPlayer = $"../../HoodAnimationPlayer"
-	AnimationManager.HoodCollision = $CollisionShape3D
+	AnimationManager.HoodCollision = $HoodCollisionShape3D
 	AnimationManager.CarCollision = $"../../Body/StaticBody3D/CollisionShape3D"
+	AnimationManager.ActivateHoodAnimationPlayer()
 	#Fix with EventManager so that this is only the case after first interacting with inside of car before doing this
 	if PlayerManager.Loop0 == true:
 		is_interactable = true
@@ -24,9 +25,10 @@ func _process(delta: float) -> void:
 
 func _on_interacted(body: Variant) -> void:
 	AnimationManager.HoodFlash.stop_flashing()
-	print("Yikes")
-	AnimationManager.HoodCollision.disabled = true
-	AnimationManager.CarCollision.disabled = true
+	AnimationManager.HoodCollision = $HoodCollisionShape3D
+	AnimationManager.CarCollision = $"../../Body/StaticBody3D/CollisionShape3D"
+	AnimationManager.HoodCollision.call_deferred("set_disabled", true)
+	AnimationManager.CarCollision.call_deferred("set_disabled", true)
 	if not open:
 		AnimationManager.HoodAnimationPlayer.play("Hood")
 		open = true
@@ -58,19 +60,10 @@ func _on_interacted(body: Variant) -> void:
 		
 	#Fix with EventManager? or LoopManager
 	if not PlayerManager.Loop0:
-		#Prepare minigame to be displayed as in Battery and Wires
-		if !PlayerManager.PositiveConnected:
-			PlayerManager.PositiveWire.visible = true
-			
-		if !PlayerManager.NegativeConnected:
-			PlayerManager.NegativeWire.visible = true
-			
-		#if not PlayerManager.NegativeConnected or not PlayerManager.PositiveConnected:
-			AnimationManager.HoodCollision.disabled = true
-			AnimationManager.CarCollision.disabled = true
+		AnimationManager.HoodCollision.disabled = true
+		AnimationManager.CarCollision.disabled = true
 		$"../../HoodCam/HoodGame".visible = true
 		PlayerManager.hoodUI = $"../../HoodCam/HoodGame"
-		PlayerManager.Battery.visible = true
 		PlayerManager.minigameThree = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		PlayerManager.MiniGameModeOn()

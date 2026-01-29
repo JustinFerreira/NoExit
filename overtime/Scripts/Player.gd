@@ -146,8 +146,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
-		#Button clikc sound
-		AudioManager.play_sound(AudioManager.GetKeyPress())
 		if PlayerManager.minigameOne:
 			AnimationManager.SteeringWheelFlash.visible = true
 			PlayerManager.minigameOne = false
@@ -169,26 +167,26 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.gasIntakeSweetSpot.visible = false
 			PlayerManager.MiniGameModeOff()
 		elif PlayerManager.minigameThree:
-			AnimationManager.HoodCollision.disabled = false
-			AnimationManager.CarCollision.disabled = false
-			print("Gaming momemt")
+			AnimationManager.HoodCollision.call_deferred("set_disabled", false)
+			AnimationManager.CarCollision.call_deferred("set_disabled", false)
 			PlayerManager.minigameThree = false
-			AnimationManager.HoodFlash.visible = true
-			AnimationManager.PositiveBatteryFlash.visible = false
-			AnimationManager.NegativeBatteryFlash.visible = false
+			AnimationManager.HoodFlash.start_flashing()
+			
+			
 			if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
 				AnimationManager.DoorFlash.start_flashing()
 				pass
 			if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
 				AnimationManager.GasIntakeFlash.start_flashing()
+			
 			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			prompt.visible = true
 			PlayerManager.hoodUI.visible =  false
-			PlayerManager.PositiveWire.visible = false
-			PlayerManager.NegativeWire.visible = false
-			PlayerManager.Battery.visible = false
+			AnimationManager.HideResetZones()
+			AnimationManager.PositiveBatteryFlash.visible = false
+			AnimationManager.NegativeBatteryFlash.visible = false
+			PlayerManager.HideDialog()
 			PlayerManager. MiniGameModeOff()
 		else:
 			if PlayerManager.DevMode:

@@ -31,7 +31,7 @@ points = PackedVector3Array(76.246, 36.1877, -222.496, 63.6572, 113.606, 57.5605
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lo0w8"]
 points = PackedVector3Array(-16.6516, 50.1256, -104.451, -7.90447, 21.9234, -0.293335, -9.70029, -43.6728, -92.284, 16.354, 24.0614, -15.8632, -28.8209, 64.0229, -57.5425, -7.96245, -45.4141, 1.5128, 2.45133, -3.71135, -94.0237, -28.8209, 65.7642, -106.202, -1.02435, -33.2471, 1.5128, -13.176, 31.0155, -3.70633, -6.23345, -40.6942, -90.4848, 16.354, 18.8595, -10.6546, -20.1273, 60.5513, -106.202, 14.6162, 27.5439, -15.8632, -4.50003, 24.0614, -95.7634, -27.0831, 62.2817, -48.8755, -9.70029, -40.2012, -5.44604, 0.713486, 4.97309, 1.5128, -28.8209, 62.2817, -57.5425, 1.44293, -15.9217, -89.1843, -13.176, 20.5898, -1.96662, -28.8209, 65.7642, -64.4908, -28.8209, 62.2817, -106.202, -20.1273, 50.1256, -28.0307, 16.354, 18.8595, -15.8632, -27.0831, 57.0688, -48.8755, -9.70029, -43.6728, -74.9185, 2.45133, -3.71135, 1.5128, 0.713486, 4.97309, -94.0237, -6.23345, -43.2742, -0.560414, -23.603, 57.0688, -106.202, -11.4381, 41.4412, -99.2323)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sqm2f"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_185we"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ra0fd"]
@@ -352,9 +352,9 @@ outline_material = ExtResource("5_ffxj2")
 mesh = NodePath("..")
 has_outline = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hood/Hood"]
-transform = Transform3D(133.256, 0, 0, 0, 15.4444, 0, 0, 0, 115.375, 0, 5.10601, 43.4643)
-shape = SubResource("ConvexPolygonShape3D_sqm2f")
+[node name="HoodCollisionShape3D" type="CollisionShape3D" parent="Hood/Hood"]
+transform = Transform3D(152.097, 0, 0, 0, 18.8542, 118.808, 0, -94.5967, 23.6797, 6.09027, -27.2392, 39.9529)
+shape = SubResource("ConvexPolygonShape3D_185we")
 
 [node name="GasCap" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1291, 47.5358, -172.055)

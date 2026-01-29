@@ -286,9 +286,10 @@ func MiniGameModeOff():
 	
 func TestConnection():
 	AnimationManager.HideResetZones()
-	AnimationManager.HoodCollision.disabled = false
-	AnimationManager.CarCollision.disabled = false
-	print("fr fr ")
+	if PositiveConnected:
+		AnimationManager.PositiveConnection.visible = true
+	if NegativeConnected:
+		AnimationManager.NegativeConnection.visible = true
 	if PositiveConnected && NegativeConnected:
 		MiniGameModeOff()
 		hoodUI.visible = false
@@ -301,6 +302,8 @@ func TestConnection():
 		Battery.visible = false
 		Hood._on_interaction_complete()
 		RemoveItemByName("Battery")
+		AnimationManager.HoodCollision.call_deferred("set_disabled", false)
+		AnimationManager.CarCollision.call_deferred("set_disabled", false)
 		if PlayerManager.Hood.open == true:
 			AnimationManager.HoodAnimationPlayer.play_backwards("Hood")
 			PlayerManager.Hood.open = false

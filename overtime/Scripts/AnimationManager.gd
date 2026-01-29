@@ -76,6 +76,9 @@ var CarHead
 var CarEntering = true
 
 
+var PositiveConnection
+var NegativeConnection
+
 ## Reset Zones
 
 var ResetZones: Array = []
@@ -185,8 +188,8 @@ func ActivateGasIntakeFlashAnimationPlayer():
 ## ActivateHoodFlashAnimationPlayer
 ## This function connections the animation player for the Hood flash  
 ## to the animation finished function for this specific animation
-func ActivateHoodFlashAnimationPlayer():
-	HoodFlashAnimationPlayer.connect("animation_finished", _on_HoodFlash_animation_finished)
+func ActivateHoodAnimationPlayer():
+	HoodAnimationPlayer.connect("animation_finished", _on_Hood_animation_finished)
 
 ## ActivateCarAnimationPlayer
 ## This function connections the animation player for the car flash  
@@ -284,9 +287,12 @@ func _on_GetInCar_animation_finished(anim_name: String):
 ## _on_HoodFlash_animation_finished
 ## This function takes in a parameter that is a string which is the name of the aniamtion
 ## when this function is called at the end of an animation it restarts that same animation
-func _on_HoodFlash_animation_finished(anim_name: String):
-	if anim_name == "HoodFlash":
-		HoodFlashAnimationPlayer.play("HoodFlash")
+func _on_Hood_animation_finished(anim_name: String):
+	if anim_name == "Hood":
+		if not PlayerManager.minigameThreePassed:
+			PlayerManager.Battery.visible = true
+			PlayerManager.NegativeWire.visible = true
+			PlayerManager.PositiveWire.visible = true
 
 ##  _on_GasIntakeFlash_animation_finished
 ## This function takes in a parameter that is a string which is the name of the aniamtion
