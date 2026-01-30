@@ -11,7 +11,8 @@ func _process(delta: float) -> void:
 
 func _on_interacted(body: Variant) -> void:
 	
-	#AnimationManager.GasIntakeFlash.visible = true
+	AnimationManager.GasIntakeFlash.start_flashing()
+	AnimationManager.GasIntakeFlash.is_interactable = true
 	
 	AudioManager.play_sound(AudioManager.ItemPickup)
 	PlayerManager.AddToInventory("Gas Canister", 1.5)

@@ -69,6 +69,8 @@ var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Doo
 
 var SkullCrush = load("res://Assets/Audio/SFX/headcrushFinal.mp3")
 
+var HoodOpen = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## At creation of project assign the MusicAudio Player to the bus Music

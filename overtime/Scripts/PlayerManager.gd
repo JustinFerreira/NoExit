@@ -291,6 +291,7 @@ func TestConnection():
 	if NegativeConnected:
 		AnimationManager.NegativeConnection.visible = true
 	if PositiveConnected && NegativeConnected:
+		AudioManager.play_sound(AudioManager.HoodOpen)
 		MiniGameModeOff()
 		hoodUI.visible = false
 		minigameThreePassed = true

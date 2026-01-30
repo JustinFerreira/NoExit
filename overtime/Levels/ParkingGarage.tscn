@@ -35,21 +35,6 @@ edge_fade = 8.44483
 script = ExtResource("1_ax14i")
 fog_remover = NodePath("WorldEnvironment/FogRemover")
 
-[node name="Battery" parent="." instance=ExtResource("2_nsdjq")]
-transform = Transform3D(0.0179057, 0, 0, 0, 0.0179057, 0, 0, 0, 0.0179057, 54.619, 1.50598, 18.8823)
-visible = false
-skeleton = NodePath("../WorldEnvironment")
-
-[node name="WireNegative" parent="." instance=ExtResource("3_ey6un")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 53.9793, 1.8794, 18.9578)
-visible = false
-
-[node name="WirePositive" parent="." instance=ExtResource("4_hd2cn")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 55.3835, 1.85484, 18.8677)
-visible = false
-axis_lock_linear_y = true
-axis_lock_angular_y = true
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_72fn0")
 
@@ -189,3 +174,18 @@ transform = Transform3D(0.038315, 0, 0, 0, 0.038315, 0, 0, 0, 0.038315, -1.53255
 
 [node name="GasCanisterPickUp" parent="." instance=ExtResource("14_gvbgr")]
 transform = Transform3D(2.64, 0, 0, 0, 2.64, 0, 0, 0, 2.64, -1.238, 0.177634, 44.571)
+
+[node name="Battery" parent="." instance=ExtResource("2_nsdjq")]
+transform = Transform3D(0.0243722, 0, 0, 0, 0.0243722, 0, 0, 0, 0.0243722, 54.0879, 1.34839, 18.2566)
+visible = false
+skeleton = NodePath("../WorldEnvironment")
+
+[node name="WireNegative" parent="." instance=ExtResource("3_ey6un")]
+transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5989, 1.94619, 18.1311)
+visible = false
+
+[node name="WirePositive" parent="." instance=ExtResource("4_hd2cn")]
+transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5861, 1.92341, 18.382)
+visible = false
+axis_lock_linear_y = true
+axis_lock_angular_y = true

@@ -42,6 +42,8 @@ var BatteryFlashAnimationPlayer
 var GasCanisterFlashAnimationPlayer
 var CubicleFlashAnimationPlayer
 
+
+var GasCapAnimationPlayer
 var HoodAnimationPlayer
 
 ## Meshes to toggle visiblity

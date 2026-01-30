@@ -31,6 +31,7 @@ func _on_interacted(body: Variant) -> void:
 	AnimationManager.CarCollision.call_deferred("set_disabled", true)
 	if not open:
 		AnimationManager.HoodAnimationPlayer.play("Hood")
+		AudioManager.play_sound(AudioManager.HoodOpen)
 		open = true
 	
 	

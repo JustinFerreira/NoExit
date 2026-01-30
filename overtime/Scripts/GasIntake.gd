@@ -3,13 +3,15 @@
 
 extends Interactable
 
+var open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	start_flashing()
 	
 	AnimationManager.GasIntakeFlash = self
+	
+	AnimationManager.GasCapAnimationPlayer = $"../../GasCapAnimationPlayer"
 	
 	AnimationManager.MouseClickingAnimationPlayer = $"../../GasIntakeCam/GasIntakeGame/MouseClicking/MouseClickingAnimationPlayer"
 	AnimationManager.ActivateMouseClickingAnimationPlayer()
@@ -21,11 +23,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if PlayerManager.gotGas_Canister == true:
-		is_interactable = true
+	pass
 
 
 func _on_interacted(body: Variant) -> void:
+	if not open:
+		AnimationManager.GasCapAnimationPlayer.play("GasCap")
+		open = true
 	AnimationManager.GasIntakeFlash.stop_flashing()
 	AnimationManager.DoorFlash.stop_flashing()
 	AnimationManager.HoodFlash.stop_flashing()

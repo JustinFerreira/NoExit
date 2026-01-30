@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://duoospejbeo0t"]
+[gd_scene load_steps=53 format=3 uid="uid://duoospejbeo0t"]
 
 [ext_resource type="Material" uid="uid://duh0xxtb21cug" path="res://Assets/Materials/PlayerCar.tres" id="1_vb600"]
 [ext_resource type="ArrayMesh" uid="uid://dbkbutiyvkc4o" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarBodyPlayer.obj" id="2_mq41k"]
@@ -24,6 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://b8lpi3qwwdkek" path="res://Assets/UI/LMB_icon.png" id="19_ekjm7"]
 [ext_resource type="AudioStream" uid="uid://talggt083dq8" path="res://Assets/Audio/SFX/old-maruti-car-unlock-sound-keyless-entry-beep-327691.mp3" id="20_8bh84"]
 [ext_resource type="Script" path="res://Scripts/CarKeyNoise.gd" id="21_delra"]
+[ext_resource type="Texture2D" uid="uid://s6l2xtthrhqh" path="res://Assets/UI/gas_meter.png" id="24_hjdpm"]
+[ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="25_jkl06"]
+[ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="26_t1aiq"]
+[ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="27_y5w2q"]
+[ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Alternate.obj" id="28_7tpjn"]
+[ext_resource type="Script" path="res://Scripts/GasIntakeCanister.gd" id="29_0ihrx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g24yh"]
 points = PackedVector3Array(76.246, 36.1877, -222.496, 63.6572, 113.606, 57.5605, -80.0256, 14.567, -209.948, -55.4504, 108.142, -122.68, -85.1832, -3.91766, 245.608, 79.4691, 1.66622, -81.4544, -53.8358, 58.7649, 245.608, -61.6956, 113.606, 57.5605, -85.1832, 58.7649, -224.486, 87.1447, 58.7649, -208.779, 87.1447, -3.91766, 237.754, 87.1447, 50.948, 229.901, 51.1277, 108.934, -124.945, -71.9297, 7.7253, -214.96, 95.0046, 19.5944, -169.658, -85.1832, 58.7649, 214.242, -93.0431, -3.91766, 182.926, 47.9927, 74.4233, -224.486, 16.6453, 58.7649, 253.413, 66.6105, 7.7253, -214.96, -93.0431, 11.753, -169.658, 87.1447, 74.4233, 10.6345, -78.7439, 0.766771, -83.0272, 95.0046, 11.753, 182.926, -5.91976, 114.056, -99.0327, -46.0311, 74.4233, -224.486, 47.9927, -3.91766, 253.413, 79.3217, 50.948, 245.608, -74.336, 28.6335, 251.891, 63.1412, 107.106, -85.1512, -30.3482, 113.606, 65.3651, 71.4986, 105.777, 65.3651)
@@ -34,8 +40,8 @@ points = PackedVector3Array(-16.6516, 50.1256, -104.451, -7.90447, 21.9234, -0.2
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_185we"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ra0fd"]
-points = PackedVector3Array(1.90477, 0.671892, 15.6243, 1.82324, 0.888935, 15.145, -5.19293, -0.329844, 0.333146, -0.255085, 5.66603, 2.17689, -1.80131, 7.75379, 9.45825, 2.11044, -5.80717, 13.8929, 0.2846, 0.711044, 15.9792, 3.70091, -7.47702, 8.39727, -4.41004, -3.19923, 0.072567, 1.25957, -0.0594202, 0.0960221, 0.239545, 6.3877, 12.6109, 2.37141, -8.1553, 8.41593, -1.01932, 5.92692, 13.8929, -1.80131, 8.27505, 7.63581, -4.93107, 0.711044, 0.072567, 2.76541, -5.33894, 2.37039, -0.502732, 8.25024, 7.64918, -1.54035, 5.92692, 2.15881, 3.24405, -4.80523, 13.8956, 0.544669, -0.0683968, 16.2414, 1.32756, -5.80717, 2.15881, -0.237325, 0.449596, -0.189621, -5.19293, 0.449596, 0.593726, -4.41004, -3.19923, 0.333146, 1.32756, -3.45904, 14.9369, 2.37141, -8.1553, 7.63581, 0.955727, 1.40844, 0.592938, 2.11044, -7.11114, 11.0233, -0.757462, 4.3615, 14.4141, -3.10523, -2.93778, 0.072567, 1.84948, -5.54572, 13.8929, 0.49253, 4.92391, 14.13)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a007y"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_864t3"]
 points = PackedVector3Array(42.347, 40.4188, 67.3872, 46.602, 72.9072, 73.7767, 43.8569, 53.0363, 80.5716, 62.6877, 55.3301, 70.0329, 28.9628, 56.9346, 68.9692, 57.9377, 45.7132, 66.4845, 33.1445, 68.2456, 74.3714, 57.7983, 67.055, 70.5831, 57.3763, 43.4576, 70.4301, 31.4568, 47.9654, 71.5574, 57.9377, 68.2456, 74.3714, 44.4183, 38.9497, 69.8664, 62.4429, 54.729, 72.6847, 40.298, 70.5618, 71.1491, 33.1445, 45.7132, 66.4845, 28.6393, 54.729, 72.6847, 47.2253, 53.0363, 80.5716, 33.1445, 43.4576, 70.4301, 45.0133, 72.2925, 74.834, 46.6082, 40.3344, 66.283, 33.2839, 67.055, 70.5831, 50.0499, 71.6308, 74.935, 46.076, 73.0471, 72.1742, 62.1189, 56.9345, 68.9693, 41.0323, 71.6308, 74.935, 46.6639, 38.9497, 69.8664, 58.0156, 43.9338, 68.3659, 30.8884, 62.6116, 73.8077, 60.1938, 62.6116, 73.8077, 58.5026, 45.1467, 70.9937, 28.3943, 55.3301, 70.0329, 44.5849, 51.0985, 79.4843)
@@ -279,6 +285,67 @@ _data = {
 "RESET": SubResource("Animation_u1bym")
 }
 
+[sub_resource type="Animation" id="Animation_5wi3a"]
+resource_name = "GasCap"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GasCap:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GasCap:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.45993, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qqahc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GasCap:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(81.1291, 47.5358, -172.055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GasCap:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ia1i"]
+_data = {
+"GasCap": SubResource("Animation_5wi3a"),
+"RESET": SubResource("Animation_qqahc")
+}
+
 [sub_resource type="Animation" id="Animation_sseij"]
 resource_name = "MouseClicking"
 tracks/0/type = "value"
@@ -314,6 +381,23 @@ _data = {
 "MouseClicking": SubResource("Animation_sseij"),
 "RESET": SubResource("Animation_j10hk")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avy10"]
+albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4retf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1oae"]
+albedo_texture = ExtResource("25_jkl06")
+metallic = 1.0
+metallic_texture = ExtResource("26_t1aiq")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("26_t1aiq")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("27_y5w2q")
+ao_enabled = true
+ao_texture = ExtResource("26_t1aiq")
 
 [node name="Car" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.588226, 2.78289, -0.948975)
@@ -368,7 +452,8 @@ mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GasCap/GasCap"]
-shape = SubResource("ConvexPolygonShape3D_ra0fd")
+transform = Transform3D(23.4346, 0, 0, 0, 23.4346, 0, 0, 0, 23.4346, 0.217148, 3.86193, 5.55759)
+shape = SubResource("ConvexPolygonShape3D_a007y")
 
 [node name="SteeringWheel" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_vb600")
@@ -438,6 +523,15 @@ libraries = {
 "": SubResource("AnimationLibrary_85pm2")
 }
 
+[node name="GasCapAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ia1i")
+}
+
+[node name="CarKeyNoise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("20_8bh84")
+script = ExtResource("21_delra")
+
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(-0.0306996, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, -1.21724e-06, -0.0318861, 2.66487, 2.10038, 0)
 
@@ -487,56 +581,8 @@ offset_right = 667.0
 offset_bottom = 279.0
 text = "HOT WIRE CONFIRM"
 
-[node name="GasIntakeCam" type="Camera3D" parent="."]
-transform = Transform3D(-2.22785e-08, -0.407683, 0.509673, -1.78204e-08, 0.509673, 0.407683, -0.652665, 1.92953e-14, -2.85289e-08, 1.64318, 1.95023, -1.33715)
-visible = false
-
-[node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="GasIntakeCam/GasIntakeGame"]
-layout_mode = 0
-offset_left = 274.0
-offset_top = 35.0
-offset_right = 949.0
-offset_bottom = 124.0
-
-[node name="Label" type="Label" parent="GasIntakeCam/GasIntakeGame"]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 129.0
-offset_right = 947.0
-offset_bottom = 172.0
-theme_override_fonts/font = ExtResource("18_w3f54")
-theme_override_font_sizes/font_size = 20
-text = "Hold LMB to raise gas canister
-*Align gas canister with red cube*
-Press ESC to leave minigame with progress intact"
-horizontal_alignment = 1
-
-[node name="MouseClicking" type="Sprite2D" parent="GasIntakeCam/GasIntakeGame"]
-texture_filter = 1
-position = Vector2(606, 245)
-texture = ExtResource("19_ekjm7")
-hframes = 2
-
-[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
-libraries = {
-"": SubResource("AnimationLibrary_t71il")
-}
-
-[node name="MouseClickingTimer" type="Timer" parent="GasIntakeCam/GasIntakeGame"]
-wait_time = 3.5
-
 [node name="HoodCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 2.98023e-08, -1.49012e-08, -1.3298e-08, 0.767019, 0.641624, 3.05514e-08, -0.641624, 0.767019, -0.267938, 137.505, 254.024)
+transform = Transform3D(1, 2.98023e-08, -1.49012e-08, 7.66307e-09, 0.229523, 0.973303, 3.24269e-08, -0.973303, 0.229523, -36.2005, 93.6456, 174.394)
 
 [node name="HoodGame" type="Control" parent="HoodCam"]
 visible = false
@@ -560,11 +606,71 @@ text = "* Click then drag flashing wire to flashing red
 [node name="WheelCam" type="Camera3D" parent="."]
 transform = Transform3D(0.0100878, 0, 0.999949, 0, 1, 0, -0.999949, 0, 0.0100878, 152.461, 10.8967, 146.987)
 
-[node name="CarKeyNoise" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("20_8bh84")
-script = ExtResource("21_delra")
+[node name="GasIntakeCam" type="Camera3D" parent="."]
+transform = Transform3D(-3.41347e-08, -0.624643, 0.78091, -2.73041e-08, 0.78091, 0.624643, -1, -2.13163e-14, -4.37114e-08, 166.774, 110.041, -170.131)
+
+[node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="GasIntakeCam/GasIntakeGame"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 26.0
+offset_right = 219.0
+offset_bottom = 676.0
+fill_mode = 3
+texture_under = ExtResource("24_hjdpm")
+texture_progress = ExtResource("24_hjdpm")
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="GasIntakeCam/GasIntakeGame"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 29.0
+offset_right = 947.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("18_w3f54")
+theme_override_font_sizes/font_size = 20
+text = "Hold LMB to raise gas canister
+*Align gas canister with red cube*
+Press ESC to leave minigame with progress intact"
+horizontal_alignment = 1
+
+[node name="MouseClicking" type="Sprite2D" parent="GasIntakeCam/GasIntakeGame"]
+texture_filter = 1
+position = Vector2(606, 129)
+texture = ExtResource("19_ekjm7")
+hframes = 2
+
+[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
+libraries = {
+"": SubResource("AnimationLibrary_t71il")
+}
+
+[node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.03919e-08, -4.20935, 0.294741, -1.64169e-07, -0.266453, -4.65625, 3.76326, -1.72816e-14, -2.03938e-07, 85.4225, 49.8965, -164.015)
+visible = false
+material_override = SubResource("StandardMaterial3D_avy10")
+mesh = SubResource("BoxMesh_4retf")
+skeleton = NodePath("../GasIntakeCanister")
+
+[node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
+transform = Transform3D(29.4873, -59.801, 33.9966, -2.84403e-06, -36.9884, -65.0637, 68.789, 25.6345, -14.5731, 129.467, 86.6202, -191.245)
+visible = false
+material_override = SubResource("StandardMaterial3D_u1oae")
+mesh = ExtResource("28_7tpjn")
+script = ExtResource("29_0ihrx")
 
 [connection signal="interacted" from="DriverDoor/DriverDoor" to="DriverDoor/DriverDoor" method="_on_interacted"]
 [connection signal="interacted" from="Hood/Hood" to="Hood/Hood" method="_on_interacted"]
+[connection signal="interacted" from="GasCap/GasCap" to="GasCap/GasCap" method="_on_interacted"]
 [connection signal="interacted" from="SteeringWheel/SteeringWheel" to="SteeringWheel/SteeringWheel" method="_on_interacted"]
 [connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
+[connection signal="value_changed" from="GasIntakeCam/GasIntakeGame/TextureProgressBar" to="GasIntakeCanister" method="_on_progress_bar_value_changed"]

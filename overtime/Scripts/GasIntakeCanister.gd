@@ -4,23 +4,25 @@
 extends MeshInstance3D
 
 @onready var GasIntakeSweetSpot = $"../GasIntakeSweetSpot"
-@onready var progress_bar = $"../GasIntakeCam/GasIntakeGame/ProgressBar"
+@onready var progress_bar = $"../GasIntakeCam/GasIntakeGame/TextureProgressBar"
 
-var fall_speed = 1.5
+var progress_bar_value = 0.0
+
+var fall_speed = 30.5
 var car_filled = 0.0
 
 var fill_speed = 0.1
 
-var lift_speed = .6
+var lift_speed = 30
 
-var lowestPointSweetSpot = 1.098 
+var lowestPointSweetSpot = 10.098 
 var lowestPointGasCanister = 1.000
 
-var highestPointGasCanister = 1.9
-var highestPointSweetSpot = 1.6
+var highestPointGasCanister = 150.9
+var highestPointSweetSpot = 100.6
 
 # Add these variables at the top of your script
-var sweet_spot_move_speed = 0.4  # Adjust for faster/slower movement
+var sweet_spot_move_speed = 25.5  # Adjust for faster/slower movement
 var sweet_spot_direction = 1     # 1 for moving up, -1 for moving down
 
 
@@ -52,7 +54,8 @@ func _process(delta: float) -> void:
 		# Check if sweet spot is within canister bounds
 		if sweet_spot_y >= canister_bottom_y && sweet_spot_y <= canister_top_y:
 			car_filled += fill_speed
-			progress_bar.value += 0.1
+			progress_bar_value += 0.1
+			progress_bar.value = progress_bar_value
 			AudioManager.play_sound_loop(AudioManager.Glug, "glug")
 			if PlayerManager.minigameTwoPassed:
 				AudioManager.stop_loop("glug")
@@ -73,10 +76,12 @@ func _process(delta: float) -> void:
 
 
 func _on_progress_bar_value_changed(value: float) -> void:
-	if value >= 35:
-		if $"../GasIntakeCam/GasIntakeGame/MouseClickingTimer":
-			$"../GasIntakeCam/GasIntakeGame/MouseClickingTimer".start()
+	if value >= 25:
+		if $"../GasIntakeCam/GasIntakeGame/MouseClicking":
+			$"../GasIntakeCam/GasIntakeGame/MouseClicking".visible = false
+			$"../GasIntakeCam/GasIntakeGame/Label".visible = false
 	if value == 100:
+		AnimationManager.GasCapAnimationPlayer.play_backwards("GasCap")
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.minigameTwo = false
 		PlayerManager.MiniGameModeOff()
@@ -86,12 +91,12 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		AudioManager.stop_loop("glug")
 		$".".visible = false
 		$"../GasIntakeCam/GasIntakeGame".visible = false
-		$"../Mesh/GasIntake"._on_interaction_complete()
+		$"../GasCap/GasCap"._on_interaction_complete()
 		$"../GasIntakeSweetSpot".visible = false
 		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
-			AnimationManager.DoorFlash.visible = true
+			AnimationManager.DoorFlash.start_flashing()
 		if not PlayerManager.minigameThreePassed and PlayerManager.has_item("Battery"):
-			AnimationManager.HoodFlash.visible = true
+			AnimationManager.HoodFlash.start_flashing()
 		
 func _move_sweet_spot(delta: float) -> void:
 	
