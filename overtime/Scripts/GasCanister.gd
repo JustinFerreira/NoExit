@@ -2,6 +2,13 @@
 ## Overtime Studios
 
 extends Interactable
+
+func _ready() -> void:
+	super._ready()
+	visible = false
+	if not PlayerManager.Loop0:
+		visible = true
+		start_flashing()
 	
 func _process(delta: float) -> void:
 	if not PlayerManager.player.interact_ray.get_collider() == self:

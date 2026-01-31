@@ -9,7 +9,10 @@ extends Interactable
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	start_flashing()
+	visible = false
+	if not PlayerManager.Loop0:
+		visible = true
+		start_flashing()
 	
 func _process(delta: float) -> void:
 	pass

@@ -14,8 +14,6 @@ func _ready() -> void:
 	AnimationManager.CarCollision = $"../../Body/StaticBody3D/CollisionShape3D"
 	AnimationManager.ActivateHoodAnimationPlayer()
 	#Fix with EventManager so that this is only the case after first interacting with inside of car before doing this
-	if PlayerManager.Loop0 == true:
-		is_interactable = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

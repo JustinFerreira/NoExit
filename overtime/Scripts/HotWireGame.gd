@@ -26,9 +26,9 @@ func _on_button_pressed() -> void:
 	PlayerManager.CharacterDialog("Great now I can start my car and get out of here, cause hot wiring tottally does not start the car.")
 	AnimationManager.CarInteractRay.enabled = true
 	
-	#AnimationManager.DoorFlash.visible = true
+	AnimationManager.DoorFlash.start_flashing()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PlayerManager.MiniGameModeOff()
 	PlayerManager.minigameOnePassed = true
-	#print("PlayerManger HotWireGame minigameOne:",PlayerManager.minigameOne)
+	AnimationManager.SteeringWheelFlash.start_flashing()

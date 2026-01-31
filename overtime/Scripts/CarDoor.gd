@@ -36,10 +36,10 @@ func _ready() -> void:
 func _on_interacted(body: Variant) -> void:
 	#(Event Manager function for car door interaction?)
 	#turning off flash for car objects when car animation is about to start
-	#AnimationManager.HoodFlash.visible = false
-	#AnimationManager.DoorFlash.visible = false
-	#AnimationManager.SteeringWheelFlash.visible = false
-	#AnimationManager.GasIntakeFlash.visible = false
+	AnimationManager.HoodFlash.stop_flashing()
+	AnimationManager.DoorFlash.stop_flashing()
+	AnimationManager.SteeringWheelFlash.stop_flashing()
+	AnimationManager.GasIntakeFlash.stop_flashing()
 	
 	
 	#First time entering the car

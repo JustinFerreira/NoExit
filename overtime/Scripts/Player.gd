@@ -147,7 +147,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameOne:
-			AnimationManager.SteeringWheelFlash.visible = true
+			AnimationManager.SteeringWheelFlash.start_flashing()
 			PlayerManager.minigameOne = false
 			UiManager.HotWireUI.visible = false
 			AnimationManager.CarInteractRay.enabled = true

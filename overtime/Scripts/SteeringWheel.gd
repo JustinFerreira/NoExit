@@ -6,7 +6,6 @@ extends Interactable
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	start_flashing()
 	AnimationManager.SteeringWheelFlash = self
 	UiManager.HotWireUI = $"../../Head/Car_Cam/Minigame"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,15 +17,20 @@ func _process(delta: float) -> void:
 
 func _on_interacted(body: Variant) -> void:
 	stop_flashing()
+	if PlayerManager.Loop0:
+		AnimationManager.HoodFlash.is_interactable = true
 	if PlayerManager.minigameOnePassed && PlayerManager.minigameTwoPassed && PlayerManager.minigameThreePassed:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_battery_and_gas)
+		stop_flashing()
 	elif PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_battery)
+		stop_flashing()
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_gas)
+		stop_flashing()
 	elif not PlayerManager.Loop0:
 		PlayerManager.minigameOne = true
 		PlayerManager.MiniGameModeOn()
@@ -35,4 +39,5 @@ func _on_interacted(body: Variant) -> void:
 		#AnimationManager.DoorFlash.visible = true
 		
 		PlayerManager.CharacterDialog("Huh the cars not starting I better check my battery")
+	
 	

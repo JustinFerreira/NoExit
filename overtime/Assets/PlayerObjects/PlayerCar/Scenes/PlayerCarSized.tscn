@@ -110,22 +110,6 @@ tracks/4/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -0.81753, 0), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vm5x0"]
-resource_name = "HotWireFlash"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh/StartCar/CollisionShapeMesh:transparency")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.03333, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_2du3w"]
 length = 0.001
 tracks/0/type = "value"
@@ -179,46 +163,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Mesh/CarDoor/CollisionShapeMesh:transparency")
+tracks/4/path = NodePath("DriverDoor:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Mesh/StartCar/CollisionShapeMesh:transparency")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Mesh/Hood/CollisionShapeMesh:transparency")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("DriverDoor:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -243,7 +191,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tr6wb"]
 _data = {
 "GettinginCar": SubResource("Animation_ykfaq"),
-"HotWireFlash": SubResource("Animation_vm5x0"),
 "RESET": SubResource("Animation_2du3w"),
 "resetingstuff": SubResource("Animation_ifl34")
 }
@@ -263,6 +210,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.838526, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoodCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.15437, 130.326, 262.384)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoodCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.65511, -1.87914e-08, -1.83538e-08)]
+}
 
 [sub_resource type="Animation" id="Animation_u1bym"]
 length = 0.001
@@ -278,11 +249,64 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoodCam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-36.2005, 93.6456, 174.394)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HoodCam:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.33921, -6.49225e-08, 3.33869e-08)]
+}
+
+[sub_resource type="Animation" id="Animation_rmc35"]
+resource_name = "ZoomInbattery"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoodCam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-4.15437, 130.326, 262.384), Vector3(-36.2005, 93.6456, 174.394)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HoodCam:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.65511, -1.87914e-08, -1.83538e-08), Vector3(-1.33921, -6.49225e-08, 3.33869e-08)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_85pm2"]
 _data = {
 "Hood": SubResource("Animation_d1s73"),
-"RESET": SubResource("Animation_u1bym")
+"RESET": SubResource("Animation_u1bym"),
+"ZoomInbattery": SubResource("Animation_rmc35")
 }
 
 [sub_resource type="Animation" id="Animation_5wi3a"]
@@ -582,7 +606,7 @@ offset_bottom = 279.0
 text = "HOT WIRE CONFIRM"
 
 [node name="HoodCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 2.98023e-08, -1.49012e-08, 7.66307e-09, 0.229523, 0.973303, 3.24269e-08, -0.973303, 0.229523, -36.2005, 93.6456, 174.394)
+transform = Transform3D(1, 2.98023e-08, -1.49012e-08, 7.66306e-09, 0.229523, 0.973303, 3.24269e-08, -0.973303, 0.229523, -36.2005, 93.6456, 174.394)
 
 [node name="HoodGame" type="Control" parent="HoodCam"]
 visible = false
