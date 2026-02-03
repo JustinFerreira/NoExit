@@ -9,6 +9,8 @@
 
 extends Node
 
+var Comingfromelevator = false
+
 ## Janitor Dialog
 
 var janitor_text_array: Array[String] = [

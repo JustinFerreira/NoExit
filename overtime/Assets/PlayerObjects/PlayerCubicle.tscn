@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://d1fnud1p1j436"]
+[gd_scene load_steps=38 format=3 uid="uid://d1fnud1p1j436"]
 
 [ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="1_37age"]
 [ext_resource type="Script" path="res://Scripts/Cubicle.gd" id="1_jcpb1"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="14_1kxfa"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="15_y6l3j"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="22_nemri"]
-[ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
+[ext_resource type="PackedScene" uid="uid://dgsb084lt5fqm" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
 [ext_resource type="PackedScene" uid="uid://crvgose10vq0k" path="res://Assets/PlayerObjects/PlayerPictureFrame1.tscn" id="24_f14f0"]
 [ext_resource type="PackedScene" uid="uid://df63p4gkori84" path="res://Assets/PlayerObjects/PlayerStapler.tscn" id="26_gijd4"]
 [ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="26_i0lv6"]
@@ -119,6 +119,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutSceneCamera/Control/ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_uce5g"]
 resource_name = "WakingUp"
@@ -172,10 +184,39 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_wlot6"]
+resource_name = "blackoff"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneCamera/Control/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneCamera/Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ojtb8"]
 _data = {
 "RESET": SubResource("Animation_dylsm"),
-"WakingUp": SubResource("Animation_uce5g")
+"WakingUp": SubResource("Animation_uce5g"),
+"blackoff": SubResource("Animation_wlot6")
 }
 
 [sub_resource type="BoxMesh" id="BoxMesh_jhv2m"]
@@ -232,6 +273,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="CutSceneCamera/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

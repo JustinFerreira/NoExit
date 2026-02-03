@@ -10,32 +10,47 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerManager.ResetPlayer()
-	
-	AudioManager.play_music(AudioManager.OfficeWhiteNoise)
-	AudioManager.OfficeMusicOn = true
-	
-	#EventManager Function fix
-	SettingsManager.Loop0Pass = true
-	SettingsManager.save_settings()
-	
-	
-	
-	PlayerManager.Office = true
-	PlayerManager.ParkingGarage = false
-	
-	PlayerManager.testing = false
-	#Needed?
-	PlayerManager.gotKeys = false
-	PlayerManager.InAnimation = true;
-	PlayerManager.player.CURSOR.visible = false
-	PlayerManager.no_enemy = true
-	PlayerManager.Loop1 = true
-	PlayerManager.player = get_tree().current_scene.get_node("Player") 
-	#Animation and Camera Manager!!!
-	animation_player.connect("animation_finished", _on_animation_finished)
-	cutscene_camera.current = true
-	animation_player.play("WakingUp")
+	if EventManager.Comingfromelevator:
+		$Player.position = Vector3(-41.611, 0, 8.08) 
+		EventManager.Comingfromelevator = false
+		player_camera.current = true
+		animation_player.play("blackoff")
+		PlayerManager.no_enemy = true
+		PlayerManager.Office = true
+		PlayerManager.ParkingGarage = false
+		AudioManager.play_music(AudioManager.OfficeWhiteNoise)
+		AudioManager.OfficeMusicOn = true
+		PlayerManager.startMultiDialog = false
+		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
+		$Elevator/ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
+	else:
+		$Player.position = Vector3(-1.848, 0, 17.72) 
+		PlayerManager.ResetPlayer()
+		
+		AudioManager.play_music(AudioManager.OfficeWhiteNoise)
+		AudioManager.OfficeMusicOn = true
+		
+		#EventManager Function fix
+		SettingsManager.Loop0Pass = true
+		SettingsManager.save_settings()
+		
+		
+		
+		PlayerManager.Office = true
+		PlayerManager.ParkingGarage = false
+		
+		PlayerManager.testing = false
+		#Needed?
+		PlayerManager.gotKeys = false
+		PlayerManager.InAnimation = true;
+		PlayerManager.player.CURSOR.visible = false
+		PlayerManager.no_enemy = true
+		PlayerManager.Loop1 = true
+		PlayerManager.player = get_tree().current_scene.get_node("Player") 
+		#Animation and Camera Manager!!!
+		animation_player.connect("animation_finished", _on_animation_finished)
+		cutscene_camera.current = true
+		animation_player.play("WakingUp")
 	
 	
 

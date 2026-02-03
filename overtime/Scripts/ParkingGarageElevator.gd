@@ -5,6 +5,10 @@ extends Node3D
 
 @onready var animation_player = $AnimationPlayer
 
+var backwards = false
+var hintsaid = false
+var inside = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioManager.stop_loop("step")
@@ -31,6 +35,30 @@ func _on_animation_finished(anim_name: String):
 	#print("Animation", anim_name)
 	
 	if anim_name == "Take 001":
-		$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-		if PlayerManager.Loop0:
-			PlayerManager.Hint("Equip your keys and Press F to make your car sound off")
+		if inside and $OutsideButton/OutsideButton.clickedafterexit == true:
+			get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		elif backwards == true:
+			if $OutsideButton/OutsideButton.clickedafterexit == true:
+				$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
+				backwards = false
+		else:
+			$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
+			if PlayerManager.Loop0 && not hintsaid:
+				hintsaid = true
+				PlayerManager.Hint("Equip your keys and Press F to make your car sound off")
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	inside = false
+	if backwards == false:
+		$OutsideButton/OutsideButton.is_interactable = true
+		$OutsideButton/OutsideButton.clickedafterexit = false
+		$ElevatorCollisions/DoorCollision.translate(Vector3(0,-3,0))
+		backwards = true
+		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
+		$AnimationPlayer.play_backwards("Take 001")
+	
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	inside = true
