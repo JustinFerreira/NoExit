@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
 	else:
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/GreyBoxingBtn.visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
 		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = false
