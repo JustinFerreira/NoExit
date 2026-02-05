@@ -30,10 +30,6 @@ func _ready() -> void:
 		AudioManager.play_music(AudioManager.OfficeWhiteNoise)
 		AudioManager.OfficeMusicOn = true
 		
-		#EventManager Function fix
-		SettingsManager.Loop0Pass = true
-		SettingsManager.save_settings()
-		
 		
 		
 		PlayerManager.Office = true

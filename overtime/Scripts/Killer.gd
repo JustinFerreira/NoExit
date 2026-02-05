@@ -164,6 +164,9 @@ func _on_animation_finished(anim_name: String):
 			return
 		elif PlayerManager.Loop0:
 			PlayerManager.Loop0 = false
+			#EventManager Function fix
+			SettingsManager.Loop0Pass = true
+			SettingsManager.save_settings()
 			get_tree().change_scene_to_file("res://Levels/Office.tscn")
 			return
 		PlayerManager.player.GAMEOVER.visible =  true
