@@ -8,6 +8,7 @@ extends Node3D
 var backwards = false
 var hintsaid = false
 var inside = true
+var animationplayed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,13 +36,14 @@ func _on_animation_finished(anim_name: String):
 	#print("Animation", anim_name)
 	
 	if anim_name == "Take 001":
-		if inside and $OutsideButton/OutsideButton.clickedafterexit == true:
-			get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		animationplayed = true
+		if inside and EventManager.Comingfromelevator == true:
+			$InsideButton/InsideButton.rising = true
 		elif backwards == true:
 			if $OutsideButton/OutsideButton.clickedafterexit == true:
 				$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
 				backwards = false
-		else:
+		elif not EventManager.Comingfromelevator == true:
 			$ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
 			if PlayerManager.Loop0 && not hintsaid:
 				hintsaid = true

@@ -10,6 +10,8 @@
 extends Node
 
 var Comingfromelevator = false
+var ElevatorDoorOpen = false
+var CameFromGarage = false
 
 ## Janitor Dialog
 

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="14_1kxfa"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="15_y6l3j"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="22_nemri"]
-[ext_resource type="PackedScene" uid="uid://dgsb084lt5fqm" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
+[ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="23_jrv6m"]
 [ext_resource type="PackedScene" uid="uid://crvgose10vq0k" path="res://Assets/PlayerObjects/PlayerPictureFrame1.tscn" id="24_f14f0"]
 [ext_resource type="PackedScene" uid="uid://df63p4gkori84" path="res://Assets/PlayerObjects/PlayerStapler.tscn" id="26_gijd4"]
 [ext_resource type="PackedScene" uid="uid://bfu7u57vr0wdg" path="res://Assets/Enviroments/Office/Scenes/papers_1.tscn" id="26_i0lv6"]

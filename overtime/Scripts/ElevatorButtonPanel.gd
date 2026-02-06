@@ -44,9 +44,9 @@ func _on_interacted(body: Variant) -> void:
 		is_interactable = false
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
 		AnimationManager.DoorClosed = true
+		EventManager.CameFromGarage = false
 	else:
 		PlayerManager.Hint("Get in the elevator bro")
-
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	InElevator = true
@@ -55,3 +55,21 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	InElevator = false
+		
+		
+
+
+func _on_outside_elevator_area_area_entered(area: Area3D) -> void:
+	if EventManager.ElevatorDoorOpen == true && not InElevator:
+		$"../OutsideButton".clickedrecent = false
+		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
+		EventManager.ElevatorDoorOpen = false
+		door_collision.translate(Vector3(0,-3,0))
+
+
+func _on_outside_elevator_area_area_exited(area: Area3D) -> void:
+	if EventManager.ElevatorDoorOpen == true && not InElevator:
+		$"../OutsideButton".clickedrecent = false
+		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
+		EventManager.ElevatorDoorOpen = false
+		door_collision.translate(Vector3(0,-3,0))

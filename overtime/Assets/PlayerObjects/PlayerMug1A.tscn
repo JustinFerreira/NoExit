@@ -51,7 +51,7 @@ _data = {
 material_override = ExtResource("1_b31xw")
 mesh = ExtResource("2_hb7he")
 
-[node name="Mug1A" type="StaticBody3D" parent="Mug1A" node_paths=PackedStringArray("animation_fade_player", "flash_animation_player", "flash_mesh", "mesh")]
+[node name="Mug1A" type="StaticBody3D" parent="Mug1A" node_paths=PackedStringArray("animation_fade_player", "mesh")]
 script = ExtResource("3_a2l26")
 target_mesh = ExtResource("2_hb7he")
 target_material = ExtResource("1_b31xw")
@@ -60,9 +60,7 @@ animation_name = "Mug1AFade"
 animation_fade_player = NodePath("../../Mug1AFade")
 can_be_stored = true
 flash_animation_manager_reference = "Mug1AFlashAnimationPlayer"
-flash_animation_player = NodePath("")
 flash_animation_name = "Mug1AFlash"
-flash_mesh = NodePath("")
 outline_material = ExtResource("4_pw4lu")
 mesh = NodePath("..")
 has_outline = true

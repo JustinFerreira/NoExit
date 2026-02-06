@@ -51,7 +51,7 @@ _data = {
 material_override = ExtResource("1_2tww5")
 mesh = ExtResource("4_ylcem")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("animation_fade_player", "flash_animation_player", "flash_mesh", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("animation_fade_player", "mesh")]
 script = ExtResource("5_8x4ar")
 target_mesh = ExtResource("4_ylcem")
 target_material = ExtResource("1_2tww5")
@@ -60,9 +60,7 @@ animation_name = "StickyNotesFade"
 animation_fade_player = NodePath("../../StickyNotesFade")
 can_be_stored = true
 flash_animation_manager_reference = "StickyNotesFlashAnimationPlayer"
-flash_animation_player = NodePath("")
 flash_animation_name = "StickyNotesFlash"
-flash_mesh = NodePath("")
 outline_material = ExtResource("4_d06dn")
 mesh = NodePath("..")
 has_outline = true

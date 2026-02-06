@@ -11,6 +11,8 @@ extends Interactable
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
 var DoorOpen = false;
+var messageplayed = false
+var clickedrecent = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,21 +28,26 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_interacted(body: Variant) -> void:
-	if PlayerManager.has_item("Car Keys"):
+	if EventManager.ElevatorDoorOpen:
+		return
+	if PlayerManager.has_item("Car Keys") and not clickedrecent:
 		if not PlayerManager.talkToJanitor:
 			PlayerManager.janitor.talkToPlayer()
 			return
+		clickedrecent = true
+		EventManager.ElevatorDoorOpen = true
 		AnimationManager.ElevatorButtonFlash.visible = false
 		door_collision.translate(Vector3(0,3,0))
 		AudioManager.play_sound(AudioManager.ElevatorDing)
 		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
-		if PlayerManager.Loop1:
+		if PlayerManager.Loop0 and not EventManager.CameFromGarage and not messageplayed:
 			if PlayerManager.Hold_Shift:
 				PlayerManager.Hint("Hold shift, to sprint")
+				messageplayed = true
 			else:
 				PlayerManager.Hint("Use shift to toggle sprint")
-		$".".is_interactable = false
+				messageplayed = true
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
-	else:
+	elif not PlayerManager.has_item("Car Keys"):
 		PlayerManager.CharacterDialog("Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole")
 	

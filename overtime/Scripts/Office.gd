@@ -11,6 +11,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if EventManager.Comingfromelevator:
+		PlayerManager.ApplyPlayerRotation()
 		$Player.position = Vector3(-41.611, 0, 8.08) 
 		EventManager.Comingfromelevator = false
 		player_camera.current = true
@@ -18,11 +19,24 @@ func _ready() -> void:
 		PlayerManager.no_enemy = true
 		PlayerManager.Office = true
 		PlayerManager.ParkingGarage = false
+		PlayerManager.talkToJanitor = true
 		AudioManager.play_music(AudioManager.OfficeWhiteNoise)
 		AudioManager.OfficeMusicOn = true
 		PlayerManager.startMultiDialog = false
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
 		$Elevator/ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
+		$NavigationRegion3D/Cubicle/Mug1A/Mug1A/Mug1A._on_interaction_complete()
+		$NavigationRegion3D/Cubicle/Mug2B/Mug2/Mug2._on_interaction_complete()
+		$"NavigationRegion3D/Cubicle/Car Keys"._on_interaction_complete()
+		$"NavigationRegion3D/Cubicle/Picture Frame/PictureFrame1/PictureFrame1"._on_interaction_complete()
+		$"NavigationRegion3D/Cubicle/Sticky Notes/StickyNotes/StaticBody3D"._on_interaction_complete()
+		$NavigationRegion3D/Cubicle/Mug1A.visible = false
+		$NavigationRegion3D/Cubicle/Mug2B.visible = false
+		$"NavigationRegion3D/Cubicle/Car Keys".visible = false
+		$"NavigationRegion3D/Cubicle/Picture Frame".visible = false
+		$"NavigationRegion3D/Cubicle/Sticky Notes".visible = false
+		EventManager.ElevatorDoorOpen = true
+		EventManager.CameFromGarage = true
 	else:
 		$Player.position = Vector3(-1.848, 0, 17.72) 
 		PlayerManager.ResetPlayer()

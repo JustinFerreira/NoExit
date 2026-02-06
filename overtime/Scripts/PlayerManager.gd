@@ -226,6 +226,11 @@ func ResetPlayer() -> void:
 	
 	AudioManager.KillerShutUp = false
 	
+	# EventManager
+	EventManager.Comingfromelevator = false
+	EventManager.ElevatorDoorOpen = false
+	EventManager.CameFromGarage = false
+	
 	
 ## Dialog Functions
 
@@ -270,9 +275,13 @@ func SavePlayerRotation():
 	#print(player_rotation_x, player_rotation_y, player_rotation_z)
 	
 func ApplyPlayerRotation():
-	if player:
+	if player and not EventManager.Comingfromelevator:
 		player.get_node("Head").rotation.x = player_rotation_x
 		player.get_node("Head").rotation.y = player_rotation_y + PI/2
+		player.get_node("Head").rotation.z = player_rotation_z 
+	else:
+		player.get_node("Head").rotation.x = player_rotation_x
+		player.get_node("Head").rotation.y = player_rotation_y - PI/2
 		player.get_node("Head").rotation.z = player_rotation_z 
 	
 func MiniGameModeOn():
