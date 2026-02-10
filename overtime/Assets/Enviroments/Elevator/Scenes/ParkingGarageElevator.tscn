@@ -129,12 +129,13 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_w7mxp"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wgsae"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wt5vp"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="ParkingGarageElevator" type="Node3D"]
 transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
 script = ExtResource("1_lu5uw")
+playerelevator = true
 
 [node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
@@ -143,16 +144,8 @@ material_override = SubResource("StandardMaterial3D_pwtol")
 mesh = ExtResource("7_aqrve")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.217485, 2.23872, 0.529455)
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.622342, 2.23872, 0.529455)
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.622342, 2.23872, -0.225751)
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.244293, 2.23872, -0.225751)
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.0461368, 0.773738, 0.529455)
+omni_range = 3.7055
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_cl1pq")
@@ -279,16 +272,16 @@ shape = SubResource("ConvexPolygonShape3D_ppnqa")
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OutSideElevator"]
-transform = Transform3D(2.49674, 0, 0, 0, 2.49674, 0, 0, 0, 2.49674, 0, 1.09066, 2.51095)
+transform = Transform3D(6.86438, 0, 0, 0, 2.49674, 0, 0, 0, 2.88292, 0, 1.09066, 2.86757)
 mesh = SubResource("BoxMesh_w7mxp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutSideElevator"]
-transform = Transform3D(2.49674, 0, 0, 0, 2.49674, 0, 0, 0, 2.49674, 0, 1.09066, 2.51095)
-shape = SubResource("ConvexPolygonShape3D_wgsae")
+transform = Transform3D(6.86438, 0, 0, 0, 2.49674, 0, 0, 0, 2.88292, 0, 1.09066, 2.86757)
+shape = SubResource("ConvexPolygonShape3D_wt5vp")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="interacted" from="OutsideButton/OutsideButton" to="OutsideButton/OutsideButton" method="_on_interacted"]
 [connection signal="interacted" from="InsideButton/InsideButton" to="InsideButton/InsideButton" method="_on_interacted"]
-[connection signal="area_entered" from="OutSideElevator" to="InsideButton/InsideButton" method="_on_out_side_elevator_area_entered"]
-[connection signal="area_exited" from="OutSideElevator" to="InsideButton/InsideButton" method="_on_out_side_elevator_area_exited"]
+[connection signal="area_entered" from="OutSideElevator" to="." method="_on_out_side_elevator_area_entered"]
+[connection signal="area_exited" from="OutSideElevator" to="." method="_on_out_side_elevator_area_exited"]

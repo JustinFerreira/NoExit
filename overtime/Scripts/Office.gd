@@ -11,6 +11,8 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if EventManager.Comingfromelevator:
+		if PlayerManager.sprint_engaged:
+			PlayerManager.player.is_sprinting = PlayerManager.sprint_engaged
 		PlayerManager.ApplyPlayerRotation()
 		$Player.position = Vector3(-41.611, 0, 8.08) 
 		EventManager.Comingfromelevator = false

@@ -253,16 +253,7 @@ transform = Transform3D(3.56177, 0, 0, 0, 0.159823, 0, 0, 0, 3.95991, 0, -0.1007
 transform = Transform3D(0.456098, 0, 0, 0, 3.00147, 0, 0, 0, 0.195233, 1.11475, 0.870145, 1.28711)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.301139, 2.23872, -0.253303)
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.306087, 2.23872, 0.574074)
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757, 2.23872, 0.573945)
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.543757, 2.23872, -0.257555)
+transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.117534, 1.2678, 0.149441)
 
 [node name="InsideButtons" type="StaticBody3D" parent="."]
 transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.721237, 0.89162, 1.13758)

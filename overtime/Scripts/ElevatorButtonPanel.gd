@@ -26,6 +26,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if AnimationManager.ElevatorFall == true:
 		$"..".position.y -= fall_speed * delta
+		PlayerManager.player.position.y -= fall_speed * delta
 		
 	
 	if $"..".position.y <= -10:

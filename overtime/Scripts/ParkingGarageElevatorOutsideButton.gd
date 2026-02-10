@@ -1,6 +1,5 @@
 extends Interactable
 
-var clickedafterexit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,10 +12,9 @@ func _process(delta: float) -> void:
 
 
 func _on_interacted(body: Variant) -> void:
-	if not clickedafterexit:
 		AudioManager.play_sound(AudioManager.ElevatorDing)
 		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 		is_interactable = false
-		clickedafterexit = true
 		$"../../AnimationPlayer".play("Take 001")
-	
+		$"../../ElevatorCollisions/DoorCollision".translate(Vector3(0,3,0))
+		$"../..".up = true

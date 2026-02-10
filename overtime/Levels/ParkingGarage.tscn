@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c11drua2sqec2"]
+[gd_scene load_steps=17 format=3 uid="uid://c11drua2sqec2"]
 
 [ext_resource type="Script" path="res://Scripts/ParkingGarage.gd" id="1_ax14i"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Assets/PlayerObjects/Battery.tscn" id="2_nsdjq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="7_hdy1n"]
 [ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="8_li5l2"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="9_3agi4"]
-[ext_resource type="PackedScene" uid="uid://ck6dwd23r45sh" path="res://Assets/Enviroments/Elevator/Scenes/ElevatorShowing.tscn" id="10_h6ca5"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_evl0o"]
 [ext_resource type="PackedScene" uid="uid://duoospejbeo0t" path="res://Assets/PlayerObjects/PlayerCar/Scenes/PlayerCarSized.tscn" id="14_ejo3n"]
 [ext_resource type="PackedScene" uid="uid://dkn32km2rbo1c" path="res://Assets/PlayerObjects/GasCanister/Scenes/GasCanisterPickUp.tscn" id="14_gvbgr"]
@@ -64,8 +63,16 @@ transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -7.08571, 1
 [node name="EnemyTest2" parent="." instance=ExtResource("8_li5l2")]
 transform = Transform3D(4.34714, 0, 0, 0, 4.34714, 0, 0, 0, 4.34714, -38.056, 7.88327, -34.2015)
 
-[node name="ParkingGarageElevator" parent="." instance=ExtResource("9_3agi4")]
+[node name="ParkingGarageElevatorF3" parent="." instance=ExtResource("9_3agi4")]
 transform = Transform3D(-1.80606, 0, -1.57891e-07, 0, 1.80606, 0, 1.57891e-07, 0, -1.80606, -6.85037, 10.38, 45.463)
+
+[node name="ParkingGarageElevatorF2" parent="." instance=ExtResource("9_3agi4")]
+transform = Transform3D(-1.80606, 0, -1.57891e-07, 0, 1.80606, 0, 1.57891e-07, 0, -1.80606, -6.85, 5.281, 45.463)
+playerelevator = false
+
+[node name="ParkingGarageElevatorF1" parent="." instance=ExtResource("9_3agi4")]
+transform = Transform3D(-1.80606, 0, -1.57891e-07, 0, 1.80606, 0, 1.57891e-07, 0, -1.80606, -6.85, 0.169, 45.463)
+playerelevator = false
 
 [node name="FarTeleport" type="MeshInstance3D" parent="." groups=["teleport_target"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.5431, 8.98239, -58.1363)
@@ -76,12 +83,6 @@ mesh = SubResource("CapsuleMesh_2vu0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.918, 8.98239, -80.0112)
 visible = false
 mesh = SubResource("CapsuleMesh_2vu0i")
-
-[node name="Elevator" parent="." instance=ExtResource("10_h6ca5")]
-transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -6.82129, 0.173181, 45.4702)
-
-[node name="Elevator2" parent="." instance=ExtResource("10_h6ca5")]
-transform = Transform3D(-1.80599, 0, -0.0163593, 0, 1.80606, 0, 0.0163593, 0, -1.80599, -6.79127, 5.28689, 45.2797)
 
 [node name="Sound Effects" type="Node" parent="."]
 
