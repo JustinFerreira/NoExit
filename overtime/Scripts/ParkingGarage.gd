@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Parking Garage Scipt
+## - the parking garage is set up depending on
+## this script and works differently depending on loop
 
 extends Node3D
 

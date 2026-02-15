@@ -1,5 +1,14 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Player Manager Script
+## - this script keeps a lot of settings variables
+## also has modes, location of player,
+## enemy,
+## volume stuff
+## close up object variables
+## states of player
+## functions for major player functions and gameplay
 
 extends Node
 
@@ -145,7 +154,11 @@ func _process(delta: float) -> void:
 	pass
 		
 
-
+# AddToInventory
+# this function takes in the parameters
+# name, weight, equippable,
+# weight currently useless
+# then adds this to the inventory list
 func AddToInventory(name: String, weight: float, equippable: bool = false):
 	var item: Dictionary
 	item.name = name
@@ -157,6 +170,9 @@ func AddToInventory(name: String, weight: float, equippable: bool = false):
 	#print(CurrentWeight)
 	Inventory.append(item)
 	
+# RemoveItemByName
+# takes a name and tries to find it in the inventory
+# if found it will remove otherwise it will just return false
 func RemoveItemByName(name: String) -> bool:
 	for item in Inventory:
 		if item.name == name:
@@ -167,7 +183,8 @@ func RemoveItemByName(name: String) -> bool:
 	#print(CurrentWeight)
 	return false
 	
-	
+# ResetPlayer
+# This function sets player stats all back to default
 func ResetPlayer() -> void:
 	Inventory = []
 	CurrentWeight = 0.0
@@ -234,14 +251,22 @@ func ResetPlayer() -> void:
 	
 ## Dialog Functions
 
+# Hint
+# This function is for a type of red Dialog
+# that appears at the top of the screen 
 func Hint(text: String, duration: float = 10.0):
 	text = "Hint: " + text
 	player.get_node("DialogControl").show_temporary_dialog(text,duration, "red")
 	
+# Dialog
+# this is for basic dialog 
+# without a panel background
 func Dialog(text: String):
 	hint = false
 	player.get_node("DialogControl").player_interact_dialog(text)
 	
+# HideDialog
+# this function hides all dialog
 func HideDialog():
 	if player.DIALOG.timer:
 		player.DIALOG.timer.stop()
@@ -249,31 +274,51 @@ func HideDialog():
 		player.DIALOG.animation_player.play("hide")
 	finishedDialogAnimation = false
 	
+# RevealDialog
+# this function shows dialog if it was suppose to
+# show up
 func RevealDialog():
 	player.DIALOG.visible = true
 	player.DIALOG.animation_player.play("reveal")
 	finishedDialogAnimation = true
 	
+# CharacterDialog
+# basic dialog with a panel behind it
 func CharacterDialog(text: String):
 	hint = false
 	player.get_node("DialogControl").player_interact_dialog_pic(text)
-	
+
+# CharacterHintDialog
+# this shows both Hint Dialog at the top of the screen
+# and character dialog with a panel at the bottom
 func CharacterHintDialog(characterText: String, hintText: String):
 	hint = true
 	player.DIALOG.player_interact_dialog_pic_and_hint(characterText, hintText)
 
+# NextDialog
+# used for MultiDialog to show the next dialog in the squence 
+# or just end the dialog if finished
 func NextDialog():
 	player.get_node("DialogControl").show_next_dialog()
 	
+# MultiDialog
+# This take an array of strings so that it can display
+# on piece of dialog one after another
 func MultiDialog(text_array: Array[String]):
 	player.get_node("DialogControl").player_interact_multi_dialog_pic(text_array)
 
+# SavePlayerRotation
+# Use for when changing scenes to keep the player facing the saem direction
+# this messes with the player mesh rotation
 func SavePlayerRotation():
 	player_rotation_x = player.get_node("Head").rotation.x
 	player_rotation_y = player.get_node("Head").rotation.y
 	player_rotation_z = player.get_node("Head").rotation.z
 	#print(player_rotation_x, player_rotation_y, player_rotation_z)
 	
+# ApplyPlayerRotation
+# When entering a new scene this is used to have the same rotation
+# as the last scene
 func ApplyPlayerRotation():
 	if player and not EventManager.Comingfromelevator:
 		player.get_node("Head").rotation.x = player_rotation_x
@@ -284,15 +329,23 @@ func ApplyPlayerRotation():
 		player.get_node("Head").rotation.y = player_rotation_y - PI/2
 		player.get_node("Head").rotation.z = player_rotation_z 
 	
+# MiniGameModeOn
+# turns on MinigameMode and sets up for minigame
 func MiniGameModeOn():
 	MinigameMode = true
 	player.CURSOR.visible = false
 	AudioManager.stop_loop("step")
 	
+# MiniGameModeOff
+# turns MinigameMode off and sets player back up for game
 func MiniGameModeOff():
 	MinigameMode = false
 	player.CURSOR.visible = true
 	
+# TestConnection
+# This is for the Battery Mini Game
+# this is to see if the player has won also 
+# sets up net steps of minigame
 func TestConnection():
 	AnimationManager.HideResetZones()
 	if PositiveConnected:
@@ -322,9 +375,9 @@ func TestConnection():
 		if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
 			AnimationManager.GasIntakeFlash.start_flashing()
 		
-		
-		
-		
+# ProcessScared
+# gets the values for volumes of sounds
+# related to killer and player proximity
 func ProcessScared():
 	if no_enemy:
 		scaredVolume = -80
@@ -348,22 +401,31 @@ func ProcessScared():
 			scaredPitch = 3
 		return 4 
 		
-		
+# has_item
+# Checks player Inventory to see if they
+# have an item
 func has_item(item_name: String) -> bool:
 	for item in Inventory:
 		if item.name == item_name:
 			return true
 	return false
 
+# KeyFobSound
+# checks if player has keys and if so
+# tries to play car beep sound
 func KeyFobSound():
 	if has_item("Car Keys"):
 		car_audio_player.playsound()
 	else:
 		CharacterDialog("Damn where did I put those keys?")
 	
+# EnemyKill
+# Starts the enemy killing the player
 func EnemyKill():
 	Enemy.kill()
 	
+# EndFocus
+# stops the focus on an examine item
 func EndFocus():
 	closeup = !closeup
 	if PictureFrame1 and PictureFrame1.should_stay_in_focus && closeup == false:
@@ -381,12 +443,17 @@ func EndFocus():
 	if Mug2A and Mug2A.should_stay_in_focus && closeup == false:
 		Mug2A.end_focus()
 		
+# SwitchEquippedItem
+# changes the players equipped item
 func SwitchEquippedItem(direction: bool):
 	if direction:
 		_switch_equipped_up()
 	else:
 		_switch_equipped_down()
 		
+# _switch_equipped_up
+# assist in switching equip item this will switch item that are higher
+# in the list 
 func _switch_equipped_up():
 	if Inventory.size() == 0:
 		EquippedItem = null
@@ -411,6 +478,9 @@ func _switch_equipped_up():
 	# If no equippable items found
 	EquippedItem = null
 
+# _switch_equipped_down
+# assist in switching equip item this will switch item that are lower
+# in the list 
 func _switch_equipped_down():
 	if Inventory.size() == 0:
 		EquippedItem = null

@@ -1,8 +1,15 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Parking Garage Elevator
+## - this gives functionality to the elevators in the parking
+## garage. opening for the player when arriving in the parking garage
+## and sensing if the player is inside or not to close the doors 
+
 
 extends Node3D
 
+# set to true for the elevator the player starts in the parking garage
 @export var playerelevator: bool
 
 @onready var animation_player = $AnimationPlayer

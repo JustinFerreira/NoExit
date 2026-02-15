@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Steering Wheel Script
+## - starts hot wire minigame, lets player know what theyre missing
+## allows player to beat game
 
 extends Interactable
 

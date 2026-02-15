@@ -1,5 +1,10 @@
 ## No Exit
 ## Overtime Studios
+## Last update 2/14/26 by Justin Ferreira
+## Pause Menu Script
+## - this script give functionality for both pause menus
+## allowing player or developer mutiple options for their
+## experience
 
 extends Control
 

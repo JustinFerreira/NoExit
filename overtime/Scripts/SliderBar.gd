@@ -1,3 +1,9 @@
+##No Exit
+## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Slider Bar Script
+## - This is used to keep the sprite of the sliderbar acurate
+
 extends AnimatedSprite2D
 
 @export var slider: HSlider

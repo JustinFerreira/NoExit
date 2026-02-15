@@ -1,5 +1,10 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Office Script
+## - this script makes the ofice state for whatever 
+## loop the player is currently in or if the player is
+## coming back up from elevator.
 
 extends Node3D
 

@@ -1,5 +1,8 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Wire Positive Script
+## - wire for battery minigame
 
 extends StaticBody3D
 

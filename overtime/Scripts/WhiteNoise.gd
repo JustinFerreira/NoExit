@@ -1,5 +1,8 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## White Noise Script
+## - plays a 3D sound in Office 
 
 extends AudioStreamPlayer3D
 

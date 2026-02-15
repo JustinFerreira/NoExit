@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last update 2/14/26 by Justin Ferreira
+## Phone ringing script
+## - this script makes a 3D sound play randomly
+## within a certain frame of time
 
 extends AudioStreamPlayer3D
 

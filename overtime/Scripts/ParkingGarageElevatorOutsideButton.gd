@@ -1,3 +1,10 @@
+## No Exit
+## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Parking Garage Elevator Outside Button 
+## - This button will open up the elevator
+## for the player to get in
+
 extends Interactable
 
 

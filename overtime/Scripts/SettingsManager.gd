@@ -1,5 +1,10 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Settings Manager Script
+## - This file creates the settings config file in userdata
+## also stores other settings to be used and saves and reads
+## settings for or from previous/future runs
 
 extends Node
 

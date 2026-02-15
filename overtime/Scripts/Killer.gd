@@ -1,6 +1,8 @@
 ## No Exit
 ## Overtime Studios
-##
+## Last updated 2/14/26 by Justin Ferreira
+## Killer Scipt
+## - controls killer movement and actions
 
 extends CharacterBody3D
 

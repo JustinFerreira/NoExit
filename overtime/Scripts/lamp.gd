@@ -1,3 +1,9 @@
+## No Exit
+## Overtime Studios
+## Last updated 2/14/26 by Andrew Lang
+## Lamp Script
+## - this controls flicker of lamp on main menu
+
 extends Node3D
 @onready var lamp_light = $LampLight
 @onready var m_lamp = $MLamp

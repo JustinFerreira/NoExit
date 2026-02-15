@@ -1,12 +1,19 @@
 ## No Exit
 ## Overtime Studios
+## Last update 2/14/26 by Justin Ferreira
+## Player Script
+## - this script contains all player input logic, 
+## assist with camera movements,
+## show some UI,
+## inventory,
+## some sound volumes,
+## and some player settings
 
 extends CharacterBody3D
 
 var speed
 const WALK_SPEED = 5.0
 const SPRINT_SPEED = 7.5
-const JUMP_VELOCITY = 4.5
 var SENSITIVITY = PlayerManager.Sensitivity
 var gravity = true
 

@@ -1,5 +1,8 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Water Dripping Script
+## - plays a 3D sound of water dripping in the garage 
 
 extends AudioStreamPlayer3D
 

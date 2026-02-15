@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26
+## Npc Sounds Script
+## - this is for npcs that just sit st their desk 
+## so they can spit out random song on an interval
 
 extends AudioStreamPlayer3D
 

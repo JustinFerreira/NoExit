@@ -1,6 +1,8 @@
-## No Exit
+##No Exit
 ## Overtime Studios
-##
+## Last updated 2/14/26 by Justin Ferreira
+## Gas Canister Script
+## - this is the pickup item
 
 extends Interactable
 
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 func _on_interacted(body: Variant) -> void:
 	
 	AnimationManager.GasIntakeFlash.start_flashing()
-	AnimationManager.GasIntakeFlash.is_interactable = true
+	AnimationManager.GasIntakeFlash.toggle_interactable(true)
 	
 	AudioManager.play_sound(AudioManager.ItemPickup)
 	PlayerManager.AddToInventory("Gas Canister", 1.5)

@@ -1,27 +1,41 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Gas Intake Canister Script
+## - This scripts hooks up the gascanister to work
+## while the gas canister minigame is on so it rises
+## and falls properly. It also moves the sweetspot and
+## gives the player score for the game
 
 extends MeshInstance3D
 
+# 
 @onready var GasIntakeSweetSpot = $"../GasIntakeSweetSpot"
 @onready var progress_bar = $"../GasIntakeCam/GasIntakeGame/TextureProgressBar"
 
 var progress_bar_value = 0.0
 
+# Gas Canister movement variables
 var fall_speed = 30.5
+
+var lift_speed = 30
+
+# progress variables
 var car_filled = 0.0
 
 var fill_speed = 0.1
 
-var lift_speed = 30
 
+
+
+## range of points for gas canister and sweet spot
 var lowestPointSweetSpot = 10.098 
 var lowestPointGasCanister = 1.000
 
 var highestPointGasCanister = 150.9
 var highestPointSweetSpot = 100.6
 
-# Add these variables at the top of your script
+# sweet spot movement variables
 var sweet_spot_move_speed = 25.5  # Adjust for faster/slower movement
 var sweet_spot_direction = 1     # 1 for moving up, -1 for moving down
 
@@ -33,7 +47,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	## Make sure Minigame Two is on 
+	# Make sure Minigame Two is on 
 	if PlayerManager.minigameTwo:
 		AudioManager.play_sound_loop(AudioManager.Glug, "glug")
 		
@@ -41,11 +55,11 @@ func _process(delta: float) -> void:
 		
 		
 		
-		## Get the sweet spot node's Y position
+		# Get the sweet spot node's Y position
 		var sweet_spot_y = GasIntakeSweetSpot.global_position.y
 		var sweet_spot_tolerance = 0.025  # Adjust this value for how close it needs to be
 		
-		
+		# correcting canister size
 		var canister_height = 0.5  # Adjust this value based on your canister size
 		var canister_top_y = self.global_position.y 
 		var canister_bottom_y = self.global_position.y - (canister_height)
@@ -74,7 +88,9 @@ func _process(delta: float) -> void:
 		
 		
 
-
+# _on_progress_bar_value_changed
+# this function takes in the parameter value from the progress bar
+# this then compares the value to pre determined values to have different effects
 func _on_progress_bar_value_changed(value: float) -> void:
 	if value >= 25:
 		if $"../GasIntakeCam/GasIntakeGame/MouseClicking":
@@ -98,6 +114,9 @@ func _on_progress_bar_value_changed(value: float) -> void:
 		if not PlayerManager.minigameThreePassed and PlayerManager.has_item("Battery"):
 			AnimationManager.HoodFlash.start_flashing()
 		
+# _move_sweet_spot
+# This fucntion move the "sweet spot" up or down
+# between its max height and lowest point
 func _move_sweet_spot(delta: float) -> void:
 	
 	# Move the sweet spot

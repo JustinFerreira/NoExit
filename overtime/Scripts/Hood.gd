@@ -1,13 +1,22 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Hood Script
+## - This script controls the interactable object
+## Hood on the car and setting up of the Battery Minigame
+## this also plays the opening of the hood animation
+## this is only active when player has battery
  
 extends Interactable
 
+# Holds state of gas tank for animation
 var open = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	is_interactable = false
+	# allowing access to self in later scipts
 	AnimationManager.HoodFlash = self
 	AnimationManager.HoodAnimationPlayer = $"../../HoodAnimationPlayer"
 	AnimationManager.HoodCollision = $HoodCollisionShape3D

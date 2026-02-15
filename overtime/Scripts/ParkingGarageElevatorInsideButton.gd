@@ -1,3 +1,10 @@
+## No Exit
+## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Parking Garage Elevator Inside Button
+## - This button will close elevator doors and bring player
+## to the Office
+
 extends Interactable
 
 var fall_speed = 2.0

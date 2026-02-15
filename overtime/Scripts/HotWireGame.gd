@@ -1,5 +1,10 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## - Hot Wire Game Script
+## this script is to complete the hotware minigame
+## currently this only take a press of a single button
+## once the game has been activated
 
 extends Control
 

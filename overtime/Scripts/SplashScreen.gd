@@ -1,5 +1,9 @@
-## No Exit
+##No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Splash Screen Script
+## - This script is the first thing the player see when entering the game
+## this screen show off logo and studio
 
 extends Control
 

@@ -1,3 +1,9 @@
+##No Exit
+## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Settings Menu Script
+## - This menu controls the players settings changes
+
 extends Control
 
 ## Sound Settings

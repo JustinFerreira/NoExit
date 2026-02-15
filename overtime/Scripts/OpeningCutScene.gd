@@ -1,10 +1,11 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/23/26 by Justin Ferreira
+## Last upadated 2/14/26 by Justin Ferreira
 ## OpeningCutScne Script
 ## - This is the scene at the begining of the game
-## gets scene ready to start game and 
-## 
+## gets scene ready to start game 
+
+
 extends Node3D
 
 @onready var target = $Player

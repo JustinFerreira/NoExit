@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## - Main Menu Script
+## this script makes the main menu work proplery
+## giving buttons functionality so they lead to the correct places.
 
 extends CanvasLayer
 

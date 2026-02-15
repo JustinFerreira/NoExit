@@ -1,5 +1,8 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Killer 3D Audio Script
+## - this controls the 3D audio of the killer
 
 extends AudioStreamPlayer3D
 

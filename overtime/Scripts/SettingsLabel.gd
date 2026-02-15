@@ -1,5 +1,8 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Settings Label Script
+## - This script updates the number for sliders in settings menu
 
 extends Label
 

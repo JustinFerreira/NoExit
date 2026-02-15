@@ -1,5 +1,9 @@
 ## No Exit
 ## Overtime Studios
+## Last updated 2/14/26 by Justin Ferreira
+## Npc Random Dialogue Script
+## - this is for npcs that just sit st their desk 
+## so they can spit out random stuff on interaction
 
 extends Interactable
 
