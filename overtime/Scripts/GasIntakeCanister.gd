@@ -97,7 +97,8 @@ func _on_progress_bar_value_changed(value: float) -> void:
 			$"../GasIntakeCam/GasIntakeGame/MouseClicking".visible = false
 			$"../GasIntakeCam/GasIntakeGame/Label".visible = false
 	if value == 100:
-		AnimationManager.GasCapAnimationPlayer.play_backwards("GasCap")
+		AnimationManager.GasCapAnimationPlayer.play("GasCapClose")
+		AudioManager.play_sound(AudioManager.GasCapClose)
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.minigameTwo = false
 		PlayerManager.MiniGameModeOff()

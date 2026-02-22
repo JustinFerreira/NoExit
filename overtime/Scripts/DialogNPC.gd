@@ -262,7 +262,7 @@ func talkToPlayer():
 	if not has_initial_dialog_played:
 		PlayerManager.talkToJanitor = true
 		PlayerManager.multiDialog = true
-		PlayerManager.CharacterDialog("Hey Wait up!")
+		PlayerManager.CharacterDialog(EventManager.janitor_didnt_speak_text)
 		has_initial_dialog_played = true
 		
 		# Store original player rotation BEFORE rotating camera

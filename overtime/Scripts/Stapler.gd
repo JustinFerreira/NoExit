@@ -6,6 +6,9 @@
 ## it should be gone after first death. Here we also set up the
 ## dialog for when examining it
 
+## Side Note when making new ExaminableItem make sure to make
+## a reference in PlayerManager
+
 extends ExaminableItem
 
 
@@ -17,5 +20,4 @@ func _ready() -> void:
 		_on_interaction_complete()
 		return
 	super._ready()
-	first_time_dialog = EventManager.stapler_first_pick_dialog
 	normal_dialog = EventManager.stapler_normal_dialog

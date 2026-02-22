@@ -1,39 +1,74 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbmusn3or87np"]
+[gd_scene load_steps=9 format=3 uid="uid://yih5mgsk2qf2"]
 
 [ext_resource type="Script" path="res://Scripts/CarKeys.gd" id="1_e3rvt"]
 [ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Assets/PlayerObjects/CarKeys/Models/M_CarKeys_Unwrapped.obj" id="2_4tk0o"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_k7qgf"]
-[ext_resource type="Texture2D" uid="uid://cquhqejisxesr" path="res://Assets/PlayerObjects/CarKeys/Textures/M_CarKeys_Unwrapped_BaseColor.png" id="3_s1l0h"]
-[ext_resource type="Texture2D" uid="uid://d3jij7ulphwu2" path="res://Assets/PlayerObjects/CarKeys/Textures/M_CarKeys_Unwrapped_Metalic_and_Rougness.png" id="4_lhqy8"]
-[ext_resource type="Texture2D" uid="uid://ka67dbqsinaf" path="res://Assets/PlayerObjects/CarKeys/Textures/M_CarKeys_Unwrapped_Normal.png" id="5_3cm3y"]
+[ext_resource type="Material" uid="uid://dqgwmdsypdlvg" path="res://Assets/Materials/CarKeys.tres" id="3_jcbng"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj5ta"]
-albedo_texture = ExtResource("3_s1l0h")
-metallic = 1.0
-metallic_texture = ExtResource("4_lhqy8")
-metallic_texture_channel = 2
-roughness_texture = ExtResource("4_lhqy8")
-roughness_texture_channel = 1
-normal_enabled = true
-normal_texture = ExtResource("5_3cm3y")
-ao_enabled = true
-ao_texture = ExtResource("4_lhqy8")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qx8xk"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1t6s8"]
 points = PackedVector3Array(4.25133, 0.318922, 5.69323, -0.919455, -0.0946791, -4.84993, -0.919455, 0.318922, -4.84993, -8.77408, -0.0946791, 0.318513, -1.95309, 2.38614, 1.97187, 1.97681, 1.76574, -1.95577, 4.45858, -0.30148, 5.27963, -4.43098, 1.76574, -0.301363, 1.97681, 2.38614, 0.937337, 2.59596, -0.0946791, -1.74949, -8.77408, 0.525723, -0.301363, 2.59596, 1.14534, -2.36937, -1.74585, 2.38614, 0.112239, 3.42365, 0.318922, 5.69323, -8.35959, 0.318922, 0.524788, 3.83684, -0.30148, 5.8995, -1.33265, 1.97254, 2.79907, 0.11548, 2.38614, 2.17709, -0.919455, 0.525723, -4.64365, 4.04409, 0.732524, 4.6587, -8.77408, -0.0946791, -0.0950882, 4.45858, -0.0946791, 4.86603, 2.60774, 1.33985, -2.05551, 1.97681, 2.38614, 0.524788, -8.77408, 0.525723, 0.112239, -8.15234, 0.732524, -0.301363, -8.77408, 0.112122, -0.301363, 4.45858, 0.318922, 5.48695, 3.13561, 0.356255, -0.258728, 2.50967, 1.91727, 0.912826, 1.56361, 1.76574, -1.95577, -0.712209, 0.525723, -4.64365)
 
-[node name="Car Keys" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
-script = ExtResource("1_e3rvt")
-outline_material = ExtResource("2_k7qgf")
-mesh = NodePath("CarKeys")
-has_outline = true
+[sub_resource type="Animation" id="Animation_os3qy"]
+resource_name = "KeysFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeysMesh:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
-[node name="CarKeys" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_mj5ta")
+[sub_resource type="Animation" id="Animation_3cbaf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KeysMesh:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yf545"]
+_data = {
+"KeysFade": SubResource("Animation_os3qy"),
+"RESET": SubResource("Animation_3cbaf")
+}
+
+[node name="CarKeys" type="Node3D"]
+
+[node name="KeysMesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_jcbng")
 mesh = ExtResource("2_4tk0o")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(4.60878, 0, 0, 0, 4.60878, 0, 0, 0, 4.60878, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_qx8xk")
+[node name="StaticBody3D" type="StaticBody3D" parent="KeysMesh" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+script = ExtResource("1_e3rvt")
+target_mesh = ExtResource("2_4tk0o")
+target_material = ExtResource("3_jcbng")
+player_manager_reference = "Keys"
+animation_name = "KeysFade"
+animation_fade_player = NodePath("../../KeysFade")
+can_be_stored = true
+outline_material = ExtResource("2_k7qgf")
+mesh = NodePath("..")
+has_outline = true
 
-[connection signal="interacted" from="." to="." method="_on_interacted"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeysMesh/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_1t6s8")
+
+[node name="KeysFade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yf545")
+}
+
+[connection signal="interacted" from="KeysMesh/StaticBody3D" to="KeysMesh/StaticBody3D" method="_on_interacted"]

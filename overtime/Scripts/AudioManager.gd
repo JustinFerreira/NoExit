@@ -71,6 +71,20 @@ var SkullCrush = load("res://Assets/Audio/SFX/headcrushFinal.mp3")
 
 var HoodOpen = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
 
+var Thud4 = load("res://Assets/Audio/SFX/thud4.wav")
+
+var GasCapClose = load("res://Assets/Audio/SFX/gascapdoor_close1.mp3")
+
+var GasCapOpen = load("res://Assets/Audio/SFX/gascapdoor_open2.mp3")
+
+var CarStartNoGas = load("res://Assets/Audio/SFX/car-engine-fail.mp3")
+
+var CarStart = load("res://Assets/Audio/SFX/car-engine-success.mp3")
+
+# Stingers
+
+var ImportantItemStinger = load("res://Assets/Audio/Stingers/spookystinger.mp3")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## At creation of project assign the MusicAudio Player to the bus Music

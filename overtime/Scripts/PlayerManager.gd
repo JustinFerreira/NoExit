@@ -143,6 +143,8 @@ var Stapler
 var StickyNotes
 var Mug1A
 var Mug2A
+var Keys
+var Box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -417,7 +419,7 @@ func KeyFobSound():
 	if has_item("Car Keys"):
 		car_audio_player.playsound()
 	else:
-		CharacterDialog("Damn where did I put those keys?")
+		CharacterDialog(EventManager.key_fob_no_keys)
 	
 # EnemyKill
 # Starts the enemy killing the player
@@ -442,6 +444,12 @@ func EndFocus():
 		
 	if Mug2A and Mug2A.should_stay_in_focus && closeup == false:
 		Mug2A.end_focus()
+		
+	if Keys and Keys.should_stay_in_focus && closeup == false:
+		Keys.end_focus()
+		
+	if Box and Box.should_stay_in_focus && closeup == false:
+		Box.end_focus()
 		
 # SwitchEquippedItem
 # changes the players equipped item

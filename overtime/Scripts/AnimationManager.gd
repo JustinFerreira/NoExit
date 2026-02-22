@@ -33,7 +33,6 @@ var ElevatorDoorButtonAnimationPlayer
 var ElevatorPanelAnimationPlayer
 var BoxFlashAnimationPlayer
 var PictureFrame1FlashAnimationPlayer
-var StaplerFlashAnimationPlayer
 var StickyNotesFlashAnimationPlayer
 var Mug1AFlashAnimationPlayer
 var Mug2AFlashAnimationPlayer

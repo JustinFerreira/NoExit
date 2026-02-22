@@ -25,6 +25,7 @@ func _on_interacted(body: Variant) -> void:
 	AnimationManager.GasIntakeFlash.toggle_interactable(true)
 	
 	AudioManager.play_sound(AudioManager.ItemPickup)
+	AudioManager.play_sound(AudioManager.ImportantItemStinger)
 	PlayerManager.AddToInventory("Gas Canister", 1.5)
 	PlayerManager.gotGas_Canister = true
 	

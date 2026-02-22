@@ -42,12 +42,12 @@ func _on_interacted(body: Variant) -> void:
 		AudioManager.play_sound(AudioManager.ElevatorOpenDoor)
 		if PlayerManager.Loop0 and not EventManager.CameFromGarage and not messageplayed:
 			if PlayerManager.Hold_Shift:
-				PlayerManager.Hint("Hold shift, to sprint")
+				PlayerManager.Hint(EventManager.elevator_hint_1)
 				messageplayed = true
 			else:
-				PlayerManager.Hint("Use shift to toggle sprint")
+				PlayerManager.Hint(EventManager.elevator_hint_2)
 				messageplayed = true
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
 	elif not PlayerManager.has_item("Car Keys"):
-		PlayerManager.CharacterDialog("Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole")
+		PlayerManager.CharacterDialog(EventManager.elevator_no_keys)
 	

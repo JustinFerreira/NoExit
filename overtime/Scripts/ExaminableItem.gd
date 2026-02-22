@@ -7,6 +7,11 @@
 ## the aniamtion consist of dialogue and bringing the viewed object
 ## closer to the players camera
 
+## Side note when making more Examinable Items make sure
+## to add their reference to PlayerManger (Maybe change to examine item manager?)
+## also make sure to attach the on interact function properly to the
+## static body
+
 extends Interactable
 class_name ExaminableItem
 
@@ -36,7 +41,7 @@ var is_in_interaction: bool = false
 var should_stay_in_focus: bool = false
 
 # Rotation speed (radians per second)
-@export var rotation_speed: float = 35.0
+@export var rotation_speed: float = 55.0
 
 # Current rotation angle
 var current_rotation: float = 0.0
@@ -45,25 +50,14 @@ var current_rotation: float = 0.0
 @export var player_manager_reference: String = ""  # e.g., "PictureFrame1", "Mug1A"
 @export var animation_name: String = ""  # e.g., "PictureFrame1Fade", "Mug1AFade"
 @export var animation_fade_player: AnimationPlayer
-@export var first_time_dialog: String = "I like this item!"
 @export var first_time_hint: String = "Press A, D or the Left, Right arrow keys to rotate object while examing"
 @export var normal_dialog: String = "I like this item!"
 @export var keys_hint_dialog: String = "I should grab my keys and get out of here"
 @export var can_be_stored: bool = false  # If this item can be stored in the box
 
-# Flash system
-@export var flash_animation_manager_reference: String
-@export var flash_animation_player: AnimationPlayer
-@export var flash_animation_name: String
-@export var flash_mesh: MeshInstance3D
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
-	if flash_animation_player and flash_animation_manager_reference:
-		AnimationManager.set(flash_animation_manager_reference, flash_animation_player)
-		AnimationManager.ExaminItemActivation(flash_animation_name)
-		flash_animation_player.play(flash_animation_name)
 	# Set the PlayerManager reference if specified
 	if player_manager_reference != "":
 		PlayerManager.set(player_manager_reference, self)
@@ -78,12 +72,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if PlayerManager.EquippedItem == "Box" and can_be_stored and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
-		if flash_mesh:
-			flash_mesh.visible = true
 		start_flashing()
 	else:
-		if flash_mesh:
-			flash_mesh.visible = false
 		stop_flashing()
 
 func _create_debug_mesh() -> void:
@@ -141,9 +131,6 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 
 func _on_interacted(body: Variant) -> void:
 	PlayerManager.ExamingItem = self
-	if flash_mesh:
-		flash_mesh.visible = false
-	
 	# Play animation if specified
 	if animation_name != "" and animation_fade_player:
 		animation_fade_player.play(animation_name)
@@ -221,7 +208,7 @@ func _on_interacted(body: Variant) -> void:
 	
 	# Handle dialog based on game state
 	if not PlayerManager.examed:
-		PlayerManager.CharacterHintDialog(first_time_dialog, first_time_hint)
+		PlayerManager.CharacterHintDialog(normal_dialog, first_time_hint)
 		PlayerManager.examed = true
 	elif PlayerManager.DeskItems.size() == 3 and not PlayerManager.has_item("Car Keys"):
 		PlayerManager.CharacterHintDialog(normal_dialog, keys_hint_dialog)
@@ -247,12 +234,15 @@ func end_focus() -> void:
 		_on_interaction_complete()
 		PlayerManager.DeskItems.append(self)
 		get_parent().visible = false
+		AudioManager.play_sound(AudioManager.ItemPickup)
+	elif player_manager_reference == "Keys":
+		_on_interaction_complete()
+		get_parent().visible = false
+		AudioManager.play_sound(AudioManager.keys)
 	else:
 		# Play animation backwards if specified
 		if animation_name != "" and animation_fade_player:
 			animation_fade_player.play_backwards(animation_name)
-		if PlayerManager.EquippedItem == "Box" and can_be_stored:
-			flash_mesh.visible = false
 	
 func _hide_meshes_in_children(node: Node) -> void:
 	# Hide if this node is a MeshInstance3D (but not our debug mesh)

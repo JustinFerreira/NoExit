@@ -47,13 +47,13 @@ func handle_collision(colliding_body):
 		self.visible = false
 	if PlayerManager.NegativeConnected == false && (colliding_body.name == "PositiveBattery" or colliding_body.is_in_group("resetzone")):
 		AnimationManager.HideResetZones()
-		PlayerManager.CharacterDialog("Oh I probbaly shouldn't do that")
+		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
 		AnimationManager.NegativeBatteryFlash.visible = false
 	if colliding_body.name == "WirePositive":
 		AnimationManager.HideResetZones()
-		PlayerManager.CharacterDialog("Oh I probbaly shouldn't do that")
+		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
 		PlayerManager.player.grabbed_object = null
 		self.position = orginal_position
 		AnimationManager.NegativeBatteryFlash.visible = false

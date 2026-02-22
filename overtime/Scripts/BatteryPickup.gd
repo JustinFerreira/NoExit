@@ -22,6 +22,7 @@ func _on_interacted(body: Variant) -> void:
 	AnimationManager.HoodFlash.toggle_interactable(true)
 	#pick up sound
 	AudioManager.play_sound(AudioManager.ItemPickup)
+	AudioManager.play_sound(AudioManager.ImportantItemStinger)
 	#add to inventory
 	PlayerManager.AddToInventory("Battery", 1.0)
 	#changes player state (EventManager?)

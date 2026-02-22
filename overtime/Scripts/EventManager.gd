@@ -15,6 +15,10 @@ var CameFromGarage = false
 
 ## Janitor Dialog
 
+#didn't speak before elevator
+var janitor_didnt_speak_text: String = "Hey wait up!"
+
+#multidialog
 var janitor_text_array: Array[String] = [
 	"Last day, right?",
 	"Quite a familiar sight, watching a kid turn their back on this, and pardon my French",
@@ -26,6 +30,13 @@ var janitor_text_array: Array[String] = [
 	"Once it's got its claws in you, it won't want to let go."
 ]
 
+## Key Fob
+
+var key_fob_no_keys: String = "Damn where did I put those keys?"
+
+## Random Npc Busy Dialog
+
+var random_npc_busy_dialog: Array[String] = ["I'm busy.","I'm working right now.","Can't you see I'm working.","There's lots to be done.","Paperwork paperwork paperwork","I'm really busy right now."]
 
 ## Solo Hints
 
@@ -48,9 +59,30 @@ var loop0_get_in_car: String = "Can't wait to get home let me start this car and
 
 var loop0_hood_no_battery: String = "Huh I guess I have no battery"
 
+var loop0_no_battery: String = "Huh the cars not starting I better check my battery"
+
+## Office wake up Dialog
+
+var office_wake_up_loop0: String = "Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever. Might as well pack up."
+var office_wake_up_loop0_hint: String = "Click to skip dialog"
+
+var office_wake_up_loop1: Array[String] = ["Oh thank god…oh thank god it was just a dream. Ok…Ok, good. I need to stop pulling all-nighters like that. It’s screwing with my head.",
+"It looks like I already took everything down.",
+"Why would I come back up ... It doesn’t matter, I’m leaving for good"]
+
+var office_wake_up_no_keys: String = "Where did I leave my keys?"
+
 ## Minigame
 
+#Hotwire 
+
 var hotwire_reminder: String = "I better hot wire my own car like I always do right under the steering wheel."
+
+var hotwire_finished: String = "Great now I can start my car and get out of here, cause hot wiring tottally does not start the car."
+
+#Battery
+
+var battery_minigame_resetzone: String = "Oh I probbaly shouldn't do that"
 
 ## Pickup Dialogs
 
@@ -89,6 +121,21 @@ var mug2a_normal_dialog: String  = "I forgot why I have two mugs. Well, guess it
 #Picture Frame 1
 var pictureframe1_first_pick_dialog: String  = "What would they think? Probably go on some kind of tirade about “building their business with their own two hands,” or some meaningless garbage like that."
 var pictureframe1_normal_dialog: String  = "What would they think? Probably go on some kind of tirade about “building their business with their own two hands,” or some meaningless garbage like that."
+
+## Office Elevator
+
+#spirnt hint toggle
+
+var elevator_hint_1: String = "Hold shift, to sprint"
+
+#sprint hint hold
+
+var elevator_hint_2: String = "Use shift to toggle sprint"
+
+#doesnt have keys
+
+var elevator_no_keys: String = "Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -22,6 +22,6 @@ func _on_interacted(body: Variant) -> void:
 	GetRandomDialog()
 	
 func GetRandomDialog():
-	var randomDialog = ["I'm busy.","I'm working right now.","Can't you see I'm working.","There's lots to be done.","Paperwork paperwork paperwork","I'm really busy right now."]
+	var randomDialog = EventManager.random_npc_busy_dialog
 	var random_index = randi() % randomDialog.size()
 	PlayerManager.CharacterDialog(randomDialog[random_index])

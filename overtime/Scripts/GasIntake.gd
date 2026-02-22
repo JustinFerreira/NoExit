@@ -40,6 +40,7 @@ func _on_interacted(body: Variant) -> void:
 	#checks if needs to play animation
 	if not open:
 		AnimationManager.GasCapAnimationPlayer.play("GasCap")
+		AudioManager.play_sound(AudioManager.GasCapOpen)
 		open = true
 	
 	# Turn off flashing for car objects 

@@ -84,12 +84,10 @@ func _on_animation_finished(anim_name: String):
 		PlayerManager.player.CURSOR.visible = true
 		player_camera.current = true
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
-			PlayerManager.Dialog("Where did I leave my keys?")
+			PlayerManager.Dialog(EventManager.office_wake_up_no_keys)
 		if PlayerManager.Loop0:
-			PlayerManager.CharacterHintDialog("Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever. Might as well pack up.",
-			"Click to skip dialog")
+			PlayerManager.CharacterHintDialog(EventManager.office_wake_up_loop0,
+			EventManager.office_wake_up_loop0_hint)
 		else:
 			PlayerManager.startMultiDialog = false
-			PlayerManager.MultiDialog(["Oh thank god…oh thank god it was just a dream. Ok…Ok, good. I need to stop pulling all-nighters like that. It’s screwing with my head.",
-			"It looks like I already took everything down.",
-			"Why would I come back up ... It doesn’t matter, I’m leaving for good"])
+			PlayerManager.MultiDialog(EventManager.office_wake_up_loop1)

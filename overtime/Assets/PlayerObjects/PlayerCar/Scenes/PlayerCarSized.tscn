@@ -1,6 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://duoospejbeo0t"]
+[gd_scene load_steps=54 format=3 uid="uid://duoospejbeo0t"]
 
-[ext_resource type="Material" uid="uid://duh0xxtb21cug" path="res://Assets/Materials/PlayerCar.tres" id="1_vb600"]
+[ext_resource type="Material" path="res://Assets/Materials/PlayerCar.tres" id="1_vb600"]
 [ext_resource type="ArrayMesh" uid="uid://dbkbutiyvkc4o" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarBodyPlayer.obj" id="2_mq41k"]
 [ext_resource type="ArrayMesh" uid="uid://drmaajb32b5nv" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarDoorPlayer.obj" id="3_u7x6o"]
 [ext_resource type="Script" path="res://Scripts/CarDoor.gd" id="4_3ldg1"]
@@ -17,7 +17,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bi5jikhfvlko6" path="res://Assets/PlayerObjects/PlayerCar/Models/M_Steering.obj" id="13_3bkhn"]
 [ext_resource type="Script" path="res://Scripts/GasIntake.gd" id="13_n0en5"]
 [ext_resource type="ArrayMesh" uid="uid://b7lf47ytya0od" path="res://Assets/PlayerObjects/PlayerCar/Models/M_CarInterior1.obj" id="14_ba7ag"]
-[ext_resource type="Material" uid="uid://by51qtnhyba6q" path="res://Assets/Materials/Tire.tres" id="15_rbyfn"]
+[ext_resource type="Material" path="res://Assets/Materials/Tire.tres" id="15_rbyfn"]
 [ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/PlayerObjects/SpareTire/Models/M_SpareTire_Unwrapped.obj" id="16_lukmh"]
 [ext_resource type="Script" path="res://Scripts/HotWireGame.gd" id="17_4rwam"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="18_w3f54"]
@@ -311,7 +311,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_5wi3a"]
 resource_name = "GasCap"
-length = 0.25
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -319,10 +319,10 @@ tracks/0/path = NodePath("GasCap:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -331,10 +331,10 @@ tracks/1/path = NodePath("GasCap:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.233333, 0.3, 0.366667, 0.433333, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.45993, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qqahc"]
@@ -364,9 +364,38 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_mr2rp"]
+resource_name = "GasCapClose"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GasCap:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.45993, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GasCap:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ia1i"]
 _data = {
 "GasCap": SubResource("Animation_5wi3a"),
+"GasCapClose": SubResource("Animation_mr2rp"),
 "RESET": SubResource("Animation_qqahc")
 }
 
@@ -606,7 +635,7 @@ offset_bottom = 279.0
 text = "HOT WIRE CONFIRM"
 
 [node name="HoodCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 2.98023e-08, -1.49012e-08, 7.66306e-09, 0.229523, 0.973303, 3.24269e-08, -0.973303, 0.229523, -36.2005, 93.6456, 174.394)
+transform = Transform3D(1, 2.98024e-08, -1.49011e-08, 7.66302e-09, 0.229522, 0.973303, 3.24269e-08, -0.973303, 0.229522, -36.2005, 93.6456, 174.394)
 
 [node name="HoodGame" type="Control" parent="HoodCam"]
 visible = false
