@@ -36,7 +36,7 @@ func pause():
 		#$ColorRect.visible = true
 	#$SettingsMenu.visible = false
 	#Button clikc sound
-	await AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	PlayerManager.player.CURSOR.visible = false
 	if PlayerManager.player.DIALOG.visible:

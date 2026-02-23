@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/23/26 by Justin Ferreira
+## Last updated 1/23/26 by Justin Ferreira
 ## Examinable Item Script
 ## - This script makes an item which can be viewed 
 ## this item state of viewing locks the player in an animation
@@ -30,8 +30,8 @@ var debug_mesh: MeshInstance3D
 @export var target_scale: Vector3 = Vector3.ONE
 
 # Adjustable parameters for the focus behavior
-@export var focus_distance: float = 1.2  # Distance in front of camera
-@export var vertical_offset: float = -0.7  # Vertical offset from camera height (negative = lower)
+@export var focus_distance: float = 0.99  # Distance in front of camera
+@export var vertical_offset: float = -0.5  # Vertical offset from camera height (negative = lower)
 @export var rotation_intensity: float = 1.0  # How much to rotate (0 = no rotation, 1 = full rotation)
 @export var scale_multiplier: float = 1.5  # How much to scale the object during focus
 
@@ -55,6 +55,16 @@ var current_rotation: float = 0.0
 @export var keys_hint_dialog: String = "I should grab my keys and get out of here"
 @export var can_be_stored: bool = false  # If this item can be stored in the box
 
+
+@export var wall_distance: float = -0.8  # meters behind the object
+@export var use_dark_background: bool = false
+var background_wall: MeshInstance3D
+
+# Wall fade management
+var wall_fade_tween: Tween
+var wall_is_fading_out: bool = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
@@ -75,6 +85,10 @@ func _process(delta: float) -> void:
 		start_flashing()
 	else:
 		stop_flashing()
+	
+	# Update background wall during examination
+	if is_in_interaction and use_dark_background and background_wall:
+		_update_background_wall()
 
 func _create_debug_mesh() -> void:
 	# Remove any existing debug mesh
@@ -159,6 +173,10 @@ func _on_interacted(body: Variant) -> void:
 	# Adjust height with vertical offset
 	focus_position.y = camera_transform.origin.y + vertical_offset
 	
+	# NEW: Create dark background wall if enabled
+	if use_dark_background:
+		_create_background_wall(focus_position, camera_transform)
+
 	# Set up the debug mesh at the original position
 	debug_mesh.global_position = global_position
 	debug_mesh.global_rotation = global_rotation
@@ -229,6 +247,27 @@ func end_focus() -> void:
 	PlayerManager.examining = false
 	PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
+	
+	# Start fade-out for background wall if it exists
+	if background_wall:
+		# Kill any ongoing fade tween (e.g., fade-in still running)
+		if wall_fade_tween:
+			wall_fade_tween.kill()
+			wall_fade_tween = null
+		
+		# Get the material (unique to this wall)
+		var material = background_wall.mesh.material
+		if material:
+			wall_is_fading_out = true
+			wall_fade_tween = create_tween()
+			wall_fade_tween.tween_property(material, "albedo_color", Color(0, 0, 0, 0), 0.5) \
+				.set_ease(Tween.EASE_OUT)
+			wall_fade_tween.finished.connect(_on_background_wall_fade_out_complete)
+		else:
+			# No material, just free immediately
+			background_wall.queue_free()
+			background_wall = null
+			wall_is_fading_out = false
 	
 	if PlayerManager.EquippedItem == "Box" and can_be_stored:
 		_on_interaction_complete()
@@ -308,3 +347,76 @@ func _apply_rotation() -> void:
 	if debug_mesh and debug_mesh.visible:
 		var current_rot = debug_mesh.global_rotation
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
+
+
+func _create_background_wall(focus_position: Vector3, camera_transform: Transform3D):
+	# Remove any existing wall
+	if background_wall:
+		background_wall.queue_free()
+		background_wall = null
+	
+	# Kill any existing fade tween
+	if wall_fade_tween:
+		wall_fade_tween.kill()
+		wall_fade_tween = null
+	wall_is_fading_out = false
+	
+	# Create a new QuadMesh
+	background_wall = MeshInstance3D.new()
+	background_wall.name = "BackgroundWall"
+	
+	var quad = QuadMesh.new()
+	quad.size = Vector2(100, 100)
+	
+	# Create material with transparency enabled
+	var material = StandardMaterial3D.new()
+	material.albedo_color = Color(0, 0, 0, 0)   # Start fully transparent
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.params_cull_mode = BaseMaterial3D.CULL_DISABLED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA  # Enable alpha transparency
+	
+	quad.material = material
+	background_wall.mesh = quad
+	
+	# Add to scene
+	get_tree().current_scene.add_child(background_wall)
+	background_wall.owner = get_tree().edited_scene_root
+	
+	# Immediately update the wall position and orientation
+	_update_background_wall()
+	
+	# Fade in the wall over 1 second using a tween on the material's albedo_color
+	wall_fade_tween = create_tween()
+	wall_fade_tween.tween_property(material, "albedo_color", Color(0, 0, 0, 1), 1.0) \
+		.set_ease(Tween.EASE_OUT) \
+		.set_trans(Tween.TRANS_CUBIC)
+	
+func _update_background_wall():
+	if not background_wall or not is_in_interaction or not debug_mesh:
+		return
+	if wall_is_fading_out:
+		return  # Don't move the wall while it's fading out
+	
+	var camera = PlayerManager.player.CAMERA
+	if not camera:
+		return
+	
+	var camera_transform = camera.global_transform
+	var camera_forward = -camera_transform.basis.z  # direction away from camera
+	
+	# Position wall behind the current debug mesh position
+	var wall_pos = debug_mesh.global_position + camera_forward * wall_distance
+	background_wall.global_position = wall_pos
+	
+	# Orient wall to face the camera, keeping vertical
+	var to_camera = (camera_transform.origin - wall_pos).normalized()
+	var x_axis = Vector3.UP.cross(to_camera).normalized()
+	var y_axis = to_camera.cross(x_axis).normalized()
+	background_wall.global_transform.basis = Basis(x_axis, y_axis, to_camera)
+
+func _on_background_wall_fade_out_complete():
+	if background_wall:
+		background_wall.queue_free()
+		background_wall = null
+	wall_is_fading_out = false
+	wall_fade_tween = null
