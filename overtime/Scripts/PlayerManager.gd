@@ -326,11 +326,11 @@ func SavePlayerRotation():
 func ApplyPlayerRotation():
 	if player and not EventManager.Comingfromelevator:
 		player.get_node("Head").rotation.x = player_rotation_x
-		player.get_node("Head").rotation.y = player_rotation_y + PI/2
+		player.get_node("Head").rotation.y = player_rotation_y + PI/4
 		player.get_node("Head").rotation.z = player_rotation_z 
 	else:
 		player.get_node("Head").rotation.x = player_rotation_x
-		player.get_node("Head").rotation.y = player_rotation_y - PI/2
+		player.get_node("Head").rotation.y = player_rotation_y - PI/4
 		player.get_node("Head").rotation.z = player_rotation_z 
 	
 # MiniGameModeOn

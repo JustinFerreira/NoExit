@@ -12,7 +12,8 @@ func _ready() -> void:
 	#maybe make it so it is deleted from scene? save space?
 	#put Loops in Event Manager?
 	if not PlayerManager.Loop0:
-		self.visible = false
+		PlayerManager.set(player_manager_reference, null)
+		get_parent().visible = false
 		_on_interaction_complete()
 		return
 	super._ready()

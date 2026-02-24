@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 	#should change this so that everytime an item is picked up it checks instead of process
 	#also add CarKeyFlash to Animation Manager
 	#Chnage this to event manager!!!
-	if PlayerManager.DeskItems.size() < 3 || PlayerManager.ExamingItem == self:
+	if PlayerManager.DeskItems.size() < 3 || PlayerManager.ExamingItem == self || PlayerManager.examining == true:
 		stop_flashing()
 	elif not PlayerManager.player.interact_ray.get_collider() == self:
 		start_flashing()
