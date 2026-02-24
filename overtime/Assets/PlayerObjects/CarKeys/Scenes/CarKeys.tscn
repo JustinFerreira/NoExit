@@ -59,6 +59,7 @@ player_manager_reference = "Keys"
 animation_name = "KeysFade"
 animation_fade_player = NodePath("../../KeysFade")
 can_be_stored = true
+use_dark_background = true
 outline_material = ExtResource("2_k7qgf")
 mesh = NodePath("..")
 has_outline = true

@@ -1,20 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjmh8scjiewro"]
+[gd_scene load_steps=9 format=3 uid="uid://cjmh8scjiewro"]
 
-[ext_resource type="Script" path="res://Scripts/Box.gd" id="1_mlpeq"]
-[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_08cfi"]
+[ext_resource type="Material" uid="uid://j4uu4hbus66m" path="res://Assets/Materials/BoxMaterial.tres" id="1_ouxyx"]
+[ext_resource type="ArrayMesh" uid="uid://bxy6p8xhkra6u" path="res://Assets/PlayerObjects/Box/Models/M_Box_Unwrapped.obj" id="2_i7w3g"]
+[ext_resource type="Script" path="res://Scripts/Box.gd" id="3_okv3f"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_hmb2c"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_op4ji"]
-albedo_color = Color(0.678431, 0.631373, 0.572549, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xvbb8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_yhohv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpgxq"]
-albedo_color = Color(0.678431, 0.631373, 0.572549, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gf77j"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iupey"]
+points = PackedVector3Array(20.5848, 29.1885, 17.518, -19.6166, -1.77636e-15, -16.1946, -20.5848, 29.1885, 17.518, 20.5848, 29.1885, -17.2189, 19.6166, 0, 16.4971, -19.6166, 0, 16.4971, 19.6166, -1.77636e-15, -16.1946, -20.5848, 29.1885, -17.2189)
 
 [sub_resource type="Animation" id="Animation_un226"]
 resource_name = "BoxFade"
@@ -54,27 +46,26 @@ _data = {
 }
 
 [node name="Box" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.28138, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="BoxMesh" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_op4ji")
-mesh = SubResource("BoxMesh_xvbb8")
+material_override = ExtResource("1_ouxyx")
+mesh = ExtResource("2_i7w3g")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoxMesh" node_paths=PackedStringArray("animation_fade_player", "mesh")]
-script = ExtResource("1_mlpeq")
-target_mesh = SubResource("BoxMesh_yhohv")
-target_material = SubResource("StandardMaterial3D_wpgxq")
+script = ExtResource("3_okv3f")
+target_mesh = ExtResource("2_i7w3g")
+target_material = ExtResource("1_ouxyx")
 player_manager_reference = "Box"
 animation_name = "BoxFade"
 animation_fade_player = NodePath("../../BoxFade")
 can_be_stored = true
 use_dark_background = true
-outline_material = ExtResource("2_08cfi")
+outline_material = ExtResource("4_hmb2c")
 mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BoxMesh/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_gf77j")
+shape = SubResource("ConvexPolygonShape3D_iupey")
 
 [node name="BoxFade" type="AnimationPlayer" parent="."]
 libraries = {

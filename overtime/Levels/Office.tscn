@@ -33,7 +33,7 @@ transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.56693, -11.5064, 
 transform = Transform3D(-5.24537e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.24537e-08, 0.060859, 0.0457941, 16.6963)
 
 [node name="Player" parent="." instance=ExtResource("4_ci211")]
-transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -41.6109, 0, 8.08045)
+transform = Transform3D(-0.791826, 0, -1.03904, 0, 1.30637, 0, 1.03904, 0, -0.791826, -1.15136, 0.0424516, 16.5229)
 
 [node name="Elevator" parent="." instance=ExtResource("5_lm0t7")]
 transform = Transform3D(-7.89454e-08, 0, 1.80606, 0, 1.80606, 0, -1.80606, 0, -7.89454e-08, -41.9768, 0, 8.311)

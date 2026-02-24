@@ -31,7 +31,7 @@ var debug_mesh: MeshInstance3D
 
 # Adjustable parameters for the focus behavior
 @export var focus_distance: float = 0.99  # Distance in front of camera
-@export var vertical_offset: float = -0.5  # Vertical offset from camera height (negative = lower)
+@export var vertical_offset: float = -0.75  # Vertical offset from camera height (negative = lower)
 @export var rotation_intensity: float = 1.0  # How much to rotate (0 = no rotation, 1 = full rotation)
 @export var scale_multiplier: float = 1.5  # How much to scale the object during focus
 
@@ -41,7 +41,7 @@ var is_in_interaction: bool = false
 var should_stay_in_focus: bool = false
 
 # Rotation speed (radians per second)
-@export var rotation_speed: float = 55.0
+@export var rotation_speed: float = 35.0
 
 # Current rotation angle
 var current_rotation: float = 0.0
@@ -55,15 +55,23 @@ var current_rotation: float = 0.0
 @export var keys_hint_dialog: String = "I should grab my keys and get out of here"
 @export var can_be_stored: bool = false  # If this item can be stored in the box
 
-
-@export var wall_distance: float = -0.8  # meters behind the object
 @export var use_dark_background: bool = false
-var background_wall: MeshInstance3D
+var background_meshes: Array[MeshInstance3D] = []
 
 # Wall fade management
 var wall_fade_tween: Tween
 var wall_is_fading_out: bool = false
 
+@export var tube_oval_x: float = 1.0               # Stretch tube horizontally (X axis)
+@export var tube_oval_z: float = 0.5               # Stretch tube horizontally (Z axis)
+@export var tube_floor_radius_multiplier: float = 0.99  # Floor radius = tube_radius * this
+@export var tube_floor_thickness: float = 0.1       # Thickness of the floor disc
+
+@export var tube_radius: float = 1.0      # Radius of the tube
+@export var tube_height: float = 4.0      # Height of the tube
+@export var tube_opacity: float = 0.95     # Opacity (0 = transparent, 1 = opaque)
+
+@export var tube_forward_offset: float = -0.8      # Moves tube along camera forward axis (positive = away from camera, negative = toward camera)  # Opacity of the floor (0–1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,10 +93,6 @@ func _process(delta: float) -> void:
 		start_flashing()
 	else:
 		stop_flashing()
-	
-	# Update background wall during examination
-	if is_in_interaction and use_dark_background and background_wall:
-		_update_background_wall()
 
 func _create_debug_mesh() -> void:
 	# Remove any existing debug mesh
@@ -175,7 +179,7 @@ func _on_interacted(body: Variant) -> void:
 	
 	# NEW: Create dark background wall if enabled
 	if use_dark_background:
-		_create_background_wall(focus_position, camera_transform)
+		_create_background_tube(focus_position, camera_transform)
 
 	# Set up the debug mesh at the original position
 	debug_mesh.global_position = global_position
@@ -248,26 +252,30 @@ func end_focus() -> void:
 	PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
 	
-	# Start fade-out for background wall if it exists
-	if background_wall:
-		# Kill any ongoing fade tween (e.g., fade-in still running)
+	# Start fade-out for all background meshes
+	if not background_meshes.is_empty():
+		# Kill any ongoing fade tween
 		if wall_fade_tween:
 			wall_fade_tween.kill()
 			wall_fade_tween = null
 		
-		# Get the material (unique to this wall)
-		var material = background_wall.mesh.material
-		if material:
-			wall_is_fading_out = true
-			wall_fade_tween = create_tween()
-			wall_fade_tween.tween_property(material, "albedo_color", Color(0, 0, 0, 0), 0.5) \
-				.set_ease(Tween.EASE_OUT)
-			wall_fade_tween.finished.connect(_on_background_wall_fade_out_complete)
-		else:
-			# No material, just free immediately
-			background_wall.queue_free()
-			background_wall = null
-			wall_is_fading_out = false
+		wall_is_fading_out = true
+		var remaining = background_meshes.size()
+		
+		for mesh in background_meshes:
+			var mat = mesh.material_override
+			if mat:
+				var tween = create_tween()
+				tween.tween_property(mat, "albedo_color", Color(0, 0, 0, 0), 0.5) \
+					.set_ease(Tween.EASE_OUT)
+				tween.finished.connect(_on_background_mesh_fade_complete.bind(mesh), CONNECT_ONE_SHOT)
+			else:
+				mesh.queue_free()
+				remaining -= 1
+		
+		# If all were already freed, call complete immediately
+		if remaining == 0:
+			_on_background_mesh_fade_complete(null)
 	
 	if PlayerManager.EquippedItem == "Box" and can_be_stored:
 		_on_interaction_complete()
@@ -349,11 +357,12 @@ func _apply_rotation() -> void:
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
 
 
-func _create_background_wall(focus_position: Vector3, camera_transform: Transform3D):
-	# Remove any existing wall
-	if background_wall:
-		background_wall.queue_free()
-		background_wall = null
+func _create_background_tube(focus_position: Vector3, camera_transform: Transform3D):
+	# Remove any existing background meshes
+	for mesh in background_meshes:
+		if is_instance_valid(mesh):
+			mesh.queue_free()
+	background_meshes.clear()
 	
 	# Kill any existing fade tween
 	if wall_fade_tween:
@@ -361,62 +370,121 @@ func _create_background_wall(focus_position: Vector3, camera_transform: Transfor
 		wall_fade_tween = null
 	wall_is_fading_out = false
 	
-	# Create a new QuadMesh
-	background_wall = MeshInstance3D.new()
-	background_wall.name = "BackgroundWall"
+	# Camera axes (all normalized)
+	var camera_right = camera_transform.basis.x.normalized()
+	var camera_up = camera_transform.basis.y.normalized()
+	var camera_forward = -camera_transform.basis.z.normalized()   # points into the scene
 	
-	var quad = QuadMesh.new()
-	quad.size = Vector2(100, 100)
+	# --- Tube mesh (hollow cylinder) ---
+	var cylinder = CylinderMesh.new()
+	cylinder.top_radius = tube_radius
+	cylinder.bottom_radius = tube_radius
+	cylinder.height = tube_height
+	cylinder.cap_top = false
+	cylinder.cap_bottom = false
 	
-	# Create material with transparency enabled
-	var material = StandardMaterial3D.new()
-	material.albedo_color = Color(0, 0, 0, 0)   # Start fully transparent
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.params_cull_mode = BaseMaterial3D.CULL_DISABLED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA  # Enable alpha transparency
+	var tube_material = StandardMaterial3D.new()
+	tube_material.albedo_color = Color(0, 0, 0, 0)
+	tube_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	tube_material.params_cull_mode = BaseMaterial3D.CULL_DISABLED
+	tube_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	
-	quad.material = material
-	background_wall.mesh = quad
+	var tube_mesh = MeshInstance3D.new()
+	tube_mesh.name = "BackgroundTube"
+	tube_mesh.mesh = cylinder
+	tube_mesh.material_override = tube_material
 	
-	# Add to scene
-	get_tree().current_scene.add_child(background_wall)
-	background_wall.owner = get_tree().edited_scene_root
+	# --- Basis: X = forward, Y = up, Z = right ---
+	# This makes the tube's length vertical (Y) and its cross‑section in the forward/right plane (XZ).
+	var tube_basis = Basis(camera_forward, camera_up, camera_right)
 	
-	# Immediately update the wall position and orientation
-	_update_background_wall()
+	# Position the tube so its center is at focus_position + forward_offset * forward.
+	# The tube extends vertically from there.
+	var tube_center = focus_position + camera_forward * tube_forward_offset
+	tube_mesh.transform = Transform3D(tube_basis, tube_center)
 	
-	# Fade in the wall over 1 second using a tween on the material's albedo_color
-	wall_fade_tween = create_tween()
-	wall_fade_tween.tween_property(material, "albedo_color", Color(0, 0, 0, 1), 1.0) \
-		.set_ease(Tween.EASE_OUT) \
-		.set_trans(Tween.TRANS_CUBIC)
+	# Apply oval scaling:
+	#   - X (forward) scaled by tube_oval_x
+	#   - Y (up) remains 1 (no vertical scaling)
+	#   - Z (right) scaled by tube_oval_z
+	tube_mesh.scale = Vector3(tube_oval_x, 1.0, tube_oval_z)
+	
+	get_tree().current_scene.add_child(tube_mesh)
+	tube_mesh.owner = get_tree().edited_scene_root
+	background_meshes.append(tube_mesh)
+	
+	# --- Floor disc at the bottom of the tube (optional) ---
+	# The bottom is at tube_center - up * (tube_height/2)
+	var disc_position = tube_center - camera_up * (tube_height / 2.0)
+	
+	var floor_cylinder = CylinderMesh.new()
+	floor_cylinder.top_radius = tube_radius * tube_floor_radius_multiplier
+	floor_cylinder.bottom_radius = tube_radius * tube_floor_radius_multiplier
+	floor_cylinder.height = tube_floor_thickness
+	floor_cylinder.cap_top = true
+	floor_cylinder.cap_bottom = true
+	
+	var floor_material = StandardMaterial3D.new()
+	floor_material.albedo_color = Color(0, 0, 0, 0)
+	floor_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	floor_material.params_cull_mode = BaseMaterial3D.CULL_DISABLED
+	floor_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	
+	var floor_mesh = MeshInstance3D.new()
+	floor_mesh.name = "BackgroundFloor"
+	floor_mesh.mesh = floor_cylinder
+	floor_mesh.material_override = floor_material
+	
+	# For the disc, we want its Y axis to point down so its top face is upward.
+	var disc_basis = Basis(camera_forward, -camera_up, camera_right)
+	floor_mesh.transform = Transform3D(disc_basis, disc_position)
+	
+	# Apply the same oval scaling to match the tube's cross‑section
+	floor_mesh.scale = Vector3(tube_oval_x, 1.0, tube_oval_z)
+	
+	get_tree().current_scene.add_child(floor_mesh)
+	floor_mesh.owner = get_tree().edited_scene_root
+	background_meshes.append(floor_mesh)
+	
+	# --- Fade in all meshes ---
+	for mesh in background_meshes:
+		var mat = mesh.material_override
+		var target_alpha = tube_opacity
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(mat, "albedo_color", Color(0, 0, 0, target_alpha), 1.0) \
+			.set_ease(Tween.EASE_OUT) \
+			.set_trans(Tween.TRANS_CUBIC)
 	
 func _update_background_wall():
-	if not background_wall or not is_in_interaction or not debug_mesh:
+	if background_meshes.is_empty() or not is_in_interaction or not debug_mesh:
 		return
 	if wall_is_fading_out:
-		return  # Don't move the wall while it's fading out
-	
-	var camera = PlayerManager.player.CAMERA
-	if not camera:
 		return
 	
-	var camera_transform = camera.global_transform
-	var camera_forward = -camera_transform.basis.z  # direction away from camera
+	var tube_mesh: MeshInstance3D = null
+	var floor_mesh: MeshInstance3D = null
+	for mesh in background_meshes:
+		if mesh.name == "BackgroundTube":
+			tube_mesh = mesh
+		elif mesh.name == "BackgroundFloor":
+			floor_mesh = mesh
 	
-	# Position wall behind the current debug mesh position
-	var wall_pos = debug_mesh.global_position + camera_forward * wall_distance
-	background_wall.global_position = wall_pos
-	
-	# Orient wall to face the camera, keeping vertical
-	var to_camera = (camera_transform.origin - wall_pos).normalized()
-	var x_axis = Vector3.UP.cross(to_camera).normalized()
-	var y_axis = to_camera.cross(x_axis).normalized()
-	background_wall.global_transform.basis = Basis(x_axis, y_axis, to_camera)
+	if tube_mesh:
+		# Keep tube centered on the examined object
+		tube_mesh.global_position = debug_mesh.global_position
 
-func _on_background_wall_fade_out_complete():
-	if background_wall:
-		background_wall.queue_free()
-		background_wall = null
+
+func _on_background_mesh_fade_complete(mesh: MeshInstance3D) -> void:
+	if mesh and is_instance_valid(mesh):
+		mesh.queue_free()
+	
+	# Check if all meshes are gone
+	for m in background_meshes:
+		if is_instance_valid(m):
+			return
+	
+	# All gone
+	background_meshes.clear()
 	wall_is_fading_out = false
 	wall_fade_tween = null

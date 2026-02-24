@@ -28,6 +28,8 @@ var Office = false
 
 var ParkingGarage = false
 
+var NotClickOnBoxSpace
+
 ## Player
 
 var teleportEnemy = false

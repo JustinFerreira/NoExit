@@ -45,7 +45,8 @@ func _ready() -> void:
 		EventManager.ElevatorDoorOpen = true
 		EventManager.CameFromGarage = true
 	else:
-		$Player.position = Vector3(-1.848, 0, 17.72) 
+		$Player.position = Vector3(-1.151, 0, 16.523) 
+		$Player.get_node("Head").get_node("Camera3D").rotation.x = deg_to_rad(-20.0)
 		PlayerManager.ResetPlayer()
 		
 		AudioManager.play_music(AudioManager.OfficeWhiteNoise)

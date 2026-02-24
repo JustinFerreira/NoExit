@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://j4uu4hbus66m"]
+
+[ext_resource type="Texture2D" uid="uid://c1mfsy68d5tut" path="res://Assets/PlayerObjects/Box/Textures/M_Box_Seperated_DefaultMaterial_BaseMap.png" id="1_ykr3w"]
+[ext_resource type="Texture2D" uid="uid://cef2yuetx0db3" path="res://Assets/PlayerObjects/Box/Textures/M_Box_Seperated_DefaultMaterial_MaskMap.png" id="2_xjcx7"]
+[ext_resource type="Texture2D" uid="uid://bivce1hsrc78s" path="res://Assets/PlayerObjects/Box/Textures/M_Box_Seperated_DefaultMaterial_Normal.png" id="3_0rxiu"]
+
+[resource]
+albedo_texture = ExtResource("1_ykr3w")
+metallic = 1.0
+metallic_texture = ExtResource("2_xjcx7")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_xjcx7")
+normal_enabled = true
+normal_texture = ExtResource("3_0rxiu")
+ao_enabled = true
+ao_texture = ExtResource("2_xjcx7")
+ao_texture_channel = 1

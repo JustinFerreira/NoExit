@@ -28,6 +28,10 @@ func _process(delta: float) -> void:
 		start_flashing()
 
 func _on_interacted(body: Variant) -> void:
+	if PlayerManager.NotClickOnBoxSpace.get_overlapping_bodies().has(PlayerManager.player):
+		PlayerManager.Hint("Please step into the cubicle")
+		return
+	
 	super._on_interacted(body)
 	#pick up sound
 	AudioManager.play_sound(AudioManager.ImportantItemStinger)

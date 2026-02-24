@@ -277,7 +277,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (head.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -331,7 +331,7 @@ func _physics_process(delta: float) -> void:
 		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 		if horizontal_velocity.length() > 0.1:
 			
-			var forward = -transform.basis.z  # Forward direction in Godot is -Z
+			var forward = -head.global_transform.basis.z  # Forward direction in Godot is -Z
 			var movement_direction = horizontal_velocity.normalized()
 			var angle = forward.signed_angle_to(-movement_direction, Vector3.UP)
 			$arms.rotation.y = angle
