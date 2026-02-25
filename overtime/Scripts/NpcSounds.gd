@@ -39,6 +39,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$"../AnimationPlayer".play("mixamo_com")
 	pass
 
 func start_random_playback():

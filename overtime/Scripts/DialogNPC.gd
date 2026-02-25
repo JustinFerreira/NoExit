@@ -1,9 +1,10 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/20/26 by Justin Ferreira
+## Last updated 2/24/26 by Justin Ferreira
 ## DialogNPC Script
 ## This script is what the Janitor uses for all its 
 ## operations such as wander and talking to player
+## Updated with walking and idle animations
 
 
 extends Interactable
@@ -35,12 +36,24 @@ var original_player_rotation: float = 0.0
 var original_player_transform: Transform3D  # Store complete transform
 var has_initial_dialog_played: bool = false  # Track if initial dialog played
 
+# Animation variables
+@export var animation_player_walk: AnimationPlayer 
+@export var animation_player_idle: AnimationPlayer
+var last_position: Vector3
+var current_animation: String = "idle"  # Track current animation state
+
+var current_tween: Tween = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	animation_player_walk.play("mixamo_com")
 	start_position = $"../..".global_transform.origin
+	last_position = $"../..".global_transform.origin
 	
 	# Get the NavigationAgent3D - adjust the path if needed
 	nav_agent = $"../..".get_node("NavigationAgent3D")
+	animation_player_idle.connect("animation_finished", _on_idle_animation_finished)
+	animation_player_walk.connect("animation_finished", _on_walk_animation_finished)
 	
 	# Set up navigation agent
 	nav_agent.path_desired_distance = 0.5
@@ -53,6 +66,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	# REMOVE THIS LINE - it's forcing walk animation every frame
+	if is_wandering:
+		animation_player_walk.play("mixamo_com")
+	else:
+		animation_player_idle.play("mixamo_com")
+	
+	
 	if is_rotating:
 		# Smoothly rotate toward target rotation
 		var current_rotation = $"../..".rotation.y
@@ -85,6 +105,7 @@ func _process(delta: float) -> void:
 ## walk_to_player
 ## Moves NPC toward the player's current position
 func walk_to_player(delta: float) -> void:
+	animation_player_walk.play("mixamo_com")
 	if not PlayerManager.player:
 		is_walking_to_player = false
 		return
@@ -149,8 +170,13 @@ func walk_to_player(delta: float) -> void:
 			
 			# Make the NPC face the direction it's moving
 			if direction.length() > 0:
-				var look_at_point = npc_position - direction
+				# FIXED: Changed from + direction to - direction
+				# In Godot, look_at() makes the object's -Z axis point toward the target
+				# So to face the movement direction, we need to look at a point BEHIND us
+				var look_at_point = $"../..".global_transform.origin - direction
 				$"../..".look_at(look_at_point, Vector3.UP)
+			
+			# Animation will be updated by update_animation_state() in _process
 
 ## rotate_to_player
 ## Rotates NPC to face away from player (180 degrees)
@@ -169,6 +195,7 @@ func rotate_to_player() -> void:
 ## to a random place from its starting 
 ## position
 func wander(delta: float) -> void:
+	animation_player_walk.play("mixamo_com")
 	# Update timer
 	wander_timer -= delta
 	
@@ -187,8 +214,13 @@ func wander(delta: float) -> void:
 		
 		# Make the NPC face the direction it's moving
 		if direction.length() > 0:
+			# FIXED: Changed from - direction to + direction
+			# Wait, actually for wander we want the same logic as walk_to_player
+			# Using - direction makes the NPC face forward
 			var look_at_point = $"../..".global_transform.origin - direction
 			$"../..".look_at(look_at_point, Vector3.UP)
+		
+		# Animation will be updated by update_animation_state() in _process
 	
 	# Check if we need a new target (even if not finished with current path)
 	if wander_timer <= 0:
@@ -198,6 +230,7 @@ func wander(delta: float) -> void:
 ## picks a random position for the npc
 ## to wander to
 func set_new_wander_target() -> void:
+	animation_player_walk.play("mixamo_com")
 	# Generate a random position within wander range
 	var random_offset = Vector3(
 		randf_range(-wander_range, wander_range),
@@ -215,6 +248,7 @@ func set_new_wander_target() -> void:
 ## start_dialog
 ## Starts the dialog sequence after reaching the player (for direct interactions)
 func start_dialog() -> void:
+	animation_player_walk.play("mixamo_com")
 	# Calculate target rotation (looking away from player)
 	rotate_to_player()
 	
@@ -232,6 +266,7 @@ func start_dialog() -> void:
 	# Resume wandering after interaction
 	is_interacting = false
 	is_wandering = true
+	animation_player_walk.play("mixamo_com")
 	set_new_wander_target()
 
 func _on_interacted(body: Variant) -> void:
@@ -277,6 +312,11 @@ func talkToPlayer():
 ## rotate_camera_to_npc_immediately
 ## Rotates the camera to look at the NPC when "Hey Wait up!" is said
 func rotate_camera_to_npc_immediately():
+	if current_tween:
+		current_tween.kill()
+	
+	current_tween = create_tween()
+	
 	var camera = PlayerManager.player.CAMERA
 	if camera:
 		#print("Rotating camera to NPC")
@@ -326,6 +366,7 @@ func start_multi_dialog_with_camera():
 	is_interacting = true
 	is_wandering = false  # Ensure NPC doesn't wander during dialog
 	
+	
 	# First, make sure the player is facing the NPC
 	rotate_player_to_npc()
 	
@@ -356,6 +397,7 @@ func start_multi_dialog_with_camera():
 ## rotate_player_to_npc
 ## Rotates the player to face the NPC
 func rotate_player_to_npc():
+	animation_player_idle.play("mixamo_com")
 	if PlayerManager.player:
 		var player = PlayerManager.player
 		var npc_pos = $"../..".global_transform.origin
@@ -466,3 +508,17 @@ func find_shortest_y_rotation(current: float, target: float) -> float:
 	elif difference < -PI:
 		difference += TAU
 	return current + difference
+
+func _on_idle_animation_finished(anim_name: String):
+	if anim_name == "mixamo_com":
+		if is_wandering:
+			animation_player_walk.play("mixamo_com")
+		else:
+			animation_player_idle.play("mixamo_com")
+			
+func _on_walk_animation_finished(anim_name: String):
+	if anim_name == "mixamo_com":
+		if is_wandering:
+			animation_player_walk.play("mixamo_com")
+		else:
+			animation_player_idle.play("mixamo_com")

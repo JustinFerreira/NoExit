@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c48e8fdjpjnmm" path="res://Assets/Enviroments/Office/Scenes/small_bin.tscn" id="7_dnv3v"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="8_xv01g"]
 [ext_resource type="PackedScene" uid="uid://c78kfoga5e1u3" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="9_lu6ri"]
-[ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
+[ext_resource type="PackedScene" uid="uid://dgsb084lt5fqm" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
 [ext_resource type="PackedScene" uid="uid://cfa6ee45ff6e3" path="res://Assets/Enviroments/Office/Scenes/folder_2.tscn" id="12_xaag6"]
 [ext_resource type="PackedScene" uid="uid://cievmv558laq4" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="13_u2hwv"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="14_ibjrd"]

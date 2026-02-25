@@ -194,7 +194,8 @@ func ResetPlayer() -> void:
 	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
-	player = get_tree().current_scene.get_node("Player") 
+	if player:
+		player = get_tree().current_scene.get_node("Player") 
 	EquippedItem = null
 	DeskItems = []
 	examed = false

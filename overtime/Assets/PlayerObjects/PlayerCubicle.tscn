@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d1fnud1p1j436"]
+[gd_scene load_steps=38 format=3 uid="uid://d1fnud1p1j436"]
 
 [ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="1_37age"]
 [ext_resource type="Script" path="res://Scripts/Cubicle.gd" id="1_jcpb1"]
@@ -221,19 +221,15 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_jhv2m"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r4s6u"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i50bm"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x0met"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0yngf"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
-
-[node name="Cubicle" type="StaticBody3D" node_paths=PackedStringArray("mesh")]
+[node name="Cubicle" type="StaticBody3D" node_paths=PackedStringArray("mesh", "mesh_list")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
 script = ExtResource("1_jcpb1")
 outline_material = ExtResource("2_jjwqt")
 mesh = NodePath("ModelCubicleUnwrapped")
+mesh_list = [NodePath("ModelCubicleUnwrapped"), NodePath("MChairUnwrapped"), NodePath("MComputerCombinedUnwrapped")]
 has_outline = true
 
 [node name="ModelCubicleUnwrapped" type="MeshInstance3D" parent="."]
@@ -296,31 +292,31 @@ libraries = {
 transform = Transform3D(0.00278832, 2.28717e-09, 0.0550422, 0.0550422, -2.40597e-09, -0.00278832, 2.28717e-09, 0.0551128, -2.40597e-09, 0.539668, 1.6742, -0.86574)
 
 [node name="Folder1" parent="." instance=ExtResource("23_jrv6m")]
-transform = Transform3D(0.721687, 0.416667, 3.1546e-08, 3.64261e-08, -1.89686e-15, -0.833333, -0.416667, 0.721687, -1.82131e-08, -0.720841, 1.25, -0.762994)
+transform = Transform3D(0.0548435, -0.826788, -0.0886401, -0.00586685, 0.0884457, -0.828605, 0.831505, 0.0551564, 3.63463e-08, 1.29931, 1.25, -0.580814)
 
 [node name="Folder2" parent="." instance=ExtResource("23_jrv6m")]
-transform = Transform3D(0.721688, 0.41627, 0.0181747, 0, 0.0363494, -0.83254, -0.416667, 0.721, 0.0314795, -0.705836, 1.25, -0.737005)
+transform = Transform3D(0.833333, 0, 0, 0, 0.833332, 0, 0, 0, 0.833333, 1.03798, 1.05055, 0.625235)
 
 [node name="Papers1" parent="." instance=ExtResource("26_i0lv6")]
 transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, -0.62, 1.047, -0.272)
 
 [node name="AnsweringMachine" parent="." instance=ExtResource("26_krvmk")]
-transform = Transform3D(0.721688, 0, -0.416667, 0, 0.833333, 0, 0.416667, 0, 0.721688, 1.022, 1.04, -0.486)
+transform = Transform3D(0.721688, 0, -0.416667, 0, 0.833333, 0, 0.416667, 0, 0.721688, 0.955771, 1.04, -0.471689)
 
 [node name="Picture Frame" parent="." instance=ExtResource("24_f14f0")]
-transform = Transform3D(-0.0105284, 0, -0.111254, 0, 0.111751, 0, 0.111254, 0, -0.0105284, 0.448532, 1.02974, -0.588553)
+transform = Transform3D(-0.0105284, 0, -0.111254, 0, 0.111751, 0, 0.111254, 0, -0.0105284, -0.668408, 1.02974, -0.588553)
 
 [node name="Mug1A" parent="." instance=ExtResource("27_6x5x2")]
-transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0.440102, 1.05795, -0.332523)
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0.305084, 1.05795, -0.332523)
 
 [node name="Sticky Notes" parent="." instance=ExtResource("26_ktd7e")]
-transform = Transform3D(0.0676512, 0, 0, 0, 0.0676512, 0, 0, 0, 0.0676512, 0.571072, 1.04901, -0.0913759)
+transform = Transform3D(0.0676512, 0, 0, 0, 0.0676512, 0, 0, 0, 0.0676512, 0.743954, 1.04901, -0.0913759)
 
 [node name="Mug2B" parent="." instance=ExtResource("26_wiom0")]
-transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 1.05984, 1.04441, -0.00472795)
+transform = Transform3D(0.833333, 0, 0, 0, 0.833333, 0, 0, 0, 0.833333, 0.547001, 1.04045, -0.506998)
 
 [node name="Stapler" parent="." instance=ExtResource("26_gijd4")]
-transform = Transform3D(-0.0256742, 0, -0.0365606, 0, 0.0446748, 0, 0.0365606, 0, -0.0256742, 0.821431, 1.08929, -0.0426506)
+transform = Transform3D(-0.0256742, 0, -0.0365606, 0, 0.0446748, 0, 0.0365606, 0, -0.0256742, 1.01584, 1.08929, 1.1612)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.819886, 0, 0, 0, 0.819886, 0, 0, 0, 0.819886, 0, 0, 1.13777)
@@ -331,25 +327,14 @@ visible = false
 mesh = SubResource("BoxMesh_jhv2m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(4.56625, 0, 0, 0, 4.56625, 0, 0, 0, 4.56625, 0, 0, 1.10624)
-shape = SubResource("ConvexPolygonShape3D_r4s6u")
+transform = Transform3D(4.56625, 0, 0, 0, 4.56625, 0, 0, 0, 4.56625, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_i50bm")
 
 [node name="CarKeys" parent="." instance=ExtResource("28_a1m22")]
-transform = Transform3D(0.0170831, 0, 0, 0, 0.0170831, 0, 0, 0, 0.0170831, -0.654452, 1.06871, -0.307716)
+transform = Transform3D(0.0170831, 0, 0, 0, 0.0170831, 0, 0, 0, 0.0170831, -0.654452, 1.06871, -0.00141727)
 
 [node name="Box" parent="." instance=ExtResource("28_cbylc")]
-transform = Transform3D(0.00896603, 0, 0, 0, 0.00896603, 0, 0, 0, 0.00896603, 1.12045, 1.04658, 0.849823)
-
-[node name="NotClickOnBoxSpace" type="Area3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NotClickOnBoxSpace"]
-transform = Transform3D(1.23204, 0, 0, 0, 1, 0, 0, 0, 1.56137, 1.28868, 0.630448, 1.70552)
-visible = false
-mesh = SubResource("BoxMesh_x0met")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NotClickOnBoxSpace"]
-transform = Transform3D(1.23204, 0, 0, 0, 1, 0, 0, 0, 1.56137, 1.28868, 0.630448, 1.70552)
-shape = SubResource("ConvexPolygonShape3D_0yngf")
+transform = Transform3D(0.00896603, 0, 0, 0, 0.00896603, 0, 0, 0, 0.00896603, 1.09138, 1.06272, 0.62066)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

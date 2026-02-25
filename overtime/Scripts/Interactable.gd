@@ -23,6 +23,7 @@ signal interacted(body)
 @export var outline_material: Material
 # The mesh that need the be outlined
 @export var mesh: MeshInstance3D
+@export var mesh_list: Array[MeshInstance3D]
 # bool to be turned on when an object has the ability to be outlined
 # just to make sure there is no errors if not all other fields are filled
 @export var has_outline: bool
@@ -155,6 +156,10 @@ func start_flashing() -> void:
 	
 	# Apply our flashing material
 	mesh.material_overlay = _instance_flashing_material
+	
+	if mesh_list:
+		for mesh_list_item in mesh_list:
+			mesh_list_item.material_overlay = _instance_flashing_material
 
 # stop_flashing 
 # Stops showing the flashing effect (but keeps animation running)
@@ -168,6 +173,9 @@ func stop_flashing() -> void:
 	
 	# Hide the material overlay
 	mesh.material_overlay = null
+	if mesh_list:
+		for mesh_list_item in mesh_list:
+			mesh_list_item.material_overlay = null
 
 # _set_outline_material_alpha
 # Set outline material alpha

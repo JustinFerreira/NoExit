@@ -50,18 +50,18 @@ var current_rotation: float = 0.0
 @export var can_be_stored: bool = false
 
 # Darkening toggle – if false, no background darkening is applied
-@export var darken_background: bool = true
-@export var fade_out_duration: float = 1.0   # seconds for fade‑out
+@export var darken_background: bool = false
+@export var fade_duration: float = 1.0   # seconds for fade in/out
 
 # Layer for the debug mesh (will not be darkened)
 const EXAM_LAYER = 2
 
 # Data for fading background objects
 var background_objects: Array[MeshInstance3D] = []
-var background_tweens: Array[Tween] = []          # all tweens (fade‑in & fade‑out)
-var fade_out_tweens: Array[Tween] = []            # only fade‑out tweens (to wait for)
-var original_overrides: Dictionary                # MeshInstance3D -> original material_override
-var dark_materials: Dictionary                    # MeshInstance3D -> duplicated dark material
+var active_tweens: Array[Tween] = []              # All active tweens
+var original_materials: Dictionary                 # MeshInstance3D -> original material override
+var dark_materials: Dictionary                     # MeshInstance3D -> duplicated dark material
+var fade_out_completed: Dictionary                  # Track which objects have finished fade-out
 
 # Internal flag: true if the item should be stored/picked up after fade‑out
 var _should_store: bool = false
@@ -126,6 +126,10 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 	return null
 
 func _on_interacted(body: Variant) -> void:
+	if is_in_interaction:
+		# Force end current examination
+		_force_end_examination()
+	
 	PlayerManager.ExamingItem = self
 	if animation_name != "" and animation_fade_player:
 		animation_fade_player.play(animation_name)
@@ -138,6 +142,7 @@ func _on_interacted(body: Variant) -> void:
 	is_in_interaction = true
 	should_stay_in_focus = true
 	_should_store = false   # reset
+	fade_out_completed.clear()
 	
 	var camera = PlayerManager.player.CAMERA
 	if not camera:
@@ -206,132 +211,159 @@ func _on_interacted(body: Variant) -> void:
 	await _end_examination()
 
 # ------------------------------------------------------------------
-# Background darkening with fade in/out
+# Background darkening with smooth fade in/out
 # ------------------------------------------------------------------
 func _darken_layer1_objects_fade_in() -> void:
 	# Kill any existing background tweens
 	_cleanup_background_darkening()
 	
 	var root = get_tree().root
-	_traverse_and_darken_fade(root)
+	_traverse_and_create_dark_materials(root)
+	
+	# Now fade all dark materials to 10% brightness
+	for obj in background_objects:
+		var dark_mat = dark_materials.get(obj) as StandardMaterial3D
+		if dark_mat:
+			var tween = create_tween()
+			tween.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, fade_duration) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			active_tweens.append(tween)
 
-func _traverse_and_darken_fade(node: Node) -> void:
+func _traverse_and_create_dark_materials(node: Node) -> void:
 	if node is MeshInstance3D and (node.layers & 1):
-		# Get the effective material we should base our dark material on
-		var source_mat: Material = node.material_override
-		if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
-			source_mat = node.mesh.surface_get_material(0)
+		# Store original material override
+		original_materials[node] = node.material_override
 		
-		# If the source is not StandardMaterial3D, skip darkening for this object.
-		if source_mat and not (source_mat is StandardMaterial3D):
-			# Could extend support later; for now, leave it untouched.
-			pass
-		else:
-			# Create a duplicate of the source (or a new default material)
-			var dark_mat: StandardMaterial3D
-			if source_mat is StandardMaterial3D:
-				dark_mat = source_mat.duplicate()
-			else:
-				# No suitable source – create a simple white material
-				dark_mat = StandardMaterial3D.new()
-				dark_mat.albedo_color = Color.WHITE
-				# Try to preserve texture if possible
-				if node.mesh and node.mesh.get_surface_count() > 0:
-					var surf_mat = node.mesh.surface_get_material(0)
-					if surf_mat is StandardMaterial3D:
-						dark_mat.albedo_texture = surf_mat.albedo_texture
-						dark_mat.albedo_color = surf_mat.albedo_color
-			
-			# Store original override to restore later
-			original_overrides[node] = node.material_override
-			
-			# Assign our new material as override
+		# Create a dark material based on the source
+		var dark_mat = _create_dark_material_from_source(node)
+		if dark_mat:
+			# Start at full brightness
+			dark_mat.albedo_color = dark_mat.albedo_color * 1.0
 			node.material_override = dark_mat
 			dark_materials[node] = dark_mat
-			
-			# Determine start and end colors
-			var start_color = dark_mat.albedo_color
-			var end_color = start_color * 0.1   # 90% darker
-			
-			# Create tween
-			var tween = create_tween()
-			tween.tween_property(dark_mat, "albedo_color", end_color, 1.0) \
-				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-			background_tweens.append(tween)
 			background_objects.append(node)
 	
 	# Recurse children
 	for child in node.get_children():
-		_traverse_and_darken_fade(child)
+		_traverse_and_create_dark_materials(child)
+
+func _create_dark_material_from_source(node: MeshInstance3D) -> StandardMaterial3D:
+	var source_mat: Material = node.material_override
+	
+	# If no override, try to get material from mesh surface
+	if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
+		source_mat = node.mesh.surface_get_material(0)
+	
+	# Create appropriate dark material
+	if source_mat is StandardMaterial3D:
+		# Duplicate StandardMaterial3D to preserve all properties
+		var dark_mat = source_mat.duplicate()
+		return dark_mat
+	else:
+		# Create a new material that attempts to match the appearance
+		var dark_mat = StandardMaterial3D.new()
+		dark_mat.albedo_color = Color.WHITE
+		dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		
+		# Try to extract texture if available
+		if source_mat and source_mat.has_method("get_albedo_texture"):
+			dark_mat.albedo_texture = source_mat.albedo_texture
+		elif node.mesh and node.mesh.get_surface_count() > 0:
+			var surf_mat = node.mesh.surface_get_material(0)
+			if surf_mat is StandardMaterial3D:
+				dark_mat.albedo_texture = surf_mat.albedo_texture
+				dark_mat.albedo_color = surf_mat.albedo_color
+		
+		return dark_mat
 
 func _restore_layer1_objects_fade_out() -> void:
 	# Kill any remaining fade‑in tweens
-	for t in background_tweens:
+	for t in active_tweens:
 		if t and t.is_running():
 			t.kill()
-	background_tweens.clear()
-	fade_out_tweens.clear()
+	active_tweens.clear()
 	
 	# Start fade‑out for each background object
 	for obj in background_objects:
 		if not is_instance_valid(obj):
 			continue
-		var mat = dark_materials.get(obj) as StandardMaterial3D
-		if not mat:
+		
+		var dark_mat = dark_materials.get(obj) as StandardMaterial3D
+		if not dark_mat:
 			continue
 		
-		# Determine the original color we need to fade back to
-		var original_override = original_overrides.get(obj)
-		var original_color: Color
-		if original_override is StandardMaterial3D:
-			original_color = original_override.albedo_color
+		# Store reference to original material
+		var original_mat = original_materials.get(obj)
+		
+		# CRITICAL FIX: Create a blend material or use modulate property if available
+		# Option 1: If using shader material, we can use modulate
+		if dark_mat is ShaderMaterial:
+			var tween = create_tween()
+			tween.tween_property(dark_mat, "shader_parameter/modulate", Color(1,1,1,1), fade_duration) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			
+			tween.finished.connect(_on_single_fade_out_complete.bind(obj, tween, original_mat), CONNECT_ONE_SHOT)
+		
+		# Option 2: For StandardMaterial3D, we need to interpolate between colors
 		else:
-			# Try to get color from mesh's surface material
-			if obj.mesh and obj.mesh.get_surface_count() > 0:
+			# Get original color
+			var target_color: Color = Color.WHITE
+			if original_mat is StandardMaterial3D:
+				target_color = original_mat.albedo_color
+			elif obj.mesh and obj.mesh.get_surface_count() > 0:
 				var surf_mat = obj.mesh.surface_get_material(0)
 				if surf_mat is StandardMaterial3D:
-					original_color = surf_mat.albedo_color
-				else:
-					original_color = Color.WHITE
-			else:
-				original_color = Color.WHITE
+					target_color = surf_mat.albedo_color
+			
+			# Fade from current dark color to target color
+			var tween = create_tween()
+			tween.tween_property(dark_mat, "albedo_color", target_color, fade_duration) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			
+			# Also fade emission and other properties if needed for smoothness
+			if dark_mat.emission_enabled:
+				var target_emission = Color.BLACK
+				if original_mat is StandardMaterial3D:
+					target_emission = original_mat.emission
+				tween.parallel().tween_property(dark_mat, "emission", target_emission, fade_duration)
+			
+			tween.finished.connect(_on_single_fade_out_complete.bind(obj, tween, original_mat), CONNECT_ONE_SHOT)
 		
-		# Tween back to original color
-		var tween = create_tween()
-		tween.tween_property(mat, "albedo_color", original_color, fade_out_duration) \
-			.set_ease(Tween.EASE_IN_OUT)
-		tween.finished.connect(_on_background_fade_out_complete.bind(obj, mat, original_override, tween), CONNECT_ONE_SHOT)
-		background_tweens.append(tween)
-		fade_out_tweens.append(tween)
+		active_tweens.append(tween)
 
-func _on_background_fade_out_complete(obj: MeshInstance3D, mat: Material, original_override: Material, tween: Tween) -> void:
-	if is_instance_valid(obj):
-		# Restore original material_override (may be null)
-		obj.material_override = original_override
-	# Remove our references
-	background_objects.erase(obj)
+func _on_single_fade_out_complete(obj: MeshInstance3D, tween: Tween, original_mat: Material) -> void:
+	if not is_instance_valid(obj):
+		return
+	
+	# Mark this object as completed
+	fade_out_completed[obj] = true
+	
+	# Smooth transition: restore original material override
+	obj.material_override = original_mat
+	
+	# Clean up references for this object
 	dark_materials.erase(obj)
-	original_overrides.erase(obj)
-	background_tweens.erase(tween)
-	fade_out_tweens.erase(tween)
+	original_materials.erase(obj)
+	background_objects.erase(obj)
+	active_tweens.erase(tween)
 
 func _cleanup_background_darkening() -> void:
 	# Kill all tweens
-	for t in background_tweens:
+	for t in active_tweens:
 		if t and t.is_running():
 			t.kill()
-	background_tweens.clear()
-	fade_out_tweens.clear()
+	active_tweens.clear()
 	
 	# Immediately restore original overrides
 	for obj in background_objects:
 		if is_instance_valid(obj):
-			var orig = original_overrides.get(obj)
+			var orig = original_materials.get(obj)
 			obj.material_override = orig
 	
 	background_objects.clear()
 	dark_materials.clear()
-	original_overrides.clear()
+	original_materials.clear()
+	fade_out_completed.clear()
 
 # ------------------------------------------------------------------
 # End focus
@@ -344,11 +376,21 @@ func end_focus() -> void:
 	# Determine if this item should be stored/picked up
 	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or player_manager_reference == "Keys":
 		_should_store = true
+		
+		# Play sound immediately
+		if PlayerManager.EquippedItem == "Box" and can_be_stored:
+			AudioManager.play_sound(AudioManager.ItemPickup)
+		elif player_manager_reference == "Keys":
+			AudioManager.play_sound(AudioManager.keys)
+	
+	# CRITICAL FIX: Kill any existing return tween
+	if _return_tween and _return_tween.is_running():
+		_return_tween.kill()
 	
 	if _should_store:
 		# Storable: debug mesh disappears instantly
 		debug_mesh.visible = false
-		# Re-enable collision (original object is still hidden, but it's fine)
+		# Hide original meshes too? Actually we want to hide the entire parent later
 		if has_node("CollisionShape3D"):
 			$CollisionShape3D.disabled = false
 	else:
@@ -361,7 +403,7 @@ func end_focus() -> void:
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		_return_tween.tween_property(debug_mesh, "scale", original_scale, 1.0) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		# Do not hide debug mesh yet; collision remains disabled until return completes
+		_return_tween.finished.connect(_on_return_tween_finished, CONNECT_ONE_SHOT)
 	
 	# Start background fade‑out (if enabled)
 	if darken_background:
@@ -375,11 +417,10 @@ func _end_examination() -> void:
 	if _return_tween and _return_tween.is_running():
 		await _return_tween.finished
 	
-	# Wait for all fade‑out tweens to finish (if any)
-	if not fade_out_tweens.is_empty():
-		for t in fade_out_tweens:
-			if t and t.is_running():
-				await t.finished
+	# Wait for all fade‑out tweens to finish
+	# Instead of waiting for each tween individually, wait until all objects are restored
+	while not background_objects.is_empty():
+		await get_tree().process_frame
 	
 	# Now finalize based on item type
 	if _should_store:
@@ -450,3 +491,50 @@ func _apply_rotation() -> void:
 	if debug_mesh and debug_mesh.visible:
 		var current_rot = debug_mesh.global_rotation
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
+
+func _force_end_examination() -> void:
+	# Force cleanup of current examination
+	should_stay_in_focus = false
+	
+	# Kill all tweens
+	if tween and tween.is_running():
+		tween.kill()
+	if _return_tween and _return_tween.is_running():
+		_return_tween.kill()
+	
+	# Clean up background darkening
+	_cleanup_background_darkening_immediate()
+	
+	# Hide debug mesh and show original
+	if debug_mesh:
+		debug_mesh.visible = false
+	_show_original_object()
+	
+	# Re-enable collision
+	if has_node("CollisionShape3D"):
+		$CollisionShape3D.disabled = false
+	
+	is_in_interaction = false
+
+func _cleanup_background_darkening_immediate() -> void:
+	# Kill all tweens
+	for t in active_tweens:
+		if t and t.is_running():
+			t.kill()
+	active_tweens.clear()
+	
+	# IMMEDIATELY restore original overrides without fade
+	for obj in background_objects:
+		if is_instance_valid(obj):
+			var orig = original_materials.get(obj)
+			obj.material_override = orig
+	
+	background_objects.clear()
+	dark_materials.clear()
+	original_materials.clear()
+	fade_out_completed.clear()
+
+func _on_return_tween_finished() -> void:
+	# Only hide debug mesh if we're still in a valid state
+	if not _should_store and is_instance_valid(debug_mesh):
+		debug_mesh.visible = false

@@ -59,6 +59,7 @@ player_manager_reference = "Box"
 animation_name = "BoxFade"
 animation_fade_player = NodePath("../../BoxFade")
 can_be_stored = true
+darken_background = true
 outline_material = ExtResource("4_hmb2c")
 mesh = NodePath("..")
 has_outline = true

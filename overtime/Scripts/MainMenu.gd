@@ -13,6 +13,7 @@ extends CanvasLayer
 func _ready() -> void:
 	PlayerManager.ResetPlayer()
 	PlayerManager.Loop1 = false
+	AudioManager.play_music(AudioManager.MainMenuMusic)
 	animation_player.connect("animation_finished", _on_animation_finished)
 	if PlayerManager.FirstOpen == true:
 		animation_player.play("FadeIn")
@@ -20,7 +21,6 @@ func _ready() -> void:
 	else:
 		$MainMenuFirstScreen/ColorRect.visible = false
 		AudioManager.cancel_loop_sfx()
-		AudioManager.play_music(AudioManager.MainMenuMusic)
 	
 
 func _process(delta: float) -> void:
@@ -107,6 +107,13 @@ func _on_loop_0_pressed() -> void:
 	PlayerManager.OpeningCutscene = true
 	PlayerManager.Loop0 = false
 	PlayerManager.Loop1 = false
+	if PlayerManager.DevMode == true:
+		PlayerManager.OpeningCutscene = false
+		PlayerManager.Loop0 = true
+		PlayerManager.Loop1 = false
+		get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		AudioManager.cancel_music()
+		return
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 

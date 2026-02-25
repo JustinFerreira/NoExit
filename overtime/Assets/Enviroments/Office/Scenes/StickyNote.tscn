@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://chaiu20v7k0we"]
+[gd_scene load_steps=7 format=3 uid="uid://chaiu20v7k0we"]
 
 [ext_resource type="Texture2D" uid="uid://dchmfphg6wgg1" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_BaseColor.png" id="1_3fh77"]
 [ext_resource type="Texture2D" uid="uid://gikkql68hmpu" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_RMAO.png" id="2_8hrq1"]
@@ -17,8 +17,16 @@ normal_texture = ExtResource("3_5q5qx")
 ao_enabled = true
 ao_texture = ExtResource("2_8hrq1")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0un03"]
+points = PackedVector3Array(0.840215, 0.0178833, 1.12147, -1.49883, -0.0574278, -1.18103, -1.49883, 0.0178833, -1.18103, -1.49883, -0.0574278, 1.19127, 0.760388, -0.0574278, -1.18103, 0.83564, 0.0931944, 1.19127, 0.911128, 0.0931944, -1.18103, 0.760388, -0.0574278, 1.19127, -1.49883, 0.0178833, 1.19127, 0.911128, 0.0931944, 1.19127, 0.83564, 0.0931944, -1.18103, 0.840215, 0.0178833, -1.11122)
+
 [node name="Sticky Note" type="Node3D"]
 
 [node name="StickyNote" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_wby3x")
 mesh = ExtResource("4_dph4x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StickyNote"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StickyNote/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0un03")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://uy7v5wa2yncb"]
+[gd_scene load_steps=11 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="1_xey8r"]
 [ext_resource type="Texture2D" uid="uid://nk1ak86d4slu" path="res://Assets/Logos/GTFO.png" id="2_mthcm"]
-[ext_resource type="Texture2D" uid="uid://bt7uhesddl3s" path="res://Assets/Logos/no_exit_title_glow.png" id="4_evfik"]
+[ext_resource type="Texture2D" uid="uid://dcqptx0ct8rad" path="res://Assets/Logos/IMG_7270.PNG" id="4_b2nst"]
+[ext_resource type="Texture2D" uid="uid://4d1k10gfb6in" path="res://Assets/Logos/IMG_7269.PNG" id="5_gwlcw"]
+[ext_resource type="AudioStream" uid="uid://pbsj32rlwj6m" path="res://Assets/Audio/SFX/dragon-studio-glass-breaking-386153.mp3" id="6_kov4g"]
 
 [sub_resource type="Animation" id="Animation_ft30g"]
 length = 0.001
@@ -34,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("NoExitTitleGlow:modulate")
+tracks/2/path = NodePath("Img7270:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -46,38 +48,50 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NoExitTitleGlowing:visible")
+tracks/3/path = NodePath("Img7269:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("NoExitTitleGlowing:modulate")
+tracks/4/path = NodePath("Img7270:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("NoExitTitleGlowing:self_modulate")
+tracks/5/path = NodePath("Img7269:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(3.764, 1, 1, 1)]
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_s3i0g"]
@@ -90,10 +104,10 @@ tracks/0/path = NodePath("Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667, 5.03333, 6.06667, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.96667, 3.03333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,50 +124,62 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("NoExitTitleGlow:modulate")
+tracks/2/path = NodePath("Img7270:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3.03333, 5.06667, 6.06667, 7),
+"times": PackedFloat32Array(0, 0.0333334, 3.03333, 4.53333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NoExitTitleGlowing:visible")
+tracks/3/path = NodePath("Img7269:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3, 6.33333, 7),
+"times": PackedFloat32Array(0, 3, 6.06667, 7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, true, false]
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("NoExitTitleGlowing:modulate")
+tracks/4/path = NodePath("Img7270:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3.03333, 4.13333, 5.03333, 5.86667, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.188235), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"times": PackedFloat32Array(0, 3, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("NoExitTitleGlowing:self_modulate")
+tracks/5/path = NodePath("Img7269:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3.03333, 4, 4.93333, 5.73333, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(3.76471, 1, 1, 0), Color(2.00392, 1, 1, 0.541176), Color(1.40392, 1, 1, 0.4), Color(1, 1, 1, 1), Color(1.075, 1, 1, 1)]
+"times": PackedFloat32Array(0.0333333, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73vy3"]
@@ -174,6 +200,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_n6opb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -209,20 +237,6 @@ position = Vector2(642, 304)
 scale = Vector2(0.183296, 0.183296)
 texture = ExtResource("2_mthcm")
 
-[node name="NoExitTitleGlowing" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(3.764, 1, 1, 1)
-position = Vector2(659, 349)
-scale = Vector2(0.27498, 0.27498)
-texture = ExtResource("4_evfik")
-
-[node name="NoExitTitleGlow" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(659, 349)
-scale = Vector2(0.27498, 0.27498)
-texture = ExtResource("4_evfik")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_73vy3")
@@ -230,3 +244,18 @@ libraries = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bhgba")
+
+[node name="Img7270" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(641.116, 344.375)
+scale = Vector2(0.311792, 0.311792)
+texture = ExtResource("4_b2nst")
+
+[node name="Img7269" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(641.116, 344.375)
+scale = Vector2(0.312, 0.312)
+texture = ExtResource("5_gwlcw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kov4g")
