@@ -188,7 +188,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 62
-text = "NO EXIT
+text = "END SHIFT
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen/MarginContainer/VBoxContainer"]
@@ -295,7 +295,7 @@ size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("2_pcltc")
 theme_override_font_sizes/font_size = 62
-text = "NO EXIT
+text = "END SHIFT
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenuFirstScreen2/MarginContainer/VBoxContainer"]

@@ -130,7 +130,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
-		if PlayerManager.Office && DIALOG.is_typing == false:
+		if DIALOG.is_typing == false:
 			PlayerManager.EndFocus()
 		if DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
 			PlayerManager.HideDialog()

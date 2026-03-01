@@ -248,33 +248,25 @@ func _traverse_and_create_dark_materials(node: Node) -> void:
 		_traverse_and_create_dark_materials(child)
 
 func _create_dark_material_from_source(node: MeshInstance3D) -> StandardMaterial3D:
+	var dark_mat = StandardMaterial3D.new()
+	dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED  # optional, ensures color is plain
+
+	# Try to extract albedo texture from the original
 	var source_mat: Material = node.material_override
-	
-	# If no override, try to get material from mesh surface
 	if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
 		source_mat = node.mesh.surface_get_material(0)
-	
-	# Create appropriate dark material
+
 	if source_mat is StandardMaterial3D:
-		# Duplicate StandardMaterial3D to preserve all properties
-		var dark_mat = source_mat.duplicate()
-		return dark_mat
-	else:
-		# Create a new material that attempts to match the appearance
-		var dark_mat = StandardMaterial3D.new()
-		dark_mat.albedo_color = Color.WHITE
-		dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		
-		# Try to extract texture if available
-		if source_mat and source_mat.has_method("get_albedo_texture"):
-			dark_mat.albedo_texture = source_mat.albedo_texture
-		elif node.mesh and node.mesh.get_surface_count() > 0:
-			var surf_mat = node.mesh.surface_get_material(0)
-			if surf_mat is StandardMaterial3D:
-				dark_mat.albedo_texture = surf_mat.albedo_texture
-				dark_mat.albedo_color = surf_mat.albedo_color
-		
-		return dark_mat
+		dark_mat.albedo_color = source_mat.albedo_color
+		dark_mat.albedo_texture = source_mat.albedo_texture
+		# Optionally copy emission, etc. if you want them to fade too
+		#dark_mat.emission_enabled = source_mat.emission_enabled
+		#dark_mat.emission = source_mat.emission
+	#elif source_mat is ShaderMaterial:
+		## Attempt to get a texture from the shader (heuristic – may not always work)
+		#dark_mat.albedo_color = Color.WHITE   # fallback
+
+	return dark_mat
 
 func _restore_layer1_objects_fade_out() -> void:
 	# Kill any remaining fade‑in tweens
@@ -374,14 +366,23 @@ func end_focus() -> void:
 	should_stay_in_focus = false
 	
 	# Determine if this item should be stored/picked up
-	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or player_manager_reference == "Keys":
+	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or player_manager_reference == "Keys" or "BatteryExamine" or "GasCanisterExamine":
 		_should_store = true
 		
 		# Play sound immediately
 		if PlayerManager.EquippedItem == "Box" and can_be_stored:
+			_on_interaction_complete()
+			PlayerManager.DeskItems.append(self)
+			get_parent().visible = false
 			AudioManager.play_sound(AudioManager.ItemPickup)
 		elif player_manager_reference == "Keys":
+			_on_interaction_complete()
+			get_parent().visible = false
 			AudioManager.play_sound(AudioManager.keys)
+		elif player_manager_reference == "BatteryExamine" or "GasCanisterExamine":
+			_on_interaction_complete()
+			get_parent().visible = false
+			AudioManager.play_sound(AudioManager.ItemPickup)
 	
 	# CRITICAL FIX: Kill any existing return tween
 	if _return_tween and _return_tween.is_running():
@@ -407,7 +408,7 @@ func end_focus() -> void:
 	
 	# Start background fade‑out (if enabled)
 	if darken_background:
-		_restore_layer1_objects_fade_out()
+		_cleanup_background_darkening_immediate()
 
 # ------------------------------------------------------------------
 # End examination sequence (called after focus ends)
@@ -430,29 +431,19 @@ func _end_examination() -> void:
 			$CollisionShape3D.disabled = true
 		
 		# Handle storage/pickup
-		if PlayerManager.EquippedItem == "Box" and can_be_stored:
-			_on_interaction_complete()
-			PlayerManager.DeskItems.append(self)
-			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.ItemPickup)
-		elif player_manager_reference == "Keys":
-			_on_interaction_complete()
-			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.keys)
-		else:
-			# Fallback (should not happen)
-			if animation_name != "" and animation_fade_player:
-				animation_fade_player.play_backwards(animation_name)
+
 	else:
 		# Regular examination – return completed, now show original object
+		if animation_name != "" and animation_fade_player:
+			animation_fade_player.play_backwards(animation_name)
+			
 		debug_mesh.visible = false
 		_show_original_object()
 		# Re-enable collision
 		if has_node("CollisionShape3D"):
 			$CollisionShape3D.disabled = false
 		# Play reverse animation if any
-		if animation_name != "" and animation_fade_player:
-			animation_fade_player.play_backwards(animation_name)
+		
 	
 	is_in_interaction = false
 

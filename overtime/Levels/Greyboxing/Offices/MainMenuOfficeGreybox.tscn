@@ -1,9 +1,6 @@
-[gd_scene load_steps=46 format=3 uid="uid://bexynbhcvlv2i"]
+[gd_scene load_steps=40 format=3 uid="uid://bexynbhcvlv2i"]
 
-[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/THISSHOULDWORKOFFICE.obj" id="1_dl6dl"]
-[ext_resource type="Texture2D" uid="uid://yrrk53kjr5nl" path="res://Levels/Greyboxing/carpet.png" id="2_cn7u6"]
-[ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Levels/Greyboxing/office_wall.png" id="3_vsnds"]
-[ext_resource type="Texture2D" uid="uid://b6qj0osxsbsaa" path="res://Levels/Greyboxing/office_ceiling_tile.png" id="4_a55p6"]
+[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="1_dl6dl"]
 [ext_resource type="PackedScene" uid="uid://bwc0casu2843r" path="res://Assets/Enviroments/Office/Scenes/CeilingLight.tscn" id="5_2hqwo"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="6_efbxo"]
 [ext_resource type="PackedScene" uid="uid://cievmv558laq4" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="7_1mn10"]
@@ -53,21 +50,6 @@ sky_material = SubResource("ProceduralSkyMaterial_v16il")
 background_mode = 2
 sky = SubResource("Sky_odp7l")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjoxt"]
-albedo_texture = ExtResource("2_cn7u6")
-uv1_scale = Vector3(20, 20, 20)
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm5w6"]
-albedo_texture = ExtResource("3_vsnds")
-uv1_scale = Vector3(20, 20, 20)
-texture_filter = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgd87"]
-albedo_texture = ExtResource("4_a55p6")
-uv1_scale = Vector3(40, 40, 40)
-texture_filter = 0
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v7mmk"]
 data = PackedVector3Array(100.23, 5.2644, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 205.637, -227.908, 5.2644, 11.9853, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 11.9853, 100.621, 5.2644, -18.4697, 100.621, 5.2644, -18.4697, -227.908, 5.2644, 11.9853, -227.522, 5.2644, -12.3762, 100.621, 5.2644, -18.4697, -227.522, 5.2644, -12.3762, 100.23, 5.2644, -204.782, 100.23, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 5.2644, -204.782, 100.23, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 32.0938, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, 15.3421, 100.23, 37.1247, 15.3421, -227.908, 5.2644, 11.9853, -227.908, 5.2644, 205.637, -227.908, 33.4509, 11.9853, -227.908, 33.4509, 11.9853, -227.908, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 32.0938, 205.637, 100.23, 5.2644, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, -204.782, -227.908, 5.2644, -204.782, 100.23, 32.0938, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.908, 37.1247, -204.782, 100.23, 5.2644, 15.3421, 100.621, 5.2644, -18.4697, 100.23, 37.1247, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 5.2644, -18.4697, 100.621, 37.1247, -18.4697, 100.621, 5.2644, -18.4697, 100.23, 5.2644, -204.782, 100.621, 37.1247, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 5.2644, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 37.1247, -204.782, -227.908, 37.1247, -204.782, -227.522, 5.2644, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 33.4509, 11.9853, -227.908, 32.0938, 205.637, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, -227.908, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 32.0938, 205.637, 100.23, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 37.1247, 15.3421, 100.23, 36.5812, 205.637, 100.23, 36.5812, 205.637, 100.23, 37.1247, 15.3421, 100.23, 37.6987, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 37.1247, -18.4697, 100.23, 37.6987, 15.3421, 100.23, 37.6987, 15.3421, 100.621, 37.1247, -18.4697, 100.621, 37.6445, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 32.0938, -204.782, 100.621, 37.6445, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 32.0938, -204.782, 100.23, 36.5812, -204.782, 100.23, 32.0938, -204.782, -227.908, 37.1247, -204.782, 100.23, 36.5812, -204.782, 100.23, 36.5812, -204.782, -227.908, 37.1247, -204.782, -227.908, 39.0935, -204.782, -227.908, 37.1247, -204.782, -227.522, 33.4509, -12.3762, -227.908, 39.0935, -204.782, -227.908, 39.0935, -204.782, -227.522, 33.4509, -12.3762, -227.522, 36.5812, -18.4697, -227.908, 33.4509, 11.9853, -227.908, 36.5812, 15.3421, -227.522, 33.4509, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 36.5812, 15.3421, -227.522, 36.5812, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 36.5812, -204.782, -227.522, 36.5812, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, -204.782, -227.908, 39.0935, -204.782, 100.23, 37.6987, 15.3421, 100.621, 37.6445, -18.4697, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, 100.621, 37.6445, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 15.3421)
 
@@ -81,9 +63,6 @@ environment = SubResource("Environment_js8fr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6229, 66.7487, 34.4514)
 mesh = ExtResource("1_dl6dl")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_jjoxt")
-surface_material_override/1 = SubResource("StandardMaterial3D_xm5w6")
-surface_material_override/2 = SubResource("StandardMaterial3D_qgd87")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 

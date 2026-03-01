@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgy0esfqyj01s"
+path="res://.godot/imported/NewOfficeMesh.obj-af9e947395a23b3eb18fe3f05ff73dc9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/NewOfficeMesh.obj-af9e947395a23b3eb18fe3f05ff73dc9.mesh"]
+
+source_file="res://Levels/Greyboxing/Models/NewOfficeMesh.obj"
+dest_files=["res://.godot/imported/NewOfficeMesh.obj-af9e947395a23b3eb18fe3f05ff73dc9.mesh", "res://.godot/imported/NewOfficeMesh.obj-af9e947395a23b3eb18fe3f05ff73dc9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

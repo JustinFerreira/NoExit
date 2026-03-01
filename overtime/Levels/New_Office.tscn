@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpvrayj8n0q48"]
 
-[ext_resource type="ArrayMesh" uid="uid://dgy0esfqyj01s" path="res://Levels/Greyboxing/Models/Office_Test.obj" id="1_lf8bx"]
+[ext_resource type="ArrayMesh" uid="uid://dgy0esfqyj01s" path="res://Levels/Greyboxing/Models/NewOfficeMesh.obj" id="1_lf8bx"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="2_0gv0n"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dvlne"]

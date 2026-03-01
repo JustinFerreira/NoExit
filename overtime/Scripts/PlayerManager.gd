@@ -147,6 +147,8 @@ var Mug1A
 var Mug2A
 var Keys
 var Box
+var BatteryExamine
+var GasCanisterExamine
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -433,26 +435,41 @@ func EnemyKill():
 # stops the focus on an examine item
 func EndFocus():
 	closeup = !closeup
-	if PictureFrame1 and PictureFrame1.should_stay_in_focus && closeup == false:
-		PictureFrame1.end_focus()
+	if Office && PictureFrame1: 
+		if PictureFrame1.should_stay_in_focus && closeup == false:
+			PictureFrame1.end_focus()
 		
-	if Stapler and Stapler.should_stay_in_focus && closeup == false:
-		Stapler.end_focus()
+	if Office && Stapler:
+		if Stapler.should_stay_in_focus && closeup == false:
+			Stapler.end_focus()
 		
-	if StickyNotes and StickyNotes.should_stay_in_focus && closeup == false:
-		StickyNotes.end_focus()
+	if Office && StickyNotes:
+		if StickyNotes.should_stay_in_focus && closeup == false:
+			StickyNotes.end_focus()
 		
-	if Mug1A and Mug1A.should_stay_in_focus && closeup == false:
-		Mug1A.end_focus()
+	if Office && Mug1A:
+		if Mug1A.should_stay_in_focus && closeup == false:
+			Mug1A.end_focus()
 		
-	if Mug2A and Mug2A.should_stay_in_focus && closeup == false:
-		Mug2A.end_focus()
+	if Office && Mug2A:
+		if Mug2A.should_stay_in_focus && closeup == false:
+			Mug2A.end_focus()
 		
-	if Keys and Keys.should_stay_in_focus && closeup == false:
-		Keys.end_focus()
+	if Office && Keys:
+		if Keys.should_stay_in_focus && closeup == false:
+			Keys.end_focus()
 		
-	if Box and Box.should_stay_in_focus && closeup == false:
-		Box.end_focus()
+	if Office && Box:
+		if Box.should_stay_in_focus && closeup == false:
+			Box.end_focus()
+		
+	if ParkingGarage && BatteryExamine:
+		if BatteryExamine.should_stay_in_focus && closeup == false:
+			BatteryExamine.end_focus()
+			
+	if ParkingGarage and GasCanisterExamine:
+		if GasCanisterExamine.should_stay_in_focus and closeup == false:
+			GasCanisterExamine.end_focus()
 		
 # SwitchEquippedItem
 # changes the players equipped item

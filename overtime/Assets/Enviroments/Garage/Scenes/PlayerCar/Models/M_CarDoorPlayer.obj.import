@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drmaajb32b5nv"
+path="res://.godot/imported/M_CarDoorPlayer.obj-4bd97b613072a8c4252ac54e02cd2385.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_CarDoorPlayer.obj-4bd97b613072a8c4252ac54e02cd2385.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarDoorPlayer.obj"
+dest_files=["res://.godot/imported/M_CarDoorPlayer.obj-4bd97b613072a8c4252ac54e02cd2385.mesh", "res://.godot/imported/M_CarDoorPlayer.obj-4bd97b613072a8c4252ac54e02cd2385.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

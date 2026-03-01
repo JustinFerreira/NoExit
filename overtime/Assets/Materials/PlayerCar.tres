@@ -1,9 +1,9 @@
 [gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://duh0xxtb21cug"]
 
-[ext_resource type="Texture2D" uid="uid://wcfmdeeiu0q7" path="res://Assets/PlayerObjects/PlayerCar/Textures/M_Car_Player_DefaultMaterial_BaseMap.png" id="1_j4xj1"]
-[ext_resource type="Texture2D" uid="uid://b3jiggv8hgpit" path="res://Assets/PlayerObjects/PlayerCar/Textures/M_Car_Player_DefaultMaterial_MaskMap.png" id="2_lcsjc"]
-[ext_resource type="Texture2D" uid="uid://byld04f5cx4sy" path="res://Assets/PlayerObjects/PlayerCar/Textures/M_Car_Player_DefaultMaterial_Emissive.png" id="3_jues0"]
-[ext_resource type="Texture2D" uid="uid://chgs85wmh81k6" path="res://Assets/PlayerObjects/PlayerCar/Textures/M_Car_Player_DefaultMaterial_Normal.png" id="4_8g5fs"]
+[ext_resource type="Texture2D" uid="uid://wcfmdeeiu0q7" path="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_BaseMap.png" id="1_j4xj1"]
+[ext_resource type="Texture2D" uid="uid://b3jiggv8hgpit" path="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_MaskMap.png" id="2_lcsjc"]
+[ext_resource type="Texture2D" uid="uid://byld04f5cx4sy" path="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_Emissive.png" id="3_jues0"]
+[ext_resource type="Texture2D" uid="uid://chgs85wmh81k6" path="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_Normal.png" id="4_8g5fs"]
 
 [resource]
 albedo_texture = ExtResource("1_j4xj1")

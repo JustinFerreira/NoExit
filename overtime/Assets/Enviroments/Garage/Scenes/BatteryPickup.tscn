@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt20akn0ptkqf"]
+
+[ext_resource type="Script" path="res://Scripts/BatteryPickup.gd" id="1_el2a5"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_31p3h"]
+[ext_resource type="Material" uid="uid://d1kl5fsqmbh7v" path="res://Assets/Materials/Battery.tres" id="3_ljm1w"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Assets/Enviroments/Garage/Models/M_Battery_Unwrapped.obj" id="3_rf2fs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h27gs"]
+points = PackedVector3Array(-1.70816, 26.1199, 2.81196, -12.8944, 0.113216, -8.65, 13, 0.198613, -8.59395, -12.8659, 0.142168, 8.64998, 13, 0.198613, 8.61293, 13, 20.2691, -8.59395, -12.8286, 20.279, -8.60614, 13, 20.2691, 8.61293, -12.8286, 20.279, 8.62512, -1.72425, 25.8317, -6.05081, 9.99968, 22.2003, -6.0551, -1.72712, 25.8515, 4.46041, -2.14427, 26.3438, -4.06498, -10.214, 22.2003, -6.0551, -2.12186, 26.2133, 2.83241, -0.90832, 25.3514, -6.4157, -0.91498, 25.4313, 4.85996, -1.31176, 25.7758, 4.43354)
+
+[sub_resource type="Animation" id="Animation_jjcuw"]
+resource_name = "BatteryFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatteryObject:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_juv4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BatteryObject:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8f6pl"]
+_data = {
+"BatteryFade": SubResource("Animation_jjcuw"),
+"RESET": SubResource("Animation_juv4t")
+}
+
+[node name="BatteryPickup" type="Node3D"]
+
+[node name="BatteryObject" type="MeshInstance3D" parent="."]
+material_override = ExtResource("3_ljm1w")
+mesh = ExtResource("3_rf2fs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BatteryObject" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+script = ExtResource("1_el2a5")
+target_mesh = ExtResource("3_rf2fs")
+target_material = ExtResource("3_ljm1w")
+focus_distance = 3.0
+vertical_offset = -1.5
+player_manager_reference = "BatteryExamine"
+animation_name = "BatteryFade"
+animation_fade_player = NodePath("../../BatteryFade")
+can_be_stored = true
+darken_background = true
+outline_material = ExtResource("2_31p3h")
+mesh = NodePath("..")
+has_outline = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BatteryObject/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_h27gs")
+
+[node name="BatteryFade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8f6pl")
+}
+
+[connection signal="interacted" from="BatteryObject/StaticBody3D" to="BatteryObject/StaticBody3D" method="_on_interacted"]

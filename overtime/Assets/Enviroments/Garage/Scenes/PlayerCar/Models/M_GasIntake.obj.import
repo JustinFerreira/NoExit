@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yhmpw8jexwjb"
+path="res://.godot/imported/M_GasIntake.obj-372a6901d9c91541b19eb3ae0243d3b6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_GasIntake.obj-372a6901d9c91541b19eb3ae0243d3b6.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_GasIntake.obj"
+dest_files=["res://.godot/imported/M_GasIntake.obj-372a6901d9c91541b19eb3ae0243d3b6.mesh", "res://.godot/imported/M_GasIntake.obj-372a6901d9c91541b19eb3ae0243d3b6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

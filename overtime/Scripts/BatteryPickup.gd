@@ -4,24 +4,32 @@
 ## BatteryPickup Script
 ## - This is the script for the pickup item battery
 
-extends Interactable
+extends ExaminableItem
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerManager.Loop0:
+		PlayerManager.set(player_manager_reference, null)
+		get_parent().visible = false
+		_on_interaction_complete()
+		return
 	super._ready()
-	visible = false
-	if not PlayerManager.Loop0:
-		visible = true
-		start_flashing()
+	start_flashing()
+	normal_dialog = EventManager.batterypickup_normal_dialog
 	
 func _process(delta: float) -> void:
-	pass
+	if PlayerManager.ExamingItem == self || PlayerManager.examining == true:
+		stop_flashing()
+	elif not PlayerManager.player.interact_ray.get_collider() == self:
+		start_flashing()
+	else:
+		stop_flashing()
 		
 
 func _on_interacted(body: Variant) -> void:
+	super._on_interacted(body)
 	AnimationManager.HoodFlash.toggle_interactable(true)
 	#pick up sound
-	AudioManager.play_sound(AudioManager.ItemPickup)
 	AudioManager.play_sound(AudioManager.ImportantItemStinger)
 	#add to inventory
 	PlayerManager.AddToInventory("Battery", 1.0)
@@ -29,8 +37,3 @@ func _on_interacted(body: Variant) -> void:
 	PlayerManager.gotBattery = true
 	#turns Hood Flash on (EventManager?)
 	AnimationManager.HoodFlash.start_flashing()
-	
-	#get rid of object in scene 
-	if is_inside_tree():
-		get_parent().remove_child(self)
-		queue_free()

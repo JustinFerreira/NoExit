@@ -18,6 +18,7 @@ func _ready() -> void:
 	PlayerManager.Office = false
 	PlayerManager.ParkingGarage = true
 	PlayerManager.player = get_tree().current_scene.get_node("Player") 
+	PlayerManager.examed = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if fog_remover:

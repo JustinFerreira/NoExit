@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cj76yqondkugp"]
+
+[ext_resource type="Texture2D" uid="uid://b35fojfb0yisi" path="res://Levels/Greyboxing/office_wall.png" id="1_702nm"]
+
+[resource]
+albedo_texture = ExtResource("1_702nm")
+uv1_scale = Vector3(20, 20, 20)

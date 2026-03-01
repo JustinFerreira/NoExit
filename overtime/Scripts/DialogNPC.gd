@@ -65,14 +65,7 @@ func _ready() -> void:
 	set_new_wander_target()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	# REMOVE THIS LINE - it's forcing walk animation every frame
-	if is_wandering:
-		animation_player_walk.play("mixamo_com")
-	else:
-		animation_player_idle.play("mixamo_com")
-	
-	
+func _process(delta: float) -> void:	
 	if is_rotating:
 		# Smoothly rotate toward target rotation
 		var current_rotation = $"../..".rotation.y
@@ -101,6 +94,21 @@ func _process(delta: float) -> void:
 	# Handle wandering if not interacting AND not in dialog
 	elif is_wandering and not is_interacting and not is_walking_to_player and not PlayerManager.multiDialog:
 		wander(delta)
+		
+	var desired_anim : String
+	var desired_player : AnimationPlayer
+
+	# Determine which animation should be playing based on current state
+	if is_walking_to_player or is_wandering:
+		desired_anim = "mixamo_com"
+		desired_player = animation_player_walk
+	else:   # Idle / interacting
+		desired_anim = "mixamo_com"
+		desired_player = animation_player_idle
+
+	# Only restart the animation if it's not already playing on the correct player
+	if desired_player.current_animation != desired_anim or not desired_player.is_playing():
+		desired_player.play(desired_anim)
 
 ## walk_to_player
 ## Moves NPC toward the player's current position
@@ -230,6 +238,7 @@ func wander(delta: float) -> void:
 ## picks a random position for the npc
 ## to wander to
 func set_new_wander_target() -> void:
+	animation_player_idle.stop()
 	animation_player_walk.play("mixamo_com")
 	# Generate a random position within wander range
 	var random_offset = Vector3(
@@ -248,7 +257,6 @@ func set_new_wander_target() -> void:
 ## start_dialog
 ## Starts the dialog sequence after reaching the player (for direct interactions)
 func start_dialog() -> void:
-	animation_player_walk.play("mixamo_com")
 	# Calculate target rotation (looking away from player)
 	rotate_to_player()
 	
@@ -266,7 +274,6 @@ func start_dialog() -> void:
 	# Resume wandering after interaction
 	is_interacting = false
 	is_wandering = true
-	animation_player_walk.play("mixamo_com")
 	set_new_wander_target()
 
 func _on_interacted(body: Variant) -> void:
@@ -292,6 +299,7 @@ func talkToPlayer():
 	# Start walking to player
 	AudioManager.cancel_loop_sfx()
 	is_walking_to_player = true
+	is_wandering = false
 	
 	# Play initial dialog to freeze player
 	if not has_initial_dialog_played:
@@ -521,4 +529,5 @@ func _on_walk_animation_finished(anim_name: String):
 		if is_wandering:
 			animation_player_walk.play("mixamo_com")
 		else:
+			
 			animation_player_idle.play("mixamo_com")
