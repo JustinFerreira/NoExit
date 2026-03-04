@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://d27k4ukr6g7jr"]
+[gd_scene load_steps=27 format=4 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
 [ext_resource type="PackedScene" uid="uid://dym5cp4qr0nyb" path="res://Menus/SimplifiedPauseMenu.tscn" id="2_cqu1j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Dialog.gd" id="3_8urho"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="4_y3dep"]
 [ext_resource type="PackedScene" uid="uid://1k6pp1n6pfch" path="res://Menus/GameOverScreen.tscn" id="6_4tvxu"]
+[ext_resource type="Texture2D" uid="uid://b8lpi3qwwdkek" path="res://Assets/UI/LMB_icon.png" id="8_m7fh8"]
 [ext_resource type="Material" uid="uid://8qnwax1jbg7c" path="res://Assets/Materials/Player.tres" id="9_kdsvo"]
 [ext_resource type="Texture2D" uid="uid://djm35mf18rhts" path="res://Assets/UI/Crosshair.png" id="10_1g75w"]
 [ext_resource type="Texture2D" uid="uid://c51mwvydjqqcr" path="res://Assets/UI/hand.png" id="10_o7qna"]
@@ -69,6 +70,42 @@ _data = {
 "RESET": SubResource("Animation_c4cyg"),
 "hide": SubResource("Animation_6mcj7"),
 "reveal": SubResource("Animation_wt5t2")
+}
+
+[sub_resource type="Animation" id="Animation_sseij"]
+resource_name = "MouseClicking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_j10hk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t71il"]
+_data = {
+"MouseClicking": SubResource("Animation_sseij"),
+"RESET": SubResource("Animation_j10hk")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cr01p"]
@@ -193,21 +230,6 @@ transform = Transform3D(0.398845, 0, 0, 0, 0.398845, 0, 0, 0, 0.398845, 0, 0.021
 [node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -4)
 
-[node name="Prompt" type="Label" parent="Head/Camera3D/InteractRay"]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 240.0
-offset_bottom = 327.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("4_y3dep")
-theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
-
 [node name="Player" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
@@ -255,7 +277,7 @@ fit_content = true
 [node name="Timer" type="Timer" parent="DialogControl"]
 wait_time = 5.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl"]
+[node name="DialogAnimationPlayer" type="AnimationPlayer" parent="DialogControl"]
 libraries = {
 "": SubResource("AnimationLibrary_17jfe")
 }
@@ -300,6 +322,19 @@ bbcode_enabled = true
 text = "Closed Captions"
 fit_content = true
 
+[node name="MouseClicking" type="Sprite2D" parent="DialogControl"]
+visible = false
+texture_filter = 1
+position = Vector2(1005.5, 682.5)
+scale = Vector2(0.515625, 0.515625)
+texture = ExtResource("8_m7fh8")
+hframes = 2
+
+[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="DialogControl/MouseClicking"]
+libraries = {
+"": SubResource("AnimationLibrary_t71il")
+}
+
 [node name="Cursor" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -330,6 +365,10 @@ transform = Transform3D(0.511838, 0, 0, 0, -6.10158e-08, 0.511838, 0, -0.511838,
 material_override = ExtResource("9_kdsvo")
 mesh = SubResource("ArrayMesh_cpe2s")
 skeleton = NodePath("")
+
+[node name="MKillerPrimitive" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.76548, 0, 0, 0, 0.76548, 0, 0, 0, 0.76548, 1.48226, 0, -0.0497223)
+mesh = ExtResource("2_sf52k")
 
 [connection signal="body_entered" from="Player" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="DialogControl/Timer" to="DialogControl" method="_on_timer_timeout"]

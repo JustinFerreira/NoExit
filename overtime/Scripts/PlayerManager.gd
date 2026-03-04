@@ -55,6 +55,8 @@ var EquippedItem = null
 
 var DeskItems = []
 
+var firstdialog = true
+
 ## Enemy
 
 var Enemy

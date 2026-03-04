@@ -63,7 +63,9 @@ func _ready() -> void:
 		PlayerManager.InAnimation = true;
 		PlayerManager.player.CURSOR.visible = false
 		PlayerManager.no_enemy = true
-		PlayerManager.Loop1 = true
+		if PlayerManager.Loop0:
+			PlayerManager.Loop1 = true
+			print("Loop 1?")
 		PlayerManager.player = get_tree().current_scene.get_node("Player") 
 		#Animation and Camera Manager!!!
 		animation_player.connect("animation_finished", _on_animation_finished)
@@ -89,6 +91,7 @@ func _on_animation_finished(anim_name: String):
 		if PlayerManager.Loop0:
 			PlayerManager.CharacterHintDialog(EventManager.office_wake_up_loop0,
 			EventManager.office_wake_up_loop0_hint)
+			PlayerManager.firstdialog = true
 		else:
 			PlayerManager.startMultiDialog = false
 			PlayerManager.MultiDialog(EventManager.office_wake_up_loop1)

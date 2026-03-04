@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://duoospejbeo0t"]
+[gd_scene load_steps=55 format=3 uid="uid://duoospejbeo0t"]
 
 [ext_resource type="Material" uid="uid://duh0xxtb21cug" path="res://Assets/Materials/PlayerCar.tres" id="1_vb600"]
 [ext_resource type="ArrayMesh" uid="uid://dbkbutiyvkc4o" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarBodyPlayer.obj" id="2_mq41k"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://Scripts/CarKeyNoise.gd" id="21_delra"]
 [ext_resource type="Texture2D" uid="uid://s6l2xtthrhqh" path="res://Assets/UI/gas_meter.png" id="24_hjdpm"]
 [ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png" id="25_jkl06"]
+[ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="26_qapd7"]
 [ext_resource type="Texture2D" uid="uid://d3ro2o2m8re01" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Metalic_and_Rougness.png" id="26_t1aiq"]
 [ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_Normal.png" id="27_y5w2q"]
 [ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Alternate.obj" id="28_7tpjn"]
@@ -337,33 +338,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0), Vector3(0, 1.99345, 0), Vector3(0, 1.45993, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qqahc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GasCap:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(81.1291, 47.5358, -172.055)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GasCap:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_mr2rp"]
 resource_name = "GasCapClose"
 length = 0.25
@@ -390,6 +364,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+}
+
+[sub_resource type="Animation" id="Animation_qqahc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GasCap:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(81.1291, 47.5358, -172.055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GasCap:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ia1i"]
@@ -706,6 +707,10 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_t71il")
 }
+
+[node name="MKillerPrimitive" type="MeshInstance3D" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.876, 163.489, 264.387)
+mesh = ExtResource("26_qapd7")
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.03919e-08, -4.20935, 0.294741, -1.64169e-07, -0.266453, -4.65625, 3.76326, -1.72816e-14, -2.03938e-07, 85.4225, 49.8965, -164.015)

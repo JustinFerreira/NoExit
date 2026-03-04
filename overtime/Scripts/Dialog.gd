@@ -13,7 +13,7 @@ extends Control
 @onready var dialog_label = $MarginContainer/DialogLabel
 @onready var character_panel = $CharacterPanelMarginContainer/CharacterPanel
 @onready var dialog_label_pic =$CharacterPanelMarginContainer/CharacterPanel/MarginContainer2/DialogLabel
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player = $DialogAnimationPlayer
 
 # Dialog management variables
 var current_dialog_array: Array[String] = []
@@ -57,6 +57,7 @@ func start_typewriter_effect(label: RichTextLabel, text: String, identifier: Str
 	
 	label.visible_ratio = 0.0
 	label.text = text  # Make sure text is set before starting
+	is_typing = true
 	
 	# Create a new timer for this specific typewriter
 	var timer = Timer.new()
@@ -102,8 +103,15 @@ func _on_typewriter_timeout(identifier: String) -> void:
 		
 		data["timer"].start(time_per_character)
 	else:
+		is_typing = false
 		stop_typewriter_effect(identifier)
-
+		
+	if PlayerManager.Loop0 and PlayerManager.firstdialog:
+		PlayerManager.player.DIALOG.get_node("MouseClicking").visible = true
+		AnimationManager.MouseClickingAnimationPlayer = PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer")
+		AnimationManager.ActivateMouseClickingAnimationPlayer()
+		AnimationManager.MouseClickingAnimationPlayer.play("MouseClicking")
+		
 ## skip_typewriter_effect
 ## stops the type writer effect early
 ## allowing to see the full dialog immediately
@@ -118,6 +126,10 @@ func stop_typewriter_effect(identifier: String) -> void:
 			data["timer"].queue_free()
 		typewriter_timers.erase(identifier)
 		active_typewriters.erase(identifier)
+	
+	if active_typewriters.is_empty():
+		is_typing = false
+	
 
 func skip_all_typewriter_effects() -> void:
 	for identifier in active_typewriters.duplicate():
@@ -126,6 +138,7 @@ func skip_all_typewriter_effects() -> void:
 			if data["label"]:
 				data["label"].visible_ratio = 1.0
 			stop_typewriter_effect(identifier)
+	is_typing = false 
 
 ## player_interact_dialog
 ## This function creates dialog

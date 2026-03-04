@@ -129,10 +129,23 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(event.relative.y * SENSITIVITY)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
-	if event is InputEventMouseButton:
+	if event.is_action_released("Interact"):
+		if DIALOG.is_typing && PlayerManager.finishedDialogAnimation == true:
+			DIALOG.skip_typewriter_effect()
+			print("help")
+			print(DIALOG.is_typing)
+			return
 		if DIALOG.is_typing == false:
 			PlayerManager.EndFocus()
-		if DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
+			if PlayerManager.firstdialog:
+				PlayerManager.player.DIALOG.get_node("MouseClicking").visible = false
+				PlayerManager.firstdialog = false
+				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
+		elif PlayerManager.startMultiDialog == false && PlayerManager.multiDialog:
+			PlayerManager.NextDialog()
+		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
+			PlayerManager.startMultiDialog = false
+		elif DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
 			PlayerManager.HideDialog()
 			PlayerManager.dialoging = false
 			PlayerManager.finishedDialogAnimation = false
@@ -143,15 +156,6 @@ func _unhandled_input(event: InputEvent) -> void:
 				get_mouse_world_pos(mouse)
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				release_grabbed_object()
-	if event.is_action_released("Interact"):  
-		PlayerManager.actioning = false
-		if DIALOG.is_typing && PlayerManager.finishedDialogAnimation == true:
-			DIALOG.skip_typewriter_effect()
-			return
-		elif PlayerManager.startMultiDialog == false && PlayerManager.multiDialog:
-			PlayerManager.NextDialog()
-		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
-			PlayerManager.startMultiDialog = false
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameOne:
 			AnimationManager.SteeringWheelFlash.start_flashing()
@@ -229,8 +233,6 @@ func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		#velocity.y = JUMP_VELOCITY
 	
-	## Interactions
-	prompt.text = ""
 	
 	if interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
