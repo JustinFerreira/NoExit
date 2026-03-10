@@ -362,11 +362,13 @@ func _cleanup_background_darkening() -> void:
 # ------------------------------------------------------------------
 func end_focus() -> void:
 	PlayerManager.examining = false
+	PlayerManager.closeup = true
 	PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
 	
+	
 	# Determine if this item should be stored/picked up
-	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or player_manager_reference == "Keys" or "BatteryExamine" or "GasCanisterExamine":
+	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or (player_manager_reference in ["Keys", "BatteryExamine", "GasCanisterExamine"]):
 		_should_store = true
 		
 		# Play sound immediately

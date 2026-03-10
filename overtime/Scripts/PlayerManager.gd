@@ -22,6 +22,8 @@ var HeadBob: bool = true
 
 var DevMode: bool = true
 
+var FreeRoam: bool = false
+
 ## Location
 
 var Office = false
@@ -151,6 +153,12 @@ var Keys
 var Box
 var BatteryExamine
 var GasCanisterExamine
+
+# List for Debugging
+
+var AllBoolsList: Array[bool]
+var TrackingBoolList: Array[bool]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

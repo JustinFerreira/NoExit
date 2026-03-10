@@ -64,7 +64,6 @@ var loop0_no_battery: String = "Huh the cars not starting I better check my batt
 ## Office wake up Dialog
 
 var office_wake_up_loop0: String = "Oh, must have dozed off. Is the day still not over? It’s always the last day that feels like forever. Might as well pack up."
-var office_wake_up_loop0_hint: String = "Click to skip dialog"
 
 var office_wake_up_loop1: Array[String] = ["Oh thank god…oh thank god it was just a dream. Ok…Ok, good. I need to stop pulling all-nighters like that. It’s screwing with my head.",
 "It looks like I already took everything down.",

@@ -230,6 +230,12 @@ transform = Transform3D(0.398845, 0, 0, 0, 0.398845, 0, 0, 0, 0.398845, 0, 0.021
 [node name="InteractRay" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -4)
 
+[node name="FreeRoamHead" type="Node3D" parent="."]
+transform = Transform3D(1.25362, 0, 0, 0, 1.25362, 0, 0, 0, 1.25362, 0, 1.96128, 0)
+
+[node name="Camera3D" type="Camera3D" parent="FreeRoamHead"]
+transform = Transform3D(0.398845, 0, 0, 0, 0.398845, 0, 0, 0, 0.398845, 0, 0.0219636, 0)
+
 [node name="Player" type="Area3D" parent="."]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.06676, 0)
 
@@ -365,10 +371,6 @@ transform = Transform3D(0.511838, 0, 0, 0, -6.10158e-08, 0.511838, 0, -0.511838,
 material_override = ExtResource("9_kdsvo")
 mesh = SubResource("ArrayMesh_cpe2s")
 skeleton = NodePath("")
-
-[node name="MKillerPrimitive" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.76548, 0, 0, 0, 0.76548, 0, 0, 0, 0.76548, 1.48226, 0, -0.0497223)
-mesh = ExtResource("2_sf52k")
 
 [connection signal="body_entered" from="Player" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="DialogControl/Timer" to="DialogControl" method="_on_timer_timeout"]

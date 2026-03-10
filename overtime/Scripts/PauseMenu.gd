@@ -24,7 +24,10 @@ func resume():
 	if PlayerManager.multiDialog:
 		pass
 	else:
-		PlayerManager.player.CURSOR.visible = true
+		if PlayerManager.FreeRoam:
+			PlayerManager.player.CURSOR.visible = false
+		else:
+			PlayerManager.player.CURSOR.visible = true
 	if PlayerManager.dialoging == true: 
 		PlayerManager.RevealDialog()
 	get_tree().paused = false
@@ -89,3 +92,34 @@ func _on_disable_killer_btn_toggled(toggled_on: bool) -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	SettingsManager.KillerDisabled = toggled_on
+
+
+func _on_dev_tools_btn_pressed() -> void:
+	#Button clikc sound
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	$PanelContainer.visible = false
+	$PanelContainer2.visible = true
+
+
+func _on_backto_screen_1_pressed() -> void:
+	#Button clikc sound
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	$PanelContainer.visible = true
+	$PanelContainer2.visible = false
+
+
+func _on_free_roam_btn_toggled(toggled_on: bool) -> void:
+	#Button clikc sound
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	PlayerManager.FreeRoam = toggled_on
+	if PlayerManager.FreeRoam:
+		PlayerManager.player.enter_free_roam_mode()
+	else:
+		PlayerManager.player.exit_free_roam_mode()
+
+
+func _on_player_visible_btn_toggled(toggled_on: bool) -> void:
+	PlayerManager.player.visible = toggled_on

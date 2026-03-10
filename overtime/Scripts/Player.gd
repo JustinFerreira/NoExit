@@ -47,6 +47,8 @@ var Incar = false
 
 @onready var HEAD = $Head
 @onready var CAMERA = $Head/Camera3D
+@onready var FREEROAMHEAD = $FreeRoamHead
+@onready var FREEROAMCAMERA = $FreeRoamHead/Camera3D
 @onready var INTERACT_RAY = $Head/Camera3D/InteractRay
 @onready var AREA3D = $Player
 @onready var COLLISIONSHAPE3D = $CollisionShape3D  
@@ -71,6 +73,9 @@ var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
 ## Outline help
 var last_collider = null
+
+var pre_free_roam_head_transform: Transform3D
+var pre_free_roam_camera_transform: Transform3D
 
 
 # Function that starts as soon as Player in in the scene
@@ -129,32 +134,39 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(event.relative.y * SENSITIVITY)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
+	if event is InputEventMouseButton:
+		if PlayerManager.minigameTwo == true:
+				PlayerManager.actioning = true
 	if event.is_action_released("Interact"):
+		PlayerManager.actioning = false
 		if DIALOG.is_typing && PlayerManager.finishedDialogAnimation == true:
 			DIALOG.skip_typewriter_effect()
-			print("help")
-			print(DIALOG.is_typing)
 			return
-		if DIALOG.is_typing == false:
+		if not DIALOG.is_typing and not PlayerManager.multiDialog and PlayerManager.examining:
 			PlayerManager.EndFocus()
-			if PlayerManager.firstdialog:
-				PlayerManager.player.DIALOG.get_node("MouseClicking").visible = false
-				PlayerManager.firstdialog = false
-				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
-		elif PlayerManager.startMultiDialog == false && PlayerManager.multiDialog:
-			PlayerManager.NextDialog()
-		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
-			PlayerManager.startMultiDialog = false
-		elif DIALOG.is_typing == false && PlayerManager.multiDialog == false && PlayerManager.finishedDialogAnimation == true && DIALOG.visible == true:
 			PlayerManager.HideDialog()
 			PlayerManager.dialoging = false
 			PlayerManager.finishedDialogAnimation = false
 			PlayerManager.startMultiDialog = true
-		if PlayerManager.minigameTwo == true:
-			PlayerManager.actioning = true
+		elif PlayerManager.startMultiDialog == false && PlayerManager.multiDialog:
+			PlayerManager.NextDialog()
+		elif PlayerManager.startMultiDialog == true && PlayerManager.multiDialog:
+			PlayerManager.startMultiDialog = false
+		elif not DIALOG.is_typing and not PlayerManager.multiDialog and PlayerManager.finishedDialogAnimation and DIALOG.visible:
+			PlayerManager.HideDialog()
+			PlayerManager.dialoging = false
+			PlayerManager.finishedDialogAnimation = false
+			PlayerManager.startMultiDialog = true		
+	if event.is_action_pressed("Interact"):
+		if not DIALOG.is_typing and PlayerManager.firstdialog:
+				PlayerManager.player.DIALOG.get_node("MouseClicking").visible = false
+				PlayerManager.firstdialog = false
+				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
+				print("Get mouse pose")
 				get_mouse_world_pos(mouse)
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
+				print("release")
 				release_grabbed_object()
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameOne:
@@ -216,6 +228,9 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
+	if PlayerManager.FreeRoam:
+		handle_free_roam_movement(delta)
+		return
 	# Handle Heartbeat and Breathing sounds
 	apply_breathing_effects()
 	apply_heartbeat_effects()
@@ -521,3 +536,75 @@ func release_grabbed_object():
 		AnimationManager.NegativeBatteryFlash.visible = false
 		AnimationManager.HideResetZones()
 	grabbed_object = null
+
+func handle_free_roam_movement(delta: float) -> void:
+	# Get input direction
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	
+	# Calculate movement direction based on where FREEROAMHEAD is looking
+	# Using the camera's basis for true first-person direction
+	var forward = FREEROAMCAMERA.global_transform.basis.z  # Forward is -Z in Godot
+	var right = FREEROAMCAMERA.global_transform.basis.x
+	
+	# Combine input with direction vectors
+	var movement = Vector3.ZERO
+	movement += forward * input_dir.y  # Forward/backward
+	movement += right * input_dir.x    # Left/right
+	
+	# Add vertical movement if needed (optional)
+	if Input.is_action_pressed("action"):  # You can add a custom action
+		movement.y += 1.0
+	if Input.is_action_pressed("sprint"):  # You can add a custom action
+		movement.y -= 1.0
+	
+	# Normalize to prevent faster diagonal movement
+	if movement.length() > 0:
+		movement = movement.normalized()
+	
+	# Apply movement speed
+	var free_roam_speed = 10.0  # Adjust this value as needed
+	movement *= free_roam_speed * delta
+	
+	# Move the FREEROAMHEAD node
+	FREEROAMHEAD.global_translate(movement)
+	
+	# Handle rotation (full 360 degrees)
+	handle_free_roam_rotation()
+	
+	# Optional: Keep the camera at the same position as FREEROAMHEAD
+	# This ensures the view stays correct
+	camera.global_position = FREEROAMCAMERA.global_position
+	camera.global_rotation = FREEROAMCAMERA.global_rotation
+
+func handle_free_roam_rotation() -> void:
+	# Get mouse motion
+	var mouse_motion = Input.get_last_mouse_velocity() * 0.01  # Adjust sensitivity
+	
+	# Apply rotation to FREEROAMHEAD (Y-axis - left/right)
+	FREEROAMHEAD.rotate_y(-mouse_motion.x * SENSITIVITY)
+	
+	# Apply rotation to FREEROAMCAMERA (X-axis - up/down)
+	FREEROAMCAMERA.rotate_x(-mouse_motion.y * SENSITIVITY)
+	# No clamping for full 360 vertical rotation
+
+func enter_free_roam_mode():
+	# Store current transforms before entering free roam
+	pre_free_roam_head_transform = head.global_transform
+	pre_free_roam_camera_transform = camera.global_transform
+	
+	# Sync FreeRoam head to player position
+	FREEROAMHEAD.global_transform = head.global_transform
+	FREEROAMCAMERA.global_transform = camera.global_transform
+	
+	# Make FreeRoam camera current
+	FREEROAMCAMERA.current = true
+	PlayerManager.FreeRoam = true
+
+func exit_free_roam_mode():
+	# Restore player to pre-free roam position
+	head.global_transform = pre_free_roam_head_transform
+	camera.global_transform = pre_free_roam_camera_transform
+	
+	# Make player camera current
+	camera.current = true
+	PlayerManager.FreeRoam = false

@@ -136,4 +136,4 @@ func _on_new_office_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	AudioManager.cancel_music()
-	get_tree().change_scene_to_file("res://Levels/New_Office.tscn")
+	get_tree().change_scene_to_file("res://Levels/Greyboxing/Offices/New_Office.tscn")

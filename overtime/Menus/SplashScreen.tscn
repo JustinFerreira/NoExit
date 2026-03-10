@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://uy7v5wa2yncb"]
+[gd_scene load_steps=15 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
-[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="1_xey8r"]
 [ext_resource type="Texture2D" uid="uid://nk1ak86d4slu" path="res://Assets/Logos/GTFO.png" id="2_mthcm"]
+[ext_resource type="FontFile" uid="uid://bgoraiyx8nbsf" path="res://Assets/Fonts/Courier New Bold Italic.ttf" id="2_yoggx"]
 [ext_resource type="Texture2D" uid="uid://dcqptx0ct8rad" path="res://Assets/Logos/IMG_7270.PNG" id="4_b2nst"]
 [ext_resource type="Texture2D" uid="uid://4d1k10gfb6in" path="res://Assets/Logos/IMG_7269.PNG" id="5_gwlcw"]
 [ext_resource type="AudioStream" uid="uid://pbsj32rlwj6m" path="res://Assets/Audio/SFX/dragon-studio-glass-breaking-386153.mp3" id="6_kov4g"]
+[ext_resource type="Texture2D" uid="uid://c8ngayq5deus5" path="res://Assets/Logos/overtimesplash_sheet.png" id="7_uc7fo"]
 
 [sub_resource type="Animation" id="Animation_ft30g"]
 length = 0.001
@@ -24,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Gtfo:modulate")
+tracks/1/path = NodePath("Img7270:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Img7270:modulate")
+tracks/2/path = NodePath("Img7269:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -48,19 +49,19 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Img7269:modulate")
+tracks/3/path = NodePath("Img7270:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Img7270:visible")
+tracks/4/path = NodePath("Img7269:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -72,7 +73,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Img7269:visible")
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -84,19 +85,19 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/path = NodePath("OverTimeStudiosLogo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_s3i0g"]
 resource_name = "Splash"
-length = 7.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -104,7 +105,7 @@ tracks/0/path = NodePath("Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667, 3.03333),
+"times": PackedFloat32Array(0, 1.96667, 2.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -112,74 +113,84 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Gtfo:modulate")
+tracks/1/path = NodePath("Img7270:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.96667, 3.03333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Img7270:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0333334, 3.03333, 4.53333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Img7269:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Img7269:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 3, 6.06667, 7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Img7270:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Img7270:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 3, 4.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Img7269:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Img7269:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0.0333333, 4.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(4.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OverTimeStudiosLogo:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.46667, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.976471), Color(1, 1, 1, 0.976471), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "animation"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("OverTimeStudiosLogo/OverTimeStudiosLogoAnimationPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": PackedStringArray("OvertimeStudios"),
+"times": PackedFloat32Array(1.3)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73vy3"]
@@ -192,6 +203,42 @@ _data = {
 background_mode = 3
 glow_enabled = true
 glow_blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_l8bjo"]
+resource_name = "OvertimeStudios"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_bgr2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vu718"]
+_data = {
+"OvertimeStudios": SubResource("Animation_l8bjo"),
+"RESET": SubResource("Animation_bgr2a")
+}
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
@@ -216,23 +263,22 @@ color = Color(0.101961, 0.0941176, 0.0745098, 1)
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -241.0
-offset_top = 256.0
-offset_right = 347.0
-offset_bottom = 312.0
+offset_left = -294.0
+offset_top = 169.0
+offset_right = 294.0
+offset_bottom = 225.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_xey8r")
-theme_override_font_sizes/font_size = 55
-text = "OVERTIME STUDIOS"
+theme_override_fonts/font = ExtResource("2_yoggx")
+theme_override_font_sizes/font_size = 35
+text = "developed by"
+horizontal_alignment = 1
 
 [node name="Gtfo" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
+visible = false
+modulate = Color(1, 1, 1, 1)
 position = Vector2(642, 304)
 scale = Vector2(0.183296, 0.183296)
 texture = ExtResource("2_mthcm")
@@ -259,3 +305,15 @@ texture = ExtResource("5_gwlcw")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kov4g")
+
+[node name="OverTimeStudiosLogo" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(640, 356)
+texture = ExtResource("7_uc7fo")
+hframes = 9
+
+[node name="OverTimeStudiosLogoAnimationPlayer" type="AnimationPlayer" parent="OverTimeStudiosLogo"]
+libraries = {
+"": SubResource("AnimationLibrary_vu718")
+}
