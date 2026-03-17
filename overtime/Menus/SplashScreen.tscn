@@ -278,7 +278,6 @@ horizontal_alignment = 1
 
 [node name="Gtfo" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 1)
 position = Vector2(642, 304)
 scale = Vector2(0.183296, 0.183296)
 texture = ExtResource("2_mthcm")

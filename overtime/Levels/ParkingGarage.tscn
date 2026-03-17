@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c11drua2sqec2"]
+[gd_scene load_steps=18 format=3 uid="uid://c11drua2sqec2"]
 
 [ext_resource type="Script" path="res://Scripts/ParkingGarage.gd" id="1_ax14i"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Assets/Enviroments/Garage/Scenes/Battery.tscn" id="2_nsdjq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="8_li5l2"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="9_3agi4"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_evl0o"]
+[ext_resource type="PackedScene" uid="uid://c1xfg88gshpto" path="res://Assets/Enviroments/Garage/Scenes/stalking_area.tscn" id="13_wl72n"]
 [ext_resource type="PackedScene" uid="uid://duoospejbeo0t" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Scenes/PlayerCarSized.tscn" id="14_ejo3n"]
 [ext_resource type="PackedScene" uid="uid://dkn32km2rbo1c" path="res://Assets/Enviroments/Garage/Scenes/GasCanisterPickUp.tscn" id="14_gvbgr"]
 [ext_resource type="PackedScene" uid="uid://dt20akn0ptkqf" path="res://Assets/Enviroments/Garage/Scenes/BatteryPickup.tscn" id="16_wlugy"]
@@ -190,3 +191,6 @@ transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5861,
 visible = false
 axis_lock_linear_y = true
 axis_lock_angular_y = true
+
+[node name="StalkingArea" parent="." instance=ExtResource("13_wl72n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73365, 0.739222, 43.0693)

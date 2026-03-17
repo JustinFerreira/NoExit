@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 3/16/26 by Justin Ferreira
 ## Player Manager Script
 ## - this script keeps a lot of settings variables
 ## also has modes, location of player,
@@ -62,6 +62,14 @@ var firstdialog = true
 ## Enemy
 
 var Enemy
+
+var stalking_mode = false
+
+var stalking_area = null
+
+var killer_visible = true
+
+var killer_audible = true
 
 ## Janitor
 
@@ -156,7 +164,7 @@ var GasCanisterExamine
 
 # List for Debugging
 
-var AllBoolsList: Array[bool]
+var AllBoolsList: Dictionary
 var TrackingBoolList: Array[bool]
 
 
