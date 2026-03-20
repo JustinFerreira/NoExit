@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8pdvalusug1f"
-path.s3tc="res://.godot/imported/M_Killer_LowUV_Normal.png-5279044ad4489de9af6677aa55e82611.s3tc.ctex"
+path.s3tc="res://.godot/imported/M_Killer_LowUV_Normal.png-56bf3743cda5a57d93fa4d6ddaa6047c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Characters/Killer/textures/M_Killer_LowUV_Normal.png"
-dest_files=["res://.godot/imported/M_Killer_LowUV_Normal.png-5279044ad4489de9af6677aa55e82611.s3tc.ctex"]
+source_file="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Normal.png"
+dest_files=["res://.godot/imported/M_Killer_LowUV_Normal.png-56bf3743cda5a57d93fa4d6ddaa6047c.s3tc.ctex"]
 
 [params]
 

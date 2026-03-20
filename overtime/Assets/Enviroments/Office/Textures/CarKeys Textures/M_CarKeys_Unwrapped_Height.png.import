@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvp2qpkuh81xo"
-path="res://.godot/imported/M_CarKeys_Unwrapped_Height.png-ca5ef0c2e370d58aaf32e1adebdb90a1.ctex"
+path="res://.godot/imported/M_CarKeys_Unwrapped_Height.png-5c5c65c3929c6a02bd68a1c309936284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enviroments/Office/Scenes/CarKeys/Textures/M_CarKeys_Unwrapped_Height.png"
-dest_files=["res://.godot/imported/M_CarKeys_Unwrapped_Height.png-ca5ef0c2e370d58aaf32e1adebdb90a1.ctex"]
+source_file="res://Assets/Enviroments/Office/Textures/CarKeys Textures/M_CarKeys_Unwrapped_Height.png"
+dest_files=["res://.godot/imported/M_CarKeys_Unwrapped_Height.png-5c5c65c3929c6a02bd68a1c309936284.ctex"]
 
 [params]
 

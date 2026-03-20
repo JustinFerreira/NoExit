@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2uc5vojj8abo"
+path="res://.godot/imported/M_CarKeys_Unwrapped.obj-c346868889a7ec274bbdc01ae9bdb50a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_CarKeys_Unwrapped.obj-c346868889a7ec274bbdc01ae9bdb50a.mesh"]
+
+source_file="res://Assets/Enviroments/Office/Models/M_CarKeys_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_CarKeys_Unwrapped.obj-c346868889a7ec274bbdc01ae9bdb50a.mesh", "res://.godot/imported/M_CarKeys_Unwrapped.obj-c346868889a7ec274bbdc01ae9bdb50a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

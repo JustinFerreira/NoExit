@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://yih5mgsk2qf2"]
 
 [ext_resource type="Script" path="res://Scripts/CarKeys.gd" id="1_e3rvt"]
-[ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Assets/Enviroments/Office/Scenes/CarKeys/Models/M_CarKeys_Unwrapped.obj" id="2_4tk0o"]
+[ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Assets/Enviroments/Office/Models/M_CarKeys_Unwrapped.obj" id="2_4tk0o"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_k7qgf"]
 [ext_resource type="Material" uid="uid://dqgwmdsypdlvg" path="res://Assets/Materials/CarKeys.tres" id="3_jcbng"]
 
