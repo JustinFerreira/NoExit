@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://xuslr4uu5kyr"]
+
+[ext_resource type="Texture2D" uid="uid://bime7ftkfqejm" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_BaseColor.png" id="1_cylu3"]
+[ext_resource type="Texture2D" uid="uid://naw1m1q2nbww" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Rougness.png" id="2_7k87j"]
+[ext_resource type="Texture2D" uid="uid://bpoq753x4k803" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean.png" id="3_upgb5"]
+[ext_resource type="Texture2D" uid="uid://cd02i1c8cumti" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="4_vlxhx"]
+
+[resource]
+albedo_texture = ExtResource("1_cylu3")
+metallic = 1.0
+metallic_texture = ExtResource("2_7k87j")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_7k87j")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_vlxhx")
+ao_enabled = true
+ao_texture = ExtResource("2_7k87j")
+heightmap_texture = ExtResource("3_upgb5")

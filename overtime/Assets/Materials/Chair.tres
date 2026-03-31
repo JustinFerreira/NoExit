@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://blbhl6rna6cvk"]
+
+[ext_resource type="Texture2D" uid="uid://qrid5wfad8b4" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_BaseColor.png" id="1_shulo"]
+[ext_resource type="Texture2D" uid="uid://b4k8olv5joggl" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Metalic_and_Rougness.png" id="2_avxmk"]
+[ext_resource type="Texture2D" uid="uid://ffwia3uj6ib8" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Height.png" id="3_lkwiw"]
+[ext_resource type="Texture2D" uid="uid://4e5db3kqh1m3" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Normal.png" id="4_5we2y"]
+
+[resource]
+albedo_texture = ExtResource("1_shulo")
+metallic = 1.0
+metallic_texture = ExtResource("2_avxmk")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_avxmk")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_5we2y")
+ao_enabled = true
+ao_texture = ExtResource("2_avxmk")
+heightmap_texture = ExtResource("3_lkwiw")
