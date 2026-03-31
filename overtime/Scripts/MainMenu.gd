@@ -14,37 +14,30 @@ func _ready() -> void:
 	PlayerManager.ResetPlayer()
 	PlayerManager.Loop1 = false
 	AudioManager.play_music(AudioManager.MainMenuMusic)
-	animation_player.connect("animation_finished", _on_animation_finished)
 	if PlayerManager.FirstOpen == true:
 		animation_player.play("FadeIn")
 		PlayerManager.FirstOpen = false
 	else:
-		$MainMenuFirstScreen/ColorRect.visible = false
+		$FadeColorRect.visible = false
 		AudioManager.cancel_loop_sfx()
 	
 
 func _process(delta: float) -> void:
 	if PlayerManager.DevMode:
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = true
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = true
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = true
+		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = true
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = true
 	elif SettingsManager.Loop0Pass:
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = true
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
+		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
 	else:
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuFirstScreen2/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/Loop1Btn.visible = false
-		$MainMenuFirstScreen2/MarginContainer/VBoxContainer/New_Office.visible = false
-
-func _on_animation_finished(anim_name: String):
-	
-	if anim_name == "FadeIn":
-		pass
-		#animation_player.play("camera_anim")
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
+		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
 		
 
 
@@ -53,7 +46,7 @@ func _on_start_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	$MainMenuFirstScreen.visible = false
-	$MainMenuFirstScreen2.visible = true
+	$MainMenuSecondScreen.visible = true
 
 
 func _on_quit_btn_pressed() -> void:
@@ -86,7 +79,7 @@ func _on_prev_screen_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	
-	$MainMenuFirstScreen2.visible = false
+	$MainMenuSecondScreen.visible = false
 	$MainMenuFirstScreen.visible = true
 
 

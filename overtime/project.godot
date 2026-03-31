@@ -28,9 +28,10 @@ EventManager="*res://Scripts/EventManager.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=480
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 
@@ -103,4 +104,5 @@ scrollDown={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+shading/overrides/force_vertex_shading=true
 viewport/hdr_2d=true

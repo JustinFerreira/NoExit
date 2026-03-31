@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c11drua2sqec2"]
+[gd_scene load_steps=19 format=3 uid="uid://c11drua2sqec2"]
 
 [ext_resource type="Script" path="res://Scripts/ParkingGarage.gd" id="1_ax14i"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Assets/Enviroments/Garage/Scenes/Battery.tscn" id="2_nsdjq"]
@@ -30,6 +30,8 @@ volumetric_fog_density = 0.0891
 density = -8.0
 height_falloff = 4.92467e-05
 edge_fade = 8.44483
+
+[sub_resource type="BoxMesh" id="BoxMesh_abegx"]
 
 [node name="Parking Garage" type="Node3D" node_paths=PackedStringArray("fog_remover")]
 script = ExtResource("1_ax14i")
@@ -194,3 +196,7 @@ axis_lock_angular_y = true
 
 [node name="StalkingArea" parent="." instance=ExtResource("13_wl72n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73365, 0.739222, 43.0693)
+
+[node name="FarFuckingBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.4163, 104.128)
+mesh = SubResource("BoxMesh_abegx")

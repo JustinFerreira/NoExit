@@ -15,7 +15,6 @@ extends Area3D
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.is_in_group("player") or area.name == "Player":
-		print("DID I JUST GET ENTERED????")
 		PlayerManager.stalking_mode = true
 		PlayerManager.stalking_area = self
 		
@@ -25,7 +24,6 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_area_exited(area: Area3D) -> void:
 	if area.is_in_group("player") or area.name == "Player":
-		print("Leaving so soon?")
 		PlayerManager.stalking_mode = false
 		PlayerManager.stalking_area = null
 		

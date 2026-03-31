@@ -7,19 +7,19 @@
 extends Control
 
 ## Sound Settings
-@onready var master_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider
-@onready var music_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider
-@onready var sfx_slider = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider
-@onready var mute_check = $ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MuteCheckBox
+@onready var master_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider
+@onready var music_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider
+@onready var sfx_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider
+@onready var mute_check = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MuteCheckBox
 
 ## Visual Settings
-@onready var fullscreen_check = $ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
+@onready var fullscreen_check = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
 
 ## Game Settings
-@onready var shifthold_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
-@onready var sensitivity_slider = $ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
-@onready var headbob_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
-@onready var devmode_check = $ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
+@onready var shifthold_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
+@onready var sensitivity_slider = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
+@onready var headbob_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
+@onready var devmode_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
 
 # So sliders don't make noises when first start screen
 var DumbStupidBool = false

@@ -22,7 +22,7 @@ func _ready() -> void:
 	AnimationManager.GasCapAnimationPlayer = $"../../GasCapAnimationPlayer"
 	
 	# Mouse clicking aniamtion setting for UI
-	AnimationManager.MouseClickingAnimationPlayer = $"../../GasIntakeCam/GasIntakeGame/MouseClicking/MouseClickingAnimationPlayer"
+	AnimationManager.MouseClickingAnimationPlayer = $"../../GasIntakeCam/GasIntakeGame/CenterContainer/MouseClicking/MouseClickingAnimationPlayer"
 	AnimationManager.ActivateMouseClickingAnimationPlayer()
 	AnimationManager.MouseClickingAnimationPlayer.play("MouseClicking")
 	

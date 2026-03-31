@@ -71,6 +71,8 @@ var killer_visible = true
 
 var killer_audible = true
 
+var fogremove = true
+
 ## Janitor
 
 var janitor

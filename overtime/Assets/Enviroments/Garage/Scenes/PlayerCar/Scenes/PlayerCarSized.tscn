@@ -609,30 +609,16 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("17_4rwam")
 
-[node name="Item1" type="ColorRect" parent="Head/Car_Cam/Minigame"]
-visible = false
-layout_mode = 0
-offset_left = 156.0
-offset_top = 97.0
-offset_right = 196.0
-offset_bottom = 137.0
-color = Color(0.570529, 0, 0.0720512, 1)
+[node name="CenterContainer" type="CenterContainer" parent="Head/Car_Cam/Minigame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Item2" type="ColorRect" parent="Head/Car_Cam/Minigame"]
-visible = false
-layout_mode = 0
-offset_left = 1108.0
-offset_top = 331.0
-offset_right = 1148.0
-offset_bottom = 371.0
-color = Color(0, 0, 0, 1)
-
-[node name="Button" type="Button" parent="Head/Car_Cam/Minigame"]
-layout_mode = 0
-offset_left = 524.0
-offset_top = 248.0
-offset_right = 667.0
-offset_bottom = 279.0
+[node name="Button" type="Button" parent="Head/Car_Cam/Minigame/CenterContainer"]
+layout_mode = 2
 text = "HOT WIRE CONFIRM"
 
 [node name="HoodCam" type="Camera3D" parent="."]
@@ -648,12 +634,13 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="HoodCam/HoodGame"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 1.0
-offset_right = 1182.0
-offset_bottom = 127.0
+offset_left = 5.0
+offset_top = 27.0
+offset_right = 1101.0
+offset_bottom = 153.0
+scale = Vector2(0.56, 1.00639)
 theme_override_fonts/font = ExtResource("18_w3f54")
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 25
 text = "* Click then drag flashing wire to flashing red
 * Avoid bright white on battery
 * Press ESC to leave minigame with progress intact"
@@ -672,25 +659,33 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="GasIntakeCam/GasIntakeGame"]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 26.0
-offset_right = 219.0
-offset_bottom = 676.0
+offset_left = 29.0
+offset_top = 87.0
+offset_right = 179.0
+offset_bottom = 737.0
+scale = Vector2(0.446309, 0.446309)
 fill_mode = 3
 texture_under = ExtResource("24_hjdpm")
 texture_progress = ExtResource("24_hjdpm")
-tint_progress = Color(1, 0, 0, 1)
+tint_progress = Color(0.491, 1.09497e-06, 3.36915e-07, 1)
 
-[node name="Label" type="Label" parent="GasIntakeCam/GasIntakeGame"]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 29.0
-offset_right = 947.0
-offset_bottom = 95.0
+[node name="CenterContainer" type="CenterContainer" parent="GasIntakeCam/GasIntakeGame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.0
+offset_right = 270.0
+offset_bottom = 66.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="GasIntakeCam/GasIntakeGame/CenterContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("18_w3f54")
 theme_override_font_sizes/font_size = 20
 text = "Hold LMB to raise gas canister
@@ -698,18 +693,18 @@ text = "Hold LMB to raise gas canister
 Press ESC to leave minigame with progress intact"
 horizontal_alignment = 1
 
-[node name="MouseClicking" type="Sprite2D" parent="GasIntakeCam/GasIntakeGame"]
+[node name="MouseClicking" type="Sprite2D" parent="GasIntakeCam/GasIntakeGame/CenterContainer"]
 texture_filter = 1
-position = Vector2(606, 129)
+position = Vector2(266, 104)
 texture = ExtResource("19_ekjm7")
 hframes = 2
 
-[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
+[node name="MouseClickingAnimationPlayer" type="AnimationPlayer" parent="GasIntakeCam/GasIntakeGame/CenterContainer/MouseClicking"]
 libraries = {
 "": SubResource("AnimationLibrary_t71il")
 }
 
-[node name="MKillerPrimitive" type="MeshInstance3D" parent="GasIntakeCam/GasIntakeGame/MouseClicking"]
+[node name="MKillerPrimitive" type="MeshInstance3D" parent="GasIntakeCam/GasIntakeGame/CenterContainer/MouseClicking"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.876, 163.489, 264.387)
 mesh = ExtResource("26_qapd7")
 
@@ -731,5 +726,5 @@ script = ExtResource("29_0ihrx")
 [connection signal="interacted" from="Hood/Hood" to="Hood/Hood" method="_on_interacted"]
 [connection signal="interacted" from="GasCap/GasCap" to="GasCap/GasCap" method="_on_interacted"]
 [connection signal="interacted" from="SteeringWheel/SteeringWheel" to="SteeringWheel/SteeringWheel" method="_on_interacted"]
-[connection signal="pressed" from="Head/Car_Cam/Minigame/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
+[connection signal="pressed" from="Head/Car_Cam/Minigame/CenterContainer/Button" to="Head/Car_Cam/Minigame" method="_on_button_pressed"]
 [connection signal="value_changed" from="GasIntakeCam/GasIntakeGame/TextureProgressBar" to="GasIntakeCanister" method="_on_progress_bar_value_changed"]

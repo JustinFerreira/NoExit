@@ -52,7 +52,7 @@ var Incar = false
 @onready var INTERACT_RAY = $Head/Camera3D/InteractRay
 @onready var AREA3D = $Player
 @onready var COLLISIONSHAPE3D = $CollisionShape3D  
-@onready var CURSOR = $Cursor
+@onready var CURSOR = $CenterContainer/Cursor
 @onready var DIALOG = $DialogControl
 @onready var GAMEOVER = $GameOverScreen
 
@@ -76,6 +76,7 @@ var last_collider = null
 
 var pre_free_roam_head_transform: Transform3D
 var pre_free_roam_camera_transform: Transform3D
+var saved_collider = null
 
 
 # Function that starts as soon as Player in in the scene
@@ -99,7 +100,7 @@ func _process(delta: float) -> void:
 		grabbed_object.position = get_grab_position()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if PlayerManager.InAnimation || PlayerManager.dying:
+	if PlayerManager.InAnimation and  not PlayerManager.multiDialog || PlayerManager.dying:
 		return
 	if event.is_action_pressed("Keysound"):
 		if PlayerManager.car_audio_player && PlayerManager.EquippedItem == "Car Keys":
@@ -230,6 +231,20 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if PlayerManager.FreeRoam:
 		handle_free_roam_movement(delta)
+		
+		if interact_ray.is_colliding():
+			var collider = interact_ray.get_collider()
+			var collision_point = interact_ray.get_collision_point()
+			var distance = interact_ray.global_position.distance_to(collision_point)
+			
+			# Only interact if within 1 meter
+			if distance <= 5.0 && collider is Interactable && collider.is_interactable:
+				
+				if Input.is_action_just_pressed("Interact"):
+					saved_collider = collider
+		
+		if Input.is_action_just_pressed("Keysound"):
+			saved_collider.interact(owner)
 		return
 	# Handle Heartbeat and Breathing sounds
 	apply_breathing_effects()
@@ -256,8 +271,8 @@ func _physics_process(delta: float) -> void:
 		
 		# Only interact if within 1 meter
 		if distance <= 5.0 && collider is Interactable && collider.is_interactable:
-			$Cursor/Corsshair.visible = false
-			$Cursor/Hand.visible = true
+			$CenterContainer/Cursor/Crosshair.visible = false
+			$CenterContainer/Cursor/Hand.visible = true
 			
 			# If we have a new collider, hide the previous one's outline
 			if last_collider != null && last_collider != collider:
@@ -270,14 +285,14 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("Interact"):
 				collider.interact(owner)
 		else:
-			$Cursor/Corsshair.visible = true
-			$Cursor/Hand.visible = false
+			$CenterContainer/Cursor/Crosshair.visible = true
+			$CenterContainer/Cursor/Hand.visible = false
 			if last_collider != null:
 				last_collider.hide_outline()
 				last_collider = null
 	else:
-		$Cursor/Corsshair.visible = true
-		$Cursor/Hand.visible = false
+		$CenterContainer/Cursor/Crosshair.visible = true
+		$CenterContainer/Cursor/Hand.visible = false
 		if last_collider != null:
 			last_collider.hide_outline()
 			last_collider = null

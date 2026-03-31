@@ -32,11 +32,14 @@ var stalk_direction_change_timer: float = 0.0
 var stalk_direction_change_interval: float = 3.0
 var current_stalk_angle: float = 0.0
 
+var fadingout = true
+
 # Visual/Audio references
 @onready var visibility_timer: Timer = $VisibilityTimer  # You'll need to add this Timer node
 @onready var original_material: Material = $Armature/Skeleton3D/M_Killer_LowUV.get_surface_override_material(0)  # Adjust path as needed
 
 func _ready():
+	$FadeAnimation.connect("animation_finished", _on_Fade_animation_finished)
 	PlayerManager.Enemy = self
 	PlayerManager.no_enemy = false
 	WalkingAnimator.speed_scale = 2.0
@@ -278,6 +281,8 @@ func enter_stalking_mode(distance: float, invisible: bool = true, silent: bool =
 	if stalking_mode:
 		return  # Already in stalking mode
 		
+		
+	PlayerManager.fogremove = false
 	stalking_mode = true
 	stalking_distance = distance
 	is_invisible = invisible
@@ -290,6 +295,7 @@ func enter_stalking_mode(distance: float, invisible: bool = true, silent: bool =
 	SPEED = 0.5
 	
 	# Handle invisibility
+	await get_tree().create_timer(0.5).timeout
 	if is_invisible:
 		make_invisible()
 	
@@ -325,8 +331,10 @@ func exit_stalking_mode() -> void:
 ## Make killer invisible
 func make_invisible() -> void:
 	# Hide the main model
-	$Armature.visible = false
-	$Skeleton3D.visible = false
+	fadingout = true
+	PlayerManager.fogremove = true
+	#$FadeAnimation.play("FadeKiller")
+	
 	
 	# Option 1: Completely invisible
 	# No additional code needed
@@ -341,6 +349,8 @@ func make_invisible() -> void:
 
 ## Make killer visible again
 func make_visible() -> void:
+	fadingout = false
+	$FadeAnimation.play_backwards("FadeKiller")
 	$Armature.visible = true
 	$Skeleton3D.visible = true
 	
@@ -358,3 +368,9 @@ func make_silent() -> void:
 func make_audible() -> void:
 	# Restart sounds if needed
 	pass
+
+func _on_Fade_animation_finished():
+	if fadingout:
+		$Armature.visible = false
+		$Skeleton3D.visible = false
+		PlayerManager.fogremove = true

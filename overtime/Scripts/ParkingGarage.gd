@@ -21,8 +21,10 @@ func _ready() -> void:
 	PlayerManager.examed = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if fog_remover:
+	if fog_remover and PlayerManager.fogremove:
 		fog_remover.position = target.position
+	else:
+		fog_remover.position = $FarFuckingBox.position
 	if SettingsManager.KillerDisabled:
 		return
 	get_tree().call_group("enemy" , "target_position" , target.global_transform.origin)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://d27k4ukr6g7jr"]
+[gd_scene load_steps=29 format=4 uid="uid://d27k4ukr6g7jr"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jypo0"]
 [ext_resource type="PackedScene" uid="uid://dym5cp4qr0nyb" path="res://Menus/SimplifiedPauseMenu.tscn" id="2_cqu1j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://8qnwax1jbg7c" path="res://Assets/Materials/Player.tres" id="9_kdsvo"]
 [ext_resource type="Texture2D" uid="uid://djm35mf18rhts" path="res://Assets/UI/Crosshair.png" id="10_1g75w"]
 [ext_resource type="Texture2D" uid="uid://c51mwvydjqqcr" path="res://Assets/UI/hand.png" id="10_o7qna"]
+[ext_resource type="Shader" path="res://Assets/Shaders/ps1_post_process.gdshader" id="12_k08ux"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ye13h"]
 albedo_color = Color(0, 1, 1, 1)
@@ -176,6 +177,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_etrmx")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cns52"]
+shader = ExtResource("12_k08ux")
+shader_parameter/viewport_size = Vector2(640, 480)
+shader_parameter/virtual_resolution = Vector2(320, 240)
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 0, 0, 0)
 visible = false
@@ -191,6 +197,7 @@ anchor_bottom = 1.0
 offset_bottom = -601.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Inventory"]
 layout_mode = 0
@@ -207,7 +214,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DevPauseMenu" parent="." instance=ExtResource("2_f74wo")]
-visible = false
 
 [node name="SimplifiedPauseMenu" parent="." instance=ExtResource("2_cqu1j")]
 
@@ -275,7 +281,7 @@ size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_y3dep")
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Closed Captions"
 fit_content = true
@@ -300,9 +306,10 @@ offset_right = -3.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 250
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
 
 [node name="CharacterPanel" type="Panel" parent="DialogControl/CharacterPanelMarginContainer"]
 layout_mode = 2
@@ -323,7 +330,7 @@ size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_y3dep")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "Closed Captions"
 fit_content = true
@@ -341,8 +348,7 @@ libraries = {
 "": SubResource("AnimationLibrary_t71il")
 }
 
-[node name="Cursor" type="Control" parent="."]
-layout_mode = 3
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -350,14 +356,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Corsshair" type="Sprite2D" parent="Cursor"]
-position = Vector2(636, 341)
+[node name="Cursor" type="Control" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Crosshair" type="Sprite2D" parent="CenterContainer/Cursor"]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("10_1g75w")
 
-[node name="Hand" type="Sprite2D" parent="Cursor"]
+[node name="Hand" type="Sprite2D" parent="CenterContainer/Cursor"]
 visible = false
-position = Vector2(636, 341)
 scale = Vector2(0.0138326, 0.0142347)
 texture = ExtResource("10_o7qna")
 
@@ -371,6 +379,17 @@ transform = Transform3D(0.511838, 0, 0, 0, -6.10158e-08, 0.511838, 0, -0.511838,
 material_override = ExtResource("9_kdsvo")
 mesh = SubResource("ArrayMesh_cpe2s")
 skeleton = NodePath("")
+
+[node name="ps1_graphics" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ps1_graphics"]
+material = SubResource("ShaderMaterial_cns52")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="body_entered" from="Player" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="DialogControl/Timer" to="DialogControl" method="_on_timer_timeout"]

@@ -75,7 +75,7 @@ func _on_settings_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	if PlayerManager.DevMode:
-		$ColorRect.visible = false
+		pass
 	$SettingsMenu.visible = true
 
 
@@ -123,3 +123,7 @@ func _on_free_roam_btn_toggled(toggled_on: bool) -> void:
 
 func _on_player_visible_btn_toggled(toggled_on: bool) -> void:
 	PlayerManager.player.visible = toggled_on
+
+
+func _on_button_pressed() -> void:
+	print("YOOOO")
