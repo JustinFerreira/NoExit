@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://uy7v5wa2yncb"]
+[gd_scene load_steps=15 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
 [ext_resource type="FontFile" uid="uid://bgoraiyx8nbsf" path="res://Assets/Fonts/Courier New Bold Italic.ttf" id="2_yoggx"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://4d1k10gfb6in" path="res://Assets/Logos/IMG_7269.PNG" id="5_gwlcw"]
 [ext_resource type="AudioStream" uid="uid://pbsj32rlwj6m" path="res://Assets/Audio/SFX/dragon-studio-glass-breaking-386153.mp3" id="6_kov4g"]
 [ext_resource type="Texture2D" uid="uid://c8ngayq5deus5" path="res://Assets/Logos/overtimesplash_sheet.png" id="7_uc7fo"]
+[ext_resource type="Script" path="res://Scripts/KeepAnimatedSpriteCenter.gd" id="7_vtpsg"]
 
 [sub_resource type="Animation" id="Animation_ft30g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/MarginContainer/Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/Img7270:modulate")
+tracks/1/path = NodePath("CenterContainer/Control/Img7270:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -36,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterContainer/Img7269:modulate")
+tracks/2/path = NodePath("CenterContainer/Control2/Img7269:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -48,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterContainer/Img7270:visible")
+tracks/3/path = NodePath("CenterContainer/Control/Img7270:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -60,7 +61,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CenterContainer/Img7269:visible")
+tracks/4/path = NodePath("CenterContainer/Control2/Img7269:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -84,7 +85,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CenterContainer/OverTimeStudiosLogo:modulate")
+tracks/6/path = NodePath("CenterContainer2/Control/OverTimeStudiosLogo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -100,7 +101,7 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
+tracks/0/path = NodePath("CenterContainer/VBoxContainer/MarginContainer/Label:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -112,7 +113,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/Img7270:modulate")
+tracks/1/path = NodePath("CenterContainer/Control/Img7270:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,7 +125,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CenterContainer/Img7269:modulate")
+tracks/2/path = NodePath("CenterContainer/Control2/Img7269:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -136,7 +137,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CenterContainer/Img7270:visible")
+tracks/3/path = NodePath("CenterContainer/Control/Img7270:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -148,7 +149,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CenterContainer/Img7269:visible")
+tracks/4/path = NodePath("CenterContainer/Control2/Img7269:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -172,7 +173,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CenterContainer/OverTimeStudiosLogo:modulate")
+tracks/6/path = NodePath("CenterContainer2/Control/OverTimeStudiosLogo:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -184,7 +185,7 @@ tracks/6/keys = {
 tracks/7/type = "animation"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("CenterContainer/OverTimeStudiosLogo/OverTimeStudiosLogoAnimationPlayer")
+tracks/7/path = NodePath("CenterContainer2/Control/OverTimeStudiosLogo/OverTimeStudiosLogoAnimationPlayer")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -278,39 +279,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Img7270" type="Sprite2D" parent="CenterContainer"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(323, 222)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_b2nst")
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
 
-[node name="Img7269" type="Sprite2D" parent="CenterContainer"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(323.116, 221.375)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_gwlcw")
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_bottom = 300
 
-[node name="OverTimeStudiosLogo" type="Sprite2D" parent="CenterContainer"]
-modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-position = Vector2(325, 234)
-texture = ExtResource("7_uc7fo")
-hframes = 9
-
-[node name="OverTimeStudiosLogoAnimationPlayer" type="AnimationPlayer" parent="CenterContainer/OverTimeStudiosLogo"]
-libraries = {
-"": SubResource("AnimationLibrary_vu718")
-}
-
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-offset_left = 194.0
-offset_top = 64.0
-offset_right = 446.0
-offset_bottom = 105.0
-grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_yoggx")
 theme_override_font_sizes/font_size = 35
 text = "developed by"
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Img7270" type="Sprite2D" parent="CenterContainer/Control"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-1, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_b2nst")
+
+[node name="Control2" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Img7269" type="Sprite2D" parent="CenterContainer/Control2"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-0.884003, 0.375)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_gwlcw")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="CenterContainer2"]
+layout_mode = 2
+
+[node name="OverTimeStudiosLogo" type="Sprite2D" parent="CenterContainer2/Control"]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+position = Vector2(-38, -126)
+texture = ExtResource("7_uc7fo")
+hframes = 9
+script = ExtResource("7_vtpsg")
+
+[node name="OverTimeStudiosLogoAnimationPlayer" type="AnimationPlayer" parent="CenterContainer2/Control/OverTimeStudiosLogo"]
+libraries = {
+"": SubResource("AnimationLibrary_vu718")
+}
