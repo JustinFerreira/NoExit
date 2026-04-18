@@ -70,8 +70,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.9233, 19.1559, 11.175, 25.551
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_72fn0")
 
-[node name="UnwrappedParkingGarage" parent="NavigationRegion3D" instance=ExtResource("5_o1wft")]
+[node name="UnwrappedParkingGarage" parent="NavigationRegion3D" node_paths=PackedStringArray("lights") instance=ExtResource("5_o1wft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626768, 0, 0.282691)
+lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="Car" parent="NavigationRegion3D" instance=ExtResource("14_ejo3n")]
 transform = Transform3D(0.0194348, 0, 0, 0, 0.0194348, 0, 0, 0, 0.0194348, 54.6886, 0.840464, 15.1216)
@@ -264,19 +265,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73365, 0.739222, 43.0693)
 teleports = [NodePath("TeleportItemStalking1"), NodePath("TeleportItemStalking2"), NodePath("TeleportItemStalking3")]
 
 [node name="TeleportItemStalking1" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1722, 0.848079, -15.8863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.172, -0.0259283, -15.886)
 visible = false
 mesh = SubResource("CapsuleMesh_gkp0q")
 skeleton = NodePath("../..")
 
 [node name="TeleportItemStalking2" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.8727, 0.848079, -20.5572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.873, -0.0905052, -20.557)
 visible = false
 mesh = SubResource("CapsuleMesh_gkp0q")
 skeleton = NodePath("../..")
 
 [node name="TeleportItemStalking3" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4944, 3.70531, -44.9989)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.494, 0.0885759, -33.1996)
 visible = false
 mesh = SubResource("CapsuleMesh_gkp0q")
 skeleton = NodePath("../..")
@@ -286,17 +287,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.51711, 55.3506, 0, 15.9269)
 teleports = [NodePath("../CarTeleportStalking1"), NodePath("../CarTeleportStalking2"), NodePath("../CarTeleportStalking3")]
 
 [node name="CarTeleportStalking1" type="MeshInstance3D" parent="." groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6403, 1.68781, 41.0869)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.64, 0.713, 41.087)
 visible = false
 mesh = SubResource("CapsuleMesh_kynlc")
 
 [node name="CarTeleportStalking2" type="MeshInstance3D" parent="." groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.4863, 1.68781, 41.0869)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.4863, 0.71255, 41.0869)
 visible = false
 mesh = SubResource("CapsuleMesh_kynlc")
 
 [node name="CarTeleportStalking3" type="MeshInstance3D" parent="." groups=["teleport_target"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.2, 1.68781, 16.524)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.2, 0.713, 16.524)
 visible = false
 mesh = SubResource("CapsuleMesh_kynlc")
 

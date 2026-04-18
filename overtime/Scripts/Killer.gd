@@ -15,6 +15,8 @@ var SPEED = 2.0
 
 var was_animation_playing: bool = false
 
+var paused_animation_time: float = 1.3
+
 var teleports
 
 # Stalking mode variables
@@ -63,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			find_teleport_target("FarTeleport")
 		PlayerManager.teleportEnemy = false
 	
-	if not PlayerManager.dying:
+	if not PlayerManager.dying && not stalking_mode:
 		WalkingAnimator.play("Scene")
 	
 	# Add the gravity.
@@ -100,6 +102,8 @@ func _physics_process(delta: float) -> void:
 	
 func target_position(target):
 	if stalking_mode:
+		look_at(target)
+		rotate_y(PI)
 		return
 	if position == target:
 		return
@@ -296,13 +300,19 @@ func enter_stalking_mode(distance: float, teleport: String, invisible: bool = tr
 	# Set speed to 0 while stalking (or very slow if you want them to reposition slowly)
 	SPEED = 0
 	
-	# Pause the walking animation on the first frame
+	# Stop the walking animation at the current frame
 	if WalkingAnimator.is_playing():
 		was_animation_playing = true
+		# Store the current playback position (in seconds)
+		paused_animation_time = WalkingAnimator.current_animation_position
 		WalkingAnimator.stop()
-		WalkingAnimator.seek(0)  # Go to first frame
+		
+		# OPTIONAL: Set to a specific frame instead of current frame
+		# Uncomment the next line and set your desired time (e.g., 0.5 seconds)
+		# paused_animation_time = 0.5
 	else:
 		was_animation_playing = false
+		paused_animation_time = 0.0
 	
 	# Handle invisibility
 	await get_tree().create_timer(0.5).timeout
@@ -333,6 +343,8 @@ func exit_stalking_mode() -> void:
 	# Resume walking animation from where it was paused
 	if was_animation_playing:
 		WalkingAnimator.play("Scene")
+		# Seek to the stored time (ensures it's within valid range)
+		WalkingAnimator.seek(paused_animation_time, true)
 	
 	is_silent = false
 
