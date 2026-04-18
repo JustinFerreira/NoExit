@@ -44,6 +44,7 @@ var heartbeat_volume = -20  # Adjust as needed
 var TbobON = true
 var FOVON = false
 var Incar = false
+var trapped = false
 
 @onready var HEAD = $Head
 @onready var CAMERA = $Head/Camera3D
@@ -164,10 +165,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				PlayerManager.firstdialog = false
 				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
-				print("Get mouse pose")
 				get_mouse_world_pos(mouse)
 		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
-				print("release")
 				release_grabbed_object()
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameOne:
@@ -299,7 +298,7 @@ func _physics_process(delta: float) -> void:
 			
 	
 	# Handle Sprint
-	if Incar == true:
+	if Incar == true or trapped == true:
 		speed = 0
 		is_sprinting = false
 	else:

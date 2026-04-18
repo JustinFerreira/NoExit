@@ -1,5 +1,6 @@
-[gd_scene load_steps=81 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=82 format=3 uid="uid://b2jbahgstl1gh"]
 
+[ext_resource type="Script" path="res://Scripts/MarkingUnwrappedParkingGarage.gd" id="1_nax11"]
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Levels/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
 [ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Levels/Greyboxing/Models/ParkingGarageMesh.obj" id="2_3ks60"]
 [ext_resource type="PackedScene" uid="uid://c42whtah5m5m3" path="res://Assets/Enviroments/Garage/Scenes/ParkBlock.tscn" id="3_f4osh"]
@@ -7,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c4e6alwxo7csv" path="res://Assets/Enviroments/Garage/Scenes/GaragePole.tscn" id="5_vhhf1"]
 [ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="6_3wqkc"]
 [ext_resource type="PackedScene" uid="uid://cecwkfw6phxht" path="res://Assets/Enviroments/Garage/Scenes/RubbishBin.tscn" id="7_yquvv"]
-[ext_resource type="PackedScene" uid="uid://ggxuh5f2chv" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="8_1yddk"]
-[ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="8_1yddk"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
 [ext_resource type="PackedScene" uid="uid://cievmv558laq4" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="9_cnlh0"]
-[ext_resource type="PackedScene" uid="uid://nvhom04348vy" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
-[ext_resource type="PackedScene" uid="uid://c7jiwld2k88hl" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
 [ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="12_ew468"]
-[ext_resource type="PackedScene" uid="uid://26y46rfj10b3" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
-[ext_resource type="PackedScene" uid="uid://6hcw8v2lxr21" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
-[ext_resource type="PackedScene" uid="uid://cohln5revo0w" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
 [ext_resource type="PackedScene" uid="uid://de8w3pwcnty5d" path="res://Assets/Enviroments/Garage/Scenes/level_1_sign.tscn" id="16_1u4oi"]
 [ext_resource type="PackedScene" uid="uid://3s0eu8xffyih" path="res://Assets/Enviroments/Garage/Scenes/level_2_sign.tscn" id="17_i4jcv"]
 [ext_resource type="PackedScene" uid="uid://bnc61esadkg4v" path="res://Assets/Enviroments/Garage/Scenes/level_3_sign.tscn" id="18_8xkra"]
@@ -163,7 +164,9 @@ texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4vrf2"]
 
-[node name="UnwrappedParkingGarage" type="Node3D"]
+[node name="UnwrappedParkingGarage" type="Node3D" node_paths=PackedStringArray("lights")]
+script = ExtResource("1_nax11")
+lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)

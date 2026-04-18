@@ -729,7 +729,9 @@ scale = Vector2(1.0179, 1.05277)
 texture = ExtResource("5_bn5p2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="CenterContainer/ColorRect"]
+visible = false
 material = SubResource("ShaderMaterial_rmlh4")
+position = Vector2(-0.748056, -0.616577)
 mesh = SubResource("QuadMesh_2i0i3")
 
 [connection signal="tab_clicked" from="CenterContainer/ColorRect/TabContainer" to="." method="_on_tab_container_tab_clicked"]

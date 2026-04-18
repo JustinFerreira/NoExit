@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	if PlayerManager.Enemy:
+			PlayerManager.Enemy.exit_stalking_mode()
 	PlayerManager.minigameOne = false
 	visible = false
 	PlayerManager.CharacterDialog(EventManager.hotwire_finished)

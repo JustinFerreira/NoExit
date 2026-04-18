@@ -25,12 +25,14 @@ AnimationManager="*res://Scripts/AnimationManager.gd"
 CameraManager="*res://Scripts/CameraManager.gd"
 UiManager="*res://Scripts/UIManager.gd"
 EventManager="*res://Scripts/EventManager.gd"
+HelperManager="*res://Scripts/HelperManager.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 

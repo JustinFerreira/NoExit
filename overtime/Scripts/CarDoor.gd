@@ -78,10 +78,6 @@ func _on_interacted(body: Variant) -> void:
 			
 			#Event Manager?
 			#Event Manager?
-			#turn on teleport enemy to give player time in car so enemy isn't on their ass
-			#Should be fixed?
-			if not PlayerManager.Loop0:
-				PlayerManager.teleportEnemy = true
 		else:
 			#doesnt happen ever
 			#Play Car locked noise
@@ -130,9 +126,5 @@ func _on_interacted(body: Variant) -> void:
 		#car entering turns on to show the direction of animation
 		AnimationManager.CarEntering = true
 		AnimationManager.GetInCarAnimationPlayer.play("GettinginCar")
-		
-		#Should be fixed?
-		if not PlayerManager.Loop0:
-			PlayerManager.teleportEnemy = true
 			
 # Example usage in a script attached to a MeshInstance

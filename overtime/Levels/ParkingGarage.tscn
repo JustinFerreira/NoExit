@@ -1,15 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://c11drua2sqec2"]
+[gd_scene load_steps=30 format=3 uid="uid://c11drua2sqec2"]
 
 [ext_resource type="Script" path="res://Scripts/ParkingGarage.gd" id="1_ax14i"]
 [ext_resource type="PackedScene" uid="uid://c5ftu8i0cg6v5" path="res://Assets/Enviroments/Garage/Scenes/Battery.tscn" id="2_nsdjq"]
 [ext_resource type="PackedScene" uid="uid://p46vrmr5kvui" path="res://Assets/Enviroments/Garage/Scenes/WireNegative.tscn" id="3_ey6un"]
 [ext_resource type="PackedScene" uid="uid://ckflqp7u7lhgm" path="res://Assets/Enviroments/Garage/Scenes/WirePositive.tscn" id="4_hd2cn"]
 [ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_o1wft"]
+[ext_resource type="ArrayMesh" uid="uid://cclhgfvdbof4k" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="5_ofcmo"]
+[ext_resource type="Texture2D" uid="uid://b8trah754qjr5" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Emissive.png" id="6_2aiqp"]
+[ext_resource type="PackedScene" uid="uid://bj0eqmbq6opyx" path="res://Assets/Enviroments/Garage/Scenes/fog_killer_eyes.tscn" id="6_gia24"]
 [ext_resource type="PackedScene" uid="uid://d27k4ukr6g7jr" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="7_hdy1n"]
 [ext_resource type="PackedScene" uid="uid://b2xxyuv7fa0rx" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="8_li5l2"]
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Enviroments/Elevator/Scenes/ParkingGarageElevator.tscn" id="9_3agi4"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_evl0o"]
 [ext_resource type="PackedScene" uid="uid://c1xfg88gshpto" path="res://Assets/Enviroments/Garage/Scenes/stalking_area.tscn" id="13_wl72n"]
+[ext_resource type="PackedScene" uid="uid://dnbe1s8gtna3g" path="res://Assets/Enviroments/Garage/Scenes/stopping_trap.tscn" id="14_3mp4x"]
 [ext_resource type="PackedScene" uid="uid://duoospejbeo0t" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Scenes/PlayerCarSized.tscn" id="14_ejo3n"]
 [ext_resource type="PackedScene" uid="uid://dkn32km2rbo1c" path="res://Assets/Enviroments/Garage/Scenes/GasCanisterPickUp.tscn" id="14_gvbgr"]
 [ext_resource type="PackedScene" uid="uid://dt20akn0ptkqf" path="res://Assets/Enviroments/Garage/Scenes/BatteryPickup.tscn" id="16_wlugy"]
@@ -31,11 +35,37 @@ density = -8.0
 height_falloff = 4.92467e-05
 edge_fade = 8.44483
 
-[sub_resource type="BoxMesh" id="BoxMesh_abegx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bcux"]
+albedo_color = Color(0.0999232, 0.261788, 0.679171, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gou6v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqbkq"]
+albedo_color = Color(0, 0.988235, 0.129412, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_owjnu"]
+albedo_color = Color(0.944366, 0.0523545, 0.319892, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umxks"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.027451)
+emission_enabled = true
+emission_energy_multiplier = 105.7
+emission_texture = ExtResource("6_2aiqp")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o147p"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gkp0q"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kynlc"]
 
 [node name="Parking Garage" type="Node3D" node_paths=PackedStringArray("fog_remover")]
 script = ExtResource("1_ax14i")
 fog_remover = NodePath("WorldEnvironment/FogRemover")
+
+[node name="Fog_Killer_eyes" parent="." instance=ExtResource("6_gia24")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.9233, 19.1559, 11.175, 25.5517)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_72fn0")
@@ -59,6 +89,41 @@ environment = SubResource("Environment_jukwc")
 transform = Transform3D(35.5169, 0, 0, 0, 35.5169, 0, 0, 0, 35.5169, -8.47732, 11.4135, 30.9332)
 shape = 0
 material = SubResource("FogMaterial_b0btl")
+
+[node name="BlueMesh" type="MeshInstance3D" parent="WorldEnvironment/FogRemover"]
+transform = Transform3D(0.0281556, 0, 0, 0, 0.0281556, 0, 0, 0, 0.0281556, 0.0292415, 0.0220051, -0.331282)
+visible = false
+material_override = SubResource("StandardMaterial3D_7bcux")
+mesh = SubResource("CapsuleMesh_gou6v")
+skeleton = NodePath("../../..")
+
+[node name="GreenMesh" type="MeshInstance3D" parent="WorldEnvironment/FogRemover"]
+transform = Transform3D(0.0281556, 0, 0, 0, 0.0281556, 0, 0, 0, 0.0281556, 0.308825, 0.00858721, -0.048624)
+visible = false
+material_override = SubResource("StandardMaterial3D_uqbkq")
+mesh = SubResource("CapsuleMesh_gou6v")
+skeleton = NodePath("../../..")
+
+[node name="RedMesh" type="MeshInstance3D" parent="WorldEnvironment/FogRemover"]
+transform = Transform3D(0.0281556, 0, 0, 0, 0.0281556, 0, 0, 0, 0.0281556, -0.00107594, 0.0242793, 0.0437546)
+visible = false
+material_override = SubResource("StandardMaterial3D_owjnu")
+mesh = SubResource("CapsuleMesh_gou6v")
+skeleton = NodePath("../../..")
+
+[node name="KillerEyes" type="MeshInstance3D" parent="WorldEnvironment/FogRemover"]
+transform = Transform3D(-0.000297641, 0, -2.60206e-11, 0, 0.000297641, 0, 2.60206e-11, 0, -0.000297641, -0.00138703, -0.0330452, -0.0654854)
+visible = false
+material_override = SubResource("StandardMaterial3D_umxks")
+mesh = ExtResource("5_ofcmo")
+skeleton = NodePath("../../..")
+
+[node name="YellowMesh" type="MeshInstance3D" parent="WorldEnvironment/FogRemover"]
+transform = Transform3D(0.0281556, 0, 0, 0, 0.0281556, 0, 0, 0, 0.0281556, -0.287668, 0.0182518, -0.0535461)
+visible = false
+material_override = SubResource("StandardMaterial3D_o147p")
+mesh = SubResource("CapsuleMesh_gou6v")
+skeleton = NodePath("../../..")
 
 [node name="Player" parent="." instance=ExtResource("7_hdy1n")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, -7.08571, 10.6192, 44.9788)
@@ -194,9 +259,46 @@ visible = false
 axis_lock_linear_y = true
 axis_lock_angular_y = true
 
-[node name="StalkingArea" parent="." instance=ExtResource("13_wl72n")]
+[node name="StalkingArea" parent="." node_paths=PackedStringArray("teleports") instance=ExtResource("13_wl72n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73365, 0.739222, 43.0693)
+teleports = [NodePath("TeleportItemStalking1"), NodePath("TeleportItemStalking2"), NodePath("TeleportItemStalking3")]
 
-[node name="FarFuckingBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 27.4163, 104.128)
-mesh = SubResource("BoxMesh_abegx")
+[node name="TeleportItemStalking1" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.1722, 0.848079, -15.8863)
+visible = false
+mesh = SubResource("CapsuleMesh_gkp0q")
+skeleton = NodePath("../..")
+
+[node name="TeleportItemStalking2" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.8727, 0.848079, -20.5572)
+visible = false
+mesh = SubResource("CapsuleMesh_gkp0q")
+skeleton = NodePath("../..")
+
+[node name="TeleportItemStalking3" type="MeshInstance3D" parent="StalkingArea" groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.4944, 3.70531, -44.9989)
+visible = false
+mesh = SubResource("CapsuleMesh_gkp0q")
+skeleton = NodePath("../..")
+
+[node name="CarStalkingArea" parent="." node_paths=PackedStringArray("teleports") instance=ExtResource("13_wl72n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.51711, 55.3506, 0, 15.9269)
+teleports = [NodePath("../CarTeleportStalking1"), NodePath("../CarTeleportStalking2"), NodePath("../CarTeleportStalking3")]
+
+[node name="CarTeleportStalking1" type="MeshInstance3D" parent="." groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6403, 1.68781, 41.0869)
+visible = false
+mesh = SubResource("CapsuleMesh_kynlc")
+
+[node name="CarTeleportStalking2" type="MeshInstance3D" parent="." groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.4863, 1.68781, 41.0869)
+visible = false
+mesh = SubResource("CapsuleMesh_kynlc")
+
+[node name="CarTeleportStalking3" type="MeshInstance3D" parent="." groups=["teleport_target"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.2, 1.68781, 16.524)
+visible = false
+mesh = SubResource("CapsuleMesh_kynlc")
+
+[node name="Stopping_Trap" parent="." instance=ExtResource("14_3mp4x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.8106, 0.862791, 22.7493)

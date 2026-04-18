@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1xfg88gshpto"]
 
-[ext_resource type="Script" path="res://Scripts/TestingStalkingArea.gd" id="1_pui68"]
+[ext_resource type="Script" path="res://Scripts/StalkingArea.gd" id="1_pui68"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_opavk"]
 

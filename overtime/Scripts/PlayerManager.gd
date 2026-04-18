@@ -71,7 +71,6 @@ var killer_visible = true
 
 var killer_audible = true
 
-var fogremove = true
 
 ## Janitor
 
@@ -195,6 +194,8 @@ func AddToInventory(name: String, weight: float, equippable: bool = false):
 	CurrentWeight += weight
 	#print(CurrentWeight)
 	Inventory.append(item)
+	if Enemy != null:
+		Enemy.exit_stalking_mode()
 	
 # RemoveItemByName
 # takes a name and tries to find it in the inventory
@@ -380,6 +381,9 @@ func TestConnection():
 	if NegativeConnected:
 		AnimationManager.NegativeConnection.visible = true
 	if PositiveConnected && NegativeConnected:
+		if Enemy && Enemy.stalking_mode:
+			print("Hello There HEHE")
+			Enemy.exit_stalking_mode()
 		AudioManager.play_sound(AudioManager.HoodOpen)
 		MiniGameModeOff()
 		hoodUI.visible = false

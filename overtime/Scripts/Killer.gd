@@ -13,13 +13,14 @@ var SPEED = 2.0
 @onready var WalkingAnimator = $AnimationPlayer
 @onready var StabbingAnimator = $StabbingAnimation
 
+var was_animation_playing: bool = false
+
 var teleports
 
 # Stalking mode variables
 var stalking_mode: bool = false
 var stalking_distance: float = 15.0
 var original_speed: float
-var is_invisible: bool = false
 var is_silent: bool = false
 
 # For maintaining distance
@@ -277,27 +278,35 @@ func handle_stalking_behavior(delta: float) -> void:
 	velocity = velocity.move_toward(move_direction * SPEED, 0.25)
 
 ## Add this function to handle entering stalking mode
-func enter_stalking_mode(distance: float, invisible: bool = true, silent: bool = true) -> void:
+func enter_stalking_mode(distance: float, teleport: String, invisible: bool = true, silent: bool = true) -> void:
 	if stalking_mode:
 		return  # Already in stalking mode
-		
-		
-	PlayerManager.fogremove = false
-	stalking_mode = true
-	stalking_distance = distance
-	is_invisible = invisible
+	
 	is_silent = silent
+	stalking_distance = distance
+	
+	HelperManager.fade_fog_density(8,1.5)
+	make_invisible(teleport)
+	stalking_mode = true
+	
 	
 	# Store original speed
 	original_speed = SPEED
 	
 	# Set speed to 0 while stalking (or very slow if you want them to reposition slowly)
-	SPEED = 0.5
+	SPEED = 0
+	
+	# Pause the walking animation on the first frame
+	if WalkingAnimator.is_playing():
+		was_animation_playing = true
+		WalkingAnimator.stop()
+		WalkingAnimator.seek(0)  # Go to first frame
+	else:
+		was_animation_playing = false
 	
 	# Handle invisibility
 	await get_tree().create_timer(0.5).timeout
-	if is_invisible:
-		make_invisible()
+		
 	
 	# Handle silence
 	if is_silent:
@@ -317,23 +326,26 @@ func exit_stalking_mode() -> void:
 	# Restore original speed
 	SPEED = original_speed
 	
-	# Restore visibility
-	if is_invisible:
-		make_visible()
-	
 	# Restore audio
 	if is_silent:
 		make_audible()
 	
-	is_invisible = false
+	# Resume walking animation from where it was paused
+	if was_animation_playing:
+		WalkingAnimator.play("Scene")
+	
 	is_silent = false
 
 ## Make killer invisible
-func make_invisible() -> void:
+func make_invisible(teleport: String) -> void:
 	# Hide the main model
 	fadingout = true
-	PlayerManager.fogremove = true
-	#$FadeAnimation.play("FadeKiller")
+	$FadeAnimation.play("FadeKiller")
+	await get_tree().create_timer(1).timeout
+	HelperManager.fade_fog_density(-8,1.5)
+	find_teleport_target(teleport)
+	make_visible()
+	
 	
 	
 	# Option 1: Completely invisible
@@ -373,4 +385,6 @@ func _on_Fade_animation_finished():
 	if fadingout:
 		$Armature.visible = false
 		$Skeleton3D.visible = false
-		PlayerManager.fogremove = true
+		HelperManager.fade_fog_density(-8,1.5)
+		
+		
