@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn4gcacq3142n"]
+
+[ext_resource type="Texture2D" uid="uid://comcxt6sa8krr" path="res://Assets/Enviroments/Garage/Textures/Traffic Cone Textures/M_TrafficCone_Unwrapped_DefaultMaterial_BaseMap.png" id="1_ql4gx"]
+[ext_resource type="Texture2D" uid="uid://cdveggy6favwc" path="res://Assets/Enviroments/Garage/Textures/Traffic Cone Textures/M_TrafficCone_Unwrapped_DefaultMaterial_MaskMap.png" id="2_werfm"]
+[ext_resource type="Texture2D" uid="uid://0rokef48jg6c" path="res://Assets/Enviroments/Garage/Textures/Traffic Cone Textures/M_TrafficCone_Unwrapped_DefaultMaterial_Normal.png" id="3_7tbsr"]
+[ext_resource type="ArrayMesh" uid="uid://bn6o8ek2en2kq" path="res://Assets/Enviroments/Garage/Models/M_TrafficCone_Unwrapped.obj" id="4_ngc4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqqvp"]
+albedo_texture = ExtResource("1_ql4gx")
+metallic = 1.0
+metallic_texture = ExtResource("2_werfm")
+roughness_texture = ExtResource("2_werfm")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("3_7tbsr")
+ao_enabled = true
+ao_texture = ExtResource("2_werfm")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qbx6b"]
+points = PackedVector3Array(-26.1505, 1.17703, -1.55878, -25.9952, 1.39792, 1.93296, 3.25896, 77.9053, -2.86931, 2.03222, 5.52758, -27.4094, -1.64258, 5.52758, 27.7991, 20.4333, 5.52758, -18.8169, -20.0436, 5.52758, -20.0436, -2.87472, 77.9053, 3.25896, 19.2065, 5.52758, 20.4333, -20.0436, 5.52758, 19.2065, 27.7991, 5.52758, 0.805488, -1.55878, 1.17703, -26.1505, 3.25896, 76.6756, 3.25896, 0.776181, 1.27068, 26.4743, -27.4094, 5.52758, -1.64258, 0.805488, 76.6756, -4.09605, -4.09605, 76.6756, 0.800084, 18.3929, 1.06677, -19.1775, -27.4094, 5.52758, 2.02682, -1.64258, 5.52758, -27.4094, -19.1775, 1.06677, 18.3929, 4.48569, 5.52758, 26.5669, 27.7991, 5.52758, -1.64258, 14.305, 5.52758, -22.4971, -16.3634, 5.52758, 21.66, 20.4333, 5.52758, 19.2065, -18.9479, 1.51208, -18.9479, 19.2861, 1.61196, 18.1289, 26.4743, 1.27068, 0.776181, -22.4971, 5.52758, 14.2996, -11.4565, 5.52758, -23.7238, -23.7238, 5.52758, -11.4565)
+
+[node name="Traffic Cone" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gqqvp")
+mesh = ExtResource("4_ngc4b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_qbx6b")

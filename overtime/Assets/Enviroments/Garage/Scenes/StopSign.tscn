@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu7gccamdi2aq"]
+
+[ext_resource type="Texture2D" uid="uid://cnnpm3s7n8gdl" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png" id="1_rau28"]
+[ext_resource type="Texture2D" uid="uid://c8dn6g5778hnj" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Unwrapped_DefaultMaterial_MaskMap.png" id="2_baum6"]
+[ext_resource type="Texture2D" uid="uid://m1c5a0bvej47" path="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Unwrapped_DefaultMaterial_Normal.png" id="3_rcjcf"]
+[ext_resource type="ArrayMesh" uid="uid://b5bde62bdqnqy" path="res://Assets/Enviroments/Garage/Models/M_StopSign_Unwrapped.obj" id="4_mwcsj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw8cx"]
+albedo_texture = ExtResource("1_rau28")
+metallic = 1.0
+metallic_texture = ExtResource("2_baum6")
+roughness_texture = ExtResource("2_baum6")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("3_rcjcf")
+ao_enabled = true
+ao_texture = ExtResource("2_baum6")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_12qhb"]
+points = PackedVector3Array(42.0112, 193.884, 5.86877, -42.272, 150.051, -0.873556, -42.272, 150.051, 5.86877, 4.91864, -1.68599, -4.2472, -1.81346, -1.68599, 5.86877, 4.91864, 207.34, -4.2472, 42.0112, 150.051, -0.873556, -18.6685, 214.121, 5.86877, -5.17951, -1.68599, -4.2472, -42.272, 190.483, -0.873556, 42.0112, 150.051, 5.86877, 21.7819, 214.121, -0.873556, -5.17951, 207.34, -4.2472, 42.0112, 193.884, -0.873556, 4.91864, -1.68599, 2.49612, -42.272, 190.483, 5.86877, 21.7819, 214.121, 5.86877, -18.6685, 214.121, -0.873556, -5.17951, -1.68599, 2.49612, 1.55259, -1.68599, 5.86877)
+
+[node name="Stop Sign" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_iw8cx")
+mesh = ExtResource("4_mwcsj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_12qhb")

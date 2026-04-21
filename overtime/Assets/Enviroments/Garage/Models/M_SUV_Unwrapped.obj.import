@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cq8blcy8mb1gf"
+path="res://.godot/imported/M_SUV_Unwrapped.obj-e92a7bdec78f09a9944a53e00c98a00b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_SUV_Unwrapped.obj-e92a7bdec78f09a9944a53e00c98a00b.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_SUV_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_SUV_Unwrapped.obj-e92a7bdec78f09a9944a53e00c98a00b.mesh", "res://.godot/imported/M_SUV_Unwrapped.obj-e92a7bdec78f09a9944a53e00c98a00b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

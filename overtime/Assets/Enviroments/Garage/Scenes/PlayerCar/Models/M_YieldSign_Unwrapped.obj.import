@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bewidyla2s2o4"
+path="res://.godot/imported/M_YieldSign_Unwrapped.obj-32f1064dcd07a9686895bab75e3c9f0b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_YieldSign_Unwrapped.obj-32f1064dcd07a9686895bab75e3c9f0b.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_YieldSign_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_YieldSign_Unwrapped.obj-32f1064dcd07a9686895bab75e3c9f0b.mesh", "res://.godot/imported/M_YieldSign_Unwrapped.obj-32f1064dcd07a9686895bab75e3c9f0b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

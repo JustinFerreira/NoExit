@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://cyjbpk8i471jh"]
+
+[ext_resource type="Texture2D" uid="uid://qp3w7b74ipfq" path="res://Assets/Enviroments/Garage/Textures/Sudan Textures/M_NPCar_Unwrapped_DefaultMaterial_BaseMap_1.png" id="1_v1e2h"]
+[ext_resource type="Texture2D" uid="uid://sdohmywqx235" path="res://Assets/Enviroments/Garage/Textures/Sudan Textures/M_NPCar_Unwrapped_DefaultMaterial_MaskMap_2.png" id="2_q4xxe"]
+[ext_resource type="Texture2D" uid="uid://bpg0khsbq1kou" path="res://Assets/Enviroments/Garage/Textures/Sudan Textures/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png" id="3_sdt5g"]
+[ext_resource type="ArrayMesh" uid="uid://dqb7ymfxvofey" path="res://Assets/Enviroments/Garage/Models/M_NPCar_Unwrapped.obj" id="4_m5x8u"]
+[ext_resource type="Material" uid="uid://by51qtnhyba6q" path="res://Assets/Materials/Tire.tres" id="5_2rwok"]
+[ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/Enviroments/Garage/Models/M_SpareTire_Unwrapped.obj" id="6_kaupd"]
+[ext_resource type="Texture2D" uid="uid://bf6cse5ayrq37" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_BaseMap.png" id="7_ll52l"]
+[ext_resource type="Texture2D" uid="uid://b4ig1cx8x04co" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_MaskMap.png" id="8_k6uf3"]
+[ext_resource type="Texture2D" uid="uid://b4dklle8chwhv" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png" id="9_c3nxl"]
+[ext_resource type="ArrayMesh" uid="uid://du7o11s86nsnj" path="res://Assets/Enviroments/Garage/Models/M_RoofRail_Unwrapped.obj" id="10_d0g7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysp7d"]
+albedo_texture = ExtResource("1_v1e2h")
+metallic = 1.0
+metallic_texture = ExtResource("2_q4xxe")
+roughness_texture = ExtResource("2_q4xxe")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("3_sdt5g")
+ao_enabled = true
+ao_texture = ExtResource("2_q4xxe")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aefvr"]
+points = PackedVector3Array(106.383, 74.4233, 88.8772, 106.383, 58.7649, 88.8772, 43.7, 74.4233, -224.486, 77.1574, 7.7253, -207.651, -50.3146, -3.91766, 253.413, -89.4942, 3.9238, -177.413, -57.6939, 106.789, 45.8139, 82.859, -3.91766, 245.608, -18.9419, 58.7649, 253.413, -73.7975, 74.4233, -208.779, 59.885, 107.579, -114.083, -105.17, 74.4233, 88.8772, -89.4942, -3.91766, 229.901, 75.0313, 58.7649, 237.754, 58.7474, 106.642, 45.7303, -52.7924, 108.63, -124.074, -81.6459, 50.948, 245.608, 75.0313, 74.4233, -208.779, -78.065, 21.2997, -221.425, 77.278, 0.3355, -83.7813, -2.79061, 113.462, 11.6225, 78.8711, 21.4935, -220.184, -50.3146, 74.4233, -224.486, 82.859, 50.948, 245.608, -76.0649, 0.3355, -83.7813, 31.6016, 113.889, -78.0013, 33.9441, 14.2975, 255.55, -68.64, 7.7253, -214.96, -73.7975, 58.7649, 237.754, 37.4068, 105.597, 58.505, -58.9784, 107.847, -114.809, -36.991, 113.48, -70.473)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18jkm"]
+albedo_texture = ExtResource("7_ll52l")
+metallic = 1.0
+metallic_texture = ExtResource("8_k6uf3")
+roughness_texture = ExtResource("8_k6uf3")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("9_c3nxl")
+ao_enabled = true
+ao_texture = ExtResource("8_k6uf3")
+ao_texture_channel = 1
+
+[node name="Sudan" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ysp7d")
+mesh = ExtResource("4_m5x8u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_aefvr")
+
+[node name="Tire_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.433, 6.40064, 149.515)
+material_override = ExtResource("5_2rwok")
+mesh = ExtResource("6_kaupd")
+
+[node name="Tire_4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.433, 6.40064, -124.122)
+material_override = ExtResource("5_2rwok")
+mesh = ExtResource("6_kaupd")
+
+[node name="Tire_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.3394, 6.40064, 149.515)
+material_override = ExtResource("5_2rwok")
+mesh = ExtResource("6_kaupd")
+
+[node name="Tire_3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.3394, 6.40064, -123.357)
+material_override = ExtResource("5_2rwok")
+mesh = ExtResource("6_kaupd")
+
+[node name="RoofRails" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7621, 110.369, -36.7452)
+material_override = SubResource("StandardMaterial3D_18jkm")
+mesh = ExtResource("10_d0g7y")

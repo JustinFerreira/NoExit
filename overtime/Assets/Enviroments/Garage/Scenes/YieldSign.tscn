@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwofy5nq4xe7x"]
+
+[ext_resource type="Texture2D" uid="uid://crfvlqfyltlth" path="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_YieldSign_Unwrapped_DefaultMaterial_BaseMap.png" id="1_y5urb"]
+[ext_resource type="Texture2D" uid="uid://726txdchn4gs" path="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png" id="2_c5uqh"]
+[ext_resource type="Texture2D" uid="uid://cxqny0f4peso8" path="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_YieldSign_Unwrapped_DefaultMaterial_Normal.png" id="2_fqhea"]
+[ext_resource type="ArrayMesh" uid="uid://d0vq0ywub72aq" path="res://Assets/Enviroments/Garage/Models/M_YieldSign_Unwrapped.obj" id="3_6lnjc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6idt"]
+albedo_texture = ExtResource("1_y5urb")
+metallic = 1.0
+metallic_texture = ExtResource("2_c5uqh")
+roughness_texture = ExtResource("2_c5uqh")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("2_fqhea")
+ao_enabled = true
+ao_texture = ExtResource("2_c5uqh")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hndyl"]
+points = PackedVector3Array(41.0677, 210.215, 6.23058, -40.4489, 199.017, 1.43549, -40.4489, 199.017, 6.23058, 2.70321, -0.799332, -3.3596, 2.70321, 207.028, -3.3596, -3.68023, -0.799332, 3.03323, 41.0677, 199.017, 1.43549, -3.68023, 139.863, 6.23058, -34.0495, 213.423, 6.23058, 2.70321, -0.799332, 3.03323, -2.08437, -0.799332, -3.3596, 34.6683, 213.423, 1.43549, -2.08437, 207.028, -3.3596, -34.0495, 213.423, 1.43549, 41.0677, 199.017, 6.23058, 10.6985, 146.238, 6.23058, 34.6683, 213.423, 6.23058, -40.4489, 210.215, 1.43549, 41.0677, 210.215, 1.43549, -11.6755, 147.852, 6.23058, -40.4489, 210.215, 6.23058, 5.90291, 141.457, 6.23058, -35.6533, 189.434, 6.23058, -6.87993, 141.457, 6.23058, 39.4639, 195.809, 6.23058, -22.8625, 167.039, 6.23058, 21.8855, 165.425, 6.23058)
+
+[node name="Yield Sign" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_k6idt")
+mesh = ExtResource("3_6lnjc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hndyl")

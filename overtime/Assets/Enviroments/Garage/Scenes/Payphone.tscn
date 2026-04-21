@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn23iuo0xlquj"]
+
+[ext_resource type="Texture2D" uid="uid://d13yxcfk2m2do" path="res://Assets/Enviroments/Garage/Textures/Payphone Textures/M_Payphone_BaseColor.png" id="1_swypv"]
+[ext_resource type="Texture2D" uid="uid://cuc4id4rittk5" path="res://Assets/Enviroments/Garage/Textures/Payphone Textures/M_Payphone_Metalic_and_Rougness.png" id="2_53vj5"]
+[ext_resource type="Texture2D" uid="uid://dwbd11ppk7crx" path="res://Assets/Enviroments/Garage/Textures/Payphone Textures/M_Payphone_Normal.png" id="3_up74m"]
+[ext_resource type="ArrayMesh" uid="uid://3u7peb20bhf8" path="res://Assets/Enviroments/Garage/Models/M_Payphone.obj" id="4_1wft3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vshf"]
+albedo_texture = ExtResource("1_swypv")
+metallic = 1.0
+metallic_texture = ExtResource("2_53vj5")
+roughness_texture = ExtResource("2_53vj5")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("3_up74m")
+ao_enabled = true
+ao_texture = ExtResource("2_53vj5")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p7a1j"]
+points = PackedVector3Array(21.5702, 178.331, 33.52, -20.5552, 91.2607, 2.6314, -3.69843, -1.40417, -5.79698, -20.5552, 91.2607, 33.52, 4.71345, 155.846, -5.79698, -19.151, 172.34, 32.2095, 21.5702, 91.2607, 33.52, 21.5702, 91.2607, 2.6314, -18.9371, 171.427, 3.4941, 21.5702, 178.331, 2.6314, 4.71345, -1.40417, 5.43701, 7.52153, -1.40417, -2.98752, -6.50651, -1.40417, 2.6314, 4.71345, -1.40417, -5.79698, -3.69843, -1.40417, 5.43701, -6.50651, -1.40417, -2.98752, 7.52153, -1.40417, 2.6314, -3.16503, 147.301, -3.30389)
+
+[node name="Payphone" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0vshf")
+mesh = ExtResource("4_1wft3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_p7a1j")

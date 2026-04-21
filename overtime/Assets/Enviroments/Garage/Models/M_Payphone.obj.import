@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3u7peb20bhf8"
+path="res://.godot/imported/M_Payphone.obj-5a8f4772fc8ef83c275a1596bc6baaec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Payphone.obj-5a8f4772fc8ef83c275a1596bc6baaec.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Payphone.obj"
+dest_files=["res://.godot/imported/M_Payphone.obj-5a8f4772fc8ef83c275a1596bc6baaec.mesh", "res://.godot/imported/M_Payphone.obj-5a8f4772fc8ef83c275a1596bc6baaec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=104 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Script" path="res://Scripts/MarkingUnwrappedParkingGarage.gd" id="1_nax11"]
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Levels/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
@@ -8,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c4e6alwxo7csv" path="res://Assets/Enviroments/Garage/Scenes/GaragePole.tscn" id="5_vhhf1"]
 [ext_resource type="PackedScene" uid="uid://qgivh8l42kf4" path="res://Assets/Enviroments/Garage/Scenes/ParkingDrum.tscn" id="6_3wqkc"]
 [ext_resource type="PackedScene" uid="uid://cecwkfw6phxht" path="res://Assets/Enviroments/Garage/Scenes/RubbishBin.tscn" id="7_yquvv"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="8_1yddk"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
+[ext_resource type="PackedScene" uid="uid://ggxuh5f2chv" path="res://Assets/Enviroments/Garage/Scenes/Camera.tscn" id="8_1yddk"]
+[ext_resource type="PackedScene" uid="uid://v5f68j5qj75g" path="res://Assets/Enviroments/Garage/Scenes/ReflectiveSign.tscn" id="8_qxg0a"]
 [ext_resource type="PackedScene" uid="uid://cievmv558laq4" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="9_cnlh0"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
+[ext_resource type="PackedScene" uid="uid://nvhom04348vy" path="res://Assets/Enviroments/Garage/Scenes/fence.tscn" id="10_preou"]
+[ext_resource type="PackedScene" uid="uid://c7jiwld2k88hl" path="res://Assets/Enviroments/Garage/Scenes/recycling_bin.tscn" id="11_c7r4h"]
 [ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="12_ew468"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
+[ext_resource type="PackedScene" uid="uid://26y46rfj10b3" path="res://Assets/Enviroments/Garage/Scenes/parking_line_light.tscn" id="13_llj1x"]
+[ext_resource type="PackedScene" uid="uid://6hcw8v2lxr21" path="res://Assets/Enviroments/Garage/Scenes/parking_line_medium.tscn" id="14_404qs"]
+[ext_resource type="PackedScene" uid="uid://cohln5revo0w" path="res://Assets/Enviroments/Garage/Scenes/parking_line_heavy.tscn" id="15_5ow8q"]
 [ext_resource type="PackedScene" uid="uid://de8w3pwcnty5d" path="res://Assets/Enviroments/Garage/Scenes/level_1_sign.tscn" id="16_1u4oi"]
 [ext_resource type="PackedScene" uid="uid://3s0eu8xffyih" path="res://Assets/Enviroments/Garage/Scenes/level_2_sign.tscn" id="17_i4jcv"]
 [ext_resource type="PackedScene" uid="uid://bnc61esadkg4v" path="res://Assets/Enviroments/Garage/Scenes/level_3_sign.tscn" id="18_8xkra"]
@@ -46,11 +46,33 @@
 [ext_resource type="Texture2D" uid="uid://5lxai14ktne3" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png" id="42_bpvk7"]
 [ext_resource type="Texture2D" uid="uid://dlquy46kgi6bt" path="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_Normal.png" id="43_6kelg"]
 [ext_resource type="PackedScene" uid="uid://djnp53w2lcru0" path="res://Assets/Enviroments/Garage/Scenes/handycap_space_light.tscn" id="43_cugeu"]
+[ext_resource type="PackedScene" uid="uid://cyjbpk8i471jh" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSudanBlack.tscn" id="44_ol7u2"]
 [ext_resource type="PackedScene" uid="uid://bjo521deyvqb0" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_light.tscn" id="44_vetxg"]
+[ext_resource type="PackedScene" uid="uid://cpqedyqke2pwn" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSudanGray.tscn" id="45_0wdu4"]
 [ext_resource type="PackedScene" uid="uid://byduujr27ili7" path="res://Assets/Enviroments/Garage/Scenes/directional_arrow_heavy.tscn" id="45_mpm3x"]
+[ext_resource type="PackedScene" uid="uid://crd84v3hq6oku" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSudanWhite.tscn" id="46_a6ga1"]
+[ext_resource type="PackedScene" uid="uid://6nm8pm5rcrlw" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVBlack.tscn" id="47_bdqxo"]
 [ext_resource type="PackedScene" uid="uid://ttsn64bqb4bd" path="res://Assets/Enviroments/Garage/Scenes/handicap_space_heavy.tscn" id="47_m03i3"]
+[ext_resource type="PackedScene" uid="uid://g75jnr1rs1io" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVBlue.tscn" id="48_j0i6u"]
 [ext_resource type="PackedScene" uid="uid://de1xldypx7t2k" path="res://Assets/Enviroments/Garage/Scenes/stop_sign.tscn" id="49_33t6n"]
+[ext_resource type="PackedScene" uid="uid://b3g65yrs6lf8" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVGray.tscn" id="49_xmdd7"]
+[ext_resource type="PackedScene" uid="uid://cokehysptssel" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVGreen.tscn" id="50_2orh6"]
 [ext_resource type="PackedScene" uid="uid://b4u8236jo4cgw" path="res://Assets/Enviroments/Garage/Scenes/yield_sign.tscn" id="50_dop06"]
+[ext_resource type="PackedScene" uid="uid://tdwd1k8581ob" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVOrange.tscn" id="51_kccyg"]
+[ext_resource type="PackedScene" uid="uid://ss1uweer42px" path="res://Assets/Enviroments/Garage/Scenes/RoofRailsSUVWhite.tscn" id="52_xiq0q"]
+[ext_resource type="PackedScene" uid="uid://b4vv0dyjs7ty5" path="res://Assets/Enviroments/Garage/Scenes/SudanBlack.tscn" id="53_jvf0c"]
+[ext_resource type="PackedScene" uid="uid://c6xqa7s183h5o" path="res://Assets/Enviroments/Garage/Scenes/SudanGray.tscn" id="54_l6h74"]
+[ext_resource type="PackedScene" uid="uid://3m2aj4oq6dlw" path="res://Assets/Enviroments/Garage/Scenes/SudanWhite.tscn" id="55_dinj4"]
+[ext_resource type="PackedScene" uid="uid://3wiiiwhl3h3g" path="res://Assets/Enviroments/Garage/Scenes/SUVBlack.tscn" id="56_c6mmp"]
+[ext_resource type="PackedScene" uid="uid://bls1a732hsam1" path="res://Assets/Enviroments/Garage/Scenes/SUVBlue.tscn" id="57_mm462"]
+[ext_resource type="PackedScene" uid="uid://dtp51ktubdbiq" path="res://Assets/Enviroments/Garage/Scenes/SUVBrown.tscn" id="58_i2usu"]
+[ext_resource type="PackedScene" uid="uid://dyd6c0tnexmfy" path="res://Assets/Enviroments/Garage/Scenes/SUVGreen.tscn" id="59_16ch2"]
+[ext_resource type="PackedScene" uid="uid://dqx8lut2h20or" path="res://Assets/Enviroments/Garage/Scenes/SUVOrange.tscn" id="60_xjt1r"]
+[ext_resource type="PackedScene" uid="uid://cwdjlfdoeyyrf" path="res://Assets/Enviroments/Garage/Scenes/SUVWhite.tscn" id="61_pj5o0"]
+[ext_resource type="PackedScene" uid="uid://cmevcu63k36r7" path="res://Assets/Enviroments/Garage/Scenes/TruckBlack.tscn" id="62_lrsmc"]
+[ext_resource type="PackedScene" uid="uid://7s3k6j4hcws8" path="res://Assets/Enviroments/Garage/Scenes/TruckGray.tscn" id="63_624x5"]
+[ext_resource type="PackedScene" uid="uid://bbt8tkp3ygam" path="res://Assets/Enviroments/Garage/Scenes/TruckGreen.tscn" id="64_iut5w"]
+[ext_resource type="PackedScene" uid="uid://dxsgqdox2ax3y" path="res://Assets/Enviroments/Garage/Scenes/TruckWhite.tscn" id="65_b8dwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -278,8 +300,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4603, 4.4, 35.2834)
 [node name="ParkingDrum48" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4603, -0.749075, 35.2834)
 
-[node name="ParkingDrum49" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4603, -5.88096, 35.2834)
+[node name="ParkingDrumF1PD49" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.4409, -5.88096, 41.8299)
 
 [node name="ParkingDrum24" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 1.9, -46.2)
@@ -8305,118 +8327,112 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.3
 [node name="PipeBigMed" parent="Piipes/PipeSection15" instance=ExtResource("34_gv3cj")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.253204, 0, 1, -1.10679e-08, -0.402359, 1.13166, 6.99427)
 
-[node name="OfficeDoor" parent="Piipes" instance=ExtResource("41_i4vql")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -97.2676, 2.06349, 43.605)
-
 [node name="Cars" type="Node3D" parent="."]
 
 [node name="CarsF1" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 
-[node name="NpcCar" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -75.15, 0.15, -14.25)
+[node name="RoofRailsSudanBlackF1C1" parent="Cars/CarsF1" instance=ExtResource("44_ol7u2")]
+transform = Transform3D(-0.0202144, 0, -1.7672e-09, 0, 0.0202144, 0, 1.7672e-09, 0, -0.0202144, -17.7257, 0.612802, -13.1334)
 
-[node name="NpcCar4" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -18.15, 0.15, -14.25)
+[node name="RoofRailsSUVWhiteF1C1" parent="Cars/CarsF1" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 3.3, 0.15, -13.652)
 
-[node name="NpcCar5" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, 3.3, 0.15, -14.25)
+[node name="SudanBlackF1C1" parent="Cars/CarsF1" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 21.7527, 0.76132, -13.1539)
 
-[node name="NpcCar7" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.49429, 0, -0.130733, 0, 1.5, 0, 0.130733, 0, -1.49429, 38.85, 0.15, -14.25)
+[node name="SudanGrayF1C1" parent="Cars/CarsF1" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 38.85, 0.656781, -13.1536)
 
-[node name="NpcCar8" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, -1.29904, 66.3064, 0.15, -14.4568)
+[node name="SudanWhiteF1C1" parent="Cars/CarsF1" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.0170387, 0, 0.0104729, 0, 0.02, 0, -0.0104729, 0, -0.0170387, 66.5775, 0.535211, -13.5402)
 
-[node name="NpcCar9" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-8.34465e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, -8.34465e-07, 95.5959, 0.15, 2.82148)
+[node name="TruckGreenF1C1" parent="Cars/CarsF1" instance=ExtResource("64_iut5w")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 91.029, 0.15, 2.821)
 
-[node name="NpcCar10" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, 1.06066, 95.5959, 0.15, 18.1894)
+[node name="RoofRailsSUVOrangeF1C1" parent="Cars/CarsF1" instance=ExtResource("51_kccyg")]
+transform = Transform3D(0.0141421, 0, 0.0141421, 0, 0.02, 0, -0.0141421, 0, 0.0141421, 85.638, 0.15, 12.392)
 
-[node name="NpcCar11" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.49429, 0, -0.130733, 0, 1.5, 0, 0.130733, 0, 1.49429, 76.2988, 0.15, 21.1185)
+[node name="SudanGrayF1C2" parent="Cars/CarsF1" instance=ExtResource("54_l6h74")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 76.299, 0.85369, 19.601)
 
-[node name="NpcCar12" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.47721, 0, 0.260473, 0, 1.5, 0, -0.260473, 0, 1.47721, 46.7686, 0.15, 20.8154)
+[node name="SudanBlackF1C2" parent="Cars/CarsF1" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 48.3091, 0.793281, 18.7542)
 
-[node name="NpcCar13" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.334006, 0, 1.46234, 0, 1.5, 0, -1.46234, 0, 0.334006, -30.3569, 0.15, 19.5856)
+[node name="TruckBlackF1C1" parent="Cars/CarsF1" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(-0.0194905, 0, 0.00448542, 0, 0.02, 0, -0.00448542, 0, -0.0194905, -30.357, 0.15, 19.586)
 
-[node name="NpcCar14" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.40954, 0, -0.51303, 0, 1.5, 0, 0.51303, 0, 1.40954, -53.8794, 0.15, 21.0259)
+[node name="SUVBrownF1C1" parent="Cars/CarsF1" instance=ExtResource("58_i2usu")]
+transform = Transform3D(0.0187939, 0, -0.0068404, 0, 0.02, 0, 0.0068404, 0, 0.0187939, -53.7343, 0.15, 19.4446)
 
-[node name="NpcCar15" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.49429, 0, -0.130733, 0, 1.5, 0, 0.130733, 0, 1.49429, -75.8362, 0.15, 20.3457)
+[node name="SudanWhiteF1C2" parent="Cars/CarsF1" instance=ExtResource("55_dinj4")]
+transform = Transform3D(0.0199239, 0, -0.00174311, 0, 0.02, 0, 0.00174311, 0, 0.0199239, -75.836, 0.610927, 19.4303)
 
-[node name="NpcCar16" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.49429, 0, -0.130733, 0, 1.5, 0, 0.130733, 0, 1.49429, -95.9606, 0.15, 12.8633)
+[node name="RoofRailsSudanGrayF1C1" parent="Cars/CarsF1" instance=ExtResource("45_0wdu4")]
+transform = Transform3D(0.0200996, 0, -0.00175849, 0, 0.0201764, 0, 0.00175849, 0, 0.0200996, -95.961, 0.782658, 12.863)
 
-[node name="NpcCar6" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.96701e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, 1.96701e-07, 21.3, 0.15, -16.2)
-
-[node name="NpcCar3" parent="Cars/CarsF1" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.29904, 0, -0.75, 0, 1.5, 0, 0.75, 0, -1.29904, -45.2042, 0.15, -14.4574)
+[node name="SUVBlackF1C1" parent="Cars/CarsF1" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(-0.0173205, 0, -0.01, 0, 0.02, 0, 0.01, 0, -0.0173205, -45.678, 0.15, -13.2186)
 
 [node name="CarsF2" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.715, 0)
 
-[node name="NpcCar" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.75, 0, 0.45)
+[node name="SudanBlackF2C1" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 2.2261, 0.688189, -1.43797)
 
-[node name="NpcCar2" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, 1.29904, 24.15, 0, 0.45)
+[node name="RoofRailsSUVBlueF2C1" parent="Cars/CarsF2" instance=ExtResource("48_j0i6u")]
+transform = Transform3D(0.0173205, 0, 0.00999999, 0, 0.02, 0, -0.00999999, 0, 0.0173205, 24.15, 0, -2.4253)
 
-[node name="NpcCar3" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.29904, 0, -0.75, 0, 1.5, 0, 0.75, 0, 1.29904, 54.8827, 0, 0.602112)
+[node name="TruckWhiteF2C1" parent="Cars/CarsF2" instance=ExtResource("65_b8dwl")]
+transform = Transform3D(0.010472, 0, 0.0170393, 0, 0.02, 0, -0.0170393, 0, 0.010472, 54.8827, 0, -3.92217)
 
-[node name="NpcCar4" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, 1.29904, 73.4471, 0, 0.994709)
+[node name="SudanGrayF2C1" parent="Cars/CarsF2" instance=ExtResource("54_l6h74")]
+transform = Transform3D(0.0173205, 0, 0.00999999, 0, 0.02, 0, -0.00999999, 0, 0.0173205, 73.4471, 0.596991, -1.04972)
 
-[node name="NpcCar5" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.19209e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, -1.19209e-07, 95.0356, 0, -24.9268)
+[node name="SudanGrayF2C2" parent="Cars/CarsF2" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 94.1946, 0.624691, -24.9268)
 
-[node name="NpcCar6" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.19209e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, -1.19209e-07, 95.0356, 0, -39.1034)
+[node name="SUVBlackF2C1" parent="Cars/CarsF2" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(2.38498e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, 2.38498e-10, 94.4666, 0, -39.6941)
 
-[node name="NpcCar7" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, -1.44889, 71.8671, 0, -65.0599)
+[node name="SudanBlackF2C2" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, -0.0193185, 71.8671, 0.540675, -64.1092)
 
-[node name="NpcCar8" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(5.96046e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, 5.96046e-08, 61.3789, 0, -53.0085)
+[node name="SudanBlackF2C3" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(1.50996e-09, 0, -0.02, 0, 0.02, 0, 0.02, 0, 1.50996e-09, 62.5853, 0.674274, -53.0085)
 
-[node name="NpcCar9" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 5.96244e-09, 0, 1.5, 0, -5.96244e-09, 0, -1.5, 45.3289, 0, -34.1085)
+[node name="RoofRailsSudanWhiteF2C1" parent="Cars/CarsF2" instance=ExtResource("46_a6ga1")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 45.3289, 0.650898, -32.4105)
 
-[node name="NpcCar10" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 5.96244e-09, 0, 1.5, 0, -5.96244e-09, 0, -1.5, 18.1789, 0, -34.1085)
+[node name="SudanGrayF2C3" parent="Cars/CarsF2" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 18.1789, 0.58037, -32.3863)
 
-[node name="NpcCar11" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, -1.06066, -10.3211, 0, -34.1085)
+[node name="SudanBlackF2C4" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.0141421, 0, -0.0141421, 0, 0.02, 0, 0.0141421, 0, -0.0141421, -10.3211, 0.5857, -33.0955)
 
-[node name="NpcCar12" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, -34.5042, 0, -34.3206)
+[node name="SUVBlackF2C2" parent="Cars/CarsF2" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(-0.013617, 0, 0.0146485, 0, 0.02, 0, -0.0146485, 0, -0.013617, -34.5618, 0, -33.8775)
 
-[node name="NpcCar13" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.51303, 0, 1.40954, 0, 1.5, 0, -1.40954, 0, -0.51303, -62.437, 0, -44.1485)
+[node name="TruckGrayF2C1" parent="Cars/CarsF2" instance=ExtResource("63_624x5")]
+transform = Transform3D(-0.0184811, 0, -0.00764528, 0, 0.02, 0, 0.00764528, 0, -0.0184811, -63.9704, 0, -43.1769)
 
-[node name="NpcCar14" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.260472, 0, -1.47721, 0, 1.5, 0, 1.47721, 0, -0.260472, -68.1224, 0, -66.6204)
+[node name="SUVWhiteF2C1" parent="Cars/CarsF2" instance=ExtResource("61_pj5o0")]
+transform = Transform3D(-0.00347296, 0, -0.0196962, 0, 0.02, 0, 0.0196962, 0, -0.00347296, -68.1224, 0, -66.6204)
 
-[node name="NpcCar15" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, -1.29904, -86.3285, 0, -65.4825)
+[node name="RoofRailsSUVWhiteF2C1" parent="Cars/CarsF2" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.0173205, 0, 0.00999999, 0, 0.02, 0, -0.00999999, 0, -0.0173205, -86.3285, 0, -64.2472)
 
-[node name="NpcCar16" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0, 0, -1.5, 0, 1.5, 0, 1.5, 0, 0, -94.8304, 0, -48.6588)
+[node name="SudanBlackF2C5" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -93.4253, 0.668871, -48.659)
 
-[node name="NpcCar17" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0, 0, -1.5, 0, 1.5, 0, 1.5, 0, 0, -94.8304, 0, -25.3421)
+[node name="SUVGreenF2C1" parent="Cars/CarsF2" instance=ExtResource("59_16ch2")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -93.6287, 0, -25.3421)
 
-[node name="NpcCar18" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.44889, 0, 0.388229, 0, 1.5, 0, -0.388229, 0, 1.44889, -61.7099, 0, 1.37312)
+[node name="RoofRailsSudanBlackF2C1" parent="Cars/CarsF2" instance=ExtResource("44_ol7u2")]
+transform = Transform3D(0.0195256, 0, 0.00523187, 0, 0.0202144, 0, -0.00523187, 0, 0.0195256, -61.71, 0.64113, -0.285556)
 
-[node name="NpcCar19" parent="Cars/CarsF2" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, 1.44889, -38.8403, 0, 0.97578)
+[node name="SudanBlackF2C6" parent="Cars/CarsF2" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, 0.0193185, -38.84, 0.680103, 0.0512006)
 
 [node name="CarsF3" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1, 25)
@@ -8564,6 +8580,75 @@ transform = Transform3D(1.5, 0, -8.9407e-08, 0, 1.5, 0, 8.9407e-08, 0, 1.5, 25.3
 
 [node name="NpcCar2" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
 transform = Transform3D(-1.44889, 0, -0.38823, 0, 1.5, 0, 0.38823, 0, -1.44889, -46.1807, 0.15, -14.6878)
+
+[node name="NpcCar" parent="Cars" instance=ExtResource("4_mqtxy")]
+transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -75.15, 21.5719, 10.75)
+
+[node name="RoofRailsSudanBlack" parent="Cars" instance=ExtResource("44_ol7u2")]
+transform = Transform3D(-0.0202144, 0, -1.7672e-09, 0, 0.0202144, 0, 1.7672e-09, 0, -0.0202144, -78.715, 22, 11)
+
+[node name="RoofRailsSudanGray" parent="Cars" instance=ExtResource("45_0wdu4")]
+transform = Transform3D(-0.0201764, 0, -1.76387e-09, 0, 0.0201764, 0, 1.76387e-09, 0, -0.0201764, -82.936, 22, 11)
+
+[node name="RoofRailsSudanWhite" parent="Cars" instance=ExtResource("46_a6ga1")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -87, 22, 11)
+
+[node name="RoofRailsSUVBlack" parent="Cars" instance=ExtResource("47_bdqxo")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -87.168, 21.4, 1)
+
+[node name="RoofRailsSUVBlue" parent="Cars" instance=ExtResource("48_j0i6u")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -82.9713, 21.4, 1)
+
+[node name="RoofRailsSUVGray" parent="Cars" instance=ExtResource("49_xmdd7")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -78.7, 21.4, 1)
+
+[node name="RoofRailsSUVGreen" parent="Cars" instance=ExtResource("50_2orh6")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -74.5, 21.4, 1)
+
+[node name="RoofRailsSUVOrange" parent="Cars" instance=ExtResource("51_kccyg")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -70.3, 21.4, 1)
+
+[node name="RoofRailsSUVWhite" parent="Cars" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -66, 21.4, 1)
+
+[node name="SudanBlack" parent="Cars" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -87.168, 22, -8.5)
+
+[node name="SudanGray" parent="Cars" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -83, 22, -8.5)
+
+[node name="SudanWhite" parent="Cars" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -78.9, 22, -8.5)
+
+[node name="SUVBlack" parent="Cars" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -87.7, 21.4, -19)
+
+[node name="SUVBlue" parent="Cars" instance=ExtResource("57_mm462")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -83, 21.4, -19)
+
+[node name="SUVBrown" parent="Cars" instance=ExtResource("58_i2usu")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -78.5, 21.4, -19)
+
+[node name="SUVGreen" parent="Cars" instance=ExtResource("59_16ch2")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -74, 21.4, -19)
+
+[node name="SUVOrange" parent="Cars" instance=ExtResource("60_xjt1r")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -69.5, 21.4, -19)
+
+[node name="SUVWhite" parent="Cars" instance=ExtResource("61_pj5o0")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -65.3, 21.4, -19)
+
+[node name="TruckBlack" parent="Cars" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -87.271, 21.4, -31)
+
+[node name="TruckGray" parent="Cars" instance=ExtResource("63_624x5")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -82.6, 21.4, -31)
+
+[node name="TruckGreen" parent="Cars" instance=ExtResource("64_iut5w")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -78, 21.4, -31)
+
+[node name="TruckWhite" parent="Cars" instance=ExtResource("65_b8dwl")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -73, 21.4, -31)
 
 [node name="ParkingBlocks" type="Node3D" parent="."]
 
@@ -11129,6 +11214,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.25
 
 [node name="Yield Sign4" parent="." instance=ExtResource("50_dop06")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.2545, 5.27375, 16.4561)
+
+[node name="OfficeDoor" parent="." instance=ExtResource("41_i4vql")]
+transform = Transform3D(-5.2321e-05, 0, 1, 0, 1, 0, -1, 0, -5.2321e-05, -99.1075, 2.06349, 42.9125)
 
 [node name="Yield Sign5" parent="." instance=ExtResource("50_dop06")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.2545, 0.0583527, 16.4561)

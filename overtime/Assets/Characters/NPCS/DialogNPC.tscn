@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://btsxvjv0kt28f"]
+[gd_scene load_steps=32 format=4 uid="uid://btsxvjv0kt28f"]
 
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_1ixya"]
 [ext_resource type="Script" path="res://Scripts/DialogNpc.gd" id="3_wwfaq"]
@@ -6,6 +6,11 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/ps1_model.gdshader" id="4_erb01"]
 [ext_resource type="Texture2D" uid="uid://cmj58jaanf2k3" path="res://Assets/Characters/Player/Animations/Old Man Walk_0.png" id="5_6387t"]
 [ext_resource type="Texture2D" uid="uid://dng42jfor22lf" path="res://Assets/Characters/Player/Textures/M_PlayerWHOLE_UV_BaseColor.png" id="5_l23p2"]
+[ext_resource type="ArrayMesh" uid="uid://b1a41puvnkeje" path="res://Assets/Enviroments/Office/Models/M_MopBucket.obj" id="7_78mjp"]
+[ext_resource type="ArrayMesh" uid="uid://dakmq2i4i0jdy" path="res://Assets/Enviroments/Office/Models/M_Mop.obj" id="8_okjg5"]
+[ext_resource type="Texture2D" uid="uid://ccfgk5gqtx383" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_BaseColor.png" id="8_snv1h"]
+[ext_resource type="Texture2D" uid="uid://bkn8tna017dt2" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Metalic_and_Rougness.png" id="9_0ghe4"]
+[ext_resource type="Texture2D" uid="uid://h882esywx3h3" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Normal.png" id="10_romj7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_41ipw"]
 load_path = "res://.godot/imported/dev_texture_blue.png-972823b3c13f678abff87c99c197f1f8.s3tc.ctex"
@@ -1043,6 +1048,21 @@ _data = {
 "mixamo_com": SubResource("Animation_27bh6")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm0jj"]
+albedo_texture = ExtResource("8_snv1h")
+metallic = 1.0
+metallic_texture = ExtResource("9_0ghe4")
+metallic_texture_channel = 1
+roughness_texture = ExtResource("9_0ghe4")
+normal_enabled = true
+normal_texture = ExtResource("10_romj7")
+ao_enabled = true
+ao_texture = ExtResource("9_0ghe4")
+ao_texture_channel = 2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_003r4"]
+points = PackedVector3Array(49.2546, 73.9006, 16.3096, -43.5833, 56.9246, -0.679475, -43.5445, 56.9194, 0.869628, 34.2059, 0.697839, -17.8872, 43.4667, 98.7838, -18.674, -21.6055, 7.79264, 23.864, -34.0475, 10.6821, -22.2381, 7.75088, 102.272, 20.2218, -30.3822, 67.3861, -26.3968, 33.687, 10.7492, 22.3916, -36.4392, 67.3861, 25.0741, -34.5077, 0.822064, 18.0299, 28.6814, 67.3861, 26.6027, 7.75088, 102.272, -20.031, 30.2191, 64.3705, -26.436, -40.9842, 67.3861, -20.3427, 43.0642, 98.3069, 18.6731, 35.9192, 2.03182, 18.1611, 49.5379, 77.1379, -16.2179, -36.0662, 2.38429, -17.8395, 8.97463, 8.40457, -24.8457, -7.6918, 64.3717, 28.1504, -43.6161, 66.2413, 10.1759, 7.47069, 8.26725, 25.1174, -29.2815, -0.798515, -18.4213, 10.5001, 67.3861, -27.9317, 38.2011, 7.79988, -8.33521, 34.8535, 11.2063, -21.9458, -29.2815, -0.798515, 18.6121, -38.9286, 7.33671, 7.06758, -10.7095, 8.30913, -24.9019, -37.0811, 16.8764, 20.8667)
+
 [node name="DialogNpc" type="Node3D"]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
 
@@ -1552,5 +1572,20 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_y68li")
 }
+
+[node name="MMopBucket" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.000240217, 0, -0.0124427, 0, 0.012445, 0, 0.0124427, 0, 0.000240217, 0.44476, 0, -0.715279)
+mesh = ExtResource("7_78mjp")
+
+[node name="MMop" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0100183, 0, 0, 0, 0.00988186, -0.00164798, 0, 0.00164798, 0.00988186, 0.296714, 0.275568, -0.792104)
+material_override = SubResource("StandardMaterial3D_pm0jj")
+mesh = ExtResource("8_okjg5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.000240217, 0, -0.0124427, 0, 0.012445, 0, 0.0124427, 0, 0.000240217, 0.44476, 0, -0.715279)
+shape = SubResource("ConvexPolygonShape3D_003r4")
 
 [connection signal="interacted" from="MKillerPrimitive/StaticBody3D" to="MKillerPrimitive/StaticBody3D" method="_on_interacted"]

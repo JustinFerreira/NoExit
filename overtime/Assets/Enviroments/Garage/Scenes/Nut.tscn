@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm37wgkanuex3"]
+
+[ext_resource type="Texture2D" uid="uid://b25u4u0ivm5ad" path="res://Assets/Enviroments/Garage/Textures/Nut Textures/M_Nut_BaseColor.png" id="1_6r57b"]
+[ext_resource type="Texture2D" uid="uid://dteu7nywunc6v" path="res://Assets/Enviroments/Garage/Textures/Nut Textures/M_Nut_Metalic_and_Rougness.png" id="2_4i32g"]
+[ext_resource type="Texture2D" uid="uid://omd42cbjr1h" path="res://Assets/Enviroments/Garage/Textures/Nut Textures/M_Nut_Normal.png" id="3_xa7k5"]
+[ext_resource type="ArrayMesh" uid="uid://bv5c7f38tyu3f" path="res://Assets/Enviroments/Garage/Models/M_Nut.obj" id="4_sd5iy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ry074"]
+albedo_texture = ExtResource("1_6r57b")
+metallic = 1.0
+metallic_texture = ExtResource("2_4i32g")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_4i32g")
+normal_enabled = true
+normal_texture = ExtResource("3_xa7k5")
+ao_enabled = true
+ao_texture = ExtResource("2_4i32g")
+ao_texture_channel = 1
+
+[node name="Nut" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ry074")
+mesh = ExtResource("4_sd5iy")
