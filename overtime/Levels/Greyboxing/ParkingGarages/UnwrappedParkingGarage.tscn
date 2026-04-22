@@ -11154,3 +11154,12 @@ transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-1
 
 [node name="Yield Sign5" parent="." instance=ExtResource("71_gx3mg")]
 transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -37.2545, 0.0583527, 16.4561)
+
+[node name="GarageLight" parent="." instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.9913, 10.0239, 44.8008)
+
+[node name="GarageLight2" parent="." instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 15.1548, 44.801)
+
+[node name="GarageLight3" parent="." instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 4.91744, 44.801)
