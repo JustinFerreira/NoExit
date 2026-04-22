@@ -44,6 +44,9 @@ var current_animation: String = "idle"  # Track current animation state
 
 var current_tween: Tween = null
 
+@export var normal_walk_speed_scale: float = 1.0   # Normal wander speed
+@export var fast_walk_speed_scale: float = 2    # Faster when walking to player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player_walk.play("mixamo_com")
@@ -109,6 +112,14 @@ func _process(delta: float) -> void:
 	# Only restart the animation if it's not already playing on the correct player
 	if desired_player.current_animation != desired_anim or not desired_player.is_playing():
 		desired_player.play(desired_anim)
+		
+	if is_walking_to_player:
+		animation_player_walk.speed_scale = fast_walk_speed_scale
+	elif is_wandering:
+		animation_player_walk.speed_scale = normal_walk_speed_scale
+	else:
+		# Idle animation speed can remain 1.0 (or adjust if needed)
+		animation_player_idle.speed_scale = 1.0
 
 ## walk_to_player
 ## Moves NPC toward the player's current position
@@ -304,7 +315,7 @@ func talkToPlayer():
 	# Play initial dialog to freeze player
 	if not has_initial_dialog_played:
 		PlayerManager.talkToJanitor = true
-		PlayerManager.multiDialog = true
+		PlayerManager.InAnimation = true
 		PlayerManager.CharacterDialog(EventManager.janitor_didnt_speak_text)
 		has_initial_dialog_played = true
 		
@@ -508,6 +519,7 @@ func restore_camera_rotation():
 		#print("ERROR: Player is null in restore_camera_rotation!")
 		
 	PlayerManager.multiDialog = false
+	PlayerManager.InAnimation = false
 
 func find_shortest_y_rotation(current: float, target: float) -> float:
 	var difference = fmod(target - current, TAU)
@@ -526,7 +538,7 @@ func _on_idle_animation_finished(anim_name: String):
 			
 func _on_walk_animation_finished(anim_name: String):
 	if anim_name == "mixamo_com":
-		if is_wandering:
+		if is_wandering or is_walking_to_player:
 			animation_player_walk.play("mixamo_com")
 		else:
 			

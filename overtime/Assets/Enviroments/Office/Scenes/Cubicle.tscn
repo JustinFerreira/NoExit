@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="2_pogjx"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="3_10mdd"]
 [ext_resource type="Material" uid="uid://blbhl6rna6cvk" path="res://Assets/Materials/Chair.tres" id="4_2lc7y"]
-[ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Enviroments/Office/Scenes/Computer.tres" id="6_rvkpv"]
+[ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
 
 [node name="Cubicle" type="Node3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)

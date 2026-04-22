@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://btsxvjv0kt28f"]
+[gd_scene load_steps=36 format=4 uid="uid://btsxvjv0kt28f"]
 
 [ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="2_1ixya"]
 [ext_resource type="Script" path="res://Scripts/DialogNpc.gd" id="3_wwfaq"]
@@ -6,10 +6,13 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/ps1_model.gdshader" id="4_erb01"]
 [ext_resource type="Texture2D" uid="uid://cmj58jaanf2k3" path="res://Assets/Characters/Player/Animations/Old Man Walk_0.png" id="5_6387t"]
 [ext_resource type="Texture2D" uid="uid://dng42jfor22lf" path="res://Assets/Characters/Player/Textures/M_PlayerWHOLE_UV_BaseColor.png" id="5_l23p2"]
-[ext_resource type="ArrayMesh" uid="uid://b1a41puvnkeje" path="res://Assets/Enviroments/Office/Models/M_MopBucket.obj" id="7_78mjp"]
+[ext_resource type="Texture2D" uid="uid://dwf3ftuo2ke2w" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_BaseMap.png" id="7_mvwla"]
+[ext_resource type="Texture2D" uid="uid://uur4uph4bvs" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png" id="8_61tsg"]
 [ext_resource type="ArrayMesh" uid="uid://dakmq2i4i0jdy" path="res://Assets/Enviroments/Office/Models/M_Mop.obj" id="8_okjg5"]
 [ext_resource type="Texture2D" uid="uid://ccfgk5gqtx383" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_BaseColor.png" id="8_snv1h"]
 [ext_resource type="Texture2D" uid="uid://bkn8tna017dt2" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Metalic_and_Rougness.png" id="9_0ghe4"]
+[ext_resource type="Texture2D" uid="uid://cmtjwoe8nff7j" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_Normal.png" id="9_ofhhl"]
+[ext_resource type="ArrayMesh" uid="uid://dxkwq1tjqi61k" path="res://Assets/Enviroments/Office/Models/M_MopBucket_Unwrapped.obj" id="10_ngc0y"]
 [ext_resource type="Texture2D" uid="uid://h882esywx3h3" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Normal.png" id="10_romj7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_41ipw"]
@@ -1048,6 +1051,18 @@ _data = {
 "mixamo_com": SubResource("Animation_27bh6")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfrkg"]
+albedo_texture = ExtResource("7_mvwla")
+metallic = 1.0
+metallic_texture = ExtResource("8_61tsg")
+roughness_texture = ExtResource("8_61tsg")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("9_ofhhl")
+ao_enabled = true
+ao_texture = ExtResource("8_61tsg")
+ao_texture_channel = 1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm0jj"]
 albedo_texture = ExtResource("8_snv1h")
 metallic = 1.0
@@ -1574,15 +1589,17 @@ libraries = {
 }
 
 [node name="MMopBucket" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.000240217, 0, -0.0124427, 0, 0.012445, 0, 0.0124427, 0, 0.000240217, 0.44476, 0, -0.715279)
-mesh = ExtResource("7_78mjp")
+transform = Transform3D(0.000240217, 0, -0.0124427, 0, 0.012445, 0, 0.0124427, 0, 0.000240217, -0.739972, 0, -0.52963)
+material_override = SubResource("StandardMaterial3D_dfrkg")
+mesh = ExtResource("10_ngc0y")
 
 [node name="MMop" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0100183, 0, 0, 0, 0.00988186, -0.00164798, 0, 0.00164798, 0.00988186, 0.296714, 0.275568, -0.792104)
+transform = Transform3D(0.0100183, 0, 0, 0, 0.00988186, -0.00164798, 0, 0.00164798, 0.00988186, -0.888018, 0.275568, -0.606455)
 material_override = SubResource("StandardMaterial3D_pm0jj")
 mesh = ExtResource("8_okjg5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18473, 0, 0.185649)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.000240217, 0, -0.0124427, 0, 0.012445, 0, 0.0124427, 0, 0.000240217, 0.44476, 0, -0.715279)
