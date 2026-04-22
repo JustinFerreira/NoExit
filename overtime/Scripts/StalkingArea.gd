@@ -31,9 +31,7 @@ func _on_area_entered(area: Area3D) -> void:
 			PlayerManager.Enemy.enter_stalking_mode(stalking_distance, teleports[random_index].name, make_killer_invisible, make_killer_silent)
 			print(teleports[random_index].name)
 		
-		if activated == false:
-			activated = true
-			cooldown_timer.start()
+		
 			
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
@@ -44,6 +42,10 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		# Update killer behavior
 		if PlayerManager.Enemy:
 			PlayerManager.Enemy.exit_stalking_mode()
+			
+		if activated == false:
+			activated = true
+			cooldown_timer.start()
 
 
 func _on_cooldown_timeout():

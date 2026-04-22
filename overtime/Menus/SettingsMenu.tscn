@@ -362,6 +362,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(3000, 1000)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
 [node name="ColorRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("2_wpq5o")
@@ -378,9 +383,10 @@ theme_override_colors/font_hovered_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_hb7d1")
 theme_override_font_sizes/font_size = 50
-current_tab = 0
+current_tab = 1
 
 [node name="VOLUME" type="TabBar" parent="CenterContainer/ColorRect/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -526,7 +532,6 @@ theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "Mute"
 
 [node name="VISUAL" type="TabBar" parent="CenterContainer/ColorRect/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -572,6 +577,30 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_w181y")
 theme_override_icons/checked = ExtResource("8_neb0b")
 theme_override_icons/unchecked = ExtResource("9_wxc5j")
 text = "FullScreen"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ShaderCheckBox" type="CheckBox" parent="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_hb7d1")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uf7ew")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_whs08")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rluns")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t1fql")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_05a82")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_s43pn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q060x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_172lt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_awufq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_l1xfj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w181y")
+theme_override_icons/checked = ExtResource("8_neb0b")
+theme_override_icons/unchecked = ExtResource("9_wxc5j")
+text = "Shader"
 
 [node name="GAME" type="TabBar" parent="CenterContainer/ColorRect/TabContainer"]
 visible = false
@@ -736,6 +765,8 @@ mesh = SubResource("QuadMesh_2i0i3")
 [connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
 [connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_toggled"]
+[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox" to="." method="_on_shader_check_box_pressed"]
+[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox" to="." method="_on_shader_check_box_toggled"]
 [connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_pressed"]
 [connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_toggled"]

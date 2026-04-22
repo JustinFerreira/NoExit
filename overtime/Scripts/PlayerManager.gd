@@ -32,6 +32,8 @@ var ParkingGarage = false
 
 var NotClickOnBoxSpace
 
+var MainMenu = true
+
 ## Player
 
 var teleportEnemy = false

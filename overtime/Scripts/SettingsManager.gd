@@ -20,6 +20,10 @@ var Loop1Pass = false
 var min_sensitivity: float = 0.001
 var max_sensitivity: float = 0.05
 
+var MainMenuShader
+
+var PlayerShader
+
 # Default values
 var settings = {
 	"audio": {
@@ -30,6 +34,7 @@ var settings = {
 	},
 	"video": {
 		"fullscreen": true,
+		"shader": true,
 	},
 	"game":{
 		"sensitivity": 0.01,
@@ -97,6 +102,12 @@ func apply_settings():
 	)
 	# Video settings
 	get_window().mode = Window.MODE_FULLSCREEN if settings.video.fullscreen else Window.MODE_WINDOWED
+	
+	if PlayerManager.player and PlayerShader != null:
+		PlayerShader.visible = settings.video.shader
+		
+	if MainMenuShader and PlayerManager.MainMenu:
+		MainMenuShader.visible = settings.video.shader
 	
 	# Game settings
 	PlayerManager.Sensitivity = settings.game.sensitivity

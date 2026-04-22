@@ -82,6 +82,11 @@ var saved_collider = null
 
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
+	SettingsManager.PlayerShader = $ps1_graphics
+	if SettingsManager.settings.video.shader:
+		$ps1_graphics.visible = true
+	else:
+		$ps1_graphics.visible = false
 	PlayerManager.player = self
 	CAMERA.current = true
 	CameraManager.FPCamera = CAMERA

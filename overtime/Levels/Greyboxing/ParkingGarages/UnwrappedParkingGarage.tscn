@@ -187,7 +187,7 @@ texture_filter = 0
 
 [node name="UnwrappedParkingGarage" type="Node3D" node_paths=PackedStringArray("lights")]
 script = ExtResource("1_nax11")
-lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight19"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), NodePath("Lights/GarageLight22"), NodePath("Lights/GarageLight23"), NodePath("Lights/GarageLight24"), NodePath("Lights/GarageLight25"), NodePath("Lights/GarageLight26"), NodePath("Lights/GarageLight27"), NodePath("Lights/GarageLight28"), NodePath("Lights/GarageLight29"), NodePath("Lights/GarageLight30"), NodePath("Lights/GarageLight31"), NodePath("Lights/GarageLight32"), NodePath("Lights/GarageLight33"), NodePath("Lights/GarageLight34"), NodePath("Lights/GarageLight35"), NodePath("Lights/GarageLight36"), NodePath("Lights/GarageLight37"), NodePath("Lights/GarageLight38"), NodePath("Lights/GarageLight39"), NodePath("Lights/GarageLight40"), NodePath("Lights/GarageLight41"), NodePath("Lights/GarageLight42"), NodePath("Lights/GarageLight43"), NodePath("Lights/GarageLight44"), NodePath("Lights/GarageLight45"), NodePath("Lights/GarageLight46")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0)
@@ -680,6 +680,9 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -23.6573, 4.90007, 2
 [node name="GarageLight18" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.2754, 4.90007, 28.3725)
 
+[node name="GarageLight19" parent="Lights" instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 17.5552, 12.587, -17.0876)
+
 [node name="GarageLight20" parent="Lights" instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -76.8105, 4.90007, 28.3725)
 
@@ -753,7 +756,13 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 69.0261, 12.587, -17
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 42.7459, 12.587, -17.0876)
 
 [node name="GarageLight44" parent="Lights" instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 17.5552, 12.587, -17.0876)
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.9913, 10.0239, 44.8008)
+
+[node name="GarageLight45" parent="Lights" instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 15.1548, 44.801)
+
+[node name="GarageLight46" parent="Lights" instance=ExtResource("12_ew468")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 4.91744, 44.801)
 
 [node name="FireExstinguisher" parent="." instance=ExtResource("21_fspgs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8512, 1.7226, 42.5999)
@@ -11122,15 +11131,6 @@ transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-1
 
 [node name="Yield Sign5" parent="." instance=ExtResource("71_gx3mg")]
 transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -37.2545, 0.0583527, 16.4561)
-
-[node name="GarageLight" parent="." instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.9913, 10.0239, 44.8008)
-
-[node name="GarageLight2" parent="." instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 15.1548, 44.801)
-
-[node name="GarageLight3" parent="." instance=ExtResource("12_ew468")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 4.91744, 44.801)
 
 [node name="Traffic Cone" parent="." instance=ExtResource("72_11lra")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -19.2366, 5.27612, 42.0565)

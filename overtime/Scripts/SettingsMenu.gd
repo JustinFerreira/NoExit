@@ -14,6 +14,7 @@ extends Control
 
 ## Visual Settings
 @onready var fullscreen_check = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
+@onready var shader_check = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox
 
 ## Game Settings
 @onready var shifthold_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
@@ -34,6 +35,7 @@ func _ready() -> void:
 	sfx_slider.value = SettingsManager.settings.audio.sfx_volume
 	mute_check.button_pressed = SettingsManager.settings.audio.muted
 	fullscreen_check.button_pressed = SettingsManager.settings.video.fullscreen
+	shader_check.button_pressed = SettingsManager.settings.video.shader
 	var normalized_value = (SettingsManager.settings.game.sensitivity - SettingsManager.min_sensitivity) / (SettingsManager.max_sensitivity - SettingsManager.min_sensitivity) * 100
 	sensitivity_slider.value = normalized_value
 	headbob_check.button_pressed = SettingsManager.settings.game.headbob
@@ -106,7 +108,10 @@ func _on_full_screen_check_box_toggled(toggled: bool) -> void:
 	SettingsManager.save_settings()
 		
 	
-
+func _on_shader_check_box_toggled(toggled: bool) -> void:
+	SettingsManager.settings.video.shader = toggled
+	SettingsManager.apply_settings()
+	SettingsManager.save_settings()
 
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	# Map slider value (0-100) to 0.001 - 0.05
@@ -157,5 +162,10 @@ func _on_full_screen_check_box_pressed() -> void:
 
 
 func _on_shift_hold_run_check_box_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+
+
+func _on_shader_check_box_pressed() -> void:
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())

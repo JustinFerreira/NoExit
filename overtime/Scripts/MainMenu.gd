@@ -11,6 +11,12 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerManager.MainMenu = true
+	SettingsManager.MainMenuShader = $Shader
+	if SettingsManager.settings.video.shader:
+		$Shader.visible = true
+	else:
+		$Shader.visible = false
 	PlayerManager.ResetPlayer()
 	PlayerManager.Loop1 = false
 	AudioManager.play_music(AudioManager.MainMenuMusic)
@@ -72,6 +78,7 @@ func _on_loop_1_btn_pressed() -> void:
 	PlayerManager.Loop0 = false
 	PlayerManager.Loop1 = true
 	get_tree().change_scene_to_file("res://Levels/Office.tscn")
+	PlayerManager.MainMenu = false
 
 
 func _on_prev_screen_btn_pressed() -> void:
@@ -90,7 +97,7 @@ func _on_textured_parking_garage_pressed() -> void:
 	AudioManager.cancel_music()
 	PlayerManager.testing = true
 	get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
-
+	PlayerManager.MainMenu = false
 
 func _on_loop_0_pressed() -> void:
 	#Button Click Noise
@@ -109,7 +116,7 @@ func _on_loop_0_pressed() -> void:
 		return
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
-
+	PlayerManager.MainMenu = false
 
 func _on_opening_cutscene_pressed() -> void:
 	#Button Click Noise
@@ -130,3 +137,4 @@ func _on_new_office_pressed() -> void:
 	
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/Greyboxing/Offices/New_Office.tscn")
+	PlayerManager.MainMenu = false
