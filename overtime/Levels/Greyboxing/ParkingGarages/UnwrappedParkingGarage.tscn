@@ -8437,149 +8437,149 @@ transform = Transform3D(0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, 0.
 [node name="CarsF3" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.1, 25)
 
-[node name="NpcCar" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, -1.06066, -59.589, 0.15, -14.8864)
+[node name="SudanBlackF3C1" parent="Cars/CarsF3" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.0141421, 0, -0.0141421, 0, 0.02, 0, 0.0141421, 0, -0.0141421, -59.589, 0.824999, -13.598)
 
-[node name="NpcCar4" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-6.55669e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55669e-08, -20.55, 0.15, -15.6)
+[node name="SudanGrayF3C1" parent="Cars/CarsF3" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-0.0153209, 0, 0.0128558, 0, 0.02, 0, -0.0128558, 0, -0.0153209, -41.515, 0.825, -13.3032)
 
-[node name="NpcCar7" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.22873, 0, -0.860363, 0, 1.5, 0, 0.860363, 0, -1.22873, 46.815, 0.15, -14.4252)
+[node name="TruckGrayF3C1" parent="Cars/CarsF3" instance=ExtResource("63_624x5")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -20.55, 0.15, -15.6)
 
-[node name="NpcCar8" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, -1.29904, 66.3064, 0.15, -14.4568)
+[node name="SUVGreenF3C1" parent="Cars/CarsF3" instance=ExtResource("59_16ch2")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 10.05, 0.15, -13.4873)
 
-[node name="NpcCar9" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.749999, 0, 1.29904, 0, 1.5, 0, -1.29904, 0, 0.749999, 95.5396, 0.15, 2.98695)
+[node name="RoofRailsSUVBlueF3C1" parent="Cars/CarsF3" instance=ExtResource("48_j0i6u")]
+transform = Transform3D(-0.016383, 0, -0.0114715, 0, 0.02, 0, 0.0114715, 0, -0.016383, 46.64, 0.15, -13.6911)
 
-[node name="NpcCar11" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.130733, 0, -1.49429, 0, 1.5, 0, 1.49429, 0, -0.130733, 76.2988, 0.15, 21.1185)
+[node name="RoofRailsSUVWhiteF3C1" parent="Cars/CarsF3" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.0173205, 0, 0.01, 0, 0.02, 0, -0.01, 0, -0.0173205, 66.306, 0.15, -13.6628)
 
-[node name="NpcCar12" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.47721, 0, 0.260473, 0, 1.5, 0, -0.260473, 0, 1.47721, 33.109, 0.15, 21.0916)
+[node name="TruckGrayF3C2" parent="Cars/CarsF3" instance=ExtResource("63_624x5")]
+transform = Transform3D(-0.017635, 0, 0.0094344, 0, 0.02, 0, -0.0094344, 0, -0.017635, 94.1506, 0.15, 2.10044)
 
-[node name="NpcCar15" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.47721, 0, 0.260473, 0, 1.5, 0, -0.260473, 0, 1.47721, 12.045, 0.15, 19.9541)
+[node name="SudanBlackF3C2" parent="Cars/CarsF3" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, 76.299, 0.787359, 21.118)
 
-[node name="NpcCar17" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.870499, 0, 1.22157, 0, 1.5, 0, -1.22157, 0, 0.870499, 54.0208, 0.15, 20.3816)
+[node name="SudanGrayF3C2" parent="Cars/CarsF3" instance=ExtResource("54_l6h74")]
+transform = Transform3D(0.0116141, 0, 0.0162823, 0, 0.02, 0, -0.0162823, 0, 0.0116141, 54.021, 0.739182, 20.382)
 
-[node name="NpcCar13" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.47721, 0, 0.260473, 0, 1.5, 0, -0.260473, 0, 1.47721, -26.0822, 0.15, 20.562)
+[node name="RoofRailsSUVBlackF3C1" parent="Cars/CarsF3" instance=ExtResource("47_bdqxo")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 33.109, 0.15, 19.9308)
 
-[node name="NpcCar14" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.5, 0, 5.96046e-07, 0, 1.5, 0, -5.96046e-07, 0, 1.5, -68.3901, 0.15, 20.4703)
+[node name="SudanWhiteF3C1" parent="Cars/CarsF3" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 12.045, 0.675513, 19.0868)
 
-[node name="NpcCar16" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.860363, 0, -1.22873, 0, 1.5, 0, 1.22873, 0, -0.860363, -95.0745, 0.15, 3.22927)
+[node name="TruckGreenF3C1" parent="Cars/CarsF3" instance=ExtResource("64_iut5w")]
+transform = Transform3D(-0.00354616, 0, 0.0196831, 0, 0.02, 0, -0.0196831, 0, -0.00354616, -27.1726, 0.15, 19.4137)
 
-[node name="NpcCar6" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, 10.05, 0.15, -14.4)
+[node name="SUVBrownF3C1" parent="Cars/CarsF3" instance=ExtResource("58_i2usu")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -68.39, 0.15, 19.3359)
 
-[node name="NpcCar3" parent="Cars/CarsF3" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.14907, 0, 0.964183, 0, 1.5, 0, -0.964183, 0, -1.14907, -41.5153, 0.15, -14.8866)
+[node name="SudanWhiteF3C2" parent="Cars/CarsF3" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.0114715, 0, -0.016383, 0, 0.02, 0, 0.016383, 0, -0.0114715, -93.0704, 0.807974, 3.229)
 
 [node name="CarsF4" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.815, 0)
 
-[node name="NpcCar" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.55, 0, 0.45)
+[node name="SudanBlackF4C1" parent="Cars/CarsF4" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -17.55, 0.653477, 0.45)
 
-[node name="NpcCar2" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.06066, 0, -1.06066, 0, 1.5, 0, 1.06066, 0, 1.06066, 16.8043, 0, 1.22692)
+[node name="TruckBlackF4C1" parent="Cars/CarsF4" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(0.0141382, 0, 0.0141461, 0, 0.02, 0, -0.0141461, 0, 0.0141382, 16.804, 0, 0.304802)
 
-[node name="NpcCar3" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.29904, 0, -0.75, 0, 1.5, 0, 0.75, 0, 1.29904, 46.4723, 0, 0.769322)
+[node name="SUVBlackF4C1" parent="Cars/CarsF4" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(0.0173205, 0, -0.01, 0, 0.02, 0, 0.01, 0, 0.0173205, 46.472, 0, 0.367728)
 
-[node name="NpcCar4" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, 1.29904, 73.4471, 0, 0.994709)
+[node name="SudanBlackF3C2" parent="Cars/CarsF4" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.0173205, 0, 0.01, 0, 0.02, 0, -0.01, 0, 0.0173205, 73.447, 0.558356, 0.348996)
 
-[node name="NpcCar5" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.19209e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, -1.19209e-07, 95.0356, 0, -18.4034)
+[node name="RoofRailsSudanGrayF4C1" parent="Cars/CarsF4" instance=ExtResource("45_0wdu4")]
+transform = Transform3D(-8.81937e-10, 0, 0.0201764, 0, 0.0201764, 0, -0.0201764, 0, -8.81937e-10, 94.2214, 0.650315, -18.403)
 
-[node name="NpcCar6" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, 1.06066, 95.9803, -4.76837e-07, -54.1701)
+[node name="SudanBlackF4C3" parent="Cars/CarsF4" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(0.0141421, 0, 0.0141421, 0, 0.02, 0, -0.0141421, 0, 0.0141421, 95.1044, 0.596663, -54.17)
 
-[node name="NpcCar7" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, -1.44889, 85.3009, 0, -65.3984)
+[node name="SudanBlackF4C4" parent="Cars/CarsF4" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 85.301, 0.524659, -63.8389)
 
-[node name="NpcCar8" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(5.96046e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, 5.96046e-08, 61.3789, 0, -46.2585)
+[node name="RoofRailsSudanGrayF4C2" parent="Cars/CarsF4" instance=ExtResource("45_0wdu4")]
+transform = Transform3D(-8.81937e-10, 0, 0.0201764, 0, 0.0201764, 0, -0.0201764, 0, -8.81937e-10, 62.4801, 0.561776, -46.258)
 
-[node name="NpcCar9" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 5.96244e-09, 0, 1.5, 0, -5.96244e-09, 0, -1.5, 38.7289, 0, -34.1085)
+[node name="SudanWhiteF4C1" parent="Cars/CarsF4" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 38.729, 0.667283, -32.6151)
 
-[node name="NpcCar10" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 5.96244e-09, 0, 1.5, 0, -5.96244e-09, 0, -1.5, 10.6789, 0, -34.1085)
+[node name="SudanWhiteF4C2" parent="Cars/CarsF4" instance=ExtResource("55_dinj4")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 10.6789, 0.524842, -32.659)
 
-[node name="NpcCar11" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, -19.4428, 0, -34.3206)
+[node name="SUVBlueF4C1" parent="Cars/CarsF4" instance=ExtResource("57_mm462")]
+transform = Transform3D(-0.0141421, 0, 0.0141421, 0, 0.02, 0, -0.0141421, 0, -0.0141421, -19.4428, 0, -33.2455)
 
-[node name="NpcCar12" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, -1.44889, -46.1757, 0, -33.8332)
+[node name="RoofRailsSUVWhiteF4C1" parent="Cars/CarsF4" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, -0.0193185, -46.1757, 0, -32.8656)
 
-[node name="NpcCar13" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.51303, 0, 1.40954, 0, 1.5, 0, -1.40954, 0, -0.51303, -62.437, 0, -44.3521)
+[node name="TruckGreenF4C1" parent="Cars/CarsF4" instance=ExtResource("64_iut5w")]
+transform = Transform3D(-0.0187395, 0, -0.0069878, 0, 0.02, 0, 0.0069878, 0, -0.0187395, -63.4154, 0, -43.9361)
 
-[node name="NpcCar14" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.130734, 0, 1.49429, 0, 1.5, 0, -1.49429, 0, -0.130734, -62.2779, 0, -58.5293)
+[node name="TruckBlackF4C2" parent="Cars/CarsF4" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(-0.0194024, 0, -0.00485232, 0, 0.02, 0, 0.00485232, 0, -0.0194024, -63.8306, 0, -58.5293)
 
-[node name="NpcCar15" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.388228, 0, 1.5, 0, 0.388228, 0, -1.44889, -86.3285, 0, -65.4825)
+[node name="TruckBlackF4C3" parent="Cars/CarsF4" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(0.00513996, 0, -0.0193282, 0, 0.02, 0, 0.0193282, 0, 0.00513996, -85.7052, 0, -64.0304)
 
-[node name="NpcCar16" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.75, 0, -1.29904, 0, 1.5, 0, 1.29904, 0, -0.75, -94.7216, 0, -58.2305)
+[node name="TruckGreenF4C2" parent="Cars/CarsF4" instance=ExtResource("64_iut5w")]
+transform = Transform3D(0.0179997, 0, -0.00871845, 0, 0.02, 0, 0.00871845, 0, 0.0179997, -93.6357, 0, -57.9799)
 
-[node name="NpcCar17" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.75, 0, -1.29904, 0, 1.5, 0, 1.29904, 0, 0.75, -94.4499, -4.76837e-07, -19.9732)
+[node name="SudanGrayF4C1" parent="Cars/CarsF4" instance=ExtResource("54_l6h74")]
+transform = Transform3D(0.01, 0, -0.0173205, 0, 0.02, 0, 0.0173205, 0, 0.01, -93.1088, 0.649828, -20.4867)
 
-[node name="NpcCar18" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.44889, 0, 0.388229, 0, 1.5, 0, -0.388229, 0, 1.44889, -75.6532, 0, 0.916353)
+[node name="RoofRailsSUVBlackF4C1" parent="Cars/CarsF4" instance=ExtResource("47_bdqxo")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, -75.6532, 0, -0.455932)
 
-[node name="NpcCar19" parent="Cars/CarsF4" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, 1.44889, -53.2467, 0, 0.842587)
+[node name="SUVBlackF4C2" parent="Cars/CarsF4" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, 0.0193185, -53.247, 0, 0.110701)
 
 [node name="CarsF5" type="Node3D" parent="Cars"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 25)
 
-[node name="NpcCar" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -68.25, 0.15, -14.25)
+[node name="TruckWhiteF5C1" parent="Cars/CarsF5" instance=ExtResource("65_b8dwl")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, -68.25, 0.15, -12.9344)
 
-[node name="NpcCar4" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-0.0227503, 0, -1.49983, 0, 1.5, 0, 1.49983, 0, -0.0227503, -26.5202, 0.15, -10.1076)
+[node name="SudanBlackF5C1" parent="Cars/CarsF5" instance=ExtResource("53_jvf0c")]
+transform = Transform3D(-0.0195781, 0, -0.00408651, 0, 0.02, 0, 0.00408651, 0, -0.0195781, -46.1807, 0.720704, -13.1348)
 
-[node name="NpcCar5" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.29904, 0, 0.75, 0, 1.5, 0, -0.75, 0, -1.29904, -4.2, 0.15, -14.25)
+[node name="SUVOrangeF5C1" parent="Cars/CarsF5" instance=ExtResource("60_xjt1r")]
+transform = Transform3D(-0.000314147, 0, -0.0199975, 0, 0.02, 0, 0.0199975, 0, -0.000314147, -26.52, 0.15, -10.108)
 
-[node name="NpcCar8" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.38823, 0, 1.5, 0, 0.38823, 0, -1.44889, 53.7785, 0.15, -14.3942)
+[node name="SUVGreenF5C1" parent="Cars/CarsF5" instance=ExtResource("59_16ch2")]
+transform = Transform3D(-0.0173205, 0, 0.01, 0, 0.02, 0, -0.01, 0, -0.0173205, -4.2, 0.15, -14.25)
 
-[node name="NpcCar9" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.749999, 0, 1.29904, 0, 1.5, 0, -1.29904, 0, 0.749999, 95.5959, 0.15, -1.31065)
+[node name="TruckBlackF5C1" parent="Cars/CarsF5" instance=ExtResource("62_lrsmc")]
+transform = Transform3D(-8.74228e-10, 0, -0.02, 0, 0.02, 0, 0.02, 0, -8.74228e-10, 25.35, 0.15, -12.8467)
 
-[node name="NpcCar10" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.06066, 0, 1.06066, 0, 1.5, 0, -1.06066, 0, -1.06066, 94.5352, 0.15, 19.2501)
+[node name="SUVBlackF5C1" parent="Cars/CarsF5" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(-0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, -0.0193185, 53.7785, 0.15, -12.9969)
 
-[node name="NpcCar11" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.49429, 0, -0.130733, 0, 1.5, 0, 0.130733, 0, 1.49429, 65.9882, 0.15, 20.2164)
+[node name="SUVBlackF5C2" parent="Cars/CarsF5" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(0.01, 0, 0.0173205, 0, 0.02, 0, -0.0173205, 0, 0.01, 94.5775, 0.15, -1.31065)
 
-[node name="NpcCar12" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.22873, 0, -0.860363, 0, 1.5, 0, 0.860363, 0, 1.22873, 21.1818, 0.15, 21.2484)
+[node name="SudanGrayF5C1" parent="Cars/CarsF5" instance=ExtResource("54_l6h74")]
+transform = Transform3D(-0.0141421, 0, 0.0141421, 0, 0.02, 0, -0.0141421, 0, -0.0141421, 90.7366, 0.71935, 17.686)
 
-[node name="NpcCar13" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.44889, 0, -0.388227, 0, 1.5, 0, 0.388227, 0, 1.44889, -38.9922, 0.15, 20.8377)
+[node name="RoofRailsSUVWhiteF5C1" parent="Cars/CarsF5" instance=ExtResource("52_xiq0q")]
+transform = Transform3D(-0.02, 0, -1.74846e-09, 0, 0.02, 0, 1.74846e-09, 0, -0.02, 65.9882, 0.15, 19.3891)
 
-[node name="NpcCar15" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(0.633927, 0, -1.35946, 0, 1.5, 0, 1.35946, 0, 0.633927, -65.6228, 0.15, 22.0379)
+[node name="SUVBlack2F5C1" parent="Cars/CarsF5" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(0.016383, 0, -0.0114715, 0, 0.02, 0, 0.0114715, 0, 0.016383, 21.1818, 0.15, 19.5362)
 
-[node name="NpcCar16" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.07218, 0, 1.04901, 0, 1.5, 0, -1.04901, 0, 1.07218, -91.6279, 0.15, 17.6227)
+[node name="SUVBlueF5C1" parent="Cars/CarsF5" instance=ExtResource("57_mm462")]
+transform = Transform3D(0.0193185, 0, -0.00517638, 0, 0.02, 0, 0.00517638, 0, 0.0193185, -38.9922, 0.15, 19.602)
 
-[node name="NpcCar6" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(1.5, 0, -8.9407e-08, 0, 1.5, 0, 8.9407e-08, 0, 1.5, 25.35, 0.15, -14.55)
+[node name="SudanWhiteF5C1" parent="Cars/CarsF5" instance=ExtResource("55_dinj4")]
+transform = Transform3D(0.00845236, 0, -0.0181262, 0, 0.02, 0, 0.0181262, 0, 0.00845236, -65.6228, 0.761516, 20.7665)
 
-[node name="NpcCar2" parent="Cars/CarsF5" instance=ExtResource("4_mqtxy")]
-transform = Transform3D(-1.44889, 0, -0.38823, 0, 1.5, 0, 0.38823, 0, -1.44889, -46.1807, 0.15, -14.6878)
+[node name="SUVBlackF5C3" parent="Cars/CarsF5" instance=ExtResource("56_c6mmp")]
+transform = Transform3D(0.0142895, 0, 0.0139933, 0, 0.02, 0, -0.0139933, 0, 0.0142895, -91.6279, 0.15, 17.6227)
 
 [node name="NpcCar" parent="Cars" instance=ExtResource("4_mqtxy")]
 transform = Transform3D(-1.5, 0, 1.31134e-07, 0, 1.5, 0, -1.31134e-07, 0, -1.5, -75.15, 21.5719, 10.75)
