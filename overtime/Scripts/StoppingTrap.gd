@@ -7,6 +7,7 @@ func _ready() -> void:
 		$".".visible = false
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	print(activated)
 	if PlayerManager.Loop0:
 		return
 	

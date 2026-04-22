@@ -191,18 +191,17 @@ script = ExtResource("1_jypo0")
 [node name="Inventory" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -601.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="Inventory"]
-layout_mode = 0
-offset_right = 1281.0
-offset_bottom = 114.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 44.0
+grow_horizontal = 2
 color = Color(0.113725, 0.113725, 0.113725, 0.482353)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Inventory/ColorRect"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=39 format=3 uid="uid://cqbiktwssofkk"]
+[gd_scene load_steps=40 format=3 uid="uid://cqbiktwssofkk"]
 
+[ext_resource type="Script" path="res://Scripts/MarkingEmptyOfficeGreybox.gd" id="1_8ny7e"]
 [ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="1_xh4d2"]
 [ext_resource type="Material" uid="uid://ckl73nuxlh05t" path="res://Assets/Materials/OfficeCarpet.tres" id="2_gy5af"]
 [ext_resource type="PackedScene" uid="uid://dqtccb4evu6ma" path="res://Assets/Enviroments/Office/Scenes/Cubicle.tscn" id="3_8r1eh"]
@@ -10,20 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://c48e8fdjpjnmm" path="res://Assets/Enviroments/Office/Scenes/small_bin.tscn" id="7_dnv3v"]
 [ext_resource type="PackedScene" uid="uid://5kkwp2q5sfl3" path="res://Assets/Enviroments/Office/Scenes/potted_plant.tscn" id="8_xv01g"]
 [ext_resource type="PackedScene" uid="uid://c78kfoga5e1u3" path="res://Assets/Enviroments/Office/Scenes/tissue_box.tscn" id="9_lu6ri"]
-[ext_resource type="PackedScene" uid="uid://fo5o768q4lj3" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
+[ext_resource type="PackedScene" uid="uid://dgsb084lt5fqm" path="res://Assets/Enviroments/Office/Scenes/folder_1.tscn" id="10_v3k4h"]
 [ext_resource type="PackedScene" uid="uid://cfa6ee45ff6e3" path="res://Assets/Enviroments/Office/Scenes/folder_2.tscn" id="12_xaag6"]
 [ext_resource type="PackedScene" uid="uid://cievmv558laq4" path="res://Assets/Enviroments/Garage/Scenes/fire_alarm.tscn" id="13_u2hwv"]
 [ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="14_ibjrd"]
 [ext_resource type="PackedScene" uid="uid://cl4w2cqylilfm" path="res://Assets/Enviroments/Office/Scenes/Stapler.tscn" id="14_qhn26"]
 [ext_resource type="PackedScene" uid="uid://nb5vr5umkk6w" path="res://Assets/Enviroments/Office/Scenes/PictureFrame1.tscn" id="16_5lago"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="18_5hnf5"]
+[ext_resource type="PackedScene" uid="uid://c01hvg8llia3e" path="res://Assets/Enviroments/Office/Scenes/mug_1a.tscn" id="18_5hnf5"]
 [ext_resource type="PackedScene" uid="uid://v4ak5cnq1fu4" path="res://Assets/Enviroments/Garage/Scenes/fire_exstinguisher.tscn" id="18_ph13l"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_2a.tscn" id="19_go4is"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_1b.tscn" id="19_qixa2"]
+[ext_resource type="PackedScene" uid="uid://p7n02gmgn3my" path="res://Assets/Enviroments/Office/Scenes/mug_2a.tscn" id="19_go4is"]
+[ext_resource type="PackedScene" uid="uid://l6ssl2wjp0pk" path="res://Assets/Enviroments/Office/Scenes/mug_1b.tscn" id="19_qixa2"]
 [ext_resource type="PackedScene" uid="uid://dbb1xpsd2yyvb" path="res://Assets/Enviroments/Office/Scenes/PictureFrame4.tscn" id="20_de3t3"]
 [ext_resource type="PackedScene" uid="uid://bq87sfek8ftj7" path="res://Assets/Enviroments/Office/Scenes/pen_1a.tscn" id="20_lyhxk"]
 [ext_resource type="PackedScene" uid="uid://cwi31kpkwlrm0" path="res://Assets/Enviroments/Office/Scenes/PictureFrame3.tscn" id="20_sa0sg"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="21_3plfg"]
+[ext_resource type="PackedScene" uid="uid://ckt8acymft7k" path="res://Assets/Enviroments/Office/Scenes/mug_2b.tscn" id="21_3plfg"]
 [ext_resource type="PackedScene" uid="uid://bigkpyey4v35f" path="res://Assets/Enviroments/Office/Scenes/pen_1b.tscn" id="21_ygvux"]
 [ext_resource type="PackedScene" uid="uid://dkdxdrv0m2mln" path="res://Assets/Enviroments/Office/Scenes/pencil_1a.tscn" id="22_aeq10"]
 [ext_resource type="PackedScene" uid="uid://djkmmpuymcplm" path="res://Assets/Enviroments/Office/Scenes/office_door.tscn" id="23_fxkj8"]
@@ -42,8 +43,10 @@
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v7mmk"]
 data = PackedVector3Array(100.23, 5.2644, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 205.637, -227.908, 5.2644, 11.9853, 100.23, 5.2644, 15.3421, -227.908, 5.2644, 11.9853, 100.621, 5.2644, -18.4697, 100.621, 5.2644, -18.4697, -227.908, 5.2644, 11.9853, -227.522, 5.2644, -12.3762, 100.621, 5.2644, -18.4697, -227.522, 5.2644, -12.3762, 100.23, 5.2644, -204.782, 100.23, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 5.2644, -204.782, 100.23, 5.2644, 205.637, 100.23, 5.2644, 15.3421, 100.23, 32.0938, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, 15.3421, 100.23, 37.1247, 15.3421, -227.908, 5.2644, 11.9853, -227.908, 5.2644, 205.637, -227.908, 33.4509, 11.9853, -227.908, 33.4509, 11.9853, -227.908, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 5.2644, 205.637, 100.23, 5.2644, 205.637, -227.908, 32.0938, 205.637, -227.908, 32.0938, 205.637, 100.23, 5.2644, 205.637, 100.23, 32.0938, 205.637, 100.23, 5.2644, -204.782, -227.908, 5.2644, -204.782, 100.23, 32.0938, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.908, 37.1247, -204.782, 100.23, 5.2644, 15.3421, 100.621, 5.2644, -18.4697, 100.23, 37.1247, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 5.2644, -18.4697, 100.621, 37.1247, -18.4697, 100.621, 5.2644, -18.4697, 100.23, 5.2644, -204.782, 100.621, 37.1247, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 5.2644, -204.782, 100.23, 32.0938, -204.782, -227.908, 5.2644, -204.782, -227.522, 5.2644, -12.3762, -227.908, 37.1247, -204.782, -227.908, 37.1247, -204.782, -227.522, 5.2644, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 33.4509, 11.9853, -227.908, 32.0938, 205.637, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, -227.908, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 32.0938, 205.637, 100.23, 32.0938, 205.637, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 36.5812, 205.637, 100.23, 32.0938, 205.637, 100.23, 37.1247, 15.3421, 100.23, 36.5812, 205.637, 100.23, 36.5812, 205.637, 100.23, 37.1247, 15.3421, 100.23, 37.6987, 15.3421, 100.23, 37.1247, 15.3421, 100.621, 37.1247, -18.4697, 100.23, 37.6987, 15.3421, 100.23, 37.6987, 15.3421, 100.621, 37.1247, -18.4697, 100.621, 37.6445, -18.4697, 100.621, 37.1247, -18.4697, 100.23, 32.0938, -204.782, 100.621, 37.6445, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 32.0938, -204.782, 100.23, 36.5812, -204.782, 100.23, 32.0938, -204.782, -227.908, 37.1247, -204.782, 100.23, 36.5812, -204.782, 100.23, 36.5812, -204.782, -227.908, 37.1247, -204.782, -227.908, 39.0935, -204.782, -227.908, 37.1247, -204.782, -227.522, 33.4509, -12.3762, -227.908, 39.0935, -204.782, -227.908, 39.0935, -204.782, -227.522, 33.4509, -12.3762, -227.522, 36.5812, -18.4697, -227.908, 33.4509, 11.9853, -227.908, 36.5812, 15.3421, -227.522, 33.4509, -12.3762, -227.522, 33.4509, -12.3762, -227.908, 36.5812, 15.3421, -227.522, 36.5812, -18.4697, 100.621, 37.6445, -18.4697, 100.23, 36.5812, -204.782, -227.522, 36.5812, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, -204.782, -227.908, 39.0935, -204.782, 100.23, 37.6987, 15.3421, 100.621, 37.6445, -18.4697, -227.908, 36.5812, 15.3421, -227.908, 36.5812, 15.3421, 100.621, 37.6445, -18.4697, -227.522, 36.5812, -18.4697, 100.23, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 205.637, -227.908, 36.5812, 205.637, 100.23, 37.6987, 15.3421, -227.908, 36.5812, 15.3421)
 
-[node name="EmptyOfficeGreybox" type="Node3D"]
+[node name="EmptyOfficeGreybox" type="Node3D" node_paths=PackedStringArray("lights")]
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, -5.23835, -2.17652, 0.315965)
+script = ExtResource("1_8ny7e")
+lights = [NodePath("Lights/CeilingLight"), NodePath("Lights/CeilingLight2"), NodePath("Lights/CeilingLight3"), NodePath("Lights/CeilingLight4"), NodePath("Lights/CeilingLight5"), NodePath("Lights/CeilingLight6"), NodePath("Lights/CeilingLight7"), NodePath("Lights/CeilingLight8"), NodePath("Lights/CeilingLight9"), NodePath("Lights/CeilingLight10"), NodePath("Lights/CeilingLight11"), NodePath("Lights/CeilingLight12"), NodePath("Lights/CeilingLight13"), NodePath("Lights/CeilingLight14"), NodePath("Lights/CeilingLight15"), NodePath("Lights/CeilingLight16"), NodePath("Lights/CeilingLight17"), NodePath("Lights/CeilingLight18"), NodePath("Lights/CeilingLight19"), NodePath("Lights/CeilingLight20"), NodePath("Lights/CeilingLight21"), NodePath("Lights/CeilingLight22"), NodePath("Lights/CeilingLight23"), NodePath("Lights/CeilingLight24"), NodePath("Lights/CeilingLight25"), NodePath("Lights/CeilingLight26"), NodePath("Lights/CeilingLight27"), NodePath("Lights/CeilingLight28"), NodePath("Lights/CeilingLight29"), NodePath("Lights/CeilingLight30")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6229, 66.7487, 34.4514)
