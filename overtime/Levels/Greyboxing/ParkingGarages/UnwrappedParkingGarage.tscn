@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://b2jbahgstl1gh"]
+[gd_scene load_steps=103 format=3 uid="uid://b2jbahgstl1gh"]
 
 [ext_resource type="Script" path="res://Scripts/MarkingUnwrappedParkingGarage.gd" id="1_nax11"]
 [ext_resource type="Texture2D" uid="uid://qd4qj68sm2vl" path="res://Levels/Greyboxing/garage_floor_darker.png" id="1_nuqwi"]
@@ -71,6 +71,7 @@
 [ext_resource type="PackedScene" uid="uid://cn23iuo0xlquj" path="res://Assets/Enviroments/Garage/Scenes/Payphone.tscn" id="70_mtiqs"]
 [ext_resource type="PackedScene" uid="uid://bwofy5nq4xe7x" path="res://Assets/Enviroments/Garage/Scenes/YieldSign.tscn" id="71_gx3mg"]
 [ext_resource type="PackedScene" uid="uid://cu7gccamdi2aq" path="res://Assets/Enviroments/Garage/Scenes/StopSign.tscn" id="71_qpy50"]
+[ext_resource type="PackedScene" uid="uid://bn4gcacq3142n" path="res://Assets/Enviroments/Garage/Scenes/TrafficCone.tscn" id="72_11lra"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -258,33 +259,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.4582, -5.78847, 34.6416)
 
 [node name="ParkingDrum12" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6101, -5.87513, 36.6427)
-
-[node name="ParkingDrum37" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.3393, 4.4, 8.48232)
-
-[node name="ParkingDrum38" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.7294, 4.4, 9.11042)
-
-[node name="ParkingDrum39" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0294, 4.4, 8.22732)
-
-[node name="ParkingDrum40" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.376, 4.4, 9.15969)
-
-[node name="ParkingDrum41" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6181, 4.4, 9.08167)
-
-[node name="ParkingDrum42" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8106, 4.4, 8.48232)
-
-[node name="ParkingDrum43" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0249, 4.4, 8.48232)
-
-[node name="ParkingDrum44" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6517, 4.4, 6.8171)
-
-[node name="ParkingDrum45" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.2416, 4.4, 5.2274)
 
 [node name="ParkingDrum11" parent="ParkingDrums" instance=ExtResource("6_3wqkc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12436, 4.4, 36.7167)
@@ -9247,12 +9221,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7968, 0, -14.063)
 [node name="ParkBlock56" parent="ParkingBlocks/ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7968, 0, -11.7612)
 
-[node name="ParkBlock58" parent="ParkingBlocks/ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(0.407301, -0.580841, -0.70479, 0.72601, 0.674104, -0.135987, 0.554089, -0.456297, 0.69626, -34.3651, 1.71673, -11.629)
-
-[node name="ParkBlock53" parent="ParkingBlocks/ParkingBlocksF5" instance=ExtResource("3_f4osh")]
-transform = Transform3D(0.152836, -0.129927, -0.979674, 0.417036, 0.907209, -0.0552556, 0.895947, -0.400114, 0.192839, -40.9284, 1.26192, -12.4768)
-
 [node name="ParkBlock57" parent="ParkingBlocks/ParkingBlocksF5" instance=ExtResource("3_f4osh")]
 transform = Transform3D(0.200599, 0, -0.979673, 0, 1, 0, 0.979673, 0, 0.200599, -40.0985, 0.332701, -15.8793)
 
@@ -11132,7 +11100,7 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -30.8325, 0.16386, 9
 [node name="Payphone" parent="Payphones" instance=ExtResource("70_mtiqs")]
 
 [node name="Payphone2" parent="Payphones" instance=ExtResource("70_mtiqs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 470.754, 269.304, 1660.96)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 470.754, 256.118, 1660.96)
 
 [node name="Payphone3" parent="Payphones" instance=ExtResource("70_mtiqs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 470.754, 511.579, 1660.96)
@@ -11163,3 +11131,48 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 15.1548, 44
 
 [node name="GarageLight3" parent="." instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 4.91744, 44.801)
+
+[node name="Traffic Cone" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -19.2366, 5.27612, 42.0565)
+
+[node name="Traffic Cone3" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -33.9841, 10.4152, 16.513)
+
+[node name="Traffic Cone4" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -32.4606, 10.4152, 16.513)
+
+[node name="Traffic Cone5" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -35.1356, 10.4152, 15.0826)
+
+[node name="Traffic Cone6" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -36.3481, 10.4152, 14.1461)
+
+[node name="Traffic Cone7" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -38.2597, 10.4152, 13.6474)
+
+[node name="Traffic Cone8" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -39.4493, 10.4152, 12.167)
+
+[node name="Traffic Cone9" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -40.5862, 10.4152, 11.0852)
+
+[node name="Traffic Cone10" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -42.2606, 10.4152, 10.0705)
+
+[node name="Traffic Cone11" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -43.3506, 10.4152, 8.48952)
+
+[node name="Traffic Cone12" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -32.8745, 10.4152, 9.64944)
+
+[node name="Traffic Cone13" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -32.8745, 10.4152, 11.2629)
+
+[node name="Traffic Cone14" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -32.2627, 10.4152, 12.8323)
+
+[node name="Traffic Cone15" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -32.2627, 10.4152, 14.7807)
+
+[node name="Traffic Cone2" parent="." instance=ExtResource("72_11lra")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -19.2366, 10.4152, 42.0565)
