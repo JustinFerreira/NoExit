@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1qu4sl7t8sbu"
+path="res://.godot/imported/ElectricSpark2.mp3-72854342db804c78ad6c0dd7a2e680bf.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Electirc Spark/ElectricSpark2.mp3"
+dest_files=["res://.godot/imported/ElectricSpark2.mp3-72854342db804c78ad6c0dd7a2e680bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

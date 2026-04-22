@@ -112,6 +112,7 @@ func _on_loop_0_pressed() -> void:
 		PlayerManager.Loop0 = true
 		PlayerManager.Loop1 = false
 		get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		PlayerManager.MainMenu = false
 		AudioManager.cancel_music()
 		return
 	AudioManager.cancel_music()

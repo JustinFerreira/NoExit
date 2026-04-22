@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://uy7v5wa2yncb"]
+[gd_scene load_steps=16 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
 [ext_resource type="FontFile" uid="uid://bgoraiyx8nbsf" path="res://Assets/Fonts/Courier New Bold Italic.ttf" id="2_yoggx"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://pbsj32rlwj6m" path="res://Assets/Audio/SFX/dragon-studio-glass-breaking-386153.mp3" id="6_kov4g"]
 [ext_resource type="Texture2D" uid="uid://c8ngayq5deus5" path="res://Assets/Logos/overtimesplash_sheet.png" id="7_uc7fo"]
 [ext_resource type="Script" path="res://Scripts/KeepAnimatedSpriteCenter.gd" id="7_vtpsg"]
+[ext_resource type="AudioStream" uid="uid://7u2vjnuslmpo" path="res://Assets/Audio/Stingers/bootup_stinger.wav" id="8_padoj"]
 
 [sub_resource type="Animation" id="Animation_ft30g"]
 length = 0.001
@@ -93,6 +94,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BootUpSound:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_s3i0g"]
@@ -191,6 +204,18 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "clips": PackedStringArray("OvertimeStudios"),
 "times": PackedFloat32Array(1.3)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BootUpSound:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_73vy3"]
@@ -333,3 +358,6 @@ script = ExtResource("7_vtpsg")
 libraries = {
 "": SubResource("AnimationLibrary_vu718")
 }
+
+[node name="BootUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_padoj")

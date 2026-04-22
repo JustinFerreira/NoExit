@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c5ftu8i0cg6v5"]
+[gd_scene load_steps=29 format=3 uid="uid://c5ftu8i0cg6v5"]
 
 [ext_resource type="Texture2D" uid="uid://cehu660sjthpw" path="res://Assets/Enviroments/Garage/Textures/Battery Textures/M_Battery_Unwrapped_BaseColor.png" id="1_q4wfy"]
 [ext_resource type="Script" path="res://Scripts/Battery.gd" id="1_yn3cf"]
@@ -30,6 +30,23 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 [sub_resource type="BoxMesh" id="BoxMesh_wlvhs"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_egq5q"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_is4hm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wxthb"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3o0eb"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_asor1"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsjr8"]
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ed5be"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcvoy"]
@@ -230,6 +247,79 @@ shape = SubResource("ConvexPolygonShape3D_egq5q")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZone4/Area3D"]
 shape = SubResource("ConvexPolygonShape3D_egq5q")
+
+[node name="ResetZoneOutOfBounds" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7773, 18.7721, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZoneOutOfBounds"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.0483, 0, 0, 0)
+transparency = 1.0
+mesh = SubResource("BoxMesh_is4hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZoneOutOfBounds"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.0483, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wxthb")
+
+[node name="Area3D" type="Area3D" parent="ResetZoneOutOfBounds"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZoneOutOfBounds/Area3D"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.0483, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wxthb")
+
+[node name="ResetZoneOutOfBounds2" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.362, 18.7721, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZoneOutOfBounds2"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.2192, 0, 0, 0)
+transparency = 1.0
+mesh = SubResource("BoxMesh_is4hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZoneOutOfBounds2"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.2192, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_3o0eb")
+
+[node name="Area3D" type="Area3D" parent="ResetZoneOutOfBounds2"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZoneOutOfBounds2/Area3D"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 88.2192, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_3o0eb")
+
+[node name="ResetZoneOutOfBounds3" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.388008, 18.7721, 26.6708)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZoneOutOfBounds3"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+transparency = 1.0
+mesh = SubResource("BoxMesh_is4hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZoneOutOfBounds3"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_asor1")
+
+[node name="Area3D" type="Area3D" parent="ResetZoneOutOfBounds3"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZoneOutOfBounds3/Area3D"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_asor1")
+
+[node name="ResetZoneOutOfBounds4" type="StaticBody3D" parent="." groups=["battery_minigame", "resetzone"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.388008, 18.7721, -24.0159)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ResetZoneOutOfBounds4"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dsjr8")
+transparency = 1.0
+mesh = SubResource("BoxMesh_is4hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ResetZoneOutOfBounds4"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ed5be")
+
+[node name="Area3D" type="Area3D" parent="ResetZoneOutOfBounds4"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ResetZoneOutOfBounds4/Area3D"]
+transform = Transform3D(4.03887, 0, 0, 0, 77.6138, 0, 0, 0, 102.212, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ed5be")
 
 [node name="PositiveConnection" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0397369, 14.2944, 0, -3.67796, -0.154438, 0, 0, 0, 3.75527, -22, 21.3161, 4.20564)

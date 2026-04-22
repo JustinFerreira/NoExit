@@ -71,6 +71,10 @@ var SkullCrush = load("res://Assets/Audio/SFX/headcrushFinal.mp3")
 
 var HoodOpen = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
 
+var ElectricSpark1 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark1.mp3")
+var ElectricSpark2 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark2.mp3")
+var ElectricSpark3 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark3.mp3")
+
 var Thud4 = load("res://Assets/Audio/SFX/thud4.wav")
 
 var GasCapClose = load("res://Assets/Audio/SFX/gascapdoor_close1.mp3")
@@ -85,6 +89,12 @@ var CarStart = load("res://Assets/Audio/SFX/car-engine-success.mp3")
 
 var ImportantItemStinger = load("res://Assets/Audio/Stingers/spookystinger.mp3")
 
+var BassStinger1 = load("res://Assets/Audio/Stingers/bassSting_1.mp3")
+var BassStinger2 = load("res://Assets/Audio/Stingers/bassSting_2.mp3")
+var BassStinger3 = load("res://Assets/Audio/Stingers/bassSting_3.mp3")
+var BassStinger4 = load("res://Assets/Audio/Stingers/bassSting_4.mp3")
+
+var StringStinger = load("res://Assets/Audio/Stingers/stringSting_1.mp3")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## At creation of project assign the MusicAudio Player to the bus Music
@@ -270,3 +280,13 @@ func GetSocket():
 	var socket_sounds = [socket1, socket2, socket3]
 	var random_index = randi() % socket_sounds.size()
 	return socket_sounds[random_index]
+	
+func GetSpark():
+	var spark_sounds = [ElectricSpark1, ElectricSpark2, ElectricSpark3]
+	var random_index = randi() % spark_sounds.size()
+	return spark_sounds[random_index]
+
+func GetBassStinger():
+	var bass_sounds = [BassStinger1,BassStinger2,BassStinger3,BassStinger4]
+	var random_index = randi() % bass_sounds.size()
+	return bass_sounds[random_index]

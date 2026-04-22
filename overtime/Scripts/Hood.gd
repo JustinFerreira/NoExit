@@ -62,6 +62,7 @@ func _on_interacted(body: Variant) -> void:
 		#turn off sound effects (need fix)
 		AudioManager.cancel_loop_sfx()
 		#turn killer back on
+		AudioManager.play_sound(AudioManager.GetBassStinger())
 		SettingsManager.KillerDisabled = false
 		#get killer to designated area
 		PlayerManager.teleportEnemy = true

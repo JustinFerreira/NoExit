@@ -251,11 +251,11 @@ visible = false
 skeleton = NodePath("../WorldEnvironment")
 
 [node name="WireNegative" parent="." instance=ExtResource("3_ey6un")]
-transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5989, 1.94619, 18.1311)
+transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 53.5721, 1.94619, 17.9206)
 visible = false
 
 [node name="WirePositive" parent="." instance=ExtResource("4_hd2cn")]
-transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5861, 1.92341, 18.382)
+transform = Transform3D(0.108891, 0, 0, 0, 0.108891, 0, 0, 0, 0.108891, 54.5861, 1.92341, 18.0565)
 visible = false
 axis_lock_linear_y = true
 axis_lock_angular_y = true
