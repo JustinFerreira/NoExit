@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsk7y4mwspxm4"
+path="res://.godot/imported/Rasp heavy-[AudioTrimmer.com].wav-9b3029988662f17db42bf0d1be39b5ec.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Rasp heavy-[AudioTrimmer.com].wav"
+dest_files=["res://.godot/imported/Rasp heavy-[AudioTrimmer.com].wav-9b3029988662f17db42bf0d1be39b5ec.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
