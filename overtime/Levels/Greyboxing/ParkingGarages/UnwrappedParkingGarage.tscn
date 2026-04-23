@@ -626,142 +626,142 @@ transform = Transform3D(-1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 
 
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="GarageLight" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.8191, 15.1538, 28.3725)
 
-[node name="GarageLight2" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight2" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.1451, 15.1538, 28.3725)
 
-[node name="GarageLight3" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight3" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -62.8377, 15.1538, 28.3725)
 
-[node name="GarageLight4" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight4" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -94.1551, 15.1538, 28.3725)
 
-[node name="GarageLight5" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight5" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 84.2911, 15.1538, 28.3725)
 
-[node name="GarageLight6" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight6" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 56.497, 15.1538, 28.3725)
 
-[node name="GarageLight7" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight7" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.2888, 15.1538, 28.3725)
 
-[node name="GarageLight8" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight8" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 3.36893, 15.1538, 28.3725)
 
-[node name="GarageLight9" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight9" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -22.2221, 10.0282, 28.3725)
 
-[node name="GarageLight10" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight10" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.1437, 10.0282, 28.3725)
 
-[node name="GarageLight11" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight11" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -61.5722, 10.0282, 28.3725)
 
-[node name="GarageLight12" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight12" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -94.6545, 10.0282, 28.3725)
 
-[node name="GarageLight13" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight13" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 83.4487, 10.0282, 28.3725)
 
-[node name="GarageLight14" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight14" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 56.6581, 10.0282, 28.3725)
 
-[node name="GarageLight15" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight15" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.0605, 10.0282, 28.3725)
 
-[node name="GarageLight16" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight16" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 3.35968, 10.0282, 28.3725)
 
-[node name="GarageLight17" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight17" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -23.6573, 4.90007, 28.3725)
 
-[node name="GarageLight18" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight18" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -50.2754, 4.90007, 28.3725)
 
-[node name="GarageLight19" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight19" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 17.5552, 12.587, -17.0876)
 
-[node name="GarageLight20" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight20" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -76.8105, 4.90007, 28.3725)
 
-[node name="GarageLight21" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight21" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 81.7918, 4.90007, 28.3725)
 
-[node name="GarageLight22" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight22" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 57.2522, 4.90007, 28.3725)
 
-[node name="GarageLight23" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight23" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 31.1124, 4.90007, 28.3725)
 
-[node name="GarageLight24" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight24" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 4.71922, 4.90007, 28.3725)
 
-[node name="GarageLight31" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight31" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 16.3512, 4.81891, 41.1317)
 
-[node name="GarageLight25" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight25" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 2.90194, 7.484, -17.0876)
 
-[node name="GarageLight26" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight26" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -24.1547, 7.484, -17.0876)
 
-[node name="GarageLight27" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight27" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -49.6481, 7.484, -17.0876)
 
-[node name="GarageLight28" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight28" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 7.484, -17.0876)
 
-[node name="GarageLight29" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight29" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 82.4758, 7.484, -17.0876)
 
-[node name="GarageLight33" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight33" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 83.7398, 7.484, -47.8189)
 
-[node name="GarageLight34" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight34" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -78.6415, 7.484, -47.8189)
 
-[node name="GarageLight30" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight30" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 58.091, 7.484, -17.0876)
 
-[node name="GarageLight32" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight32" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 30.7263, 7.484, -17.0876)
 
-[node name="GarageLight35" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight35" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.0199999, -4.57276e-05, 0, 4.57276e-05, 0.0199999, 0, 0, 0, 0.02, 3.71786, 12.587, -17.0876)
 
-[node name="GarageLight36" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight36" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -23.8479, 12.587, -17.0876)
 
-[node name="GarageLight37" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight37" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -49.8572, 12.587, -17.0876)
 
-[node name="GarageLight38" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight38" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -80.8856, 12.587, -17.0876)
 
-[node name="GarageLight39" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight39" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 84.0741, 12.587, -17.0876)
 
-[node name="GarageLight40" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight40" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 82.6707, 12.587, -47.8189)
 
-[node name="GarageLight41" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight41" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -78.6415, 12.587, -47.8189)
 
-[node name="GarageLight42" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight42" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 69.0261, 12.587, -17.0876)
 
-[node name="GarageLight43" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight43" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 42.7459, 12.587, -17.0876)
 
-[node name="GarageLight44" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight44" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.9913, 10.0239, 44.8008)
 
-[node name="GarageLight45" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight45" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 15.1548, 44.801)
 
-[node name="GarageLight46" parent="Lights" instance=ExtResource("12_ew468")]
+[node name="GarageLight46" parent="Lights" groups=["Lights"] instance=ExtResource("12_ew468")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -14.991, 4.91744, 44.801)
 
 [node name="FireExstinguisher" parent="." instance=ExtResource("21_fspgs")]

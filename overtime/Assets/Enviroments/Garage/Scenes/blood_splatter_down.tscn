@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://bb3cd7l1k3j0h"]
+
+[ext_resource type="Shader" uid="uid://2tiu3e218if7" path="res://Assets/Shaders/Blood.tres" id="1_3phbp"]
+[ext_resource type="Shader" uid="uid://bmyueerh4csan" path="res://Assets/Shaders/BloodSpot.tres" id="2_kweac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nokd"]
+render_priority = 0
+shader = ExtResource("1_3phbp")
+
+[sub_resource type="Curve" id="Curve_qboj1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.995495, 0.49236), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n8uqh"]
+curve = SubResource("Curve_qboj1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jq2ep"]
+spread = 2.53
+linear_accel_min = 4.0
+linear_accel_max = 4.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_n8uqh")
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_yullt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7l5mn"]
+render_priority = 0
+shader = ExtResource("2_kweac")
+
+[sub_resource type="Curve" id="Curve_3bdvw"]
+_data = [Vector2(0, 0.514431), 0.0, 0.0, 0, 0, Vector2(0.128378, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7rg2h"]
+curve = SubResource("Curve_3bdvw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ta54"]
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_7rg2h")
+
+[sub_resource type="QuadMesh" id="QuadMesh_twxbo"]
+orientation = 1
+
+[node name="BloodSplatter" type="Node3D"]
+
+[node name="blood" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_2nokd")
+amount = 100
+sub_emitter = NodePath("../blood_spot")
+process_material = SubResource("ParticleProcessMaterial_jq2ep")
+draw_pass_1 = SubResource("QuadMesh_yullt")
+
+[node name="blood_spot" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_7l5mn")
+cast_shadow = 0
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_6ta54")
+draw_pass_1 = SubResource("QuadMesh_twxbo")

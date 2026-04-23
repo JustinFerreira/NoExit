@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0mcd0ti8meoi"
-path="res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"
+uid="uid://33omexpol5yy"
+path="res://.godot/imported/Old Man Walk.fbx-6474f5f4977f7e700106ce7028c7ff0a.scn"
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Models/M_BearTrap_AnimatedV6.fbx"
-dest_files=["res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"]
+source_file="res://Assets/Characters/Animations/Old Man Walk.fbx"
+dest_files=["res://.godot/imported/Old Man Walk.fbx-6474f5f4977f7e700106ce7028c7ff0a.scn"]
 
 [params]
 

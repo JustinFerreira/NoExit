@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g4avipt3fv7u"
-path.s3tc="res://.godot/imported/M_BearTrap_Animated_standardSurface1_BaseMap.png-12a53f088dafe443da91e68e39779eda.s3tc.ctex"
+uid="uid://cmj58jaanf2k3"
+path.s3tc="res://.godot/imported/Old Man Walk_0.png-28efe6f294322d7ca70cf76b7c6a0ec0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "393df659255fee0c50c76295841901fc"
+}
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Textures/BearTrap Textures/M_BearTrap_Animated_standardSurface1_BaseMap.png"
-dest_files=["res://.godot/imported/M_BearTrap_Animated_standardSurface1_BaseMap.png-12a53f088dafe443da91e68e39779eda.s3tc.ctex"]
+source_file="res://Assets/Characters/Animations/Old Man Walk_0.png"
+dest_files=["res://.godot/imported/Old Man Walk_0.png-28efe6f294322d7ca70cf76b7c6a0ec0.s3tc.ctex"]
 
 [params]
 

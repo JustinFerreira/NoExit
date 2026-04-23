@@ -7,10 +7,13 @@ func _ready() -> void:
 		$".".visible = false
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	print(activated)
 	if PlayerManager.Loop0:
 		return
 	
 	if not activated && (area.is_in_group("player") or area.name == "Player"):
+		AudioManager.play_sound(AudioManager.BearTrap)
+		AudioManager.play_sound(AudioManager.HeavyDamage)
 		PlayerManager.player.trapped = true
+		$BearTrapAnimated.visible = false
+		$BearTrapAnimated2.visible = true
 		activated = true

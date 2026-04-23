@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhs3ecxshbtg5"]
+
+[ext_resource type="Script" path="res://Scripts/lights_flash_event.gd" id="1_ix8tg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h6k17"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6bg08"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="LightsFlashEvent" type="Node3D"]
+script = ExtResource("1_ix8tg")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(9.32729, 0, 0, 0, 1, 0, 0, 0, 8.16767, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_h6k17")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(9.32729, 0, 0, 0, 1, 0, 0, 0, 8.16767, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6bg08")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

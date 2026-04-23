@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g4avipt3fv7u"
-path.s3tc="res://.godot/imported/M_BearTrap_Animated_standardSurface1_BaseMap.png-12a53f088dafe443da91e68e39779eda.s3tc.ctex"
+uid="uid://dh32egq4spwls"
+path.s3tc="res://.godot/imported/Sit To Type_0.png-3a291bc716b741773904cbd0fca96284.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "393df659255fee0c50c76295841901fc"
+}
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Textures/BearTrap Textures/M_BearTrap_Animated_standardSurface1_BaseMap.png"
-dest_files=["res://.godot/imported/M_BearTrap_Animated_standardSurface1_BaseMap.png-12a53f088dafe443da91e68e39779eda.s3tc.ctex"]
+source_file="res://Assets/Characters/Animations/Sit To Type_0.png"
+dest_files=["res://.godot/imported/Sit To Type_0.png-3a291bc716b741773904cbd0fca96284.s3tc.ctex"]
 
 [params]
 

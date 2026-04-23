@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0mcd0ti8meoi"
-path="res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"
+uid="uid://b477l37ahb4q2"
+path="res://.godot/imported/Old Man Idle.fbx-1463b62820e091ec1b78f2f17b55c385.scn"
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Models/M_BearTrap_AnimatedV6.fbx"
-dest_files=["res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"]
+source_file="res://Assets/Characters/Animations/Old Man Idle.fbx"
+dest_files=["res://.godot/imported/Old Man Idle.fbx-1463b62820e091ec1b78f2f17b55c385.scn"]
 
 [params]
 

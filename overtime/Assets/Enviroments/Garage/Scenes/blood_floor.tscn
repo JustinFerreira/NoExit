@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dap4vdcruqsh8"]
+
+[node name="BloodFloor" type="Node3D"]
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(5.17991, 0, 0, 0, 0.533364, 0, 0, 0, 4.13096, 0, 0, 0)

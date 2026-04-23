@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c0mcd0ti8meoi"
-path="res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"
+uid="uid://ks0tl23t5utm"
+path="res://.godot/imported/Typing.fbx-2a49894fbafac4b71aa55c575121a2b9.scn"
 
 [deps]
 
-source_file="res://Assets/Enviroments/Garage/Models/M_BearTrap_AnimatedV6.fbx"
-dest_files=["res://.godot/imported/M_BearTrap_AnimatedV6.fbx-e85ddcd49d597be5a0812e798147e2ff.scn"]
+source_file="res://Assets/Characters/Animations/Typing.fbx"
+dest_files=["res://.godot/imported/Typing.fbx-2a49894fbafac4b71aa55c575121a2b9.scn"]
 
 [params]
 

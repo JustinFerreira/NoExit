@@ -67,7 +67,8 @@ var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding
 
 var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
 
-var SkullCrush = load("res://Assets/Audio/SFX/headcrushFinal.mp3")
+var SkullCrush = load("res://Assets/Audio/SFX/SkullCrush.mp3")
+var HeavyDamage = load("res://Assets/Audio/SFX/HeavyDamage.mp3")
 
 var HoodOpen = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
 
@@ -95,6 +96,19 @@ var BassStinger3 = load("res://Assets/Audio/Stingers/bassSting_3.mp3")
 var BassStinger4 = load("res://Assets/Audio/Stingers/bassSting_4.mp3")
 
 var StringStinger = load("res://Assets/Audio/Stingers/stringSting_1.mp3")
+
+var HeavyBreath = load("res://Assets/Audio/SFX/HeavyBreath.wav")
+
+var BearTrap = load("res://Assets/Audio/SFX/BearTrap.mp3")
+
+var GlassBreak1 = load("res://Assets/Audio/SFX/Glass1.mp3")
+var GlassBreak2 = load("res://Assets/Audio/SFX/Glass2.mp3")
+var GlassBreak3 = load("res://Assets/Audio/SFX/Glass3.mp3")
+var GlassBreak4 = load("res://Assets/Audio/SFX/Glass4.mp3")
+var GlassBreak5 = load("res://Assets/Audio/SFX/Glass5.mp3")
+var GlassBreak6 = load("res://Assets/Audio/SFX/Glass6.mp3")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	## At creation of project assign the MusicAudio Player to the bus Music
@@ -290,3 +304,8 @@ func GetBassStinger():
 	var bass_sounds = [BassStinger1,BassStinger2,BassStinger3,BassStinger4]
 	var random_index = randi() % bass_sounds.size()
 	return bass_sounds[random_index]
+
+func GetGlassBreak():
+	var glass_break_sounds = [GlassBreak1,GlassBreak2, GlassBreak3, GlassBreak4,GlassBreak5,GlassBreak6]
+	var random_index = randi() % glass_break_sounds.size()
+	return glass_break_sounds[random_index]

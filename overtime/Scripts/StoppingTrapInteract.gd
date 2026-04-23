@@ -1,6 +1,6 @@
 extends Interactable
 
-var counter = 4
+var counter = 0
 
 func _ready():
 	pass
