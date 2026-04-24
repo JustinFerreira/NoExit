@@ -6,7 +6,7 @@
 
 extends StaticBody3D
 
-var orginal_position
+var original_position
 var grabbed
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +17,7 @@ func _ready() -> void:
 	AnimationManager.WirePositiveFlashAnimationPlayer.play("WirePositiveFlash")
 	PlayerManager.PositiveWire = self
 	$Area3D.body_entered.connect(_on_area_body_entered)
-	orginal_position = self.global_position
+	original_position = self.global_position
 	if self.is_in_group("grabbable"):
 		pass
 	else:
@@ -51,12 +51,15 @@ func handle_collision(colliding_body):
 		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
 		AudioManager.play_sound(AudioManager.GetSpark())
 		PlayerManager.player.grabbed_object = null
-		self.position = orginal_position
+		self.position = original_position
 		AnimationManager.PositiveBatteryFlash.visible = false
 	if colliding_body.name == "WireNegative":
 		AnimationManager.HideResetZones()
 		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
 		AudioManager.play_sound(AudioManager.GetSpark())
 		PlayerManager.player.grabbed_object = null
-		self.position = orginal_position
+		self.position = original_position
 		AnimationManager.PositiveBatteryFlash.visible = false
+
+func SetOriginalPos():
+	original_position = self.global_position

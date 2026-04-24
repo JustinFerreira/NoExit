@@ -31,7 +31,8 @@ func _on_interacted(body: Variant) -> void:
 	if EventManager.ElevatorDoorOpen:
 		return
 	if PlayerManager.has_item("Car Keys") and not clickedrecent:
-		if not PlayerManager.talkToJanitor:
+		print(PlayerManager.deaths)
+		if not PlayerManager.talkToJanitor && PlayerManager.deaths < 2:
 			PlayerManager.janitor.talkToPlayer()
 			return
 		clickedrecent = true

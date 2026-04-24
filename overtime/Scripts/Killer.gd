@@ -127,6 +127,7 @@ func calculate_path_distance() -> float:
 	return total_distance
 	
 func kill():
+	PlayerManager.deaths += 1
 	AudioManager.play_sound(AudioManager.StringStinger)
 	$Armature.visible = false
 	$Skeleton3D.visible = true

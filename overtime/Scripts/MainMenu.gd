@@ -100,6 +100,8 @@ func _on_textured_parking_garage_pressed() -> void:
 	PlayerManager.MainMenu = false
 
 func _on_loop_0_pressed() -> void:
+	PlayerManager.deaths = 0
+	
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
@@ -138,4 +140,29 @@ func _on_new_office_pressed() -> void:
 	
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/Greyboxing/Offices/New_Office.tscn")
+	PlayerManager.MainMenu = false
+
+
+func _on_new_game_btn_pressed() -> void:
+	SettingsManager.Loop0Pass = false
+	SettingsManager.Loop1Pass = false
+	PlayerManager.deaths = 0
+	
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	#deaths 0?
+	PlayerManager.OpeningCutscene = true
+	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = false
+	if PlayerManager.DevMode == true:
+		PlayerManager.OpeningCutscene = false
+		PlayerManager.Loop0 = true
+		PlayerManager.Loop1 = false
+		get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		PlayerManager.MainMenu = false
+		AudioManager.cancel_music()
+		return
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 	PlayerManager.MainMenu = false

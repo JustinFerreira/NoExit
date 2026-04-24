@@ -355,7 +355,7 @@ func  _on_ElevatorPanelFlash_animation_finished(anim_name: String):
 ## This function takes in a parameter that is a string which is the name of the aniamtion
 ## when this function is called at the end of an animation it restarts that same animation
 func _on_MouseClicking_animation_finished(anim_name: String):
-	if anim_name == "MouseClicking":
+	if anim_name == "MouseClicking" && MouseClickingAnimationPlayer != null:
 		MouseClickingAnimationPlayer.play("MouseClicking")
 
 

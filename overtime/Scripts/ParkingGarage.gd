@@ -9,6 +9,9 @@ extends Node3D
 
 @onready var target = $Player
 @export var fog_remover: FogVolume
+@export var cars: Array[Node3D]
+@export var player_car: Node3D
+@export var attached_objects: Array[Node3D]
 
 @export var orbit_distance: float = 5.0  # Distance from player to fog remover
 @export var height_offset: float = 0.0   # Optional height offset
@@ -26,6 +29,7 @@ func _ready() -> void:
 	PlayerManager.examed = true
 	HelperManager.fog_remover = fog_remover
 	HelperManager.killer_eyes = $WorldEnvironment/FogRemover/KillerEyes
+	GetCar(player_car, attached_objects)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if fog_remover:
@@ -49,3 +53,41 @@ func _process(delta: float) -> void:
 		return
 	get_tree().call_group("enemy" , "target_position" , target.global_transform.origin)
 	
+
+
+func GetCar(player_car: Node3D, attached_objects: Array[Node3D]) -> Node3D:
+	# 1. Pick random car (keep it, don't delete)
+	var random_index = randi() % cars.size()
+	var selected_car = cars[random_index]
+	# Optional: hide the original if needed, but not required for swapping
+	# selected_car.visible = false
+	
+	# 2. Store offsets of attached objects relative to player_car (before swap)
+	var offsets: Array[Vector3] = []
+	for obj in attached_objects:
+		offsets.append(obj.global_position - player_car.global_position)
+	
+	# 3. Swap positions of the two cars
+	var player_pos = player_car.global_transform
+	var selected_pos = selected_car.global_transform
+	
+	player_car.global_transform = selected_pos
+	selected_car.global_transform = player_pos
+	
+	# 4. Reposition attached objects so they keep same offset relative to player_car
+	for i in range(attached_objects.size()):
+		var obj = attached_objects[i]
+		var offset = offsets[i]
+		obj.global_position = player_car.global_position + offset
+		
+		# 5. Call a function if the object is in relevant groups
+		if obj.is_in_group("battery_minigame") and obj.is_in_group("grabbable"):
+			# Replace "on_car_swapped" with whatever function you need (e.g., "reset", "update_position")
+			if obj.has_method("SetOriginalPos"):
+				obj.SetOriginalPos()
+			else:
+				# Optional: fallback or print warning
+				print("Object ", obj.name, " is in battery_minigame/grabbable but has no on_car_swapped method")
+	
+	# 6. Return the car the player is now "in"
+	return selected_car
