@@ -27,6 +27,9 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
+	if PlayerManager.Loop0:
+		return
+	
 	if not activated and (area.is_in_group("player") or area.name == "Player"):
 		activated = true
 		blood_splatter.emitting = true
