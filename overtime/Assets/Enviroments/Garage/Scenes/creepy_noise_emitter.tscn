@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://db6sk43cqvn5k"]
+
+[ext_resource type="Script" path="res://Scripts/creepy_noise_emitter.gd" id="1_e61yu"]
+[ext_resource type="AudioStream" uid="uid://djjjeou88lxdo" path="res://Assets/Audio/Stingers/creepy1.mp3" id="2_nq30b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h7tfu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7io21"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="CreepyNoiseEmitter" type="Node3D"]
+script = ExtResource("1_e61yu")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(10.839, 0, 0, 0, 0.409711, 0, 0, 0, 10.5465, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_h7tfu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10.839, 0, 0, 0, 0.409711, 0, 0, 0, 10.5465, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_7io21")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_nq30b")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

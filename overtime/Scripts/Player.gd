@@ -60,7 +60,6 @@ var trapped = false
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D
 @onready var interact_ray:RayCast3D = $"Head/Camera3D/InteractRay"
-@onready var prompt = $Head/Camera3D/InteractRay/Prompt
 
 ## Grabbing Objects Variables
 var grabbed_object = null

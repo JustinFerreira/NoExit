@@ -1,7 +1,8 @@
-[gd_scene load_steps=128 format=4 uid="uid://dnbe1s8gtna3g"]
+[gd_scene load_steps=129 format=4 uid="uid://dnbe1s8gtna3g"]
 
 [ext_resource type="Script" path="res://Scripts/StoppingTrap.gd" id="1_ffehi"]
 [ext_resource type="Script" path="res://Scripts/StoppingTrapInteract.gd" id="2_dyrm2"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="3_4o0mj"]
 [ext_resource type="Texture2D" uid="uid://g4avipt3fv7u" path="res://Assets/Enviroments/Garage/Textures/BearTrap Textures/M_BearTrap_Animated_standardSurface1_BaseMap.png" id="3_fmy8h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m6tsf"]
@@ -1501,8 +1502,12 @@ mesh = SubResource("BoxMesh_m6tsf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_0flii")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("mesh", "mesh_list")]
 script = ExtResource("2_dyrm2")
+outline_material = ExtResource("3_4o0mj")
+mesh = NodePath("../BearTrapAnimated2/pCube38")
+mesh_list = [NodePath("../BearTrapAnimated2/pCube38"), NodePath("../BearTrapAnimated/pTorus9"), NodePath("../BearTrapAnimated/pTorus10"), NodePath("../BearTrapAnimated/pTorus11")]
+has_outline = true
 
 [node name="SameMesh" type="MeshInstance3D" parent="StaticBody3D"]
 visible = false

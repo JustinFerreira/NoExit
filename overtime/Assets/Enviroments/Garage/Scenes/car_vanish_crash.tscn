@@ -1,0 +1,440 @@
+[gd_scene load_steps=21 format=3 uid="uid://denqyrrh5i1gc"]
+
+[ext_resource type="Script" path="res://Scripts/car_vanish_crash.gd" id="1_eomew"]
+[ext_resource type="Texture2D" uid="uid://e10pf8o7pnk3" path="res://Assets/Enviroments/Garage/Textures/SUV Textures/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png" id="2_nele8"]
+[ext_resource type="Texture2D" uid="uid://vlhpfsom6aya" path="res://Assets/Enviroments/Garage/Textures/SUV Textures/M_SUV_Unwrapped_DefaultMaterial_MaskMap.png" id="3_jgtvv"]
+[ext_resource type="Texture2D" uid="uid://iu0e5v820nfp" path="res://Assets/Enviroments/Garage/Textures/SUV Textures/M_SUV_Unwrapped_DefaultMaterial_Normal.png" id="4_toaqk"]
+[ext_resource type="ArrayMesh" uid="uid://cq8blcy8mb1gf" path="res://Assets/Enviroments/Garage/Models/M_SUV_Unwrapped.obj" id="5_l7j0t"]
+[ext_resource type="Texture2D" uid="uid://bf6cse5ayrq37" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_BaseMap.png" id="6_3pgev"]
+[ext_resource type="Texture2D" uid="uid://b4ig1cx8x04co" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_MaskMap.png" id="7_q3cem"]
+[ext_resource type="Texture2D" uid="uid://b4dklle8chwhv" path="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png" id="8_vv5in"]
+[ext_resource type="ArrayMesh" uid="uid://du7o11s86nsnj" path="res://Assets/Enviroments/Garage/Models/M_RoofRail_Unwrapped.obj" id="9_hghma"]
+[ext_resource type="Material" uid="uid://by51qtnhyba6q" path="res://Assets/Materials/Tire.tres" id="10_0miym"]
+[ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/Enviroments/Garage/Models/M_SpareTire_Unwrapped.obj" id="11_ka5a1"]
+[ext_resource type="AudioStream" uid="uid://cfswa0b47luuq" path="res://Assets/Audio/SFX/car-engine-hum.mp3" id="12_ksi27"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sn2ot"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gnbc7"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxieo"]
+albedo_texture = ExtResource("2_nele8")
+metallic = 1.0
+metallic_texture = ExtResource("3_jgtvv")
+roughness_texture = ExtResource("3_jgtvv")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_toaqk")
+ao_enabled = true
+ao_texture = ExtResource("3_jgtvv")
+ao_texture_channel = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60e06"]
+albedo_texture = ExtResource("6_3pgev")
+metallic = 1.0
+metallic_texture = ExtResource("7_q3cem")
+roughness_texture = ExtResource("7_q3cem")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("8_vv5in")
+ao_enabled = true
+ao_texture = ExtResource("7_q3cem")
+ao_texture_channel = 1
+
+[sub_resource type="Animation" id="Animation_jhkln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/SUV:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/RoofRails:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car/Tire_1:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car/Tire_4:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Car/Tire_2:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Car/Tire_3:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Car:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -77.0308)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Car/AudioStreamPlayer3D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Car:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Car/OmniLight3D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Car/OmniLight3D2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mkyg0"]
+resource_name = "VanishCar"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/SUV:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/RoofRails:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car/Tire_1:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Car/Tire_4:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Car/Tire_2:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Car/Tire_3:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Car:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -77.0308), Vector3(0, 0, -9.26645), Vector3(0, 0, 29.4798)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Car/AudioStreamPlayer3D:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Car:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Car/OmniLight3D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Car/OmniLight3D2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_er32a"]
+resource_name = "INVISIBLE"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Car/OmniLight3D2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3iy5"]
+_data = {
+"INVISIBLE": SubResource("Animation_er32a"),
+"RESET": SubResource("Animation_jhkln"),
+"VanishCar": SubResource("Animation_mkyg0")
+}
+
+[node name="CarVanishCrash" type="Node3D"]
+script = ExtResource("1_eomew")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(32.1793, 0, 0, 0, 0.339881, 0, 0, 0, 7.14627, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_sn2ot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(32.1793, 0, 0, 0, 0.339881, 0, 0, 0, 7.14627, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_gnbc7")
+
+[node name="Car" type="Node3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -77.0308)
+
+[node name="SUV" type="MeshInstance3D" parent="Car"]
+material_override = SubResource("StandardMaterial3D_xxieo")
+transparency = 1.0
+mesh = ExtResource("5_l7j0t")
+skeleton = NodePath("../..")
+
+[node name="RoofRails" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 172.268, -63.1035)
+material_override = SubResource("StandardMaterial3D_60e06")
+transparency = 1.0
+mesh = ExtResource("9_hghma")
+skeleton = NodePath("../..")
+
+[node name="Tire_1" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.4395, 39.2326, 160.855)
+material_override = ExtResource("10_0miym")
+transparency = 1.0
+mesh = ExtResource("11_ka5a1")
+skeleton = NodePath("../..")
+
+[node name="Tire_4" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.8736, 39.2326, 160.855)
+material_override = ExtResource("10_0miym")
+transparency = 1.0
+mesh = ExtResource("11_ka5a1")
+skeleton = NodePath("../..")
+
+[node name="Tire_2" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5713, 39.2326, -133.493)
+material_override = ExtResource("10_0miym")
+transparency = 1.0
+mesh = ExtResource("11_ka5a1")
+skeleton = NodePath("../..")
+
+[node name="Tire_3" type="MeshInstance3D" parent="Car"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.4539, 39.2326, -133.493)
+material_override = ExtResource("10_0miym")
+transparency = 1.0
+mesh = ExtResource("11_ka5a1")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Car"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -64.3453, 90.2932, 244.213)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Car"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 82.0545, 87.854)
+stream = ExtResource("12_ksi27")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Car"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 62.9357, 90.2932, 244.213)
+light_color = Color(1, 1, 0, 1)
+light_energy = 16.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h3iy5")
+}
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

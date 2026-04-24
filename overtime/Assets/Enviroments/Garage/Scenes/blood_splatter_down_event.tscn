@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cds6axuh4vdhu"]
+
+[ext_resource type="Script" path="res://Scripts/blood_splatter_down_event.gd" id="1_8oksn"]
+[ext_resource type="PackedScene" uid="uid://bb3cd7l1k3j0h" path="res://Assets/Enviroments/Garage/Scenes/blood_splatter_down.tscn" id="2_qa4s8"]
+[ext_resource type="PackedScene" uid="uid://dap4vdcruqsh8" path="res://Assets/Enviroments/Garage/Scenes/blood_floor.tscn" id="3_nxfk7"]
+
+[node name="BloodSplatterDownEvent" type="Node3D"]
+script = ExtResource("1_8oksn")
+
+[node name="BloodSplatter" parent="." instance=ExtResource("2_qa4s8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="BloodFloor" parent="." instance=ExtResource("3_nxfk7")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

@@ -49,12 +49,14 @@ func get_closest_light_above() -> Node:
 			).length()
 			
 			if horizontal_dist <= max_search_radius:
+				# Calculate the true 3D distance
+				var true_distance = area_center.distance_to(light_pos)
 				valid_lights.append({
 					"node": light,
-					"distance": horizontal_dist
+					"distance": true_distance  # Now using 3D distance
 				})
 	
-	# Sort by distance and return the closest
+	# Sort by true 3D distance and return the closest
 	if valid_lights.size() > 0:
 		valid_lights.sort_custom(func(a, b): return a["distance"] < b["distance"])
 		return valid_lights[0]["node"]

@@ -11,3 +11,5 @@ func _on_interacted(body: Variant) -> void:
 	else:
 		PlayerManager.player.trapped = false
 		$"..".visible = false
+		$"../Area3D/CollisionShape3D".disabled = true 
+		$CollisionShape3D.disabled = true

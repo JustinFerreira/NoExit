@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://cje3iw3hq70fq"]
+
+[ext_resource type="Script" path="res://Scripts/alarm_car_event.gd" id="1_q6pak"]
+[ext_resource type="AudioStream" uid="uid://dj0env5d7f66a" path="res://Assets/Audio/SFX/CarAlarmSiren.mp3" id="2_md2ln"]
+[ext_resource type="PackedScene" uid="uid://dxsgqdox2ax3y" path="res://Assets/Enviroments/Garage/Scenes/TruckWhite.tscn" id="3_5oqle"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oagss"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_15cwv"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_ifmqw"]
+resource_name = "CarAlarm"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667, 0.5, 0.733333, 1, 1.23333, 1.5, 1.73333, 1.96667, 2.2, 2.46667, 2.7, 2.93333, 3.16667, 3.5, 3.73333, 4.03333, 4.26667, 4.5, 4.73333, 4.96667, 5.2, 5.46667, 5.7, 5.93333, 6.16667, 6.33333, 6.56667, 6.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.266667, 0.5, 0.733333, 1, 1.23333, 1.5, 1.73333, 1.96667, 2.2, 2.46667, 2.7, 2.93333, 3.16667, 3.5, 3.73333, 4.03333, 4.26667, 4.5, 4.73333, 4.96667, 5.2, 5.46667, 5.7, 5.93333, 6.16667, 6.33333, 6.56667, 6.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0, 5.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5x075"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1ekj"]
+_data = {
+"CarAlarm": SubResource("Animation_ifmqw"),
+"RESET": SubResource("Animation_5x075")
+}
+
+[node name="AlarmCarEvent" type="Node3D"]
+script = ExtResource("1_q6pak")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(8.74361, 0, 0, 0, 0.286052, 0, 0, 0, 31.801, 0, 0, 11.2362)
+visible = false
+mesh = SubResource("BoxMesh_oagss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(8.74361, 0, 0, 0, 0.286052, 0, 0, 0, 31.801, 0, 0, 11.2362)
+shape = SubResource("ConvexPolygonShape3D_15cwv")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42477, -0.393607)
+stream = ExtResource("2_md2ln")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33605, 1.80686, 4.35088)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28025, 1.87243, 4.35196)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b1ekj")
+}
+
+[node name="Truck" parent="." instance=ExtResource("3_5oqle")]
+transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 0, 0, -0.86064)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
