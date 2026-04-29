@@ -34,6 +34,9 @@ var janitor_text_array: Array[String] = [
 
 var key_fob_no_keys: String = "Damn where did I put those keys?"
 
+var press_f_key_fob: String = "Press F to sound off your car."
+
+## hehehehe - Mark was here
 ## Random Npc Busy Dialog
 
 var random_npc_busy_dialog: Array[String] = ["I'm busy.","I'm working right now.","Can't you see I'm working.","There's lots to be done.","Paperwork paperwork paperwork","I'm really busy right now."]

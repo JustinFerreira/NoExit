@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qd4qj68sm2vl"
 path.s3tc="res://.godot/imported/garage_floor_darker.png-88e69637a03621e6fe5573985eea9588.s3tc.ctex"
+path.etc2="res://.godot/imported/garage_floor_darker.png-88e69637a03621e6fe5573985eea9588.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Greyboxing/garage_floor_darker.png"
-dest_files=["res://.godot/imported/garage_floor_darker.png-88e69637a03621e6fe5573985eea9588.s3tc.ctex"]
+dest_files=["res://.godot/imported/garage_floor_darker.png-88e69637a03621e6fe5573985eea9588.s3tc.ctex", "res://.godot/imported/garage_floor_darker.png-88e69637a03621e6fe5573985eea9588.etc2.ctex"]
 
 [params]
 

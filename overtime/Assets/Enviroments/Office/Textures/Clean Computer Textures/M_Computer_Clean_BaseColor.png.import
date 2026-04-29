@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bime7ftkfqejm"
 path.s3tc="res://.godot/imported/M_Computer_Clean_BaseColor.png-28cc619d13a61494fc7f6a75b262b48f.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Computer_Clean_BaseColor.png-28cc619d13a61494fc7f6a75b262b48f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_BaseColor.png"
-dest_files=["res://.godot/imported/M_Computer_Clean_BaseColor.png-28cc619d13a61494fc7f6a75b262b48f.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Computer_Clean_BaseColor.png-28cc619d13a61494fc7f6a75b262b48f.s3tc.ctex", "res://.godot/imported/M_Computer_Clean_BaseColor.png-28cc619d13a61494fc7f6a75b262b48f.etc2.ctex"]
 
 [params]
 

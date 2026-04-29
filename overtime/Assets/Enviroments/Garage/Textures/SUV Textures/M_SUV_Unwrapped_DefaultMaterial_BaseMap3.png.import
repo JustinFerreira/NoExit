@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://e10pf8o7pnk3"
 path.s3tc="res://.godot/imported/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png-a085f08689a8affb22601aac85cea40c.s3tc.ctex"
+path.etc2="res://.godot/imported/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png-a085f08689a8affb22601aac85cea40c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/SUV Textures/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png"
-dest_files=["res://.godot/imported/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png-a085f08689a8affb22601aac85cea40c.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png-a085f08689a8affb22601aac85cea40c.s3tc.ctex", "res://.godot/imported/M_SUV_Unwrapped_DefaultMaterial_BaseMap3.png-a085f08689a8affb22601aac85cea40c.etc2.ctex"]
 
 [params]
 

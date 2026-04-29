@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wcfmdeeiu0q7"
 path.s3tc="res://.godot/imported/M_Car_Player_DefaultMaterial_BaseMap.png-b58d2189e82de99735042c236f02f5eb.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Car_Player_DefaultMaterial_BaseMap.png-b58d2189e82de99735042c236f02f5eb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_BaseMap.png"
-dest_files=["res://.godot/imported/M_Car_Player_DefaultMaterial_BaseMap.png-b58d2189e82de99735042c236f02f5eb.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Car_Player_DefaultMaterial_BaseMap.png-b58d2189e82de99735042c236f02f5eb.s3tc.ctex", "res://.godot/imported/M_Car_Player_DefaultMaterial_BaseMap.png-b58d2189e82de99735042c236f02f5eb.etc2.ctex"]
 
 [params]
 

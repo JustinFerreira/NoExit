@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccer4eg6p1t6j"
 path.s3tc="res://.godot/imported/Answering_Machine_DefaultMaterial_RMAO.png-f303db137022dc0039a253a610b92be9.s3tc.ctex"
+path.etc2="res://.godot/imported/Answering_Machine_DefaultMaterial_RMAO.png-f303db137022dc0039a253a610b92be9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_RMAO.png"
-dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_RMAO.png-f303db137022dc0039a253a610b92be9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_RMAO.png-f303db137022dc0039a253a610b92be9.s3tc.ctex", "res://.godot/imported/Answering_Machine_DefaultMaterial_RMAO.png-f303db137022dc0039a253a610b92be9.etc2.ctex"]
 
 [params]
 

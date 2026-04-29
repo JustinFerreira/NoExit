@@ -22,17 +22,17 @@ varying float clip_w;
 void vertex() {
 	vec4 view_space_pos = MODELVIEW_MATRIX * vec4(VERTEX, 1.0);
 	vec4 clip_space_pos = PROJECTION_MATRIX * view_space_pos;
-	
+
 	if (snap_enabled){
 		vec2 ndc = clip_space_pos.xy / clip_space_pos.w;
 		ndc = round(ndc * snap_resolution) / snap_resolution;
 		clip_space_pos.xy = ndc * clip_space_pos.w;
 	}
-	
+
 	clip_w = clip_space_pos.w;
 	uv_affine = UV * clip_w;
 	uv_persp = UV;
-	
+
 	POSITION = clip_space_pos;
 }
 
@@ -40,9 +40,9 @@ void fragment() {
 	vec2 uv_aff = uv_affine / clip_w;
 	vec2 uv_final = mix(uv_persp, uv_aff, affine_weight);
 	vec4 albedo = texture(albedo_texture, uv_final * texture_tile);
-	
+
 	ALBEDO = albedo.rgb;
-	
+
 	ALPHA = albedo.a;
 }
 

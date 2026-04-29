@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkgs7jmr3afjy"
 path.s3tc="res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-9999d967c08fc90265ec6491da22904a.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-9999d967c08fc90265ec6491da22904a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/DoNotEnter Sign Textures/M_Sign_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-9999d967c08fc90265ec6491da22904a.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-9999d967c08fc90265ec6491da22904a.s3tc.ctex", "res://.godot/imported/M_Sign_Unwrapped_Metalic_and_Rougness.png-9999d967c08fc90265ec6491da22904a.etc2.ctex"]
 
 [params]
 

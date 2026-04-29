@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqdy171oc4o2i"
 path.s3tc="res://.godot/imported/square_drain.png-21d1555cf17c721a86e69401a8d15a12.s3tc.ctex"
+path.etc2="res://.godot/imported/square_drain.png-21d1555cf17c721a86e69401a8d15a12.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Square Drain Texture/square_drain.png"
-dest_files=["res://.godot/imported/square_drain.png-21d1555cf17c721a86e69401a8d15a12.s3tc.ctex"]
+dest_files=["res://.godot/imported/square_drain.png-21d1555cf17c721a86e69401a8d15a12.s3tc.ctex", "res://.godot/imported/square_drain.png-21d1555cf17c721a86e69401a8d15a12.etc2.ctex"]
 
 [params]
 

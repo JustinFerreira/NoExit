@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2vgocnmsrklj"
 path.s3tc="res://.godot/imported/Answering_Machine_DefaultMaterial_BaseColor.png-8c35b5e0adddfcafd7e95ef8ffd9ad9c.s3tc.ctex"
+path.etc2="res://.godot/imported/Answering_Machine_DefaultMaterial_BaseColor.png-8c35b5e0adddfcafd7e95ef8ffd9ad9c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_BaseColor.png-8c35b5e0adddfcafd7e95ef8ffd9ad9c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_BaseColor.png-8c35b5e0adddfcafd7e95ef8ffd9ad9c.s3tc.ctex", "res://.godot/imported/Answering_Machine_DefaultMaterial_BaseColor.png-8c35b5e0adddfcafd7e95ef8ffd9ad9c.etc2.ctex"]
 
 [params]
 

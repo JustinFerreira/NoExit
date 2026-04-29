@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7fms3w3bmp3a"
 path.s3tc="res://.godot/imported/M_Sign_Unwrapped_Normal.png-b8962ffeedc75117052be0d531c396a4.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Sign_Unwrapped_Normal.png-b8962ffeedc75117052be0d531c396a4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Exit Sign Textures/M_Sign_Unwrapped_Normal.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_Normal.png-b8962ffeedc75117052be0d531c396a4.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Sign_Unwrapped_Normal.png-b8962ffeedc75117052be0d531c396a4.s3tc.ctex", "res://.godot/imported/M_Sign_Unwrapped_Normal.png-b8962ffeedc75117052be0d531c396a4.etc2.ctex"]
 
 [params]
 

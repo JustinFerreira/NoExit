@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c227gby715k51"
 path.s3tc="res://.godot/imported/TypingFAST_0.png-f904145e62fe7643726a0b3578d5fd96.s3tc.ctex"
+path.etc2="res://.godot/imported/TypingFAST_0.png-f904145e62fe7643726a0b3578d5fd96.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Characters/Animations/TypingFAST_0.png"
-dest_files=["res://.godot/imported/TypingFAST_0.png-f904145e62fe7643726a0b3578d5fd96.s3tc.ctex"]
+dest_files=["res://.godot/imported/TypingFAST_0.png-f904145e62fe7643726a0b3578d5fd96.s3tc.ctex", "res://.godot/imported/TypingFAST_0.png-f904145e62fe7643726a0b3578d5fd96.etc2.ctex"]
 
 [params]
 

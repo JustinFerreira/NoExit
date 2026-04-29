@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uur4uph4bvs"
 path.s3tc="res://.godot/imported/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png-f878e19a680746d4c683cb86e8a1c14b.s3tc.ctex"
+path.etc2="res://.godot/imported/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png-f878e19a680746d4c683cb86e8a1c14b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png"
-dest_files=["res://.godot/imported/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png-f878e19a680746d4c683cb86e8a1c14b.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png-f878e19a680746d4c683cb86e8a1c14b.s3tc.ctex", "res://.godot/imported/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png-f878e19a680746d4c683cb86e8a1c14b.etc2.ctex"]
 
 [params]
 

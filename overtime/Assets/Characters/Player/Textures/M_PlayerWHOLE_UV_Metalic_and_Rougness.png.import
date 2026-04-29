@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://blnihgkh2eprl"
 path.s3tc="res://.godot/imported/M_PlayerWHOLE_UV_Metalic_and_Rougness.png-766d1281dd76016427cb0a9f9961620c.s3tc.ctex"
+path.etc2="res://.godot/imported/M_PlayerWHOLE_UV_Metalic_and_Rougness.png-766d1281dd76016427cb0a9f9961620c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Characters/Player/Textures/M_PlayerWHOLE_UV_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_PlayerWHOLE_UV_Metalic_and_Rougness.png-766d1281dd76016427cb0a9f9961620c.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_PlayerWHOLE_UV_Metalic_and_Rougness.png-766d1281dd76016427cb0a9f9961620c.s3tc.ctex", "res://.godot/imported/M_PlayerWHOLE_UV_Metalic_and_Rougness.png-766d1281dd76016427cb0a9f9961620c.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dchmfphg6wgg1"
 path.s3tc="res://.godot/imported/Sticky_Notes_DefaultMaterial_BaseColor.png-a7556837bac820d12aeb4dce456eaed5.s3tc.ctex"
+path.etc2="res://.godot/imported/Sticky_Notes_DefaultMaterial_BaseColor.png-a7556837bac820d12aeb4dce456eaed5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/Sticky_Notes_DefaultMaterial_BaseColor.png-a7556837bac820d12aeb4dce456eaed5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sticky_Notes_DefaultMaterial_BaseColor.png-a7556837bac820d12aeb4dce456eaed5.s3tc.ctex", "res://.godot/imported/Sticky_Notes_DefaultMaterial_BaseColor.png-a7556837bac820d12aeb4dce456eaed5.etc2.ctex"]
 
 [params]
 

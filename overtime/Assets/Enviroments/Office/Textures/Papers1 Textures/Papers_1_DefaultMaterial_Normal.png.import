@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c31wm85hn286t"
 path.s3tc="res://.godot/imported/Papers_1_DefaultMaterial_Normal.png-2859bbf2115a505c8e80d15396e2ee99.s3tc.ctex"
+path.etc2="res://.godot/imported/Papers_1_DefaultMaterial_Normal.png-2859bbf2115a505c8e80d15396e2ee99.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/Papers_1_DefaultMaterial_Normal.png-2859bbf2115a505c8e80d15396e2ee99.s3tc.ctex"]
+dest_files=["res://.godot/imported/Papers_1_DefaultMaterial_Normal.png-2859bbf2115a505c8e80d15396e2ee99.s3tc.ctex", "res://.godot/imported/Papers_1_DefaultMaterial_Normal.png-2859bbf2115a505c8e80d15396e2ee99.etc2.ctex"]
 
 [params]
 

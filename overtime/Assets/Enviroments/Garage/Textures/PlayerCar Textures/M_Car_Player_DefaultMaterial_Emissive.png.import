@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://byld04f5cx4sy"
 path.s3tc="res://.godot/imported/M_Car_Player_DefaultMaterial_Emissive.png-4a681867e4a992b9e21084043a5792c2.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Car_Player_DefaultMaterial_Emissive.png-4a681867e4a992b9e21084043a5792c2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/PlayerCar Textures/M_Car_Player_DefaultMaterial_Emissive.png"
-dest_files=["res://.godot/imported/M_Car_Player_DefaultMaterial_Emissive.png-4a681867e4a992b9e21084043a5792c2.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Car_Player_DefaultMaterial_Emissive.png-4a681867e4a992b9e21084043a5792c2.s3tc.ctex", "res://.godot/imported/M_Car_Player_DefaultMaterial_Emissive.png-4a681867e4a992b9e21084043a5792c2.etc2.ctex"]
 
 [params]
 

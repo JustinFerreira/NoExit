@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd7miwwn2gh1"
 path.s3tc="res://.godot/imported/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png-d609a96898af3faa2e525e03923319ea.s3tc.ctex"
+path.etc2="res://.godot/imported/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png-d609a96898af3faa2e525e03923319ea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png"
-dest_files=["res://.godot/imported/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png-d609a96898af3faa2e525e03923319ea.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png-d609a96898af3faa2e525e03923319ea.s3tc.ctex", "res://.godot/imported/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png-d609a96898af3faa2e525e03923319ea.etc2.ctex"]
 
 [params]
 

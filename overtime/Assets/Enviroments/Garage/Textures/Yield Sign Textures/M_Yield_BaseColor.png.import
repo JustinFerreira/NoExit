@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drp38s7u4mw2j"
 path.s3tc="res://.godot/imported/M_Yield_BaseColor.png-6b0f1f52598a1858d1250e1ab8b512b2.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Yield_BaseColor.png-6b0f1f52598a1858d1250e1ab8b512b2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_Yield_BaseColor.png"
-dest_files=["res://.godot/imported/M_Yield_BaseColor.png-6b0f1f52598a1858d1250e1ab8b512b2.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Yield_BaseColor.png-6b0f1f52598a1858d1250e1ab8b512b2.s3tc.ctex", "res://.godot/imported/M_Yield_BaseColor.png-6b0f1f52598a1858d1250e1ab8b512b2.etc2.ctex"]
 
 [params]
 

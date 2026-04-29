@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkn8tna017dt2"
 path.s3tc="res://.godot/imported/M_Mop_Metalic_and_Rougness.png-819ca50cb959def9ae855419612184bd.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Mop_Metalic_and_Rougness.png-819ca50cb959def9ae855419612184bd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Mop_Metalic_and_Rougness.png-819ca50cb959def9ae855419612184bd.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Mop_Metalic_and_Rougness.png-819ca50cb959def9ae855419612184bd.s3tc.ctex", "res://.godot/imported/M_Mop_Metalic_and_Rougness.png-819ca50cb959def9ae855419612184bd.etc2.ctex"]
 
 [params]
 

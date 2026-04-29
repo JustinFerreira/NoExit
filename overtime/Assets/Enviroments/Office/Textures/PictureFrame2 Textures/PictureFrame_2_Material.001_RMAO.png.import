@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbdwd4s1w1u84"
 path.s3tc="res://.godot/imported/PictureFrame_2_Material.001_RMAO.png-ab3331317438bb2dd7569083f9259790.s3tc.ctex"
+path.etc2="res://.godot/imported/PictureFrame_2_Material.001_RMAO.png-ab3331317438bb2dd7569083f9259790.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/PictureFrame2 Textures/PictureFrame_2_Material.001_RMAO.png"
-dest_files=["res://.godot/imported/PictureFrame_2_Material.001_RMAO.png-ab3331317438bb2dd7569083f9259790.s3tc.ctex"]
+dest_files=["res://.godot/imported/PictureFrame_2_Material.001_RMAO.png-ab3331317438bb2dd7569083f9259790.s3tc.ctex", "res://.godot/imported/PictureFrame_2_Material.001_RMAO.png-ab3331317438bb2dd7569083f9259790.etc2.ctex"]
 
 [params]
 

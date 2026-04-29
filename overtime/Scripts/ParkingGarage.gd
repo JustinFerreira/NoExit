@@ -19,6 +19,8 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerManager.Loop0:
+		PlayerManager.Hint(EventManager.press_f_key_fob)
 	if PlayerManager.Loop1:
 		AudioManager.play_sound(AudioManager.GetBassStinger())
 	if PlayerManager.sprint_engaged:
@@ -55,12 +57,11 @@ func _process(delta: float) -> void:
 	
 
 
-func GetCar(player_car: Node3D, attached_objects: Array[Node3D]) -> Node3D:
+func GetCar(player_car: Node3D, attached_objects: Array[Node3D]):
 	# 1. Pick random car (keep it, don't delete)
 	var random_index = randi() % cars.size()
 	var selected_car = cars[random_index]
 	# Optional: hide the original if needed, but not required for swapping
-	# selected_car.visible = false
 	
 	# 2. Store offsets of attached objects relative to player_car (before swap)
 	var offsets: Array[Vector3] = []
@@ -85,9 +86,6 @@ func GetCar(player_car: Node3D, attached_objects: Array[Node3D]) -> Node3D:
 			# Replace "on_car_swapped" with whatever function you need (e.g., "reset", "update_position")
 			if obj.has_method("SetOriginalPos"):
 				obj.SetOriginalPos()
-			else:
-				# Optional: fallback or print warning
-				print("Object ", obj.name, " is in battery_minigame/grabbable but has no on_car_swapped method")
 	
 	# 6. Return the car the player is now "in"
-	return selected_car
+	selected_car.queue_free()

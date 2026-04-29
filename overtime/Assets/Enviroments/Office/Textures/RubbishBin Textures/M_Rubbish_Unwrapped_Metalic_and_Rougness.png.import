@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ti4ck41gu55s"
 path.s3tc="res://.godot/imported/M_Rubbish_Unwrapped_Metalic_and_Rougness.png-03c5ff1aa346679795927e675a42286b.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Rubbish_Unwrapped_Metalic_and_Rougness.png-03c5ff1aa346679795927e675a42286b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/RubbishBin Textures/M_Rubbish_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Rubbish_Unwrapped_Metalic_and_Rougness.png-03c5ff1aa346679795927e675a42286b.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Rubbish_Unwrapped_Metalic_and_Rougness.png-03c5ff1aa346679795927e675a42286b.s3tc.ctex", "res://.godot/imported/M_Rubbish_Unwrapped_Metalic_and_Rougness.png-03c5ff1aa346679795927e675a42286b.etc2.ctex"]
 
 [params]
 

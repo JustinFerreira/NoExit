@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://crtp1bonqkoio"
 path.s3tc="res://.godot/imported/M_Killer_LowUV_BaseColor.png-c9df2e37224ebdca88683f911503ff0b.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Killer_LowUV_BaseColor.png-c9df2e37224ebdca88683f911503ff0b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png"
-dest_files=["res://.godot/imported/M_Killer_LowUV_BaseColor.png-c9df2e37224ebdca88683f911503ff0b.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Killer_LowUV_BaseColor.png-c9df2e37224ebdca88683f911503ff0b.s3tc.ctex", "res://.godot/imported/M_Killer_LowUV_BaseColor.png-c9df2e37224ebdca88683f911503ff0b.etc2.ctex"]
 
 [params]
 

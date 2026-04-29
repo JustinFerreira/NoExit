@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://q33g0o6d1oua"
 path.s3tc="res://.godot/imported/M_ReflectiveSign_Unwrapped_BaseColor.png-40fe22adac7265fc6db91db7ca4afefe.s3tc.ctex"
+path.etc2="res://.godot/imported/M_ReflectiveSign_Unwrapped_BaseColor.png-40fe22adac7265fc6db91db7ca4afefe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Reflective Sign Textures/M_ReflectiveSign_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_ReflectiveSign_Unwrapped_BaseColor.png-40fe22adac7265fc6db91db7ca4afefe.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_ReflectiveSign_Unwrapped_BaseColor.png-40fe22adac7265fc6db91db7ca4afefe.s3tc.ctex", "res://.godot/imported/M_ReflectiveSign_Unwrapped_BaseColor.png-40fe22adac7265fc6db91db7ca4afefe.etc2.ctex"]
 
 [params]
 

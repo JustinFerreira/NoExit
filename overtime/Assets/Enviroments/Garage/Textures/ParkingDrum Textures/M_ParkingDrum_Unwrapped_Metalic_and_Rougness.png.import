@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnkc3ph0slmsx"
 path.s3tc="res://.godot/imported/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png-ba278271a1dde47b6ff0ca506153f8d7.s3tc.ctex"
+path.etc2="res://.godot/imported/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png-ba278271a1dde47b6ff0ca506153f8d7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/ParkingDrum Textures/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png-ba278271a1dde47b6ff0ca506153f8d7.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png-ba278271a1dde47b6ff0ca506153f8d7.s3tc.ctex", "res://.godot/imported/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png-ba278271a1dde47b6ff0ca506153f8d7.etc2.ctex"]
 
 [params]
 

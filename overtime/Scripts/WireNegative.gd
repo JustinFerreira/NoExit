@@ -10,6 +10,8 @@ var original_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerManager.Loop0:
+		visible = false
 	AnimationManager.WireNegativeFlashAnimationPlayer = $AnimationPlayer
 	AnimationManager.WireNegativeFlash = $WireNegativeFlash
 	AnimationManager.ActivateWireNegativeFlashAnimationPlayer()

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cipxvvsimutku"
 path.s3tc="res://.godot/imported/M_Recycling_Unwrapped_Height.png-14087c96539c270d2fd42448e9744d4f.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Recycling_Unwrapped_Height.png-14087c96539c270d2fd42448e9744d4f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Recycling Bin Textures/M_Recycling_Unwrapped_Height.png"
-dest_files=["res://.godot/imported/M_Recycling_Unwrapped_Height.png-14087c96539c270d2fd42448e9744d4f.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Recycling_Unwrapped_Height.png-14087c96539c270d2fd42448e9744d4f.s3tc.ctex", "res://.godot/imported/M_Recycling_Unwrapped_Height.png-14087c96539c270d2fd42448e9744d4f.etc2.ctex"]
 
 [params]
 

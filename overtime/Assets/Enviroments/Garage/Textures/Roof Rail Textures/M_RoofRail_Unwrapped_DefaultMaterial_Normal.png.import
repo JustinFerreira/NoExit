@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4dklle8chwhv"
 path.s3tc="res://.godot/imported/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png-3a74a30335e0c13c97b88a2e92f66b60.s3tc.ctex"
+path.etc2="res://.godot/imported/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png-3a74a30335e0c13c97b88a2e92f66b60.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Roof Rail Textures/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png-3a74a30335e0c13c97b88a2e92f66b60.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png-3a74a30335e0c13c97b88a2e92f66b60.s3tc.ctex", "res://.godot/imported/M_RoofRail_Unwrapped_DefaultMaterial_Normal.png-3a74a30335e0c13c97b88a2e92f66b60.etc2.ctex"]
 
 [params]
 

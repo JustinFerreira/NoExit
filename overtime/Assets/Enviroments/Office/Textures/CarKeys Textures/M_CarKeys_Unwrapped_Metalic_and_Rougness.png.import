@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3jij7ulphwu2"
 path.s3tc="res://.godot/imported/M_CarKeys_Unwrapped_Metalic_and_Rougness.png-7cf17be37e72fdbb7c4efab902d7a239.s3tc.ctex"
+path.etc2="res://.godot/imported/M_CarKeys_Unwrapped_Metalic_and_Rougness.png-7cf17be37e72fdbb7c4efab902d7a239.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/CarKeys Textures/M_CarKeys_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_CarKeys_Unwrapped_Metalic_and_Rougness.png-7cf17be37e72fdbb7c4efab902d7a239.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_CarKeys_Unwrapped_Metalic_and_Rougness.png-7cf17be37e72fdbb7c4efab902d7a239.s3tc.ctex", "res://.godot/imported/M_CarKeys_Unwrapped_Metalic_and_Rougness.png-7cf17be37e72fdbb7c4efab902d7a239.etc2.ctex"]
 
 [params]
 

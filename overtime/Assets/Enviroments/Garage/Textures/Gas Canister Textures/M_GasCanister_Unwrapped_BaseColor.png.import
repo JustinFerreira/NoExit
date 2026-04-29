@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddmplpodjmab2"
 path.s3tc="res://.godot/imported/M_GasCanister_Unwrapped_BaseColor.png-5dbb0d3944006524583577be19451bfd.s3tc.ctex"
+path.etc2="res://.godot/imported/M_GasCanister_Unwrapped_BaseColor.png-5dbb0d3944006524583577be19451bfd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Gas Canister Textures/M_GasCanister_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_GasCanister_Unwrapped_BaseColor.png-5dbb0d3944006524583577be19451bfd.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_GasCanister_Unwrapped_BaseColor.png-5dbb0d3944006524583577be19451bfd.s3tc.ctex", "res://.godot/imported/M_GasCanister_Unwrapped_BaseColor.png-5dbb0d3944006524583577be19451bfd.etc2.ctex"]
 
 [params]
 

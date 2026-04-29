@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://on1h55hydm5h"
 path.s3tc="res://.godot/imported/M_ParkBlock_Metalic_and_Rougness.png-643a1d6d99849544348299fb597dcae8.s3tc.ctex"
+path.etc2="res://.godot/imported/M_ParkBlock_Metalic_and_Rougness.png-643a1d6d99849544348299fb597dcae8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/ParkBlock Textures/M_ParkBlock_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_ParkBlock_Metalic_and_Rougness.png-643a1d6d99849544348299fb597dcae8.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_ParkBlock_Metalic_and_Rougness.png-643a1d6d99849544348299fb597dcae8.s3tc.ctex", "res://.godot/imported/M_ParkBlock_Metalic_and_Rougness.png-643a1d6d99849544348299fb597dcae8.etc2.ctex"]
 
 [params]
 

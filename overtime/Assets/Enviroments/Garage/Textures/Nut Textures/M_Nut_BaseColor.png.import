@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b25u4u0ivm5ad"
 path.s3tc="res://.godot/imported/M_Nut_BaseColor.png-f713bb3829496a5c06f2a51d627a9fe4.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Nut_BaseColor.png-f713bb3829496a5c06f2a51d627a9fe4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Nut Textures/M_Nut_BaseColor.png"
-dest_files=["res://.godot/imported/M_Nut_BaseColor.png-f713bb3829496a5c06f2a51d627a9fe4.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Nut_BaseColor.png-f713bb3829496a5c06f2a51d627a9fe4.s3tc.ctex", "res://.godot/imported/M_Nut_BaseColor.png-f713bb3829496a5c06f2a51d627a9fe4.etc2.ctex"]
 
 [params]
 

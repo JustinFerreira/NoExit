@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnnpm3s7n8gdl"
 path.s3tc="res://.godot/imported/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png-dcb94ee1750905069a0ccb8e9bba7cc1.s3tc.ctex"
+path.etc2="res://.godot/imported/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png-dcb94ee1750905069a0ccb8e9bba7cc1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Stop Sign Textures/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png"
-dest_files=["res://.godot/imported/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png-dcb94ee1750905069a0ccb8e9bba7cc1.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png-dcb94ee1750905069a0ccb8e9bba7cc1.s3tc.ctex", "res://.godot/imported/M_StopSign_Unwrapped_DefaultMaterial_BaseMap.png-dcb94ee1750905069a0ccb8e9bba7cc1.etc2.ctex"]
 
 [params]
 

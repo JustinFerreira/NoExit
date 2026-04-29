@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://726txdchn4gs"
 path.s3tc="res://.godot/imported/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png-955e1be208aa7283fe8d8a525bfe4a3e.s3tc.ctex"
+path.etc2="res://.godot/imported/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png-955e1be208aa7283fe8d8a525bfe4a3e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png"
-dest_files=["res://.godot/imported/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png-955e1be208aa7283fe8d8a525bfe4a3e.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png-955e1be208aa7283fe8d8a525bfe4a3e.s3tc.ctex", "res://.godot/imported/M_YieldSign_Unwrapped_DefaultMaterial_MaskMap.png-955e1be208aa7283fe8d8a525bfe4a3e.etc2.ctex"]
 
 [params]
 

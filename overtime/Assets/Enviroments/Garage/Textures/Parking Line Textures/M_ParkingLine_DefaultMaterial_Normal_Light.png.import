@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vspmwuharhe1"
 path.s3tc="res://.godot/imported/M_ParkingLine_DefaultMaterial_Normal_Light.png-2d1f86a934765c0b47b5f84c2a450538.s3tc.ctex"
+path.etc2="res://.godot/imported/M_ParkingLine_DefaultMaterial_Normal_Light.png-2d1f86a934765c0b47b5f84c2a450538.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Parking Line Textures/M_ParkingLine_DefaultMaterial_Normal_Light.png"
-dest_files=["res://.godot/imported/M_ParkingLine_DefaultMaterial_Normal_Light.png-2d1f86a934765c0b47b5f84c2a450538.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_ParkingLine_DefaultMaterial_Normal_Light.png-2d1f86a934765c0b47b5f84c2a450538.s3tc.ctex", "res://.godot/imported/M_ParkingLine_DefaultMaterial_Normal_Light.png-2d1f86a934765c0b47b5f84c2a450538.etc2.ctex"]
 
 [params]
 

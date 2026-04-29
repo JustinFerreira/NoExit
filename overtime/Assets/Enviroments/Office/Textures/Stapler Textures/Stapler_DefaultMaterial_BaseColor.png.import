@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjgbnss1qi7pp"
 path.s3tc="res://.godot/imported/Stapler_DefaultMaterial_BaseColor.png-447dd20c1f5a6630ffb615631c0fb7e5.s3tc.ctex"
+path.etc2="res://.godot/imported/Stapler_DefaultMaterial_BaseColor.png-447dd20c1f5a6630ffb615631c0fb7e5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Stapler Textures/Stapler_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/Stapler_DefaultMaterial_BaseColor.png-447dd20c1f5a6630ffb615631c0fb7e5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Stapler_DefaultMaterial_BaseColor.png-447dd20c1f5a6630ffb615631c0fb7e5.s3tc.ctex", "res://.godot/imported/Stapler_DefaultMaterial_BaseColor.png-447dd20c1f5a6630ffb615631c0fb7e5.etc2.ctex"]
 
 [params]
 

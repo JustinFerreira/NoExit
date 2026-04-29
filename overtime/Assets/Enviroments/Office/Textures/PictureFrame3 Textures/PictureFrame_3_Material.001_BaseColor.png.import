@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dr1se75phmcjb"
 path.s3tc="res://.godot/imported/PictureFrame_3_Material.001_BaseColor.png-ebdc41a3f19608ca14309eaa9dc81d53.s3tc.ctex"
+path.etc2="res://.godot/imported/PictureFrame_3_Material.001_BaseColor.png-ebdc41a3f19608ca14309eaa9dc81d53.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/PictureFrame3 Textures/PictureFrame_3_Material.001_BaseColor.png"
-dest_files=["res://.godot/imported/PictureFrame_3_Material.001_BaseColor.png-ebdc41a3f19608ca14309eaa9dc81d53.s3tc.ctex"]
+dest_files=["res://.godot/imported/PictureFrame_3_Material.001_BaseColor.png-ebdc41a3f19608ca14309eaa9dc81d53.s3tc.ctex", "res://.godot/imported/PictureFrame_3_Material.001_BaseColor.png-ebdc41a3f19608ca14309eaa9dc81d53.etc2.ctex"]
 
 [params]
 

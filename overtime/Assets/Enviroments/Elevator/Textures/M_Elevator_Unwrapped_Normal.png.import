@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://clw0rbvd4hay8"
 path.s3tc="res://.godot/imported/M_Elevator_Unwrapped_Normal.png-4bcbad8b475956b8297a82046c5763ea.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Elevator_Unwrapped_Normal.png-4bcbad8b475956b8297a82046c5763ea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png"
-dest_files=["res://.godot/imported/M_Elevator_Unwrapped_Normal.png-4bcbad8b475956b8297a82046c5763ea.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Elevator_Unwrapped_Normal.png-4bcbad8b475956b8297a82046c5763ea.s3tc.ctex", "res://.godot/imported/M_Elevator_Unwrapped_Normal.png-4bcbad8b475956b8297a82046c5763ea.etc2.ctex"]
 
 [params]
 

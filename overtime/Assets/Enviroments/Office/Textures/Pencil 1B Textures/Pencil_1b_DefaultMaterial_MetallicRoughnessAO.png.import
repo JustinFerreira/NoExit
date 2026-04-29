@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d04lx5tlf8670"
 path.s3tc="res://.godot/imported/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png-a98edc5b6d795221f8c6c61a73eb1f25.s3tc.ctex"
+path.etc2="res://.godot/imported/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png-a98edc5b6d795221f8c6c61a73eb1f25.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png"
-dest_files=["res://.godot/imported/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png-a98edc5b6d795221f8c6c61a73eb1f25.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png-a98edc5b6d795221f8c6c61a73eb1f25.s3tc.ctex", "res://.godot/imported/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png-a98edc5b6d795221f8c6c61a73eb1f25.etc2.ctex"]
 
 [params]
 

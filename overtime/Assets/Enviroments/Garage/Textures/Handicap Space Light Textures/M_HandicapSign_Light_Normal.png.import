@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8t72knb6hvj5"
 path.s3tc="res://.godot/imported/M_HandicapSign_Light_Normal.png-0817237f1d304ac007cd665110398a1d.s3tc.ctex"
+path.etc2="res://.godot/imported/M_HandicapSign_Light_Normal.png-0817237f1d304ac007cd665110398a1d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Handicap Space Light Textures/M_HandicapSign_Light_Normal.png"
-dest_files=["res://.godot/imported/M_HandicapSign_Light_Normal.png-0817237f1d304ac007cd665110398a1d.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_HandicapSign_Light_Normal.png-0817237f1d304ac007cd665110398a1d.s3tc.ctex", "res://.godot/imported/M_HandicapSign_Light_Normal.png-0817237f1d304ac007cd665110398a1d.etc2.ctex"]
 
 [params]
 

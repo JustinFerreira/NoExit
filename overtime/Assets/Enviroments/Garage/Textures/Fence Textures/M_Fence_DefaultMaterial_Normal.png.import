@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d270sk7d60cvw"
 path.s3tc="res://.godot/imported/M_Fence_DefaultMaterial_Normal.png-1be3134a9d7d6abab41a4d0bd20fc3da.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Fence_DefaultMaterial_Normal.png-1be3134a9d7d6abab41a4d0bd20fc3da.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Fence Textures/M_Fence_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/M_Fence_DefaultMaterial_Normal.png-1be3134a9d7d6abab41a4d0bd20fc3da.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Fence_DefaultMaterial_Normal.png-1be3134a9d7d6abab41a4d0bd20fc3da.s3tc.ctex", "res://.godot/imported/M_Fence_DefaultMaterial_Normal.png-1be3134a9d7d6abab41a4d0bd20fc3da.etc2.ctex"]
 
 [params]
 

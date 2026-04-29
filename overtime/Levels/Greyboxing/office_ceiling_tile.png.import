@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6qj0osxsbsaa"
 path.s3tc="res://.godot/imported/office_ceiling_tile.png-85d8195a8135afc301f656676de62d24.s3tc.ctex"
+path.etc2="res://.godot/imported/office_ceiling_tile.png-85d8195a8135afc301f656676de62d24.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Greyboxing/office_ceiling_tile.png"
-dest_files=["res://.godot/imported/office_ceiling_tile.png-85d8195a8135afc301f656676de62d24.s3tc.ctex"]
+dest_files=["res://.godot/imported/office_ceiling_tile.png-85d8195a8135afc301f656676de62d24.s3tc.ctex", "res://.godot/imported/office_ceiling_tile.png-85d8195a8135afc301f656676de62d24.etc2.ctex"]
 
 [params]
 

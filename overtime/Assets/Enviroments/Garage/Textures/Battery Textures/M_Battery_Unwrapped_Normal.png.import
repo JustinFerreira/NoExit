@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkr2eh5crsijf"
 path.s3tc="res://.godot/imported/M_Battery_Unwrapped_Normal.png-22f47ddb026554ca1ccee9fae665f7b3.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Battery_Unwrapped_Normal.png-22f47ddb026554ca1ccee9fae665f7b3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Battery Textures/M_Battery_Unwrapped_Normal.png"
-dest_files=["res://.godot/imported/M_Battery_Unwrapped_Normal.png-22f47ddb026554ca1ccee9fae665f7b3.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Battery_Unwrapped_Normal.png-22f47ddb026554ca1ccee9fae665f7b3.s3tc.ctex", "res://.godot/imported/M_Battery_Unwrapped_Normal.png-22f47ddb026554ca1ccee9fae665f7b3.etc2.ctex"]
 
 [params]
 

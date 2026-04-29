@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://22lnk6tsuvxl"
 path.s3tc="res://.godot/imported/Pencil_1b_DefaultMaterial_Albedo.png-495c666ce40d60799bec01dbfee73a0a.s3tc.ctex"
+path.etc2="res://.godot/imported/Pencil_1b_DefaultMaterial_Albedo.png-495c666ce40d60799bec01dbfee73a0a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_Albedo.png"
-dest_files=["res://.godot/imported/Pencil_1b_DefaultMaterial_Albedo.png-495c666ce40d60799bec01dbfee73a0a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pencil_1b_DefaultMaterial_Albedo.png-495c666ce40d60799bec01dbfee73a0a.s3tc.ctex", "res://.godot/imported/Pencil_1b_DefaultMaterial_Albedo.png-495c666ce40d60799bec01dbfee73a0a.etc2.ctex"]
 
 [params]
 

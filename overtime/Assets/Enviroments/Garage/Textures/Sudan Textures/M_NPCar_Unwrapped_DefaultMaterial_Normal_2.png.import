@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpg0khsbq1kou"
 path.s3tc="res://.godot/imported/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png-5dc5cefc19276a0e449f34cb57ff19d1.s3tc.ctex"
+path.etc2="res://.godot/imported/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png-5dc5cefc19276a0e449f34cb57ff19d1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Sudan Textures/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png"
-dest_files=["res://.godot/imported/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png-5dc5cefc19276a0e449f34cb57ff19d1.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png-5dc5cefc19276a0e449f34cb57ff19d1.s3tc.ctex", "res://.godot/imported/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png-5dc5cefc19276a0e449f34cb57ff19d1.etc2.ctex"]
 
 [params]
 

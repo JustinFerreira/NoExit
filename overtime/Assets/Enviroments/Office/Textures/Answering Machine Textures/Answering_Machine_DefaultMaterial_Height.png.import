@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdwpytjiaev36"
 path.s3tc="res://.godot/imported/Answering_Machine_DefaultMaterial_Height.png-a5b7741e125729ee9a9d9fb8d4d0ae14.s3tc.ctex"
+path.etc2="res://.godot/imported/Answering_Machine_DefaultMaterial_Height.png-a5b7741e125729ee9a9d9fb8d4d0ae14.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_Height.png"
-dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_Height.png-a5b7741e125729ee9a9d9fb8d4d0ae14.s3tc.ctex"]
+dest_files=["res://.godot/imported/Answering_Machine_DefaultMaterial_Height.png-a5b7741e125729ee9a9d9fb8d4d0ae14.s3tc.ctex", "res://.godot/imported/Answering_Machine_DefaultMaterial_Height.png-a5b7741e125729ee9a9d9fb8d4d0ae14.etc2.ctex"]
 
 [params]
 

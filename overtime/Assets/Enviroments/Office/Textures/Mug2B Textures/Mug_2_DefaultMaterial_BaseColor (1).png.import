@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3l0s3b5sjb2s"
 path.s3tc="res://.godot/imported/Mug_2_DefaultMaterial_BaseColor (1).png-0c45eab7ad8d8cd0837c3c47c06fb6a5.s3tc.ctex"
+path.etc2="res://.godot/imported/Mug_2_DefaultMaterial_BaseColor (1).png-0c45eab7ad8d8cd0837c3c47c06fb6a5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Mug2B Textures/Mug_2_DefaultMaterial_BaseColor (1).png"
-dest_files=["res://.godot/imported/Mug_2_DefaultMaterial_BaseColor (1).png-0c45eab7ad8d8cd0837c3c47c06fb6a5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mug_2_DefaultMaterial_BaseColor (1).png-0c45eab7ad8d8cd0837c3c47c06fb6a5.s3tc.ctex", "res://.godot/imported/Mug_2_DefaultMaterial_BaseColor (1).png-0c45eab7ad8d8cd0837c3c47c06fb6a5.etc2.ctex"]
 
 [params]
 

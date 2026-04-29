@@ -33,7 +33,10 @@ func _process(delta):
 
 
 func _on_interacted(body: Variant) -> void:
-	start_emergency_flash()
+	if not PlayerManager.ParkingGarage:
+		start_emergency_flash()
+	else:
+		PlayerManager.Hint("Lmao nah that dont work here try the office though")
 	
 	
 	

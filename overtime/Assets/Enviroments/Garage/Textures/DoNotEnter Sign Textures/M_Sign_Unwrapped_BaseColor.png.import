@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qgrl3xatnibt"
 path.s3tc="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-67525e93fe3f2a5d2f66707dc3589a1a.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-67525e93fe3f2a5d2f66707dc3589a1a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/DoNotEnter Sign Textures/M_Sign_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-67525e93fe3f2a5d2f66707dc3589a1a.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-67525e93fe3f2a5d2f66707dc3589a1a.s3tc.ctex", "res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-67525e93fe3f2a5d2f66707dc3589a1a.etc2.ctex"]
 
 [params]
 

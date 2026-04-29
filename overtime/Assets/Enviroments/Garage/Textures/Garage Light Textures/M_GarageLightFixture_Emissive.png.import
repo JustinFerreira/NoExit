@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://45n4ym74k5wa"
 path.s3tc="res://.godot/imported/M_GarageLightFixture_Emissive.png-7c42c99e465fbdc1e294ac19a5cc673e.s3tc.ctex"
+path.etc2="res://.godot/imported/M_GarageLightFixture_Emissive.png-7c42c99e465fbdc1e294ac19a5cc673e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Garage Light Textures/M_GarageLightFixture_Emissive.png"
-dest_files=["res://.godot/imported/M_GarageLightFixture_Emissive.png-7c42c99e465fbdc1e294ac19a5cc673e.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_GarageLightFixture_Emissive.png-7c42c99e465fbdc1e294ac19a5cc673e.s3tc.ctex", "res://.godot/imported/M_GarageLightFixture_Emissive.png-7c42c99e465fbdc1e294ac19a5cc673e.etc2.ctex"]
 
 [params]
 

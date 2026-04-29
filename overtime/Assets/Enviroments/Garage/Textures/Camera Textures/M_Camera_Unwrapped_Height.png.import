@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsh5mtdv4n3kr"
 path.s3tc="res://.godot/imported/M_Camera_Unwrapped_Height.png-1cf4a4e28e5d5505dc8d26ec76e12dfc.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Camera_Unwrapped_Height.png-1cf4a4e28e5d5505dc8d26ec76e12dfc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Camera Textures/M_Camera_Unwrapped_Height.png"
-dest_files=["res://.godot/imported/M_Camera_Unwrapped_Height.png-1cf4a4e28e5d5505dc8d26ec76e12dfc.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Camera_Unwrapped_Height.png-1cf4a4e28e5d5505dc8d26ec76e12dfc.s3tc.ctex", "res://.godot/imported/M_Camera_Unwrapped_Height.png-1cf4a4e28e5d5505dc8d26ec76e12dfc.etc2.ctex"]
 
 [params]
 

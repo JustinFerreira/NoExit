@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvx6bi6iuowhs"
 path.s3tc="res://.godot/imported/Potted_Plant_1_Material.003_Height.png-94722694e9e34f87915154ced60a8e35.s3tc.ctex"
+path.etc2="res://.godot/imported/Potted_Plant_1_Material.003_Height.png-94722694e9e34f87915154ced60a8e35.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_Height.png"
-dest_files=["res://.godot/imported/Potted_Plant_1_Material.003_Height.png-94722694e9e34f87915154ced60a8e35.s3tc.ctex"]
+dest_files=["res://.godot/imported/Potted_Plant_1_Material.003_Height.png-94722694e9e34f87915154ced60a8e35.s3tc.ctex", "res://.godot/imported/Potted_Plant_1_Material.003_Height.png-94722694e9e34f87915154ced60a8e35.etc2.ctex"]
 
 [params]
 

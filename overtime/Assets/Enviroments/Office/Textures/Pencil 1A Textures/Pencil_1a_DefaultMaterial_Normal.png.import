@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dctm3lm1106tg"
 path.s3tc="res://.godot/imported/Pencil_1a_DefaultMaterial_Normal.png-5e8d2ca66eb6413a1db562f7a22d3684.s3tc.ctex"
+path.etc2="res://.godot/imported/Pencil_1a_DefaultMaterial_Normal.png-5e8d2ca66eb6413a1db562f7a22d3684.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Pencil 1A Textures/Pencil_1a_DefaultMaterial_Normal.png"
-dest_files=["res://.godot/imported/Pencil_1a_DefaultMaterial_Normal.png-5e8d2ca66eb6413a1db562f7a22d3684.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pencil_1a_DefaultMaterial_Normal.png-5e8d2ca66eb6413a1db562f7a22d3684.s3tc.ctex", "res://.godot/imported/Pencil_1a_DefaultMaterial_Normal.png-5e8d2ca66eb6413a1db562f7a22d3684.etc2.ctex"]
 
 [params]
 

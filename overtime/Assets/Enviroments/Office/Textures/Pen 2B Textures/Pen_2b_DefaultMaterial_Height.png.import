@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://shdc75ggjii7"
 path.s3tc="res://.godot/imported/Pen_2b_DefaultMaterial_Height.png-1d6ad77c570547a9a1bbd41b345bfa3f.s3tc.ctex"
+path.etc2="res://.godot/imported/Pen_2b_DefaultMaterial_Height.png-1d6ad77c570547a9a1bbd41b345bfa3f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Pen 2B Textures/Pen_2b_DefaultMaterial_Height.png"
-dest_files=["res://.godot/imported/Pen_2b_DefaultMaterial_Height.png-1d6ad77c570547a9a1bbd41b345bfa3f.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pen_2b_DefaultMaterial_Height.png-1d6ad77c570547a9a1bbd41b345bfa3f.s3tc.ctex", "res://.godot/imported/Pen_2b_DefaultMaterial_Height.png-1d6ad77c570547a9a1bbd41b345bfa3f.etc2.ctex"]
 
 [params]
 

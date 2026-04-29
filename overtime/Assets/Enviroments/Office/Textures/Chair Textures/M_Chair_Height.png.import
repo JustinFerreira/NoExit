@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ffwia3uj6ib8"
 path.s3tc="res://.godot/imported/M_Chair_Height.png-42d736a352a1f792edbcd9beeb5c02ed.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Chair_Height.png-42d736a352a1f792edbcd9beeb5c02ed.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Height.png"
-dest_files=["res://.godot/imported/M_Chair_Height.png-42d736a352a1f792edbcd9beeb5c02ed.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Chair_Height.png-42d736a352a1f792edbcd9beeb5c02ed.s3tc.ctex", "res://.godot/imported/M_Chair_Height.png-42d736a352a1f792edbcd9beeb5c02ed.etc2.ctex"]
 
 [params]
 

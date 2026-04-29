@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdf17hi201brc"
 path.s3tc="res://.godot/imported/M_Rubbish_Unwrapped_BaseColor.png-bf0cfec29fb96fe1bd51e9532b439fc9.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Rubbish_Unwrapped_BaseColor.png-bf0cfec29fb96fe1bd51e9532b439fc9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/RubbishBin Textures/M_Rubbish_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_Rubbish_Unwrapped_BaseColor.png-bf0cfec29fb96fe1bd51e9532b439fc9.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Rubbish_Unwrapped_BaseColor.png-bf0cfec29fb96fe1bd51e9532b439fc9.s3tc.ctex", "res://.godot/imported/M_Rubbish_Unwrapped_BaseColor.png-bf0cfec29fb96fe1bd51e9532b439fc9.etc2.ctex"]
 
 [params]
 

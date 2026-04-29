@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvti3ue1c8d1j"
 path.s3tc="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-19bcbca5559af954a8f2afd2e6fea381.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-19bcbca5559af954a8f2afd2e6fea381.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/MergingLanesSign Textures/M_Sign_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-19bcbca5559af954a8f2afd2e6fea381.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-19bcbca5559af954a8f2afd2e6fea381.s3tc.ctex", "res://.godot/imported/M_Sign_Unwrapped_BaseColor.png-19bcbca5559af954a8f2afd2e6fea381.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcjue036kt1m2"
 path.s3tc="res://.godot/imported/M_Camera_Unwrapped_Metalic_and_Rougness.png-cd42e3a941320f1deadf8317cebd8c9b.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Camera_Unwrapped_Metalic_and_Rougness.png-cd42e3a941320f1deadf8317cebd8c9b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Camera Textures/M_Camera_Unwrapped_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Camera_Unwrapped_Metalic_and_Rougness.png-cd42e3a941320f1deadf8317cebd8c9b.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Camera_Unwrapped_Metalic_and_Rougness.png-cd42e3a941320f1deadf8317cebd8c9b.s3tc.ctex", "res://.godot/imported/M_Camera_Unwrapped_Metalic_and_Rougness.png-cd42e3a941320f1deadf8317cebd8c9b.etc2.ctex"]
 
 [params]
 

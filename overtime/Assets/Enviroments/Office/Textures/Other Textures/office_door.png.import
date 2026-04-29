@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgq1r8skkk46y"
 path.s3tc="res://.godot/imported/office_door.png-cd3acd4ce19cc9050cb41844d5bc1d2d.s3tc.ctex"
+path.etc2="res://.godot/imported/office_door.png-cd3acd4ce19cc9050cb41844d5bc1d2d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Office/Textures/Other Textures/office_door.png"
-dest_files=["res://.godot/imported/office_door.png-cd3acd4ce19cc9050cb41844d5bc1d2d.s3tc.ctex"]
+dest_files=["res://.godot/imported/office_door.png-cd3acd4ce19cc9050cb41844d5bc1d2d.s3tc.ctex", "res://.godot/imported/office_door.png-cd3acd4ce19cc9050cb41844d5bc1d2d.etc2.ctex"]
 
 [params]
 

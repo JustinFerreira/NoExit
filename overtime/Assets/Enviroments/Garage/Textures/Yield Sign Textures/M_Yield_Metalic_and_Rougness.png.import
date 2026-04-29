@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgdfwiuuiqnbj"
 path.s3tc="res://.godot/imported/M_Yield_Metalic_and_Rougness.png-3b0bbb9162b7259af66a61b087fcbc23.s3tc.ctex"
+path.etc2="res://.godot/imported/M_Yield_Metalic_and_Rougness.png-3b0bbb9162b7259af66a61b087fcbc23.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/Yield Sign Textures/M_Yield_Metalic_and_Rougness.png"
-dest_files=["res://.godot/imported/M_Yield_Metalic_and_Rougness.png-3b0bbb9162b7259af66a61b087fcbc23.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_Yield_Metalic_and_Rougness.png-3b0bbb9162b7259af66a61b087fcbc23.s3tc.ctex", "res://.godot/imported/M_Yield_Metalic_and_Rougness.png-3b0bbb9162b7259af66a61b087fcbc23.etc2.ctex"]
 
 [params]
 

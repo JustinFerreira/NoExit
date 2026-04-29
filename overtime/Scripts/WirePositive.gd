@@ -11,6 +11,8 @@ var grabbed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if PlayerManager.Loop0:
+		visible = false
 	AnimationManager.WirePositiveFlashAnimationPlayer = $AnimationPlayer
 	AnimationManager.WirePositiveFlash = $WirePositiveFlash
 	AnimationManager.ActivateWirePositiveFlashAnimationPlayer()

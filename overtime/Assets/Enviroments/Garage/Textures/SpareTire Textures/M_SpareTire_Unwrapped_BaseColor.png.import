@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3iyre0axsqm0"
 path.s3tc="res://.godot/imported/M_SpareTire_Unwrapped_BaseColor.png-c5e25fb7f6f6c567cef9246fbb08806e.s3tc.ctex"
+path.etc2="res://.godot/imported/M_SpareTire_Unwrapped_BaseColor.png-c5e25fb7f6f6c567cef9246fbb08806e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enviroments/Garage/Textures/SpareTire Textures/M_SpareTire_Unwrapped_BaseColor.png"
-dest_files=["res://.godot/imported/M_SpareTire_Unwrapped_BaseColor.png-c5e25fb7f6f6c567cef9246fbb08806e.s3tc.ctex"]
+dest_files=["res://.godot/imported/M_SpareTire_Unwrapped_BaseColor.png-c5e25fb7f6f6c567cef9246fbb08806e.s3tc.ctex", "res://.godot/imported/M_SpareTire_Unwrapped_BaseColor.png-c5e25fb7f6f6c567cef9246fbb08806e.etc2.ctex"]
 
 [params]
 

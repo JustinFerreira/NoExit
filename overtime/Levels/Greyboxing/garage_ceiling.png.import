@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://02vu2bxoxoe2"
 path.s3tc="res://.godot/imported/garage_ceiling.png-cd1c9798366234665494e683ac1eb9c0.s3tc.ctex"
+path.etc2="res://.godot/imported/garage_ceiling.png-cd1c9798366234665494e683ac1eb9c0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Levels/Greyboxing/garage_ceiling.png"
-dest_files=["res://.godot/imported/garage_ceiling.png-cd1c9798366234665494e683ac1eb9c0.s3tc.ctex"]
+dest_files=["res://.godot/imported/garage_ceiling.png-cd1c9798366234665494e683ac1eb9c0.s3tc.ctex", "res://.godot/imported/garage_ceiling.png-cd1c9798366234665494e683ac1eb9c0.etc2.ctex"]
 
 [params]
 
