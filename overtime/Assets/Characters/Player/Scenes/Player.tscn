@@ -269,6 +269,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 82.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
@@ -277,6 +278,7 @@ theme_override_constants/margin_bottom = 50
 [node name="DialogLabel" type="RichTextLabel" parent="DialogControl/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_y3dep")
@@ -312,6 +314,7 @@ theme_override_constants/margin_right = 30
 
 [node name="CharacterPanel" type="Panel" parent="DialogControl/CharacterPanelMarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel"]
 layout_mode = 1
@@ -321,11 +324,13 @@ offset_left = 20.0
 offset_right = -16.0
 offset_bottom = 34.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 10
 
 [node name="DialogLabel" type="RichTextLabel" parent="DialogControl/CharacterPanelMarginContainer/CharacterPanel/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_y3dep")

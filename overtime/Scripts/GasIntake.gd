@@ -9,7 +9,7 @@
 extends Interactable
 
 # Holds state of gas tank for animation
-var open = false
+var open: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

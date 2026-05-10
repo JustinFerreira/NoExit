@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/20/26 by Justin Ferreira
+## Last upadated  5/4/26 by Justin Ferreira
 ## ElevatorButtonPanel Script
 ## - This is the Inside button of the elevator which
 ## closes the elevator doors and moves the elevator down.
@@ -8,10 +8,10 @@
 
 extends Interactable
 
-@onready var door_collision = $"../ElevatorCollisions/DoorCollision"
+@onready var door_collision: CSGBox3D = $"../ElevatorCollisions/DoorCollision"
 
-var fall_speed = 2.0
-var InElevator = false
+var fall_speed: float = 2.0
+var InElevator: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

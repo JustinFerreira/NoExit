@@ -10,9 +10,9 @@ extends Interactable
 
 @onready var door_collision = $"../ElevatorCollisions/DoorCollision"
 
-var DoorOpen = false;
-var messageplayed = false
-var clickedrecent = false
+var DoorOpen: bool = false;
+var messageplayed: bool = false
+var clickedrecent: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

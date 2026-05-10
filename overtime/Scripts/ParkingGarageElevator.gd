@@ -12,12 +12,12 @@ extends Node3D
 # set to true for the elevator the player starts in the parking garage
 @export var playerelevator: bool
 
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var up = true
+var up: bool = true
 
-var inside = false
-var outside = false
+var inside: bool = false
+var outside: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

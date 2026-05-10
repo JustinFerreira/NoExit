@@ -7,10 +7,10 @@
 
 extends Interactable
 
-var fall_speed = 2.0
-var rising = false
+var fall_speed: float = 2.0
+var rising: bool = false
 
-var huh = 0
+var huh: float = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

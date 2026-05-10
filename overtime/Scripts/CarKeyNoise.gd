@@ -12,7 +12,6 @@ extends AudioStreamPlayer3D
 @export var min_volume_db: float = -80.0
 @export var same_floor_threshold: float = 3.0
 
-var player_node: Node3D
 var original_volume: float
 var nav: NavigationAgent3D
 var was_audible: bool = false  # Track if sound was audible in previous frame
@@ -23,9 +22,8 @@ func _ready() -> void:
 	original_volume = volume_db
 	
 	# Try to find the player node
-	player_node = get_tree().get_first_node_in_group("player")
+	#player_node = get_tree().get_first_node_in_group("player")
 	# OR if your player is stored in PlayerManager:
-	# player_node = PlayerManager.player
 	
 	# Get NavigationAgent3D
 	nav = get_node_or_null("NavigationAgent3D")
@@ -35,7 +33,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player_node:
+	if PlayerManager.player:
 		update_volume_based_on_distance()
 
 
@@ -44,7 +42,7 @@ func _process(delta: float) -> void:
 ## according to a calculated distance
 func update_volume_based_on_distance():
 	var car_position = global_transform.origin
-	var player_position = player_node.global_transform.origin
+	var player_position = PlayerManager.player.global_transform.origin
 	
 	# Calculate vertical distance
 	var vertical_distance = abs(car_position.y - player_position.y)
@@ -74,11 +72,11 @@ func update_volume_based_on_distance():
 ## without this the sound can be heard from
 ## above when this is not wanted
 func calculate_path_distance() -> float:
-	if not nav or not player_node:
-		return global_transform.origin.distance_to(player_node.global_transform.origin)
+	if not nav or not PlayerManager.player:
+		return global_transform.origin.distance_to(PlayerManager.player.global_transform.origin)
 	
 	# Update navigation target to player position
-	nav.target_position = player_node.global_transform.origin
+	nav.target_position = PlayerManager.player.global_transform.origin
 	
 	# Get the full navigation path
 	var path = nav.get_current_navigation_path()

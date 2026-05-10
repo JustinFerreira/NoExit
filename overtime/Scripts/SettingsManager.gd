@@ -13,16 +13,16 @@ var config = ConfigFile.new()
 ## path to reference file
 var settings_path = "user://settings.cfg"
 
-var KillerDisabled = false
-var Loop0Pass = false
-var Loop1Pass = false
+var KillerDisabled: bool = false
+var Loop0Pass: bool = false
+var Loop1Pass: bool = false
 
 var min_sensitivity: float = 0.001
 var max_sensitivity: float = 0.05
 
-var MainMenuShader
+var MainMenuShader: ColorRect
 
-var PlayerShader
+var PlayerShader: CanvasLayer
 
 # Default values
 var settings = {

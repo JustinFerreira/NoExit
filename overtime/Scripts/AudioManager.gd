@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 11/16/25 by Justin Ferreira
+## Last upadated  5/4/26 by Justin Ferreira
 ## AudioManager Script
 ## - This Script contains functions for
 ## controling Music and Sound effects
@@ -13,100 +13,100 @@
 
 extends Node
 
-var MusicAudio = AudioStreamPlayer.new()
-var OfficeMusicAudio = AudioStreamPlayer.new()
+var MusicAudio: AudioStreamPlayer = AudioStreamPlayer.new()
+var OfficeMusicAudio: AudioStreamPlayer = AudioStreamPlayer.new()
 var looping_players: Dictionary = {}
 var OfficeMusicOn: bool = false
 
 var KillerShutUp = false
 
 ## MUSIC
-var MainMenuMusic = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
+var MainMenuMusic: AudioStream = load("res://Assets/Audio/Music/NoExitMenu_v1.mp3")
 
-var OfficeWhiteNoise = load("res://Assets/Audio/SFX/WhiteNoise.mp3")
+var OfficeWhiteNoise: AudioStream = load("res://Assets/Audio/SFX/WhiteNoise.mp3")
 
-var ElevatorMusic = load("res://Assets/Audio/Music/elevator_wip3.mp3")
+var ElevatorMusic: AudioStream = load("res://Assets/Audio/Music/elevator_wip3.mp3")
 
 ## SFX
 
-var step = load("res://Assets/Audio/SFX/Footsteps/SoftStep1.wav")
+var step: AudioStream = load("res://Assets/Audio/SFX/Footsteps/SoftStep1.wav")
 
-var heartbeat = load("res://Assets/Audio/SFX/heartbeat-single-383748.mp3")
+var heartbeat: AudioStream = load("res://Assets/Audio/SFX/heartbeat-single-383748.mp3")
 
-var breathing = load("res://Assets/Audio/SFX/breathing_dev.wav")
+var breathing: AudioStream = load("res://Assets/Audio/SFX/breathing_dev.wav")
 
-var keys = load("res://Assets/Audio/SFX/Keys2.wav")
+var keys: AudioStream = load("res://Assets/Audio/SFX/Keys2.wav")
 
-var elevator_whitenoise = load("res://Assets/Audio/SFX/elevator_WhiteNoise.mp3")
+var elevator_whitenoise: AudioStream = load("res://Assets/Audio/SFX/elevator_WhiteNoise.mp3")
 
-var keypress1 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle1.wav")
-var keypress2 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle2.wav")
-var keypress3 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav")
-var keypress4 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
-var keypress5 = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
+var keypress1: AudioStream = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle1.wav")
+var keypress2: AudioStream = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle2.wav")
+var keypress3: AudioStream = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle3.wav")
+var keypress4: AudioStream = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle4.wav")
+var keypress5: AudioStream = load("res://Assets/Audio/SFX/Keyboard/Single/KeyboardSingle5.wav")
 
-var CarDoorLocked = load("res://Assets/Audio/SFX/CarDoor/LockedCarDoor.mp3")
+var CarDoorLocked: AudioStream = load("res://Assets/Audio/SFX/CarDoor/LockedCarDoor.mp3")
 
-var CarDoorOpen = load("res://Assets/Audio/SFX/CarDoor/OpenCarDoor.mp3")
+var CarDoorOpen: AudioStream = load("res://Assets/Audio/SFX/CarDoor/OpenCarDoor.mp3")
 
-var CarDoorClose = load("res://Assets/Audio/SFX/CarDoor/CloseCarDoor.mp3")
+var CarDoorClose: AudioStream = load("res://Assets/Audio/SFX/CarDoor/CloseCarDoor.mp3")
 
-var Glug = load("res://Assets/Audio/SFX/gas_glug.mp3")
+var Glug: AudioStream = load("res://Assets/Audio/SFX/gas_glug.mp3")
 
-var SocketFast = load("res://Assets/Audio/SFX/SocketWrench/SocketFast.mp3")
+var SocketFast: AudioStream = load("res://Assets/Audio/SFX/SocketWrench/SocketFast.mp3")
 
-var socket1 = load("res://Assets/Audio/SFX/SocketWrench/Socket1.mp3")
-var socket2 = load("res://Assets/Audio/SFX/SocketWrench/Socket2.mp3")
-var socket3 = load("res://Assets/Audio/SFX/SocketWrench/Socket3.mp3")
+var socket1: AudioStream = load("res://Assets/Audio/SFX/SocketWrench/Socket1.mp3")
+var socket2: AudioStream = load("res://Assets/Audio/SFX/SocketWrench/Socket2.mp3")
+var socket3: AudioStream = load("res://Assets/Audio/SFX/SocketWrench/Socket3.mp3")
 
-var ItemPickup = load("res://Assets/Audio/SFX/ItemPickup.mp3")
+var ItemPickup: AudioStream = load("res://Assets/Audio/SFX/ItemPickup.mp3")
 
-var ElevatorDing = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding.mp3")
+var ElevatorDing: AudioStream = load("res://Assets/Audio/SFX/elevatorsounds/elevator_Ding.mp3")
 
-var ElevatorOpenDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DingDoorOpen.mp3")
+var ElevatorOpenDoor: AudioStream = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DingDoorOpen.mp3")
 
-var ElevatorCloseDoor = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
+var ElevatorCloseDoor: AudioStream = load("res://Assets/Audio/SFX/elevatorsounds/elevator_DoorClose.mp3")
 
-var SkullCrush = load("res://Assets/Audio/SFX/SkullCrush.mp3")
-var HeavyDamage = load("res://Assets/Audio/SFX/HeavyDamage.mp3")
+var SkullCrush: AudioStream = load("res://Assets/Audio/SFX/SkullCrush.mp3")
+var HeavyDamage: AudioStream = load("res://Assets/Audio/SFX/HeavyDamage.mp3")
 
-var HoodOpen = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
+var HoodOpen: AudioStream = load("res://Assets/Audio/SFX/car_hood-open_metalic-hollow-springy-91593.mp3")
 
-var ElectricSpark1 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark1.mp3")
-var ElectricSpark2 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark2.mp3")
-var ElectricSpark3 = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark3.mp3")
+var ElectricSpark1: AudioStream = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark1.mp3")
+var ElectricSpark2: AudioStream = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark2.mp3")
+var ElectricSpark3: AudioStream = load("res://Assets/Audio/SFX/Electirc Spark/ElectricSpark3.mp3")
 
-var Thud4 = load("res://Assets/Audio/SFX/thud4.wav")
+var Thud4: AudioStream = load("res://Assets/Audio/SFX/thud4.wav")
 
-var GasCapClose = load("res://Assets/Audio/SFX/gascapdoor_close1.mp3")
+var GasCapClose: AudioStream = load("res://Assets/Audio/SFX/gascapdoor_close1.mp3")
 
-var GasCapOpen = load("res://Assets/Audio/SFX/gascapdoor_open2.mp3")
+var GasCapOpen: AudioStream = load("res://Assets/Audio/SFX/gascapdoor_open2.mp3")
 
-var CarStartNoGas = load("res://Assets/Audio/SFX/car-engine-fail.mp3")
+var CarStartNoGas: AudioStream = load("res://Assets/Audio/SFX/car-engine-fail.mp3")
 
-var CarStart = load("res://Assets/Audio/SFX/car-engine-success.mp3")
+var CarStart: AudioStream = load("res://Assets/Audio/SFX/car-engine-success.mp3")
 
 # Stingers
 
-var ImportantItemStinger = load("res://Assets/Audio/Stingers/spookystinger.mp3")
+var ImportantItemStinger: AudioStream = load("res://Assets/Audio/Stingers/spookystinger.mp3")
 
-var BassStinger1 = load("res://Assets/Audio/Stingers/bassSting_1.mp3")
-var BassStinger2 = load("res://Assets/Audio/Stingers/bassSting_2.mp3")
-var BassStinger3 = load("res://Assets/Audio/Stingers/bassSting_3.mp3")
-var BassStinger4 = load("res://Assets/Audio/Stingers/bassSting_4.mp3")
+var BassStinger1: AudioStream = load("res://Assets/Audio/Stingers/bassSting_1.mp3")
+var BassStinger2: AudioStream = load("res://Assets/Audio/Stingers/bassSting_2.mp3")
+var BassStinger3: AudioStream = load("res://Assets/Audio/Stingers/bassSting_3.mp3")
+var BassStinger4: AudioStream = load("res://Assets/Audio/Stingers/bassSting_4.mp3")
 
-var StringStinger = load("res://Assets/Audio/Stingers/stringSting_1.mp3")
+var StringStinger: AudioStream = load("res://Assets/Audio/Stingers/stringSting_1.mp3")
 
-var HeavyBreath = load("res://Assets/Audio/SFX/HeavyBreath.wav")
+var HeavyBreath: AudioStream = load("res://Assets/Audio/SFX/HeavyBreath.wav")
 
-var BearTrap = load("res://Assets/Audio/SFX/BearTrap.mp3")
+var BearTrap: AudioStream = load("res://Assets/Audio/SFX/BearTrap.mp3")
 
-var GlassBreak1 = load("res://Assets/Audio/SFX/Glass1.mp3")
-var GlassBreak2 = load("res://Assets/Audio/SFX/Glass2.mp3")
-var GlassBreak3 = load("res://Assets/Audio/SFX/Glass3.mp3")
-var GlassBreak4 = load("res://Assets/Audio/SFX/Glass4.mp3")
-var GlassBreak5 = load("res://Assets/Audio/SFX/Glass5.mp3")
-var GlassBreak6 = load("res://Assets/Audio/SFX/Glass6.mp3")
+var GlassBreak1: AudioStream = load("res://Assets/Audio/SFX/Glass1.mp3")
+var GlassBreak2: AudioStream = load("res://Assets/Audio/SFX/Glass2.mp3")
+var GlassBreak3: AudioStream = load("res://Assets/Audio/SFX/Glass3.mp3")
+var GlassBreak4: AudioStream = load("res://Assets/Audio/SFX/Glass4.mp3")
+var GlassBreak5: AudioStream = load("res://Assets/Audio/SFX/Glass5.mp3")
+var GlassBreak6: AudioStream = load("res://Assets/Audio/SFX/Glass6.mp3")
 
 
 # Called when the node enters the scene tree for the first time.

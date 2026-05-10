@@ -9,11 +9,11 @@
 extends Control
 
 
-@onready var timer = $Timer
-@onready var dialog_label = $MarginContainer/DialogLabel
-@onready var character_panel = $CharacterPanelMarginContainer/CharacterPanel
-@onready var dialog_label_pic =$CharacterPanelMarginContainer/CharacterPanel/MarginContainer2/DialogLabel
-@onready var animation_player = $DialogAnimationPlayer
+@onready var timer: Timer = $Timer
+@onready var dialog_label: RichTextLabel = $MarginContainer/DialogLabel
+@onready var character_panel: Panel = $CharacterPanelMarginContainer/CharacterPanel
+@onready var dialog_label_pic: RichTextLabel =$CharacterPanelMarginContainer/CharacterPanel/MarginContainer2/DialogLabel
+@onready var animation_player: AnimationPlayer = $DialogAnimationPlayer
 
 # Dialog management variables
 var current_dialog_array: Array[String] = []

@@ -8,8 +8,8 @@
 
 extends Node3D
 
-@onready var target = $Player
-@onready var animation_player = $AnimationPlayer
+@onready var target: Node3D = $Player
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

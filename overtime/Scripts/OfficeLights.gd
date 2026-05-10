@@ -7,7 +7,7 @@
 extends OmniLight3D
 
 @export var noise: NoiseTexture2D
-var timePassed := 0.0
+var timePassed: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

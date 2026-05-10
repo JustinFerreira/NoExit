@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/19/26 by Justin Ferreira
+## Last upadated  5/4/26 by Justin Ferreira
 ## Battery Script
 ## - This script is attached to the Battery 
 ## for the battery minigame this script changes

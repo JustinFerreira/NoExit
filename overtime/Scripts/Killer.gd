@@ -7,17 +7,17 @@
 extends CharacterBody3D
 
 
-var SPEED = 2.0
+var SPEED: float = 2.0
 
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
-@onready var WalkingAnimator = $AnimationPlayer
-@onready var StabbingAnimator = $StabbingAnimation
+@onready var WalkingAnimator: AnimationPlayer = $AnimationPlayer
+@onready var StabbingAnimator: AnimationPlayer = $StabbingAnimation
 
 var was_animation_playing: bool = false
 
 var paused_animation_time: float = 1.3
 
-var teleports
+var teleports: Array
 
 # Stalking mode variables
 var stalking_mode: bool = false
@@ -35,7 +35,7 @@ var stalk_direction_change_timer: float = 0.0
 var stalk_direction_change_interval: float = 3.0
 var current_stalk_angle: float = 0.0
 
-var fadingout = true
+var fadingout: bool = true
 
 # Visual/Audio references
 @onready var visibility_timer: Timer = $VisibilityTimer  # You'll need to add this Timer node

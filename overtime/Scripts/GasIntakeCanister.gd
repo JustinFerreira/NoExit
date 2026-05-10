@@ -10,34 +10,34 @@
 extends MeshInstance3D
 
 # 
-@onready var GasIntakeSweetSpot = $"../GasIntakeSweetSpot"
-@onready var progress_bar = $"../GasIntakeCam/GasIntakeGame/TextureProgressBar"
+@onready var GasIntakeSweetSpot: MeshInstance3D = $"../GasIntakeSweetSpot"
+@onready var progress_bar: TextureProgressBar = $"../GasIntakeCam/GasIntakeGame/TextureProgressBar"
 
-var progress_bar_value = 0.0
+var progress_bar_value: float = 0.0
 
 # Gas Canister movement variables
-var fall_speed = 30.5
+var fall_speed: float = 30.5
 
-var lift_speed = 30
+var lift_speed: float = 30
 
 # progress variables
-var car_filled = 0.0
+var car_filled: float = 0.0
 
-var fill_speed = 0.1
+var fill_speed: float = 0.1
 
 
 
 
 ## range of points for gas canister and sweet spot
-var lowestPointSweetSpot = 10.098 
-var lowestPointGasCanister = 1.000
+var lowestPointSweetSpot: float = 10.098 
+var lowestPointGasCanister: float = 1.000
 
-var highestPointGasCanister = 150.9
-var highestPointSweetSpot = 100.6
+var highestPointGasCanister: float = 150.9
+var highestPointSweetSpot: float = 100.6
 
 # sweet spot movement variables
-var sweet_spot_move_speed = 25.5  # Adjust for faster/slower movement
-var sweet_spot_direction = 1     # 1 for moving up, -1 for moving down
+var sweet_spot_move_speed: float = 25.5  # Adjust for faster/slower movement
+var sweet_spot_direction: float = 1     # 1 for moving up, -1 for moving down
 
 
 # Called when the node enters the scene tree for the first time.

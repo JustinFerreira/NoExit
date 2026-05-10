@@ -7,7 +7,7 @@
 
 extends Node3D
 
-@onready var target = $Player
+@onready var target: Node3D = $Player
 @export var fog_remover: FogVolume
 @export var cars: Array[Node3D]
 @export var player_car: Node3D

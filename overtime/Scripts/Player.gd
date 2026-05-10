@@ -11,51 +11,43 @@
 
 extends CharacterBody3D
 
-var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 7.5
-var SENSITIVITY = PlayerManager.Sensitivity
-var gravity = true
+var speed: float
+const WALK_SPEED: float = 5.0
+const SPRINT_SPEED: float = 7.5
+var SENSITIVITY: float = PlayerManager.Sensitivity
+var gravity: bool = true
 
 
-var is_sprinting = false
+var is_sprinting: bool = false
 
 #bob variables
-const BOB_FREQ = 4.0 # How often you bob
-const BOB_AMP = 0.03 # How high and low you bob
-var t_bob = 0.0 # Determines how far along the signwave we are for bobbing
-
-#fov variables
-#const BASE_FOV = 75.0
-#const FOV_CHANGE = 1.5
-#const MAX_FOV = 90.0  # Add this
-#const MIN_FOV = 70.0  # Add this
-#const FOV_TRANSITION_SPEED = 1.0  # Adjust this for smoother/faster transitions
+const BOB_FREQ: float = 4.0 # How often you bob
+const BOB_AMP: float = 0.03 # How high and low you bob
+var t_bob: float = 0.0 # Determines how far along the signwave we are for bobbing
 
 #Step variables
-var was_moving = false
-var is_moving = false
+var was_moving: bool = false
+var is_moving: bool = false
 
-var breathing_volume = -80  # Adjust as needed
-var heartbeat_volume = -20  # Adjust as needed
+var breathing_volume: float = -80  # Adjust as needed
+var heartbeat_volume: float = -20  # Adjust as needed
 
 #settings
 
-var TbobON = true
-var FOVON = false
-var Incar = false
-var trapped = false
+var TbobON: bool = true
+var Incar: bool = false
+var trapped: bool = false
 
-@onready var HEAD = $Head
-@onready var CAMERA = $Head/Camera3D
-@onready var FREEROAMHEAD = $FreeRoamHead
-@onready var FREEROAMCAMERA = $FreeRoamHead/Camera3D
-@onready var INTERACT_RAY = $Head/Camera3D/InteractRay
-@onready var AREA3D = $Player
-@onready var COLLISIONSHAPE3D = $CollisionShape3D  
-@onready var CURSOR = $CenterContainer/Cursor
-@onready var DIALOG = $DialogControl
-@onready var GAMEOVER = $GameOverScreen
+@onready var HEAD: Node3D = $Head
+@onready var CAMERA: Camera3D = $Head/Camera3D
+@onready var FREEROAMHEAD: Node3D = $FreeRoamHead
+@onready var FREEROAMCAMERA:Camera3D  = $FreeRoamHead/Camera3D
+@onready var INTERACT_RAY: RayCast3D = $Head/Camera3D/InteractRay
+@onready var AREA3D: Area3D = $Player
+@onready var COLLISIONSHAPE3D: CollisionShape3D = $CollisionShape3D  
+@onready var CURSOR: Control = $CenterContainer/Cursor
+@onready var DIALOG: Control = $DialogControl
+@onready var GAMEOVER:  = $GameOverScreen
 
 @onready var head = $Head
 @onready var camera:Camera3D = $Head/Camera3D

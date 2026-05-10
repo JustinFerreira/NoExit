@@ -8,10 +8,10 @@
 
 extends Node3D
 
-@onready var player_cubicle = $NavigationRegion3D/Cubicle
-@onready var animation_player = player_cubicle.get_node("AnimationPlayer")
-@onready var cutscene_camera = player_cubicle.get_node("CutSceneCamera")
-@onready var player_camera = $Player/Head/Camera3D
+@onready var player_cubicle: Node3D = $NavigationRegion3D/Cubicle
+@onready var animation_player: AnimationPlayer = player_cubicle.get_node("AnimationPlayer")
+@onready var cutscene_camera: Camera3D = player_cubicle.get_node("CutSceneCamera")
+@onready var player_camera: Camera3D = $Player/Head/Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

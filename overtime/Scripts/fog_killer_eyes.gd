@@ -1,6 +1,6 @@
 extends Node3D
 
-var activated = false
+var activated: bool = false
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group("player") or area.name == "Player":

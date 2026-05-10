@@ -1,6 +1,6 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/15/26 by Justin Ferreira
+## Last upadated  5/4/26 by Justin Ferreira
 ## AnimationManager Script
 ## - This is a manager script which allows for all
 ## animations to be held in the same place so they have
@@ -11,88 +11,86 @@ extends Node
 ## Animation Players
 
 # The Animation Player attached to the opening cutscne
-var OpeningCutSceneAnimationPlayer 
+var OpeningCutSceneAnimationPlayer: AnimationPlayer 
 
 # The Animation Player attached to the car
-var GetInCarAnimationPlayer
+var GetInCarAnimationPlayer: AnimationPlayer
 
 # The Animation Player for clicking the mouse player helper
-var MouseClickingAnimationPlayer
+var MouseClickingAnimationPlayer: AnimationPlayer
 
 ## Flashing Animation Players
 
-var DoorFlashAnimationPlayer
-var HoodFlashAnimationPlayer
+var DoorFlashAnimationPlayer: AnimationPlayer
+var HoodFlashAnimationPlayer: AnimationPlayer
 
-var GasIntakeFlashAnimationPlayer
-var WirePositiveFlashAnimationPlayer
-var WireNegativeFlashAnimationPlayer
-var PositiveBatteryFlashAnimationPlayer
-var NegativeBatteryFlashAnimationPlayer
-var ElevatorDoorButtonAnimationPlayer
-var ElevatorPanelAnimationPlayer
-var BoxFlashAnimationPlayer
-var PictureFrame1FlashAnimationPlayer
-var StickyNotesFlashAnimationPlayer
-var Mug1AFlashAnimationPlayer
-var Mug2AFlashAnimationPlayer
-var CarKeysFlashAnimationPlayer
-var BatteryFlashAnimationPlayer
-var GasCanisterFlashAnimationPlayer
-var CubicleFlashAnimationPlayer
+var GasIntakeFlashAnimationPlayer: AnimationPlayer
+var WirePositiveFlashAnimationPlayer: AnimationPlayer
+var WireNegativeFlashAnimationPlayer: AnimationPlayer
+var PositiveBatteryFlashAnimationPlayer: AnimationPlayer
+var NegativeBatteryFlashAnimationPlayer: AnimationPlayer
+var ElevatorDoorButtonAnimationPlayer: AnimationPlayer
+var ElevatorPanelAnimationPlayer: AnimationPlayer
+var PictureFrame1FlashAnimationPlayer: AnimationPlayer
+var StickyNotesFlashAnimationPlayer: AnimationPlayer
+var Mug1AFlashAnimationPlayer: AnimationPlayer
+var Mug2AFlashAnimationPlayer: AnimationPlayer
+var CarKeysFlashAnimationPlayer: AnimationPlayer
+var BatteryFlashAnimationPlayer: AnimationPlayer
+var GasCanisterFlashAnimationPlayer: AnimationPlayer
+var CubicleFlashAnimationPlayer: AnimationPlayer
 
 
-var GasCapAnimationPlayer
-var HoodAnimationPlayer
+var GasCapAnimationPlayer: AnimationPlayer
+var HoodAnimationPlayer: AnimationPlayer
 
 ## Meshes to toggle visiblity
 
-# Car
-var SteeringWheelFlash
-var DoorFlash
-var HoodFlash
-var GasIntakeFlash
-var WirePositiveFlash
-var WireNegativeFlash
-var PositiveBatteryFlash
-var NegativeBatteryFlash
+# Car Flash
+var SteeringWheelFlash: Interactable
+var DoorFlash: Interactable
+var HoodFlash: Interactable
+var GasIntakeFlash: Interactable
+var WirePositiveFlash: MeshInstance3D
+var WireNegativeFlash: MeshInstance3D
+var PositiveBatteryFlash: MeshInstance3D
+var NegativeBatteryFlash: MeshInstance3D
 
 # Car Collisions
-var HoodCollision 
-var CarCollision
+var HoodCollision: CollisionShape3D 
+var CarCollision: CollisionShape3D
 
-## Office
-var ElevatorButtonFlash
-var ElevatorPanelFlash
-var BoxFlash
+## Office Flash
+var ElevatorButtonFlash: MeshInstance3D
+var ElevatorPanelFlash: MeshInstance3D
 
 
 ## Car player nodes
 
-var CarInteractRay
-var CarHead
+var CarInteractRay: RayCast3D
+var CarHead: Node3D
 
 ## variables for pocesssing
 
-var CarEntering = true
+var CarEntering: bool = true
 
 
-var PositiveConnection
-var NegativeConnection
+var PositiveConnection: MeshInstance3D
+var NegativeConnection: MeshInstance3D
 
 ## Reset Zones
 
 var ResetZones: Array = []
 
-var NegativeBatteryResetZone
+var NegativeBatteryResetZone: MeshInstance3D
 
-var PositiveBatteryResetZone
+var PositiveBatteryResetZone: MeshInstance3D
 
 ## Elevator
 
-var DoorOpen = false
-var DoorClosed = false
-var ElevatorFall = false
+var DoorOpen: bool = false
+var DoorClosed: bool = false
+var ElevatorFall: bool = false
 
 
 

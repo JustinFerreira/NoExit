@@ -54,7 +54,7 @@ var current_rotation: float = 0.0
 @export var fade_duration: float = 1.0   # seconds for fade in/out
 
 # Layer for the debug mesh (will not be darkened)
-const EXAM_LAYER = 2
+const EXAM_LAYER: int = 2
 
 # Data for fading background objects
 var background_objects: Array[MeshInstance3D] = []

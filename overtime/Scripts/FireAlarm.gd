@@ -1,9 +1,9 @@
 extends Interactable
 
-var is_light_flashing = false
-var flash_timer = 0.0
-var flash_duration = 3.0
-var original_light_colors = {}
+var is_light_flashing: bool = false
+var flash_timer: float = 0.0
+var flash_duration: float = 3.0
+var original_light_colors: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

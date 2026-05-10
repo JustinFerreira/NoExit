@@ -18,7 +18,7 @@ class_name Interactable
 signal interacted(body)
 
 # turn on and off the objetcs interactivity
-@export var is_interactable = true
+@export var is_interactable: bool = true
 # Stores materail used for the outline
 @export var outline_material: Material
 # The mesh that need the be outlined

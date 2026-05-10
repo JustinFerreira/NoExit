@@ -9,8 +9,7 @@
 
 extends Interactable
 
-var unlocked = false
-var player 
+var unlocked: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
