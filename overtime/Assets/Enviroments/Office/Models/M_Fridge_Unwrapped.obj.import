@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpc1yhk6w1r27"
+path="res://.godot/imported/M_Fridge_Unwrapped.obj-c588620719a30978fb0843d994f4d62a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Fridge_Unwrapped.obj-c588620719a30978fb0843d994f4d62a.mesh"]
+
+source_file="res://Assets/Enviroments/Office/Models/M_Fridge_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Fridge_Unwrapped.obj-c588620719a30978fb0843d994f4d62a.mesh", "res://.godot/imported/M_Fridge_Unwrapped.obj-c588620719a30978fb0843d994f4d62a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

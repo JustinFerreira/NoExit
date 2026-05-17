@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwchv7yad7jr"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmg78l0jo6nfd" path="res://Assets/Enviroments/Office/Models/M_SmokeDetector_Unwrappeed.obj" id="1_yo2q8"]
+[ext_resource type="Texture2D" uid="uid://drowvj8ufh71k" path="res://Assets/Enviroments/Office/Textures/Smoke Detector Textures/M_SmokeDetector_Unwrappeed_DefaultMaterial_BaseMap.png" id="2_dfvay"]
+[ext_resource type="Texture2D" uid="uid://b3j8tvb1o7xir" path="res://Assets/Enviroments/Office/Textures/Smoke Detector Textures/M_SmokeDetector_Unwrappeed_DefaultMaterial_MaskMap.png" id="3_kkbwc"]
+[ext_resource type="Texture2D" uid="uid://w3dsipp6s7ss" path="res://Assets/Enviroments/Office/Textures/Smoke Detector Textures/M_SmokeDetector_Unwrappeed_DefaultMaterial_Normal.png" id="4_qh1or"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1yio"]
+albedo_texture = ExtResource("2_dfvay")
+metallic = 1.0
+metallic_texture = ExtResource("3_kkbwc")
+roughness_texture = ExtResource("3_kkbwc")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_qh1or")
+ao_enabled = true
+ao_texture = ExtResource("3_kkbwc")
+ao_texture_channel = 1
+
+[node name="SmokeDetector" type="Node3D"]
+
+[node name="MSmokeDetectorUnwrappeed" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_yo2q8")
+surface_material_override/0 = SubResource("StandardMaterial3D_e1yio")

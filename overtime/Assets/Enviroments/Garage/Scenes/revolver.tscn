@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1cu1ik4hgy52"]
+
+[ext_resource type="ArrayMesh" uid="uid://b36eb1e10kr0c" path="res://Assets/Enviroments/Garage/Models/M_Revolver_Unwrapped.obj" id="1_kxo2h"]
+[ext_resource type="Texture2D" uid="uid://b0lsm245xm8kf" path="res://Assets/Enviroments/Garage/Textures/Revolver Textures/M_Revolver_Unwrapped_DefaultMaterial_BaseMap.png" id="2_gss0u"]
+[ext_resource type="Texture2D" uid="uid://c17558mawj33s" path="res://Assets/Enviroments/Garage/Textures/Revolver Textures/M_Revolver_Unwrapped_DefaultMaterial_MaskMap.png" id="3_fyel1"]
+[ext_resource type="Texture2D" uid="uid://bbqlhq0h4apgx" path="res://Assets/Enviroments/Garage/Textures/Revolver Textures/M_Revolver_Unwrapped_DefaultMaterial_Normal.png" id="4_faycm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lunee"]
+albedo_texture = ExtResource("2_gss0u")
+metallic = 1.0
+metallic_texture = ExtResource("3_fyel1")
+roughness_texture = ExtResource("3_fyel1")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_faycm")
+ao_enabled = true
+ao_texture = ExtResource("3_fyel1")
+ao_texture_channel = 1
+
+[node name="Revolver" type="Node3D"]
+
+[node name="MRevolverUnwrapped" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_kxo2h")
+surface_material_override/0 = SubResource("StandardMaterial3D_lunee")

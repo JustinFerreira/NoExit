@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b36eb1e10kr0c"
+path="res://.godot/imported/M_Revolver_Unwrapped.obj-776ca1680f8952fc7817de4161e9af4d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Revolver_Unwrapped.obj-776ca1680f8952fc7817de4161e9af4d.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Revolver_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Revolver_Unwrapped.obj-776ca1680f8952fc7817de4161e9af4d.mesh", "res://.godot/imported/M_Revolver_Unwrapped.obj-776ca1680f8952fc7817de4161e9af4d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

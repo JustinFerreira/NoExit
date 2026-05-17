@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cic1g83ag03sx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cyeucfyfhh5lw" path="res://Assets/Enviroments/Office/Models/M_SPAM_Unwrapped.obj" id="1_36ig5"]
+[ext_resource type="Texture2D" uid="uid://c2b10o6yo5kuq" path="res://Assets/Enviroments/Office/Textures/Spam Textures/M_SPAM_Unwrapped_DefaultMaterial_BaseMap.png" id="2_4s8wu"]
+[ext_resource type="Texture2D" uid="uid://b5u6f6q04ptlw" path="res://Assets/Enviroments/Office/Textures/Spam Textures/M_SPAM_Unwrapped_DefaultMaterial_MaskMap.png" id="3_yf2ee"]
+[ext_resource type="Texture2D" uid="uid://82jm5qrtkbow" path="res://Assets/Enviroments/Office/Textures/Spam Textures/M_SPAM_Unwrapped_DefaultMaterial_Normal.png" id="4_io7xp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_girwj"]
+albedo_texture = ExtResource("2_4s8wu")
+metallic = 1.0
+metallic_texture = ExtResource("3_yf2ee")
+roughness_texture = ExtResource("3_yf2ee")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_io7xp")
+ao_enabled = true
+ao_texture = ExtResource("3_yf2ee")
+ao_texture_channel = 1
+
+[node name="Spam" type="Node3D"]
+
+[node name="MSpamUnwrapped" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_36ig5")
+surface_material_override/0 = SubResource("StandardMaterial3D_girwj")
