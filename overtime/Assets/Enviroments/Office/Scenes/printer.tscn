@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://duev01onnsvcn"]
+
+[ext_resource type="ArrayMesh" uid="uid://c6ak5v7ggvy53" path="res://Assets/Enviroments/Office/Models/M_Printer_Unwrapped.obj" id="1_7sjr4"]
+[ext_resource type="Texture2D" uid="uid://cnes8jkp2bjpm" path="res://Assets/Enviroments/Office/Textures/Printer Textures/M_Printer_Unwrapped_DefaultMaterial_BaseMap.png" id="2_rxrsb"]
+[ext_resource type="Texture2D" uid="uid://bh8iucfc5p82g" path="res://Assets/Enviroments/Office/Textures/Printer Textures/M_Printer_Unwrapped_DefaultMaterial_MaskMap.png" id="3_w4sr2"]
+[ext_resource type="Texture2D" uid="uid://chkpxme6t1ave" path="res://Assets/Enviroments/Office/Textures/Printer Textures/M_Printer_Unwrapped_DefaultMaterial_Normal.png" id="4_vwkov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c52xn"]
+albedo_texture = ExtResource("2_rxrsb")
+metallic = 1.0
+metallic_texture = ExtResource("3_w4sr2")
+roughness_texture = ExtResource("3_w4sr2")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_vwkov")
+ao_enabled = true
+ao_texture = ExtResource("3_w4sr2")
+ao_texture_channel = 1
+
+[node name="Printer" type="Node3D"]
+
+[node name="MPrinterUnwrapped" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_7sjr4")
+surface_material_override/0 = SubResource("StandardMaterial3D_c52xn")
