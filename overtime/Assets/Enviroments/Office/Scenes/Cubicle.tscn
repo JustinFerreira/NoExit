@@ -1,19 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqtccb4evu6ma"]
 
-[ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Enviroments/Office/Models/Model_Cubicle_Unwrapped.obj" id="1_o4x2v"]
 [ext_resource type="Material" uid="uid://ca205yux1xney" path="res://Assets/Materials/Cubicle.tres" id="1_unbtt"]
+[ext_resource type="ArrayMesh" uid="uid://cjfa42831xtuy" path="res://Assets/Enviroments/Office/Models/M_Cubicle_Unwrapped.obj" id="2_e7cmy"]
 [ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="2_pogjx"]
-[ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="3_10mdd"]
 [ext_resource type="Material" uid="uid://blbhl6rna6cvk" path="res://Assets/Materials/Chair.tres" id="4_2lc7y"]
+[ext_resource type="ArrayMesh" uid="uid://7gy6o0dj4x05" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined.obj" id="6_m8ljd"]
 [ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
 
 [node name="Cubicle" type="Node3D"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525988, 0, 0)
 
 [node name="ModelCubicleUnwrapped" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413408, 0.00303121, 0.381135)
 material_override = ExtResource("1_unbtt")
-mesh = ExtResource("1_o4x2v")
+mesh = ExtResource("2_e7cmy")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="ModelCubicleUnwrapped"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137866, 1.98605e-07, 0.000156581)
@@ -21,20 +21,20 @@ visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.572724, 0, 0, 0, 1.20913, 0, 0, 0, 2.27695, 0.690812, 0.422142, -0.174544)
+transform = Transform3D(67.9346, 0, 0, 0, 120.241, 0, 0, 0, 226.459, 63.9946, 58.4176, -12.5021)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.00603586, 0, -2.28921, 0, 0.988832, 0, 1.03232, 0, 0.0133847, -0.164641, 0.528641, -0.799971)
+transform = Transform3D(0.35325, 0, -150.906, 0, 57.947, 0, 60.4167, 0, 0.882331, -50.9875, 83.4823, -57.7635)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(-0.0509361, 0, 0.0124608, 0, 2.2589, 0, -0.000278265, 0, -2.28093, -1.32894, 1.11824, -0.168737)
+transform = Transform3D(-5.46592, 0, 1.33554, 0, 242.112, 0, -0.0298608, 0, -244.466, -133.519, 74.3554, -18.9764)
 
 [node name="MChairUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0184792, 0, 1.14702, 0, 1.14717, 0, -1.14702, 0, 0.0184792, -0.110374, 0, 0.522584)
+transform = Transform3D(0.0161085, 0, 0.99987, 0, 1, 0, -0.99987, 0, 0.0161085, -48.1608, 0, -20.2047)
 material_override = ExtResource("4_2lc7y")
 mesh = ExtResource("2_pogjx")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999351, 1.05011, -0.234978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0978, 104.759, -60.895)
 material_override = ExtResource("6_rvkpv")
-mesh = ExtResource("3_10mdd")
+mesh = ExtResource("6_m8ljd")
