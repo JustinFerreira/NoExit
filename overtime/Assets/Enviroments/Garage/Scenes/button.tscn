@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk7ysmnjy640g"]
+
+[ext_resource type="ArrayMesh" uid="uid://chvbf1ic5fvss" path="res://Assets/Enviroments/Garage/Models/M_Button_Unwrapped.obj" id="1_sbfrn"]
+[ext_resource type="Texture2D" uid="uid://ck6qmmpf0wsvt" path="res://Assets/Enviroments/Garage/Textures/Button Textures/M_Button_Unwrapped_DefaultMaterial_BaseMap.png" id="2_l56dt"]
+[ext_resource type="Texture2D" uid="uid://daeihvh0ap275" path="res://Assets/Enviroments/Garage/Textures/Button Textures/M_Button_Unwrapped_DefaultMaterial_MaskMap.png" id="3_uww6t"]
+[ext_resource type="Texture2D" uid="uid://vgdcyofraonb" path="res://Assets/Enviroments/Garage/Textures/Button Textures/M_Button_Unwrapped_DefaultMaterial_Normal.png" id="4_aph0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2x7v"]
+albedo_texture = ExtResource("2_l56dt")
+metallic = 1.0
+metallic_texture = ExtResource("3_uww6t")
+roughness_texture = ExtResource("3_uww6t")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_aph0x")
+ao_enabled = true
+ao_texture = ExtResource("3_uww6t")
+ao_texture_channel = 1
+
+[node name="Button" type="Node3D"]
+
+[node name="MButtonUnwrapped" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_sbfrn")
+surface_material_override/0 = SubResource("StandardMaterial3D_d2x7v")

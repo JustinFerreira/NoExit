@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2g81vbcyhrkq"]
+
+[ext_resource type="ArrayMesh" uid="uid://cpc1yhk6w1r27" path="res://Assets/Enviroments/Office/Models/M_Fridge_Unwrapped.obj" id="1_fubn5"]
+[ext_resource type="Texture2D" uid="uid://y3fj822m6pn7" path="res://Assets/Enviroments/Office/Textures/Fridge Textures/M_Fridge_Texturing_DefaultMaterial_BaseMap.png" id="2_818jx"]
+[ext_resource type="Texture2D" uid="uid://furi8h22lwfv" path="res://Assets/Enviroments/Office/Textures/Fridge Textures/M_Fridge_Texturing_DefaultMaterial_MaskMap.png" id="3_3ycb7"]
+[ext_resource type="Texture2D" uid="uid://c0xdhpcaqmwwr" path="res://Assets/Enviroments/Office/Textures/Fridge Textures/M_Fridge_Texturing_DefaultMaterial_Normal.png" id="4_5wusn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcn54"]
+albedo_texture = ExtResource("2_818jx")
+metallic = 1.0
+metallic_texture = ExtResource("3_3ycb7")
+roughness_texture = ExtResource("3_3ycb7")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("4_5wusn")
+ao_enabled = true
+ao_texture = ExtResource("3_3ycb7")
+ao_texture_channel = 1
+
+[node name="Fridge" type="Node3D"]
+
+[node name="MFridgeUnwrapped" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_fubn5")
+surface_material_override/0 = SubResource("StandardMaterial3D_gcn54")

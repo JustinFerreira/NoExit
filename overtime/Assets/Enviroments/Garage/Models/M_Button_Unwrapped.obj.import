@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chvbf1ic5fvss"
+path="res://.godot/imported/M_Button_Unwrapped.obj-a71c16634d38273a55f46f178fdeb4b8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Button_Unwrapped.obj-a71c16634d38273a55f46f178fdeb4b8.mesh"]
+
+source_file="res://Assets/Enviroments/Garage/Models/M_Button_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Button_Unwrapped.obj-a71c16634d38273a55f46f178fdeb4b8.mesh", "res://.godot/imported/M_Button_Unwrapped.obj-a71c16634d38273a55f46f178fdeb4b8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
