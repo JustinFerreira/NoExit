@@ -9,15 +9,11 @@
 
 extends Interactable
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 #detect when player is in cubicle range to not flash
-func _on_area_3d_area_entered(area: Area3D) -> void:
+func _on_area_3d_area_entered(_area: Area3D) -> void:
 	stop_flashing()
 
 #detect when player walks away and see whether to flash or not
-func _on_area_3d_area_exited(area: Area3D) -> void:
+func _on_area_3d_area_exited(_area: Area3D) -> void:
 	if not PlayerManager.has_item("Car Keys"):
 		start_flashing()

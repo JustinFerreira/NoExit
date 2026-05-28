@@ -24,121 +24,121 @@ var DevMode: bool = true
 
 var FreeRoam: bool = false
 
+var CursorInvisible: bool = false
+
 ## Location
 
-var Office = false
+var Office: bool = false
 
-var ParkingGarage = false
+var ParkingGarage: bool = false
 
-var NotClickOnBoxSpace
+var NotClickOnBoxSpace: bool
 
-var MainMenu = true
+var MainMenu: bool = true
 
 ## Player
 
-var teleportEnemy = false
+var teleportEnemy: bool = false
 
-var no_enemy = true
+var no_enemy: bool = true
 
 var player
 
-var player_rotation_x
-var player_rotation_y
-var player_rotation_z
+var player_rotation_x: float
+var player_rotation_y: float
+var player_rotation_z: float
 
-var scaredDistance = 0
-var scaredPitch = 1
+var scaredDistance: float = 0
+var scaredPitch: float = 1
 var scaredVolume = -80
 var scaredVolumeSteps = -80
 
-var sprint_engaged = false
+var sprint_engaged: bool = false
 
-var dying = false
+var dying: bool = false
 
-var EquippedItem = null
+var EquippedItem: String = ''
 
-var DeskItems = []
+var DeskItems: Array[ExaminableItem] = []
 
-var firstdialog = true
+var firstdialog: bool = true
 
 ## Enemy
 
-var Enemy
+var Enemy: CharacterBody3D
 
-var stalking_mode = false
+var stalking_mode: bool = false
 
-var stalking_area = null
+var killer_visible: bool = true
 
-var killer_visible = true
-
-var killer_audible = true
+var killer_audible: bool = true
 
 
 ## Janitor
 
-var janitor
+var janitor: Interactable
 
 #Dialog Controls
 
-var hint = false
+var hint: bool = false
 
-var dialoging = false
+var dialoging: bool = false
 
-var finishedDialogAnimation = false
+var finishedDialogAnimation: bool = false
 
-var multiDialog = false
+var multiDialog: bool = false
 
-var startMultiDialog = true
+var startMultiDialog: bool = true
 
 ## Modes
 
-var FirstOpen = true
+var FirstOpen: bool = true
 
-var MinigameMode = false
+var MinigameMode: bool = false
 
-var InAnimation = false
+var InAnimation: bool = false
 
 ## Pass Checks
 
-var testing = true
-var gotKeys = false
-var gotGas_Canister = false
-var gotBattery = false
-var talkToJanitor = false
+var testing: bool = true
+var gotKeys: bool = false
+var gotGas_Canister: bool = false
+var gotBattery: bool = false
+var talkToJanitor: bool = false
 
 # Loop control
-var OpeningCutscene = false
-var Loop1 = false
-var Loop0 = false
+var OpeningCutscene: bool = false
+var Loop1: bool = false
+var Loop0: bool = false
 
 ## Hot Wiring
-var minigameOne = false
-var minigameOnePassed = false
+var minigameOne: bool = false
+var minigameOnePassed: bool = false
 
 ## Gas Canister
-var minigameTwo = false
-var minigameTwoPassed = false
+var minigameTwo: bool = false
+var minigameTwoPassed: bool = false
 
-var gasIntakeUI
-var gasIntakeSweetSpot
-var Gas_Canister
-var actioning = false
+var gasIntakeUI: Control
+var gasIntakeSweetSpot: MeshInstance3D
+var Gas_Canister: MeshInstance3D
+var actioning: bool = false
 
 ## Hood / Battery
-var minigameThree = false
-var minigameThreePassed = false
-var PositiveConnected = false
-var NegativeConnected = false
+var minigameThree: bool = false
+var minigameThreePassed: bool = false
+var PositiveConnected: bool = false
+var NegativeConnected: bool = false
 
-var hoodUI
-var Hood
-var Battery
-var PositiveWire
-var NegativeWire
+var hoodUI: Control
+var Hood: Interactable
+var Battery: MeshInstance3D
+var PositiveWire: StaticBody3D
+var NegativeWire: StaticBody3D
 
 ## Key fob sound
 
-var car_audio_player
+var car_audio_player: AudioStreamPlayer3D
 
 ## Death Count
 
@@ -150,33 +150,29 @@ var CurrentWeight: float = 0.0
 
 ## Close Up Objects
 
-var examed = false
+var examed: bool = false
 
-var closeup = true
-var examining = false
-var ExamingItem
-var PictureFrame1
-var Stapler
-var StickyNotes
-var Mug1A
-var Mug2A
-var Keys
-var Box
-var BatteryExamine
-var GasCanisterExamine
+var closeup: bool = true
+var examining: bool = false
+var ExamingItem: ExaminableItem
+var PictureFrame1: ExaminableItem
+var Stapler: ExaminableItem
+var StickyNotes: ExaminableItem
+var Mug1A: ExaminableItem
+var Mug2A: ExaminableItem
+var Keys: ExaminableItem
+var Box: ExaminableItem
+var BatteryExamine: ExaminableItem
+var GasCanisterExamine: ExaminableItem
 
 
-var OfficeLights
-var ParkingGarageLights
+var OfficeLights: Array
+var ParkingGarageLights: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 		
 
 # AddToInventory
@@ -184,9 +180,9 @@ func _process(delta: float) -> void:
 # name, weight, equippable,
 # weight currently useless
 # then adds this to the inventory list
-func AddToInventory(name: String, weight: float, equippable: bool = false):
+func AddToInventory(itemName: String, weight: float, equippable: bool = false):
 	var item: Dictionary
-	item.name = name
+	item.name = itemName
 	item.weight = weight
 	item.equippable = equippable
 	if equippable:
@@ -200,9 +196,9 @@ func AddToInventory(name: String, weight: float, equippable: bool = false):
 # RemoveItemByName
 # takes a name and tries to find it in the inventory
 # if found it will remove otherwise it will just return false
-func RemoveItemByName(name: String) -> bool:
+func RemoveItemByName(itemName: String) -> bool:
 	for item in Inventory:
-		if item.name == name:
+		if item.name == itemName:
 			CurrentWeight -= item.weight
 			Inventory.erase(item)
 			#print(CurrentWeight)
@@ -217,9 +213,9 @@ func ResetPlayer() -> void:
 	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
-	if player:
+	if player != null:
 		player = get_tree().current_scene.get_node("Player") 
-	EquippedItem = null
+	EquippedItem = ''
 	DeskItems = []
 	examed = false
 	
@@ -368,7 +364,8 @@ func MiniGameModeOn():
 # turns MinigameMode off and sets player back up for game
 func MiniGameModeOff():
 	MinigameMode = false
-	player.CURSOR.visible = true
+	if not PlayerManager.CursorInvisible:
+		player.CURSOR.visible = true
 	
 # TestConnection
 # This is for the Battery Mini Game
@@ -382,7 +379,6 @@ func TestConnection():
 		AnimationManager.NegativeConnection.visible = true
 	if PositiveConnected && NegativeConnected:
 		if Enemy && Enemy.stalking_mode:
-			print("Hello There HEHE")
 			Enemy.exit_stalking_mode()
 		AudioManager.play_sound(AudioManager.HoodOpen)
 		MiniGameModeOff()
@@ -508,12 +504,12 @@ func SwitchEquippedItem(direction: bool):
 # in the list 
 func _switch_equipped_up():
 	if Inventory.size() == 0:
-		EquippedItem = null
+		EquippedItem = ''
 		return
 	
 	var current_index = -1
 	# Find current equipped item index
-	if EquippedItem != null:
+	if EquippedItem != '':
 		for i in range(Inventory.size()):
 			if Inventory[i].name == EquippedItem:
 				current_index = i
@@ -528,19 +524,19 @@ func _switch_equipped_up():
 			return
 	
 	# If no equippable items found
-	EquippedItem = null
+	EquippedItem = ''
 
 # _switch_equipped_down
 # assist in switching equip item this will switch item that are lower
 # in the list 
 func _switch_equipped_down():
 	if Inventory.size() == 0:
-		EquippedItem = null
+		EquippedItem = ''
 		return
 	
 	var current_index = -1
 	# Find current equipped item index
-	if EquippedItem != null:
+	if EquippedItem != '':
 		for i in range(Inventory.size()):
 			if Inventory[i].name == EquippedItem:
 				current_index = i
@@ -557,4 +553,4 @@ func _switch_equipped_down():
 			return
 	
 	# If no equippable items found
-	EquippedItem = null
+	EquippedItem = ''

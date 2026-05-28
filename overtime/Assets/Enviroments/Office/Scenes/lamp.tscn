@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqbxp2qlvts5m"]
+[gd_scene load_steps=4 format=3 uid="uid://bxbqhesjmfvcu"]
 
-[ext_resource type="Material" uid="uid://ba8ap4ouu4ljc" path="res://Assets/Materials/Lamp.tres" id="1_fhm0e"]
+[ext_resource type="Material" path="res://Assets/Materials/Lamp.tres" id="1_fhm0e"]
 [ext_resource type="Script" path="res://Scripts/lamp.gd" id="1_hhw1o"]
 [ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="2_ovwh5"]
 

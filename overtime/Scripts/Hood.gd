@@ -23,14 +23,10 @@ func _ready() -> void:
 	AnimationManager.CarCollision = $"../../Body/StaticBody3D/CollisionShape3D"
 	AnimationManager.ActivateHoodAnimationPlayer()
 	#Fix with EventManager so that this is only the case after first interacting with inside of car before doing this
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 			
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	AnimationManager.HoodFlash.stop_flashing()
 	AnimationManager.HoodCollision = $HoodCollisionShape3D
 	AnimationManager.CarCollision = $"../../Body/StaticBody3D/CollisionShape3D"
@@ -66,6 +62,7 @@ func _on_interacted(body: Variant) -> void:
 		SettingsManager.KillerDisabled = false
 		#get killer to designated area
 		PlayerManager.teleportEnemy = true
+		PlayerManager.player.CURSOR.visible = false
 		
 	#Fix with EventManager? or LoopManager
 	if not PlayerManager.Loop0:

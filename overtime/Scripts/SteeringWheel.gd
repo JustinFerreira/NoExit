@@ -13,15 +13,16 @@ func _ready() -> void:
 	AnimationManager.SteeringWheelFlash = self
 	UiManager.HotWireUI = $"../../Head/Car_Cam/Minigame"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#Event Manager fix when finished minigame one it does this, unsure if the is_interactable even applies here.
 	if PlayerManager.minigameOnePassed:
 		is_interactable = true
 
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	stop_flashing()
 	if PlayerManager.Loop0:
+		EventManager.Loop0SteeringClicked = true
 		AnimationManager.HoodFlash.is_interactable = true
 		PlayerManager.CharacterDialog(EventManager.loop0_no_battery)
 		AudioManager.play_sound(AudioManager.Thud4)

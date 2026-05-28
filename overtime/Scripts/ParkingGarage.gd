@@ -33,7 +33,7 @@ func _ready() -> void:
 	HelperManager.killer_eyes = $WorldEnvironment/FogRemover/KillerEyes
 	GetCar(player_car, attached_objects)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if fog_remover:
 		# Get the camera's forward direction but flatten it to ignore vertical tilt
 		var camera_forward = -target.CAMERA.global_transform.basis.z
@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 	
 
 
-func GetCar(player_car: Node3D, attached_objects: Array[Node3D]):
+func GetCar(_player_car: Node3D, _attached_objects: Array[Node3D]):
 	# 1. Pick random car (keep it, don't delete)
 	var random_index = randi() % cars.size()
 	var selected_car = cars[random_index]
@@ -65,19 +65,19 @@ func GetCar(player_car: Node3D, attached_objects: Array[Node3D]):
 	
 	# 2. Store offsets of attached objects relative to player_car (before swap)
 	var offsets: Array[Vector3] = []
-	for obj in attached_objects:
-		offsets.append(obj.global_position - player_car.global_position)
+	for obj in _attached_objects:
+		offsets.append(obj.global_position - _player_car.global_position)
 	
 	# 3. Swap positions of the two cars
-	var player_pos = player_car.global_transform
+	var player_pos = _player_car.global_transform
 	var selected_pos = selected_car.global_transform
 	
-	player_car.global_transform = selected_pos
+	_player_car.global_transform = selected_pos
 	selected_car.global_transform = player_pos
 	
 	# 4. Reposition attached objects so they keep same offset relative to player_car
-	for i in range(attached_objects.size()):
-		var obj = attached_objects[i]
+	for i in range(_attached_objects.size()):
+		var obj = _attached_objects[i]
 		var offset = offsets[i]
 		obj.global_position = player_car.global_position + offset
 		

@@ -42,10 +42,6 @@ func _ready() -> void:
 		$OutsideButton/OutsideButton.is_interactable = true
 		up = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_animation_finished(anim_name: String):
 	if anim_name == "Take 001":
@@ -55,19 +51,19 @@ func _on_animation_finished(anim_name: String):
 			$OutsideButton/OutsideButton.is_interactable = true
 
 
-func _on_area_3d_area_exited(area: Area3D) -> void:
+func _on_area_3d_area_exited(_area: Area3D) -> void:
 	inside = false
 
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
+func _on_area_3d_area_entered(_area: Area3D) -> void:
 	inside = true
 	
 	
-func _on_out_side_elevator_area_entered(area: Area3D) -> void:
+func _on_out_side_elevator_area_entered(_area: Area3D) -> void:
 	outside = true
 
 
-func _on_out_side_elevator_area_exited(area: Area3D) -> void:
+func _on_out_side_elevator_area_exited(_area: Area3D) -> void:
 	outside = false
 	if up and not inside:
 		$AnimationPlayer.play_backwards("Take 001")

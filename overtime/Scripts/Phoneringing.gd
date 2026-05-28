@@ -17,11 +17,6 @@ func _ready() -> void:
 	# Start playing (optional - you can trigger it differently)
 	play()
 	finished.connect(play_at_random)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func play_at_random():
 	if random_play_timer and is_instance_valid(random_play_timer):

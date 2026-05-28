@@ -8,7 +8,7 @@
 
 extends Interactable
 
-@onready var door_collision = $"../ElevatorCollisions/DoorCollision"
+@onready var door_collision: CSGBox3D = $"../ElevatorCollisions/DoorCollision"
 
 var DoorOpen: bool = false;
 var messageplayed: bool = false
@@ -23,17 +23,13 @@ func _ready() -> void:
 	if not PlayerManager.Loop0:
 		AnimationManager.ElevatorButtonFlash.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if EventManager.ElevatorDoorOpen:
 		return
 	if PlayerManager.has_item("Car Keys") and not clickedrecent:
-		print(PlayerManager.deaths)
 		if not PlayerManager.talkToJanitor && PlayerManager.deaths < 2:
 			PlayerManager.janitor.talkToPlayer()
+			PlayerManager.player.CURSOR.visible = false
 			return
 		clickedrecent = true
 		EventManager.ElevatorDoorOpen = true

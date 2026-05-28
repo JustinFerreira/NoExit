@@ -21,7 +21,7 @@ func _ready() -> void:
 	normal_dialog = EventManager.box_pickup_hint
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#stop flashing when player is about to interact
 	if PlayerManager.player.interact_ray.get_collider() == self || PlayerManager.ExamingItem == self:
 		stop_flashing()

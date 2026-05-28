@@ -47,6 +47,8 @@ var current_tween: Tween = null
 @export var normal_walk_speed_scale: float = 1.0   # Normal wander speed
 @export var fast_walk_speed_scale: float = 2    # Faster when walking to player
 
+var has_stored_transform: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player_walk.play("mixamo_com")
@@ -287,7 +289,7 @@ func start_dialog() -> void:
 	is_wandering = true
 	set_new_wander_target()
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	# Stop wandering and start interaction
 	is_wandering = false
 	is_interacting = true
@@ -331,49 +333,35 @@ func talkToPlayer():
 ## rotate_camera_to_npc_immediately
 ## Rotates the camera to look at the NPC when "Hey Wait up!" is said
 func rotate_camera_to_npc_immediately():
-	if current_tween:
+	if current_tween and current_tween.is_running():
 		current_tween.kill()
-	
-	current_tween = create_tween()
-	
+
 	var camera = PlayerManager.player.CAMERA
-	if camera:
-		#print("Rotating camera to NPC")
-		
-		# Store original player transform BEFORE any rotation
-		if PlayerManager.player:
-			original_player_transform = PlayerManager.player.global_transform
-			original_player_rotation = PlayerManager.player.rotation.y
-			#print("Original player transform stored")
-		
-		# Store original camera rotation
-		original_camera_rotation = camera.global_rotation
-		#print("Original camera rotation stored: ", original_camera_rotation)
-		
-		# Get the positions - raise NPC position to look at upper body/head
-		var npc_pos = $"../..".global_transform.origin + Vector3(0, 1.5, 0)
-		
-		# Create a transform that looks at the NPC
-		var look_transform = camera.global_transform.looking_at(npc_pos, Vector3.UP)
-		
-		# Get the target rotation for the camera
-		var target_rotation = look_transform.basis.get_euler()
-		
-		# Get current camera rotation
-		var current_rotation = camera.global_rotation
-		
-		# Calculate the shortest rotation path
-		var shortest_target_rotation = Vector3()
-		shortest_target_rotation.x = current_rotation.x  # Keep the same pitch
-		shortest_target_rotation.y = find_shortest_y_rotation(current_rotation.y, target_rotation.y)
-		shortest_target_rotation.z = current_rotation.z  # Keep the same roll
-		
-		# Create a tween to rotate the camera smoothly
-		var tween = create_tween()
-		tween.tween_property(camera, "global_rotation", shortest_target_rotation, 0.5)
-		#print("Camera rotation tween started")
-	#else:
-		#print("ERROR: Camera is null in rotate_camera_to_npc_immediately!")
+	if not camera:
+		return
+
+	# Store original transforms
+	if PlayerManager.player:
+		original_player_transform = PlayerManager.player.global_transform
+		original_player_rotation = PlayerManager.player.rotation.y
+		has_stored_transform = true
+
+	original_camera_rotation = camera.global_rotation
+
+	var npc_pos = $"../..".global_transform.origin + Vector3(0, 1.5, 0)
+	var look_transform = camera.global_transform.looking_at(npc_pos, Vector3.UP)
+	var target_camera_rotation = look_transform.basis.get_euler()
+	var current_rotation = camera.global_rotation
+
+	var shortest_target_rotation = Vector3(
+		current_rotation.x,
+		find_shortest_y_rotation(current_rotation.y, target_camera_rotation.y),
+		current_rotation.z
+	)
+
+	# Now current_tween actually has a tweener
+	current_tween = create_tween()
+	current_tween.tween_property(camera, "global_rotation", shortest_target_rotation, 0.5)
 
 ## start_multi_dialog_with_camera
 ## Starts the multi-dialog with camera rotation after reaching player
@@ -480,44 +468,25 @@ func restore_camera_rotation():
 	if PlayerManager.player:
 		var camera = PlayerManager.player.CAMERA
 		if camera:
-			#print("Starting complete restoration of player and camera")
-			
-			# First, restore player's global transform (position and rotation)
-			if original_player_transform:
+			if has_stored_transform:
 				var player_tween = create_tween()
-				player_tween.set_parallel(true)  # Run position and rotation tweens in parallel
-				
-				# Restore rotation
-				var target_basis = original_player_transform.basis
-				player_tween.tween_property(PlayerManager.player, "global_transform:basis", 
-					target_basis, 0.5)
-				
-				# Optionally restore position too (if you want the player to return to exact spot)
-				# player_tween.tween_property(PlayerManager.player, "global_transform:origin",
-				#     original_player_transform.origin, 0.5)
-				
+				player_tween.set_parallel(true)
+				player_tween.tween_property(PlayerManager.player, "global_transform:basis",
+					original_player_transform.basis, 0.5)
 				await player_tween.finished
-				#print("Player transform restored")
-			
-			# Then restore camera rotation
+
 			if original_camera_rotation != Vector3.ZERO:
 				var camera_tween = create_tween()
-				camera_tween.tween_property(camera, "global_rotation", 
+				camera_tween.tween_property(camera, "global_rotation",
 					original_camera_rotation, 0.5)
 				await camera_tween.finished
-				#print("Camera rotation restored")
-			
-			# Reset stored values
+
+			# Reset
 			original_camera_rotation = Vector3.ZERO
 			original_player_rotation = 0.0
 			original_player_transform = Transform3D()
-			
-			#print("Restoration complete")
-		#else:
-			#print("ERROR: Camera is null in restore_camera_rotation!")
-	#else:
-		#print("ERROR: Player is null in restore_camera_rotation!")
-		
+			has_stored_transform = false  # ← reset flag
+
 	PlayerManager.multiDialog = false
 	PlayerManager.InAnimation = false
 

@@ -9,11 +9,6 @@ func _ready() -> void:
 		$AudioStreamPlayer3D.stream = sound
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if not activated and (area.is_in_group("player") or area.name == "Player"):
 		$AnimationPlayer.play("CarAlarm")

@@ -20,7 +20,7 @@ func _ready() -> void:
 		return
 	super._ready()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#checks if there is more deskitems than needed so keys will flash
 	#should change this so that everytime an item is picked up it checks instead of process
 	#also add CarKeyFlash to Animation Manager
@@ -40,6 +40,7 @@ func _on_interacted(body: Variant) ->  void:
 		PlayerManager.AddToInventory("Car Keys", 0.5, true)
 		PlayerManager.gotKeys = true
 		AudioManager.play_sound(AudioManager.ImportantItemStinger)
+		PlayerManager.firstdialog = false
 		
 		PlayerManager.CharacterHintDialog(EventManager.keys_pickup,EventManager.keys_pickup_hint)
 	else:

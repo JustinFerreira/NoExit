@@ -11,7 +11,9 @@ extends MeshInstance3D
 
 # 
 @onready var GasIntakeSweetSpot: MeshInstance3D = $"../GasIntakeSweetSpot"
-@onready var progress_bar: TextureProgressBar = $"../GasIntakeCam/GasIntakeGame/TextureProgressBar"
+@onready var progress_bar: TextureProgressBar = get_node_or_null("../GasIntakeCam/GasIntakeGame/TextureProgressBar")
+var mouse_clicking: Node = null
+var hint_label: Node = null
 
 var progress_bar_value: float = 0.0
 
@@ -42,7 +44,8 @@ var sweet_spot_direction: float = 1     # 1 for moving up, -1 for moving down
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	mouse_clicking = get_node_or_null("../GasIntakeCam/GasIntakeGame/MouseClicking")
+	hint_label = get_node_or_null("../GasIntakeCam/GasIntakeGame/Label")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,7 +60,7 @@ func _process(delta: float) -> void:
 		
 		# Get the sweet spot node's Y position
 		var sweet_spot_y = GasIntakeSweetSpot.global_position.y
-		var sweet_spot_tolerance = 0.025  # Adjust this value for how close it needs to be
+		#var sweet_spot_tolerance = 0.025  # Adjust this value for how close it needs to be
 		
 		# correcting canister size
 		var canister_height = 0.5  # Adjust this value based on your canister size
@@ -93,9 +96,10 @@ func _process(delta: float) -> void:
 # this then compares the value to pre determined values to have different effects
 func _on_progress_bar_value_changed(value: float) -> void:
 	if value >= 25:
-		if $"../GasIntakeCam/GasIntakeGame/MouseClicking":
-			$"../GasIntakeCam/GasIntakeGame/MouseClicking".visible = false
-			$"../GasIntakeCam/GasIntakeGame/Label".visible = false
+		if mouse_clicking:
+			mouse_clicking.visible = false
+		if hint_label:
+			hint_label.visible = false
 	if value == 100:
 		if PlayerManager.Enemy:
 			PlayerManager.Enemy.exit_stalking_mode()

@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://uy7v5wa2yncb"]
 
 [ext_resource type="Script" path="res://Scripts/SplashScreen.gd" id="1_n6opb"]
+[ext_resource type="AudioStream" uid="uid://dodadnje5pu7k" path="res://Assets/Audio/SFX/Glass4.mp3" id="2_qk2y8"]
 [ext_resource type="FontFile" uid="uid://bgoraiyx8nbsf" path="res://Assets/Fonts/Courier New Bold Italic.ttf" id="2_yoggx"]
 [ext_resource type="Texture2D" uid="uid://dcqptx0ct8rad" path="res://Assets/Logos/IMG_7270.PNG" id="4_b2nst"]
 [ext_resource type="Texture2D" uid="uid://4d1k10gfb6in" path="res://Assets/Logos/IMG_7269.PNG" id="5_gwlcw"]
-[ext_resource type="AudioStream" uid="uid://pbsj32rlwj6m" path="res://Assets/Audio/SFX/dragon-studio-glass-breaking-386153.mp3" id="6_kov4g"]
 [ext_resource type="Texture2D" uid="uid://c8ngayq5deus5" path="res://Assets/Logos/overtimesplash_sheet.png" id="7_uc7fo"]
 [ext_resource type="Script" path="res://Scripts/KeepAnimatedSpriteCenter.gd" id="7_vtpsg"]
 [ext_resource type="AudioStream" uid="uid://7u2vjnuslmpo" path="res://Assets/Audio/Stingers/bootup_stinger.wav" id="8_padoj"]
@@ -294,7 +294,7 @@ libraries = {
 environment = SubResource("Environment_bhgba")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_kov4g")
+stream = ExtResource("2_qk2y8")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

@@ -137,11 +137,11 @@ func _update_flash_alpha(alpha: float) -> void:
 
 # _set_flash_visible
 # Controls whether flash is visible (alpha > 0) or not (alpha = 0)
-func _set_flash_visible(visible: bool) -> void:
-	_flash_visible = visible
+func _set_flash_visible(visiblity: bool) -> void:
+	_flash_visible = visiblity
 	
 	# If we're setting flash to invisible, force alpha to 0 immediately
-	if not visible:
+	if not visiblity:
 		_apply_material_alpha(_instance_flashing_material, 0.0)
 
 # start_flashing

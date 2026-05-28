@@ -28,7 +28,7 @@ func _ready() -> void:
 		AudioManager.cancel_loop_sfx()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerManager.DevMode:
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = true
@@ -96,6 +96,7 @@ func _on_textured_parking_garage_pressed() -> void:
 	
 	AudioManager.cancel_music()
 	PlayerManager.testing = true
+	PlayerManager.InAnimation = false
 	get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
 	PlayerManager.MainMenu = false
 

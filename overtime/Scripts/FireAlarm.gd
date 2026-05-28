@@ -32,7 +32,7 @@ func _process(delta):
 					omni_light.light_color = Color.BLUE if should_be_blue else Color.RED
 
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if not PlayerManager.ParkingGarage:
 		start_emergency_flash()
 	else:

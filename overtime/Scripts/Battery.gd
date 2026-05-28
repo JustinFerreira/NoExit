@@ -36,8 +36,3 @@ func _ready() -> void:
 	
 	#giving the player battery itself so the player interactions work properly
 	PlayerManager.Battery = self
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
