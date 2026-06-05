@@ -35,7 +35,7 @@ var heartbeat: AudioStream = load("res://Assets/Audio/SFX/heartbeat-single-38374
 
 var breathing: AudioStream = load("res://Assets/Audio/SFX/breathing_dev.wav")
 
-var keys: AudioStream = load("res://Assets/Audio/SFX/Keys2.wav")
+var keysPickup: AudioStream = load("res://Assets/Audio/SFX/Keys2.wav")
 
 var elevator_whitenoise: AudioStream = load("res://Assets/Audio/SFX/elevator_WhiteNoise.mp3")
 
@@ -116,6 +116,9 @@ func _ready() -> void:
 	## Add the MusicAudio Player to child highest level of the project
 	add_child(MusicAudio)
 	
+	OfficeMusicAudio.bus = "Music"  # or whatever bus it should use
+	add_child(OfficeMusicAudio)
+	
 
 ## play_sound
 ## plays a singluar instance of a sound 
@@ -141,7 +144,6 @@ func play_sound(sound_stream: AudioStream, volume_db: float = -8.0, pitch_scale:
 ## should be an mp3 that has loopable turned on
 func play_music(sound_stream: AudioStream):
 	if sound_stream == OfficeWhiteNoise:
-		add_child(OfficeMusicAudio)
 		OfficeMusicAudio.volume_db = -12
 		OfficeMusicAudio.stream = sound_stream
 		OfficeMusicAudio.play()
@@ -216,28 +218,33 @@ func stop_loop(sound_name: String):
 ## next sound is played when the first is finished
 ## or just play the next sound
 func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
+	if not is_instance_valid(player):
+		return
 
-	# Restart the same player instead of creating a new one
-	if wait > 0 && player:
-		 # Check if player already has a timer
+	if wait > 0:
 		if player.has_meta("restart_timer") and is_instance_valid(player.get_meta("restart_timer")):
-			return  # Timer already exists
-		
+			return
+
 		var timer = Timer.new()
 		timer.wait_time = wait
 		timer.one_shot = true
-		timer.timeout.connect(
-			func():
-				if is_instance_valid(player):
-					player.play()
-				if is_instance_valid(player) && is_instance_valid(timer):
-					timer.queue_free()
-					if player.has_meta("restart_timer"):
-						player.set_meta("restart_timer", null)
-		)
 		add_child(timer)
-		timer.start()
+
+		# Store weak reference to avoid holding a freed object
+		var player_ref = weakref(player)
+		var timer_ref = weakref(timer)
+
+		timer.timeout.connect(func():
+			var p = player_ref.get_ref()
+			var t = timer_ref.get_ref()
+			if is_instance_valid(p):
+				p.play()
+			if is_instance_valid(t):
+				t.queue_free()
+		)
+
 		player.set_meta("restart_timer", timer)
+		timer.start()
 	else:
 		player.play()
 		

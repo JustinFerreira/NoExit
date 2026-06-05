@@ -89,8 +89,12 @@ func _physics_process(delta: float) -> void:
 		var new_velocity = (next_location - current_location).normalized() * SPEED
 
 		# Make the enemy face the direction it's moving
-		if new_velocity.length() > 0:
-			look_at(global_transform.origin - new_velocity, Vector3.UP)
+		if new_velocity.length() > 0.001:
+			var look_target = global_transform.origin - new_velocity
+			var look_dir = (look_target - global_transform.origin).normalized()
+			# Skip look_at if direction is parallel to up vector (directly above/below)
+			if abs(look_dir.dot(Vector3.UP)) < 0.999:
+				look_at(look_target, Vector3.UP)
 
 		velocity = velocity.move_toward(new_velocity, 0.25)
 	move_and_slide()
@@ -152,10 +156,6 @@ func kill():
 		
 		# Get the positions - raise enemy position to look at upper body/head
 		var enemy_pos = global_transform.origin + Vector3(0, 1.5, 0)  # Raise by 1.5 meters
-		var camera_pos = camera.global_transform.origin
-		
-		# Calculate the direction from camera to enemy
-		var direction = (enemy_pos - camera_pos).normalized()
 		
 		# Create a transform that looks at the enemy
 		var look_transform = camera.global_transform.looking_at(enemy_pos, Vector3.UP)
@@ -277,14 +277,17 @@ func handle_stalking_behavior(delta: float) -> void:
 	var move_direction = (next_location - current_pos).normalized()
 	
 	# Face movement direction
-	if move_direction.length() > 0:
-		look_at(global_transform.origin - move_direction, Vector3.UP)
+	if move_direction.length() > 0.001:
+		var look_target = global_transform.origin - move_direction
+		var look_dir = (look_target - global_transform.origin).normalized()
+		if abs(look_dir.dot(Vector3.UP)) < 0.999:
+			look_at(look_target, Vector3.UP)
 	
 	# Apply movement
 	velocity = velocity.move_toward(move_direction * SPEED, 0.25)
 
 ## Add this function to handle entering stalking mode
-func enter_stalking_mode(distance: float, teleport: String, invisible: bool = true, silent: bool = true) -> void:
+func enter_stalking_mode(distance: float, teleport: String, silent: bool = true) -> void:
 	if stalking_mode:
 		return  # Already in stalking mode
 	
@@ -395,10 +398,10 @@ func make_audible() -> void:
 	# Restart sounds if needed
 	pass
 
-func _on_Fade_animation_finished():
+func _on_Fade_animation_finished(_anim_name: String) -> void:
 	if fadingout:
 		$Armature.visible = false
 		$Skeleton3D.visible = false
-		HelperManager.fade_fog_density(-8,1.5)
+		HelperManager.fade_fog_density(-8, 1.5)
 		
 		

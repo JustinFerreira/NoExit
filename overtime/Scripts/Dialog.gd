@@ -30,6 +30,8 @@ var is_typing: bool = false
 var active_typewriters: Array = []
 var typewriter_timers: Dictionary = {}
 
+var activatedMouse: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# connects animation player to animation finished
@@ -40,11 +42,6 @@ func _ready() -> void:
 	typewriter_timer.one_shot = true
 	add_child(typewriter_timer)
 	typewriter_timer.timeout.connect(_on_typewriter_timeout)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 ## start_typewriter_effect
 ## makes the typewriter effect start on dialog
@@ -60,20 +57,20 @@ func start_typewriter_effect(label: RichTextLabel, text: String, identifier: Str
 	is_typing = true
 	
 	# Create a new timer for this specific typewriter
-	var timer = Timer.new()
-	timer.one_shot = true
-	add_child(timer)
+	var _timer = Timer.new()
+	_timer.one_shot = true
+	add_child(_timer)
 	
 	typewriter_timers[identifier] = {
-		"timer": timer,
+		"timer": _timer,
 		"label": label,
 		"text": text,
 		"progress": 0.0
 	}
 	
 	active_typewriters.append(identifier)
-	timer.timeout.connect(_on_typewriter_timeout.bind(identifier))
-	timer.start(typewriter_speed)
+	_timer.timeout.connect(_on_typewriter_timeout.bind(identifier))
+	_timer.start(typewriter_speed)
 	
 	
 ## _on_typewriter_timeout
@@ -93,7 +90,7 @@ func _on_typewriter_timeout(identifier: String) -> void:
 	# Increase visible ratio
 	data["progress"] += 0.04
 	label.visible_ratio = data["progress"]
-	AudioManager.play_sound(AudioManager.GetKeyPress(), -20.0, randi() % 4)
+	AudioManager.play_sound(AudioManager.GetKeyPress(), -20.0, (randi() % 4) + 1)
 	
 	# Continue if there are more characters to show
 	if label.visible_ratio < 1.0:
@@ -106,11 +103,12 @@ func _on_typewriter_timeout(identifier: String) -> void:
 		is_typing = false
 		stop_typewriter_effect(identifier)
 		
-	if PlayerManager.Loop0 and PlayerManager.firstdialog:
+	if PlayerManager.Loop0 and PlayerManager.firstdialog and not activatedMouse:
 		PlayerManager.player.DIALOG.get_node("MouseClicking").visible = true
 		AnimationManager.MouseClickingAnimationPlayer = PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer")
 		AnimationManager.ActivateMouseClickingAnimationPlayer()
 		AnimationManager.MouseClickingAnimationPlayer.play("MouseClicking")
+		activatedMouse = true
 		
 ## skip_typewriter_effect
 ## stops the type writer effect early
@@ -337,7 +335,8 @@ func show_next_dialog() -> bool:
 ## the last part of the sequence
 func end_multi_dialog():
 	## Clean up and end the multi-dialog sequence.
-	PlayerManager.player.CURSOR.visible = true
+	if not PlayerManager.CursorInvisible:
+		PlayerManager.player.CURSOR.visible = true
 	current_dialog_array = []
 	current_dialog_index = 0
 	PlayerManager.multiDialog = false

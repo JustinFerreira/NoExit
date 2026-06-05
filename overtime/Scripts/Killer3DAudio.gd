@@ -57,7 +57,7 @@ func _play_next_sound():
 		timer.start(stream.get_length() + delay_between_sounds)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if AudioManager.KillerShutUp:
 		volume_db = -100
 	else:

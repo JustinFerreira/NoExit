@@ -15,7 +15,3 @@ func _ready() -> void:
 	max_distance = max_hearing_distance
 	# Start playing (optional - you can trigger it differently)
 	play()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

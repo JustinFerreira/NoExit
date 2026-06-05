@@ -98,11 +98,6 @@ var ElevatorFall: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 	
 	
@@ -140,7 +135,6 @@ func HideResetZones():
 ## to the animation finished function for this specific animation
 func ActivateMouseClickingAnimationPlayer():
 	MouseClickingAnimationPlayer.connect("animation_finished", _on_MouseClicking_animation_finished)
-
 
 ## ActivateElevatorPanelFlashAnimationPlayer
 ## This function connections the animation player for the elevator panel flash  
@@ -207,6 +201,7 @@ func _on_GetInCar_animation_finished(anim_name: String):
 	## Car Door opening and Closing animation
 	## Animation of player getting in the Car
 	if anim_name == "GettinginCar" && not PlayerManager.player.Incar && CarEntering:
+		PlayerManager.player.CURSOR.visible = true
 		AudioManager.play_sound(AudioManager.CarDoorClose)
 		PlayerManager.InAnimation = false
 			
@@ -243,6 +238,7 @@ func _on_GetInCar_animation_finished(anim_name: String):
 			PlayerManager.CharacterDialog(EventManager.loop0_get_in_car)
 	## Exiting car animations
 	if anim_name == "GettinginCar" && PlayerManager.player.Incar && not CarEntering:
+		PlayerManager.player.CURSOR.visible = true
 		AudioManager.play_sound(AudioManager.CarDoorClose)
 		PlayerManager.player.Incar = false
 		PlayerManager.player.TbobON = true
@@ -274,7 +270,7 @@ func _on_GetInCar_animation_finished(anim_name: String):
 			GasIntakeFlash.start_flashing()
 			
 			pass
-		if PlayerManager.Loop0:
+		if PlayerManager.Loop0 and EventManager.Loop0SteeringClicked:
 			
 			HoodFlash.start_flashing()
 			

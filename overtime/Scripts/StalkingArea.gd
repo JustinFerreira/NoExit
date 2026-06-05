@@ -2,7 +2,6 @@ extends Node3D
 
 
 @export var stalking_distance: float = 15.0  # Distance killer will maintain
-@export var make_killer_invisible: bool = true
 @export var make_killer_silent: bool = true
 @export var teleports: Array[Node]
 @export var activated: bool = false
@@ -23,29 +22,29 @@ func _on_area_entered(area: Area3D) -> void:
 	
 	if not activated && (area.is_in_group("player") or area.name == "Player"):
 		PlayerManager.stalking_mode = true
-		PlayerManager.stalking_area = self
 		
 		# Update killer behavior
 		if PlayerManager.Enemy:
 			var random_index = randi() % teleports.size()
-			PlayerManager.Enemy.enter_stalking_mode(stalking_distance, teleports[random_index].name, make_killer_invisible, make_killer_silent)
-			print(teleports[random_index].name)
+			PlayerManager.Enemy.enter_stalking_mode(stalking_distance, teleports[random_index].name, make_killer_silent)
 		
 		
 			
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
+	if not is_inside_tree():
+		return
 	if area.is_in_group("player") or area.name == "Player":
 		PlayerManager.stalking_mode = false
-		PlayerManager.stalking_area = null
 		
 		# Update killer behavior
-		if PlayerManager.Enemy:
+		if PlayerManager.Enemy and is_instance_valid(PlayerManager.Enemy):
 			PlayerManager.Enemy.exit_stalking_mode()
 			
 		if activated == false:
 			activated = true
-			cooldown_timer.start()
+			if is_instance_valid(cooldown_timer) and cooldown_timer.is_inside_tree():
+				cooldown_timer.start()
 
 
 func _on_cooldown_timeout():

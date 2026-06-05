@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
 
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if InElevator:
 		AnimationManager.ElevatorPanelFlash.visible = false
 		AudioManager.play_sound(AudioManager.ElevatorCloseDoor)
@@ -49,18 +49,18 @@ func _on_interacted(body: Variant) -> void:
 	else:
 		PlayerManager.Hint("Get in the elevator bro")
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
+func _on_area_3d_area_entered(_area: Area3D) -> void:
 	InElevator = true
 
 
 
-func _on_area_3d_area_exited(area: Area3D) -> void:
+func _on_area_3d_area_exited(_area: Area3D) -> void:
 	InElevator = false
 		
 		
 
 
-func _on_outside_elevator_area_area_entered(area: Area3D) -> void:
+func _on_outside_elevator_area_area_entered(_area: Area3D) -> void:
 	if EventManager.ElevatorDoorOpen == true && not InElevator:
 		$"../OutsideButton".clickedrecent = false
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")
@@ -68,7 +68,7 @@ func _on_outside_elevator_area_area_entered(area: Area3D) -> void:
 		door_collision.translate(Vector3(0,-3,0))
 
 
-func _on_outside_elevator_area_area_exited(area: Area3D) -> void:
+func _on_outside_elevator_area_area_exited(_area: Area3D) -> void:
 	if EventManager.ElevatorDoorOpen == true && not InElevator:
 		$"../OutsideButton".clickedrecent = false
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play_backwards("Take 001")

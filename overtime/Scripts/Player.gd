@@ -38,6 +38,8 @@ var TbobON: bool = true
 var Incar: bool = false
 var trapped: bool = false
 
+var is_exiting: bool = false
+
 @onready var HEAD: Node3D = $Head
 @onready var CAMERA: Camera3D = $Head/Camera3D
 @onready var FREEROAMHEAD: Node3D = $FreeRoamHead
@@ -47,32 +49,31 @@ var trapped: bool = false
 @onready var COLLISIONSHAPE3D: CollisionShape3D = $CollisionShape3D  
 @onready var CURSOR: Control = $CenterContainer/Cursor
 @onready var DIALOG: Control = $DialogControl
-@onready var GAMEOVER:  = $GameOverScreen
+@onready var GAMEOVER: CanvasLayer  = $GameOverScreen
 
-@onready var head = $Head
-@onready var camera:Camera3D = $Head/Camera3D
-@onready var interact_ray:RayCast3D = $"Head/Camera3D/InteractRay"
+@onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
+@onready var interact_ray: RayCast3D = $"Head/Camera3D/InteractRay"
 
 ## Grabbing Objects Variables
-var grabbed_object = null
-var mouse = Vector2()
-var original_mouse_pos = Vector2()  # Store initial mouse position
-var original_object_pos = Vector3()  # Store initial object position
-#var grab_distance = Vector3()
-#var grab_direction = Vector3()
-#var grab_offset = Vector3()  # Add this to store the offset
-var lock_axis = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
+var grabbed_object: Node3D  = null
+var mouse: Vector2 = Vector2()
+var original_mouse_pos: Vector2 = Vector2()  # Store initial mouse position
+var original_object_pos: Vector3 = Vector3()  # Store initial object position
+var lock_axis: String = "XZ"  # Options: "XZ", "XY", "YZ", "X", "Y", "Z"
 
 ## Outline help
-var last_collider = null
+var last_collider: CollisionObject3D = null
 
 var pre_free_roam_head_transform: Transform3D
 var pre_free_roam_camera_transform: Transform3D
-var saved_collider = null
+var saved_collider: CollisionObject3D = null
 
 
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
+	if PlayerManager.CursorInvisible:
+		CURSOR.visible = false
 	SettingsManager.PlayerShader = $ps1_graphics
 	if SettingsManager.settings.video.shader:
 		$ps1_graphics.visible = true
@@ -84,13 +85,13 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	if not PlayerManager.Loop0:
-		AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
-		AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
+	if not PlayerManager.Loop0 and not PlayerManager.OpeningCutscene:
+			AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
+			AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
 	
 # Any input that is detected automatically calls this function
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if grabbed_object:
 		# Update mouse position to current position
 		mouse = get_viewport().get_mouse_position()
@@ -158,7 +159,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if not DIALOG.is_typing and PlayerManager.firstdialog:
 				PlayerManager.player.DIALOG.get_node("MouseClicking").visible = false
-				PlayerManager.firstdialog = false
 				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
 		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
 				get_mouse_world_pos(mouse)
@@ -205,6 +205,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			AnimationManager.HideResetZones()
 			AnimationManager.PositiveBatteryFlash.visible = false
 			AnimationManager.NegativeBatteryFlash.visible = false
+			if not PlayerManager.PositiveConnected:
+				AnimationManager.WirePositiveFlash.visible = true
+			if not PlayerManager.NegativeConnected:
+				AnimationManager.WireNegativeFlash.visible = true
 			PlayerManager.HideDialog()
 			PlayerManager. MiniGameModeOff()
 		else:
@@ -224,74 +228,29 @@ func _unhandled_input(event: InputEvent) -> void:
 # Premade Godot Functiuon for movement given to CharacterBody 3D
 # has some added flare for this game
 func _physics_process(delta: float) -> void:
+	if is_exiting or not is_inside_tree():
+		return
 	if PlayerManager.FreeRoam:
 		handle_free_roam_movement(delta)
-		
-		if interact_ray.is_colliding():
-			var collider = interact_ray.get_collider()
-			var collision_point = interact_ray.get_collision_point()
-			var distance = interact_ray.global_position.distance_to(collision_point)
-			
-			# Only interact if within 1 meter
-			if distance <= 5.0 && collider is Interactable && collider.is_interactable:
-				
-				if Input.is_action_just_pressed("Interact"):
-					saved_collider = collider
-		
-		if Input.is_action_just_pressed("Keysound"):
-			saved_collider.interact(owner)
 		return
-	# Handle Heartbeat and Breathing sounds
+	
 	apply_breathing_effects()
 	apply_heartbeat_effects()
 	
 	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog || PlayerManager.dying || PlayerManager.examining:
 		return
+	
 	SENSITIVITY = PlayerManager.Sensitivity
 	
-	# Add the gravity.
 	if not is_on_floor():
 		if gravity == true:
 			velocity += get_gravity() * delta
 
-	##  We don't want a jump so no jumping
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-	
-	
-	if interact_ray.is_colliding():
-		var collider = interact_ray.get_collider()
-		var collision_point = interact_ray.get_collision_point()
-		var distance = interact_ray.global_position.distance_to(collision_point)
-		
-		# Only interact if within 1 meter
-		if distance <= 5.0 && collider is Interactable && collider.is_interactable:
-			$CenterContainer/Cursor/Crosshair.visible = false
-			$CenterContainer/Cursor/Hand.visible = true
-			
-			# If we have a new collider, hide the previous one's outline
-			if last_collider != null && last_collider != collider:
-				last_collider.hide_outline()
-			
-			# Show outline for current collider
-			if collider.show_outline():
-				last_collider = collider
-			
-			if Input.is_action_just_pressed("Interact"):
-				collider.interact(owner)
-		else:
-			$CenterContainer/Cursor/Crosshair.visible = true
-			$CenterContainer/Cursor/Hand.visible = false
-			if last_collider != null:
-				last_collider.hide_outline()
-				last_collider = null
-	else:
-		$CenterContainer/Cursor/Crosshair.visible = true
-		$CenterContainer/Cursor/Hand.visible = false
-		if last_collider != null:
-			last_collider.hide_outline()
-			last_collider = null
-			
+	# Single consolidated tree check before ANY node access
+	if is_exiting or not is_inside_tree() or not is_instance_valid(interact_ray) or not interact_ray.is_inside_tree():
+		return
+
+	_handle_interact_ray()
 	
 	# Handle Sprint
 	if Incar == true or trapped == true:
@@ -301,69 +260,78 @@ func _physics_process(delta: float) -> void:
 		handle_sprint_input()
 		apply_sprint_speed()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and PlayerManager.firstdialog == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
 		
-	# Check if player is moving (any movement key pressed)
 	is_moving = Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or \
 			   Input.is_action_pressed("left") or Input.is_action_pressed("right")
 	
-	# Handle step sounds
-	if is_moving and is_on_floor():
-		if not was_moving:  # Just started moving
+	if is_moving and is_on_floor() and PlayerManager.firstdialog == false:
+		if not was_moving:
 			AudioManager.play_sound_loop(AudioManager.step, "step", 1, -24, 0.2)
-	elif was_moving:  # Was moving but now stopped
+	elif was_moving:
 		AudioManager.stop_loop("step")
-		
 	
-		
-	# Update movement state for next frame
 	was_moving = is_moving
 	
-	
-	# Head Bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	if TbobON && PlayerManager.HeadBob:
 		camera.transform.origin = _headbob(t_bob)
 	
-	## FOV - Smooth sliding between min and max
-	#var target_fov = BASE_FOV
-#
-	#if FOVON:
-		## When FOVON is true, slide to maximum FOV
-		#target_fov = MAX_FOV
-	#else:
-		## When FOVON is false, slide to minimum FOV  
-		#target_fov = MIN_FOV
-#
-	## Add slight FOV change based on velocity (optional - keep this if you want the speed effect)
-	#var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
-	#target_fov += FOV_CHANGE * velocity_clamped
-#
-	## Apply smooth FOV transition
-	#if FOVON:
-		#camera.fov = lerp(camera.fov, target_fov, delta * FOV_TRANSITION_SPEED)
-	#else:
-		#camera.fov = lerp(camera.fov, target_fov, delta * FOV_TRANSITION_SPEED)
-
 	if velocity.length() > 0.1:
 		var horizontal_velocity = Vector3(velocity.x, 0, velocity.z)
 		if horizontal_velocity.length() > 0.1:
-			
-			var forward = -head.global_transform.basis.z  # Forward direction in Godot is -Z
+			var forward = -head.global_transform.basis.z
 			var movement_direction = horizontal_velocity.normalized()
 			var angle = forward.signed_angle_to(-movement_direction, Vector3.UP)
 			$arms.rotation.y = angle
 			$body.rotation.y = angle
-	move_and_slide()
+
+	if not is_exiting and is_inside_tree() and get_world_3d() != null:
+		move_and_slide()
+
+
+func _handle_interact_ray() -> void:
+	if not is_instance_valid(interact_ray) or not interact_ray.is_inside_tree():
+		return
+	if not interact_ray.is_colliding():
+		if not PlayerManager.CursorInvisible:
+			$CenterContainer/Cursor/Crosshair.visible = true
+			$CenterContainer/Cursor/Hand.visible = false
+		if last_collider != null:
+			last_collider.hide_outline()
+			last_collider = null
+		return
+		
+	var collider = interact_ray.get_collider()
+	if not is_instance_valid(collider):
+		return
+	var collision_point = interact_ray.get_collision_point()
+	var distance = interact_ray.global_position.distance_to(collision_point)
+	
+	if distance <= 5.0 && collider is Interactable && collider.is_interactable:
+		if not PlayerManager.CursorInvisible:
+			$CenterContainer/Cursor/Crosshair.visible = false
+			$CenterContainer/Cursor/Hand.visible = true
+		if last_collider != null && last_collider != collider:
+			last_collider.hide_outline()
+		if collider.show_outline():
+			last_collider = collider
+		if Input.is_action_just_pressed("Interact"):
+			collider.interact(owner)
+	else:
+		if not PlayerManager.CursorInvisible:
+			$CenterContainer/Cursor/Crosshair.visible = true
+			$CenterContainer/Cursor/Hand.visible = false
+		if last_collider != null:
+			last_collider.hide_outline()
+			last_collider = null
 	
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
@@ -459,11 +427,11 @@ func apply_sprint_speed():
 		AudioManager.set_loop_pitch("step", 2)
 		
 		
-func get_mouse_world_pos(mouse: Vector2):
+func get_mouse_world_pos(mouse_pos: Vector2):
 	var space = get_world_3d().direct_space_state
-	var camera = get_viewport().get_camera_3d()
-	var start = camera.project_ray_origin(mouse)
-	var end = start + camera.project_ray_normal(mouse) * 10.0
+	var _camera = get_viewport().get_camera_3d()
+	var start = _camera.project_ray_origin(mouse_pos)
+	var end = start + _camera.project_ray_normal(mouse_pos) * 10.0
 
 	var params = PhysicsRayQueryParameters3D.create(start, end)
 	var result = space.intersect_ray(params)
@@ -471,7 +439,7 @@ func get_mouse_world_pos(mouse: Vector2):
 	if result and result.collider and result.collider.is_in_group("grabbable"):
 		grabbed_object = result.collider
 		original_object_pos = grabbed_object.global_transform.origin
-		original_mouse_pos = mouse  # Store the initial mouse position
+		original_mouse_pos = mouse_pos  # Store the initial mouse position
 		
 		if PlayerManager.PositiveWire == grabbed_object:
 			AnimationManager.WirePositiveFlash.visible = false
@@ -492,7 +460,7 @@ func get_grab_position() -> Vector3:
 	if not grabbed_object:
 		return Vector3.ZERO
 
-	var camera = get_viewport().get_camera_3d()
+	var _camera = get_viewport().get_camera_3d()
 	
 	# Calculate mouse movement delta
 	var mouse_delta = mouse - original_mouse_pos
@@ -501,8 +469,8 @@ func get_grab_position() -> Vector3:
 	var sensitivity = 0.005  # Adjust this value to control movement sensitivity
 	
 	# Get camera's right and up vectors (ignoring rotation for simplicity)
-	var camera_right = camera.global_transform.basis.x
-	var camera_up = camera.global_transform.basis.y
+	var camera_right = _camera.global_transform.basis.x
+	var camera_up = _camera.global_transform.basis.y
 	
 	# Calculate movement in world space based on mouse delta
 	var world_movement = Vector3.ZERO
@@ -618,3 +586,10 @@ func exit_free_roam_mode():
 	# Make player camera current
 	camera.current = true
 	PlayerManager.FreeRoam = false
+	
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_EXIT_TREE:
+		is_exiting = true
+		set_physics_process(false)
+		set_process(false)
+		set_process_unhandled_input(false)

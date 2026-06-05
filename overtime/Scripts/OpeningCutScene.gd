@@ -29,6 +29,6 @@ func _ready() -> void:
 	$CutSceneCamera.current = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerManager.player:
 		get_tree().call_group("enemy" , "target_position" , target.global_transform.origin)

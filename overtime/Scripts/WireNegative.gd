@@ -6,7 +6,7 @@
 
 extends StaticBody3D
 
-var original_position
+var original_position: Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,10 +23,6 @@ func _ready() -> void:
 		pass
 	else:
 		self.add_to_group("grabbable")
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_area_body_entered(body):
 	# This function will be called when a body enters the Area3D
@@ -43,6 +39,8 @@ func handle_collision(colliding_body):
 		PlayerManager.player.grabbed_object = null
 		PlayerManager.NegativeConnected = true
 		PlayerManager.TestConnection()
+		if not PlayerManager.PositiveConnected:
+			AnimationManager.WirePositiveFlash.visible = true
 		AnimationManager.NegativeBatteryFlash.visible = false
 		self.remove_from_group("grabbable")
 		self.remove_from_group("battery_minigame")
@@ -54,6 +52,9 @@ func handle_collision(colliding_body):
 		PlayerManager.player.grabbed_object = null
 		self.position = original_position
 		AnimationManager.NegativeBatteryFlash.visible = false
+		AnimationManager.WireNegativeFlash.visible = true
+		if not PlayerManager.PositiveConnected:
+			AnimationManager.WirePositiveFlash.visible = true
 	if colliding_body.name == "WirePositive":
 		AnimationManager.HideResetZones()
 		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
@@ -61,6 +62,9 @@ func handle_collision(colliding_body):
 		PlayerManager.player.grabbed_object = null
 		self.position = original_position
 		AnimationManager.NegativeBatteryFlash.visible = false
+		AnimationManager.WireNegativeFlash.visible = true
+		if not PlayerManager.PositiveConnected:
+			AnimationManager.WirePositiveFlash.visible = true
 
 func SetOriginalPos():
 	original_position = self.global_position

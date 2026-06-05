@@ -17,7 +17,7 @@ func _ready() -> void:
 	start_flashing()
 	normal_dialog = EventManager.batterypickup_normal_dialog
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerManager.ExamingItem == self || PlayerManager.examining == true:
 		stop_flashing()
 	elif not PlayerManager.player.interact_ray.get_collider() == self:

@@ -5,8 +5,8 @@
 ## - this controls flicker of lamp on main menu
 
 extends Node3D
-@onready var lamp_light = $LampLight
-@onready var m_lamp = $MLamp
+@onready var lamp_light: SpotLight3D = $LampLight
+@onready var m_lamp: MeshInstance3D = $MLamp
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,9 +14,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 func flash():
 	var material = m_lamp.get_surface_override_material(0)
 	var emission_energy = lamp_light.light_energy * 3

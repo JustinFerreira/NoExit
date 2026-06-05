@@ -6,62 +6,65 @@
 
 extends StaticBody3D
 
-var original_position
-var grabbed
+var original_position: Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if PlayerManager.Loop0:
-		visible = false
-	AnimationManager.WirePositiveFlashAnimationPlayer = $AnimationPlayer
-	AnimationManager.WirePositiveFlash = $WirePositiveFlash
-	AnimationManager.ActivateWirePositiveFlashAnimationPlayer()
-	AnimationManager.WirePositiveFlashAnimationPlayer.play("WirePositiveFlash")
-	PlayerManager.PositiveWire = self
-	$Area3D.body_entered.connect(_on_area_body_entered)
-	original_position = self.global_position
-	if self.is_in_group("grabbable"):
-		pass
-	else:
-		self.add_to_group("grabbable")
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+    if PlayerManager.Loop0:
+        visible = false
+    AnimationManager.WirePositiveFlashAnimationPlayer = $AnimationPlayer
+    AnimationManager.WirePositiveFlash = $WirePositiveFlash
+    AnimationManager.ActivateWirePositiveFlashAnimationPlayer()
+    AnimationManager.WirePositiveFlashAnimationPlayer.play("WirePositiveFlash")
+    PlayerManager.PositiveWire = self
+    $Area3D.body_entered.connect(_on_area_body_entered)
+    original_position = self.global_position
+    if self.is_in_group("grabbable"):
+        pass
+    else:
+        self.add_to_group("grabbable")
 
 func _on_area_body_entered(body):
-	# This function will be called when a body enters the Area3D
-	#print("MeshInstance's Area3D detected body: ", body.name)
-	# Check if the body is one of the StaticBody3D nodes we are interested in
-	if body.is_in_group("battery_minigame"): # You can use groups or check by name
-		handle_collision(body)
+    # This function will be called when a body enters the Area3D
+    #print("MeshInstance's Area3D detected body: ", body.name)
+    # Check if the body is one of the StaticBody3D nodes we are interested in
+    if body.is_in_group("battery_minigame"): # You can use groups or check by name
+        handle_collision(body)
 
 func handle_collision(colliding_body):
-	# Your collision handling logic here
-	#print("Handling collision between ", self.name, " and ", colliding_body.name)
-	if colliding_body.name == "PositiveBattery":
-		AudioManager.play_sound(AudioManager.GetSocket(), -24)
-		PlayerManager.player.grabbed_object = null
-		PlayerManager.PositiveConnected = true
-		PlayerManager.TestConnection()
-		AnimationManager.PositiveBatteryFlash.visible = false
-		self.remove_from_group("grabbable")
-		self.remove_from_group("battery_minigame")
-		self.visible = false
-	if PlayerManager.PositiveConnected == false && (colliding_body.name == "NegativeBattery" or colliding_body.is_in_group("resetzone")):
-		AnimationManager.HideResetZones()
-		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
-		AudioManager.play_sound(AudioManager.GetSpark())
-		PlayerManager.player.grabbed_object = null
-		self.position = original_position
-		AnimationManager.PositiveBatteryFlash.visible = false
-	if colliding_body.name == "WireNegative":
-		AnimationManager.HideResetZones()
-		PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
-		AudioManager.play_sound(AudioManager.GetSpark())
-		PlayerManager.player.grabbed_object = null
-		self.position = original_position
-		AnimationManager.PositiveBatteryFlash.visible = false
+    # Your collision handling logic here
+    #print("Handling collision between ", self.name, " and ", colliding_body.name)
+    if colliding_body.name == "PositiveBattery":
+        AudioManager.play_sound(AudioManager.GetSocket(), -24)
+        PlayerManager.player.grabbed_object = null
+        PlayerManager.PositiveConnected = true
+        PlayerManager.TestConnection()
+        if not PlayerManager.NegativeConnected:
+            AnimationManager.WireNegativeFlash.visible = true
+        AnimationManager.PositiveBatteryFlash.visible = false
+        self.remove_from_group("grabbable")
+        self.remove_from_group("battery_minigame")
+        self.visible = false
+    if PlayerManager.PositiveConnected == false && (colliding_body.name == "NegativeBattery" or colliding_body.is_in_group("resetzone")):
+        AnimationManager.HideResetZones()
+        PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
+        AudioManager.play_sound(AudioManager.GetSpark())
+        PlayerManager.player.grabbed_object = null
+        self.position = original_position
+        AnimationManager.PositiveBatteryFlash.visible = false
+        AnimationManager.WirePositiveFlash.visible = true
+        if not PlayerManager.NegativeConnected:
+            AnimationManager.WireNegativeFlash.visible = true
+    if colliding_body.name == "WireNegative":
+        AnimationManager.HideResetZones()
+        PlayerManager.CharacterDialog(EventManager.battery_minigame_resetzone)
+        AudioManager.play_sound(AudioManager.GetSpark())
+        PlayerManager.player.grabbed_object = null
+        self.position = original_position
+        AnimationManager.PositiveBatteryFlash.visible = false
+        AnimationManager.WirePositiveFlash.visible = true
+        if not PlayerManager.NegativeConnected:
+            AnimationManager.WireNegativeFlash.visible = true
 
 func SetOriginalPos():
-	original_position = self.global_position
+    original_position = self.global_position

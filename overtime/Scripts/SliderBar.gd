@@ -1,4 +1,4 @@
-##No Exit
+## No Exit
 ## Overtime Studios
 ## Last updated 2/14/26 by Justin Ferreira
 ## Slider Bar Script
@@ -13,5 +13,4 @@ func _ready():
 	update_sprite(slider.value)
 
 func update_sprite(value: float):
-	var percentage := int(round(value))
 	frame = max(0, 20 - (value / 5))

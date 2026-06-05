@@ -7,26 +7,26 @@
 extends Control
 
 ## Sound Settings
-@onready var master_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider
-@onready var music_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider
-@onready var sfx_slider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider
-@onready var mute_check = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MuteCheckBox
+@onready var master_slider: HSlider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider
+@onready var music_slider: HSlider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider
+@onready var sfx_slider: HSlider = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider
+@onready var mute_check: CheckBox = $CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MuteCheckBox
 
 ## Visual Settings
-@onready var fullscreen_check = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
-@onready var shader_check = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox
+@onready var fullscreen_check: CheckBox = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox
+@onready var shader_check: CheckBox = $CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox
 
 ## Game Settings
-@onready var shifthold_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
-@onready var sensitivity_slider = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
-@onready var headbob_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
-@onready var devmode_check = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
+@onready var shifthold_check: CheckBox = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox
+@onready var sensitivity_slider: HSlider = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider
+@onready var headbob_check: CheckBox = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox
+@onready var devmode_check:CheckBox = $CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox
 
 # So sliders don't make noises when first start screen
-var DumbStupidBool = false
-var StupidDumbBool = false
-var ReallyDumbBool = false
-var ReallyStupidBool = false
+var DumbStupidBool: bool = false
+var StupidDumbBool: bool = false
+var ReallyDumbBool: bool = false
+var ReallyStupidBool: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,11 +43,6 @@ func _ready() -> void:
 	devmode_check.button_pressed = SettingsManager.settings.game.dev_mode
 	# Connect signal
 	mute_check.toggled.connect(_on_mute_toggled)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_mute_toggled(toggled):
@@ -142,7 +137,7 @@ func _on_dev_mode_check_box_toggled(toggled: bool) -> void:
 	SettingsManager.apply_settings()
 	SettingsManager.save_settings()
 
-func _on_tab_container_tab_clicked(tab: int) -> void:
+func _on_tab_container_tab_clicked(_tab: int) -> void:
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 

@@ -9,9 +9,9 @@
 extends Node
 
 ## config file for reference
-var config = ConfigFile.new()
+var config: ConfigFile = ConfigFile.new()
 ## path to reference file
-var settings_path = "user://settings.cfg"
+var settings_path: String = "user://settings.cfg"
 
 var KillerDisabled: bool = false
 var Loop0Pass: bool = false

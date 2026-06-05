@@ -77,7 +77,7 @@ func _ready() -> void:
 	
 	_create_debug_mesh()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerManager.EquippedItem == "Box" and can_be_stored and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
 		start_flashing()
 	else:
@@ -125,7 +125,7 @@ func _find_mesh_in_children(node: Node) -> MeshInstance3D:
 			return result
 	return null
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if is_in_interaction:
 		# Force end current examination
 		_force_end_examination()
@@ -224,8 +224,8 @@ func _darken_layer1_objects_fade_in() -> void:
 	for obj in background_objects:
 		var dark_mat = dark_materials.get(obj) as StandardMaterial3D
 		if dark_mat:
-			var tween = create_tween()
-			tween.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, fade_duration) \
+			var darkTween = create_tween()
+			darkTween.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, fade_duration) \
 				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 			active_tweens.append(tween)
 
@@ -290,11 +290,11 @@ func _restore_layer1_objects_fade_out() -> void:
 		# CRITICAL FIX: Create a blend material or use modulate property if available
 		# Option 1: If using shader material, we can use modulate
 		if dark_mat is ShaderMaterial:
-			var tween = create_tween()
-			tween.tween_property(dark_mat, "shader_parameter/modulate", Color(1,1,1,1), fade_duration) \
+			var layerTween = create_tween()
+			layerTween.tween_property(dark_mat, "shader_parameter/modulate", Color(1,1,1,1), fade_duration) \
 				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 			
-			tween.finished.connect(_on_single_fade_out_complete.bind(obj, tween, original_mat), CONNECT_ONE_SHOT)
+			layerTween.finished.connect(_on_single_fade_out_complete.bind(obj, layerTween, original_mat), CONNECT_ONE_SHOT)
 		
 		# Option 2: For StandardMaterial3D, we need to interpolate between colors
 		else:
@@ -308,8 +308,8 @@ func _restore_layer1_objects_fade_out() -> void:
 					target_color = surf_mat.albedo_color
 			
 			# Fade from current dark color to target color
-			var tween = create_tween()
-			tween.tween_property(dark_mat, "albedo_color", target_color, fade_duration) \
+			var layerTween = create_tween()
+			layerTween.tween_property(dark_mat, "albedo_color", target_color, fade_duration) \
 				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 			
 			# Also fade emission and other properties if needed for smoothness
@@ -317,13 +317,13 @@ func _restore_layer1_objects_fade_out() -> void:
 				var target_emission = Color.BLACK
 				if original_mat is StandardMaterial3D:
 					target_emission = original_mat.emission
-				tween.parallel().tween_property(dark_mat, "emission", target_emission, fade_duration)
+				layerTween.parallel().tween_property(dark_mat, "emission", target_emission, fade_duration)
 			
-			tween.finished.connect(_on_single_fade_out_complete.bind(obj, tween, original_mat), CONNECT_ONE_SHOT)
-		
-		active_tweens.append(tween)
+			layerTween.finished.connect(_on_single_fade_out_complete.bind(obj, layerTween, original_mat), CONNECT_ONE_SHOT)
+			
+			active_tweens.append(layerTween)
 
-func _on_single_fade_out_complete(obj: MeshInstance3D, tween: Tween, original_mat: Material) -> void:
+func _on_single_fade_out_complete(obj: MeshInstance3D, singleTween: Tween, original_mat: Material) -> void:
 	if not is_instance_valid(obj):
 		return
 	
@@ -337,7 +337,7 @@ func _on_single_fade_out_complete(obj: MeshInstance3D, tween: Tween, original_ma
 	dark_materials.erase(obj)
 	original_materials.erase(obj)
 	background_objects.erase(obj)
-	active_tweens.erase(tween)
+	active_tweens.erase(singleTween)
 
 func _cleanup_background_darkening() -> void:
 	# Kill all tweens
@@ -363,7 +363,8 @@ func _cleanup_background_darkening() -> void:
 func end_focus() -> void:
 	PlayerManager.examining = false
 	PlayerManager.closeup = true
-	PlayerManager.player.CURSOR.visible = true
+	if not PlayerManager.CursorInvisible:
+		PlayerManager.player.CURSOR.visible = true
 	should_stay_in_focus = false
 	
 	
@@ -380,7 +381,7 @@ func end_focus() -> void:
 		elif player_manager_reference == "Keys":
 			_on_interaction_complete()
 			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.keys)
+			AudioManager.play_sound(AudioManager.keysPickup)
 		elif player_manager_reference == "BatteryExamine" or "GasCanisterExamine":
 			_on_interaction_complete()
 			get_parent().visible = false

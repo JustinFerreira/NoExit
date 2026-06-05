@@ -1,11 +1,11 @@
 extends Interactable
 
-var counter = 0
+var counter: int = 0
 
 func _ready():
 	pass
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if counter > 0:
 		counter -= 1
 	else:

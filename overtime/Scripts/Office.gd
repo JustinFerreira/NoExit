@@ -74,26 +74,22 @@ func _ready() -> void:
 		animation_player.connect("animation_finished", _on_animation_finished)
 		cutscene_camera.current = true
 		animation_player.play("WakingUp")
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_animation_finished(anim_name: String):
 	#print("Animation Finished: ", anim_name)
 	
 	if anim_name == "WakingUp":
 		PlayerManager.InAnimation = false
-		PlayerManager.player.CURSOR.visible = true
+		if not PlayerManager.CursorInvisible:
+			PlayerManager.player.CURSOR.visible = true
 		player_camera.current = true
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog(EventManager.office_wake_up_no_keys)
 		if PlayerManager.Loop0:
 			PlayerManager.CharacterDialog(EventManager.office_wake_up_loop0)
 			PlayerManager.firstdialog = true
+			PlayerManager.player.DIALOG.get_node("MouseClicking").visible = true
 		else:
+			PlayerManager.firstdialog = false
 			PlayerManager.startMultiDialog = false
 			PlayerManager.MultiDialog(EventManager.office_wake_up_loop1)

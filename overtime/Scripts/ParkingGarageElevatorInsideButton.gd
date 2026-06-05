@@ -14,7 +14,7 @@ var huh: float = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if  rising == true:
 		huh += 1
 		
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		AudioManager.cancel_loop_sfx()
 		get_tree().change_scene_to_file("res://Levels/Office.tscn")
 
-func _on_interacted(body: Variant) -> void:
+func _on_interacted(_body: Variant) -> void:
 	if not $"../..".inside || $"../..".outside:
 		PlayerManager.Hint("Get in the Elevator")
 		return

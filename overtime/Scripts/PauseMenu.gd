@@ -27,7 +27,8 @@ func resume():
 		if PlayerManager.FreeRoam:
 			PlayerManager.player.CURSOR.visible = false
 		else:
-			PlayerManager.player.CURSOR.visible = true
+			if not PlayerManager.CursorInvisible:
+				PlayerManager.player.CURSOR.visible = true
 	if PlayerManager.dialoging == true: 
 		PlayerManager.RevealDialog()
 	get_tree().paused = false
@@ -127,3 +128,8 @@ func _on_player_visible_btn_toggled(toggled_on: bool) -> void:
 
 func _on_button_pressed() -> void:
 	print("YOOOO")
+
+
+func _on_cursor_visible_toggled(toggled_on: bool) -> void:
+	PlayerManager.CursorInvisible = toggled_on
+	PlayerManager.player.CURSOR.visible = false

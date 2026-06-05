@@ -21,10 +21,6 @@ func _ready() -> void:
 
 	animation_player.animation_finished.connect(_on_animation_finished)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if PlayerManager.Loop0:
@@ -75,7 +71,7 @@ func _on_blood_floor_body_entered(body):
 		dying_dude.gravity_scale = 0
 		dying_dude.freeze = true
 
-func _on_animation_finished(anim_string: String):
+func _on_animation_finished(_anim_string: String):
 	blood_splatter.emitting = false 
 	blood_floor.visible = false   
 	$DyingDude/Area3D/CollisionShape3D2.disabled = true

@@ -22,10 +22,6 @@ func _ready() -> void:
 	# Start the random playback
 	start_random_playback()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func start_random_playback():
 	# If there's already a timer running, stop it

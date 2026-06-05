@@ -32,7 +32,7 @@ func _ready() -> void:
 		nav.target_desired_distance = 1.5
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if PlayerManager.player:
 		update_volume_based_on_distance()
 

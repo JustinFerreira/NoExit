@@ -20,10 +20,6 @@ func _ready() -> void:
 	finished.connect(_on_finished)
 	play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 # Called when the sound finishes playing
 func _on_finished():
 	# Immediately restart the sound

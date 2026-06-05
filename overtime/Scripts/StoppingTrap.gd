@@ -1,6 +1,6 @@
 extends Node3D
 
-var activated = false
+var activated: bool = false
 
 func _ready() -> void:
 	if PlayerManager.Loop0:
