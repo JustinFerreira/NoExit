@@ -9,6 +9,9 @@ extends CharacterBody3D
 
 var SPEED: float = 2.0
 
+var follow_distance_enabled: bool = true
+var follow_distance: float = 20.0  # Units away from target the killer will stop
+
 @onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 @onready var WalkingAnimator: AnimationPlayer = $AnimationPlayer
 @onready var StabbingAnimator: AnimationPlayer = $StabbingAnimation
@@ -88,6 +91,11 @@ func _physics_process(delta: float) -> void:
 		var current_location = global_transform.origin
 		var new_velocity = (next_location - current_location).normalized() * SPEED
 
+		if follow_distance_enabled:
+			var dist_to_target = current_location.distance_to(nav.target_position)
+			if dist_to_target <= follow_distance:
+				new_velocity = Vector3.ZERO
+				
 		# Make the enemy face the direction it's moving
 		if new_velocity.length() > 0.001:
 			var look_target = global_transform.origin - new_velocity
@@ -111,7 +119,15 @@ func target_position(target):
 		return
 	if position == target:
 		return
-	nav.target_position = target
+
+	if follow_distance_enabled:
+		# Calculate a point follow_distance units short of the target
+		var direction_to_target = (target - global_transform.origin).normalized()
+		var stopped_position = target - direction_to_target * follow_distance
+		nav.target_position = stopped_position
+	else:
+		nav.target_position = target
+
 	move_and_slide()
 	
 func find_teleport_target(targetname):

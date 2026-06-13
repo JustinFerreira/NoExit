@@ -34,16 +34,19 @@ func _process(_delta: float) -> void:
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = true
 		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = true
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = true
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = true
 	elif SettingsManager.Loop0Pass:
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
 		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = false
 	else:
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
 		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = false
 		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
+		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = false
 		
 
 
@@ -97,6 +100,7 @@ func _on_textured_parking_garage_pressed() -> void:
 	AudioManager.cancel_music()
 	PlayerManager.testing = true
 	PlayerManager.InAnimation = false
+	PlayerManager.firstdialog = false
 	get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
 	PlayerManager.MainMenu = false
 
@@ -142,6 +146,7 @@ func _on_new_office_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/Greyboxing/Offices/New_Office.tscn")
 	PlayerManager.MainMenu = false
+	PlayerManager.firstdialog = false
 
 
 func _on_new_game_btn_pressed() -> void:
@@ -167,3 +172,13 @@ func _on_new_game_btn_pressed() -> void:
 	AudioManager.cancel_music()
 	get_tree().change_scene_to_file("res://Levels/OpeningCutscene.tscn")
 	PlayerManager.MainMenu = false
+
+
+func _on_test_parking_garage_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Levels/Greyboxing/ParkingGarages/TestParkingGarage.tscn")
+	PlayerManager.MainMenu = false
+	PlayerManager.firstdialog = false
