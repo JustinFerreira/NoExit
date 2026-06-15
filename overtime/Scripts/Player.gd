@@ -300,6 +300,7 @@ func _physics_process(delta: float) -> void:
 func _handle_interact_ray() -> void:
 	if not is_instance_valid(interact_ray) or not interact_ray.is_inside_tree():
 		return
+	
 	if not interact_ray.is_colliding():
 		if not PlayerManager.CursorInvisible:
 			$CenterContainer/Cursor/Crosshair.visible = true
@@ -593,3 +594,4 @@ func _notification(what: int) -> void:
 		set_physics_process(false)
 		set_process(false)
 		set_process_unhandled_input(false)
+		
