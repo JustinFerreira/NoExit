@@ -595,3 +595,7 @@ func _notification(what: int) -> void:
 		set_process(false)
 		set_process_unhandled_input(false)
 		
+
+func reset_headbob() -> void:
+	t_bob = 0.0
+	camera.transform.origin = Vector3.ZERO

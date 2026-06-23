@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7oxqkwa88xnt"]
+
+[ext_resource type="Script" path="res://Scripts/walk_in_wall.gd" id="1_huyle"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_myqns"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rnfn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5r5s4"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fudpn"]
+
+[node name="WalkInWall" type="Node3D"]
+script = ExtResource("1_huyle")
+
+[node name="WallMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.68581, 0, 0, 0, 6.11448, 0, 0, 0, 0.200408, 0, 3.10538, 0)
+material_override = SubResource("StandardMaterial3D_myqns")
+mesh = SubResource("BoxMesh_0rnfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5r5s4")
+
+[node name="TeleportMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10473, 1.13671)
+visible = false
+mesh = SubResource("CapsuleMesh_fudpn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(5.68581, 0, 0, 0, 6.11448, 0, 0, 0, 0.200408, 0, 3.10538, 0.225616)
+shape = SubResource("ConvexPolygonShape3D_5r5s4")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

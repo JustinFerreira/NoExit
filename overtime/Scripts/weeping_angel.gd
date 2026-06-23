@@ -1,4 +1,4 @@
-## GazeEnemy.gd
+## Weeping Angel
 ## Enemy that freezes when the player is looking at it
 
 extends CharacterBody3D
