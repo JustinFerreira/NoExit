@@ -45,7 +45,7 @@ func _player_can_see_me() -> bool:
 	# Seen only if the ray hits us specifically
 	return result and result.collider == self
 
-func _move_toward_player(delta: float) -> void:
+func _move_toward_player(_delta: float) -> void:
 	NAV.target_position = player.global_position
 	
 	if NAV.is_navigation_finished():

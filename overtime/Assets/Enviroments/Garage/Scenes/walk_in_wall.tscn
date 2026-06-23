@@ -32,7 +32,7 @@ mesh = SubResource("CapsuleMesh_fudpn")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(5.68581, 0, 0, 0, 6.11448, 0, 0, 0, 0.200408, 0, 3.10538, 0.225616)
+transform = Transform3D(5.68581, 0, 0, 0, 6.11448, 0, 0, 0, 0.200408, 0, 3.10538, 0)
 shape = SubResource("ConvexPolygonShape3D_5r5s4")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

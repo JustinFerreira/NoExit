@@ -6112,10 +6112,15 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0.687451, 9.87753, 1
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.07547, 226.164, 47.1464)
 destination_wall_buddy = NodePath("../EasyTeleportParkingGarage")
 
+[node name="WalkInWall2" parent="." node_paths=PackedStringArray("destination_wall_buddy") instance=ExtResource("3_gv7s6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.07547, 270.932, 26.2926)
+destination_wall_buddy = NodePath("../EasyTeleportParkingGarage")
+
 [node name="WalkInWall8" parent="." node_paths=PackedStringArray("destination_wall_buddy") instance=ExtResource("3_gv7s6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.009, 271.453, 31.626)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.009, 271.453, 31.626)
 visible = false
 destination_wall_buddy = NodePath("../WalkInWall9")
+exit_only = true
 
 [node name="WalkInWall9" parent="." node_paths=PackedStringArray("destination_wall_buddy") instance=ExtResource("3_gv7s6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.0094, 226.176, 31.6261)
