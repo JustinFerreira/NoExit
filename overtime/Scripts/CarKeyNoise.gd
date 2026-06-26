@@ -99,6 +99,8 @@ func check_and_print_help():
 ## or if distance to far Hint
 ## dialog is put on screen
 func playsound():
+	if not is_inside_tree():
+		return
 	if !was_audible:
 		PlayerManager.Hint(EventManager.car_distance)
 	self.play()

@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://7427h33c4ho5"]
+
+[ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Enviroments/Office/Models/Sticky_Note.obj" id="1_nogdu"]
+[ext_resource type="Script" path="res://Scripts/FlashLight.gd" id="1_pkg20"]
+[ext_resource type="Material" uid="uid://csuwr7n64oba" path="res://Assets/Materials/Stapler.tres" id="2_p5jgg"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="3_11npx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy63h"]
+albedo_color = Color(0, 0.502213, 0.502212, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_480u7"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="Animation" id="Animation_sybc5"]
+resource_name = "FlashLightFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashLightMesh:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_msloh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashLightMesh:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04cj2"]
+_data = {
+"FlashLightFade": SubResource("Animation_sybc5"),
+"RESET": SubResource("Animation_msloh")
+}
+
+[node name="FlashLight" type="Node3D"]
+
+[node name="FlashLightMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wy63h")
+mesh = ExtResource("1_nogdu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FlashLightMesh" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+script = ExtResource("1_pkg20")
+target_mesh = ExtResource("1_nogdu")
+target_material = ExtResource("2_p5jgg")
+player_manager_reference = "FlashLight"
+animation_name = "FlashLightFade"
+animation_fade_player = NodePath("../../FlashLightFade")
+can_be_stored = true
+darken_background = true
+outline_material = ExtResource("3_11npx")
+mesh = NodePath("..")
+has_outline = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlashLightMesh/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_480u7")
+
+[node name="FlashLightFade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_04cj2")
+}
+
+[connection signal="interacted" from="FlashLightMesh/StaticBody3D" to="FlashLightMesh/StaticBody3D" method="_on_interacted"]

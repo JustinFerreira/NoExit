@@ -18,9 +18,10 @@ func _ready() -> void:
 	max_distance = max_hearing_distance
 	volume_db = clamp(target_volume_db, min_volume_db, max_volume_db)
 	finished.connect(_on_finished)
-	play()
+	if is_inside_tree():
+		play()
 
 # Called when the sound finishes playing
 func _on_finished():
-	# Immediately restart the sound
-	play()
+	if is_inside_tree():
+		play()

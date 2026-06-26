@@ -1355,7 +1355,7 @@ material_override = ExtResource("5_uye2g")
 mesh = ExtResource("6_peg66")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.288567, 0, 0, 0, 0.553761, 0, 0, 0, 0.370065, -0.000307461, 0.293651, -0.000101333)
+transform = Transform3D(0.288567, 0, 0, 0, 0.823718, 0, 0, 0, 0.370065, -0.000307461, 0.486243, -0.197395)
 shape = SubResource("ConvexPolygonShape3D_k7s8s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

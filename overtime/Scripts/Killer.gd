@@ -162,52 +162,41 @@ func kill():
 		PlayerManager.gasIntakeSweetSpot.visible = false
 	if PlayerManager.minigameThree:
 		PlayerManager.hoodUI.visible = false
-	# Make the player's camera face the enemy before stabbing
+	# Make the player look at the enemy's face before stabbing
 	if PlayerManager.player and PlayerManager.player.CAMERA:
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.MiniGameModeOff()
 		PlayerManager.player.CURSOR.visible = false
+		var head = PlayerManager.player.HEAD
 		var camera = PlayerManager.player.CAMERA
-	
-		
-		# Get the positions - raise enemy position to look at upper body/head
-		var enemy_pos = global_transform.origin + Vector3(0, 1.5, 0)  # Raise by 1.5 meters
-		
-		# Create a transform that looks at the enemy
-		var look_transform = camera.global_transform.looking_at(enemy_pos, Vector3.UP)
-		
-		# Get the target rotation for the camera
-		var target_rotation = look_transform.basis.get_euler()
-		
-		# Get current camera rotation
-		var current_rotation = camera.global_rotation
-		
-		# Calculate the shortest rotation path
-		var shortest_target_rotation = Vector3()
-		shortest_target_rotation.x = current_rotation.x  # Keep the same pitch
-		shortest_target_rotation.y = find_shortest_y_rotation(current_rotation.y, target_rotation.y)
-		shortest_target_rotation.z = current_rotation.z  # Keep the same roll
-		
-		# Create a tween to rotate the camera smoothly
+
+		# Target the enemy's face (eye level)
+		var face_pos = global_transform.origin + Vector3(0, 1.8, 0)
+		var to_face = (face_pos - PlayerManager.player.global_position).normalized()
+		var h_dist = Vector2(to_face.x, to_face.z).length()
+
+		# Yaw: rotate head horizontally toward enemy
+		var target_yaw = atan2(-to_face.x, -to_face.z)
+		target_yaw = HelperManager.find_shortest_y_rotation(head.rotation.y, target_yaw)
+
+		# Pitch: tilt camera vertically toward enemy face, offset 35° downward
+		var target_pitch = clamp(atan2(to_face.y, h_dist) - deg_to_rad(35), deg_to_rad(-60), deg_to_rad(60))
+
+		# Turn killer to face the player (model forward is +Z so flip 180°)
+		var player_pos = PlayerManager.player.global_position
+		look_at(Vector3(player_pos.x, global_position.y, player_pos.z), Vector3.UP)
+		rotation.y += PI
+
 		var tween = create_tween()
-		tween.tween_property(camera, "global_rotation", shortest_target_rotation, 0.5)
-		
-		# Wait for rotation to complete before stabbing
+		tween.set_parallel(true)
+		tween.tween_property(head, "rotation:y", target_yaw, 0.5)
+		tween.tween_property(camera, "rotation:x", target_pitch, 0.5)
 		await tween.finished
-	
+
 	# Play the stabbing animation
 	StabbingAnimator.play("Stabbing")
 	AudioManager.KillerShutUp = true
 	AudioManager.play_sound_loop(AudioManager.SkullCrush, "Kill")
-	
-# Helper function to find the shortest Y rotation path
-func find_shortest_y_rotation(current: float, target: float) -> float:
-	var difference = fmod(target - current, TAU)
-	if difference > PI:
-		difference -= TAU
-	elif difference < -PI:
-		difference += TAU
-	return current + difference
 
 func _on_animation_finished(anim_name: String):
 	

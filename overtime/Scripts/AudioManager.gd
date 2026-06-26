@@ -237,7 +237,7 @@ func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
 		timer.timeout.connect(func():
 			var p = player_ref.get_ref()
 			var t = timer_ref.get_ref()
-			if is_instance_valid(p):
+			if is_instance_valid(p) and p.is_inside_tree():
 				p.play()
 			if is_instance_valid(t):
 				t.queue_free()
@@ -246,8 +246,9 @@ func _on_player_finished(player: AudioStreamPlayer, wait: float = 0.0):
 		player.set_meta("restart_timer", timer)
 		timer.start()
 	else:
-		player.play()
-		
+		if is_instance_valid(player) and player.is_inside_tree():
+			player.play()
+
 ## set_loop_volume
 ## If a loop is already playing
 ## this fucntion can find that loop by name

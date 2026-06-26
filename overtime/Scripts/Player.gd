@@ -42,6 +42,7 @@ var is_exiting: bool = false
 
 @onready var HEAD: Node3D = $Head
 @onready var CAMERA: Camera3D = $Head/Camera3D
+@onready var FLASHLIGHT: SpotLight3D = $Head/Camera3D/FlashLight
 @onready var FREEROAMHEAD: Node3D = $FreeRoamHead
 @onready var FREEROAMCAMERA:Camera3D  = $FreeRoamHead/Camera3D
 @onready var INTERACT_RAY: RayCast3D = $Head/Camera3D/InteractRay
@@ -82,9 +83,11 @@ func _ready() -> void:
 	PlayerManager.player = self
 	CAMERA.current = true
 	CameraManager.FPCamera = CAMERA
-	
+	FLASHLIGHT.visible = false
+	PlayerManager.equipped_item_changed.connect(_on_equipped_item_changed)
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	if not PlayerManager.Loop0 and not PlayerManager.OpeningCutscene:
 			AudioManager.play_sound_loop(AudioManager.breathing, "breathing", 1.0, breathing_volume)
 			AudioManager.play_sound_loop(AudioManager.heartbeat, "heartbeat", 1.0 , heartbeat_volume)
@@ -98,6 +101,9 @@ func _process(_delta: float) -> void:
 		grabbed_object.position = get_grab_position()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("override"):
+		if PlayerManager.DevMode:
+				$DevPauseMenu.pause()
 	if PlayerManager.InAnimation and  not PlayerManager.multiDialog || PlayerManager.dying:
 		return
 	if event.is_action_pressed("Keysound"):
@@ -343,11 +349,10 @@ func _headbob(time) -> Vector3:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("enemy"): 
+	if body.is_in_group("enemy"):
 		## Stop any sounds that could be playing
 		AudioManager.cancel_loop_sfx()
-		
-		PlayerManager.EnemyKill()
+		body.kill()
 		
 		
 
@@ -599,3 +604,6 @@ func _notification(what: int) -> void:
 func reset_headbob() -> void:
 	t_bob = 0.0
 	camera.transform.origin = Vector3.ZERO
+
+func _on_equipped_item_changed(item_name: String) -> void:
+	FLASHLIGHT.visible = (item_name == "Flash Light")

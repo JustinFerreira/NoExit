@@ -369,7 +369,7 @@ func end_focus() -> void:
 	
 	
 	# Determine if this item should be stored/picked up
-	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or (player_manager_reference in ["Keys", "BatteryExamine", "GasCanisterExamine"]):
+	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or (player_manager_reference in ["Keys", "BatteryExamine", "GasCanisterExamine", "FlashLight"]):
 		_should_store = true
 		
 		# Play sound immediately
@@ -382,7 +382,7 @@ func end_focus() -> void:
 			_on_interaction_complete()
 			get_parent().visible = false
 			AudioManager.play_sound(AudioManager.keysPickup)
-		elif player_manager_reference == "BatteryExamine" or "GasCanisterExamine":
+		elif player_manager_reference == "BatteryExamine" or "GasCanisterExamine" or "FlashLight":
 			_on_interaction_complete()
 			get_parent().visible = false
 			AudioManager.play_sound(AudioManager.ItemPickup)

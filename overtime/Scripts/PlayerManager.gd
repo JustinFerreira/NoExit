@@ -12,6 +12,8 @@
 
 extends Node
 
+signal equipped_item_changed(item_name: String)
+
 ## SETTINGS
 
 var Sensitivity: float = 0.01
@@ -162,6 +164,7 @@ var Mug1A: ExaminableItem
 var Mug2A: ExaminableItem
 var Keys: ExaminableItem
 var Box: ExaminableItem
+var FlashLight: ExaminableItem
 var BatteryExamine: ExaminableItem
 var GasCanisterExamine: ExaminableItem
 
@@ -187,6 +190,7 @@ func AddToInventory(itemName: String, weight: float, equippable: bool = false):
 	item.equippable = equippable
 	if equippable:
 		EquippedItem = item.name
+		equipped_item_changed.emit(EquippedItem)
 	CurrentWeight += weight
 	#print(CurrentWeight)
 	Inventory.append(item)
@@ -213,6 +217,7 @@ func ResetPlayer() -> void:
 	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
+	InAnimation = false
 	if player != null:
 		player = get_tree().current_scene.get_node("Player") 
 	EquippedItem = ''
@@ -446,10 +451,6 @@ func KeyFobSound():
 	else:
 		CharacterDialog(EventManager.key_fob_no_keys)
 	
-# EnemyKill
-# Starts the enemy killing the player
-func EnemyKill():
-	Enemy.kill()
 	
 # EndFocus
 # stops the focus on an examine item
@@ -490,6 +491,10 @@ func EndFocus():
 	if ParkingGarage and GasCanisterExamine:
 		if GasCanisterExamine.should_stay_in_focus and closeup == false:
 			GasCanisterExamine.end_focus()
+			
+	if true && FlashLight:
+		if FlashLight.should_stay_in_focus and closeup == false:
+			FlashLight.end_focus()
 		
 # SwitchEquippedItem
 # changes the players equipped item
@@ -521,10 +526,12 @@ func _switch_equipped_up():
 		search_index = (search_index + 1) % Inventory.size()
 		if Inventory[search_index].equippable:
 			EquippedItem = Inventory[search_index].name
+			equipped_item_changed.emit(EquippedItem)
 			return
-	
+
 	# If no equippable items found
 	EquippedItem = ''
+	equipped_item_changed.emit(EquippedItem)
 
 # _switch_equipped_down
 # assist in switching equip item this will switch item that are lower
@@ -550,7 +557,9 @@ func _switch_equipped_down():
 			search_index = Inventory.size() - 1
 		if Inventory[search_index].equippable:
 			EquippedItem = Inventory[search_index].name
+			equipped_item_changed.emit(EquippedItem)
 			return
-	
+
 	# If no equippable items found
 	EquippedItem = ''
+	equipped_item_changed.emit(EquippedItem)

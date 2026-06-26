@@ -21,7 +21,6 @@ material_override = SubResource("StandardMaterial3D_myqns")
 mesh = SubResource("BoxMesh_0rnfn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5r5s4")
 
 [node name="TeleportMesh" type="MeshInstance3D" parent="."]

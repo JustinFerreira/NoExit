@@ -53,7 +53,7 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 
 	# Reset bob so camera origin is clean before position changes
 	player.reset_headbob()
-	print("Teleport entry position:  ", player.global_position)
+	#print("Teleport entry position:  ", player.global_position)
 
 	if destination_wall_buddy.exit_only:
 		# Exit-only walls are elevator-style: same XZ, different Y.
@@ -61,7 +61,7 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 		# no portal math, no rotation change, player continues in the same direction.
 		var displacement = dest_mesh.global_position - source_mesh.global_position
 		player.global_position = player.global_position + displacement + destination_wall_buddy.exit_offset
-		print("Teleport exit position:   ", player.global_position)
+		#print("Teleport exit position:   ", player.global_position)
 		_start_cooldown()
 		return
 
@@ -77,7 +77,7 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 	new_pos.y = dest_mesh.global_position.y + relative_y
 	new_pos += destination_wall_buddy.exit_offset
 	player.global_position = new_pos
-	print("Teleport exit position:   ", player.global_position)
+	#print("Teleport exit position:   ", player.global_position)
 
 	# --- Velocity ---
 	var local_vel = source_mesh.global_transform.basis.inverse() * player.velocity

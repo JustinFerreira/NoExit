@@ -42,8 +42,8 @@ func start_random_playback():
 	random_timer.start()
 
 func play_sound():
+	if not is_inside_tree():
+		return
 	self.pitch_scale = randf_range(min_pitch, max_pitch)
-	
 	self.play()
-	
 	start_random_playback()

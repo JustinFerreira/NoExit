@@ -11,11 +11,11 @@ func _ready() -> void:
 	#make it so when it is not Loop 0 box is invisible
 	#maybe make it so it is deleted from scene? save space?
 	#put Loops in Event Manager?
-	if not PlayerManager.Loop0:
-		PlayerManager.set(player_manager_reference, null)
-		get_parent().visible = false
-		_on_interaction_complete()
-		return
+	#if not PlayerManager.Loop0:
+		#PlayerManager.set(player_manager_reference, null)
+		#get_parent().visible = false
+		#_on_interaction_complete()
+		#return
 	super._ready()
 	start_flashing()
 	normal_dialog = EventManager.box_pickup_hint

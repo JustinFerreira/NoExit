@@ -55,12 +55,13 @@ func start_random_playback():
 	random_timer.start()
 
 func _play_random_sound():
+	if not is_inside_tree():
+		return
 	# Select a random sound from the array
 	if sounds.size() > 0:
 		var random_index = randi() % sounds.size()
 		self.stream = sounds[random_index]
 		self.play()
-	
 	# Schedule the next random playback
 	start_random_playback()
 
