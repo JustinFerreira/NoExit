@@ -7,6 +7,9 @@ extends CharacterBody3D
 @onready var NAV: NavigationAgent3D = $NavigationAgent3D
 
 const WALK_SPEED: float = 3.0
+## Half-angle of the player's FOV cone that freezes the angel (90° = 180° total cone)
+@export var sight_fov_degrees: float = 90.0
+
 var player: Node3D = null
 var camera: Camera3D = null
 
@@ -63,7 +66,7 @@ func kill() -> void:
 		PlayerManager.MiniGameModeOff()
 		PlayerManager.player.CURSOR.visible = false
 		var head = PlayerManager.player.HEAD
-		var camera = PlayerManager.player.CAMERA
+		var playercamera = PlayerManager.player.CAMERA
 
 		# Target the angel's face — scale 1.8 by the node's world scale so it
 		# lands at eye level regardless of how large the instance is in the level
@@ -82,7 +85,7 @@ func kill() -> void:
 		var tween = create_tween()
 		tween.set_parallel(true)
 		tween.tween_property(head, "rotation:y", target_yaw, 0.5)
-		tween.tween_property(camera, "rotation:x", target_pitch, 0.5)
+		tween.tween_property(playercamera, "rotation:x", target_pitch, 0.5)
 		await tween.finished
 
 		await get_tree().create_timer(2.0).timeout
@@ -91,22 +94,37 @@ func kill() -> void:
 		get_tree().paused = true
 
 func _player_can_see_me() -> bool:
-	var enemy_pos = global_position
+	# Sample several points on the angel's body — freeze if ANY are visible
+	var world_scale = global_transform.basis.x.length()
+	var sample_points: Array[Vector3] = [
+		global_position + Vector3(0, 0.3 * world_scale, 0),  # shins
+		global_position + Vector3(0, 0.7 * world_scale, 0),  # waist
+		global_position + Vector3(0, 1.0 * world_scale, 0),  # chest
+		global_position + Vector3(0, 1.4 * world_scale, 0),  # shoulders
+		global_position + Vector3(0, 1.7 * world_scale, 0),  # head
+	]
 
-	# First check if we're even in the camera's FOV
-	if not camera.is_position_in_frustum(enemy_pos):
-		return false
-
-	# Line of sight check — are we blocked by a wall?
+	var cam_forward = -camera.global_transform.basis.z
+	var cos_fov = cos(deg_to_rad(sight_fov_degrees))
 	var space = get_world_3d().direct_space_state
-	var params = PhysicsRayQueryParameters3D.create(
-		camera.global_position, enemy_pos
-	)
-	params.exclude = [player]
-	var result = space.intersect_ray(params)
 
-	# Seen only if the ray hits us specifically
-	return result and result.collider == self
+	for aim_pos in sample_points:
+		# FOV check for this sample point
+		var to_enemy = (aim_pos - camera.global_position).normalized()
+		if to_enemy.dot(cam_forward) < cos_fov:
+			continue
+
+		# Line of sight check
+		var params = PhysicsRayQueryParameters3D.create(
+			camera.global_position, aim_pos
+		)
+		params.exclude = [player]
+		var result = space.intersect_ray(params)
+
+		if result and result.collider == self:
+			return true
+
+	return false
 
 func _move_toward_player(_delta: float) -> void:
 	if NAV.is_navigation_finished():

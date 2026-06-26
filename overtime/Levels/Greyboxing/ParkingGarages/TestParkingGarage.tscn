@@ -6757,7 +6757,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_piexl")
 
 [node name="WeepingAngel" parent="RampRoom" instance=ExtResource("4_j3eyv")]
-transform = Transform3D(5.17175, 0, 0, 0, 5.17175, 0, 0, 0, 5.17175, -278.614, 0.0728915, -140.885)
+transform = Transform3D(3.66685, 0, 0, 0, 3.66685, 0, 0, 0, 3.66685, -278.614, 0.0728915, -140.885)
 
 [node name="SmallHallway" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.7709, 0, 0)
