@@ -182,3 +182,13 @@ func _on_test_parking_garage_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/Greyboxing/ParkingGarages/TestParkingGarage.tscn")
 	PlayerManager.MainMenu = false
 	PlayerManager.firstdialog = false
+
+
+func _on_level_designing_pressed() -> void:
+	#Button Click Noise
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	
+	AudioManager.cancel_music()
+	get_tree().change_scene_to_file("res://Levels/Greyboxing/ParkingGarages/LevelDesigning.tscn")
+	PlayerManager.MainMenu = false
+	PlayerManager.firstdialog = false
