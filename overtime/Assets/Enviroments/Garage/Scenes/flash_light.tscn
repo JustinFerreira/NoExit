@@ -68,6 +68,7 @@ mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlashLightMesh/StaticBody3D"]
+transform = Transform3D(11.4543, 0, 0, 0, 1, 0, 0, 0, 11.7895, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_480u7")
 
 [node name="FlashLightFade" type="AnimationPlayer" parent="."]
