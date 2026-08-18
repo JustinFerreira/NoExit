@@ -17,6 +17,16 @@ class_name Interactable
 # the signals tab to easily establish this function.
 signal interacted(body)
 
+# interaction_succeeded
+# A separate signal from `interacted` above. `interacted` just means the
+# player clicked this object - it fires no matter what the object's own
+# _on_interacted() decides to do with that click. interaction_succeeded
+# means this object's interaction actually succeeded (a puzzle piece was
+# solved, an item was picked up, etc). Anything that needs to react to a
+# real success - like ConditionDoor - should listen for this instead of
+# `interacted`. Call mark_success() below to emit it.
+signal interaction_succeeded
+
 # turn on and off the objetcs interactivity
 @export var is_interactable: bool = true
 # Stores materail used for the outline
@@ -70,7 +80,15 @@ func interact(body):
 # turns off interactablity for an object
 func _on_interaction_complete() -> void:
 	is_interactable = false
-	
+
+# mark_success
+# Call this from a child script's _on_interacted() once it knows its
+# interaction actually succeeded. Emits interaction_succeeded so anything
+# listening for a real success (not just a click) can react - see
+# ConditionDoor.
+func mark_success() -> void:
+	interaction_succeeded.emit()
+
 # show_outline
 # turns on the outline for an object
 func show_outline() -> bool:
