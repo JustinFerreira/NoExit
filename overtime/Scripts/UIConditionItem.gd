@@ -24,6 +24,13 @@ class_name UIConditionItem
 ## again after that just re-opens/does nothing new.
 @export var one_shot: bool = true
 
+## Optional. Other Interactable-based buttons (SimpleCondition,
+## UIConditionItem, etc.) to bring back to their original clickable
+## state the moment this one succeeds. Meant for a "relock" switch that
+## also resets the buttons a ConditionDoor's required_conditions used
+## the first time, so the puzzle can be solved again.
+@export var reactivate_targets: Array[Interactable] = []
+
 
 func _ready() -> void:
 	super._ready()
@@ -49,5 +56,6 @@ func _on_interacted(_body: Variant) -> void:
 # Called when the player clicks the button inside ui_panel.
 func _on_ui_confirmed() -> void:
 	mark_success()
+	reactivate_others(reactivate_targets)
 	if one_shot:
 		_on_interaction_complete()

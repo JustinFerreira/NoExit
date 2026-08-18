@@ -17,11 +17,19 @@ class_name SimpleCondition
 ## counts the FIRST success from a given condition either way).
 @export var one_shot: bool = true
 
+## Optional. Other Interactable-based buttons (SimpleCondition,
+## UIConditionItem, etc.) to bring back to their original clickable
+## state the moment this one succeeds. Meant for a "relock" switch that
+## also resets the buttons a ConditionDoor's required_conditions used
+## the first time, so the puzzle can be solved again.
+@export var reactivate_targets: Array[Interactable] = []
+
 
 # _on_interacted
 # Called by Interactable when the player clicks this object (wired up
 # via the node's Signals tab in the editor, same as every Interactable).
 func _on_interacted(_body: Variant) -> void:
 	mark_success()
+	reactivate_others(reactivate_targets)
 	if one_shot:
 		_on_interaction_complete()

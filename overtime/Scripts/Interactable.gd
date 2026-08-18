@@ -237,7 +237,20 @@ func _exit_tree() -> void:
 		_flash_tween.kill()
 		
 # toggle_interactable
-# takes in a bool parameter and sets 
+# takes in a bool parameter and sets
 # is_interactable to that
 func toggle_interactable(state: bool):
 	is_interactable = state
+
+# reactivate_others
+# Shared helper for "button" scripts (SimpleCondition, UIConditionItem)
+# that expose their own exported reactivate_targets list and want to
+# restore a set of other Interactables to their original clickable state
+# when they fire - e.g. a relock trigger putting the buttons a
+# ConditionDoor already solved back into play so the puzzle can be
+# solved again.
+func reactivate_others(targets: Array[Interactable]) -> void:
+	for target in targets:
+		if target == null:
+			continue
+		target.toggle_interactable(true)
