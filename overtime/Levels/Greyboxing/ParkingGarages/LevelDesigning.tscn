@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://0l31dsgetxuh"]
+[gd_scene load_steps=69 format=3 uid="uid://0l31dsgetxuh"]
 
 [ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="2_4gd0m"]
 [ext_resource type="PackedScene" uid="uid://c7oxqkwa88xnt" path="res://Assets/Enviroments/Garage/Scenes/walk_in_wall.tscn" id="3_vwcur"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/UIConditionItem.gd" id="9_4etnn"]
 [ext_resource type="Script" path="res://Scripts/ConditionUIPanel.gd" id="10_jbl2a"]
 [ext_resource type="Script" path="res://Scripts/SimpleCondition.gd" id="11_yhx65"]
+[ext_resource type="Script" path="res://Scripts/ColorGatePuzzle.gd" id="12_cgp01"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruj2r"]
 albedo_color = Color(0, 0, 0, 1)
@@ -155,6 +156,21 @@ albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jg3ic"]
 albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfavf"]
+albedo_color = Color(1, 0.623529, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_makg0"]
+albedo_color = Color(0.360287, 0.00164655, 0.686251, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0m5v"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8epj"]
+albedo_color = Color(0.742253, 0.469251, 1, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_20t4p"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
 [node name="Main" type="Node3D"]
 
@@ -1227,6 +1243,17 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D51/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tiigr")
 
+[node name="MeshInstance3D106" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(547.599, 0, 0, 0, 0.0357388, 0, 0, 0, 183.004, 12.2537, 40.602, 3387)
+material_override = SubResource("StandardMaterial3D_ruj2r")
+mesh = SubResource("BoxMesh_u42qg")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D106"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D106/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_tiigr")
+
 [node name="MeshInstance3D52" type="MeshInstance3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 28.9828, 65.5961, 26.998, 3325.3)
 mesh = SubResource("BoxMesh_jdeo3")
@@ -1467,6 +1494,26 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D90/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
+[node name="MeshInstance3D101" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 21.2902, 152.86, 26.998, 3455.56)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D101"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D101/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D102" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 21.2902, 152.86, 26.998, 3433.76)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D102"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D102/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
 [node name="MeshInstance3D82" type="MeshInstance3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 11.0905, 132.047, 26.998, 3460.34)
 mesh = SubResource("BoxMesh_jdeo3")
@@ -1498,7 +1545,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
 [node name="MeshInstance3D83" type="MeshInstance3D" parent="PlayRoom"]
-transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 11.0905, 132.047, 26.998, 3438.6)
+transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 10.1776, 132.047, 26.998, 3439.06)
 mesh = SubResource("BoxMesh_jdeo3")
 skeleton = NodePath("../..")
 
@@ -1515,6 +1562,16 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D84"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D84/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D103" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 20.9977, 0, 27.2034, 0, -1, 0, -9.17837e-07, 143.01, 26.998, 3423.77)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D103"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D103/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
 [node name="MeshInstance3D85" type="MeshInstance3D" parent="PlayRoom"]
@@ -1547,6 +1604,76 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D88/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
+[node name="MeshInstance3D104" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 33.7525, 0, 27.2034, 0, -1, 0, -1.47537e-06, 45.4381, 26.998, 3464.95)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D104"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D104/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D94" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 19.6465, 0, 27.2034, 0, -1, 0, -8.58776e-07, 27.4903, 26.998, 3423.83)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D94"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D94/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D98" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 59.3754, 0, 27.2034, 0, -1, 0, -2.59538e-06, 8.385, 26.998, 3385.47)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D98"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D98/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D95" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 27.8238, 7.61099, 26.998, 3437.48)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D95"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D95/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D97" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 27.2034, 0, 0, 0, 91.5041, -20.7658, 26.998, 3431.66)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D97"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D97/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D96" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 28.6054, 0, 27.2034, 0, -1, 0, -1.25038e-06, -6.22885, 26.998, 3423.8)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D96"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D96/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D105" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 18.3947, 0, 27.2034, 0, -1, 0, -8.04056e-07, -1.60822, 26.998, 3450.88)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D105"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D105/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
 [node name="MeshInstance3D80" type="MeshInstance3D" parent="PlayRoom"]
 transform = Transform3D(-4.37114e-08, 0, 21.2902, 0, 27.2034, 0, -1, 0, -9.30622e-07, 121.98, 26.998, 3444.64)
 mesh = SubResource("BoxMesh_jdeo3")
@@ -1557,6 +1684,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D80/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
+[node name="MeshInstance3D100" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 21.2902, 0, 27.2034, 0, -1, 0, -9.30622e-07, 142.649, 26.998, 3444.64)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D100"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D100/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
 [node name="MeshInstance3D81" type="MeshInstance3D" parent="PlayRoom"]
 transform = Transform3D(-4.37114e-08, 0, 21.2902, 0, 27.2034, 0, -1, 0, -9.30622e-07, 121.98, 26.998, 3466.07)
 mesh = SubResource("BoxMesh_jdeo3")
@@ -1565,6 +1702,16 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D81"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D81/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D99" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 21.2902, 0, 27.2034, 0, -1, 0, -9.30622e-07, 142.694, 26.998, 3466.07)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D99"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D99/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
 [node name="MeshInstance3D71" type="MeshInstance3D" parent="PlayRoom"]
@@ -1598,7 +1745,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
 [node name="MeshInstance3D91" type="MeshInstance3D" parent="PlayRoom"]
-transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 14.2166, 0, -3.03021, 0, -1.22139e-07, 84.0435, 23.101, 3397.67)
+transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 8.36276, 0, -3.03021, 0, -1.22139e-07, 84.0435, 23.101, 3397.67)
 mesh = SubResource("BoxMesh_jdeo3")
 skeleton = NodePath("../..")
 
@@ -1607,24 +1754,24 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D91/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
-[node name="MeshInstance3D92" type="MeshInstance3D" parent="PlayRoom"]
-transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 14.2166, 0, -3.03021, 0, -1.22139e-07, 72.794, 23.101, 3397.67)
-mesh = SubResource("BoxMesh_jdeo3")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D92"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D92/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_duiqg")
-
 [node name="MeshInstance3D93" type="MeshInstance3D" parent="PlayRoom"]
-transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 14.2166, 0, -3.03021, 0, -1.22139e-07, 61.8604, 23.101, 3397.67)
+transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 8.36276, 0, -3.03021, 0, -1.22139e-07, 61.7733, 23.101, 3397.67)
 mesh = SubResource("BoxMesh_jdeo3")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D93"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D93/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_duiqg")
+
+[node name="MeshInstance3D92" type="MeshInstance3D" parent="PlayRoom"]
+transform = Transform3D(-1.32455e-07, 0, 2.79422, 0, 8.36276, 0, -3.03021, 0, -1.22139e-07, 72.724, 23.101, 3397.67)
+mesh = SubResource("BoxMesh_jdeo3")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom/MeshInstance3D92"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/MeshInstance3D92/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_duiqg")
 
 [node name="MeshInstance3D74" type="MeshInstance3D" parent="PlayRoom"]
@@ -1693,6 +1840,78 @@ transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 49.9604, 39.599, 335
 
 [node name="GarageLight43" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 79.3363, 39.599, 3353.28)
+
+[node name="GarageLight55" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 106.711, 39.599, 3371.12)
+
+[node name="GarageLight56" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 45.5937, 39.599, 3371.12)
+
+[node name="GarageLight57" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 45.5937, 39.599, 3416.93)
+
+[node name="GarageLight58" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 108.038, 39.599, 3416.93)
+
+[node name="GarageLight72" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 95.5866, 39.599, 3426.8)
+
+[node name="GarageLight73" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 95.5866, 39.599, 3460.7)
+
+[node name="GarageLight74" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 125.424, 39.599, 3460.7)
+
+[node name="GarageLight75" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 125.424, 39.599, 3439.73)
+
+[node name="GarageLight76" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 146.267, 39.599, 3432.61)
+
+[node name="GarageLight77" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 146.267, 39.599, 3455.32)
+
+[node name="GarageLight59" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 69.273, 39.599, 3416.93)
+
+[node name="GarageLight78" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 22.692, 39.599, 3376.28)
+
+[node name="GarageLight60" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 68.6187, 39.599, 3428.34)
+
+[node name="GarageLight61" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 68.6187, 39.599, 3469.52)
+
+[node name="GarageLight62" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 86.2888, 39.599, 3469.52)
+
+[node name="GarageLight63" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 123.217, 39.599, 3472.96)
+
+[node name="GarageLight64" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 31.0481, 39.599, 3472.96)
+
+[node name="GarageLight65" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 55.1574, 39.599, 3459.05)
+
+[node name="GarageLight66" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 55.1574, 39.599, 3438.3)
+
+[node name="GarageLight67" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 14.0514, 39.599, 3438.3)
+
+[node name="GarageLight68" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 14.0514, 39.599, 3420.49)
+
+[node name="GarageLight69" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -1.96129, 39.599, 3392.17)
+
+[node name="GarageLight70" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -1.96129, 39.599, 3466.02)
+
+[node name="GarageLight71" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -9.75445, 39.599, 3436.29)
 
 [node name="GarageLight44" parent="PlayRoom" instance=ExtResource("2_4gd0m")]
 transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 102.248, 39.599, 3353.28)
@@ -1875,14 +2094,15 @@ mesh = SubResource("BoxMesh_qqd34")
 shape = SubResource("ConvexPolygonShape3D_gk02p")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PlayRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0095, 34.6501, 3378.51)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0095, 45.3587, 3378.51)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/StaticBody3D"]
 mesh = SubResource("BoxMesh_73ppg")
 
 [node name="YellowButton" type="StaticBody3D" parent="PlayRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.7857, 30.6945, 3397.55)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.7857, 27.8541, 3397.55)
 script = ExtResource("11_yhx65")
+one_shot = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/YellowButton"]
 material_override = SubResource("StandardMaterial3D_ojwj7")
@@ -1892,8 +2112,9 @@ mesh = SubResource("BoxMesh_73ppg")
 shape = SubResource("ConvexPolygonShape3D_vd7x6")
 
 [node name="PinkButton" type="StaticBody3D" parent="PlayRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.0338, 30.6945, 3397.55)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.0338, 27.8484, 3397.55)
 script = ExtResource("11_yhx65")
+one_shot = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PinkButton"]
 material_override = SubResource("StandardMaterial3D_lxcsg")
@@ -1902,24 +2123,21 @@ mesh = SubResource("BoxMesh_73ppg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/PinkButton"]
 shape = SubResource("ConvexPolygonShape3D_5ko0h")
 
-[node name="BlueButton" type="StaticBody3D" parent="PlayRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9695, 30.6945, 3397.55)
+[node name="CyanButton" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.9695, 27.8813, 3397.55)
 script = ExtResource("11_yhx65")
+one_shot = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/BlueButton"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/CyanButton"]
 material_override = SubResource("StandardMaterial3D_pmssx")
 mesh = SubResource("BoxMesh_73ppg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/BlueButton"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/CyanButton"]
 shape = SubResource("ConvexPolygonShape3D_1hary")
 
-[node name="PinkDoor" type="StaticBody3D" parent="PlayRoom" node_paths=PackedStringArray("required_conditions", "relock_conditions")]
+[node name="PinkDoor" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.8536, 34.6501, 3423.8)
-script = ExtResource("8_4fqcl")
-required_conditions = [NodePath("../PinkButton")]
-required_count = 1
-relock_conditions = [NodePath("../BlueButton"), NodePath("../YellowButton")]
-relock_required_count = 2
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PinkDoor"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1932,7 +2150,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="PinkDoor2" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8186, 34.6501, 3451.32)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PinkDoor2"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1945,7 +2163,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="PinkDoor3" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 90.2424, 34.6501, 3472.61)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PinkDoor3"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1958,7 +2176,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="YellowDoor" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.0016, 34.6501, 3423.8)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/YellowDoor"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1969,9 +2187,22 @@ mesh = SubResource("BoxMesh_73ppg")
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
+[node name="YellowDoor3" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.945, 34.6501, 3423.8)
+script = ExtResource("6_em6xx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/YellowDoor3"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rs777")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/YellowDoor3"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wwb6m")
+
 [node name="YellowDoor2" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 132.085, 34.6501, 3449.91)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/YellowDoor2"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1984,7 +2215,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="CyanDoor" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6376, 34.6501, 3423.8)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/CyanDoor"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -1997,7 +2228,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="CyanDoor2" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.724, 34.6501, 3444.55)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/CyanDoor2"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -2010,7 +2241,7 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
 [node name="CyanDoor3" type="StaticBody3D" parent="PlayRoom"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 62.6587, 34.6501, 3472.59)
-script = ExtResource("8_4fqcl")
+script = ExtResource("6_em6xx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/CyanDoor3"]
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
@@ -2021,6 +2252,143 @@ mesh = SubResource("BoxMesh_73ppg")
 transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wwb6m")
 
+[node name="ColorGatePuzzle" type="Node" parent="PlayRoom" node_paths=PackedStringArray("pink_button", "pink_doors", "yellow_button", "yellow_doors", "blue_button", "blue_doors")]
+script = ExtResource("12_cgp01")
+pink_button = NodePath("../PinkButton")
+pink_doors = [NodePath("../PinkDoor"), NodePath("../PinkDoor2"), NodePath("../PinkDoor3")]
+yellow_button = NodePath("../YellowButton")
+yellow_doors = [NodePath("../YellowDoor"), NodePath("../YellowDoor2"), NodePath("../YellowDoor3")]
+blue_button = NodePath("../CyanButton")
+blue_doors = [NodePath("../CyanDoor"), NodePath("../CyanDoor2"), NodePath("../CyanDoor3")]
+
+[node name="OrangeDoor" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 132.085, 34.6501, 3429.13)
+script = ExtResource("6_em6xx")
+key_name = "OrangeKey"
+consume_key_on_unlock = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/OrangeDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_kfavf")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/OrangeDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wwb6m")
+
+[node name="PurpleDoor" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6485, 34.6501, 3464.94)
+script = ExtResource("6_em6xx")
+key_name = "PurpleKey"
+consume_key_on_unlock = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PurpleDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0.105707, 0, 0)
+material_override = SubResource("StandardMaterial3D_makg0")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/PurpleDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wwb6m")
+
+[node name="BlueDoor" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5014, 34.6501, 3450.91)
+script = ExtResource("6_em6xx")
+key_name = "BlueKey"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/BlueDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_m0m5v")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/BlueDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wwb6m")
+
+[node name="LavenderDoor" type="StaticBody3D" parent="PlayRoom" node_paths=PackedStringArray("required_conditions")]
+transform = Transform3D(-8.36592e-08, 0, 1, 0, 1, 0, -1.9139, 0, -4.37114e-08, 37.6297, 34.6501, 3375.71)
+script = ExtResource("8_4fqcl")
+required_conditions = [NodePath("../LavenderButton1"), NodePath("../LavenderButton2"), NodePath("../LavenderButton3")]
+required_count = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/LavenderDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_i8epj")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/LavenderDoor"]
+transform = Transform3D(9.56181, 0, 0, 0, 17.7518, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_wwb6m")
+
+[node name="BlueKey" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.549, 29.4697, 3454.93)
+script = ExtResource("7_owbt3")
+item_name = "BlueKey"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/BlueKey"]
+material_override = SubResource("StandardMaterial3D_m0m5v")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/BlueKey"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
+[node name="PurpleKey" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.745, 29.4697, 3472.38)
+script = ExtResource("7_owbt3")
+item_name = "PurpleKey"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/PurpleKey"]
+material_override = SubResource("StandardMaterial3D_makg0")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/PurpleKey"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
+[node name="OrangeKey" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12306, 29.4697, 3392.26)
+script = ExtResource("7_owbt3")
+item_name = "OrangeKey"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/OrangeKey"]
+material_override = SubResource("StandardMaterial3D_kfavf")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/OrangeKey"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
+[node name="LavenderButton1" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.549, 29.4697, 3432.72)
+script = ExtResource("11_yhx65")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/LavenderButton1"]
+material_override = SubResource("StandardMaterial3D_i8epj")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/LavenderButton1"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
+[node name="LavenderButton2" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7477, 29.4697, 3460.15)
+script = ExtResource("11_yhx65")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/LavenderButton2"]
+material_override = SubResource("StandardMaterial3D_i8epj")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/LavenderButton2"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
+[node name="LavenderButton3" type="StaticBody3D" parent="PlayRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3666, 29.4697, 3427.42)
+script = ExtResource("11_yhx65")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayRoom/LavenderButton3"]
+material_override = SubResource("StandardMaterial3D_i8epj")
+mesh = SubResource("BoxMesh_73ppg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayRoom/LavenderButton3"]
+shape = SubResource("ConvexPolygonShape3D_20t4p")
+
 [connection signal="interacted" from="PlayRoom/DoorTest" to="PlayRoom/DoorTest" method="_on_interacted"]
 [connection signal="interacted" from="PlayRoom/DoorKey" to="PlayRoom/DoorKey" method="_on_interacted"]
 [connection signal="interacted" from="PlayRoom/UIButtonTest1" to="PlayRoom/UIButtonTest1" method="_on_interacted"]
@@ -2029,4 +2397,13 @@ shape = SubResource("ConvexPolygonShape3D_wwb6m")
 [connection signal="interacted" from="PlayRoom/SimpleButton" to="PlayRoom/SimpleButton" method="_on_interacted"]
 [connection signal="interacted" from="PlayRoom/YellowButton" to="PlayRoom/YellowButton" method="_on_interacted"]
 [connection signal="interacted" from="PlayRoom/PinkButton" to="PlayRoom/PinkButton" method="_on_interacted"]
-[connection signal="interacted" from="PlayRoom/BlueButton" to="PlayRoom/BlueButton" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/CyanButton" to="PlayRoom/CyanButton" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/OrangeDoor" to="PlayRoom/OrangeDoor" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/PurpleDoor" to="PlayRoom/PurpleDoor" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/BlueDoor" to="PlayRoom/BlueDoor" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/BlueKey" to="PlayRoom/BlueKey" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/PurpleKey" to="PlayRoom/PurpleKey" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/OrangeKey" to="PlayRoom/OrangeKey" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/LavenderButton1" to="PlayRoom/LavenderButton1" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/LavenderButton2" to="PlayRoom/LavenderButton2" method="_on_interacted"]
+[connection signal="interacted" from="PlayRoom/LavenderButton3" to="PlayRoom/LavenderButton3" method="_on_interacted"]
