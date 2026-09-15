@@ -5,7 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="2_pogjx"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="3_10mdd"]
 [ext_resource type="Material" uid="uid://blbhl6rna6cvk" path="res://Assets/Materials/Chair.tres" id="4_2lc7y"]
-[ext_resource type="Material" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
+[ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
 
 [node name="Cubicle" type="Node3D"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
@@ -30,7 +30,7 @@ transform = Transform3D(0.00603586, 0, -2.28921, 0, 0.988832, 0, 1.03232, 0, 0.0
 transform = Transform3D(-0.0509361, 0, 0.0124608, 0, 2.2589, 0, -0.000278265, 0, -2.28093, -1.32894, 1.11824, -0.168737)
 
 [node name="MChairUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0184792, 0, 1.14702, 0, 1.14717, 0, -1.14702, 0, 0.0184792, -0.110374, 0, 0.522584)
+transform = Transform3D(0.0161085, 0, 1.14685, 0, 1.147, 0, -0.99987, 0, 0.0184764, -0.110374, 0, 0.522584)
 material_override = ExtResource("4_2lc7y")
 mesh = ExtResource("2_pogjx")
 

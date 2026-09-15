@@ -19,6 +19,16 @@ class_name WallBuddy
 ## Fine-tune the exit position in world space without moving the wall node.
 ## Tweak X/Y/Z until the transition looks seamless, then leave it.
 @export var exit_offset: Vector3 = Vector3.ZERO
+## Check this on the DESTINATION wall if it's been rotated/mirrored 180°
+## in the editor from the game's normal wall-facing setup (e.g. to fit
+## the hallway layout). The portal math below assumes a specific
+## relative facing between source and destination walls; flipping the
+## destination wall's orientation throws that off and the player comes
+## out slightly offset/facing the wrong way. Turning this on undoes that
+## extra 180° so the exit lines up again. Only affects the standard
+## portal math (exit_only walls don't rotate the player, so this does
+## nothing there).
+@export var flip_exit: bool = false
 
 var _cooldown: bool = false
 
@@ -66,14 +76,27 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 		return
 
 	# --- Position (standard 180°-facing portal) ---
+	# WalkInWall instances are almost always scaled non-uniformly to fit
+	# their opening (see e.g. the Hallway/Hallway2 or Transport walls -
+	# their root transforms aren't unit-length on every axis). Projecting
+	# onto a basis vector with .dot() like this used to scales the result
+	# by that vector's own length, and then re-applying it on the dest
+	# wall's (possibly different) basis scales it AGAIN - offsets came out
+	# multiplied by the wall's scale twice. Using the full basis inverse/
+	# multiply (same technique the velocity/rotation code below already
+	# uses) removes and re-applies scale correctly instead of double-
+	# counting it.
 	var to_player = player.global_position - source_mesh.global_position
-	var lateral   = source_mesh.global_transform.basis.x.dot(to_player)
-	var depth     = source_mesh.global_transform.basis.z.dot(to_player)
+	to_player.y = 0.0  # Y is handled separately below via relative_y.
+	var local_offset = source_mesh.global_transform.basis.inverse() * to_player
 	var relative_y = player.global_position.y - source_mesh.global_position.y
 
-	var new_pos = dest_mesh.global_position
-	new_pos += dest_mesh.global_transform.basis.x * -lateral
-	new_pos += dest_mesh.global_transform.basis.z * depth
+	# Destination wall rotated 180° in the editor? Flip which way we turn
+	# the player around instead of always assuming the same convention.
+	var flip_sign: float = 1.0 if destination_wall_buddy.flip_exit else -1.0
+	local_offset.x *= flip_sign
+
+	var new_pos = dest_mesh.global_position + dest_mesh.global_transform.basis * local_offset
 	new_pos.y = dest_mesh.global_position.y + relative_y
 	new_pos += destination_wall_buddy.exit_offset
 	player.global_position = new_pos
@@ -81,15 +104,15 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 
 	# --- Velocity ---
 	var local_vel = source_mesh.global_transform.basis.inverse() * player.velocity
-	local_vel.x = -local_vel.x
-	local_vel.z = -local_vel.z
+	local_vel.x = flip_sign * local_vel.x
+	local_vel.z = flip_sign * local_vel.z
 	player.velocity = dest_mesh.global_transform.basis * local_vel
 
 	# --- Rotation ---
 	var head_forward = -head.global_transform.basis.z
 	var local_forward = source_mesh.global_transform.basis.inverse() * head_forward
-	local_forward.x = -local_forward.x
-	local_forward.z = -local_forward.z
+	local_forward.x = flip_sign * local_forward.x
+	local_forward.z = flip_sign * local_forward.z
 	var new_forward = dest_mesh.global_transform.basis * local_forward
 	new_forward.y = 0.0
 	new_forward = new_forward.normalized()

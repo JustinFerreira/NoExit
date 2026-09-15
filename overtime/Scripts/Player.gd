@@ -29,6 +29,29 @@ var t_bob: float = 0.0 # Determines how far along the signwave we are for bobbin
 var was_moving: bool = false
 var is_moving: bool = false
 
+## ---------------------------------------------------------------------
+## Terrain Step Assist
+## ---------------------------------------------------------------------
+## Hand-placed MeshInstances rarely line up pixel-perfect, so the floor
+## can have tiny seams/lips between pieces. These give the player some
+## leeway instead of getting stuck on them.
+
+## How tall a ledge/seam can be before the player just steps up over it
+## instead of getting blocked by it. Meant for small mismatches between
+## floor pieces, not real stairs - keep this small. Set to 0 to disable.
+@export var step_height: float = 0.3
+
+## Godot's built-in floor snap distance, exposed here for quick tuning -
+## how big a floor height DROP (a pothole/small gap) the player sticks
+## to the ground through instead of catching air or stuttering.
+@export var floor_snap_amount: float = 0.3
+
+## Godot's built-in floor_max_angle, exposed here for quick tuning - the
+## steepest surface still counted as "floor" (walkable) instead of
+## "wall". Slightly-tilted seams get treated as a shallow slope instead
+## of a stop.
+@export var floor_max_angle_degrees: float = 50.0
+
 var breathing_volume: float = -80  # Adjust as needed
 var heartbeat_volume: float = -20  # Adjust as needed
 
@@ -80,6 +103,9 @@ func _ready() -> void:
 		$ps1_graphics.visible = true
 	else:
 		$ps1_graphics.visible = false
+	floor_snap_length = floor_snap_amount
+	floor_max_angle = deg_to_rad(floor_max_angle_degrees)
+
 	PlayerManager.player = self
 	CAMERA.current = true
 	CameraManager.FPCamera = CAMERA
@@ -299,8 +325,46 @@ func _physics_process(delta: float) -> void:
 			$arms.rotation.y = angle
 			$body.rotation.y = angle
 
+	_apply_step_assist(delta)
+
 	if not is_exiting and is_inside_tree() and get_world_3d() != null:
 		move_and_slide()
+
+
+# _apply_step_assist
+# Checks whether this frame's horizontal movement is about to get
+# blocked by something shorter than step_height and, if so, hops the
+# player straight up over it before move_and_slide() runs - turns a
+# small mesh seam into a smooth step instead of a wall. Does nothing if
+# the player isn't grounded, isn't moving, or the "wall" ahead is
+# actually tall (a real wall) or has something above it (a low ceiling).
+func _apply_step_assist(delta: float) -> void:
+	if step_height <= 0.0 or not is_on_floor():
+		return
+
+	var motion := Vector3(velocity.x, 0.0, velocity.z) * delta
+	if motion.length() < 0.001:
+		return
+
+	# Nothing in the way at ground level - no step needed.
+	if not test_move(global_transform, motion):
+		return
+
+	# Is there room for the player at the same spot, just step_height
+	# higher? If something's blocking up there too (a low ceiling), this
+	# isn't a steppable lip.
+	var raised_transform := global_transform
+	raised_transform.origin.y += step_height
+	if test_move(raised_transform, Vector3.ZERO):
+		return
+
+	# And can we actually move forward once raised? If that's still
+	# blocked, whatever we hit is taller than step_height - leave it as
+	# a real wall.
+	if test_move(raised_transform, motion):
+		return
+
+	global_transform.origin.y += step_height
 
 
 func _handle_interact_ray() -> void:
