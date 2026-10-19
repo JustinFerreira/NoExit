@@ -1,534 +1,708 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/24/26 by Justin Ferreira
+## Last updated 10/18/26 by Justin Ferreira
 ## Examinable Item Script
-## - Brings item close to camera, allows rotation
-## - Darkens all layer‑1 objects (background) by 90% with a fade in/out
-## - Debug mesh (layer 2) stays bright during examination
-## - On exit: storable items vanish instantly; regular items animate back to place
-## - UI is unaffected
+## - Generic "click to look at it" item. Brings a copy of the item's mesh in
+##   front of the camera, lets the player rotate it, then either puts it back
+##   or picks it up.
+## - Everything is set up from the Inspector - most items need NO script of
+##   their own. See the groups below.
+##
+## ---------------------------------------------------------------------
+## HOW TO MAKE A NEW EXAMINABLE ITEM
+## ---------------------------------------------------------------------
+## 1. Scene layout (same as every existing item):
+##      ItemRoot (Node3D)
+##        └ ItemMesh (MeshInstance3D)
+##            └ StaticBody3D   <- put ExaminableItem.gd (or a child script) here
+##                └ CollisionShape3D
+## 2. On the StaticBody3D set:
+##      - Interactable > has_outline     = on (the mesh fills in
+##        automatically from the parent ItemMesh)
+##      - Examine > examine_dialog       = what the player says
+## 3. Optional: fill in the Pickup / Flashing / Spawn groups.
+## That's it. You do NOT need to:
+##      - connect the `interacted` signal (done automatically)
+##      - add a var to PlayerManager or set player_manager_reference
+##      - add the item to PlayerManager.EndFocus()
+##      - make a fade AnimationPlayer
+##
+## Need custom behaviour? `extends ExaminableItem` and override the hooks at
+## the bottom of this file (_can_examine, _on_examine_started, _on_picked_up,
+## _should_flash, ...). Don't override _on_interacted / _process unless you
+## call super.
 
 extends Interactable
 class_name ExaminableItem
 
-# Store original transform
-var original_position: Vector3
-var original_rotation: Vector3
-var original_scale: Vector3
+## Emitted when the item starts flying to the camera.
+signal examine_started
+## Emitted once the item is fully back in place (or picked up).
+signal examine_ended
+## Emitted when the item is put in the inventory / stored in the box.
+signal picked_up
 
-# Tween for animations
-var tween: Tween
-var debug_mesh: MeshInstance3D
-var _return_tween: Tween   # return animation for non‑storable items
+## ---------------------------------------------------------------------
+## Global toggles - flip these to try things out across every item.
+## ---------------------------------------------------------------------
 
-# Export mesh/material to match original
+## Spin items once while they fly up to the camera. Every item uses this
+## unless its own spin_mode overrides it. Can also be flipped at runtime:
+## ExaminableItem.spin_enabled = false
+static var spin_enabled: bool = true
+
+enum SpinMode { USE_GLOBAL, ALWAYS, NEVER }
+enum SizeMode { FIT_TO_SCREEN, MULTIPLY_ORIGINAL }
+enum FlashMode { NEVER, UNTIL_PICKED_UP, WHEN_BOX_EQUIPPED }
+enum SpawnCondition { ALWAYS, LOOP_0_ONLY, AFTER_LOOP_0 }
+
+## ---------------------------------------------------------------------
+## Examine
+## ---------------------------------------------------------------------
+@export_group("Examine")
+## What the player says when they look at this.
+@export_multiline var examine_dialog: String = "I like this item!"
+## If set, examine_dialog is read from this EventManager variable instead
+## (e.g. "stapler_normal_dialog"). Keeps all dialog in one place.
+@export var dialog_from_event_manager: String = ""
+## Shown alongside the dialog the very first time the player examines anything.
+@export var first_time_hint: String = "Press A, D or the arrow keys to rotate the object, W, S to tilt it"
+## Shown when the desk is cleared but the keys are still out.
+@export var keys_hint_dialog: String = "I should grab my keys and get out of here"
+## Dim the rest of the world while examining.
+@export var darken_background: bool = false
+
+@export_group("Examine View")
+## How far in front of the camera the item floats.
+@export var focus_distance: float = 0.8
+## Nudge on screen, as a fraction of the screen (x: -0.5..0.5 left/right,
+## y: -0.5..0.5 down/up). (0, 0) is dead centre.
+@export var screen_offset: Vector2 = Vector2.ZERO
+## FIT_TO_SCREEN sizes every item the same on screen regardless of the
+## model's real size. MULTIPLY_ORIGINAL just scales the original by
+## scale_multiplier (old behaviour).
+@export var size_mode: SizeMode = SizeMode.FIT_TO_SCREEN
+## FIT_TO_SCREEN: how much of the screen height the item takes up (0-1).
+@export_range(0.05, 0.95) var screen_fill: float = 0.55
+## MULTIPLY_ORIGINAL: scale applied to the item's original size.
+@export var scale_multiplier: float = 1.5
+## Which way the model's "front" points in its own local space. That side
+## is turned to face the camera.
+@export var front_axis: Vector3 = Vector3.RIGHT
+## Extra rotation (degrees, local) applied after facing the camera, for
+## models that need a nudge to look right.
+@export var examine_rotation_offset: Vector3 = Vector3.ZERO
+## Seconds to fly in / fly back.
+@export var transition_time: float = 0.8
+## Brightness of a light that only shines on the examined item (from the
+## player's direction), so it stays readable in dark rooms. 0 = off.
+@export var examine_light_energy: float = 1.0
+
+@export_group("Examine Spin")
+## USE_GLOBAL follows ExaminableItem.spin_enabled.
+@export var spin_mode: SpinMode = SpinMode.USE_GLOBAL
+## How many full turns while flying in.
+@export var spin_turns: float = 1.0
+
+@export_group("Examine Controls")
+## Degrees per second when the player holds left/right.
+@export var rotate_speed_degrees: float = 120.0
+## Let the player tilt the item with forward/backward (W/S) too.
+@export var allow_tilt: bool = true
+
+## ---------------------------------------------------------------------
+## Pickup
+## ---------------------------------------------------------------------
+@export_group("Pickup")
+## Picked up when the player closes the examine view.
+@export var pickup_on_close: bool = false
+## If the player has the Box equipped when closing, the item is stored on
+## the desk (GameState remembers it as STORED) instead of being put back.
+@export var store_in_box: bool = false
+## Added to PlayerManager.Inventory on pickup. Leave empty to not add
+## anything (e.g. desk items stored in the box).
+@export var inventory_name: String = ""
+@export var inventory_weight: float = 0.5
+@export var inventory_equippable: bool = false
+## Played on pickup. Empty = AudioManager.ItemPickup.
+@export var pickup_sound: AudioStream
+## Played when the examine starts (e.g. AudioManager.ImportantItemStinger
+## for key items). Empty = nothing.
+@export var examine_sound: AudioStream
+## Node hidden when picked up. Empty = this body's parent (the item mesh).
+@export var hide_on_pickup: Node3D
+
+## ---------------------------------------------------------------------
+## Flashing / Spawn
+## ---------------------------------------------------------------------
+@export_group("Flashing")
+## UNTIL_PICKED_UP: flashes whenever it can be clicked.
+## WHEN_BOX_EQUIPPED: flashes only while the Box is equipped (desk items).
+@export var flash_mode: FlashMode = FlashMode.NEVER
+
+@export_group("Spawn")
+## Hide and disable this item depending on the loop.
+@export var spawn_condition: SpawnCondition = SpawnCondition.ALWAYS
+
+@export_group("Legacy")
+## Optional. Still assigned on PlayerManager for old code that looks items
+## up by name - no longer needed for examining to work.
+@export var player_manager_reference: String = ""
+## Overrides for the examine copy. Leave empty to copy the item's own mesh.
 @export var target_mesh: Mesh
 @export var target_material: Material
-@export var target_scale: Vector3 = Vector3.ONE
+@export_group("")
 
-# Focus behaviour
-@export var focus_distance: float = 0.99
-@export var vertical_offset: float = -0.75
-@export var rotation_intensity: float = 1.0
-@export var scale_multiplier: float = 1.5
+# Old name kept so existing code (EventManager dialog assignments, etc.) works.
+var normal_dialog: String:
+	get: return examine_dialog
+	set(value): examine_dialog = value
 
-# Interaction state
-var is_in_interaction: bool = false
-var should_stay_in_focus: bool = false
-
-# Rotation
-@export var rotation_speed: float = 35.0
-var current_rotation: float = 0.0
-
-# Dialog and behaviour
-@export var player_manager_reference: String = ""
-@export var animation_name: String = ""
-@export var animation_fade_player: AnimationPlayer
-@export var first_time_hint: String = "Press A, D or the Left, Right arrow keys to rotate object while examing"
-@export var normal_dialog: String = "I like this item!"
-@export var keys_hint_dialog: String = "I should grab my keys and get out of here"
-@export var can_be_stored: bool = false
-
-# Darkening toggle – if false, no background darkening is applied
-@export var darken_background: bool = false
-@export var fade_duration: float = 1.0   # seconds for fade in/out
-
-# Layer for the debug mesh (will not be darkened)
+## Layer for the examine copy (kept bright when darkening layer 1).
 const EXAM_LAYER: int = 2
 
-# Data for fading background objects
-var background_objects: Array[MeshInstance3D] = []
-var active_tweens: Array[Tween] = []              # All active tweens
-var original_materials: Dictionary                 # MeshInstance3D -> original material override
-var dark_materials: Dictionary                     # MeshInstance3D -> duplicated dark material
-var fade_out_completed: Dictionary                  # Track which objects have finished fade-out
+enum State { IDLE, FLYING_IN, FOCUSED, RETURNING }
+var _state: State = State.IDLE
 
-# Internal flag: true if the item should be stored/picked up after fade‑out
-var _should_store: bool = false
+# Kept for old callers - true while the examine view is open.
+var is_in_interaction: bool:
+	get: return _state != State.IDLE
+var should_stay_in_focus: bool:
+	get: return _state == State.FLYING_IN or _state == State.FOCUSED
+
+# Examine copy: a pivot at the mesh's visual centre with the mesh under it,
+# so moving/rotating/scaling the pivot always happens around the centre.
+var _pivot: Node3D
+var _exam_mesh: MeshInstance3D
+var _exam_light: DirectionalLight3D
+var _source_mesh: MeshInstance3D
+var _center_local: Vector3 = Vector3.ZERO
+
+var _tween: Tween
+var _from: Transform3D           # pivot transform at the start of a tween
+var _to_q: Quaternion
+var _to_origin: Vector3
+var _to_scale: Vector3
+var _spin_axis: Vector3 = Vector3.UP
+var _spin_angle: float = 0.0
+var _anim_q: Quaternion = Quaternion.IDENTITY
+var _anim_origin: Vector3
+var _anim_scale: Vector3 = Vector3.ONE
+var _user_q: Quaternion = Quaternion.IDENTITY   # player's rotation on top
+
+var _home: Transform3D           # pivot transform when sitting in place
+var _picking_up: bool = false
+var _hidden_meshes: Dictionary = {}   # MeshInstance3D -> [transparency, cast_shadow]
+
+# Background darkening
+var _dark_objects: Array[MeshInstance3D] = []
+var _original_overrides: Dictionary = {}
+var _dark_tweens: Array[Tween] = []
+
 
 func _ready() -> void:
 	super._ready()
+	if not _passes_spawn_condition():
+		_remove_from_world()
+		return
+
 	if player_manager_reference != "":
 		PlayerManager.set(player_manager_reference, self)
-	
-	original_position = global_position
-	original_rotation = global_rotation
-	original_scale = scale
-	
-	_create_debug_mesh()
+	if dialog_from_event_manager != "":
+		var text = EventManager.get(dialog_from_event_manager)
+		if text is String:
+			examine_dialog = text
+		else:
+			push_warning("%s: EventManager has no String '%s'." % [name, dialog_from_event_manager])
 
-func _process(_delta: float) -> void:
-	if PlayerManager.EquippedItem == "Box" and can_be_stored and not PlayerManager.examining and get_parent().visible and not PlayerManager.player.interact_ray.get_collider() == self:
+	_source_mesh = _find_source_mesh()
+	# The examine copy is built the first time the item is examined, so
+	# there's never a stray full-size copy sitting at the world origin.
+
+	# Already picked up / stored earlier (e.g. before an elevator trip)?
+	# Deferred so a level that resets GameState in its own _ready() (like
+	# the Office starting a new loop) gets to do that first.
+	_remove_if_collected.call_deferred()
+
+
+func _remove_if_collected() -> void:
+	if is_inside_tree() and GameState.is_collected(get_persist_id()):
+		_remove_from_world()
+
+
+# _remove_from_world
+# Hides the item and makes it dead to clicks - used when it shouldn't be in
+# this loop, or was already collected.
+func _remove_from_world() -> void:
+	if player_manager_reference != "":
+		PlayerManager.set(player_manager_reference, null)
+	var hide_node := _get_hide_node()
+	if hide_node:
+		hide_node.visible = false
+	_on_interaction_complete()
+	set_process(false)
+
+
+func _process(delta: float) -> void:
+	if _should_flash():
 		start_flashing()
 	else:
 		stop_flashing()
 
-func _create_debug_mesh() -> void:
-	# Remove old debug mesh
-	for child in get_children():
-		if child.name == "DebugMesh":
-			child.queue_free()
-	
-	debug_mesh = MeshInstance3D.new()
-	debug_mesh.name = "DebugMesh"
-	
-	if target_mesh:
-		debug_mesh.mesh = target_mesh
-	else:
-		var found_mesh = _find_original_mesh()
-		if found_mesh:
-			debug_mesh.mesh = found_mesh.mesh
-		else:
-			debug_mesh.mesh = BoxMesh.new()
-			debug_mesh.scale = Vector3(0.5, 0.5, 0.1)
-	
-	if target_material:
-		debug_mesh.material_override = target_material
-	
-	if target_scale != Vector3.ONE:
-		debug_mesh.scale = target_scale
-	
-	debug_mesh.layers = 1 << EXAM_LAYER
-	debug_mesh.visible = false
-	
-	add_child(debug_mesh)
+	if _state == State.FOCUSED:
+		_handle_rotation_input(delta)
 
-func _find_original_mesh() -> MeshInstance3D:
-	return _find_mesh_in_children(self)
-
-func _find_mesh_in_children(node: Node) -> MeshInstance3D:
-	if node is MeshInstance3D and node.name != "DebugMesh":
-		return node
-	for child in node.get_children():
-		var result = _find_mesh_in_children(child)
-		if result:
-			return result
-	return null
 
 func _on_interacted(_body: Variant) -> void:
-	if is_in_interaction:
-		# Force end current examination
-		_force_end_examination()
-	
-	PlayerManager.ExamingItem = self
-	if animation_name != "" and animation_fade_player:
-		animation_fade_player.play(animation_name)
-	
-	if is_in_interaction:
+	if _state != State.IDLE:
 		return
-	
+	if not _can_examine():
+		_on_examine_blocked()
+		return
+	var camera: Camera3D = PlayerManager.player.CAMERA if PlayerManager.player else null
+	if not camera:
+		return
+
+	PlayerManager.ExamingItem = self
 	PlayerManager.examining = true
 	PlayerManager.player.CURSOR.visible = false
-	is_in_interaction = true
-	should_stay_in_focus = true
-	_should_store = false   # reset
-	fade_out_completed.clear()
-	
-	var camera = PlayerManager.player.CAMERA
-	if not camera:
-		is_in_interaction = false
-		should_stay_in_focus = false
-		return
-	
-	# --- Start darkening background with fade in ---
+	# No outline/flash while the item is off its spot - comes back in
+	# _end_examine() once it has settled back down.
+	set_outline_blocked(true)
+	_picking_up = false
+	_user_q = Quaternion.IDENTITY
+
+	# Build the copy BEFORE darkening, so it copies the item's real
+	# materials and not the darkened ones.
+	if not _pivot:
+		_build_exam_copy()
 	if darken_background:
-		_darken_layer1_objects_fade_in()
-	
-	# Hide this item's original meshes, show debug mesh
-	_hide_meshes_in_children(self)
-	debug_mesh.global_position = global_position
-	debug_mesh.global_rotation = global_rotation
-	debug_mesh.scale = scale
-	debug_mesh.visible = true
-	
-	# Disable collision
-	if has_node("CollisionShape3D"):
-		$CollisionShape3D.disabled = true
-	
-	# Position debug mesh in front of camera
-	var camera_transform = camera.global_transform
-	var focus_offset = camera_transform.basis.z * -focus_distance
-	var focus_position = camera_transform.origin + focus_offset
-	focus_position.y = camera_transform.origin.y + vertical_offset
-	
-	tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(debug_mesh, "global_position", focus_position, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	
-	# Face camera
-	var camera_pos = camera.global_position
-	var dir_to_camera = (camera_pos - focus_position).normalized()
-	var target_basis = Basis()
-	target_basis.z = dir_to_camera
-	target_basis.y = Vector3.UP
-	target_basis.x = target_basis.y.cross(target_basis.z).normalized()
-	target_basis = target_basis.orthonormalized()
-	var target_rotation = target_basis.get_euler()
-	target_rotation.y -= PI/2
-	current_rotation = target_rotation.y
-	
-	if rotation_intensity < 1.0:
-		var current_rot = debug_mesh.global_rotation
-		target_rotation = current_rot.lerp(target_rotation, rotation_intensity)
-	
-	tween.tween_property(debug_mesh, "global_rotation", target_rotation, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(debug_mesh, "scale", original_scale * scale_multiplier, 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	
-	# Dialog
-	if not PlayerManager.examed:
-		PlayerManager.CharacterHintDialog(normal_dialog, first_time_hint)
-		PlayerManager.examed = true
-	elif PlayerManager.DeskItems.size() == 3 and not PlayerManager.has_item("Car Keys"):
-		PlayerManager.CharacterHintDialog(normal_dialog, keys_hint_dialog)
-	else:
-		PlayerManager.CharacterDialog(normal_dialog)
-	
-	# Wait for focus to end
-	while should_stay_in_focus:
-		await get_tree().create_timer(0.1).timeout
-	
-	# Now proceed to end sequence (fade‑out + optional return animation)
-	await _end_examination()
+		_darken_background()
 
-# ------------------------------------------------------------------
-# Background darkening with smooth fade in/out
-# ------------------------------------------------------------------
-func _darken_layer1_objects_fade_in() -> void:
-	# Kill any existing background tweens
-	_cleanup_background_darkening()
-	
-	var root = get_tree().root
-	_traverse_and_create_dark_materials(root)
-	
-	# Now fade all dark materials to 10% brightness
-	for obj in background_objects:
-		var dark_mat = dark_materials.get(obj) as StandardMaterial3D
-		if dark_mat:
-			var darkTween = create_tween()
-			darkTween.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, fade_duration) \
-				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-			active_tweens.append(tween)
+	# Swap the real mesh for the examine copy at the exact same spot.
+	_home = _source_global_pivot()
+	_pivot.global_transform = _home
+	_hide_source_meshes()
+	_exam_mesh.visible = true
+	_set_collision_enabled(false)
 
-func _traverse_and_create_dark_materials(node: Node) -> void:
-	if node is MeshInstance3D and (node.layers & 1):
-		# Store original material override
-		original_materials[node] = node.material_override
-		
-		# Create a dark material based on the source
-		var dark_mat = _create_dark_material_from_source(node)
-		if dark_mat:
-			# Start at full brightness
-			dark_mat.albedo_color = dark_mat.albedo_color * 1.0
-			node.material_override = dark_mat
-			dark_materials[node] = dark_mat
-			background_objects.append(node)
-	
-	# Recurse children
-	for child in node.get_children():
-		_traverse_and_create_dark_materials(child)
+	_start_fly_in(camera)
 
-func _create_dark_material_from_source(node: MeshInstance3D) -> StandardMaterial3D:
-	var dark_mat = StandardMaterial3D.new()
-	dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED  # optional, ensures color is plain
+	if examine_sound:
+		AudioManager.play_sound(examine_sound)
+	_show_examine_dialog()
+	examine_started.emit()
+	_on_examine_started()
 
-	# Try to extract albedo texture from the original
-	var source_mat: Material = node.material_override
-	if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
-		source_mat = node.mesh.surface_get_material(0)
 
-	if source_mat is StandardMaterial3D:
-		dark_mat.albedo_color = source_mat.albedo_color
-		dark_mat.albedo_texture = source_mat.albedo_texture
-		# Optionally copy emission, etc. if you want them to fade too
-		#dark_mat.emission_enabled = source_mat.emission_enabled
-		#dark_mat.emission = source_mat.emission
-	#elif source_mat is ShaderMaterial:
-		## Attempt to get a texture from the shader (heuristic – may not always work)
-		#dark_mat.albedo_color = Color.WHITE   # fallback
-
-	return dark_mat
-
-func _restore_layer1_objects_fade_out() -> void:
-	# Kill any remaining fade‑in tweens
-	for t in active_tweens:
-		if t and t.is_running():
-			t.kill()
-	active_tweens.clear()
-	
-	# Start fade‑out for each background object
-	for obj in background_objects:
-		if not is_instance_valid(obj):
-			continue
-		
-		var dark_mat = dark_materials.get(obj) as StandardMaterial3D
-		if not dark_mat:
-			continue
-		
-		# Store reference to original material
-		var original_mat = original_materials.get(obj)
-		
-		# CRITICAL FIX: Create a blend material or use modulate property if available
-		# Option 1: If using shader material, we can use modulate
-		if dark_mat is ShaderMaterial:
-			var layerTween = create_tween()
-			layerTween.tween_property(dark_mat, "shader_parameter/modulate", Color(1,1,1,1), fade_duration) \
-				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-			
-			layerTween.finished.connect(_on_single_fade_out_complete.bind(obj, layerTween, original_mat), CONNECT_ONE_SHOT)
-		
-		# Option 2: For StandardMaterial3D, we need to interpolate between colors
-		else:
-			# Get original color
-			var target_color: Color = Color.WHITE
-			if original_mat is StandardMaterial3D:
-				target_color = original_mat.albedo_color
-			elif obj.mesh and obj.mesh.get_surface_count() > 0:
-				var surf_mat = obj.mesh.surface_get_material(0)
-				if surf_mat is StandardMaterial3D:
-					target_color = surf_mat.albedo_color
-			
-			# Fade from current dark color to target color
-			var layerTween = create_tween()
-			layerTween.tween_property(dark_mat, "albedo_color", target_color, fade_duration) \
-				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-			
-			# Also fade emission and other properties if needed for smoothness
-			if dark_mat.emission_enabled:
-				var target_emission = Color.BLACK
-				if original_mat is StandardMaterial3D:
-					target_emission = original_mat.emission
-				layerTween.parallel().tween_property(dark_mat, "emission", target_emission, fade_duration)
-			
-			layerTween.finished.connect(_on_single_fade_out_complete.bind(obj, layerTween, original_mat), CONNECT_ONE_SHOT)
-			
-			active_tweens.append(layerTween)
-
-func _on_single_fade_out_complete(obj: MeshInstance3D, singleTween: Tween, original_mat: Material) -> void:
-	if not is_instance_valid(obj):
-		return
-	
-	# Mark this object as completed
-	fade_out_completed[obj] = true
-	
-	# Smooth transition: restore original material override
-	obj.material_override = original_mat
-	
-	# Clean up references for this object
-	dark_materials.erase(obj)
-	original_materials.erase(obj)
-	background_objects.erase(obj)
-	active_tweens.erase(singleTween)
-
-func _cleanup_background_darkening() -> void:
-	# Kill all tweens
-	for t in active_tweens:
-		if t and t.is_running():
-			t.kill()
-	active_tweens.clear()
-	
-	# Immediately restore original overrides
-	for obj in background_objects:
-		if is_instance_valid(obj):
-			var orig = original_materials.get(obj)
-			obj.material_override = orig
-	
-	background_objects.clear()
-	dark_materials.clear()
-	original_materials.clear()
-	fade_out_completed.clear()
-
-# ------------------------------------------------------------------
-# End focus
-# ------------------------------------------------------------------
+## Called by PlayerManager.EndFocus() when the player clicks to close.
 func end_focus() -> void:
+	if not should_stay_in_focus:
+		return
 	PlayerManager.examining = false
 	PlayerManager.closeup = true
 	if not PlayerManager.CursorInvisible:
 		PlayerManager.player.CURSOR.visible = true
-	should_stay_in_focus = false
-	
-	
-	# Determine if this item should be stored/picked up
-	if (PlayerManager.EquippedItem == "Box" and can_be_stored) or (player_manager_reference in ["Keys", "BatteryExamine", "GasCanisterExamine", "FlashLight"]):
-		_should_store = true
-		
-		# Play sound immediately
-		if PlayerManager.EquippedItem == "Box" and can_be_stored:
-			_on_interaction_complete()
-			PlayerManager.DeskItems.append(self)
-			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.ItemPickup)
-		elif player_manager_reference == "Keys":
-			_on_interaction_complete()
-			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.keysPickup)
-		elif player_manager_reference == "BatteryExamine" or "GasCanisterExamine" or "FlashLight":
-			_on_interaction_complete()
-			get_parent().visible = false
-			AudioManager.play_sound(AudioManager.ItemPickup)
-	
-	# CRITICAL FIX: Kill any existing return tween
-	if _return_tween and _return_tween.is_running():
-		_return_tween.kill()
-	
-	if _should_store:
-		# Storable: debug mesh disappears instantly
-		debug_mesh.visible = false
-		# Hide original meshes too? Actually we want to hide the entire parent later
-		if has_node("CollisionShape3D"):
-			$CollisionShape3D.disabled = false
-	else:
-		# Regular item: start return animation for debug mesh
-		_return_tween = create_tween()
-		_return_tween.set_parallel(true)
-		_return_tween.tween_property(debug_mesh, "global_position", original_position, 1.0) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		_return_tween.tween_property(debug_mesh, "global_rotation", original_rotation, 1.0) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		_return_tween.tween_property(debug_mesh, "scale", original_scale, 1.0) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		_return_tween.finished.connect(_on_return_tween_finished, CONNECT_ONE_SHOT)
-	
-	# Start background fade‑out (if enabled)
+
 	if darken_background:
-		_cleanup_background_darkening_immediate()
+		_restore_background()
 
-# ------------------------------------------------------------------
-# End examination sequence (called after focus ends)
-# ------------------------------------------------------------------
-func _end_examination() -> void:
-	# Wait for return animation if it exists (non‑storable items)
-	if _return_tween and _return_tween.is_running():
-		await _return_tween.finished
-	
-	# Wait for all fade‑out tweens to finish
-	# Instead of waiting for each tween individually, wait until all objects are restored
-	while not background_objects.is_empty():
-		await get_tree().process_frame
-	
-	# Now finalize based on item type
-	if _should_store:
-		# Item is being stored or picked up – hide its parent
-		_show_original_object()   # though it will be hidden by parent visibility
-		if has_node("CollisionShape3D"):
-			$CollisionShape3D.disabled = true
-		
-		# Handle storage/pickup
-
+	if store_in_box and PlayerManager.EquippedItem == "Box":
+		GameState.mark_collected(get_persist_id(), GameState.STORED)
+		_pick_up()
+	elif pickup_on_close:
+		GameState.mark_collected(get_persist_id(), GameState.PICKED_UP)
+		_pick_up()
 	else:
-		# Regular examination – return completed, now show original object
-		if animation_name != "" and animation_fade_player:
-			animation_fade_player.play_backwards(animation_name)
-			
-		debug_mesh.visible = false
-		_show_original_object()
-		# Re-enable collision
-		if has_node("CollisionShape3D"):
-			$CollisionShape3D.disabled = false
-		# Play reverse animation if any
-		
-	
-	is_in_interaction = false
+		_start_return()
 
-# ------------------------------------------------------------------
-# Helper functions for hiding/showing original meshes
-# ------------------------------------------------------------------
-func _hide_meshes_in_children(node: Node) -> void:
-	if node is MeshInstance3D and node.name != "DebugMesh":
-		node.visible = false
-	for child in node.get_children():
-		_hide_meshes_in_children(child)
 
-func _show_original_object() -> void:
-	_show_meshes_in_children(self)
+## ---------------------------------------------------------------------
+## Overridable hooks
+## ---------------------------------------------------------------------
 
-func _show_meshes_in_children(node: Node) -> void:
-	if node is MeshInstance3D and node.name != "DebugMesh":
-		node.visible = true
-	for child in node.get_children():
-		_show_meshes_in_children(child)
+## Return false to refuse examining right now (see CarKeys).
+func _can_examine() -> bool:
+	return true
 
-# Rotation functions
-func rotate_right() -> void:
-	if not is_in_interaction or not debug_mesh.visible:
+## Called instead of examining when _can_examine() is false.
+func _on_examine_blocked() -> void:
+	pass
+
+## Shows the examine dialog. Override to say something different.
+func _show_examine_dialog() -> void:
+	if not PlayerManager.examed:
+		PlayerManager.CharacterHintDialog(examine_dialog, first_time_hint)
+		PlayerManager.examed = true
+	elif PlayerManager.DeskItems.size() == 3 and not PlayerManager.has_item("Car Keys"):
+		PlayerManager.CharacterHintDialog(examine_dialog, keys_hint_dialog)
+	else:
+		PlayerManager.CharacterDialog(examine_dialog)
+
+func _on_examine_started() -> void:
+	pass
+
+## Called after the item is added to the inventory / stored.
+func _on_picked_up() -> void:
+	pass
+
+func _on_examine_finished() -> void:
+	pass
+
+## Whether the item should flash this frame. Override for custom rules,
+## usually as `return super._should_flash() and <your condition>`.
+func _should_flash() -> bool:
+	if not is_interactable or PlayerManager.examining:
+		return false
+	var hide_node := _get_hide_node()
+	if hide_node and not hide_node.is_visible_in_tree():
+		return false
+	# The hover outline takes over while the player is aiming at it.
+	if PlayerManager.player and PlayerManager.player.interact_ray.get_collider() == self:
+		return false
+	match flash_mode:
+		FlashMode.UNTIL_PICKED_UP:
+			return true
+		FlashMode.WHEN_BOX_EQUIPPED:
+			return store_in_box and PlayerManager.EquippedItem == "Box"
+	return false
+
+
+## ---------------------------------------------------------------------
+## Fly in / out
+## ---------------------------------------------------------------------
+
+func _start_fly_in(camera: Camera3D) -> void:
+	var cam := camera.global_transform.orthonormalized()
+	var cam_right := cam.basis.x
+	var cam_up := cam.basis.y
+	var cam_back := cam.basis.z   # points from the view toward the camera
+
+	# Position: straight ahead of the camera (screen centre) plus offset.
+	var half_h := focus_distance * tan(deg_to_rad(camera.fov) * 0.5)
+	var half_w := half_h * _viewport_aspect()
+	_to_origin = cam.origin - cam_back * focus_distance \
+		+ cam_right * (screen_offset.x * 2.0 * half_w) \
+		+ cam_up * (screen_offset.y * 2.0 * half_h)
+
+	# Rotation: front_axis faces the camera, local up matches screen up.
+	_to_q = _facing_rotation(cam.basis)
+
+	# Size: fit the item's bounding sphere to part of the screen, so it never
+	# clips through the camera however it's rotated.
+	var start_scale := _home.basis.get_scale()
+	if size_mode == SizeMode.FIT_TO_SCREEN:
+		var radius := (_radius_vector() * start_scale).length()
+		var k := (screen_fill * half_h) / maxf(radius, 0.0001)
+		_to_scale = start_scale * k
+	else:
+		_to_scale = start_scale * scale_multiplier
+
+	_spin_axis = cam_up
+	_spin_angle = TAU * spin_turns if _is_spin_on() else 0.0
+
+	# Light shines from just above/left of the player toward the item.
+	if _exam_light:
+		_exam_light.global_basis = cam.basis \
+			* Basis(Vector3.RIGHT, deg_to_rad(-25.0)) \
+			* Basis(Vector3.UP, deg_to_rad(-20.0))
+
+	_state = State.FLYING_IN
+	_run_tween(_home, func(): _state = State.FOCUSED)
+
+
+func _start_return() -> void:
+	_state = State.RETURNING
+	# Bake the player's rotation into the start so the return is smooth.
+	var from := _pivot.global_transform
+	_user_q = Quaternion.IDENTITY
+	_to_origin = _home.origin
+	_to_q = _home.basis.get_rotation_quaternion()
+	_to_scale = _home.basis.get_scale()
+	_spin_angle = 0.0
+	_run_tween(from, _finish_return)
+
+
+func _run_tween(from: Transform3D, on_done: Callable) -> void:
+	if _tween and _tween.is_valid():
+		_tween.kill()
+	_from = from
+	_tween = create_tween()
+	_tween.tween_method(_tween_step, 0.0, 1.0, transition_time) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_tween.finished.connect(on_done, CONNECT_ONE_SHOT)
+
+
+func _tween_step(t: float) -> void:
+	var from_q := _from.basis.get_rotation_quaternion()
+	# slerp always takes the shortest way round - no accidental spins.
+	_anim_q = from_q.slerp(_to_q, t)
+	if _spin_angle != 0.0:
+		# Deliberate spin on top. Ends at a whole number of turns so the
+		# final rotation is unchanged.
+		_anim_q = Quaternion(_spin_axis, _spin_angle * t) * _anim_q
+	_anim_origin = _from.origin.lerp(_to_origin, t)
+	_anim_scale = _from.basis.get_scale().lerp(_to_scale, t)
+	_apply_pivot()
+
+
+func _apply_pivot() -> void:
+	var q := (_user_q * _anim_q).normalized()
+	_pivot.global_transform = Transform3D(Basis(q) * Basis.from_scale(_anim_scale), _anim_origin)
+
+
+func _finish_return() -> void:
+	_exam_mesh.visible = false
+	_show_source_meshes()
+	_set_collision_enabled(true)
+	_end_examine()
+
+
+func _pick_up() -> void:
+	if _tween and _tween.is_valid():
+		_tween.kill()
+	_picking_up = true
+	_exam_mesh.visible = false
+	_on_interaction_complete()
+	var hide_node := _get_hide_node()
+	if hide_node:
+		hide_node.visible = false
+	_show_source_meshes()   # hidden via hide_node now; keep state tidy
+
+	if inventory_name != "":
+		PlayerManager.AddToInventory(inventory_name, inventory_weight, inventory_equippable)
+	AudioManager.play_sound(pickup_sound if pickup_sound else AudioManager.ItemPickup)
+
+	picked_up.emit()
+	mark_success()
+	_on_picked_up()
+	_end_examine()
+
+
+func _end_examine() -> void:
+	_state = State.IDLE
+	set_outline_blocked(false)
+	if PlayerManager.ExamingItem == self:
+		PlayerManager.ExamingItem = null
+	examine_ended.emit()
+	_on_examine_finished()
+
+
+## ---------------------------------------------------------------------
+## Player rotation while focused
+## ---------------------------------------------------------------------
+
+func _handle_rotation_input(delta: float) -> void:
+	var cam: Camera3D = PlayerManager.player.CAMERA
+	var speed := deg_to_rad(rotate_speed_degrees) * delta
+	var yaw := Input.get_axis("left", "right") * speed
+	var pitch := Input.get_axis("forward", "backward") * speed if allow_tilt else 0.0
+	if yaw == 0.0 and pitch == 0.0:
 		return
-	current_rotation += rotation_speed * get_process_delta_time()
-	_apply_rotation()
+	var basis := cam.global_transform.basis.orthonormalized()
+	_user_q = Quaternion(basis.y, yaw) * Quaternion(basis.x, pitch) * _user_q
+	_apply_pivot()
 
+# Kept for old callers; rotation is now read from Input every frame.
 func rotate_left() -> void:
-	if not is_in_interaction or not debug_mesh.visible:
+	pass
+
+func rotate_right() -> void:
+	pass
+
+
+## ---------------------------------------------------------------------
+## Helpers
+## ---------------------------------------------------------------------
+
+func _is_spin_on() -> bool:
+	match spin_mode:
+		SpinMode.ALWAYS: return true
+		SpinMode.NEVER: return false
+	return spin_enabled
+
+
+func _passes_spawn_condition() -> bool:
+	match spawn_condition:
+		SpawnCondition.LOOP_0_ONLY: return PlayerManager.Loop0
+		SpawnCondition.AFTER_LOOP_0: return not PlayerManager.Loop0
+	return true
+
+
+func _facing_rotation(cam_basis: Basis) -> Quaternion:
+	var front := front_axis.normalized() if front_axis != Vector3.ZERO else Vector3.RIGHT
+	# Pick a local "up" that isn't parallel to front.
+	var up := Vector3.UP if absf(front.dot(Vector3.UP)) < 0.99 else Vector3.BACK
+	up = (up - front * up.dot(front)).normalized()
+	var local := Basis(up.cross(front), up, front)       # local frame
+	var view := Basis(cam_basis.x, cam_basis.y, cam_basis.z)  # front -> camera
+	var rot := view * local.transposed()
+	rot = rot * Basis.from_euler(examine_rotation_offset * (PI / 180.0))
+	return rot.get_rotation_quaternion()
+
+
+func _viewport_aspect() -> float:
+	var size := get_viewport().get_visible_rect().size
+	return size.x / maxf(size.y, 1.0)
+
+
+func _get_hide_node() -> Node3D:
+	if hide_on_pickup:
+		return hide_on_pickup
+	return get_parent() as Node3D
+
+
+func _find_source_mesh() -> MeshInstance3D:
+	if mesh:
+		return mesh
+	if get_parent() is MeshInstance3D:
+		return get_parent()
+	for child in find_children("*", "MeshInstance3D", true, false):
+		return child
+	return null
+
+
+func _build_exam_copy() -> void:
+	_pivot = Node3D.new()
+	_pivot.name = "ExaminePivot"
+	_pivot.top_level = true   # world-space transform, ignores parent
+	add_child(_pivot)
+
+	_exam_mesh = MeshInstance3D.new()
+	_exam_mesh.name = "ExamineMesh"
+	if target_mesh:
+		_exam_mesh.mesh = target_mesh
+	elif _source_mesh:
+		_exam_mesh.mesh = _source_mesh.mesh
+	else:
+		_exam_mesh.mesh = BoxMesh.new()
+
+	if target_material:
+		_exam_mesh.material_override = target_material
+	elif _source_mesh:
+		_exam_mesh.material_override = _source_mesh.material_override
+		for i in _source_mesh.get_surface_override_material_count():
+			_exam_mesh.set_surface_override_material(i, _source_mesh.get_surface_override_material(i))
+
+	_exam_mesh.layers = 1 << EXAM_LAYER
+	_exam_mesh.visible = false
+	_pivot.add_child(_exam_mesh)
+
+	# Light that only hits the examine copy (its own layer). Child of the
+	# copy so it shows/hides with it; top_level so the spin doesn't turn it.
+	if examine_light_energy > 0.0:
+		_exam_light = DirectionalLight3D.new()
+		_exam_light.name = "ExamineLight"
+		_exam_light.top_level = true
+		_exam_light.light_energy = examine_light_energy
+		_exam_light.light_cull_mask = 1 << EXAM_LAYER
+		_exam_light.shadow_enabled = false
+		_exam_light.light_bake_mode = Light3D.BAKE_DISABLED
+		_exam_mesh.add_child(_exam_light)
+
+	# Offset the mesh so the pivot sits at its visual centre.
+	var aabb := _exam_mesh.mesh.get_aabb() if _exam_mesh.mesh else AABB(Vector3.ZERO, Vector3.ONE)
+	_center_local = aabb.get_center()
+	_exam_mesh.position = -_center_local
+	# Park it exactly on top of the real item.
+	_pivot.global_transform = _source_global_pivot()
+
+
+func _radius_vector() -> Vector3:
+	# Half-diagonal of the mesh bounds; scaled per-axis by the caller.
+	var aabb := _exam_mesh.mesh.get_aabb() if _exam_mesh.mesh else AABB(Vector3.ZERO, Vector3.ONE)
+	return aabb.size * 0.5
+
+
+# Where the pivot sits when the copy exactly overlaps the real mesh.
+func _source_global_pivot() -> Transform3D:
+	var src := _source_mesh.global_transform if _source_mesh else global_transform
+	return src.translated_local(_center_local)
+
+
+func _hide_source_meshes() -> void:
+	_hidden_meshes.clear()
+	var meshes: Array[MeshInstance3D] = []
+	if _source_mesh:
+		meshes.append(_source_mesh)
+	meshes.append_array(mesh_list)
+	for m in meshes:
+		if m and m.visible and not _hidden_meshes.has(m):
+			# Hide by transparency, not visibility - the real mesh is usually
+			# this body's parent, and hiding it would hide the copy too.
+			_hidden_meshes[m] = [m.transparency, m.cast_shadow]
+			m.transparency = 1.0
+			m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+
+
+func _show_source_meshes() -> void:
+	for m in _hidden_meshes:
+		if is_instance_valid(m):
+			m.transparency = _hidden_meshes[m][0]
+			m.cast_shadow = _hidden_meshes[m][1]
+	_hidden_meshes.clear()
+
+
+func _set_collision_enabled(enabled: bool) -> void:
+	for shape in find_children("*", "CollisionShape3D", false, false):
+		shape.set_deferred("disabled", not enabled)
+
+
+## ---------------------------------------------------------------------
+## Background darkening
+## ---------------------------------------------------------------------
+
+func _darken_background() -> void:
+	_restore_background()
+	_collect_dark_targets(get_tree().root)
+	for obj in _dark_objects:
+		var dark_mat := obj.material_override as StandardMaterial3D
+		var t := create_tween()
+		t.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, transition_time) \
+			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+		_dark_tweens.append(t)
+
+
+func _collect_dark_targets(node: Node) -> void:
+	# Never darken this item itself (its real meshes or the examine copy).
+	if node == _pivot or node == _source_mesh or mesh_list.has(node):
 		return
-	current_rotation -= rotation_speed * get_process_delta_time()
-	_apply_rotation()
+	if node is MeshInstance3D and (node.layers & 1) and node.visible:
+		_original_overrides[node] = node.material_override
+		node.material_override = _make_dark_material(node)
+		_dark_objects.append(node)
+	for child in node.get_children():
+		_collect_dark_targets(child)
 
-func _apply_rotation() -> void:
-	if debug_mesh and debug_mesh.visible:
-		var current_rot = debug_mesh.global_rotation
-		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
 
-func _force_end_examination() -> void:
-	# Force cleanup of current examination
-	should_stay_in_focus = false
-	
-	# Kill all tweens
-	if tween and tween.is_running():
-		tween.kill()
-	if _return_tween and _return_tween.is_running():
-		_return_tween.kill()
-	
-	# Clean up background darkening
-	_cleanup_background_darkening_immediate()
-	
-	# Hide debug mesh and show original
-	if debug_mesh:
-		debug_mesh.visible = false
-	_show_original_object()
-	
-	# Re-enable collision
-	if has_node("CollisionShape3D"):
-		$CollisionShape3D.disabled = false
-	
-	is_in_interaction = false
+func _make_dark_material(node: MeshInstance3D) -> StandardMaterial3D:
+	var dark_mat := StandardMaterial3D.new()
+	dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	var source_mat: Material = node.material_override
+	if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
+		source_mat = node.mesh.surface_get_material(0)
+	if source_mat is StandardMaterial3D:
+		dark_mat.albedo_color = source_mat.albedo_color
+		dark_mat.albedo_texture = source_mat.albedo_texture
+	return dark_mat
 
-func _cleanup_background_darkening_immediate() -> void:
-	# Kill all tweens
-	for t in active_tweens:
-		if t and t.is_running():
+
+func _restore_background() -> void:
+	for t in _dark_tweens:
+		if t and t.is_valid():
 			t.kill()
-	active_tweens.clear()
-	
-	# IMMEDIATELY restore original overrides without fade
-	for obj in background_objects:
+	_dark_tweens.clear()
+	for obj in _dark_objects:
 		if is_instance_valid(obj):
-			var orig = original_materials.get(obj)
-			obj.material_override = orig
-	
-	background_objects.clear()
-	dark_materials.clear()
-	original_materials.clear()
-	fade_out_completed.clear()
+			obj.material_override = _original_overrides.get(obj)
+	_dark_objects.clear()
+	_original_overrides.clear()
 
-func _on_return_tween_finished() -> void:
-	# Only hide debug mesh if we're still in a valid state
-	if not _should_store and is_instance_valid(debug_mesh):
-		debug_mesh.visible = false
+
+func _exit_tree() -> void:
+	super._exit_tree()
+	if _state != State.IDLE:
+		_restore_background()
+		if PlayerManager.ExamingItem == self:
+			PlayerManager.ExamingItem = null
+			PlayerManager.examining = false

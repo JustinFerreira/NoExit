@@ -21,10 +21,13 @@ func _process(_delta: float) -> void:
 	
 	if huh >= 200:
 		rising = false
-		PlayerManager.SavePlayerRotation()
+		huh = 0
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		get_tree().change_scene_to_file("res://Levels/Office.tscn")
+		# Arrive in the office elevator facing the same way relative to the
+		# elevator as the player is now.
+		GameState.change_level("res://Levels/Office.tscn", "ElevatorSpawn",
+			get_tree().current_scene.get_node_or_null("ElevatorSpawn"))
 
 func _on_interacted(_body: Variant) -> void:
 	if not $"../..".inside || $"../..".outside:

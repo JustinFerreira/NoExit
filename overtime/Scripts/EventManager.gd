@@ -10,7 +10,10 @@
 extends Node
 
 # Loop Control
-var Loop0SteeringClicked = false
+# Milestone - lives in GameState as a flag now.
+var Loop0SteeringClicked: bool:
+	get: return GameState.has_flag(GameState.FLAG_LOOP0_STEERING_CLICKED)
+	set(value): GameState.set_flag(GameState.FLAG_LOOP0_STEERING_CLICKED, value)
 
 
 var Comingfromelevator: bool = false
@@ -96,7 +99,7 @@ var battery_minigame_resetzone: String = "Oh I probbaly shouldn't do that"
 
 var box_pickup: String = "I've got to pack up all this stuff!"
 
-var box_pickup_hint: String = "With your box equipped now you can pick up these items from your desk. hold E to see Inventory, and see your Box is highlighted red as equipped items are highlighted red."
+var box_pickup_hint: String = "With your box equipped now you can pick up these items from your desk. hold Tab to see Inventory, and see your Box is highlighted red as equipped items are highlighted red."
 
 #Key Dialogs
 

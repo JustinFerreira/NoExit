@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://7427h33c4ho5"]
 
 [ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Enviroments/Office/Models/Sticky_Note.obj" id="1_nogdu"]
-[ext_resource type="Script" path="res://Scripts/FlashLight.gd" id="1_pkg20"]
-[ext_resource type="Material" uid="uid://csuwr7n64oba" path="res://Assets/Materials/Stapler.tres" id="2_p5jgg"]
+[ext_resource type="Script" path="res://Scripts/ExaminableItem.gd" id="1_pkg20"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="3_11npx"]
+[ext_resource type="AudioStream" uid="uid://dqmx2thksum2f" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="stinger_sfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy63h"]
 albedo_color = Color(0, 0.502213, 0.502212, 1)
@@ -54,15 +54,36 @@ _data = {
 material_override = SubResource("StandardMaterial3D_wy63h")
 mesh = ExtResource("1_nogdu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="FlashLightMesh" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="FlashLightMesh" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_pkg20")
-target_mesh = ExtResource("1_nogdu")
-target_material = ExtResource("2_p5jgg")
-player_manager_reference = "FlashLight"
-animation_name = "FlashLightFade"
-animation_fade_player = NodePath("../../FlashLightFade")
-can_be_stored = true
+examine_dialog = null
+dialog_from_event_manager = null
+first_time_hint = null
+keys_hint_dialog = null
 darken_background = true
+focus_distance = null
+screen_offset = null
+size_mode = null
+screen_fill = null
+scale_multiplier = null
+front_axis = null
+examine_rotation_offset = null
+transition_time = null
+examine_light_energy = null
+spin_mode = null
+spin_turns = null
+rotate_speed_degrees = null
+allow_tilt = null
+pickup_on_close = true
+store_in_box = null
+inventory_name = "Flash Light"
+inventory_weight = null
+inventory_equippable = true
+examine_sound = ExtResource("stinger_sfx")
+flash_mode = null
+spawn_condition = null
+player_manager_reference = null
+is_interactable = null
 outline_material = ExtResource("3_11npx")
 mesh = NodePath("..")
 has_outline = true

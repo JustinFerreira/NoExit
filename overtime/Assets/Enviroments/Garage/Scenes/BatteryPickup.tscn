@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dt20akn0ptkqf"]
 
+[ext_resource type="AudioStream" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="stinger_sfx"]
 [ext_resource type="Script" path="res://Scripts/BatteryPickup.gd" id="1_el2a5"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_31p3h"]
 [ext_resource type="Material" uid="uid://d1kl5fsqmbh7v" path="res://Assets/Materials/Battery.tres" id="3_ljm1w"]
@@ -51,16 +52,15 @@ _data = {
 material_override = ExtResource("3_ljm1w")
 mesh = ExtResource("3_rf2fs")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BatteryObject" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="BatteryObject" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_el2a5")
-target_mesh = ExtResource("3_rf2fs")
-target_material = ExtResource("3_ljm1w")
-focus_distance = 3.0
-vertical_offset = -1.5
-player_manager_reference = "BatteryExamine"
-animation_name = "BatteryFade"
-animation_fade_player = NodePath("../../BatteryFade")
-can_be_stored = true
+examine_sound = ExtResource("stinger_sfx")
+dialog_from_event_manager = "batterypickup_normal_dialog"
+pickup_on_close = true
+inventory_name = "Battery"
+inventory_weight = 1.0
+flash_mode = 1
+spawn_condition = 2
 darken_background = true
 outline_material = ExtResource("2_31p3h")
 mesh = NodePath("..")

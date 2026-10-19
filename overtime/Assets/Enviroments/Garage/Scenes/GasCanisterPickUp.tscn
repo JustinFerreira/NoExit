@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkn32km2rbo1c"]
 
+[ext_resource type="AudioStream" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="stinger_sfx"]
 [ext_resource type="Script" path="res://Scripts/GasCanister.gd" id="1_2r1op"]
 [ext_resource type="Material" uid="uid://c4241006yi5ku" path="res://Assets/Materials/GasCanisterPickUp.tres" id="1_nydda"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="2_y8d0h"]
@@ -51,16 +52,15 @@ _data = {
 material_override = ExtResource("1_nydda")
 mesh = ExtResource("6_jc1iv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="GasCanisterObject" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="GasCanisterObject" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_2r1op")
-target_mesh = ExtResource("6_jc1iv")
-target_material = ExtResource("1_nydda")
-focus_distance = 3.0
-vertical_offset = -1.5
-player_manager_reference = "GasCanisterExamine"
-animation_name = "GasCanisterFade"
-animation_fade_player = NodePath("../../GasCanisterFade")
-can_be_stored = true
+examine_sound = ExtResource("stinger_sfx")
+dialog_from_event_manager = "gascanisterpickup_normal_dialog"
+pickup_on_close = true
+inventory_name = "Gas Canister"
+inventory_weight = 1.5
+flash_mode = 1
+spawn_condition = 2
 darken_background = true
 outline_material = ExtResource("2_y8d0h")
 mesh = NodePath("..")

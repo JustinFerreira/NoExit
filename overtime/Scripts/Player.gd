@@ -52,6 +52,76 @@ var is_moving: bool = false
 ## of a stop.
 @export var floor_max_angle_degrees: float = 50.0
 
+## ---------------------------------------------------------------------
+## Stamina
+## ---------------------------------------------------------------------
+## Sprinting (actually running, not just holding/toggling sprint while
+## standing still) drains stamina. After regen_delay seconds of not
+## running it refills. Hitting 0 makes the player fatigued: no sprinting,
+## slower than walking, and no regen until the fatigue wears off.
+@export_group("Stamina")
+@export var max_stamina: float = 100.0
+## Stamina lost per second while running.
+@export var stamina_drain_per_second: float = 20.0
+## Stamina gained per second once regen kicks in.
+@export var stamina_regen_per_second: float = 15.0
+## Seconds of not running before stamina starts to refill.
+@export var stamina_regen_delay: float = 5.0
+## How long the player is fatigued after running out.
+@export var fatigue_duration: float = 10.0
+## Movement speed while fatigued (walking is WALK_SPEED).
+@export var fatigue_speed: float = 3.0
+
+## ---------------------------------------------------------------------
+## Crouch / Lean / Look Back
+## ---------------------------------------------------------------------
+## C crouches, Q / E lean left / right, hold V to look behind you.
+## Looking back only turns the camera - you keep walking the way your body
+## faces.
+@export_group("Crouch, Lean, Look Back")
+## Movement speed while crouched (no sprinting while crouched).
+@export var crouch_speed: float = 2.5
+## Height while crouched, as a fraction of standing height (eyes and body).
+@export_range(0.3, 0.95) var crouch_height_factor: float = 0.6
+## Tap C to crouch / stand instead of holding it.
+@export var crouch_toggle: bool = false
+## How far the view moves sideways when leaning (meters).
+@export var lean_distance: float = 0.45
+## How much the view tilts when leaning (degrees).
+@export var lean_angle_degrees: float = 12.0
+## Allow leaning while sprinting.
+@export var lean_while_sprinting: bool = false
+## How fast crouch and lean ease in/out (higher = snappier).
+@export var move_transition_speed: float = 8.0
+## How fast the look-back turn happens (higher = snappier).
+@export var look_back_speed: float = 9.0
+@export_group("")
+
+var is_crouching: bool = false
+# 0 = standing, 1 = fully crouched / leaned / looking back (eased).
+var _crouch_amount: float = 0.0
+var _lean_amount: float = 0.0   # -1 = left, 1 = right
+var _look_back_amount: float = 0.0
+var _crouch_toggled: bool = false
+# Standing setup, captured in _ready().
+var _stand_head_y: float
+var _stand_shape_transform: Transform3D
+var _shape_bottom_local: float = 0.0
+var _shape_top_local: float = 0.0
+
+var stamina: float = 100.0
+# Seconds since the player last ran (drives the regen delay).
+var _time_since_sprint: float = 0.0
+# Seconds of fatigue left. > 0 means fatigued.
+var fatigue_time_left: float = 0.0
+var _stamina_bar: Control
+var _stamina_fill: ColorRect
+var _stamina_hide_timer: float = 0.0
+# Set by the Show Stamina Bar setting.
+var show_stamina_bar: bool = true
+# Set by the Tilt View When Leaning setting.
+var lean_tilt_enabled: bool = true
+
 var breathing_volume: float = -80  # Adjust as needed
 var heartbeat_volume: float = -20  # Adjust as needed
 
@@ -105,6 +175,20 @@ func _ready() -> void:
 		$ps1_graphics.visible = false
 	floor_snap_length = floor_snap_amount
 	floor_max_angle = deg_to_rad(floor_max_angle_degrees)
+	stamina = max_stamina
+	_build_stamina_bar()
+	_stand_head_y = head.position.y
+	_stand_shape_transform = COLLISIONSHAPE3D.transform
+	if COLLISIONSHAPE3D.shape:
+		var shape_box := COLLISIONSHAPE3D.shape.get_debug_mesh().get_aabb()
+		_shape_bottom_local = shape_box.position.y
+		_shape_top_local = shape_box.end.y
+	# If we got here through GameState.change_level(), put the player on
+	# their spawn marker and restore what carried over. Deferred so the
+	# level's own _ready() has run first.
+	GameState.place_player.call_deferred(self)
+	# FOV, crouch toggle, text speed, etc. from the settings menu.
+	SettingsManager.apply_player_settings(self)
 
 	PlayerManager.player = self
 	CAMERA.current = true
@@ -158,11 +242,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		if Incar == false:
 			head.rotate_y(-event.relative.x * SENSITIVITY)
-			camera.rotate_x(-event.relative.y * SENSITIVITY)
+			camera.rotation.x -= event.relative.y * SENSITIVITY * (-1.0 if PlayerManager.InvertY else 1.0)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 		elif Incar == true:
 			head.rotate_y(-event.relative.x * SENSITIVITY)
-			camera.rotate_x(event.relative.y * SENSITIVITY)
+			camera.rotation.x += event.relative.y * SENSITIVITY * (-1.0 if PlayerManager.InvertY else 1.0)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 			head.rotation.y = clamp(head.rotation.y, deg_to_rad(-90), deg_to_rad(90))
 	if event is InputEventMouseButton:
@@ -270,8 +354,10 @@ func _physics_process(delta: float) -> void:
 	apply_heartbeat_effects()
 	
 	if PlayerManager.InAnimation || PlayerManager.MinigameMode || PlayerManager.multiDialog || PlayerManager.dying || PlayerManager.examining:
+		_update_stamina(delta, false)
+		_update_body_moves(delta, false)
 		return
-	
+
 	SENSITIVITY = PlayerManager.Sensitivity
 	
 	if not is_on_floor():
@@ -284,22 +370,31 @@ func _physics_process(delta: float) -> void:
 
 	_handle_interact_ray()
 	
+	# Crouch / lean / look back (not while in the car or trapped)
+	_update_body_moves(delta, not (Incar or trapped))
+
 	# Handle Sprint
 	if Incar == true or trapped == true:
 		speed = 0
 		is_sprinting = false
 	else:
 		handle_sprint_input()
+		# No sprinting while fatigued, out of stamina or crouched.
+		if is_sprinting and (is_fatigued() or stamina <= 0.0 or is_crouching):
+			_cancel_sprint()
 		apply_sprint_speed()
 
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var running := false
 	if direction and PlayerManager.firstdialog == false:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		running = is_sprinting
 	else:
 		velocity.x = 0.0
 		velocity.z = 0.0
+	_update_stamina(delta, running)
 		
 	is_moving = Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or \
 			   Input.is_action_pressed("left") or Input.is_action_pressed("right")
@@ -489,14 +584,222 @@ func handle_sprint_input():
 			# AudioManager.play_sound(AudioManager.sprint_toggle)
 
 func apply_sprint_speed():
-	if is_sprinting:
+	if is_fatigued():
+		speed = fatigue_speed
+		AudioManager.set_loop_pitch("step", 1.5)
+	elif is_sprinting:
 		speed = SPRINT_SPEED
 		AudioManager.set_loop_pitch("step", 4)
 	else:
 		speed = WALK_SPEED
 		AudioManager.set_loop_pitch("step", 2)
+	if is_crouching:
+		speed = minf(speed, crouch_speed)
 		
 		
+## ---------------------------------------------------------------------
+## Crouch / Lean / Look Back
+## ---------------------------------------------------------------------
+
+# _update_body_moves
+# allowed = false (cutscenes, examining, in the car...) eases lean and
+# look-back back to normal and keeps the crouch as it is.
+func _update_body_moves(delta: float, allowed: bool) -> void:
+	var step := delta * move_transition_speed
+
+	# Crouch
+	if allowed:
+		if crouch_toggle:
+			if Input.is_action_just_pressed("crouch"):
+				_crouch_toggled = not _crouch_toggled
+			is_crouching = _crouch_toggled
+		else:
+			is_crouching = Input.is_action_pressed("crouch")
+		# Something overhead? Stay down instead of standing into it.
+		if not is_crouching and _crouch_amount > 0.0 and not _can_stand():
+			is_crouching = true
+	_crouch_amount = move_toward(_crouch_amount, 1.0 if is_crouching else 0.0, step)
+	_apply_crouch(smoothstep(0.0, 1.0, _crouch_amount))
+
+	# Lean
+	var lean_target := 0.0
+	if allowed and (lean_while_sprinting or not is_sprinting):
+		lean_target = Input.get_axis("lean_left", "lean_right")
+	_lean_amount = move_toward(_lean_amount, lean_target, step)
+
+	# Look back - camera only, so movement keeps the body's direction.
+	var back_target := 1.0 if allowed and Input.is_action_pressed("look_back") else 0.0
+	_look_back_amount = move_toward(_look_back_amount, back_target, delta * look_back_speed)
+
+	_apply_view_offsets()
+
+func _apply_crouch(t: float) -> void:
+	var height := lerpf(1.0, crouch_height_factor, t)
+	head.position.y = _stand_head_y * height
+	# Shrink the collision from the top, keeping the feet where they are.
+	var stand := _stand_shape_transform
+	var stand_scale_y := stand.basis.y.length()
+	var bottom := stand.origin.y + stand_scale_y * _shape_bottom_local
+	var new_scale_y := stand_scale_y * height
+	var xform := stand
+	xform.basis.y = stand.basis.y * height
+	xform.origin.y = bottom - new_scale_y * _shape_bottom_local
+	COLLISIONSHAPE3D.transform = xform
+
+# _can_stand
+# Is there room above to stand back up from the current crouch?
+func _can_stand() -> bool:
+	var stand_scale_y := _stand_shape_transform.basis.y.length()
+	var current_scale_y := COLLISIONSHAPE3D.transform.basis.y.length()
+	var missing := (stand_scale_y - current_scale_y) * (_shape_top_local - _shape_bottom_local)
+	if missing <= 0.001:
+		return true
+	missing *= global_basis.get_scale().y
+	return not test_move(global_transform, Vector3.UP * missing)
+
+func _apply_view_offsets() -> void:
+	var lean_t := _lean_amount
+	var lean_eased := signf(lean_t) * smoothstep(0.0, 1.0, absf(lean_t))
+
+	# Slide the head sideways, but stop short of walls.
+	var side_world := lean_distance * lean_eased
+	if absf(side_world) > 0.001:
+		var right := head.global_basis.x.normalized()
+		var from := global_transform * Vector3(0.0, head.position.y, 0.0)
+		var query := PhysicsRayQueryParameters3D.create(from, from + right * (side_world + signf(side_world) * 0.2))
+		query.exclude = [get_rid()]
+		var hit := get_world_3d().direct_space_state.intersect_ray(query)
+		if hit:
+			var room := maxf(from.distance_to(hit.position) - 0.2, 0.0)
+			side_world = signf(side_world) * minf(absf(side_world), room)
+	var body_scale := global_basis.get_scale().x
+	var right_in_body := (head.basis.x.normalized()) * (side_world / body_scale)
+	head.position.x = right_in_body.x
+	head.position.z = right_in_body.z
+
+	# Tilt into the lean; turn the camera around to look back.
+	camera.rotation.z = (-deg_to_rad(lean_angle_degrees) * lean_eased) if lean_tilt_enabled else 0.0
+	camera.rotation.y = PI * smoothstep(0.0, 1.0, _look_back_amount)
+
+## ---------------------------------------------------------------------
+## Carrying the player between levels (see GameState.change_level)
+## ---------------------------------------------------------------------
+
+# get_carry_state
+# Everything about the player that should survive a level change.
+# Inventory already lives in PlayerManager, so it isn't here.
+func get_carry_state() -> Dictionary:
+	return {
+		"stamina": stamina,
+		"fatigue_time_left": fatigue_time_left,
+		"time_since_sprint": _time_since_sprint,
+		"is_sprinting": is_sprinting,
+		"look_pitch": camera.rotation.x,
+	}
+
+func apply_carry_state(state: Dictionary) -> void:
+	stamina = state.get("stamina", stamina)
+	fatigue_time_left = state.get("fatigue_time_left", fatigue_time_left)
+	_time_since_sprint = state.get("time_since_sprint", _time_since_sprint)
+	is_sprinting = state.get("is_sprinting", is_sprinting)
+	camera.rotation.x = state.get("look_pitch", camera.rotation.x)
+
+# get_look_yaw / set_look_yaw
+# Which way the player is facing, in world space (radians around Y).
+# Turning is done on the Head, so the body's own rotation is accounted for.
+func get_look_yaw() -> float:
+	return head.global_basis.orthonormalized().get_euler().y
+
+func set_look_yaw(world_yaw: float) -> void:
+	var body_yaw := global_basis.orthonormalized().get_euler().y
+	head.rotation.y = wrapf(world_yaw - body_yaw, -PI, PI)
+
+## ---------------------------------------------------------------------
+## Stamina
+## ---------------------------------------------------------------------
+
+func is_fatigued() -> bool:
+	return fatigue_time_left > 0.0
+
+# _cancel_sprint
+# Turns sprint off, including toggle-sprint, so it doesn't snap back on.
+func _cancel_sprint() -> void:
+	is_sprinting = false
+	PlayerManager.sprint_engaged = false
+
+# _update_stamina
+# running = the player is actually moving with sprint on this frame.
+func _update_stamina(delta: float, running: bool) -> void:
+	if running:
+		_time_since_sprint = 0.0
+		stamina = maxf(stamina - stamina_drain_per_second * delta, 0.0)
+		if stamina <= 0.0:
+			# Ran dry: fatigued, no sprint, no regen until it wears off.
+			fatigue_time_left = fatigue_duration
+			_cancel_sprint()
+	else:
+		_time_since_sprint += delta
+
+	if is_fatigued():
+		fatigue_time_left = maxf(fatigue_time_left - delta, 0.0)
+		if not is_fatigued():
+			# Fatigue lasted longer than the regen delay - start refilling now.
+			_time_since_sprint = stamina_regen_delay
+	elif _time_since_sprint >= stamina_regen_delay:
+		stamina = minf(stamina + stamina_regen_per_second * delta, max_stamina)
+
+	_update_stamina_bar(delta)
+
+# _build_stamina_bar
+# Small bar in the bottom-left corner. Built in code so the Player scene
+# doesn't need editing.
+func _build_stamina_bar() -> void:
+	_stamina_bar = Control.new()
+	_stamina_bar.name = "StaminaBar"
+	_stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stamina_bar.anchor_top = 1.0
+	_stamina_bar.anchor_bottom = 1.0
+	_stamina_bar.offset_left = 16.0
+	_stamina_bar.offset_top = -22.0
+	_stamina_bar.offset_right = 136.0
+	_stamina_bar.offset_bottom = -16.0
+	_stamina_bar.modulate.a = 0.0
+	add_child(_stamina_bar)
+
+	var back := ColorRect.new()
+	back.color = Color(1, 1, 1, 0.15)
+	back.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	back.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_stamina_bar.add_child(back)
+
+	_stamina_fill = ColorRect.new()
+	_stamina_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_stamina_fill.anchor_bottom = 1.0
+	_stamina_fill.offset_left = 1.0
+	_stamina_fill.offset_top = 1.0
+	_stamina_fill.offset_bottom = -1.0
+	_stamina_bar.add_child(_stamina_fill)
+
+func _update_stamina_bar(delta: float) -> void:
+	if not _stamina_fill:
+		return
+	var ratio := stamina / maxf(max_stamina, 0.001)
+	if is_fatigued():
+		# While fatigued the red bar shows the fatigue left, draining to 0.
+		ratio = fatigue_time_left / maxf(fatigue_duration, 0.001)
+	_stamina_fill.anchor_right = ratio
+	_stamina_fill.offset_right = -1.0 if ratio >= 1.0 else 0.0
+	# Red while fatigued, white otherwise.
+	_stamina_fill.color = Color("#990404") if is_fatigued() else Color(0.85, 0.85, 0.85)
+
+	# Show while in use; fade out after being full for a moment.
+	if stamina < max_stamina or is_fatigued():
+		_stamina_hide_timer = 1.5
+	else:
+		_stamina_hide_timer = maxf(_stamina_hide_timer - delta, 0.0)
+	var target := 1.0 if _stamina_hide_timer > 0.0 and show_stamina_bar else 0.0
+	_stamina_bar.modulate.a = move_toward(_stamina_bar.modulate.a, target, delta * 3.0)
+
 func get_mouse_world_pos(mouse_pos: Vector2):
 	var space = get_world_3d().direct_space_state
 	var _camera = get_viewport().get_camera_3d()

@@ -28,8 +28,7 @@ func _ready() -> void:
 	if playerelevator:
 		AudioManager.stop_loop("step")
 		PlayerManager.player = $"../Player"
-		if PlayerManager.testing == false:
-			PlayerManager.ApplyPlayerRotation()
+		# Facing comes from the ElevatorSpawn marker (GameState.change_level).
 		#Play Open Animation and on Animation finish Move door Collision
 		
 		AudioManager.play_sound(AudioManager.ElevatorDing)

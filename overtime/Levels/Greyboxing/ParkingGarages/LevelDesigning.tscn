@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://0l31dsgetxuh"]
+[gd_scene load_steps=75 format=3 uid="uid://0l31dsgetxuh"]
 
 [ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="2_4gd0m"]
 [ext_resource type="PackedScene" uid="uid://c7oxqkwa88xnt" path="res://Assets/Enviroments/Garage/Scenes/walk_in_wall.tscn" id="3_vwcur"]
@@ -12,6 +12,12 @@
 [ext_resource type="Script" path="res://Scripts/ConditionUIPanel.gd" id="10_jbl2a"]
 [ext_resource type="Script" path="res://Scripts/SimpleCondition.gd" id="11_yhx65"]
 [ext_resource type="Script" path="res://Scripts/ColorGatePuzzle.gd" id="12_cgp01"]
+[ext_resource type="PackedScene" uid="uid://cjmh8scjiewro" path="res://Assets/Enviroments/Office/Scenes/Box.tscn" id="13_dwdr1"]
+[ext_resource type="PackedScene" uid="uid://blxprvfviyb7m" path="res://Assets/Enviroments/Office/Scenes/PlayerMug1A.tscn" id="14_ddx3s"]
+[ext_resource type="PackedScene" uid="uid://df63p4gkori84" path="res://Assets/Enviroments/Office/Scenes/PlayerStapler.tscn" id="15_4xy1s"]
+[ext_resource type="PackedScene" uid="uid://chaiu20v7k0we" path="res://Assets/Enviroments/Office/Scenes/StickyNote.tscn" id="16_ibd4f"]
+[ext_resource type="PackedScene" uid="uid://yih5mgsk2qf2" path="res://Assets/Enviroments/Office/Scenes/CarKeys.tscn" id="17_4ai83"]
+[ext_resource type="PackedScene" uid="uid://b3bgkn66m7j62" path="res://Assets/Enviroments/Office/Scenes/StickyNote2.tscn" id="18_a8cwg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruj2r"]
 albedo_color = Color(0, 0, 0, 1)
@@ -176,6 +182,15 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [node name="Player" parent="." instance=ExtResource("6_6bh0q")]
 transform = Transform3D(1.30637, 0, 0, 0, 1.30637, 0, 0, 0, 1.30637, 0, 0, -6.89926)
+step_height = 0.3
+floor_snap_amount = 0.3
+floor_max_angle_degrees = 50.0
+max_stamina = 100.0
+stamina_drain_per_second = 20.0
+stamina_regen_per_second = 15.0
+stamina_regen_delay = 5.0
+fatigue_duration = 10.0
+fatigue_speed = 3.0
 
 [node name="SpawnRoom" type="Node" parent="."]
 
@@ -4519,6 +4534,27 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/DownStairs/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_tiigr")
+
+[node name="Box" parent="." instance=ExtResource("13_dwdr1")]
+transform = Transform3D(0.054457, 0, 0, 0, 0.054457, 0, 0, 0, 0.054457, 3.67615, 0.834466, -0.188331)
+
+[node name="Mug1A" parent="." instance=ExtResource("14_ddx3s")]
+transform = Transform3D(0.099733, 0, 0, 0, 0.099733, 0, 0, 0, 0.099733, 4.1837, 0.816845, -5.39848)
+
+[node name="Stapler" parent="." instance=ExtResource("15_4xy1s")]
+transform = Transform3D(0.0485838, 0, 0, 0, 0.0485838, 0, 0, 0, 0.0485838, 4.00224, 0.51979, -8.20536)
+
+[node name="Sticky Note" parent="." instance=ExtResource("16_ibd4f")]
+transform = Transform3D(-0.00716075, -0.0600379, 0.000836278, 0.00273736, 0.000514902, 0.0604051, -0.0599813, 0.00719101, 0.00265686, 9.75041, 3.96202, -6.40727)
+
+[node name="Sticky Note2" parent="." instance=ExtResource("16_ibd4f")]
+transform = Transform3D(-0.00716075, -0.0600379, 0.000836278, 0.00273736, 0.000514902, 0.0604051, -0.0599813, 0.00719101, 0.00265686, 9.75041, 3.96202, -4.0614)
+
+[node name="CarKeys" parent="." instance=ExtResource("17_4ai83")]
+transform = Transform3D(0.10937, 0, 0, 0, 0.10937, 0, 0, 0, 0.10937, 4.41242, 0.896233, -3.15893)
+
+[node name="Sticky Note3" parent="." instance=ExtResource("18_a8cwg")]
+transform = Transform3D(0.000684241, -0.175017, 0, 0.175017, 0.000684241, 0, 0, 0, 0.175019, 9.8398, 3.35698, -9.64616)
 
 [connection signal="interacted" from="DoorPuzzleRoom/DoorTest" to="DoorPuzzleRoom/DoorTest" method="_on_interacted"]
 [connection signal="interacted" from="DoorPuzzleRoom/DoorKey" to="DoorPuzzleRoom/DoorKey" method="_on_interacted"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NoteData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/NoteData.gd" id="1_note"]
+
+[resource]
+script = ExtResource("1_note")
+id = "example_note"
+title = "Example Note"
+text = "This is an example note.
+
+Copy this file in res://Assets/Notes/ to make a new note, give it its own id, and drag it onto a NoteItem's \"note\" slot.
+
+Scripts can check if it was read with:
+GameState.has_note(\"example_note\")"

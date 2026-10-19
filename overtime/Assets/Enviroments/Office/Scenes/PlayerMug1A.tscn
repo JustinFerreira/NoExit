@@ -2,11 +2,11 @@
 
 [ext_resource type="Material" uid="uid://dc1ys8bf8qlsl" path="res://Assets/Materials/Mug1A.tres" id="1_b31xw"]
 [ext_resource type="ArrayMesh" uid="uid://cgr3y6t1xgkib" path="res://Assets/Enviroments/Office/Models/Mug_1.obj" id="2_hb7he"]
-[ext_resource type="Script" path="res://Scripts/Mug1A.gd" id="3_a2l26"]
+[ext_resource type="Script" path="res://Scripts/ExaminableItem.gd" id="3_a2l26"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_pw4lu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5wrq1"]
-points = PackedVector3Array(0.0766514, 0.182211, -6.68988e-05, 0.0786512, 0.180695, -6.68988e-05, 0.0556101, 0.180695, -0.0556723, 0.0541847, 0.182211, -0.054271, 0.0541847, 0.182211, 0.0541372, 0.0556101, 0.180695, 0.0555539, 0.115904, 0.146004, 0.00555369, 0.115883, 0.146004, -0.00530252, 0.0556101, 0.14406, -0.0556723, -3.38256e-06, 0.180695, -0.078709, -3.38256e-06, 0.182211, -0.0767225, 0.11416, 0.144025, -0.0113389, 0.134456, 0.12016, -0.0109539, 0.135882, 0.0900715, -0.0109847, -3.38256e-06, 0.182211, 0.0766042, -3.38256e-06, 0.180695, 0.078606, 0.0556101, 0.14406, 0.0555539, 0.135924, 0.0900359, 0.0110511, 0.134499, 0.120125, 0.0111127, 0.114202, 0.144025, 0.0115901, 0.137158, 0.120874, 0.0054305, 0.137137, 0.120892, -0.00527172, 0.051887, 0.0112375, -0.0519611, -3.38256e-06, 0.0112375, -0.073458, -3.38256e-06, 0.14406, -0.078709, -0.0556382, 0.180695, -0.0556723, -0.0542127, 0.182211, -0.054271, 0.138647, 0.0896256, -0.00531792, 0.12718, 0.0596437, -0.00537951, 0.124499, 0.0609101, -0.0110463, -0.0542127, 0.182211, 0.0541372, -0.0556382, 0.180695, 0.0555539, -3.38256e-06, 0.14406, 0.078606, 0.051887, 0.0112375, 0.0518427, 0.124542, 0.0608566, 0.0109895, 0.127201, 0.0596081, 0.00532271, 0.138669, 0.0896078, 0.00536891, 0.0500573, 0.0051912, -0.0501287, -3.38256e-06, 0.0051912, -0.070871, -0.051915, 0.0112375, -0.0519611, -0.0556382, 0.14406, -0.0556723, -0.078658, 0.180695, -6.68988e-05, -0.0766794, 0.182211, -6.68988e-05, 0.103224, 0.0364929, -0.00568749, -0.0556382, 0.14406, 0.0555539, -0.051915, 0.0112375, 0.0518427, -3.38256e-06, 0.0112375, 0.0733396, -3.38256e-06, 0.0051912, 0.0707526, 0.0500573, 0.0051912, 0.0500103, 0.103224, 0.0364573, 0.00553829, 0.0420791, 1e-06, -0.042152, 0.0708007, 0.0051912, -6.68988e-05, -3.38256e-06, 1e-06, -0.0595836, -0.0421071, 1e-06, -0.042152, -0.0500853, 0.0051912, -0.0501287, -0.0708287, 0.0051912, -6.68988e-05, -0.073403, 0.0112375, -6.68988e-05, -0.078658, 0.14406, -6.68988e-05, -0.0500853, 0.0051912, 0.0500103, -0.0421071, 1e-06, 0.0420336, -3.38256e-06, 1e-06, 0.0594652, 0.0420791, 1e-06, 0.0420336, 0.0595035, 1e-06, -6.68988e-05, -0.0595315, 1e-06, -6.68988e-05)
+points = PackedVector3Array(-3.0927, 0.0448645, -0.567075, 3.90839, 9.22604, 0.453821, 5.79459, 7.57939, 0.458095, -0.160763, 9.36024, -4.01862, -2.77487, 9.38766, 2.89922, 0.19999, 0.438803, 3.7024, 2.59281, 0.237588, -2.6257, 7.13284, 4.34371, -0.771629, 0.0104572, 9.18882, 4.09227, -3.97443, 9.37418, -0.22276, -2.52945, 0.608393, -2.77811, 6.95274, 4.34371, 0.843607, -2.76815, 0.543368, 2.54721, 3.27592, 0.0768279, 0.292108, 2.75902, 9.31556, -2.95378, 0.0200377, 0.756515, -3.82322, -2.92191, 9.35971, -2.81016, -3.80958, 0.715406, -0.0493359, 2.92089, 9.28739, 2.83795, 2.41893, 0.0745883, 2.34927, 7.06272, 6.24788, -0.392547, 6.50021, 3.00061, -0.388615, 0.0121337, 0.0463872, -3.32579, 6.95274, 6.31823, 0.843607, -2.2411, 0.0317843, 2.37067, 2.56311, 1.2003, 2.78739, -3.92791, 6.24555, 0.292564, -0.309373, 0.614402, 3.69772, 2.57884, 0.636598, -2.75872, 2.73101, 7.20425, 2.95573, 6.46763, 3.01184, 0.45779, -2.90372, 6.59171, -2.79862)
 
 [sub_resource type="Animation" id="Animation_e3pmx"]
 resource_name = "Mug1AFade"
@@ -51,16 +51,36 @@ _data = {
 material_override = ExtResource("1_b31xw")
 mesh = ExtResource("2_hb7he")
 
-[node name="Mug1A" type="StaticBody3D" parent="Mug1A" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="Mug1A" type="StaticBody3D" parent="Mug1A" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0484114, 0, 0.0264473)
 script = ExtResource("3_a2l26")
-target_mesh = ExtResource("2_hb7he")
-target_material = ExtResource("1_b31xw")
-player_manager_reference = "Mug1A"
-animation_name = "Mug1AFade"
-animation_fade_player = NodePath("../../Mug1AFade")
-can_be_stored = true
-flash_animation_manager_reference = "Mug1AFlashAnimationPlayer"
-flash_animation_name = "Mug1AFlash"
+examine_dialog = null
+dialog_from_event_manager = "mug1a_normal_dialog"
+first_time_hint = null
+keys_hint_dialog = null
+darken_background = null
+focus_distance = null
+screen_offset = null
+size_mode = null
+screen_fill = null
+scale_multiplier = null
+front_axis = null
+examine_rotation_offset = null
+transition_time = null
+examine_light_energy = null
+spin_mode = null
+spin_turns = null
+rotate_speed_degrees = null
+allow_tilt = null
+pickup_on_close = null
+store_in_box = true
+inventory_name = null
+inventory_weight = null
+inventory_equippable = null
+flash_mode = 1
+spawn_condition = null
+player_manager_reference = null
+is_interactable = null
 outline_material = ExtResource("4_pw4lu")
 mesh = NodePath("..")
 has_outline = true

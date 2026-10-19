@@ -1,8 +1,9 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/18/26 by Justin Ferreira
 ## Slider Bar Script
 ## - This is used to keep the sprite of the sliderbar acurate
+## - Works for any slider range (fills by how far along the range it is)
 
 extends AnimatedSprite2D
 
@@ -13,4 +14,5 @@ func _ready():
 	update_sprite(slider.value)
 
 func update_sprite(value: float):
-	frame = max(0, 20 - (value / 5))
+	var ratio := inverse_lerp(slider.min_value, slider.max_value, value) if slider.max_value > slider.min_value else 0.0
+	frame = clampi(20 - int(round(ratio * 20.0)), 0, 20)

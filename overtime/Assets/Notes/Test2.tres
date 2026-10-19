@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NoteData" load_steps=2 format=3 uid="uid://dukrx3slf0pvo"]
+
+[ext_resource type="Script" path="res://Scripts/NoteData.gd" id="1_cxyce"]
+
+[resource]
+script = ExtResource("1_cxyce")
+id = "Test2"
+title = "Test2"
+text = "juice i love juice"

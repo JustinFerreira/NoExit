@@ -106,6 +106,7 @@ func _on_textured_parking_garage_pressed() -> void:
 
 func _on_loop_0_pressed() -> void:
 	PlayerManager.deaths = 0
+	GameState.forget_notes()
 	
 	#Button Click Noise
 	AudioManager.play_sound(AudioManager.GetKeyPress())
@@ -152,6 +153,7 @@ func _on_new_office_pressed() -> void:
 func _on_new_game_btn_pressed() -> void:
 	SettingsManager.Loop0Pass = false
 	SettingsManager.Loop1Pass = false
+	GameState.forget_notes()
 	PlayerManager.deaths = 0
 	
 	#Button Click Noise

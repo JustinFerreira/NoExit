@@ -580,3 +580,6 @@ transform = Transform3D(3.48974, 0, 0, 0, 3.48974, 0, 0, 0, 3.48974, -47.2528, 1
 
 [node name="DisapearingEnemy" parent="." instance=ExtResource("35_y7pom")]
 transform = Transform3D(-4.35319, 0, -2.98739, 0, 5.27966, 0, 2.98739, 0, -4.35319, -26.3488, 10.376, 18.3264)
+
+[node name="ElevatorSpawn" type="Marker3D" parent="." groups=["spawn_points"]]
+transform = Transform3D(-0.133811, 0, -0.991007, 0, 1, 0, 0.991007, 0, -0.133811, -7.08571, 10.6192, 44.9788)

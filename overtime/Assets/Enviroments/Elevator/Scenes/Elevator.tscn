@@ -259,6 +259,8 @@ transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.117534
 transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.721237, 0.89162, 1.13758)
 visible = false
 script = ExtResource("7_0bi4n")
+is_interactable = null
+has_outline = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InsideButtons"]
 transform = Transform3D(1.69092, 0, 0, 0, 3.88817, 0, 0, 0, 0.190962, 0, 0.504236, 0)

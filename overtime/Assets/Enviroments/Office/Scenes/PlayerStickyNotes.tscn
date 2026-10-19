@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://bi00vjan8blbr" path="res://Assets/Materials/StickyNotes.tres" id="1_2tww5"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_d06dn"]
 [ext_resource type="ArrayMesh" uid="uid://bip30krengfuq" path="res://Assets/Enviroments/Office/Models/Sticky_Notes.obj" id="4_ylcem"]
-[ext_resource type="Script" path="res://Scripts/StickyNotes.gd" id="5_8x4ar"]
+[ext_resource type="Script" path="res://Scripts/ExaminableItem.gd" id="5_8x4ar"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mo14c"]
 points = PackedVector3Array(-1.16221, -0.0303366, -1.16414, -1.16221, -0.075966, -1.16232, -1.16221, 0.032741, -1.16414, -1.14566, -0.0303366, -1.16414, -1.16221, -0.075966, 1.16211, 1.16208, -0.075966, -1.16232, -1.16221, 0.0979927, -1.16232, -1.15685, 0.119046, -1.16232, 1.20751, 0.205186, -1.16232, 1.18375, 0.063977, -1.16414, 1.04744, -0.0281625, -1.16414, -1.16221, -0.0303366, 1.16325, 1.16208, -0.075966, 1.16211, 1.1707, -0.0199062, -1.16414, 1.21823, 0.163547, -1.16232, -1.16221, 0.0979927, 1.16211, -1.15685, 0.119046, 1.16211, 1.20751, 0.205186, -1.13976, 1.20984, 0.197398, -1.16232, 1.21707, 0.171666, -1.16232, -1.16221, 0.032741, 1.16325, -1.14566, -0.0303366, 1.16325, 1.0507, 0.0391258, 1.16348, 1.21823, 0.163547, -1.13976, 1.218, 0.163547, 1.16211, 1.1707, -0.0199062, 1.16325, 1.04744, -0.0281625, 1.16325, 1.20751, 0.205159, 1.16211, 1.20984, 0.197398, 1.16211, 1.21707, 0.171666, -1.13976, 1.18375, 0.063977, 1.16348, 1.21707, 0.171638, 1.16211)
@@ -51,14 +51,12 @@ _data = {
 material_override = ExtResource("1_2tww5")
 mesh = ExtResource("4_ylcem")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="StickyNotes" node_paths=PackedStringArray("mesh")]
 script = ExtResource("5_8x4ar")
-target_mesh = ExtResource("4_ylcem")
-target_material = ExtResource("1_2tww5")
-player_manager_reference = "StickyNotes"
-animation_name = "StickyNotesFade"
-animation_fade_player = NodePath("../../StickyNotesFade")
-can_be_stored = true
+dialog_from_event_manager = "stickynotes_normal_dialog"
+store_in_box = true
+flash_mode = 2
+spawn_condition = 1
 outline_material = ExtResource("4_d06dn")
 mesh = NodePath("..")
 has_outline = true

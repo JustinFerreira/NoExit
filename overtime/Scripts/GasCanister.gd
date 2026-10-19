@@ -1,35 +1,14 @@
 ##No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/18/26 by Justin Ferreira
 ## Gas Canister Script
 ## - this is the pickup item
+## Pickup, flashing, inventory and dialog are set in the Inspector
+## (ExaminableItem). This only adds what's special to the gas canister.
 
 extends ExaminableItem
 
-func _ready() -> void:
-	if PlayerManager.Loop0:
-		PlayerManager.set(player_manager_reference, null)
-		get_parent().visible = false
-		_on_interaction_complete()
-		return
-	super._ready()
-	start_flashing()
-	normal_dialog = EventManager.gascanisterpickup_normal_dialog
-	
-func _process(_delta: float) -> void:
-	if PlayerManager.ExamingItem == self || PlayerManager.examining == true:
-		stop_flashing()
-	elif not PlayerManager.player.interact_ray.get_collider() == self:
-		start_flashing()
-	else:
-		stop_flashing()
-
-func _on_interacted(body: Variant) -> void:
-	super._on_interacted(body)
+func _on_picked_up() -> void:
+	PlayerManager.gotGas_Canister = true
 	AnimationManager.GasIntakeFlash.start_flashing()
 	AnimationManager.GasIntakeFlash.toggle_interactable(true)
-	
-	AudioManager.play_sound(AudioManager.ImportantItemStinger)
-	PlayerManager.AddToInventory("Gas Canister", 1.5)
-	PlayerManager.gotGas_Canister = true
-	

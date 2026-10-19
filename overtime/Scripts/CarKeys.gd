@@ -1,47 +1,31 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 2/21/26 by Justin Ferreira
+## Last upadated 10/18/26 by Justin Ferreira
 ## Car Key Script
 ## - Script The Car Keys Examinable Pickup Item
-## The keys overwrite a lot of existing functions
-## but also uses the previous versions with a super call
-## There are some changes because how the item is used
+## Pickup, inventory and sounds are set in the Inspector (ExaminableItem).
+## The keys can only be examined once enough desk items are packed.
 
 extends ExaminableItem
 
+const DESK_ITEMS_NEEDED: int = 3
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#put Loops in Event Manager?
-	if not PlayerManager.Loop0:
-		PlayerManager.set(player_manager_reference, null)
-		get_parent().visible = false
-		_on_interaction_complete()
-		return
-	super._ready()
-	
-func _process(_delta: float) -> void:
-	#checks if there is more deskitems than needed so keys will flash
-	#should change this so that everytime an item is picked up it checks instead of process
-	#also add CarKeyFlash to Animation Manager
-	#Chnage this to event manager!!!
-	if PlayerManager.DeskItems.size() < 3 || PlayerManager.ExamingItem == self || PlayerManager.examining == true:
-		stop_flashing()
-	elif not PlayerManager.player.interact_ray.get_collider() == self:
-		start_flashing()
-	else:
-		stop_flashing()
-	
-func _on_interacted(body: Variant) ->  void:
-	if PlayerManager.DeskItems.size() >= 3:
-		super._on_interacted(body)
-		if AnimationManager.ElevatorButtonFlash:
-			AnimationManager.ElevatorButtonFlash.visible = true
-		PlayerManager.AddToInventory("Car Keys", 0.5, true)
-		PlayerManager.gotKeys = true
-		AudioManager.play_sound(AudioManager.ImportantItemStinger)
-		PlayerManager.firstdialog = false
-		
-		PlayerManager.CharacterHintDialog(EventManager.keys_pickup,EventManager.keys_pickup_hint)
-	else:
-		PlayerManager.CharacterDialog(EventManager.keys_pickup_early)
+func _can_examine() -> bool:
+	return true
+
+func _on_examine_blocked() -> void:
+	PlayerManager.CharacterDialog(EventManager.keys_pickup_early)
+
+func _show_examine_dialog() -> void:
+	PlayerManager.CharacterHintDialog(EventManager.keys_pickup, EventManager.keys_pickup_hint)
+
+func _on_examine_started() -> void:
+	if AnimationManager.ElevatorButtonFlash:
+		AnimationManager.ElevatorButtonFlash.visible = true
+	PlayerManager.firstdialog = false
+
+func _on_picked_up() -> void:
+	PlayerManager.gotKeys = true
+
+func _should_flash() -> bool:
+	return super._should_flash() and _can_examine()

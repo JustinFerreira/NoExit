@@ -1,12 +1,14 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/18/26 by Justin Ferreira
 ## Settings Label Script
 ## - This script updates the number for sliders in settings menu
 
 extends Label
 
 @export var slider: HSlider
+## Shown after the number, e.g. "%" for 75%. Empty for plain numbers.
+@export var suffix: String = "%"
 
 func _ready():
 	slider.value_changed.connect(update_text)
@@ -14,5 +16,4 @@ func _ready():
 
 func update_text(value: float):
 	var clamped_value := clampf(value, slider.min_value, slider.max_value)
-	var percentage := int(round(clamped_value))
-	text = "%d%%" % [int(percentage)]
+	text = "%d%s" % [int(round(clamped_value)), suffix]

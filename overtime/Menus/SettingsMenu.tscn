@@ -760,18 +760,4 @@ position = Vector2(-0.748056, -0.616577)
 mesh = SubResource("QuadMesh_2i0i3")
 
 [connection signal="tab_clicked" from="CenterContainer/ColorRect/TabContainer" to="." method="_on_tab_container_tab_clicked"]
-[connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MasterVbox/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/MusicVbox/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/VOLUME/SoundSettingsVbox/SFXVbox/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_pressed"]
-[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/FullScreenCheckBox" to="." method="_on_full_screen_check_box_toggled"]
-[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox" to="." method="_on_shader_check_box_pressed"]
-[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/VISUAL/VisualSettingsVbox/ShaderCheckBox" to="." method="_on_shader_check_box_toggled"]
-[connection signal="value_changed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/SensitivityVbox/SensitivitySlider" to="." method="_on_sensitivity_slider_value_changed"]
-[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_pressed"]
-[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/ShiftHoldRunCheckBox" to="." method="_on_shift_hold_run_check_box_toggled"]
-[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox" to="." method="_on_head_bob_check_box_pressed"]
-[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/HeadBobCheckBox" to="." method="_on_head_bob_check_box_toggled"]
-[connection signal="pressed" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox" to="." method="_on_dev_mode_check_box_pressed"]
-[connection signal="toggled" from="CenterContainer/ColorRect/TabContainer/GAME/GameSettingsVbox/DevModeCheckBox" to="." method="_on_dev_mode_check_box_toggled"]
 [connection signal="pressed" from="CenterContainer/ColorRect/Button" to="." method="_on_button_pressed"]

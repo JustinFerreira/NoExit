@@ -12,6 +12,7 @@ extends Interactable
 
 var fall_speed: float = 2.0
 var InElevator: bool = false
+var _leaving: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,12 +30,15 @@ func _process(delta: float) -> void:
 		PlayerManager.player.position.y -= fall_speed * delta
 		
 	
-	if $"..".position.y <= -10:
+	if $"..".position.y <= -10 and not _leaving:
+		_leaving = true
 		AnimationManager.ElevatorFall = false
-		PlayerManager.SavePlayerRotation()
 		AudioManager.cancel_music()
 		AudioManager.cancel_loop_sfx()
-		get_tree().change_scene_to_file("res://Levels/ParkingGarage.tscn")
+		# Arrive in the garage elevator facing the same way relative to the
+		# elevator as the player is now.
+		GameState.change_level("res://Levels/ParkingGarage.tscn", "ElevatorSpawn",
+			get_tree().current_scene.get_node_or_null("ElevatorSpawn"))
 
 
 func _on_interacted(_body: Variant) -> void:

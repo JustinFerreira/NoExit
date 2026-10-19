@@ -20,6 +20,9 @@ var Sensitivity: float = 0.01
 
 var Hold_Shift: bool = false
 
+# Invert mouse up/down (set from the Invert Mouse Y setting).
+var InvertY: bool = false
+
 var HeadBob: bool = true
 
 var DevMode: bool = true
@@ -46,9 +49,6 @@ var no_enemy: bool = true
 
 var player
 
-var player_rotation_x: float
-var player_rotation_y: float
-var player_rotation_z: float
 
 var scaredDistance: float = 0
 var scaredPitch: float = 1
@@ -61,7 +61,13 @@ var dying: bool = false
 
 var EquippedItem: String = ''
 
-var DeskItems: Array[ExaminableItem] = []
+# Ids of the items packed into the Box (GameState remembers them, so they
+# survive leaving the office). Only .size() and clearing are meaningful.
+var DeskItems: Array:
+	get: return GameState.get_collected(GameState.STORED)
+	set(value):
+		if value.is_empty():
+			GameState.forget_collected(GameState.STORED)
 
 var firstdialog: bool = true
 
@@ -103,23 +109,51 @@ var InAnimation: bool = false
 ## Pass Checks
 
 var testing: bool = true
-var gotKeys: bool = false
-var gotGas_Canister: bool = false
-var gotBattery: bool = false
-var talkToJanitor: bool = false
+# Milestones live in GameState as flags now - these just forward to it so
+# old code keeps working. Prefer GameState.has_flag()/set_flag() in new code.
+var gotKeys: bool:
+	get: return GameState.has_flag(GameState.FLAG_GOT_KEYS)
+	set(value): GameState.set_flag(GameState.FLAG_GOT_KEYS, value)
+var gotGas_Canister: bool:
+	get: return GameState.has_flag(GameState.FLAG_GOT_GAS_CANISTER)
+	set(value): GameState.set_flag(GameState.FLAG_GOT_GAS_CANISTER, value)
+var gotBattery: bool:
+	get: return GameState.has_flag(GameState.FLAG_GOT_BATTERY)
+	set(value): GameState.set_flag(GameState.FLAG_GOT_BATTERY, value)
+var talkToJanitor: bool:
+	get: return GameState.has_flag(GameState.FLAG_TALK_TO_JANITOR)
+	set(value): GameState.set_flag(GameState.FLAG_TALK_TO_JANITOR, value)
 
-# Loop control
-var OpeningCutscene: bool = false
-var Loop1: bool = false
-var Loop0: bool = false
+# Loop control - one value in GameState.loop now, so these three can never
+# disagree. Setting one true moves to that loop; setting the current one
+# false leaves it (back to "not in a run").
+var OpeningCutscene: bool:
+	get: return GameState.loop == GameState.LOOP_OPENING
+	set(value): _set_loop_flag(GameState.LOOP_OPENING, value)
+var Loop0: bool:
+	get: return GameState.loop == 0
+	set(value): _set_loop_flag(0, value)
+# Loop1 means "past loop 0" (any later loop counts).
+var Loop1: bool:
+	get: return GameState.loop >= 1
+	set(value):
+		if value:
+			if GameState.loop < 1:
+				GameState.loop = 1
+		elif GameState.loop >= 1:
+			GameState.loop = GameState.LOOP_NONE
 
 ## Hot Wiring
 var minigameOne: bool = false
-var minigameOnePassed: bool = false
+var minigameOnePassed: bool:
+	get: return GameState.has_flag(GameState.FLAG_HOTWIRE_DONE)
+	set(value): GameState.set_flag(GameState.FLAG_HOTWIRE_DONE, value)
 
 ## Gas Canister
 var minigameTwo: bool = false
-var minigameTwoPassed: bool = false
+var minigameTwoPassed: bool:
+	get: return GameState.has_flag(GameState.FLAG_GAS_DONE)
+	set(value): GameState.set_flag(GameState.FLAG_GAS_DONE, value)
 
 var gasIntakeUI: Control
 var gasIntakeSweetSpot: MeshInstance3D
@@ -128,7 +162,9 @@ var actioning: bool = false
 
 ## Hood / Battery
 var minigameThree: bool = false
-var minigameThreePassed: bool = false
+var minigameThreePassed: bool:
+	get: return GameState.has_flag(GameState.FLAG_BATTERY_DONE)
+	set(value): GameState.set_flag(GameState.FLAG_BATTERY_DONE, value)
 var PositiveConnected: bool = false
 var NegativeConnected: bool = false
 
@@ -144,7 +180,9 @@ var car_audio_player: AudioStreamPlayer3D
 
 ## Death Count
 
-var deaths: int 
+var deaths: int:
+	get: return GameState.deaths
+	set(value): GameState.deaths = value
 
 var Inventory: Array = []
 var MaxWeight: float = 10.0
@@ -157,16 +195,6 @@ var examed: bool = false
 var closeup: bool = true
 var examining: bool = false
 var ExamingItem: ExaminableItem
-var PictureFrame1: ExaminableItem
-var Stapler: ExaminableItem
-var StickyNotes: ExaminableItem
-var Mug1A: ExaminableItem
-var Mug2A: ExaminableItem
-var Keys: ExaminableItem
-var Box: ExaminableItem
-var FlashLight: ExaminableItem
-var BatteryExamine: ExaminableItem
-var GasCanisterExamine: ExaminableItem
 
 
 var OfficeLights: Array
@@ -175,6 +203,14 @@ var ParkingGarageLights: Array
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+
+# _set_loop_flag
+# Backs the old OpeningCutscene / Loop0 setters.
+func _set_loop_flag(loop: int, value: bool) -> void:
+	if value:
+		GameState.loop = loop
+	elif GameState.loop == loop:
+		GameState.loop = GameState.LOOP_NONE
 
 		
 
@@ -221,7 +257,8 @@ func ResetPlayer() -> void:
 	if player != null:
 		player = get_tree().current_scene.get_node("Player") 
 	EquippedItem = ''
-	DeskItems = []
+	# Inventory is empty again, so every picked-up / stored item comes back.
+	GameState.forget_collected()
 	examed = false
 	
 	if not Loop0:
@@ -336,28 +373,6 @@ func NextDialog():
 func MultiDialog(text_array: Array[String]):
 	player.get_node("DialogControl").player_interact_multi_dialog_pic(text_array)
 
-# SavePlayerRotation
-# Use for when changing scenes to keep the player facing the saem direction
-# this messes with the player mesh rotation
-func SavePlayerRotation():
-	player_rotation_x = player.get_node("Head").rotation.x
-	player_rotation_y = player.get_node("Head").rotation.y
-	player_rotation_z = player.get_node("Head").rotation.z
-	#print(player_rotation_x, player_rotation_y, player_rotation_z)
-	
-# ApplyPlayerRotation
-# When entering a new scene this is used to have the same rotation
-# as the last scene
-func ApplyPlayerRotation():
-	if player and not EventManager.Comingfromelevator:
-		player.get_node("Head").rotation.x = player_rotation_x
-		player.get_node("Head").rotation.y = player_rotation_y + PI/4
-		player.get_node("Head").rotation.z = player_rotation_z 
-	else:
-		player.get_node("Head").rotation.x = player_rotation_x
-		player.get_node("Head").rotation.y = player_rotation_y - PI/4
-		player.get_node("Head").rotation.z = player_rotation_z 
-	
 # MiniGameModeOn
 # turns on MinigameMode and sets up for minigame
 func MiniGameModeOn():
@@ -455,46 +470,10 @@ func KeyFobSound():
 # EndFocus
 # stops the focus on an examine item
 func EndFocus():
-	closeup = !closeup
-	if Office && PictureFrame1: 
-		if PictureFrame1.should_stay_in_focus && closeup == false:
-			PictureFrame1.end_focus()
-		
-	if Office && Stapler:
-		if Stapler.should_stay_in_focus && closeup == false:
-			Stapler.end_focus()
-		
-	if Office && StickyNotes:
-		if StickyNotes.should_stay_in_focus && closeup == false:
-			StickyNotes.end_focus()
-		
-	if Office && Mug1A:
-		if Mug1A.should_stay_in_focus && closeup == false:
-			Mug1A.end_focus()
-		
-	if Office && Mug2A:
-		if Mug2A.should_stay_in_focus && closeup == false:
-			Mug2A.end_focus()
-		
-	if Office && Keys:
-		if Keys.should_stay_in_focus && closeup == false:
-			Keys.end_focus()
-		
-	if Office && Box:
-		if Box.should_stay_in_focus && closeup == false:
-			Box.end_focus()
-		
-	if ParkingGarage && BatteryExamine:
-		if BatteryExamine.should_stay_in_focus && closeup == false:
-			BatteryExamine.end_focus()
-			
-	if ParkingGarage and GasCanisterExamine:
-		if GasCanisterExamine.should_stay_in_focus and closeup == false:
-			GasCanisterExamine.end_focus()
-			
-	if true && FlashLight:
-		if FlashLight.should_stay_in_focus and closeup == false:
-			FlashLight.end_focus()
+	# Every ExaminableItem registers itself as ExamingItem when examined,
+	# so new items don't need to be listed here.
+	if ExamingItem and ExamingItem.should_stay_in_focus:
+		ExamingItem.end_focus()
 		
 # SwitchEquippedItem
 # changes the players equipped item

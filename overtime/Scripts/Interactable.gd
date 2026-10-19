@@ -1,13 +1,15 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/18/26 by Justin Ferreira
 ## - Interactable Script
 ## this is is a parent class for many objects
 ## having this as a parent allows for objects to have mutiple features
 ## which are essential for gameplay
 ## main feature being that the player can click on these objects adn there
 ## will be some sort of reaction
-## there is also the ability to flash the outline of an object 
+## there is also the ability to flash the outline of an object
+## Outlines are drawn as a screen-space effect by OutlineManager - change
+## the colour/width there.
 
 extends CollisionObject3D
 class_name Interactable
@@ -28,43 +30,84 @@ signal interacted(body)
 signal interaction_succeeded
 
 # turn on and off the objetcs interactivity
-@export var is_interactable: bool = true
-# Stores materail used for the outline
+# Turning it off also clears the hover outline, so nothing stays outlined
+# after it's been used / picked up.
+@export var is_interactable: bool = true:
+	set(value):
+		is_interactable = value
+		if not value and _outline_shown:
+			hide_outline()
+# Legacy - no longer used. Outline colour/width live in OutlineManager.
 @export var outline_material: Material
 # The mesh that need the be outlined
+# Optional - leave empty to use this object's parent MeshInstance3D
 @export var mesh: MeshInstance3D
 @export var mesh_list: Array[MeshInstance3D]
-# bool to be turned on when an object has the ability to be outlined
-# just to make sure there is no errors if not all other fields are filled
+# Tick this to give the object an outline (on hover) and allow flashing.
 @export var has_outline: bool
+# Id GameState uses to remember this object (e.g. that it was picked up).
+# Leave empty to use "<level file>::<path in level>", which is unique as
+# long as you don't rename/move the node. Set one by hand if you want it
+# to survive renames, or to share one id between several levels.
+@export var persist_id: String = ""
 
 # variable to know if object is flashimg or not
 var _is_flashing: bool = false
-# the change between full flash and off flash
+# true while the hover outline is showing (it wins over flashing)
+var _outline_shown: bool = false
+# while true no outline or flash is drawn at all (see set_outline_blocked)
+var _outline_blocked: bool = false
+# current brightness of the flash, animated 0 -> 1 -> 0 by _flash_tween
+var _flash_alpha: float = 0.0
 var _flash_tween: Tween
-# This instance is made to make sure objects dont share the outline material since
-# it is the same material for each object
-# there is also different flashing and outline material so that changing between
-# outlining and flashing is easier
-var _instance_outline_material: Material  # Each object gets its own copy!
-var _instance_flashing_material: Material  # Each object gets its own copy!
-# this is more so if the object is flashing and needs to be outlined so the flash will
-# be disabled
-var _flash_visible: bool = false  # Controls whether flash is visible
-# this is so if the object was outlined and needs to go back to flashing
-var _should_be_flashing: bool = false  # Track if object should be in flashing state
+# One mask material per object, shared by its mask meshes. Its "strength"
+# is how bright this object's outline is right now.
+var _mask_material: ShaderMaterial
+# Invisible copies of the outlined meshes that OutlineManager draws from.
+var _masks: Array[MeshInstance3D] = []
 
 func _ready():
-	# Create unique instances of the outline materials for this object
-	if outline_material:
-		_instance_outline_material = outline_material.duplicate()
-		_instance_flashing_material = outline_material.duplicate()
-		# Set outline material to full visibility
-		_set_outline_material_alpha(1.0)
-		# Initialize flash animation (running continuously)
-		_initialize_flash_animation()
-		# Start with flash invisible
-		_set_flash_visible(false)
+	# Hook up interacted -> _on_interacted automatically so new objects don't
+	# need it wired in the Signals tab. Skipped if it's already connected
+	# there, so nothing fires twice.
+	if has_method("_on_interacted") and not interacted.is_connected(_on_interacted_callable()):
+		interacted.connect(_on_interacted_callable())
+	# Fill in outline defaults so new objects only need has_outline ticked.
+	if has_outline:
+		if not mesh and get_parent() is MeshInstance3D:
+			mesh = get_parent()
+		if not mesh:
+			push_warning("%s: has_outline is on but no mesh was set or found on the parent." % name)
+			has_outline = false
+	if has_outline:
+		_setup_outline()
+
+func _on_interacted_callable() -> Callable:
+	return Callable(self, "_on_interacted")
+
+# get_persist_id
+# This object's id for GameState (see persist_id above).
+func get_persist_id() -> String:
+	if persist_id != "":
+		return persist_id
+	var level := get_tree().current_scene if is_inside_tree() else null
+	if level == null:
+		return str(get_path())
+	return "%s::%s" % [level.scene_file_path, level.get_path_to(self)]
+
+# _setup_outline
+# Makes the invisible mask copies OutlineManager uses to draw this
+# object's outline.
+func _setup_outline() -> void:
+	OutlineManager.get_instance(get_tree())
+	_mask_material = OutlineManager.make_mask_material()
+	var targets: Array[MeshInstance3D] = [mesh]
+	for m in mesh_list:
+		if m and not targets.has(m):
+			targets.append(m)
+	for m in targets:
+		if m.mesh:
+			_masks.append(OutlineManager.create_mask(m, _mask_material))
 
 # interact
 # this function is what is called when clicked by player
@@ -75,11 +118,12 @@ func interact(body):
 		pass
 	else:
 		interacted.emit(body)
-		
+
 # _on_interaction_complete
 # turns off interactablity for an object
 func _on_interaction_complete() -> void:
 	is_interactable = false
+	stop_flashing()
 
 # mark_success
 # Call this from a child script's _on_interacted() once it knows its
@@ -90,152 +134,105 @@ func mark_success() -> void:
 	interaction_succeeded.emit()
 
 # show_outline
-# turns on the outline for an object
+# turns on the outline for an object (hover). Returns false if this object
+# has no outline.
 func show_outline() -> bool:
-	if has_outline == true and _instance_outline_material:
-		# Hide flash by setting alpha to 0
-		_set_flash_visible(false)
-		# Show outline material
-		mesh.material_overlay = _instance_outline_material
-		return true
-	return false
-	
+	if not has_outline or _outline_blocked:
+		return false
+	_outline_shown = true
+	_refresh_outline()
+	return true
+
 # hide_outline
-# turns off outline for an object
-func hide_outline() -> void: 
-	if has_outline == true:
-		if _should_be_flashing:  # If object should be flashing
-			# Make flash visible again
-			_set_flash_visible(true)
-			# Show flashing material
-			mesh.material_overlay = _instance_flashing_material
-		else:
-			# Nothing to show
-			mesh.material_overlay = null
-
-# _initialize_flash_animation
-# Initialize the flash animation (runs continuously from scene start)
-func _initialize_flash_animation() -> void:
-	if not _instance_flashing_material:
+# turns off the hover outline - goes back to flashing if it was flashing
+func hide_outline() -> void:
+	if not has_outline:
 		return
-	
-	# Clean up any existing tween
-	if _flash_tween and _flash_tween.is_valid():
-		_flash_tween.kill()
-	
-	# Create new tween
-	_flash_tween = create_tween()
-	_flash_tween.set_loops()  # Loop indefinitely
-	
-	# Start with alpha at 0 (transparent)
-	_apply_material_alpha(_instance_flashing_material, 0.0)
-	
-	# Animate alpha from 0 to 1 and back over 2 seconds
-	# This lambda function will be called by the tween with the current alpha value
-	_flash_tween.tween_method(
-		_update_flash_alpha, 
-		0.0, 1.0, 1.0)
-	
-	_flash_tween.tween_method(
-		_update_flash_alpha,
-		1.0, 0.0, 1.0)
-
-# _update_flash_alpha
-# Update flash alpha based on current visibility state
-func _update_flash_alpha(alpha: float) -> void:
-	if not _instance_flashing_material:
-		return
-	
-	if _flash_visible:
-		# If flash should be visible, apply the animated alpha
-		_apply_material_alpha(_instance_flashing_material, alpha)
-	else:
-		# If flash should be hidden, force alpha to 0
-		_apply_material_alpha(_instance_flashing_material, 0.0)
-
-# _set_flash_visible
-# Controls whether flash is visible (alpha > 0) or not (alpha = 0)
-func _set_flash_visible(visiblity: bool) -> void:
-	_flash_visible = visiblity
-	
-	# If we're setting flash to invisible, force alpha to 0 immediately
-	if not visiblity:
-		_apply_material_alpha(_instance_flashing_material, 0.0)
+	_outline_shown = false
+	_refresh_outline()
 
 # start_flashing
-# Starts showing the flashing effect
+# Starts pulsing the outline on and off
 func start_flashing() -> void:
-	if not has_outline or not _instance_flashing_material or not mesh:
+	if not has_outline or _is_flashing:
 		return
-	
 	_is_flashing = true
-	_should_be_flashing = true
-	_set_flash_visible(true)
-	
-	# Apply our flashing material
-	mesh.material_overlay = _instance_flashing_material
-	
-	if mesh_list:
-		for mesh_list_item in mesh_list:
-			mesh_list_item.material_overlay = _instance_flashing_material
+	if _flash_tween and _flash_tween.is_valid():
+		_flash_tween.kill()
+	_flash_tween = create_tween()
+	_flash_tween.set_loops()  # Loop indefinitely
+	_flash_tween.tween_method(_set_flash_alpha, 0.0, 1.0, 1.0)
+	_flash_tween.tween_method(_set_flash_alpha, 1.0, 0.0, 1.0)
+	_refresh_outline()
 
-# stop_flashing 
-# Stops showing the flashing effect (but keeps animation running)
+# stop_flashing
+# Stops the pulsing outline
 func stop_flashing() -> void:
 	if not _is_flashing:
 		return
-	
 	_is_flashing = false
-	_should_be_flashing = false
-	_set_flash_visible(false)
-	
-	# Hide the material overlay
-	mesh.material_overlay = null
-	if mesh_list:
-		for mesh_list_item in mesh_list:
-			mesh_list_item.material_overlay = null
+	if _flash_tween and _flash_tween.is_valid():
+		_flash_tween.kill()
+	_flash_alpha = 0.0
+	_refresh_outline()
 
-# _set_outline_material_alpha
-# Set outline material alpha
-func _set_outline_material_alpha(alpha: float) -> void:
-	if not _instance_outline_material:
-		return
-	_apply_material_alpha(_instance_outline_material, alpha)
-
-# _apply_material_alpha
-# Generic function to apply alpha to any material
-func _apply_material_alpha(material: Material, alpha: float) -> void:
-	if not material:
-		return
-	
-	# For StandardMaterial3D
-	if material is StandardMaterial3D:
-		var color = material.albedo_color
-		color.a = alpha
-		material.albedo_color = color
-	
-	# For ShaderMaterial
-	elif material is ShaderMaterial:
-		# Try common color parameters
-		var color_params = ["albedo", "color", "tint_color", "outline_color", "line_color", "_color"]
-		for param in color_params:
-			var color = material.get_shader_parameter(param)
-			if color is Color:
-				color.a = alpha
-				material.set_shader_parameter(param, color)
-				break
+# set_outline_blocked
+# Hides this object's outline and flashing completely until unblocked -
+# e.g. ExaminableItem blocks it while the item is up at the camera.
+# Blocking also forgets the hover outline, so it only comes back once the
+# player aims at the object again.
+func set_outline_blocked(blocked: bool) -> void:
+	_outline_blocked = blocked
+	if blocked:
+		_outline_shown = false
+	_refresh_outline()
 
 # is_flashing
 # Check if currently flashing
 func is_flashing() -> bool:
 	return _is_flashing
 
+func _set_flash_alpha(alpha: float) -> void:
+	_flash_alpha = alpha
+	_refresh_outline()
+
+# _refresh_outline
+# Pushes the current outline brightness to the mask and tells
+# OutlineManager whether this object needs drawing.
+func _refresh_outline() -> void:
+	if not _mask_material:
+		return
+	var strength := 1.0 if _outline_shown else (_flash_alpha if _is_flashing else 0.0)
+	_mask_material.set_shader_parameter("strength", strength)
+	# Hidden or removed objects (picked up, etc.) never draw an outline.
+	var on := strength > 0.001 and not _outline_blocked and is_inside_tree() and is_visible_in_tree()
+	_set_masks_on(on)
+
+func _set_masks_on(on: bool) -> void:
+	var manager: OutlineManager = OutlineManager._instance
+	for mask in _masks:
+		if is_instance_valid(mask):
+			mask.visible = on
+			if is_instance_valid(manager):
+				manager.set_mask_active(mask, on)
+
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_VISIBILITY_CHANGED:
+			_refresh_outline()
+		NOTIFICATION_PREDELETE:
+			# The masks live on the mesh, not on this node - remove them too.
+			for mask in _masks:
+				if is_instance_valid(mask):
+					mask.queue_free()
+
 # _exit_tree
 # Clean up when node exits
 func _exit_tree() -> void:
 	if _flash_tween and _flash_tween.is_valid():
 		_flash_tween.kill()
-		
+	_set_masks_on(false)
+
 # toggle_interactable
 # takes in a bool parameter and sets
 # is_interactable to that

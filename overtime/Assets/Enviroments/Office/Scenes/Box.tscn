@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjmh8scjiewro"]
+[gd_scene load_steps=10 format=3 uid="uid://cjmh8scjiewro"]
 
 [ext_resource type="Material" uid="uid://j4uu4hbus66m" path="res://Assets/Materials/BoxMaterial.tres" id="1_ouxyx"]
 [ext_resource type="ArrayMesh" uid="uid://bxy6p8xhkra6u" path="res://Assets/Enviroments/Office/Models/M_Box_Unwrapped.obj" id="2_i7w3g"]
 [ext_resource type="Script" path="res://Scripts/Box.gd" id="3_okv3f"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_hmb2c"]
+[ext_resource type="AudioStream" uid="uid://dqmx2thksum2f" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="stinger_sfx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iupey"]
 points = PackedVector3Array(20.5848, 29.1885, 17.518, -19.6166, -1.77636e-15, -16.1946, -20.5848, 29.1885, 17.518, 20.5848, 29.1885, -17.2189, 19.6166, 0, 16.4971, -19.6166, 0, 16.4971, 19.6166, -1.77636e-15, -16.1946, -20.5848, 29.1885, -17.2189)
@@ -51,15 +52,13 @@ _data = {
 material_override = ExtResource("1_ouxyx")
 mesh = ExtResource("2_i7w3g")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BoxMesh" node_paths=PackedStringArray("animation_fade_player", "mesh")]
+[node name="StaticBody3D" type="StaticBody3D" parent="BoxMesh" node_paths=PackedStringArray("mesh")]
 script = ExtResource("3_okv3f")
-target_mesh = ExtResource("2_i7w3g")
-target_material = ExtResource("1_ouxyx")
-player_manager_reference = "Box"
-animation_name = "BoxFade"
-animation_fade_player = NodePath("../../BoxFade")
-can_be_stored = true
+dialog_from_event_manager = "box_pickup_hint"
 darken_background = true
+store_in_box = true
+examine_sound = ExtResource("stinger_sfx")
+flash_mode = 1
 outline_material = ExtResource("4_hmb2c")
 mesh = NodePath("..")
 has_outline = true

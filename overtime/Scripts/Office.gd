@@ -18,8 +18,8 @@ func _ready() -> void:
 	if EventManager.Comingfromelevator:
 		if PlayerManager.sprint_engaged:
 			PlayerManager.player.is_sprinting = PlayerManager.sprint_engaged
-		PlayerManager.ApplyPlayerRotation()
-		$Player.position = Vector3(-41.611, 0, 8.08) 
+		# Position and facing come from the ElevatorSpawn marker
+		# (GameState.change_level).
 		EventManager.Comingfromelevator = false
 		player_camera.current = true
 		animation_player.play("blackoff")
@@ -32,20 +32,8 @@ func _ready() -> void:
 		PlayerManager.startMultiDialog = false
 		AnimationManager.ElevatorDoorButtonAnimationPlayer.play("Take 001")
 		$Elevator/ElevatorCollisions/DoorCollision.translate(Vector3(0,3,0))
-		$NavigationRegion3D/Cubicle/Mug1A/Mug1A/Mug1A._on_interaction_complete()
-		$NavigationRegion3D/Cubicle/Mug2B/Mug2/Mug2._on_interaction_complete()
-		$"NavigationRegion3D/Cubicle/CarKeys/KeysMesh/StaticBody3D"._on_interaction_complete()
-		$"NavigationRegion3D/Cubicle/Picture Frame/PictureFrame1/PictureFrame1"._on_interaction_complete()
-		$"NavigationRegion3D/Cubicle/Sticky Notes/StickyNotes/StaticBody3D"._on_interaction_complete()
-		$"NavigationRegion3D/Cubicle/Box/BoxMesh/StaticBody3D"._on_interaction_complete()
-		$"NavigationRegion3D/Cubicle/Stapler/Stapler/StaticBody3D"._on_interaction_complete()
-		$NavigationRegion3D/Cubicle/Mug1A.visible = false
-		$NavigationRegion3D/Cubicle/Mug2B.visible = false
-		$"NavigationRegion3D/Cubicle/CarKeys".visible = false
-		$"NavigationRegion3D/Cubicle/Picture Frame".visible = false
-		$"NavigationRegion3D/Cubicle/Sticky Notes".visible = false
-		$"NavigationRegion3D/Cubicle/Box".visible = false
-		$"NavigationRegion3D/Cubicle/Stapler".visible = false
+		# Desk items the player took before going down stay gone on their
+		# own - each item checks GameState when it loads.
 		EventManager.ElevatorDoorOpen = true
 		EventManager.CameFromGarage = true
 	else:
