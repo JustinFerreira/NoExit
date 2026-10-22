@@ -3,6 +3,7 @@ extends Interactable
 var counter: int = 0
 
 func _ready():
+	super._ready()   # Interactable setup (click hookup, outline defaults)
 	pass
 
 func _on_interacted(_body: Variant) -> void:

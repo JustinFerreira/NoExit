@@ -32,8 +32,35 @@ var typewriter_timers: Dictionary = {}
 
 var activatedMouse: bool = false
 
+# Expanding text box (Settings > Game > Expanding Text Box): the character
+# panel starts narrow on the left and widens as the text types out.
+var expanding_box: bool = false:
+	set(value):
+		expanding_box = value
+		if not value and is_node_ready():
+			_set_box_width(-1.0)
+var _box: MarginContainer
+var _box_margin_left := 30
+var _box_margin_right := 30
+var _box_width := 0.0
+var _wrap_mode := TextServer.AUTOWRAP_WORD_SMART
+
+# The "click to continue" mouse icon. Other scripts just turn it on; it
+# waits here until the text has finished typing, then sits inside the
+# box's bottom-right corner (wherever the box currently is).
+@onready var _click_icon: Sprite2D = $MouseClicking
+var _click_icon_waiting := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_box = $CharacterPanelMarginContainer
+	_box_margin_left = _box.get_theme_constant("margin_left")
+	_box_margin_right = _box.get_theme_constant("margin_right")
+	_wrap_mode = dialog_label_pic.autowrap_mode
+	# While the box is growing the text is laid out on one line, wider than the
+	# box: keep it pinned to the left edge and cut off at the box's edge.
+	dialog_label_pic.get_parent().grow_horizontal = Control.GROW_DIRECTION_END
+	character_panel.clip_contents = true
 	# connects animation player to animation finished
 	animation_player.connect("animation_finished", _on_animation_finished)
 	
@@ -281,7 +308,7 @@ func show_temporary_dialog_pic(text: String, duration: float = 5.0):
 ## appears at the bottom of the screen
 ## in a box 
 func player_interact_multi_dialog_pic(text_array: Array[String]):
-	PlayerManager.player.CURSOR.visible = false
+	UiManager.set_cursor_visible(false)
 	PlayerManager.dialoging = true
 	PlayerManager.multiDialog = true
 	character_panel.visible = true
@@ -335,8 +362,7 @@ func show_next_dialog() -> bool:
 ## the last part of the sequence
 func end_multi_dialog():
 	## Clean up and end the multi-dialog sequence.
-	if not PlayerManager.CursorInvisible:
-		PlayerManager.player.CURSOR.visible = true
+	UiManager.set_cursor_visible(true)
 	current_dialog_array = []
 	current_dialog_index = 0
 	PlayerManager.multiDialog = false
@@ -361,3 +387,64 @@ func _on_animation_finished(anim_name: String):
 	if anim_name == "hide":
 		PlayerManager.finishedDialogAnimation = false
 		visible = false
+
+## ---------------------------------------------------------------------
+## Expanding text box
+## ---------------------------------------------------------------------
+
+func _process(_delta: float) -> void:
+	_update_click_icon()
+	if not expanding_box or not character_panel.is_visible_in_tree():
+		return
+	var full := _box.size.x - _box_margin_left - _box_margin_right
+	# How wide the text typed so far is (one line - wrapping waits until the
+	# box is full width, otherwise unshown words would wrap the line early).
+	var label := dialog_label_pic
+	var shown_count := label.visible_characters
+	var parsed := label.get_parsed_text()
+	var shown := parsed if shown_count < 0 else parsed.substr(0, shown_count)
+	var font := label.get_theme_font("normal_font")
+	var font_size := label.get_theme_font_size("normal_font_size")
+	var widest := 0.0
+	for line in shown.split("\n"):
+		widest = maxf(widest, font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x)
+	# + the label's own padding inside the panel (20 left, 16 right) + a bit.
+	var target := clampf(widest + 44.0, 48.0, full)
+	# Follow the text exactly (the typing is already smooth); a new line of
+	# dialog snaps it back small.
+	_box_width = target
+	_set_box_width(_box_width)
+	label.autowrap_mode = _wrap_mode if target >= full - 0.5 else TextServer.AUTOWRAP_OFF
+
+## Sizes the panel to this width, growing from the left edge so the text
+## stays readable while it widens (-1 = normal full width).
+func _set_box_width(width: float) -> void:
+	var extra := 0.0
+	if width >= 0.0:
+		extra = maxf(_box.size.x - _box_margin_left - _box_margin_right - width, 0.0)
+	_box.add_theme_constant_override("margin_left", _box_margin_left)
+	_box.add_theme_constant_override("margin_right", int(_box_margin_right + extra))
+	if width < 0.0:
+		dialog_label_pic.autowrap_mode = _wrap_mode
+
+## ---------------------------------------------------------------------
+## Click-to-continue icon
+## ---------------------------------------------------------------------
+
+func _update_click_icon() -> void:
+	if _click_icon == null:
+		return
+	# Something turned it on while the text is still typing: hold it back.
+	if _click_icon.visible and is_typing:
+		_click_icon.visible = false
+		_click_icon_waiting = true
+	elif _click_icon_waiting and not is_typing:
+		_click_icon_waiting = false
+		_click_icon.visible = true
+	if not _click_icon.visible:
+		return
+	# Bottom-right corner, inside the character panel (or the plain caption
+	# area when the panel isn't up).
+	var box: Rect2 = character_panel.get_global_rect() if character_panel.is_visible_in_tree() else dialog_label.get_global_rect()
+	var icon_size := _click_icon.get_rect().size * _click_icon.scale
+	_click_icon.global_position = box.end - icon_size * 0.5 - Vector2(10, 8)

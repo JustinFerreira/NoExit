@@ -155,7 +155,10 @@ var minigameTwoPassed: bool:
 	get: return GameState.has_flag(GameState.FLAG_GAS_DONE)
 	set(value): GameState.set_flag(GameState.FLAG_GAS_DONE, value)
 
-var gasIntakeUI: Control
+## Gas minigame panel - lives in UiManager now (show_panel("gas_intake", ...)).
+var gasIntakeUI: Control:
+	get: return UiManager.get_panel("gas_intake")
+	set(value): UiManager.register_panel("gas_intake", value)
 var gasIntakeSweetSpot: MeshInstance3D
 var Gas_Canister: MeshInstance3D
 var actioning: bool = false
@@ -168,7 +171,10 @@ var minigameThreePassed: bool:
 var PositiveConnected: bool = false
 var NegativeConnected: bool = false
 
-var hoodUI: Control
+## Hood minigame panel - lives in UiManager now (show_panel("hood", ...)).
+var hoodUI: Control:
+	get: return UiManager.get_panel("hood")
+	set(value): UiManager.register_panel("hood", value)
 var Hood: Interactable
 var Battery: MeshInstance3D
 var PositiveWire: StaticBody3D
@@ -321,71 +327,60 @@ func ResetPlayer() -> void:
 # This function is for a type of red Dialog
 # that appears at the top of the screen 
 func Hint(text: String, duration: float = 10.0):
-	text = "Hint: " + text
-	player.get_node("DialogControl").show_temporary_dialog(text,duration, "red")
+	UiManager.hint(text, duration)
 	
 # Dialog
 # this is for basic dialog 
 # without a panel background
 func Dialog(text: String):
-	hint = false
-	player.get_node("DialogControl").player_interact_dialog(text)
+	UiManager.say_plain(text)
 	
 # HideDialog
 # this function hides all dialog
 func HideDialog():
-	if player.DIALOG.timer:
-		player.DIALOG.timer.stop()
-	if finishedDialogAnimation:
-		player.DIALOG.animation_player.play("hide")
-	finishedDialogAnimation = false
+	UiManager.hide_dialog()
 	
 # RevealDialog
 # this function shows dialog if it was suppose to
 # show up
 func RevealDialog():
-	player.DIALOG.visible = true
-	player.DIALOG.animation_player.play("reveal")
-	finishedDialogAnimation = true
+	UiManager.reveal_dialog()
 	
 # CharacterDialog
 # basic dialog with a panel behind it
 func CharacterDialog(text: String):
-	hint = false
-	player.get_node("DialogControl").player_interact_dialog_pic(text)
+	UiManager.say(text)
 
 # CharacterHintDialog
 # this shows both Hint Dialog at the top of the screen
 # and character dialog with a panel at the bottom
 func CharacterHintDialog(characterText: String, hintText: String):
-	hint = true
-	player.DIALOG.player_interact_dialog_pic_and_hint(characterText, hintText)
+	UiManager.say_with_hint(characterText, hintText)
 
 # NextDialog
 # used for MultiDialog to show the next dialog in the squence 
 # or just end the dialog if finished
 func NextDialog():
-	player.get_node("DialogControl").show_next_dialog()
+	UiManager.next_line()
 	
 # MultiDialog
 # This take an array of strings so that it can display
 # on piece of dialog one after another
 func MultiDialog(text_array: Array[String]):
-	player.get_node("DialogControl").player_interact_multi_dialog_pic(text_array)
+	UiManager.say_lines(text_array)
 
 # MiniGameModeOn
 # turns on MinigameMode and sets up for minigame
 func MiniGameModeOn():
 	MinigameMode = true
-	player.CURSOR.visible = false
+	UiManager.set_cursor_visible(false)
 	AudioManager.stop_loop("step")
 	
 # MiniGameModeOff
 # turns MinigameMode off and sets player back up for game
 func MiniGameModeOff():
 	MinigameMode = false
-	if not PlayerManager.CursorInvisible:
-		player.CURSOR.visible = true
+	UiManager.set_cursor_visible(true)
 	
 # TestConnection
 # This is for the Battery Mini Game
@@ -402,7 +397,7 @@ func TestConnection():
 			Enemy.exit_stalking_mode()
 		AudioManager.play_sound(AudioManager.HoodOpen)
 		MiniGameModeOff()
-		hoodUI.visible = false
+		UiManager.show_panel("hood", false)
 		minigameThreePassed = true
 		minigameThree = false
 		CameraManager.FPCamera.current = true
@@ -482,6 +477,7 @@ func SwitchEquippedItem(direction: bool):
 		_switch_equipped_up()
 	else:
 		_switch_equipped_down()
+	UiManager.on_item_switched()
 		
 # _switch_equipped_up
 # assist in switching equip item this will switch item that are higher

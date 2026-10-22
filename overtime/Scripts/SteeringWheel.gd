@@ -11,7 +11,7 @@ extends Interactable
 func _ready() -> void:
 	super._ready()
 	AnimationManager.SteeringWheelFlash = self
-	UiManager.HotWireUI = $"../../Head/Car_Cam/Minigame"
+	UiManager.register_panel("hotwire", $"../../Head/Car_Cam/Minigame")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Event Manager fix when finished minigame one it does this, unsure if the is_interactable even applies here.

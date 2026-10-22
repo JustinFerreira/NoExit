@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b76ydw67odydg"]
 
-[ext_resource type="Material" uid="uid://dqtnck2jcy30o" path="res://Assets/Materials/PictureFrame2.tres" id="1_7hyn2"]
-[ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="2_ac3b4"]
+[ext_resource type="Material" path="res://Assets/Materials/PictureFrame2.tres" id="1_7hyn2"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="2_ac3b4"]
 
 [sub_resource type="GDScript" id="GDScript_5w662"]
 script/source = "extends Interactable
@@ -283,8 +283,8 @@ func _apply_rotation() -> void:
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
 "
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbjbq"]
-points = PackedVector3Array(-0.0239955, 1.76623, 0.956644, 0.399246, -0.0172412, -1.09054, 0.399246, -0.0172412, 1.10354, -0.903441, -0.0172412, -0.37042, -0.249339, 1.8384, -1.05523, -0.252098, 1.73101, 1.10354, 0.513628, 0.278625, -0.942235, 0.534216, 0.19332, 1.01662, -0.0525409, 1.8214, -1.00245, -0.868955, 0.35992, -0.542021, -0.731876, -0.0172412, -0.0620114, -0.249339, 1.8384, 1.06823, -0.252098, 1.73101, -1.09054, 0.519984, 0.038672, -1.06503, -0.117026, 1.86766, 1.06364, 0.519984, 0.038672, 1.07803, 0.262023, 0.291516, 1.10354, -0.117026, 1.86766, -1.05064, 0.513628, 0.278625, 0.955235, -0.903441, 0.119943, -0.473294, -0.834757, 0.39431, -0.576169, -0.0239955, 1.76623, -0.943644, 0.54597, 0.081399, -1.02057, 0.364904, 0.0171487, -1.09054, -0.903441, 0.119943, -0.404783, -0.0525407, 1.8214, 1.01545, -0.0122806, 1.04546, 1.10354, 0.54597, 0.081399, 1.03357, 0.364904, 0.0171487, 1.10354, 0.534215, 0.193321, -1.00362, -0.0122806, 1.04546, -1.09054, -0.182698, 1.86226, 1.05746)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_50e88"]
+points = PackedVector3Array(-0.157858, 11.6194, 6.29342, 2.6265, -0.113424, -7.17426, 2.6265, -0.113424, 7.25979, -5.94344, -0.113424, -2.43686, -1.64031, 12.0942, -6.942, -1.65847, 11.3877, 7.25979, 3.37898, 1.83298, -6.19865, 3.51442, 1.27178, 6.68798, -0.345648, 11.9824, -6.59477, -5.71656, 2.36779, -3.56577, -4.81475, -0.113424, -0.407951, -1.64031, 12.0942, 7.02752, -1.65847, 11.3877, -7.17426, 3.42079, 0.25441, -7.00647, -0.769875, 12.2867, 6.9973, 3.42079, 0.25441, 7.09199, 1.72376, 1.91778, 7.25979, -0.769875, 12.2867, -6.91178, 3.37898, 1.83298, 6.28417, -5.94344, 0.789064, -3.11363, -5.49157, 2.59403, -3.79041, -0.157858, 11.6194, -6.2079, 3.59174, 0.535494, -6.71396, 2.40057, 0.112815, -7.17426, -5.94344, 0.789064, -2.66293, -0.345647, 11.9824, 6.68029, -0.0807899, 6.87773, 7.25979, 3.59174, 0.535494, 6.79949, 2.40057, 0.112815, 7.25979, 3.51441, 1.27179, -6.60246, -0.0807899, 6.87773, -7.17426, -1.20191, 12.2512, 6.95668)
 
 [sub_resource type="Animation" id="Animation_b1ju7"]
 resource_name = "PictureFrame2Fade"
@@ -326,21 +326,18 @@ _data = {
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000172853, -0.099039, 0.000113249)
 material_override = ExtResource("1_7hyn2")
 mesh = ExtResource("2_ac3b4")
 
-[node name="PictureFrame2" type="StaticBody3D" parent="PictureFrame2" node_paths=PackedStringArray("mesh")]
+[node name="PictureFrame2" type="StaticBody3D" parent="PictureFrame2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27428e-05, 0.0130309, -1.49005e-05)
 script = SubResource("GDScript_5w662")
-target_mesh = ExtResource("2_ac3b4")
-target_material = ExtResource("1_7hyn2")
-mesh = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame2/PictureFrame2"]
-shape = SubResource("ConvexPolygonShape3D_hbjbq")
+shape = SubResource("ConvexPolygonShape3D_50e88")
 
 [node name="PictureFrame2Fade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_lbi27")
 }
-
-[connection signal="interacted" from="PictureFrame2/PictureFrame2" to="PictureFrame2/PictureFrame2" method="_on_interacted"]

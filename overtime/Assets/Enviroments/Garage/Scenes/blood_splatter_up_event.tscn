@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bkfnap07o0pc"]
 
 [ext_resource type="Script" path="res://Scripts/blood_splatter_down_event.gd" id="1_prix6"]
-[ext_resource type="PackedScene" uid="uid://dua43d8a25otx" path="res://Assets/Enviroments/Garage/Scenes/blood_splatter_up.tscn" id="2_4xh3p"]
-[ext_resource type="PackedScene" uid="uid://dap4vdcruqsh8" path="res://Assets/Enviroments/Garage/Scenes/blood_floor.tscn" id="3_ee55b"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/blood_splatter_up.tscn" id="2_4xh3p"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/blood_floor.tscn" id="3_ee55b"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7ytxq"]
+[sub_resource type="BoxMesh" id="BoxMesh_8bvo3"]
+size = Vector3(800, 25, 800)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6aeic"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n4cu0"]
+points = PackedVector3Array(-400, -12.5, -400, 400, 12.5, 400, 400, -12.5, 400, 400, 12.5, -400, -400, 12.5, 400, 400, -12.5, -400, -400, -12.5, 400, -400, 12.5, -400)
 
 [node name="BloodSplatterUpEvent" type="Node3D"]
 script = ExtResource("1_prix6")
@@ -15,17 +16,19 @@ script = ExtResource("1_prix6")
 [node name="BloodSplatter" parent="." instance=ExtResource("2_4xh3p")]
 
 [node name="BloodFloor" parent="." instance=ExtResource("3_ee55b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.71486, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 235.743, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 16, 0, 0.268915, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.4458, 0)
 visible = false
-mesh = SubResource("BoxMesh_7ytxq")
+mesh = SubResource("BoxMesh_8bvo3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 16, 0, 0.268915, 0)
-shape = SubResource("ConvexPolygonShape3D_6aeic")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.4458, 0)
+shape = SubResource("ConvexPolygonShape3D_n4cu0")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

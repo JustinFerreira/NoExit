@@ -51,6 +51,7 @@ var DEFS: Array[Dictionary] = [
 	_toggle("game/show_crosshair", "GAME", "Show Crosshair", true),
 	_toggle("game/show_stamina", "GAME", "Show Stamina Bar", true),
 	_option("game/dialog_speed", "GAME", "Text Speed", 1, ["Slow", "Normal", "Fast", "Very Fast"]),
+	_toggle("game/expanding_dialog", "GAME", "Expanding Text Box", false),
 	_dev(_toggle("game/dev_mode", "GAME", "Dev Mode", false)),
 ]
 
@@ -177,7 +178,7 @@ func apply_settings() -> void:
 ## Player is made every level.
 func apply_player_settings(player) -> void:
 	for key in ["video/fov", "game/crouch_toggle", "game/lean_tilt", "game/show_crosshair",
-			"game/show_stamina", "game/dialog_speed", "video/shader"]:
+			"game/show_stamina", "game/dialog_speed", "game/expanding_dialog", "video/shader"]:
 		_apply(key, player)
 
 
@@ -244,16 +245,16 @@ func _apply(key: String, player = null) -> void:
 				player.lean_tilt_enabled = v
 		"game/show_crosshair":
 			PlayerManager.CursorInvisible = not v
-			if player and not v:
-				player.CURSOR.visible = false
-			elif player and not (PlayerManager.examining or PlayerManager.InAnimation or PlayerManager.MinigameMode):
-				player.CURSOR.visible = true
+			UiManager.refresh_cursor()
 		"game/show_stamina":
 			if player:
 				player.show_stamina_bar = v
 		"game/dialog_speed":
 			if player:
 				player.DIALOG.typewriter_speed = DIALOG_SPEEDS[v]
+		"game/expanding_dialog":
+			if player:
+				player.DIALOG.expanding_box = v
 		"game/dev_mode":
 			PlayerManager.DevMode = v
 
@@ -296,7 +297,7 @@ func _set_bus_volume(bus: String, percent: float) -> void:
 # Brightness isn't 100%).
 func _build_brightness_layer() -> void:
 	_brightness_layer = CanvasLayer.new()
-	_brightness_layer.layer = 120
+	_brightness_layer.layer = UiManager.LAYER_BRIGHTNESS
 	_brightness_layer.visible = false
 	add_child(_brightness_layer)
 	_brightness_rect = ColorRect.new()

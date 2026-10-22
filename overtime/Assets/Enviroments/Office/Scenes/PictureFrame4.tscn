@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbb1xpsd2yyvb"]
 
-[ext_resource type="Texture2D" uid="uid://d3mwx8do50ja0" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_BaseColor.png" id="1_00vef"]
-[ext_resource type="Texture2D" uid="uid://tom7xgpdrrf2" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_RMAO.png" id="2_pqmyc"]
-[ext_resource type="Texture2D" uid="uid://cltyhvoq7rywn" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_Normal.png" id="3_ddlut"]
-[ext_resource type="ArrayMesh" uid="uid://dvb4vdxujcrnh" path="res://Assets/Enviroments/Office/Models/PictureFrame_4.obj" id="4_hykds"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_BaseColor.png" id="1_00vef"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_RMAO.png" id="2_pqmyc"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_Normal.png" id="3_ddlut"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_4.obj" id="4_hykds"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yb0bc"]
 albedo_texture = ExtResource("1_00vef")
@@ -20,5 +20,6 @@ ao_texture = ExtResource("2_pqmyc")
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0090151, 0.187213, 0.281093)
 material_override = SubResource("StandardMaterial3D_yb0bc")
 mesh = ExtResource("4_hykds")

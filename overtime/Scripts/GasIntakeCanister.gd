@@ -70,8 +70,9 @@ func _process(delta: float) -> void:
 			
 		# Check if sweet spot is within canister bounds
 		if sweet_spot_y >= canister_bottom_y && sweet_spot_y <= canister_top_y:
-			car_filled += fill_speed
-			progress_bar_value += 0.1
+			# Per second, scaled so it fills like it did at 60 FPS on any frame rate.
+			car_filled += fill_speed * delta * 60.0
+			progress_bar_value += 0.1 * delta * 60.0
 			progress_bar.value = progress_bar_value
 			AudioManager.play_sound_loop(AudioManager.Glug, "glug")
 			if PlayerManager.minigameTwoPassed:

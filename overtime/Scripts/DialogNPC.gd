@@ -5,9 +5,11 @@
 ## This script is what the Janitor uses for all its 
 ## operations such as wander and talking to player
 ## Updated with walking and idle animations
+## - built on NPC (see NPC.gd): root, play_walk/play_idle, face_direction,
+##   say_sequence come from there
 
 
-extends Interactable
+extends NPC
 
 # Rotation variables
 @export var rotation_speed: float = 2.0  # Adjust this to control turn speed
@@ -49,16 +51,35 @@ var current_tween: Tween = null
 
 var has_stored_transform: bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	animation_player_walk.play("mixamo_com")
-	start_position = $"../..".global_transform.origin
-	last_position = $"../..".global_transform.origin
+# Mop & bucket - dragged behind the janitor on an invisible "rope" instead of
+# turning with him. The first name is the thing being dragged (the bucket);
+# the rest stay attached to it (the mop leaning in it, its collision).
+@export var dragged_prop_names: Array[String] = ["MMopBucket", "MMop", "StaticBody3D"]
+## How fast the bucket swings round to trail behind him while dragged.
+@export var drag_turn_speed: float = 4.0
+var _drag_props: Array[Node3D] = []
+var _drag_offsets: Array[Transform3D] = []   # each prop relative to the bucket
+var _drag_length: float = 0.0                 # rope length (janitor -> bucket)
+var _drag_yaw_offset: float = 0.0             # bucket yaw relative to "handle toward janitor"
+
+# Path rebuilds are limited to a few a second (walking to the player used to
+# rebuild the path every frame).
+const REPATH_INTERVAL := 0.25
+var _repath_timer := 0.0
+
+func _npc_ready() -> void:
+	# The janitor's own inspector slots feed the NPC animation helpers.
+	walk_animation_player = animation_player_walk
+	idle_animation_player = animation_player_idle
+	for p in [animation_player_walk, animation_player_idle]:
+		if p and not p.animation_finished.is_connected(_on_npc_animation_finished):
+			p.animation_finished.connect(_on_npc_animation_finished)
+	play_walk()
+	start_position = root.global_transform.origin
+	last_position = root.global_transform.origin
 	
 	# Get the NavigationAgent3D - adjust the path if needed
-	nav_agent = $"../..".get_node("NavigationAgent3D")
-	animation_player_idle.connect("animation_finished", _on_idle_animation_finished)
-	animation_player_walk.connect("animation_finished", _on_walk_animation_finished)
+	nav_agent = root.get_node("NavigationAgent3D")
 	
 	# Set up navigation agent
 	nav_agent.path_desired_distance = 0.5
@@ -66,26 +87,27 @@ func _ready() -> void:
 	
 	PlayerManager.janitor = self
 	PlayerManager.talkToJanitor = false
-	
+
 	set_new_wander_target()
+	_setup_dragged_props.call_deferred()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
 	if is_rotating:
 		# Smoothly rotate toward target rotation
-		var current_rotation = $"../..".rotation.y
-		$"../..".rotation.y = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
+		var current_rotation = root.rotation.y
+		root.rotation.y = lerp_angle(current_rotation, target_rotation, rotation_speed * delta)
 		
 		# Check if we're close enough to the target rotation
 		if abs(angle_difference(current_rotation, target_rotation)) < 0.05:
-			$"../..".rotation.y = target_rotation
+			root.rotation.y = target_rotation
 			is_rotating = false
 	
 	# Handle walking to player if in that state
 	if is_walking_to_player and PlayerManager.player:
 		# Check if we're already close enough before walking
 		var player_position = PlayerManager.player.global_transform.origin
-		var npc_position = $"../..".global_transform.origin
+		var npc_position = root.global_transform.origin
 		var distance_to_player = npc_position.distance_to(player_position)
 		
 		if distance_to_player <= stopping_distance:
@@ -100,40 +122,78 @@ func _process(delta: float) -> void:
 	elif is_wandering and not is_interacting and not is_walking_to_player and not PlayerManager.multiDialog:
 		wander(delta)
 		
-	var desired_anim : String
-	var desired_player : AnimationPlayer
-
-	# Determine which animation should be playing based on current state
-	if is_walking_to_player or is_wandering:
-		desired_anim = "mixamo_com"
-		desired_player = animation_player_walk
-	else:   # Idle / interacting
-		desired_anim = "mixamo_com"
-		desired_player = animation_player_idle
-
-	# Only restart the animation if it's not already playing on the correct player
-	if desired_player.current_animation != desired_anim or not desired_player.is_playing():
-		desired_player.play(desired_anim)
-		
+	# Walk while moving, idle otherwise (play_walk/play_idle stop the other
+	# player, so the two animations never fight over the skeleton).
 	if is_walking_to_player:
-		animation_player_walk.speed_scale = fast_walk_speed_scale
+		play_walk(fast_walk_speed_scale)
 	elif is_wandering:
-		animation_player_walk.speed_scale = normal_walk_speed_scale
+		play_walk(normal_walk_speed_scale)
 	else:
-		# Idle animation speed can remain 1.0 (or adjust if needed)
-		animation_player_idle.speed_scale = 1.0
+		play_idle()
+	_repath_timer -= delta
+
+	_update_dragged_props(delta)
+
+## _setup_dragged_props
+## Detaches the mop & bucket from the janitor's rotation (top_level keeps
+## them in world space) and remembers how they sit relative to each other.
+func _setup_dragged_props() -> void:
+	var npc: Node3D = root
+	for prop_name in dragged_prop_names:
+		var n = npc.get_node_or_null(NodePath(prop_name))
+		if n is Node3D:
+			_drag_props.append(n)
+	if _drag_props.is_empty():
+		return
+	var bucket_gt: Transform3D = _drag_props[0].global_transform
+	for n in _drag_props:
+		_drag_offsets.append(bucket_gt.affine_inverse() * n.global_transform)
+	for n in _drag_props:
+		var gt := n.global_transform
+		n.top_level = true
+		n.global_transform = gt
+	var to_npc := npc.global_position - bucket_gt.origin
+	to_npc.y = 0.0
+	_drag_length = to_npc.length()
+	_drag_yaw_offset = bucket_gt.basis.get_euler().y - atan2(to_npc.x, to_npc.z)
+
+## _update_dragged_props
+## Rope behaviour: the bucket only moves when the janitor walks farther away
+## than the rope allows, then it's pulled along behind him and swings so its
+## handle points at him. Turning on the spot doesn't move it at all.
+func _update_dragged_props(delta: float) -> void:
+	if _drag_props.is_empty() or not is_instance_valid(_drag_props[0]):
+		return
+	var npc: Node3D = root
+	var bucket: Node3D = _drag_props[0]
+	var gt := bucket.global_transform
+	var to_npc := npc.global_position - gt.origin
+	to_npc.y = 0.0
+	var dist := to_npc.length()
+	if dist <= _drag_length or dist < 0.001:
+		return   # rope is slack - leave the bucket where it is
+	# Pull the bucket to rope length behind him (keep its height).
+	var dir := to_npc / dist
+	var pos := gt.origin + dir * (dist - _drag_length)
+	# Swing toward trailing straight behind.
+	var target_yaw := atan2(dir.x, dir.z) + _drag_yaw_offset
+	var yaw := lerp_angle(gt.basis.get_euler().y, target_yaw, clampf(drag_turn_speed * delta, 0.0, 1.0))
+	var bucket_scale := gt.basis.get_scale()
+	gt = Transform3D(Basis(Vector3.UP, yaw) * Basis.from_scale(bucket_scale), pos)
+	for i in _drag_props.size():
+		if is_instance_valid(_drag_props[i]):
+			_drag_props[i].global_transform = gt * _drag_offsets[i]
 
 ## walk_to_player
 ## Moves NPC toward the player's current position
 func walk_to_player(delta: float) -> void:
-	animation_player_walk.play("mixamo_com")
 	if not PlayerManager.player:
 		is_walking_to_player = false
 		return
 	
 	# Update target to player's current position
 	var player_position = PlayerManager.player.global_transform.origin
-	var npc_position = $"../..".global_transform.origin
+	var npc_position = root.global_transform.origin
 	var distance_to_player = npc_position.distance_to(player_position)
 	
 	#print("Distance to player: ", distance_to_player, " | Stopping distance: ", stopping_distance)
@@ -152,8 +212,10 @@ func walk_to_player(delta: float) -> void:
 	var direction_to_player = (player_position - npc_position).normalized()
 	var target_position = player_position - (direction_to_player * stopping_distance)
 	
-	# Set navigation target to the calculated position
-	nav_agent.target_position = target_position
+	# Set navigation target to the calculated position (a few times a second)
+	if _repath_timer <= 0.0 or nav_agent.target_position.distance_to(target_position) > 2.0:
+		nav_agent.target_position = target_position
+		_repath_timer = REPATH_INTERVAL
 	
 	# Check if navigation agent has reached its target or is stuck
 	if nav_agent.is_navigation_finished():
@@ -187,15 +249,14 @@ func walk_to_player(delta: float) -> void:
 			start_multi_dialog_with_camera()
 		else:
 			# Move the NPC
-			$"../..".global_transform.origin = new_position
+			root.global_transform.origin = new_position
 			
 			# Make the NPC face the direction it's moving
 			if direction.length() > 0:
 				# FIXED: Changed from + direction to - direction
 				# In Godot, look_at() makes the object's -Z axis point toward the target
 				# So to face the movement direction, we need to look at a point BEHIND us
-				var look_at_point = $"../..".global_transform.origin - direction
-				$"../..".look_at(look_at_point, Vector3.UP)
+				face_direction(direction)
 			
 			# Animation will be updated by update_animation_state() in _process
 
@@ -203,7 +264,7 @@ func walk_to_player(delta: float) -> void:
 ## Rotates NPC to face away from player (180 degrees)
 func rotate_to_player() -> void:
 	if PlayerManager.player:
-		var current_transform = $"../..".global_transform
+		var current_transform = root.global_transform
 		var target_transform = current_transform.looking_at(PlayerManager.player.global_position, Vector3.UP)
 		target_transform = target_transform.rotated(Vector3.UP, PI)  # Flip 180 degrees
 		
@@ -216,7 +277,6 @@ func rotate_to_player() -> void:
 ## to a random place from its starting 
 ## position
 func wander(delta: float) -> void:
-	animation_player_walk.play("mixamo_com")
 	# Update timer
 	wander_timer -= delta
 	
@@ -227,19 +287,18 @@ func wander(delta: float) -> void:
 	else:
 		# Move toward the target
 		var next_location = nav_agent.get_next_path_position()
-		var current_location = $"../..".global_transform.origin
+		var current_location = root.global_transform.origin
 		var direction = (next_location - current_location).normalized()
 		
 		# Move the NPC
-		$"../..".global_transform.origin += direction * wander_speed * delta
+		root.global_transform.origin += direction * wander_speed * delta
 		
 		# Make the NPC face the direction it's moving
 		if direction.length() > 0:
 			# FIXED: Changed from - direction to + direction
 			# Wait, actually for wander we want the same logic as walk_to_player
 			# Using - direction makes the NPC face forward
-			var look_at_point = $"../..".global_transform.origin - direction
-			$"../..".look_at(look_at_point, Vector3.UP)
+			face_direction(direction)
 		
 		# Animation will be updated by update_animation_state() in _process
 	
@@ -251,8 +310,7 @@ func wander(delta: float) -> void:
 ## picks a random position for the npc
 ## to wander to
 func set_new_wander_target() -> void:
-	animation_player_idle.stop()
-	animation_player_walk.play("mixamo_com")
+	play_walk(normal_walk_speed_scale)
 	# Generate a random position within wander range
 	var random_offset = Vector3(
 		randf_range(-wander_range, wander_range),
@@ -275,10 +333,7 @@ func start_dialog() -> void:
 	
 	# Start the dialog
 	PlayerManager.talkToJanitor = true
-	PlayerManager.MultiDialog(EventManager.janitor_text_array)
-	
-	# Wait for dialog to finish
-	await wait_for_dialog_completion()
+	await say_sequence(EventManager.janitor_text_array)
 	
 	# If we rotated the camera, restore it
 	if original_camera_rotation != Vector3.ZERO:
@@ -348,7 +403,7 @@ func rotate_camera_to_npc_immediately():
 
 	original_camera_rotation = camera.global_rotation
 
-	var npc_pos = $"../..".global_transform.origin + Vector3(0, 1.5, 0)
+	var npc_pos = root.global_transform.origin + Vector3(0, 1.5, 0)
 	var look_transform = camera.global_transform.looking_at(npc_pos, Vector3.UP)
 	var target_camera_rotation = look_transform.basis.get_euler()
 	var current_rotation = camera.global_rotation
@@ -383,11 +438,7 @@ func start_multi_dialog_with_camera():
 	# Start the multi-dialog
 	#print("Starting MultiDialog with text_array")
 	PlayerManager.talkToJanitor = true
-	PlayerManager.MultiDialog(EventManager.janitor_text_array)
-	#print("MultiDialog called, waiting for completion...")
-	
-	# Wait for dialog to finish
-	await wait_for_dialog_completion()
+	await say_sequence(EventManager.janitor_text_array)
 	#print("MultiDialog completed")
 	
 	# If we rotated the camera, restore it
@@ -404,10 +455,10 @@ func start_multi_dialog_with_camera():
 ## rotate_player_to_npc
 ## Rotates the player to face the NPC
 func rotate_player_to_npc():
-	animation_player_idle.play("mixamo_com")
+	play_idle()
 	if PlayerManager.player:
 		var player = PlayerManager.player
-		var npc_pos = $"../..".global_transform.origin
+		var npc_pos = root.global_transform.origin
 		
 		# Get the direction from player to NPC
 		var direction_to_npc = (npc_pos - player.global_transform.origin).normalized()
@@ -431,7 +482,7 @@ func rotate_player_to_npc():
 		var camera = PlayerManager.player.CAMERA
 		if camera:
 			# Get the positions - raise NPC position to look at upper body/head
-			var npc_pos_for_camera = $"../..".global_transform.origin + Vector3(0, 1.5, 0)
+			var npc_pos_for_camera = root.global_transform.origin + Vector3(0, 1.5, 0)
 			
 			# Create a transform that looks at the NPC
 			var look_transform = camera.global_transform.looking_at(npc_pos_for_camera, Vector3.UP)
@@ -491,24 +542,4 @@ func restore_camera_rotation():
 	PlayerManager.InAnimation = false
 
 func find_shortest_y_rotation(current: float, target: float) -> float:
-	var difference = fmod(target - current, TAU)
-	if difference > PI:
-		difference -= TAU
-	elif difference < -PI:
-		difference += TAU
-	return current + difference
-
-func _on_idle_animation_finished(anim_name: String):
-	if anim_name == "mixamo_com":
-		if is_wandering:
-			animation_player_walk.play("mixamo_com")
-		else:
-			animation_player_idle.play("mixamo_com")
-			
-func _on_walk_animation_finished(anim_name: String):
-	if anim_name == "mixamo_com":
-		if is_wandering or is_walking_to_player:
-			animation_player_walk.play("mixamo_com")
-		else:
-			
-			animation_player_idle.play("mixamo_com")
+	return HelperManager.find_shortest_y_rotation(current, target)

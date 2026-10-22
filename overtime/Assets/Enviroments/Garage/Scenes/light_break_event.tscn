@@ -2,23 +2,26 @@
 
 [ext_resource type="Script" path="res://Scripts/LightBreakEvent.gd" id="1_f7bqx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_r8l36"]
+[sub_resource type="BoxMesh" id="BoxMesh_k07ee"]
+size = Vector3(338.074, 50, 331.995)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sxthv"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hyubl"]
+points = PackedVector3Array(-169.037, -25, -165.997, 169.037, 25, 165.997, 169.037, -25, 165.997, 169.037, 25, -165.997, -169.037, 25, 165.997, 169.037, -25, -165.997, -169.037, -25, 165.997, -169.037, 25, -165.997)
 
 [node name="LightBreakEvent" type="Node3D"]
 script = ExtResource("1_f7bqx")
+light_search_height = 5.0
+max_search_radius = 10.0
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(6.76148, 0, 0, 0, 1, 0, 0, 0, 6.63989, 0, 0, 0)
 visible = false
-mesh = SubResource("BoxMesh_r8l36")
+mesh = SubResource("BoxMesh_k07ee")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(6.76148, 0, 0, 0, 1, 0, 0, 0, 6.63989, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_sxthv")
+shape = SubResource("ConvexPolygonShape3D_hyubl")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

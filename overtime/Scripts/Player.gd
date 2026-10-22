@@ -22,7 +22,7 @@ var is_sprinting: bool = false
 
 #bob variables
 const BOB_FREQ: float = 4.0 # How often you bob
-const BOB_AMP: float = 0.03 # How high and low you bob
+const BOB_AMP: float = 0.058 # How high and low you bob (world units; scaled with the player's height)
 var t_bob: float = 0.0 # Determines how far along the signwave we are for bobbing
 
 #Step variables
@@ -39,7 +39,7 @@ var is_moving: bool = false
 ## How tall a ledge/seam can be before the player just steps up over it
 ## instead of getting blocked by it. Meant for small mismatches between
 ## floor pieces, not real stairs - keep this small. Set to 0 to disable.
-@export var step_height: float = 0.3
+@export var step_height: float = 0.36
 
 ## Godot's built-in floor snap distance, exposed here for quick tuning -
 ## how big a floor height DROP (a pothole/small gap) the player sticks
@@ -62,11 +62,11 @@ var is_moving: bool = false
 @export_group("Stamina")
 @export var max_stamina: float = 100.0
 ## Stamina lost per second while running.
-@export var stamina_drain_per_second: float = 20.0
+@export var stamina_drain_per_second: float = 10.0
 ## Stamina gained per second once regen kicks in.
 @export var stamina_regen_per_second: float = 15.0
 ## Seconds of not running before stamina starts to refill.
-@export var stamina_regen_delay: float = 5.0
+@export var stamina_regen_delay: float = 2.5
 ## How long the player is fatigued after running out.
 @export var fatigue_duration: float = 10.0
 ## Movement speed while fatigued (walking is WALK_SPEED).
@@ -86,15 +86,23 @@ var is_moving: bool = false
 ## Tap C to crouch / stand instead of holding it.
 @export var crouch_toggle: bool = false
 ## How far the view moves sideways when leaning (meters).
-@export var lean_distance: float = 0.45
+@export var lean_distance: float = 0.53
 ## How much the view tilts when leaning (degrees).
 @export var lean_angle_degrees: float = 12.0
 ## Allow leaning while sprinting.
 @export var lean_while_sprinting: bool = false
 ## How fast crouch and lean ease in/out (higher = snappier).
 @export var move_transition_speed: float = 8.0
+## How far (degrees) holding look-back turns your view. People can't spin
+## their head a full 180 like an owl - ~135 is a look over the shoulder.
+## How far (degrees) behind the BODY the look-back turns to - always the
+## same spot over the shoulder, no matter where you were looking. People
+## can't spin their head a full 180 like an owl.
+@export_range(0.0, 180.0) var look_back_degrees: float = 135.0
+## Up/down angle the look-back settles on (0 = level, negative = down).
+@export var look_back_pitch_degrees: float = -5.0
 ## How fast the look-back turn happens (higher = snappier).
-@export var look_back_speed: float = 9.0
+@export var look_back_speed: float = 4.5
 @export_group("")
 
 var is_crouching: bool = false
@@ -102,6 +110,13 @@ var is_crouching: bool = false
 var _crouch_amount: float = 0.0
 var _lean_amount: float = 0.0   # -1 = left, 1 = right
 var _look_back_amount: float = 0.0
+# Which way the body faces (where you walk / last walked); look-back is
+# measured from this, not from where the head is looking.
+var _body_forward := Vector3.ZERO
+# Shoulder for the current look-back: 1 = left, -1 = right (picked on press).
+var _look_back_side := -1.0
+var _look_back_held := false
+var _back_pitch_offset := 0.0   # pitch look-back has added on top of the mouse pitch
 var _crouch_toggled: bool = false
 # Standing setup, captured in _ready().
 var _stand_head_y: float
@@ -114,9 +129,6 @@ var stamina: float = 100.0
 var _time_since_sprint: float = 0.0
 # Seconds of fatigue left. > 0 means fatigued.
 var fatigue_time_left: float = 0.0
-var _stamina_bar: Control
-var _stamina_fill: ColorRect
-var _stamina_hide_timer: float = 0.0
 # Set by the Show Stamina Bar setting.
 var show_stamina_bar: bool = true
 # Set by the Tilt View When Leaning setting.
@@ -142,6 +154,11 @@ var is_exiting: bool = false
 @onready var AREA3D: Area3D = $Player
 @onready var COLLISIONSHAPE3D: CollisionShape3D = $CollisionShape3D  
 @onready var CURSOR: Control = $CenterContainer/Cursor
+# Looked up once - these were found by path every physics frame.
+@onready var _crosshair: CanvasItem = $CenterContainer/Cursor/Crosshair
+@onready var _hand: CanvasItem = $CenterContainer/Cursor/Hand
+@onready var _arms: Node3D = $arms
+@onready var _body: Node3D = $body
 @onready var DIALOG: Control = $DialogControl
 @onready var GAMEOVER: CanvasLayer  = $GameOverScreen
 
@@ -166,8 +183,8 @@ var saved_collider: CollisionObject3D = null
 
 # Function that starts as soon as Player in in the scene
 func _ready() -> void:
-	if PlayerManager.CursorInvisible:
-		CURSOR.visible = false
+	# New level: UiManager starts fresh and shows this player's crosshair.
+	UiManager.on_player_ready(self)
 	SettingsManager.PlayerShader = $ps1_graphics
 	if SettingsManager.settings.video.shader:
 		$ps1_graphics.visible = true
@@ -176,7 +193,6 @@ func _ready() -> void:
 	floor_snap_length = floor_snap_amount
 	floor_max_angle = deg_to_rad(floor_max_angle_degrees)
 	stamina = max_stamina
-	_build_stamina_bar()
 	_stand_head_y = head.position.y
 	_stand_shape_transform = COLLISIONSHAPE3D.transform
 	if COLLISIONSHAPE3D.shape:
@@ -284,7 +300,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if PlayerManager.minigameOne:
 			AnimationManager.SteeringWheelFlash.start_flashing()
 			PlayerManager.minigameOne = false
-			UiManager.HotWireUI.visible = false
+			UiManager.show_panel("hotwire", false)
 			AnimationManager.CarInteractRay.enabled = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			PlayerManager.MiniGameModeOff()
@@ -297,7 +313,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				AnimationManager.HoodFlash.visible = true
 			PlayerManager.player.CAMERA.current = true
 			PlayerManager.minigameTwo = false
-			PlayerManager.gasIntakeUI.visible = false
+			UiManager.show_panel("gas_intake", false)
 			PlayerManager.Gas_Canister.visible = false
 			PlayerManager.gasIntakeSweetSpot.visible = false
 			PlayerManager.MiniGameModeOff()
@@ -317,7 +333,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			grabbed_object = null
 			CAMERA.current = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-			PlayerManager.hoodUI.visible =  false
+			UiManager.show_panel("hood", false)
 			AnimationManager.HideResetZones()
 			AnimationManager.PositiveBatteryFlash.visible = false
 			AnimationManager.NegativeBatteryFlash.visible = false
@@ -332,11 +348,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				$DevPauseMenu.pause()
 			else:
 				$SimplifiedPauseMenu.pause()
-	if event.is_action("Inventory"):
-		$Inventory.visible = true
-		populate_inventory()
+	# Only on the first press - holding Tab sends repeat events, which used to
+	# delete and rebuild every inventory label many times a second.
+	if event.is_action_pressed("Inventory") and not event.is_echo():
+		UiManager.show_inventory(true)
 	if event.is_action_released("Inventory"):
-		$Inventory.visible = false
+		UiManager.show_inventory(false)
 			
 			
 			
@@ -350,6 +367,8 @@ func _physics_process(delta: float) -> void:
 		handle_free_roam_movement(delta)
 		return
 	
+	if not PlayerManager.Loop0:
+		PlayerManager.ProcessScared()   # once per frame, used by both below
 	apply_breathing_effects()
 	apply_heartbeat_effects()
 	
@@ -417,9 +436,10 @@ func _physics_process(delta: float) -> void:
 			var forward = -head.global_transform.basis.z
 			var movement_direction = horizontal_velocity.normalized()
 			var angle = forward.signed_angle_to(-movement_direction, Vector3.UP)
-			$arms.rotation.y = angle
-			$body.rotation.y = angle
+			_arms.rotation.y = angle
+			_body.rotation.y = angle
 
+	_update_body_forward()
 	_apply_step_assist(delta)
 
 	if not is_exiting and is_inside_tree() and get_world_3d() != null:
@@ -467,9 +487,7 @@ func _handle_interact_ray() -> void:
 		return
 	
 	if not interact_ray.is_colliding():
-		if not PlayerManager.CursorInvisible:
-			$CenterContainer/Cursor/Crosshair.visible = true
-			$CenterContainer/Cursor/Hand.visible = false
+		UiManager.set_cursor_hover(false)
 		if last_collider != null:
 			last_collider.hide_outline()
 			last_collider = null
@@ -482,9 +500,7 @@ func _handle_interact_ray() -> void:
 	var distance = interact_ray.global_position.distance_to(collision_point)
 	
 	if distance <= 5.0 && collider is Interactable && collider.is_interactable:
-		if not PlayerManager.CursorInvisible:
-			$CenterContainer/Cursor/Crosshair.visible = false
-			$CenterContainer/Cursor/Hand.visible = true
+		UiManager.set_cursor_hover(true)
 		if last_collider != null && last_collider != collider:
 			last_collider.hide_outline()
 		if collider.show_outline():
@@ -492,9 +508,7 @@ func _handle_interact_ray() -> void:
 		if Input.is_action_just_pressed("Interact"):
 			collider.interact(owner)
 	else:
-		if not PlayerManager.CursorInvisible:
-			$CenterContainer/Cursor/Crosshair.visible = true
-			$CenterContainer/Cursor/Hand.visible = false
+		UiManager.set_cursor_hover(false)
 		if last_collider != null:
 			last_collider.hide_outline()
 			last_collider = null
@@ -519,8 +533,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func apply_breathing_effects():
 	if PlayerManager.Loop0:
 		return
-	# Adjust breathing sound based on current state
-	PlayerManager.ProcessScared()
+	# Adjust breathing sound based on current state (ProcessScared already ran)
 	var target_pitch = PlayerManager.scaredPitch - 1
 	var target_volume = PlayerManager.scaredVolume
 
@@ -535,8 +548,7 @@ func apply_breathing_effects():
 func apply_heartbeat_effects():
 	if PlayerManager.Loop0:
 		return
-	# Adjust heartbeat based on player state
-	PlayerManager.ProcessScared()
+	# Adjust heartbeat based on player state (ProcessScared already ran)
 	var target_pitch = PlayerManager.scaredPitch
 	var target_volume = PlayerManager.scaredVolume
 
@@ -549,23 +561,8 @@ func apply_heartbeat_effects():
 	AudioManager.set_loop_volume("heartbeat", target_volume)
 	
 func populate_inventory():
-	# Clear existing items
-	for child in $Inventory/ColorRect/HBoxContainer.get_children():
-		child.queue_free()
-
-	# Create labels for each item
-	for item in PlayerManager.Inventory:
-		var label = Label.new()
-		label.text = item.name
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		
-		# Set color based on whether this item is equipped
-		if item.name == PlayerManager.EquippedItem:
-			label.add_theme_color_override("font_color", Color("#990404"))
-		else:
-			label.add_theme_color_override("font_color", Color.WHITE)
-		
-		$Inventory/ColorRect/HBoxContainer.add_child(label)
+	# The inventory strip is drawn by UiManager; refresh it if it's showing.
+	UiManager.refresh_inventory()
 		
 func handle_sprint_input():
 	if PlayerManager.Hold_Shift:
@@ -622,13 +619,18 @@ func _update_body_moves(delta: float, allowed: bool) -> void:
 	_apply_crouch(smoothstep(0.0, 1.0, _crouch_amount))
 
 	# Lean
+	var back_held := allowed and Input.is_action_pressed("look_back")
 	var lean_target := 0.0
-	if allowed and (lean_while_sprinting or not is_sprinting):
+	# While looking back Q/E pick the shoulder instead of leaning.
+	if allowed and not back_held and (lean_while_sprinting or not is_sprinting):
 		lean_target = Input.get_axis("lean_left", "lean_right")
 	_lean_amount = move_toward(_lean_amount, lean_target, step)
 
 	# Look back - camera only, so movement keeps the body's direction.
-	var back_target := 1.0 if allowed and Input.is_action_pressed("look_back") else 0.0
+	if back_held and not _look_back_held:
+		_look_back_side = _pick_look_back_side()
+	_look_back_held = back_held
+	var back_target := 1.0 if back_held else 0.0
 	_look_back_amount = move_toward(_look_back_amount, back_target, delta * look_back_speed)
 
 	_apply_view_offsets()
@@ -679,7 +681,68 @@ func _apply_view_offsets() -> void:
 
 	# Tilt into the lean; turn the camera around to look back.
 	camera.rotation.z = (-deg_to_rad(lean_angle_degrees) * lean_eased) if lean_tilt_enabled else 0.0
-	camera.rotation.y = PI * smoothstep(0.0, 1.0, _look_back_amount)
+	_apply_look_back(smoothstep(0.0, 1.0, _look_back_amount))
+
+## Keeps track of which way the body faces: it turns to where you walk
+## (forward or sideways, not backward), and when the head turns more than
+## 90 degrees away while standing, the body turns to follow like a person.
+func _update_body_forward() -> void:
+	var head_f := -head.global_basis.z
+	head_f.y = 0.0
+	head_f = head_f.normalized()
+	var move := Vector3(velocity.x, 0.0, velocity.z)
+	if move.length() > 0.1 and move.normalized().dot(head_f) > -0.2:
+		_body_forward = move.normalized()
+	elif _body_forward.length_squared() < 0.0001:
+		_body_forward = head_f
+	var a := _body_forward.signed_angle_to(head_f, Vector3.UP)
+	var max_turn := deg_to_rad(90.0)
+	if absf(a) > max_turn:
+		_body_forward = _body_forward.rotated(Vector3.UP, a - signf(a) * max_turn)
+
+## The body's facing on the ground (falls back to the head's if it hasn't
+## walked yet).
+func _body_dir() -> Vector3:
+	if _body_forward.length_squared() > 0.0001:
+		return _body_forward
+	var f := -head.global_basis.z
+	f.y = 0.0
+	return f.normalized()
+
+static func _yaw_of(dir: Vector3) -> float:
+	return atan2(-dir.x, -dir.z)
+
+## Which shoulder to look back over (1 = left, -1 = right), decided when V
+## is pressed: Q/E if held; otherwise whichever way the head is already
+## turned from the body; otherwise the same side as last time.
+func _pick_look_back_side() -> float:
+	var lean := Input.get_axis("lean_left", "lean_right")
+	if absf(lean) > 0.1:
+		return -signf(lean)
+	var head_f := -head.global_basis.z
+	head_f.y = 0.0
+	var turn := _body_dir().cross(head_f.normalized()).y   # > 0 = head turned left
+	if absf(turn) > sin(deg_to_rad(10.0)):
+		return signf(turn)
+	return _look_back_side
+
+## Swings the camera (not the head, so walking is unaffected) toward a fixed
+## spot behind the body, levelling the up/down look on the way. t = 0..1.
+func _apply_look_back(t: float) -> void:
+	# Yaw: from where the head looks to body + side * look_back_degrees.
+	var head_f := -head.global_basis.z
+	head_f.y = 0.0
+	var target_yaw := _yaw_of(_body_dir()) + _look_back_side * deg_to_rad(look_back_degrees)
+	var offset := wrapf(target_yaw - _yaw_of(head_f.normalized()), -PI, PI)
+	# Turn over the chosen shoulder, not the long way round the other one.
+	if absf(offset) > PI * 0.5 and signf(offset) != _look_back_side:
+		offset += _look_back_side * TAU
+	camera.rotation.y = offset * t
+	# Pitch: blend the mouse pitch toward look_back_pitch_degrees. The mouse
+	# keeps writing to camera.rotation.x, so take our last offset back out first.
+	var base := camera.rotation.x - _back_pitch_offset
+	_back_pitch_offset = (deg_to_rad(look_back_pitch_degrees) - base) * t
+	camera.rotation.x = base + _back_pitch_offset
 
 ## ---------------------------------------------------------------------
 ## Carrying the player between levels (see GameState.change_level)
@@ -750,55 +813,14 @@ func _update_stamina(delta: float, running: bool) -> void:
 
 	_update_stamina_bar(delta)
 
-# _build_stamina_bar
-# Small bar in the bottom-left corner. Built in code so the Player scene
-# doesn't need editing.
-func _build_stamina_bar() -> void:
-	_stamina_bar = Control.new()
-	_stamina_bar.name = "StaminaBar"
-	_stamina_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_stamina_bar.anchor_top = 1.0
-	_stamina_bar.anchor_bottom = 1.0
-	_stamina_bar.offset_left = 16.0
-	_stamina_bar.offset_top = -22.0
-	_stamina_bar.offset_right = 136.0
-	_stamina_bar.offset_bottom = -16.0
-	_stamina_bar.modulate.a = 0.0
-	add_child(_stamina_bar)
-
-	var back := ColorRect.new()
-	back.color = Color(1, 1, 1, 0.15)
-	back.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	back.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_stamina_bar.add_child(back)
-
-	_stamina_fill = ColorRect.new()
-	_stamina_fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_stamina_fill.anchor_bottom = 1.0
-	_stamina_fill.offset_left = 1.0
-	_stamina_fill.offset_top = 1.0
-	_stamina_fill.offset_bottom = -1.0
-	_stamina_bar.add_child(_stamina_fill)
-
-func _update_stamina_bar(delta: float) -> void:
-	if not _stamina_fill:
-		return
+# _update_stamina_bar
+# The bar itself is drawn by UiManager (top-left HUD); this just reports.
+func _update_stamina_bar(_delta: float) -> void:
 	var ratio := stamina / maxf(max_stamina, 0.001)
 	if is_fatigued():
 		# While fatigued the red bar shows the fatigue left, draining to 0.
 		ratio = fatigue_time_left / maxf(fatigue_duration, 0.001)
-	_stamina_fill.anchor_right = ratio
-	_stamina_fill.offset_right = -1.0 if ratio >= 1.0 else 0.0
-	# Red while fatigued, white otherwise.
-	_stamina_fill.color = Color("#990404") if is_fatigued() else Color(0.85, 0.85, 0.85)
-
-	# Show while in use; fade out after being full for a moment.
-	if stamina < max_stamina or is_fatigued():
-		_stamina_hide_timer = 1.5
-	else:
-		_stamina_hide_timer = maxf(_stamina_hide_timer - delta, 0.0)
-	var target := 1.0 if _stamina_hide_timer > 0.0 and show_stamina_bar else 0.0
-	_stamina_bar.modulate.a = move_toward(_stamina_bar.modulate.a, target, delta * 3.0)
+	UiManager.update_stamina(ratio, is_fatigued(), stamina < max_stamina or is_fatigued(), show_stamina_bar)
 
 func get_mouse_world_pos(mouse_pos: Vector2):
 	var space = get_world_3d().direct_space_state

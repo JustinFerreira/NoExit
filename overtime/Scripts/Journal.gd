@@ -25,8 +25,6 @@ const TEXT_COLOR := Color(0.9, 0.9, 0.9)
 
 enum Mode { CLOSED, READING, JOURNAL }
 var _mode: Mode = Mode.CLOSED
-var _was_paused: bool = false
-var _prev_mouse_mode: Input.MouseMode = Input.MOUSE_MODE_CAPTURED
 var _shown_notes: Array[NoteData] = []
 
 var _root: Control
@@ -39,7 +37,7 @@ var _found_label: Label
 
 
 func _ready() -> void:
-	layer = 50
+	layer = UiManager.LAYER_MENU
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_build_ui()
 	_root.visible = false
@@ -62,6 +60,9 @@ func read_note(note: NoteData, first_time: bool = false) -> void:
 
 ## Opens the journal with every note found so far.
 func open_journal() -> void:
+	# Never on top of another screen (pause menu, game over).
+	if UiManager.any_screen_open() and not UiManager.is_open("journal"):
+		return
 	_open(Mode.JOURNAL)
 	_list_box.visible = true
 	_found_label.visible = false
@@ -86,9 +87,7 @@ func close() -> void:
 		return
 	_mode = Mode.CLOSED
 	_root.visible = false
-	if pause_while_open:
-		get_tree().paused = _was_paused
-	Input.set_mouse_mode(_prev_mouse_mode)
+	UiManager.close_screen("journal")   # puts pause/mouse/HUD back
 	closed.emit()
 
 
@@ -111,21 +110,18 @@ func _input(event: InputEvent) -> void:
 
 
 func _can_open_journal() -> bool:
-	if get_tree().paused or PlayerManager.MainMenu or not is_instance_valid(PlayerManager.player):
-		return false
-	return not (PlayerManager.dying or PlayerManager.examining or PlayerManager.MinigameMode or PlayerManager.InAnimation)
+	return UiManager.can_open_gameplay_ui()
 
 
 func _open(mode: Mode) -> void:
-	if _mode == Mode.CLOSED:
-		_was_paused = get_tree().paused
-		_prev_mouse_mode = Input.get_mouse_mode()
-		if pause_while_open:
-			get_tree().paused = true
-		opened.emit()
+	var first := _mode == Mode.CLOSED
 	_mode = mode
 	_root.visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if mode == Mode.JOURNAL else Input.MOUSE_MODE_HIDDEN)
+	# UiManager pauses, hides the HUD/dialog and shows the mouse (hidden
+	# while just reading a note), and restores it all on close.
+	UiManager.open_screen("journal", pause_while_open, mode == Mode.JOURNAL)
+	if first:
+		opened.emit()
 
 
 func _show_note(note: NoteData) -> void:

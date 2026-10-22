@@ -26,28 +26,18 @@ func _ready() -> void:
 	else:
 		$FadeColorRect.visible = false
 		AudioManager.cancel_loop_sfx()
-	
+	_update_loop_buttons()
 
-func _process(_delta: float) -> void:
-	if PlayerManager.DevMode:
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = true
-		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = true
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = true
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = true
-	elif SettingsManager.Loop0Pass:
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = true
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = false
-	else:
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/ParkingGarage.visible = false
-		$"MainMenuSecondScreen/MarginContainer/VBoxContainer/OpeningCutscene".visible = false
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/Loop1Btn.visible = false
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/New_Office.visible = false
-		$MainMenuSecondScreen/MarginContainer/VBoxContainer/TestParkingGarage.visible = false
-		
+# _update_loop_buttons
+# Shows the Loop Select buttons the player has unlocked (all of them in dev
+# mode). Runs when the menu opens and whenever Loop Select is shown - it
+# used to run every frame.
+func _update_loop_buttons() -> void:
+	var box := $MainMenuSecondScreen/MarginContainer/VBoxContainer
+	var dev: bool = PlayerManager.DevMode
+	box.get_node("Loop1Btn").visible = dev or SettingsManager.Loop0Pass
+	for btn in ["ParkingGarage", "OpeningCutscene", "New_Office", "TestParkingGarage"]:
+		box.get_node(btn).visible = dev
 
 
 func _on_start_btn_pressed() -> void:
@@ -55,6 +45,7 @@ func _on_start_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	$MainMenuFirstScreen.visible = false
+	_update_loop_buttons()
 	$MainMenuSecondScreen.visible = true
 
 
@@ -194,3 +185,53 @@ func _on_level_designing_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/Greyboxing/ParkingGarages/LevelDesigning.tscn")
 	PlayerManager.MainMenu = false
 	PlayerManager.firstdialog = false
+
+
+# Review levels: copies of the levels at the sizes that look right together, and
+# every model lined up at its true exported size.
+func _on_fitted_office_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.OpeningCutscene = false
+	PlayerManager.Loop0 = true
+	PlayerManager.Loop1 = false
+	get_tree().change_scene_to_file("res://Levels/Fitted/Office_Fitted.tscn")
+	PlayerManager.MainMenu = false
+
+
+func _on_fitted_garage_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.testing = true
+	PlayerManager.InAnimation = false
+	PlayerManager.firstdialog = false
+	get_tree().change_scene_to_file("res://Levels/Fitted/ParkingGarage_Fitted.tscn")
+	PlayerManager.MainMenu = false
+
+
+func _on_model_lineup_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.InAnimation = false
+	PlayerManager.firstdialog = false
+	get_tree().change_scene_to_file("res://Levels/Review/ModelLineup.tscn")
+	PlayerManager.MainMenu = false
+
+
+func _on_shadow_lab_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.InAnimation = false
+	PlayerManager.firstdialog = false
+	get_tree().change_scene_to_file("res://Levels/Review/ShadowLab.tscn")
+	PlayerManager.MainMenu = false
+
+
+func _on_shadow_office_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.OpeningCutscene = false
+	PlayerManager.Loop0 = true
+	PlayerManager.Loop1 = false
+	get_tree().change_scene_to_file("res://Levels/Fitted/Office_Shadows.tscn")
+	PlayerManager.MainMenu = false

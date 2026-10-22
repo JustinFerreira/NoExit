@@ -2,24 +2,29 @@
 
 [ext_resource type="Script" path="res://Scripts/StalkingArea.gd" id="1_pui68"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_opavk"]
+[sub_resource type="BoxMesh" id="BoxMesh_qx4jt"]
+size = Vector3(475.535, 92.9795, 460.819)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gyrha"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qsynk"]
+points = PackedVector3Array(-237.768, -46.4897, -230.41, 237.768, 46.4897, 230.41, 237.768, -46.4897, 230.41, 237.768, 46.4897, -230.41, -237.768, 46.4897, 230.41, 237.768, -46.4897, -230.41, -237.768, -46.4897, 230.41, -237.768, 46.4897, -230.41)
 
-[node name="StalkingArea" type="Node3D"]
+[node name="StalkingArea" type="Node3D" node_paths=PackedStringArray("teleports")]
 script = ExtResource("1_pui68")
+stalking_distance = 15.0
+make_killer_silent = true
+teleports = []
+activated = false
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(9.51071, 0, 0, 0, 1.85959, 0, 0, 0, 9.21638, 0, 0, 0)
 visible = false
-mesh = SubResource("BoxMesh_opavk")
+mesh = SubResource("BoxMesh_qx4jt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(9.51071, 0, 0, 0, 1.85959, 0, 0, 0, 9.21638, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_gyrha")
+shape = SubResource("ConvexPolygonShape3D_qsynk")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

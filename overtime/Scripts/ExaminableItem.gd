@@ -75,6 +75,12 @@ enum SpawnCondition { ALWAYS, LOOP_0_ONLY, AFTER_LOOP_0 }
 @export_group("Examine View")
 ## How far in front of the camera the item floats.
 @export var focus_distance: float = 0.8
+## The item spins around (and is centred on) the middle of its model's
+## bounding box. If that looks off (handles, lopsided models), add a
+## Marker3D child called "ExamineCenter" and drag it to the spot that should
+## sit in the middle of the screen - or nudge it here (in the model's own
+## units, added on top of either).
+@export var examine_center_offset: Vector3 = Vector3.ZERO
 ## Nudge on screen, as a fraction of the screen (x: -0.5..0.5 left/right,
 ## y: -0.5..0.5 down/up). (0, 0) is dead centre.
 @export var screen_offset: Vector2 = Vector2.ZERO
@@ -195,7 +201,7 @@ var _picking_up: bool = false
 var _hidden_meshes: Dictionary = {}   # MeshInstance3D -> [transparency, cast_shadow]
 
 # Background darkening
-var _dark_objects: Array[MeshInstance3D] = []
+var _dark_objects: Array[GeometryInstance3D] = []
 var _original_overrides: Dictionary = {}
 var _dark_tweens: Array[Tween] = []
 
@@ -265,7 +271,7 @@ func _on_interacted(_body: Variant) -> void:
 
 	PlayerManager.ExamingItem = self
 	PlayerManager.examining = true
-	PlayerManager.player.CURSOR.visible = false
+	UiManager.set_cursor_visible(false)
 	# No outline/flash while the item is off its spot - comes back in
 	# _end_examine() once it has settled back down.
 	set_outline_blocked(true)
@@ -301,8 +307,7 @@ func end_focus() -> void:
 		return
 	PlayerManager.examining = false
 	PlayerManager.closeup = true
-	if not PlayerManager.CursorInvisible:
-		PlayerManager.player.CURSOR.visible = true
+	UiManager.set_cursor_visible(true)
 
 	if darken_background:
 		_restore_background()
@@ -600,12 +605,28 @@ func _build_exam_copy() -> void:
 		_exam_light.light_bake_mode = Light3D.BAKE_DISABLED
 		_exam_mesh.add_child(_exam_light)
 
-	# Offset the mesh so the pivot sits at its visual centre.
+	# Offset the mesh so the pivot sits at its visual centre: the middle of
+	# its bounds, or the ExamineCenter marker if the item has one.
 	var aabb := _exam_mesh.mesh.get_aabb() if _exam_mesh.mesh else AABB(Vector3.ZERO, Vector3.ONE)
 	_center_local = aabb.get_center()
+	var marker := _find_examine_center()
+	if marker and _source_mesh:
+		_center_local = _source_mesh.global_transform.affine_inverse() * marker.global_position
+	_center_local += examine_center_offset
 	_exam_mesh.position = -_center_local
 	# Park it exactly on top of the real item.
 	_pivot.global_transform = _source_global_pivot()
+
+
+## The optional "ExamineCenter" Marker3D: on the item, its mesh, or the
+## mesh's parent (wherever it was dropped in the scene).
+func _find_examine_center() -> Node3D:
+	for holder in [self, _source_mesh, _source_mesh.get_parent() if _source_mesh else null]:
+		if holder:
+			var m = holder.get_node_or_null("ExamineCenter")
+			if m is Node3D:
+				return m
+	return null
 
 
 func _radius_vector() -> Vector3:
@@ -665,9 +686,13 @@ func _darken_background() -> void:
 
 func _collect_dark_targets(node: Node) -> void:
 	# Never darken this item itself (its real meshes or the examine copy).
-	if node == _pivot or node == _source_mesh or mesh_list.has(node):
+	if node == _pivot or node == _source_mesh or (node is MeshInstance3D and mesh_list.has(node)):
 		return
-	if node is MeshInstance3D and (node.layers & 1) and node.visible:
+	# Meshes, and CSG shapes too (the office light panels and cubicle walls
+	# are CSG - they used to stay fully lit). Only the top CSG node of a
+	# group draws anything, so that's the one that gets darkened.
+	var is_target: bool = node is MeshInstance3D or (node is CSGShape3D and node.is_root_shape())
+	if is_target and (node.layers & 1) and node.visible:
 		_original_overrides[node] = node.material_override
 		node.material_override = _make_dark_material(node)
 		_dark_objects.append(node)
@@ -675,12 +700,14 @@ func _collect_dark_targets(node: Node) -> void:
 		_collect_dark_targets(child)
 
 
-func _make_dark_material(node: MeshInstance3D) -> StandardMaterial3D:
+func _make_dark_material(node: GeometryInstance3D) -> StandardMaterial3D:
 	var dark_mat := StandardMaterial3D.new()
 	dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	var source_mat: Material = node.material_override
-	if not source_mat and node.mesh and node.mesh.get_surface_count() > 0:
+	if not source_mat and node is MeshInstance3D and node.mesh and node.mesh.get_surface_count() > 0:
 		source_mat = node.mesh.surface_get_material(0)
+	if not source_mat and node is CSGShape3D and "material" in node:
+		source_mat = node.material
 	if source_mat is StandardMaterial3D:
 		dark_mat.albedo_color = source_mat.albedo_color
 		dark_mat.albedo_texture = source_mat.albedo_texture

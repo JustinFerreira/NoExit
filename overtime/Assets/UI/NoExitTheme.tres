@@ -1,0 +1,96 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dp1sg5ibkrlx2"]
+
+[ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="1_3ttou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5yfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mlutj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjeju"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xhti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7xi8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tpw2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frh31"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.06, 0.06, 0.06, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0m4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0uwur"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5f65"]
+bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bsw7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp5sy"]
+bg_color = Color(1, 1, 1, 0.15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubmvc"]
+bg_color = Color(0.6, 0.0156863, 0.0156863, 1)
+
+[resource]
+default_font = ExtResource("1_3ttou")
+default_font_size = 16
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+Button/colors/font_hover_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+Button/colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_q5yfv")
+Button/styles/focus = SubResource("StyleBoxEmpty_mlutj")
+Button/styles/hover = SubResource("StyleBoxEmpty_fjeju")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_6xhti")
+Button/styles/normal = SubResource("StyleBoxEmpty_v7xi8")
+Button/styles/pressed = SubResource("StyleBoxEmpty_7tpw2")
+CheckBox/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+CheckBox/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+CheckBox/colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0.517647, 0.458824, 0.458824, 1)
+CheckBox/colors/font_pressed_color = Color(0.875, 0.875, 0.875, 1)
+CheckButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+CheckButton/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+CheckButton/colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+CheckButton/colors/font_hover_pressed_color = Color(0.517647, 0.458824, 0.458824, 1)
+CheckButton/colors/font_pressed_color = Color(0.875, 0.875, 0.875, 1)
+FramePanel/base_type = &"PanelContainer"
+FramePanel/styles/panel = SubResource("StyleBoxFlat_frh31")
+ItemList/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+ItemList/colors/font_selected_color = Color(1, 1, 1, 1)
+ItemList/styles/focus = SubResource("StyleBoxEmpty_f0m4j")
+ItemList/styles/panel = SubResource("StyleBoxEmpty_0uwur")
+ItemList/styles/selected = SubResource("StyleBoxFlat_k5f65")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_k5f65")
+Label/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+MenuButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+MenuButton/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+MenuButton/colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+MenuButton/colors/font_hover_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+MenuButton/colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+OptionButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+OptionButton/colors/font_focus_color = Color(0.875, 0.875, 0.875, 1)
+OptionButton/colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+OptionButton/colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_frh31")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_bsw7c")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_mp5sy")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ubmvc")
+RichTextLabel/colors/default_color = Color(0.9, 0.9, 0.9, 1)
+RichTextLabel/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_3ttou")
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+TitleLabel/font_sizes/font_size = 64

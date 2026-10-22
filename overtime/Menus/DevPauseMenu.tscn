@@ -190,7 +190,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 64
-text = "Paused Game"
+text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="TitleMarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
@@ -371,7 +371,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
 theme_override_fonts/font = ExtResource("3_vnwb4")
 theme_override_font_sizes/font_size = 64
-text = "Paused Game"
+text = "PAUSED"
 horizontal_alignment = 1
 
 [node name="TitleMarginContainer" type="MarginContainer" parent="PanelContainer2/VBoxContainer"]

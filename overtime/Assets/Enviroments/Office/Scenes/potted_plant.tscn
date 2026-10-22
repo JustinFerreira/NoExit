@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://5kkwp2q5sfl3"]
 
-[ext_resource type="ArrayMesh" uid="uid://c3bxnhjrvkhr0" path="res://Assets/Enviroments/Office/Models/Potted_Plant_1.obj" id="1_qspcn"]
-[ext_resource type="Texture2D" uid="uid://b8usglynrnsus" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_Albedo.png" id="2_ks3in"]
-[ext_resource type="Texture2D" uid="uid://d3uinac7bnp4b" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_MetallicRoughnessAO.png" id="3_05dgd"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Potted_Plant_1.obj" id="1_qspcn"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_Albedo.png" id="2_ks3in"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_MetallicRoughnessAO.png" id="3_05dgd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcwpm"]
 transparency = 1

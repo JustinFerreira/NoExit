@@ -13,10 +13,11 @@
 [ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/Enviroments/Garage/Models/M_SpareTire_Unwrapped.obj" id="11_ka5a1"]
 [ext_resource type="AudioStream" uid="uid://cfswa0b47luuq" path="res://Assets/Audio/SFX/car-engine-hum.mp3" id="12_ksi27"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_sn2ot"]
+[sub_resource type="BoxMesh" id="BoxMesh_iugq3"]
+size = Vector3(1608.96, 16.9941, 357.313)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gnbc7"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_44u55"]
+points = PackedVector3Array(-804.48, -8.49705, -178.656, 804.48, 8.49705, 178.656, 804.48, -8.49705, 178.656, 804.48, 8.49705, -178.656, -804.48, 8.49705, 178.656, 804.48, -8.49705, -178.656, -804.48, -8.49705, 178.656, -804.48, 8.49705, -178.656)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxieo"]
 albedo_texture = ExtResource("2_nele8")
@@ -166,7 +167,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -77.0308)]
+"values": [Vector3(0, 0, -3851.54)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -302,7 +303,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 3, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -77.0308), Vector3(0, 0, -9.26645), Vector3(0, 0, 29.4798)]
+"values": [Vector3(0, 0, -3851.54), Vector3(0, 0, -463.323), Vector3(0, 0, 1473.99)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -364,18 +365,18 @@ _data = {
 script = ExtResource("1_eomew")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(32.1793, 0, 0, 0, 0.339881, 0, 0, 0, 7.14627, 0, 0, 0)
 visible = false
-mesh = SubResource("BoxMesh_sn2ot")
+mesh = SubResource("BoxMesh_iugq3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(32.1793, 0, 0, 0, 0.339881, 0, 0, 0, 7.14627, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_gnbc7")
+shape = SubResource("ConvexPolygonShape3D_44u55")
 
 [node name="Car" type="Node3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -77.0308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3851.54)
 
 [node name="SUV" type="MeshInstance3D" parent="Car"]
 material_override = SubResource("StandardMaterial3D_xxieo")
@@ -398,39 +399,42 @@ mesh = ExtResource("11_ka5a1")
 skeleton = NodePath("../..")
 
 [node name="Tire_4" type="MeshInstance3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.8736, 39.2326, 160.855)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.8735, 39.2326, 160.855)
 material_override = ExtResource("10_0miym")
 transparency = 1.0
 mesh = ExtResource("11_ka5a1")
 skeleton = NodePath("../..")
 
 [node name="Tire_2" type="MeshInstance3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5713, 39.2326, -133.493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.5715, 39.2326, -133.493)
 material_override = ExtResource("10_0miym")
 transparency = 1.0
 mesh = ExtResource("11_ka5a1")
 skeleton = NodePath("../..")
 
 [node name="Tire_3" type="MeshInstance3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.4539, 39.2326, -133.493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.454, 39.2326, -133.493)
 material_override = ExtResource("10_0miym")
 transparency = 1.0
 mesh = ExtResource("11_ka5a1")
 skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Car"]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -64.3453, 90.2932, 244.213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.3455, 90.293, 244.213)
 light_color = Color(1, 1, 0, 1)
 light_energy = 16.0
+omni_range = 250.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Car"]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 82.0545, 87.854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 82.0545, 87.854)
 stream = ExtResource("12_ksi27")
+unit_size = 500.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Car"]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 62.9357, 90.2932, 244.213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.9355, 90.293, 244.213)
 light_color = Color(1, 1, 0, 1)
 light_energy = 16.0
+omni_range = 250.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,9 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://ucwb4r23x2rt"]
 
-[ext_resource type="AudioStream" uid="uid://db26w5prw66ne" path="res://Assets/Audio/SFX/drips.wav" id="1_gbe76"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/drips.wav" id="1_gbe76"]
 [ext_resource type="Script" path="res://Scripts/WaterDripping.gd" id="2_gh34m"]
 
 [node name="WaterDripping" type="AudioStreamPlayer3D"]
-transform = Transform3D(1.00135, 0, 0, 0, 1.00135, 0, 0, 0, 1.00135, -30.9962, 17.6232, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9962, 17.6232, 0)
 stream = ExtResource("1_gbe76")
+unit_size = 500.0
 script = ExtResource("2_gh34m")
+max_hearing_distance = 50.0
+min_volume_db = -80.0
+min_interval = 1.0
+max_interval = 10.0
+min_pitch = 0.5
+max_pitch = 2.0

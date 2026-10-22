@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://byduujr27ili7"]
 
-[ext_resource type="Texture2D" uid="uid://bdyjqqhjb10ja" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Heavy Textures/M_DirectionalArrow_Heavy_BaseMap.png" id="1_cppqs"]
-[ext_resource type="Texture2D" uid="uid://d2xndf3mb8t1g" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_MaskMap.png" id="2_sjk3y"]
-[ext_resource type="Texture2D" uid="uid://cbt7xivhjsd0m" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_Normal.png" id="3_1xfxu"]
-[ext_resource type="ArrayMesh" uid="uid://c2lyekdcrackv" path="res://Assets/Enviroments/Garage/Models/M_DirectionalArrow.obj" id="4_hytbi"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Heavy Textures/M_DirectionalArrow_Heavy_BaseMap.png" id="1_cppqs"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_MaskMap.png" id="2_sjk3y"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Directional Arrow Light Textures/M_DirectionalArrow_Light_Normal.png" id="3_1xfxu"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Garage/Models/M_DirectionalArrow.obj" id="4_hytbi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ug3pv"]
 transparency = 1
@@ -22,6 +22,6 @@ texture_filter = 0
 [node name="DirectionalArrowHeavy" type="Node3D"]
 
 [node name="MDirectionalArrow" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
 material_override = SubResource("StandardMaterial3D_ug3pv")
 mesh = ExtResource("4_hytbi")

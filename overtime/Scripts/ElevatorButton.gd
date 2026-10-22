@@ -16,6 +16,7 @@ var clickedrecent: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()   # Interactable setup (click hookup, outline defaults)
 	AnimationManager.ElevatorDoorButtonAnimationPlayer = $"../ElevatorDoorButtonAnimationPlayer"
 	AnimationManager.ElevatorButtonFlash = $"../ElevatorOutsideButtonFlash"
 	AnimationManager.ActivateElevatorButtonAnimationPlayer()
@@ -29,7 +30,7 @@ func _on_interacted(_body: Variant) -> void:
 	if PlayerManager.has_item("Car Keys") and not clickedrecent:
 		if not PlayerManager.talkToJanitor && PlayerManager.deaths < 2:
 			PlayerManager.janitor.talkToPlayer()
-			PlayerManager.player.CURSOR.visible = false
+			UiManager.set_cursor_visible(false)
 			return
 		clickedrecent = true
 		EventManager.ElevatorDoorOpen = true

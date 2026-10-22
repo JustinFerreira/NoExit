@@ -14,12 +14,16 @@ var huh: float = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+# How long the ride up lasts (it used to count 200 frames, which is
+# 3.3 s at 60 FPS but much shorter on faster PCs).
+const RIDE_SECONDS := 200.0 / 60.0
+
+func _process(delta: float) -> void:
 	if  rising == true:
-		huh += 1
+		huh += delta
 		
 	
-	if huh >= 200:
+	if huh >= RIDE_SECONDS:
 		rising = false
 		huh = 0
 		AudioManager.cancel_music()

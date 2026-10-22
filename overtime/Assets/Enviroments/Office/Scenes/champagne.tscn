@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddrvkkdmxccmh"]
 
-[ext_resource type="ArrayMesh" uid="uid://2ydn1886mm5j" path="res://Assets/Enviroments/Office/Models/M_Champaine_Unwrapped.obj" id="1_giw4c"]
-[ext_resource type="Texture2D" uid="uid://dmqge3kfo5llj" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_BaseMap.png" id="2_si4yd"]
-[ext_resource type="Texture2D" uid="uid://c1oflkf6bitqv" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_MaskMap.png" id="3_w1vap"]
-[ext_resource type="Texture2D" uid="uid://bnexxxefotpc4" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_Normal.png" id="4_e4s3l"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Champaine_Unwrapped.obj" id="1_giw4c"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_BaseMap.png" id="2_si4yd"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_MaskMap.png" id="3_w1vap"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Champagne Textures/M_Champaine_Unwrapped_DefaultMaterial_Normal.png" id="4_e4s3l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05usa"]
 albedo_texture = ExtResource("2_si4yd")

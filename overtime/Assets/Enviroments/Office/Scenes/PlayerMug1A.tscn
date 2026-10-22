@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/ExaminableItem.gd" id="3_a2l26"]
 [ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_pw4lu"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5wrq1"]
-points = PackedVector3Array(-3.0927, 0.0448645, -0.567075, 3.90839, 9.22604, 0.453821, 5.79459, 7.57939, 0.458095, -0.160763, 9.36024, -4.01862, -2.77487, 9.38766, 2.89922, 0.19999, 0.438803, 3.7024, 2.59281, 0.237588, -2.6257, 7.13284, 4.34371, -0.771629, 0.0104572, 9.18882, 4.09227, -3.97443, 9.37418, -0.22276, -2.52945, 0.608393, -2.77811, 6.95274, 4.34371, 0.843607, -2.76815, 0.543368, 2.54721, 3.27592, 0.0768279, 0.292108, 2.75902, 9.31556, -2.95378, 0.0200377, 0.756515, -3.82322, -2.92191, 9.35971, -2.81016, -3.80958, 0.715406, -0.0493359, 2.92089, 9.28739, 2.83795, 2.41893, 0.0745883, 2.34927, 7.06272, 6.24788, -0.392547, 6.50021, 3.00061, -0.388615, 0.0121337, 0.0463872, -3.32579, 6.95274, 6.31823, 0.843607, -2.2411, 0.0317843, 2.37067, 2.56311, 1.2003, 2.78739, -3.92791, 6.24555, 0.292564, -0.309373, 0.614402, 3.69772, 2.57884, 0.636598, -2.75872, 2.73101, 7.20425, 2.95573, 6.46763, 3.01184, 0.45779, -2.90372, 6.59171, -2.79862)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h0oa0"]
+points = PackedVector3Array(-3.09271, 0.104659, -0.569758, 3.90838, 9.28586, 0.451139, 5.7946, 7.63921, 0.455413, -0.16077, 9.42002, -4.02131, -2.77488, 9.44747, 2.89654, 0.199983, 0.498597, 3.69972, 2.5928, 0.297382, -2.62839, 7.13283, 4.40351, -0.774311, 0.0104502, 9.24862, 4.08959, -3.97444, 9.43398, -0.225443, -2.52946, 0.668186, -2.7808, 6.95273, 4.40351, 0.840923, -2.76816, 0.603162, 2.54453, 3.27592, 0.136622, 0.289426, 2.75902, 9.37534, -2.95647, 0.0200307, 0.81631, -3.8259, -2.92192, 9.4195, -2.81285, -3.80959, 0.775202, -0.0520184, 2.92088, 9.34721, 2.83527, 2.41893, 0.134383, 2.34659, 7.06273, 6.30765, -0.39523, 6.5002, 3.06041, -0.391298, 0.0121267, 0.106182, -3.32848, 6.95273, 6.37802, 0.840923, -2.24111, 0.0915785, 2.36799, 2.56311, 1.26009, 2.78471, -3.92792, 6.30536, 0.289882, -0.30938, 0.674196, 3.69504, 2.57884, 0.696393, -2.76141, 2.73101, 7.26407, 2.95305, 6.46765, 3.07164, 0.455108, -2.90373, 6.65149, -2.80131)
 
 [sub_resource type="Animation" id="Animation_e3pmx"]
 resource_name = "Mug1AFade"
@@ -48,45 +48,22 @@ _data = {
 [node name="Mug1A" type="Node3D"]
 
 [node name="Mug1A" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7055e-06, 0.057405, -0.0025753)
 material_override = ExtResource("1_b31xw")
 mesh = ExtResource("2_hb7he")
 
 [node name="Mug1A" type="StaticBody3D" parent="Mug1A" node_paths=PackedStringArray("mesh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0484114, 0, 0.0264473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52132, -0.0597944, 1.38009)
 script = ExtResource("3_a2l26")
-examine_dialog = null
 dialog_from_event_manager = "mug1a_normal_dialog"
-first_time_hint = null
-keys_hint_dialog = null
-darken_background = null
-focus_distance = null
-screen_offset = null
-size_mode = null
-screen_fill = null
-scale_multiplier = null
-front_axis = null
-examine_rotation_offset = null
-transition_time = null
-examine_light_energy = null
-spin_mode = null
-spin_turns = null
-rotate_speed_degrees = null
-allow_tilt = null
-pickup_on_close = null
 store_in_box = true
-inventory_name = null
-inventory_weight = null
-inventory_equippable = null
 flash_mode = 1
-spawn_condition = null
-player_manager_reference = null
-is_interactable = null
 outline_material = ExtResource("4_pw4lu")
 mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mug1A/Mug1A"]
-shape = SubResource("ConvexPolygonShape3D_5wrq1")
+shape = SubResource("ConvexPolygonShape3D_h0oa0")
 
 [node name="Mug1AFade" type="AnimationPlayer" parent="."]
 libraries = {

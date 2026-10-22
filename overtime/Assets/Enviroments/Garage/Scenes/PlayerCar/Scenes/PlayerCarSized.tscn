@@ -38,11 +38,11 @@ points = PackedVector3Array(76.246, 36.1877, -222.496, 63.6572, 113.606, 57.5605
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lo0w8"]
 points = PackedVector3Array(-16.6516, 50.1256, -104.451, -7.90447, 21.9234, -0.293335, -9.70029, -43.6728, -92.284, 16.354, 24.0614, -15.8632, -28.8209, 64.0229, -57.5425, -7.96245, -45.4141, 1.5128, 2.45133, -3.71135, -94.0237, -28.8209, 65.7642, -106.202, -1.02435, -33.2471, 1.5128, -13.176, 31.0155, -3.70633, -6.23345, -40.6942, -90.4848, 16.354, 18.8595, -10.6546, -20.1273, 60.5513, -106.202, 14.6162, 27.5439, -15.8632, -4.50003, 24.0614, -95.7634, -27.0831, 62.2817, -48.8755, -9.70029, -40.2012, -5.44604, 0.713486, 4.97309, 1.5128, -28.8209, 62.2817, -57.5425, 1.44293, -15.9217, -89.1843, -13.176, 20.5898, -1.96662, -28.8209, 65.7642, -64.4908, -28.8209, 62.2817, -106.202, -20.1273, 50.1256, -28.0307, 16.354, 18.8595, -15.8632, -27.0831, 57.0688, -48.8755, -9.70029, -43.6728, -74.9185, 2.45133, -3.71135, 1.5128, 0.713486, 4.97309, -94.0237, -6.23345, -43.2742, -0.560414, -23.603, 57.0688, -106.202, -11.4381, 41.4412, -99.2323)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_185we"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ggav2"]
+points = PackedVector3Array(-76.0485, -48.2287, -60.5724, 76.0485, 48.2287, 60.5724, 76.0485, -48.2286, 60.5724, 76.0485, 48.2286, -60.5724, -76.0485, 48.2287, 60.5724, 76.0485, -48.2287, -60.5724, -76.0485, -48.2286, 60.5724, -76.0485, 48.2286, -60.5724)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a007y"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y4he6"]
+points = PackedVector3Array(-11.7173, -11.7173, -11.7173, 11.7173, 11.7173, 11.7173, 11.7173, -11.7173, 11.7173, 11.7173, 11.7173, -11.7173, -11.7173, 11.7173, 11.7173, 11.7173, -11.7173, -11.7173, -11.7173, -11.7173, 11.7173, -11.7173, 11.7173, -11.7173)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_864t3"]
 points = PackedVector3Array(42.347, 40.4188, 67.3872, 46.602, 72.9072, 73.7767, 43.8569, 53.0363, 80.5716, 62.6877, 55.3301, 70.0329, 28.9628, 56.9346, 68.9692, 57.9377, 45.7132, 66.4845, 33.1445, 68.2456, 74.3714, 57.7983, 67.055, 70.5831, 57.3763, 43.4576, 70.4301, 31.4568, 47.9654, 71.5574, 57.9377, 68.2456, 74.3714, 44.4183, 38.9497, 69.8664, 62.4429, 54.729, 72.6847, 40.298, 70.5618, 71.1491, 33.1445, 45.7132, 66.4845, 28.6393, 54.729, 72.6847, 47.2253, 53.0363, 80.5716, 33.1445, 43.4576, 70.4301, 45.0133, 72.2925, 74.834, 46.6082, 40.3344, 66.283, 33.2839, 67.055, 70.5831, 50.0499, 71.6308, 74.935, 46.076, 73.0471, 72.1742, 62.1189, 56.9345, 68.9693, 41.0323, 71.6308, 74.935, 46.6639, 38.9497, 69.8664, 58.0156, 43.9338, 68.3659, 30.8884, 62.6116, 73.8077, 60.1938, 62.6116, 73.8077, 58.5026, 45.1467, 70.9937, 28.3943, 55.3301, 70.0329, 44.5849, 51.0985, 79.4843)
@@ -84,7 +84,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(136.004, 125.951, -10.0913), Vector3(114.848, 103.61, -36.4791), Vector3(93.6913, 81.2687, 19.3915), Vector3(37.2936, 93.3981, 14.78)]
+"values": [Vector3(6800.2, 6297.55, -504.565), Vector3(5742.4, 5180.5, -1823.95), Vector3(4684.56, 4063.44, 969.575), Vector3(1864.68, 4669.91, 739)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -123,7 +123,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2.5, 2, -0.1)]
+"values": [Vector3(125, 100, -5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -147,7 +147,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2.66487, 2.10038, 0)]
+"values": [Vector3(133.243, 105.019, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -221,7 +221,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-4.15437, 130.326, 262.384)]
+"values": [Vector3(-207.718, 6516.3, 13119.2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -260,7 +260,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-36.2005, 93.6456, 174.394)]
+"values": [Vector3(-1810.03, 4682.28, 8719.7)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -288,7 +288,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-4.15437, 130.326, 262.384), Vector3(-36.2005, 93.6456, 174.394)]
+"values": [Vector3(-207.718, 6516.3, 13119.2), Vector3(-1810.03, 4682.28, 8719.7)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -323,7 +323,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+"values": [Vector3(4056.45, 2376.79, -8602.75), Vector3(4056.45, 2376.79, -8602.75), Vector3(4056.45, 2376.79, -8602.75)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -363,7 +363,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(81.1291, 47.5358, -172.055), Vector3(81.1291, 47.5358, -172.055)]
+"values": [Vector3(4056.45, 2376.79, -8602.75), Vector3(4056.45, 2376.79, -8602.75)]
 }
 
 [sub_resource type="Animation" id="Animation_qqahc"]
@@ -378,7 +378,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(81.1291, 47.5358, -172.055)]
+"values": [Vector3(4056.45, 2376.79, -8602.75)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -439,7 +439,8 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avy10"]
 albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4retf"]
+[sub_resource type="BoxMesh" id="BoxMesh_q6skg"]
+size = Vector3(188.163, 210.889, 233.278)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1oae"]
 albedo_texture = ExtResource("25_jkl06")
@@ -466,7 +467,7 @@ mesh = ExtResource("2_mq41k")
 shape = SubResource("ConvexPolygonShape3D_g24yh")
 
 [node name="DriverDoor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.2867, 44.702, 97.0475)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4314.33, 2235.1, 4852.38)
 material_override = ExtResource("1_vb600")
 mesh = ExtResource("3_u7x6o")
 
@@ -480,7 +481,7 @@ has_outline = true
 shape = SubResource("ConvexPolygonShape3D_lo0w8")
 
 [node name="Hood" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 63.8201, 133.336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3191, 6666.8)
 material_override = ExtResource("1_vb600")
 mesh = ExtResource("6_jfqj7")
 
@@ -491,11 +492,11 @@ mesh = NodePath("..")
 has_outline = true
 
 [node name="HoodCollisionShape3D" type="CollisionShape3D" parent="Hood/Hood"]
-transform = Transform3D(152.097, 0, 0, 0, 18.8542, 118.808, 0, -94.5967, 23.6797, 6.09027, -27.2392, 39.9529)
-shape = SubResource("ConvexPolygonShape3D_185we")
+transform = Transform3D(1, 0, 0, 0, 0.195467, 0.98071, 0, -0.98071, 0.195467, 6.09027, -27.2392, 39.9529)
+shape = SubResource("ConvexPolygonShape3D_ggav2")
 
 [node name="GasCap" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1291, 47.5358, -172.055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4056.45, 2376.79, -8602.75)
 material_override = ExtResource("1_vb600")
 mesh = ExtResource("11_l0me1")
 
@@ -506,8 +507,8 @@ mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GasCap/GasCap"]
-transform = Transform3D(23.4346, 0, 0, 0, 23.4346, 0, 0, 0, 23.4346, 0.217148, 3.86193, 5.55759)
-shape = SubResource("ConvexPolygonShape3D_a007y")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217148, 3.86193, 5.55759)
+shape = SubResource("ConvexPolygonShape3D_y4he6")
 
 [node name="SteeringWheel" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_vb600")
@@ -548,22 +549,22 @@ material_override = ExtResource("1_vb600")
 mesh = ExtResource("14_ba7ag")
 
 [node name="Tire_1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2275, 7.82731, 150.71)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3511.38, 391.366, 7535.5)
 material_override = ExtResource("15_rbyfn")
 mesh = ExtResource("16_lukmh")
 
 [node name="Tire_2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.6544, 7.82731, 150.71)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3632.72, 391.366, 7535.5)
 material_override = ExtResource("15_rbyfn")
 mesh = ExtResource("16_lukmh")
 
 [node name="Tire_3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.8844, 7.05181, -123.959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3494.22, 352.59, -6197.95)
 material_override = ExtResource("15_rbyfn")
 mesh = ExtResource("16_lukmh")
 
 [node name="Tire_4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2275, 7.82731, -124.647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3511.38, 391.366, -6232.35)
 material_override = ExtResource("15_rbyfn")
 mesh = ExtResource("16_lukmh")
 
@@ -584,17 +585,20 @@ libraries = {
 
 [node name="CarKeyNoise" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("20_8bh84")
+unit_size = 500.0
 script = ExtResource("21_delra")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(-0.0306996, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, -1.21724e-06, -0.0318861, 2.66487, 2.10038, 0)
+transform = Transform3D(-0.0306996, -0.270298, -0.962287, -0.00861759, 0.962777, -0.270161, 0.999492, -1.21724e-06, -0.0318861, 133.243, 105.019, 0)
 
 [node name="Car_Cam" type="Camera3D" parent="Head"]
-transform = Transform3D(-3.58988e-06, -0.5, 0.866025, -5.2154e-08, 0.866025, 0.5, -1, 1.74977e-06, -3.135e-06, 2.5, 2, -0.1)
+transform = Transform3D(-3.58988e-06, -0.5, 0.866025, -5.2154e-08, 0.866025, 0.5, -1, 1.74977e-06, -3.135e-06, 125, 100, -5)
 current = true
+far = 200000.0
 
 [node name="InteractRay" type="RayCast3D" parent="Head/Car_Cam"]
-target_position = Vector3(0, 0, -4)
+transform = Transform3D(1, -2.6077e-08, -1.49012e-08, -5.58794e-09, 1, 2.98023e-08, -9.31323e-09, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -200)
 
 [node name="Minigame" type="Control" parent="Head/Car_Cam"]
 visible = false
@@ -622,7 +626,8 @@ layout_mode = 2
 text = "HOT WIRE CONFIRM"
 
 [node name="HoodCam" type="Camera3D" parent="."]
-transform = Transform3D(1, 2.98024e-08, -1.49011e-08, 7.66302e-09, 0.229522, 0.973303, 3.24269e-08, -0.973303, 0.229522, -36.2005, 93.6456, 174.394)
+transform = Transform3D(1, 2.98024e-08, -1.49011e-08, 7.66302e-09, 0.229522, 0.973303, 3.24269e-08, -0.973303, 0.229522, -1810.03, 4682.28, 8719.7)
+far = 200000.0
 
 [node name="HoodGame" type="Control" parent="HoodCam"]
 visible = false
@@ -646,10 +651,12 @@ text = "* Click then drag flashing wire to flashing red
 * Press ESC to leave minigame with progress intact"
 
 [node name="WheelCam" type="Camera3D" parent="."]
-transform = Transform3D(0.0100878, 0, 0.999949, 0, 1, 0, -0.999949, 0, 0.0100878, 152.461, 10.8967, 146.987)
+transform = Transform3D(0.0100878, 0, 0.999949, 0, 1, 0, -0.999949, 0, 0.0100878, 7623.05, 544.835, 7349.35)
+far = 200000.0
 
 [node name="GasIntakeCam" type="Camera3D" parent="."]
-transform = Transform3D(-3.41347e-08, -0.624643, 0.78091, -2.73041e-08, 0.78091, 0.624643, -1, -2.13163e-14, -4.37114e-08, 166.774, 110.041, -170.131)
+transform = Transform3D(-3.41347e-08, -0.624643, 0.78091, -2.73041e-08, 0.78091, 0.624643, -1, -2.13163e-14, -4.37114e-08, 8338.7, 5502.05, -8506.55)
+far = 200000.0
 
 [node name="GasIntakeGame" type="Control" parent="GasIntakeCam"]
 visible = false
@@ -705,18 +712,18 @@ libraries = {
 }
 
 [node name="MKillerPrimitive" type="MeshInstance3D" parent="GasIntakeCam/GasIntakeGame/CenterContainer/MouseClicking"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.876, 163.489, 264.387)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7293.8, 8174.45, 13219.3)
 mesh = ExtResource("26_qapd7")
 
 [node name="GasIntakeSweetSpot" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.03919e-08, -4.20935, 0.294741, -1.64169e-07, -0.266453, -4.65625, 3.76326, -1.72816e-14, -2.03938e-07, 85.4225, 49.8965, -164.015)
+transform = Transform3D(2.76141e-09, -0.998003, 0.0631738, -4.36241e-08, -0.0631738, -0.998003, 1, -1.09502e-14, -4.37115e-08, 4271.13, 2494.82, -8200.75)
 visible = false
 material_override = SubResource("StandardMaterial3D_avy10")
-mesh = SubResource("BoxMesh_4retf")
+mesh = SubResource("BoxMesh_q6skg")
 skeleton = NodePath("../GasIntakeCanister")
 
 [node name="GasIntakeCanister" type="MeshInstance3D" parent="."]
-transform = Transform3D(29.4873, -59.801, 33.9966, -2.84403e-06, -36.9884, -65.0637, 68.789, 25.6345, -14.5731, 129.467, 86.6202, -191.245)
+transform = Transform3D(0.39399, -0.799023, 0.45424, -3.80001e-08, -0.494215, -0.86934, 0.919115, 0.342511, -0.194716, 6473.35, 4331.01, -9562.25)
 visible = false
 material_override = SubResource("StandardMaterial3D_u1oae")
 mesh = ExtResource("28_7tpjn")

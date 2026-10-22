@@ -1,22 +1,17 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/19/26 by Justin Ferreira
 ## Npc Random Dialogue Script
-## - this is for npcs that just sit st their desk 
+## - this is for npcs that just sit st their desk
 ## so they can spit out random stuff on interaction
+## - built on NPC (idle animation and typing sounds are set in its inspector)
 
-extends Interactable
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+extends NPC
 
 
 func _on_interacted(_body: Variant) -> void:
 	GetRandomDialog()
-	
+
 func GetRandomDialog():
-	var randomDialog = EventManager.random_npc_busy_dialog
-	var random_index = randi() % randomDialog.size()
-	PlayerManager.CharacterDialog(randomDialog[random_index])
+	# Lines set in the inspector win; otherwise the shared "busy" lines.
+	say_random(random_lines if not random_lines.is_empty() else EventManager.random_npc_busy_dialog)

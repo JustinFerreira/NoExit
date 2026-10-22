@@ -8,10 +8,10 @@
 [ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
 
 [node name="Cubicle" type="Node3D"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.525988, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525988, 0, 0)
 
 [node name="ModelCubicleUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.413408, 0.00303121, 0.381135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8045, 0.181873, 22.8681)
 material_override = ExtResource("1_unbtt")
 mesh = ExtResource("1_o4x2v")
 
@@ -21,20 +21,23 @@ visible = false
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.572724, 0, 0, 0, 1.20913, 0, 0, 0, 2.27695, 0.690812, 0.422142, -0.174544)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.690812, 0.422142, -0.174544)
+size = Vector3(0.572724, 1.20913, 2.27695)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(0.00603586, 0, -2.28921, 0, 0.988832, 0, 1.03232, 0, 0.0133847, -0.164641, 0.528641, -0.799971)
+transform = Transform3D(0.00584679, 0, -0.999983, 0, 1, 0, 0.999983, 0, 0.00584679, -0.164641, 0.528641, -0.799971)
+size = Vector3(1.03234, 0.988833, 2.28925)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="ModelCubicleUnwrapped/CSGCombiner3D"]
-transform = Transform3D(-0.0509361, 0, 0.0124608, 0, 2.2589, 0, -0.000278265, 0, -2.28093, -1.32894, 1.11824, -0.168737)
+transform = Transform3D(-0.999985, 0, 0.00546294, 0, 1, 0, -0.00546294, 0, -0.999985, -1.32894, 1.11824, -0.168737)
+size = Vector3(0.0509369, 2.2589, 2.28096)
 
 [node name="MChairUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0161085, 0, 1.14685, 0, 1.147, 0, -0.99987, 0, 0.0184764, -0.110374, 0, 0.522584)
+transform = Transform3D(0.0161086, 0, 0.99987, 0, 1, 0, -0.99987, 0, 0.0161086, -6.62245, 0, 31.3551)
 material_override = ExtResource("4_2lc7y")
 mesh = ExtResource("2_pogjx")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0999351, 1.05011, -0.234978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9961, 63.0065, -14.0987)
 material_override = ExtResource("6_rvkpv")
 mesh = ExtResource("3_10mdd")

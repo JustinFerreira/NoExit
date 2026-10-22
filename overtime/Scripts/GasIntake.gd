@@ -56,9 +56,9 @@ func _on_interacted(_body: Variant) -> void:
 	$"../../GasIntakeCanister".visible = true
 	$"../../GasIntakeCam".current = true
 	PlayerManager.Gas_Canister = $"../../GasIntakeCanister"
-	PlayerManager.gasIntakeUI = $"../../GasIntakeCam/GasIntakeGame"
+	UiManager.register_panel("gas_intake", $"../../GasIntakeCam/GasIntakeGame")
 	PlayerManager.gasIntakeSweetSpot = $"../../GasIntakeSweetSpot"
-	$"../../GasIntakeCam/GasIntakeGame".visible = true
+	UiManager.show_panel("gas_intake", true)
 	$"../../GasIntakeSweetSpot".visible = true
 	
 

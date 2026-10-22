@@ -201,7 +201,7 @@ func _on_GetInCar_animation_finished(anim_name: String):
 	## Car Door opening and Closing animation
 	## Animation of player getting in the Car
 	if anim_name == "GettinginCar" && not PlayerManager.player.Incar && CarEntering:
-		PlayerManager.player.CURSOR.visible = true
+		UiManager.set_cursor_visible(true)
 		AudioManager.play_sound(AudioManager.CarDoorClose)
 		PlayerManager.InAnimation = false
 			
@@ -238,7 +238,7 @@ func _on_GetInCar_animation_finished(anim_name: String):
 			PlayerManager.CharacterDialog(EventManager.loop0_get_in_car)
 	## Exiting car animations
 	if anim_name == "GettinginCar" && PlayerManager.player.Incar && not CarEntering:
-		PlayerManager.player.CURSOR.visible = true
+		UiManager.set_cursor_visible(true)
 		AudioManager.play_sound(AudioManager.CarDoorClose)
 		PlayerManager.player.Incar = false
 		PlayerManager.player.TbobON = true

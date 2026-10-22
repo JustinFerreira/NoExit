@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" path="res://Assets/Materials/Lamp.tres" id="1_fhm0e"]
 [ext_resource type="Script" path="res://Scripts/lamp.gd" id="1_hhw1o"]
-[ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="2_ovwh5"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="2_ovwh5"]
 
 [node name="Lamp" type="Node3D"]
 script = ExtResource("1_hhw1o")
@@ -13,9 +13,9 @@ mesh = ExtResource("2_ovwh5")
 surface_material_override/0 = ExtResource("1_fhm0e")
 
 [node name="LampLight" type="SpotLight3D" parent="."]
-transform = Transform3D(0.999615, 0.026901, -0.00682636, 0.019517, -0.506487, 0.862027, 0.0197319, -0.861828, -0.506817, -0.476066, 40.2853, 9.91086)
+transform = Transform3D(0.999615, 0.026901, -0.00682634, 0.019517, -0.506487, 0.862027, 0.0197319, -0.861828, -0.506817, -0.342768, 29.0054, 7.1358)
 light_energy = 0.587
 light_volumetric_fog_energy = 1.206
-spot_range = 34.512
+spot_range = 1725.6
 spot_attenuation = 0.87
 spot_angle = 32.23

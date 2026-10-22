@@ -4,6 +4,8 @@
 ## Npc Sounds Script
 ## - this is for npcs that just sit st their desk 
 ## so they can spit out random song on an interval
+## - LEGACY: new NPCs use the Ambient Sounds settings on NPC (NPC.gd);
+##   this is only still used by the flattened Fitted levels.
 
 extends AudioStreamPlayer3D
 
@@ -30,12 +32,11 @@ func _ready() -> void:
 	sounds = [keyboard1, keyboard2, keyboard3, keyboard4, keyboard5, keyspace1, keyspace2]
 	
 	start_random_playback()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	$"../AnimationPlayer".play("mixamo_com")
-	pass
+	# Loop the typing animation (it used to be restarted every frame).
+	var anim: AnimationPlayer = get_node_or_null("../AnimationPlayer")
+	if anim:
+		anim.animation_finished.connect(func(_n): anim.play("mixamo_com"))
+		anim.play("mixamo_com")
 
 func start_random_playback():
 	# If there's already a timer running, stop it

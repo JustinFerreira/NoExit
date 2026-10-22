@@ -1,10 +1,11 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 2/14/26 by Justin Ferreira
+## Last updated 10/19/26 by Justin Ferreira
 ## Killer Scipt
 ## - controls killer movement and actions
+## - built on Enemy (see Enemy.gd for the shared movement/vision/kill parts)
 
-extends CharacterBody3D
+extends Enemy
 
 
 var SPEED: float = 2.0
@@ -12,7 +13,6 @@ var SPEED: float = 2.0
 var follow_distance_enabled: bool = true
 var follow_distance: float = 20.0  # Units away from target the killer will stop
 
-@onready var nav: NavigationAgent3D = get_node("NavigationAgent3D")
 @onready var WalkingAnimator: AnimationPlayer = $AnimationPlayer
 @onready var StabbingAnimator: AnimationPlayer = $StabbingAnimation
 
@@ -44,7 +44,7 @@ var fadingout: bool = true
 @onready var visibility_timer: Timer = $VisibilityTimer  # You'll need to add this Timer node
 @onready var original_material: Material = $Armature/Skeleton3D/M_Killer_LowUV.get_surface_override_material(0)  # Adjust path as needed
 
-func _ready():
+func _enemy_ready():
 	$FadeAnimation.connect("animation_finished", _on_Fade_animation_finished)
 	PlayerManager.Enemy = self
 	PlayerManager.no_enemy = false
@@ -58,64 +58,40 @@ func _ready():
 		teleports = get_tree().get_nodes_in_group("teleport_target")
 	if PlayerManager.Loop0:
 		find_teleport_target("OutOfBoundsTeleport")
-	
 
-func _physics_process(delta: float) -> void:
+
+func _enemy_physics(delta: float) -> void:
 	if PlayerManager.teleportEnemy && teleports:
 		if PlayerManager.Loop0:
 			find_teleport_target("NearCarTeleport")
-		else: 
+		else:
 			find_teleport_target("FarTeleport")
 		PlayerManager.teleportEnemy = false
-	
+
 	if not PlayerManager.dying && not stalking_mode:
 		WalkingAnimator.play("Scene")
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	else:
-		velocity.y -= 2
-	
-	
+
 	# Handle stalking mode behavior
 	if stalking_mode and PlayerManager.player:
 		handle_stalking_behavior(delta)
 	else:
-		if PlayerManager.MinigameMode:
-			SPEED = 4.0
+		SPEED = 4.0 if PlayerManager.MinigameMode else 2.0
+		var stop := follow_distance_enabled and global_position.distance_to(get_nav_target()) <= follow_distance
+		if stop:
+			move_along_nav(0.0)
 		else:
-			SPEED = 2.0
-		
-		var next_location = nav.get_next_path_position()
-		var current_location = global_transform.origin
-		var new_velocity = (next_location - current_location).normalized() * SPEED
+			move_along_nav(SPEED)
 
-		if follow_distance_enabled:
-			var dist_to_target = current_location.distance_to(nav.target_position)
-			if dist_to_target <= follow_distance:
-				new_velocity = Vector3.ZERO
-				
-		# Make the enemy face the direction it's moving
-		if new_velocity.length() > 0.001:
-			var look_target = global_transform.origin - new_velocity
-			var look_dir = (look_target - global_transform.origin).normalized()
-			# Skip look_at if direction is parallel to up vector (directly above/below)
-			if abs(look_dir.dot(Vector3.UP)) < 0.999:
-				look_at(look_target, Vector3.UP)
-
-		velocity = velocity.move_toward(new_velocity, 0.25)
-	move_and_slide()
-	
 	# Calculate path distance to target
-	PlayerManager.scaredDistance = calculate_path_distance()
-	
-	
-	
-func target_position(target):
+	PlayerManager.scaredDistance = path_distance()
+
+
+## target_position
+## Called by the level every frame with the player's position. The path
+## itself is only rebuilt a few times a second (see Enemy.set_nav_target).
+func target_position(target: Vector3) -> void:
 	if stalking_mode:
-		look_at(target)
-		rotate_y(PI)
+		face_point(target)
 		return
 	if position == target:
 		return
@@ -124,82 +100,34 @@ func target_position(target):
 		# Calculate a point follow_distance units short of the target
 		var direction_to_target = (target - global_transform.origin).normalized()
 		var stopped_position = target - direction_to_target * follow_distance
-		nav.target_position = stopped_position
+		set_nav_target(stopped_position)
 	else:
-		nav.target_position = target
+		set_nav_target(target)
 
-	move_and_slide()
-	
 func find_teleport_target(targetname):
 	for target in teleports:
 		if target.name == targetname:
 			self.global_position = target.global_position
 
+# Kept for anything that still calls it - same as Enemy.path_distance().
 func calculate_path_distance() -> float:
-	# Get the full navigation path
-	var path = nav.get_current_navigation_path()
-	var total_distance = 0.0
-	
-	# Sum the distances between each point in the path
-	for i in range(path.size() - 1):
-		total_distance += path[i].distance_to(path[i + 1])
-	
-	return total_distance
-	
-func kill():
-	PlayerManager.deaths += 1
-	AudioManager.play_sound(AudioManager.StringStinger)
+	return path_distance()
+
+## Turn the killer to face the player before the view turns to it.
+func _before_kill_turn() -> void:
 	$Armature.visible = false
 	$Skeleton3D.visible = true
 	$Skeleton3D/killer_UV_unwrapped.visible = true
-	PlayerManager.HideDialog()
-	PlayerManager.dying = true
-	PlayerManager.InAnimation = true
-	if PlayerManager.minigameTwo:
-		PlayerManager.minigameTwo = false
-		PlayerManager.gasIntakeUI.visible = false
-		PlayerManager.Gas_Canister.visible = false
-		PlayerManager.gasIntakeSweetSpot.visible = false
-	if PlayerManager.minigameThree:
-		PlayerManager.hoodUI.visible = false
-	# Make the player look at the enemy's face before stabbing
-	if PlayerManager.player and PlayerManager.player.CAMERA:
-		PlayerManager.player.CAMERA.current = true
-		PlayerManager.MiniGameModeOff()
-		PlayerManager.player.CURSOR.visible = false
-		var head = PlayerManager.player.HEAD
-		var camera = PlayerManager.player.CAMERA
+	face_point(PlayerManager.player.global_position)
 
-		# Target the enemy's face (eye level)
-		var face_pos = global_transform.origin + Vector3(0, 1.8, 0)
-		var to_face = (face_pos - PlayerManager.player.global_position).normalized()
-		var h_dist = Vector2(to_face.x, to_face.z).length()
-
-		# Yaw: rotate head horizontally toward enemy
-		var target_yaw = atan2(-to_face.x, -to_face.z)
-		target_yaw = HelperManager.find_shortest_y_rotation(head.rotation.y, target_yaw)
-
-		# Pitch: tilt camera vertically toward enemy face, offset 35° downward
-		var target_pitch = clamp(atan2(to_face.y, h_dist) - deg_to_rad(35), deg_to_rad(-60), deg_to_rad(60))
-
-		# Turn killer to face the player (model forward is +Z so flip 180°)
-		var player_pos = PlayerManager.player.global_position
-		look_at(Vector3(player_pos.x, global_position.y, player_pos.z), Vector3.UP)
-		rotation.y += PI
-
-		var tween = create_tween()
-		tween.set_parallel(true)
-		tween.tween_property(head, "rotation:y", target_yaw, 0.5)
-		tween.tween_property(camera, "rotation:x", target_pitch, 0.5)
-		await tween.finished
-
-	# Play the stabbing animation
+## Play the stabbing animation; _on_animation_finished takes it from there.
+func _play_kill() -> void:
 	StabbingAnimator.play("Stabbing")
 	AudioManager.KillerShutUp = true
 	AudioManager.play_sound_loop(AudioManager.SkullCrush, "Kill")
 
 func _on_animation_finished(anim_name: String):
-	
+
 	if anim_name == "Stabbing":
 		AudioManager.stop_loop("Kill")
 		if PlayerManager.OpeningCutscene:
@@ -209,129 +137,116 @@ func _on_animation_finished(anim_name: String):
 			return
 		elif PlayerManager.Loop0:
 			PlayerManager.Loop0 = false
-			
+
 			#EventManager Function fix
 			SettingsManager.Loop0Pass = true
 			SettingsManager.save_settings()
-			
+
 			get_tree().change_scene_to_file("res://Levels/Office.tscn")
 			return
-		PlayerManager.player.GAMEOVER.visible =  true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
-	
-	
+		UiManager.show_game_over()
+
+
 ## New function to handle stalking behavior
 func handle_stalking_behavior(delta: float) -> void:
 	if not PlayerManager.player:
 		return
-	
+
 	var player_pos = PlayerManager.player.global_transform.origin
 	var current_pos = global_transform.origin
 	var distance_to_player = current_pos.distance_to(player_pos)
-	
+
 	# Update stalking direction periodically
 	stalk_direction_change_timer -= delta
 	if stalk_direction_change_timer <= 0:
 		stalk_direction_change_timer = stalk_direction_change_interval
 		# Randomly change angle to move around player
 		current_stalk_angle += randf_range(-PI/4, PI/4)
-	
+
 	# Calculate desired position at stalking distance from player
 	var direction_to_player = (player_pos - current_pos).normalized()
-	
+
 	# If too close, move away
 	if distance_to_player < stalking_distance * 0.8:
 		# Move away from player
 		var away_direction = -direction_to_player
 		var target_pos = current_pos + away_direction * (stalking_distance - distance_to_player) * 2
-		
+
 		# Add some circling movement
 		var perpendicular = Vector3(-direction_to_player.z, 0, direction_to_player.x).normalized()
 		target_pos += perpendicular * sin(current_stalk_angle) * 3
-		
-		nav.target_position = target_pos
-		
+
+		set_nav_target(target_pos)
+
 	# If too far, move closer
 	elif distance_to_player > stalking_distance * 1.2:
 		# Move toward player, but maintain some distance
 		var approach_direction = direction_to_player
 		var target_pos = player_pos - approach_direction * (stalking_distance * 0.9)
-		
+
 		# Add some circling movement
 		var perpendicular = Vector3(-direction_to_player.z, 0, direction_to_player.x).normalized()
 		target_pos += perpendicular * cos(current_stalk_angle) * 3
-		
-		nav.target_position = target_pos
-		
+
+		set_nav_target(target_pos)
+
 	# If at good distance, circle
 	else:
 		# Circle around player
 		var circle_radius = stalking_distance
 		var circle_center = player_pos
-		
+
 		# Calculate position on circle
 		var circle_x = cos(current_stalk_angle) * circle_radius
 		var circle_z = sin(current_stalk_angle) * circle_radius
 		var target_pos = circle_center + Vector3(circle_x, 0, circle_z)
-		
-		nav.target_position = target_pos
-	
-	# Move towards target position
-	var next_location = nav.get_next_path_position()
-	var move_direction = (next_location - current_pos).normalized()
-	
-	# Face movement direction
-	if move_direction.length() > 0.001:
-		var look_target = global_transform.origin - move_direction
-		var look_dir = (look_target - global_transform.origin).normalized()
-		if abs(look_dir.dot(Vector3.UP)) < 0.999:
-			look_at(look_target, Vector3.UP)
-	
-	# Apply movement
-	velocity = velocity.move_toward(move_direction * SPEED, 0.25)
+
+		set_nav_target(target_pos)
+
+	# Move towards target position (faces the way it walks)
+	move_along_nav(SPEED)
 
 ## Add this function to handle entering stalking mode
 func enter_stalking_mode(distance: float, teleport: String, silent: bool = true) -> void:
 	if stalking_mode:
 		return  # Already in stalking mode
-	
+
 	is_silent = silent
 	stalking_distance = distance
-	
+
 	HelperManager.fade_fog_density(8,1.5)
 	make_invisible(teleport)
 	stalking_mode = true
-	
-	
+
+
 	# Store original speed
 	original_speed = SPEED
-	
+
 	# Set speed to 0 while stalking (or very slow if you want them to reposition slowly)
 	SPEED = 0
-	
+
 	# Stop the walking animation at the current frame
 	if WalkingAnimator.is_playing():
 		was_animation_playing = true
 		# Store the current playback position (in seconds)
 		paused_animation_time = WalkingAnimator.current_animation_position
 		WalkingAnimator.stop()
-		
+
 		# OPTIONAL: Set to a specific frame instead of current frame
 		# Uncomment the next line and set your desired time (e.g., 0.5 seconds)
 		# paused_animation_time = 0.5
 	else:
 		was_animation_playing = false
 		paused_animation_time = 0.0
-	
+
 	# Handle invisibility
 	await get_tree().create_timer(0.5).timeout
-		
-	
+
+
 	# Handle silence
 	if is_silent:
 		make_silent()
-	
+
 	# Initialize stalking behavior
 	current_stalk_angle = randf_range(0, 2 * PI)
 	stalk_direction_change_timer = stalk_direction_change_interval
@@ -340,22 +255,22 @@ func enter_stalking_mode(distance: float, teleport: String, silent: bool = true)
 func exit_stalking_mode() -> void:
 	if not stalking_mode:
 		return
-		
+
 	stalking_mode = false
-	
+
 	# Restore original speed
 	SPEED = original_speed
-	
+
 	# Restore audio
 	if is_silent:
 		make_audible()
-	
+
 	# Resume walking animation from where it was paused
 	if was_animation_playing:
 		WalkingAnimator.play("Scene")
 		# Seek to the stored time (ensures it's within valid range)
 		WalkingAnimator.seek(paused_animation_time, true)
-	
+
 	is_silent = false
 
 ## Make killer invisible
@@ -367,19 +282,6 @@ func make_invisible(teleport: String) -> void:
 	HelperManager.fade_fog_density(-8,1.5)
 	find_teleport_target(teleport)
 	make_visible()
-	
-	
-	
-	# Option 1: Completely invisible
-	# No additional code needed
-	
-	# Option 2: Fade out with transparency (uncomment if you want this)
-	# var material = $Armature.get_surface_override_material(0)
-	# if material:
-	#     var new_material = material.duplicate()
-	#     new_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	#     new_material.albedo_color.a = 0.0
-	#     $Armature.set_surface_override_material(0, new_material)
 
 ## Make killer visible again
 func make_visible() -> void:
@@ -387,10 +289,6 @@ func make_visible() -> void:
 	$FadeAnimation.play_backwards("FadeKiller")
 	$Armature.visible = true
 	$Skeleton3D.visible = true
-	
-	# Restore original material if using transparency method
-	# if original_material:
-	#     $Armature.set_surface_override_material(0, original_material)
 
 ## Make killer silent
 func make_silent() -> void:
@@ -408,5 +306,3 @@ func _on_Fade_animation_finished(_anim_name: String) -> void:
 		$Armature.visible = false
 		$Skeleton3D.visible = false
 		HelperManager.fade_fog_density(-8, 1.5)
-		
-		

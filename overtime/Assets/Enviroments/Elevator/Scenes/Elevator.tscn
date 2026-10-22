@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b84vywx2awoq2"]
+[gd_scene load_steps=32 format=4 uid="uid://b84vywx2awoq2"]
 
 [ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_qmffq"]
 [ext_resource type="Texture2D" uid="uid://cqtvr5khxey8w" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_wc20y"]
@@ -26,13 +26,17 @@ ao_enabled = true
 ao_texture = ExtResource("2_wc20y")
 heightmap_texture = ExtResource("4_kgo4q")
 
-[sub_resource type="BoxMesh" id="BoxMesh_kk0d7"]
+[sub_resource type="BoxMesh" id="BoxMesh_j2jwe"]
+size = Vector3(41.6342, 95.7355, 4.7019)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d36ht"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eqrnc"]
+data = PackedVector3Array(-0.230525, 0.530078, 0.026034, 0.230525, 0.530078, 0.026034, -0.230525, -0.530078, 0.026034, 0.230525, 0.530078, 0.026034, 0.230525, -0.530078, 0.026034, -0.230525, -0.530078, 0.026034, 0.230525, 0.530078, -0.026034, -0.230525, 0.530078, -0.026034, 0.230525, -0.530078, -0.026034, -0.230525, 0.530078, -0.026034, -0.230525, -0.530078, -0.026034, 0.230525, -0.530078, -0.026034, 0.230525, 0.530078, 0.026034, 0.230525, 0.530078, -0.026034, 0.230525, -0.530078, 0.026034, 0.230525, 0.530078, -0.026034, 0.230525, -0.530078, -0.026034, 0.230525, -0.530078, 0.026034, -0.230525, 0.530078, -0.026034, -0.230525, 0.530078, 0.026034, -0.230525, -0.530078, -0.026034, -0.230525, 0.530078, 0.026034, -0.230525, -0.530078, 0.026034, -0.230525, -0.530078, -0.026034, 0.230525, 0.530078, 0.026034, -0.230525, 0.530078, 0.026034, 0.230525, 0.530078, -0.026034, -0.230525, 0.530078, 0.026034, -0.230525, 0.530078, -0.026034, 0.230525, 0.530078, -0.026034, -0.230525, -0.530078, 0.026034, 0.230525, -0.530078, 0.026034, -0.230525, -0.530078, -0.026034, 0.230525, -0.530078, 0.026034, 0.230525, -0.530078, -0.026034, -0.230525, -0.530078, -0.026034)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k3kkb"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_6yrqn"]
+size = Vector3(44.3876, 77.196, 4.43412)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3pe8a"]
+data = PackedVector3Array(-22.1938, 38.5981, 2.21706, 22.1938, 38.5981, 2.21706, -22.1938, -38.5981, 2.21706, 22.1938, 38.5981, 2.21706, 22.1938, -38.5981, 2.21706, -22.1938, -38.5981, 2.21706, 22.1938, 38.5981, -2.21706, -22.1938, 38.5981, -2.21706, 22.1938, -38.5981, -2.21706, -22.1938, 38.5981, -2.21706, -22.1938, -38.5981, -2.21706, 22.1938, -38.5981, -2.21706, 22.1938, 38.5981, 2.21706, 22.1938, 38.5981, -2.21706, 22.1938, -38.5981, 2.21706, 22.1938, 38.5981, -2.21706, 22.1938, -38.5981, -2.21706, 22.1938, -38.5981, 2.21706, -22.1938, 38.5981, -2.21706, -22.1938, 38.5981, 2.21706, -22.1938, -38.5981, -2.21706, -22.1938, 38.5981, 2.21706, -22.1938, -38.5981, 2.21706, -22.1938, -38.5981, -2.21706, 22.1938, 38.5981, 2.21706, -22.1938, 38.5981, 2.21706, 22.1938, 38.5981, -2.21706, -22.1938, 38.5981, 2.21706, -22.1938, 38.5981, -2.21706, 22.1938, 38.5981, -2.21706, -22.1938, -38.5981, 2.21706, 22.1938, -38.5981, 2.21706, -22.1938, -38.5981, -2.21706, 22.1938, -38.5981, 2.21706, 22.1938, -38.5981, -2.21706, -22.1938, -38.5981, -2.21706)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt1fi"]
 resource_name = "standardSurface1"
@@ -164,10 +168,11 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atf6u"]
 albedo_color = Color(0.965739, 0.145366, 0.364113, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_6n637"]
+[sub_resource type="BoxMesh" id="BoxMesh_3ltjh"]
+size = Vector3(6.25545, 6.25545, 6.25545)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_s23d0"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r068u"]
+points = PackedVector3Array(1.17801, 1.36601, 0.841975, 1.17801, 1.36601, -0.841975, -1.17801, 1.36601, 0.841975, 1.17801, -1.36601, 0.841975, 1.17801, -1.36601, -0.841975, -1.17801, 1.36601, -0.841975, -1.17801, -1.36601, 0.841975, -1.17801, -1.36601, -0.841975)
 
 [sub_resource type="Animation" id="Animation_4lcpa"]
 resource_name = "ElevatorPanelFlash"
@@ -209,88 +214,92 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pwgt"]
 albedo_color = Color(0.6, 0.0156863, 0.0156863, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_28gsd"]
+[sub_resource type="BoxMesh" id="BoxMesh_c444t"]
+size = Vector3(38.6831, 30.3524, 3.76095)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yojrg"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vq6sr"]
+points = PackedVector3Array(-108.972, -108.972, -108.972, 108.972, 108.972, 108.972, 108.972, -108.972, 108.972, 108.972, 108.972, -108.972, -108.972, 108.972, 108.972, 108.972, -108.972, -108.972, -108.972, -108.972, 108.972, -108.972, 108.972, -108.972)
 
 [node name="Elevator" type="Node3D"]
-transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
 
 [node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0606, 0, 18.0606)
 visible = false
 material_override = SubResource("StandardMaterial3D_pwtol")
 mesh = ExtResource("6_k0to7")
 
 [node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292828, 0)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 2.64433, 0)
 visible = false
 use_collision = true
 
 [node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(1.20063, 0, 0, 0, 2.09287, 0, 0, 0, 0.129145, 0.202488, 1.02425, 1.19424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2853, 92.493, 107.843)
+size = Vector3(108.421, 188.992, 11.6622)
 
 [node name="LeftWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.00810674, 0.000670873, 0.00314771, 0, -9.6013e-07, 2.19945, 1.80733, -3.00919e-06, -1.41188e-05, -1.09341, 1.19548, 0.186248)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, -98.738, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="BackWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(-1.80735, 5.86502e-11, 8.40492e-15, -4.23818e-22, -2.93251e-11, 2.19945, 1.58003e-07, 0.00067088, 9.61411e-08, -0.0425983, 1.19548, -0.959107)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(-1, 8.74225e-08, 3.82136e-15, -2.34497e-22, -4.37114e-08, 1, 8.74225e-08, 1, 4.37114e-08, -3.84675, 107.956, -86.61)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="RightWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.00810674, 0.000670873, 0.00314771, 0, -9.6013e-07, 2.19945, 1.80733, -3.00919e-06, -1.41188e-05, 1.32701, 1.19548, 0.186248)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, 119.833, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="ButtonPanelCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.75032, 1.11764, 1.41259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.756, 100.926, 127.561)
+size = Vector3(46.5268, 213.655, 6.10485)
 
 [node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(3.56177, 0, 0, 0, 0.159823, 0, 0, 0, 3.95991, 0, -0.100764, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.0993, 0)
+size = Vector3(321.638, 14.4325, 357.592)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.456098, 0, 0, 0, 3.00147, 0, 0, 0, 0.195233, 1.11475, 0.870145, 1.28711)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.665, 78.5765, 116.23)
+size = Vector3(41.187, 271.042, 17.6301)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, 0.117534, 1.2678, 0.149441)
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 10.6137, 114.486, 13.495)
+omni_range = 250.0
 
 [node name="InsideButtons" type="StaticBody3D" parent="."]
-transform = Transform3D(0.272662, 0, 0, 0, 0.272662, 0, 0, 0, 0.272662, -0.721237, 0.89162, 1.13758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.13, 80.516, 102.727)
 visible = false
 script = ExtResource("7_0bi4n")
-is_interactable = null
-has_outline = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InsideButtons"]
-transform = Transform3D(1.69092, 0, 0, 0, 3.88817, 0, 0, 0, 0.190962, 0, 0.504236, 0)
-mesh = SubResource("BoxMesh_kk0d7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4154, 0)
+mesh = SubResource("BoxMesh_j2jwe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InsideButtons"]
-transform = Transform3D(1.69092, 0, 0, 0, 3.88817, 0, 0, 0, 0.190962, 0, 0.504236, 0)
-shape = SubResource("ConcavePolygonShape3D_d36ht")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.2694, -79.4869, -83.7288)
+shape = SubResource("ConcavePolygonShape3D_eqrnc")
 
 [node name="OutsideButton" type="StaticBody3D" parent="."]
-transform = Transform3D(0.49154, 0, 0, 0, 0.854857, 0, 0, 0, 0.0491027, 1.12537, 0.787326, 1.36623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.625, 71.098, 123.374)
 visible = false
 script = ExtResource("7_m0fas")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OutsideButton"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
-mesh = SubResource("BoxMesh_kk0d7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.9251, 0)
+mesh = SubResource("BoxMesh_6yrqn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideButton"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504236, 0)
-shape = SubResource("ConcavePolygonShape3D_k3kkb")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.9251, 0)
+shape = SubResource("ConcavePolygonShape3D_3pe8a")
 
 [node name="ElevatorMusic" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_w6g63")
+unit_size = 500.0
 max_db = -10.0
 bus = &"Music"
 script = ExtResource("9_0fam1")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(101.094, 0, 0, 0, 101.094, 0, 0, 0, 101.094, 0.128768, 0, 0.235567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6281, 0, 21.2724)
 bones/0/name = "joint13"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0119662, -0.00059733)
@@ -338,17 +347,19 @@ libraries = {
 }
 
 [node name="ElevatorOutsideButtonFlash" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0692717, 0, 0, 0, 0.0692717, 0, 0, 0, 0.0692717, 1.00033, 1.14701, 1.36919)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.333, 103.578, 123.642)
 visible = false
 material_override = SubResource("StandardMaterial3D_atf6u")
-mesh = SubResource("BoxMesh_6n637")
+mesh = SubResource("BoxMesh_3ltjh")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.1119)
+collision_layer = 0
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(2.35603, 0, 0, 0, 2.73202, 0, 0, 0, 1.68395, 0, 0.973286, 0)
-shape = SubResource("ConvexPolygonShape3D_s23d0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8606, 0.973286, 27.8606)
+shape = SubResource("ConvexPolygonShape3D_r068u")
 
 [node name="ElevatorPanelAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -356,16 +367,18 @@ libraries = {
 }
 
 [node name="ElevatorPanelFlash" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.42837, 0, 0, 0, 0.336117, 0, 0, 0, 0.0416481, -0.71832, 1.00532, 1.21599)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.8665, 90.7835, 109.808)
 material_override = SubResource("StandardMaterial3D_7pwgt")
-mesh = SubResource("BoxMesh_28gsd")
+mesh = SubResource("BoxMesh_c444t")
 
 [node name="OutsideElevatorArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.44869)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 130.821)
+collision_layer = 0
+collision_mask = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideElevatorArea"]
-transform = Transform3D(2.41348, 0, 0, 0, 2.41348, 0, 0, 0, 2.41348, 0.0806761, 1.12671, 0.825338)
-shape = SubResource("ConvexPolygonShape3D_yojrg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2853, 101.745, 74.5305)
+shape = SubResource("ConvexPolygonShape3D_vq6sr")
 
 [connection signal="interacted" from="InsideButtons" to="InsideButtons" method="_on_interacted"]
 [connection signal="interacted" from="OutsideButton" to="OutsideButton" method="_on_interacted"]

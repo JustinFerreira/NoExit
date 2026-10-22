@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwy6w72taehya"]
 
-[ext_resource type="Material" uid="uid://bgbe00nx7pw8l" path="res://Assets/Materials/PictureFrame3.tres" id="1_43nf4"]
-[ext_resource type="ArrayMesh" uid="uid://b5dq637ukfxap" path="res://Assets/Enviroments/Office/Models/PictureFrame_3.obj" id="4_jo7hi"]
+[ext_resource type="Material" path="res://Assets/Materials/PictureFrame3.tres" id="1_43nf4"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_3.obj" id="4_jo7hi"]
 
 [sub_resource type="GDScript" id="GDScript_ibocl"]
 script/source = "extends Interactable
@@ -283,8 +283,8 @@ func _apply_rotation() -> void:
 		debug_mesh.global_rotation = Vector3(current_rot.x, current_rotation, current_rot.z)
 "
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_evabs"]
-points = PackedVector3Array(-0.0400808, 2.03035, 1.04327, 0.0186928, 2.00032, 0.988678, -0.0400808, 2.03035, -0.934389, -0.11753, 2.01265, 1.04327, -0.00204271, 1.8623, 1.04327, 0.0186928, 2.00032, -0.879793, 0.047393, 1.87344, 0.988678, -0.11753, 2.01265, -0.934389, -0.00204271, 1.8623, -0.934389, -0.0978931, 1.92574, 1.04327, -0.889277, 0.403144, -0.712325, -0.893534, 0.374108, -0.701677, -0.947501, -0.00137, -0.564025, -0.750719, -0.00117112, -0.218055, -0.732456, -0.00117112, -0.18611, 0.377239, 0.185375, 1.04327, 0.455375, 0.0696288, 0.988678, 0.047393, 1.87344, -0.879793, -0.0978931, 1.92574, -0.934389, -0.848218, 0.406923, -0.721231, 0.455375, 0.0696288, -0.879793, 0.377239, 0.185375, -0.934389, 0.318054, 0.0867322, 1.04327, 0.337691, 2.21339e-05, -0.934389, 0.337691, 2.21339e-05, 1.04327, 0.41514, 0.0175232, 1.04327, 0.318054, 0.0867322, -0.934389, 0.41514, 0.0175232, -0.934389)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mmoeq"]
+points = PackedVector3Array(-0.263678, 13.357, 6.8633, 0.122973, 13.1594, 6.50415, -0.263678, 13.357, -6.14701, -0.773189, 13.2405, 6.8633, -0.0134383, 12.2514, 6.8633, 0.122973, 13.1594, -5.78785, 0.311782, 12.3247, 6.50415, -0.773189, 13.2405, -6.14701, -0.0134383, 12.2514, -6.14701, -0.644005, 12.6688, 6.8633, -5.85023, 2.65214, -4.68614, -5.87823, 2.46113, -4.61607, -6.23327, -0.00901275, -3.71052, -4.93872, -0.00770438, -1.43451, -4.81857, -0.00770438, -1.22435, 2.48172, 1.21952, 6.8633, 2.99575, 0.458063, 6.50415, 0.311782, 12.3247, -5.78785, -0.644005, 12.6688, -6.14701, -5.58013, 2.677, -4.74473, 2.99575, 0.458063, -5.78785, 2.48172, 1.21952, -6.14701, 2.09236, 0.570583, 6.8633, 2.22155, 0.000145611, -6.14701, 2.22155, 0.000145611, 6.8633, 2.73106, 0.115279, 6.8633, 2.09236, 0.570583, -6.14701, 2.73106, 0.115279, -6.14701)
 
 [sub_resource type="Animation" id="Animation_ski2l"]
 resource_name = "PictureFrame3Fade"
@@ -326,21 +326,19 @@ _data = {
 [node name="Picture Frame" type="Node3D"]
 
 [node name="PictureFrame3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.78814e-05, 0.00318289, -6.5565e-05)
 material_override = ExtResource("1_43nf4")
 mesh = ExtResource("4_jo7hi")
 
-[node name="PictureFrame3" type="StaticBody3D" parent="PictureFrame3" node_paths=PackedStringArray("mesh")]
+[node name="PictureFrame3" type="StaticBody3D" parent="PictureFrame3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.62658e-06, -0.00041878, -2.35271e-06)
 script = SubResource("GDScript_ibocl")
-target_mesh = ExtResource("4_jo7hi")
-target_material = ExtResource("1_43nf4")
-mesh = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame3/PictureFrame3"]
-shape = SubResource("ConvexPolygonShape3D_evabs")
+transform = Transform3D(1, 0, 1.93248e-15, 0, 1, 0, -1.93248e-15, 0, 1, -2.27374e-13, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_mmoeq")
 
 [node name="PictureFrame3Fade" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_y5byi")
 }
-
-[connection signal="interacted" from="PictureFrame3/PictureFrame3" to="PictureFrame3/PictureFrame3" method="_on_interacted"]

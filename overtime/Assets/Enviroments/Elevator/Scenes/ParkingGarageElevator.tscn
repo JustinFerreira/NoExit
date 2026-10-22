@@ -1,13 +1,13 @@
 [gd_scene load_steps=27 format=4 uid="uid://cij8j1efhpoia"]
 
 [ext_resource type="Script" path="res://Scripts/ParkingGarageElevator.gd" id="1_lu5uw"]
-[ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="2_inelh"]
-[ext_resource type="Texture2D" uid="uid://cqtvr5khxey8w" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="3_68ion"]
-[ext_resource type="Texture2D" uid="uid://7bbhro4cr7gd" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="4_p2blq"]
-[ext_resource type="Texture2D" uid="uid://cealvt0vme4qw" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="5_a2e3v"]
-[ext_resource type="Texture2D" uid="uid://clw0rbvd4hay8" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="6_6ueen"]
-[ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="7_aqrve"]
-[ext_resource type="AudioStream" uid="uid://r55eo2cec3q4" path="res://Assets/Audio/Music/elevator_wip.mp3" id="8_cl1pq"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="2_inelh"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="3_68ion"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="4_p2blq"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="5_a2e3v"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="6_6ueen"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="7_aqrve"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/Music/elevator_wip.mp3" id="8_cl1pq"]
 [ext_resource type="Script" path="res://Scripts/ElevatorMusic.gd" id="9_dkb5w"]
 [ext_resource type="Script" path="res://Scripts/ParkingGarageElevatorOutsideButton.gd" id="10_geqg6"]
 [ext_resource type="Script" path="res://Scripts/ParkingGarageElevatorInsideButton.gd" id="11_u228q"]
@@ -112,82 +112,92 @@ _data = {
 "Take 001": SubResource("Animation_d4iyl")
 }
 
-[sub_resource type="BoxMesh" id="BoxMesh_6n54j"]
+[sub_resource type="BoxMesh" id="BoxMesh_rspna"]
+size = Vector3(284.776, 284.776, 207.908)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hqnp3"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a1w1x"]
+points = PackedVector3Array(-1.57678, -1.57678, -1.15117, 1.57678, 1.57678, 1.15117, 1.57678, -1.57678, 1.15117, 1.57678, 1.57678, -1.15117, -1.57678, 1.57678, 1.15117, 1.57678, -1.57678, -1.15117, -1.57678, -1.57678, 1.15117, -1.57678, 1.57678, -1.15117)
 
-[sub_resource type="BoxMesh" id="BoxMesh_hadhn"]
+[sub_resource type="BoxMesh" id="BoxMesh_f2s4e"]
+size = Vector3(14.6129, 32.3493, 15.9023)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ep0vc"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dr0i2"]
+points = PackedVector3Array(-7.3064, -16.1747, -7.9512, 7.3064, 16.1747, 7.9512, 7.3064, -16.1747, 7.9512, 7.3064, 16.1747, -7.9512, -7.3064, 16.1747, 7.9512, 7.3064, -16.1747, -7.9512, -7.3064, -16.1747, 7.9512, -7.3064, 16.1747, -7.9512)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0qd3r"]
+[sub_resource type="BoxMesh" id="BoxMesh_srkfe"]
+size = Vector3(39.1539, 37.2633, 8.47255)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ppnqa"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uo8hw"]
+points = PackedVector3Array(-19.577, -18.6317, -4.23626, 19.577, 18.6317, 4.23626, 19.577, -18.6317, 4.23626, 19.577, 18.6317, -4.23626, -19.577, 18.6317, 4.23626, 19.577, -18.6317, -4.23626, -19.577, -18.6317, 4.23626, -19.577, 18.6317, -4.23626)
 
-[sub_resource type="BoxMesh" id="BoxMesh_w7mxp"]
+[sub_resource type="BoxMesh" id="BoxMesh_drmdy"]
+size = Vector3(619.875, 225.463, 260.336)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wt5vp"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lxks1"]
+points = PackedVector3Array(-309.937, -112.732, -130.168, 309.937, 112.732, 130.168, 309.937, -112.732, 130.168, 309.937, 112.732, -130.168, -309.937, 112.732, 130.168, 309.937, -112.732, -130.168, -309.937, -112.732, 130.168, -309.937, 112.732, -130.168)
 
 [node name="ParkingGarageElevator" type="Node3D"]
-transform = Transform3D(1.80606, 0, 0, 0, 1.80606, 0, 0, 0, 1.80606, 0, 0, 0)
 script = ExtResource("1_lu5uw")
 playerelevator = true
 
 [node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0606, 0, 18.0606)
 visible = false
 material_override = SubResource("StandardMaterial3D_pwtol")
 mesh = ExtResource("7_aqrve")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.553691, 0, 0, 0, 0.553691, 0, 0, 0, 0.553691, -0.0461368, 0.773738, 0.529455)
-omni_range = 3.7055
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -4.16629, 69.871, 47.8114)
+omni_range = 185.275
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_cl1pq")
+unit_size = 500.0
 max_db = -10.0
 bus = &"Music"
 script = ExtResource("9_dkb5w")
+max_hearing_distance = 4.0
+min_volume_db = -80.0
 
 [node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0292828, 0)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 2.64433, 0)
 visible = false
 use_collision = true
 
 [node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(1.20063, 0, 0, 0, 2.09287, 0, 0, 0, 0.129145, 0.202488, 1.02425, 1.19424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2853, 92.493, 107.843)
+size = Vector3(108.421, 188.992, 11.6622)
 
 [node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(2.51007, 0, 0, 0, 0.211143, 0, 0, 0, 2.56122, 0.212435, -0.137641, 0.183151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1835, -12.4294, 16.5391)
+size = Vector3(226.667, 19.0668, 231.286)
 
 [node name="RoofCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(1.7, 0, 0, 0, -0.1, 0, 0, 0, 2.2, 0.17, 2.3361, 0.225543)
-size = Vector3(1.4, 0.001, 1.00543)
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 15.3515, 210.957, 20.3672)
+size = Vector3(214.921, 0.0090303, 199.745)
 
 [node name="LeftWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.00810674, 0.000670873, 0.00314771, 0, -9.6013e-07, 2.19945, 1.80733, -3.00919e-06, -1.41188e-05, -1.09341, 1.19548, 0.186248)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, -98.738, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="BackWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(-1.80735, 5.86502e-11, 8.40492e-15, -4.23818e-22, -2.93251e-11, 2.19945, 1.58003e-07, 0.00067088, 9.61411e-08, -0.0425983, 1.19548, -0.959107)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(-1, 8.74225e-08, 3.82136e-15, -2.34497e-22, -4.37114e-08, 1, 8.74225e-08, 1, 4.37114e-08, -3.84675, 107.956, -86.61)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="RightWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.00810674, 0.000670873, 0.00314771, 0, -9.6013e-07, 2.19945, 1.80733, -3.00919e-06, -1.41188e-05, 1.32701, 1.19548, 0.186248)
-size = Vector3(1.33718, 157.426, 1.13576)
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, 119.833, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
 
 [node name="ButtonPanelCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, -0.669419, 1.11764, 1.41259)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4505, 100.926, 127.561)
+size = Vector3(46.5268, 213.655, 6.10485)
 
 [node name="RightFrontCollision" type="CSGBox3D" parent="ElevatorCollisions"]
-transform = Transform3D(0.51523, 0, 0, 0, 2.36598, 0, 0, 0, 0.0676043, 1.01176, 1.11764, 1.33905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.365, 100.926, 120.92)
+size = Vector3(46.5268, 213.655, 6.10485)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(101.094, 0, 0, 0, 101.094, 0, 0, 0, 101.094, 0.128768, 0, 0.235567)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6281, 0, 21.2724)
 bones/0/name = "joint13"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0119662, -0.00059733)
@@ -235,49 +245,63 @@ libraries = {
 }
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.730074, 0.111458, 0, 0.0504983)
+collision_layer = 0
+collision_mask = 32
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.065, 0, 4.56015)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(3.15356, 0, 0, 0, 3.15356, 0, 0, 0, 3.15356, 0, 1.35283, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 122.164, 0)
 visible = false
-mesh = SubResource("BoxMesh_6n54j")
+mesh = SubResource("BoxMesh_rspna")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(3.15356, 0, 0, 0, 3.15356, 0, 0, 0, 3.15356, 0, 1.35283, 0)
-shape = SubResource("ConvexPolygonShape3D_hqnp3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.90706, 1.35283, 13.3509)
+shape = SubResource("ConvexPolygonShape3D_a1w1x")
 
 [node name="OutsideButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.16182, 0, 0, 0, 0.358231, 0, 0, 0, 0.1761, 1.01955, 1.20853, 1.47799)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.0685, 109.134, 133.467)
 visible = false
-mesh = SubResource("BoxMesh_hadhn")
+mesh = SubResource("BoxMesh_f2s4e")
 
-[node name="OutsideButton" type="StaticBody3D" parent="OutsideButton"]
+[node name="OutsideButton" type="StaticBody3D" parent="OutsideButton" node_paths=PackedStringArray("mesh_list")]
 script = ExtResource("10_geqg6")
+is_interactable = true
+outline_material = null
+mesh_list = []
+has_outline = false
+persist_id = ""
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutsideButton/OutsideButton"]
-shape = SubResource("ConvexPolygonShape3D_ep0vc")
+shape = SubResource("ConvexPolygonShape3D_dr0i2")
 
 [node name="InsideButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.433584, 0, 0, 0, 0.412648, 0, 0, 0, 0.0938234, -0.730336, 1.04716, 1.17605)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.9515, 94.5615, 106.201)
 visible = false
-mesh = SubResource("BoxMesh_0qd3r")
+mesh = SubResource("BoxMesh_srkfe")
 
-[node name="InsideButton" type="StaticBody3D" parent="InsideButton"]
+[node name="InsideButton" type="StaticBody3D" parent="InsideButton" node_paths=PackedStringArray("mesh_list")]
 script = ExtResource("11_u228q")
+is_interactable = true
+outline_material = null
+mesh_list = []
+has_outline = false
+persist_id = ""
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InsideButton/InsideButton"]
-shape = SubResource("ConvexPolygonShape3D_ppnqa")
+shape = SubResource("ConvexPolygonShape3D_uo8hw")
 
 [node name="OutSideElevator" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OutSideElevator"]
-transform = Transform3D(6.86438, 0, 0, 0, 2.49674, 0, 0, 0, 2.88292, 0, 1.09066, 2.86757)
-mesh = SubResource("BoxMesh_w7mxp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 98.49, 258.95)
+mesh = SubResource("BoxMesh_drmdy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OutSideElevator"]
-transform = Transform3D(6.86438, 0, 0, 0, 2.49674, 0, 0, 0, 2.88292, 0, 1.09066, 2.86757)
-shape = SubResource("ConvexPolygonShape3D_wt5vp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 98.49, 258.95)
+shape = SubResource("ConvexPolygonShape3D_lxks1")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

@@ -8,8 +8,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wy63h"]
 albedo_color = Color(0, 0.502213, 0.502212, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_480u7"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7hkad"]
+points = PackedVector3Array(-29.1131, -2.54168, -29.9651, 29.1131, 2.54168, 29.9651, 29.1131, -2.54168, 29.9651, 29.1131, 2.54168, -29.9651, -29.1131, 2.54168, 29.9651, 29.1131, -2.54168, -29.9651, -29.1131, -2.54168, 29.9651, -29.1131, 2.54168, -29.9651)
 
 [sub_resource type="Animation" id="Animation_sybc5"]
 resource_name = "FlashLightFade"
@@ -51,46 +51,25 @@ _data = {
 [node name="FlashLight" type="Node3D"]
 
 [node name="FlashLightMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -6.34205, -0.88413, 1.36346e-05)
 material_override = SubResource("StandardMaterial3D_wy63h")
 mesh = ExtResource("1_nogdu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="FlashLightMesh" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -3.01311e-06, 0.196473, -1.40934)
 script = ExtResource("1_pkg20")
-examine_dialog = null
-dialog_from_event_manager = null
-first_time_hint = null
-keys_hint_dialog = null
 darken_background = true
-focus_distance = null
-screen_offset = null
-size_mode = null
-screen_fill = null
-scale_multiplier = null
-front_axis = null
-examine_rotation_offset = null
-transition_time = null
-examine_light_energy = null
-spin_mode = null
-spin_turns = null
-rotate_speed_degrees = null
-allow_tilt = null
 pickup_on_close = true
-store_in_box = null
 inventory_name = "Flash Light"
-inventory_weight = null
 inventory_equippable = true
 examine_sound = ExtResource("stinger_sfx")
-flash_mode = null
-spawn_condition = null
-player_manager_reference = null
-is_interactable = null
 outline_material = ExtResource("3_11npx")
 mesh = NodePath("..")
 has_outline = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FlashLightMesh/StaticBody3D"]
-transform = Transform3D(11.4543, 0, 0, 0, 1, 0, 0, 0, 11.7895, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_480u7")
+transform = Transform3D(1, 0, 4.91876e-18, 0, 1, 0, -4.91876e-18, 0, 1, 0, 0, 2.27374e-13)
+shape = SubResource("ConvexPolygonShape3D_7hkad")
 
 [node name="FlashLightFade" type="AnimationPlayer" parent="."]
 libraries = {

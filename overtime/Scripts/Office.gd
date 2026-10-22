@@ -53,7 +53,7 @@ func _ready() -> void:
 		#Needed?
 		PlayerManager.gotKeys = false
 		PlayerManager.InAnimation = true;
-		PlayerManager.player.CURSOR.visible = false
+		UiManager.set_cursor_visible(false)
 		PlayerManager.no_enemy = true
 		if not PlayerManager.Loop0:
 			PlayerManager.Loop1 = true
@@ -68,8 +68,7 @@ func _on_animation_finished(anim_name: String):
 	
 	if anim_name == "WakingUp":
 		PlayerManager.InAnimation = false
-		if not PlayerManager.CursorInvisible:
-			PlayerManager.player.CURSOR.visible = true
+		UiManager.set_cursor_visible(true)
 		player_camera.current = true
 		if PlayerManager.deaths > 0 && PlayerManager.gotKeys == false:
 			PlayerManager.Dialog(EventManager.office_wake_up_no_keys)

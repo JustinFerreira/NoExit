@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bb3cd7l1k3j0h"]
 
-[ext_resource type="Shader" uid="uid://2tiu3e218if7" path="res://Assets/Shaders/Blood.tres" id="1_3phbp"]
-[ext_resource type="Shader" uid="uid://bmyueerh4csan" path="res://Assets/Shaders/BloodSpot.tres" id="2_kweac"]
+[ext_resource type="Shader" path="res://Assets/Shaders/Blood.tres" id="1_3phbp"]
+[ext_resource type="Shader" path="res://Assets/Shaders/BloodSpot.tres" id="2_kweac"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2nokd"]
 render_priority = 0
@@ -48,6 +48,7 @@ orientation = 1
 [node name="BloodSplatter" type="Node3D"]
 
 [node name="blood" type="GPUParticles3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_2nokd")
 amount = 100
 sub_emitter = NodePath("../blood_spot")
@@ -55,6 +56,7 @@ process_material = SubResource("ParticleProcessMaterial_jq2ep")
 draw_pass_1 = SubResource("QuadMesh_yullt")
 
 [node name="blood_spot" type="GPUParticles3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_7l5mn")
 cast_shadow = 0
 amount = 100

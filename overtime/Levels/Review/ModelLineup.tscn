@@ -1,0 +1,2760 @@
+[gd_scene load_steps=144 format=3 uid="uid://d1xhaoxeg8upj"]
+
+[ext_resource type="PackedScene" uid="uid://c2fuuq2arrwpu" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_v6.fbx" id="1_y5ex6"]
+[ext_resource type="PackedScene" uid="uid://bultklkitrbci" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_v5.fbx" id="2_g0t62"]
+[ext_resource type="PackedScene" uid="uid://c2pjqrfa5qf15" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Animated.fbx" id="3_x4wv4"]
+[ext_resource type="PackedScene" uid="uid://bbuobx83873ei" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Animated (1).fbx" id="4_mibip"]
+[ext_resource type="PackedScene" uid="uid://cl0g34vg6slnl" path="res://Assets/Enviroments/Garage/Models/M_DevCar_Animated1.fbx" id="5_8ccfg"]
+[ext_resource type="PackedScene" uid="uid://ddq1erlq1lpmk" path="res://Assets/Enviroments/Garage/Models/M_DevCar_Animated.fbx" id="6_5g58c"]
+[ext_resource type="ArrayMesh" uid="uid://men1pmlhu3sh" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallConnection.obj" id="7_wfp1g"]
+[ext_resource type="ArrayMesh" uid="uid://bjhw4cfpfht08" path="res://Assets/Enviroments/Office/Models/M_Mouse_Unwrapped.obj" id="8_8v4hp"]
+[ext_resource type="ArrayMesh" uid="uid://0rjix4c6yf2o" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigConnection.obj" id="9_7a1b7"]
+[ext_resource type="ArrayMesh" uid="uid://bo1s1khgdwy2u" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Small45.obj" id="10_16ymu"]
+[ext_resource type="ArrayMesh" uid="uid://clcxn4nvv78du" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallSharp90.obj" id="11_4vkf8"]
+[ext_resource type="ArrayMesh" uid="uid://0dp6c0u4qc8l" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallOffset.obj" id="12_dx777"]
+[ext_resource type="ArrayMesh" uid="uid://0whymu2eert8" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Small90.obj" id="13_rfamf"]
+[ext_resource type="ArrayMesh" uid="uid://2vtuy3s2aax4" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Big45.obj" id="14_1o16p"]
+[ext_resource type="ArrayMesh" uid="uid://cd7eknfw28rx1" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallJunction.obj" id="15_vbusj"]
+[ext_resource type="ArrayMesh" uid="uid://oi4khbk7cnnf" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigSharp90.obj" id="16_rrcvs"]
+[ext_resource type="ArrayMesh" uid="uid://bjjqmmul5ta2t" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigOffset.obj" id="17_lbhq1"]
+[ext_resource type="ArrayMesh" uid="uid://b7xiihjdui480" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Big90.obj" id="18_2vtmj"]
+[ext_resource type="ArrayMesh" uid="uid://bgovjy3lglrq1" path="res://Assets/Enviroments/Garage/Models/M_Pipe_Junction.obj" id="19_2pj2w"]
+[ext_resource type="ArrayMesh" uid="uid://c4lxpig3fe0ym" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Compact.obj" id="20_ana6f"]
+[ext_resource type="ArrayMesh" uid="uid://nxubrgqmesse" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigJunction.obj" id="21_u3ayp"]
+[ext_resource type="ArrayMesh" uid="uid://ds1xn22mdfgp7" path="res://Assets/Enviroments/Office/Models/M_Tower_Unwrapped.obj" id="22_o3ks6"]
+[ext_resource type="ArrayMesh" uid="uid://ce50pr3y58u7f" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallWide90.obj" id="23_7gwig"]
+[ext_resource type="ArrayMesh" uid="uid://d4almavsk0ivh" path="res://Assets/Enviroments/Office/Models/M_Monitor_Unwrapped.obj" id="24_kc723"]
+[ext_resource type="ArrayMesh" uid="uid://ru6rsialk0rv" path="res://Assets/Enviroments/Garage/Models/M_PipeHolster_Unwrapped.obj" id="25_0ibdm"]
+[ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Enviroments/Garage/Models/M_GasCanister_Alternate.obj" id="26_q5760"]
+[ext_resource type="ArrayMesh" uid="uid://c8ni3wet03s40" path="res://Assets/Enviroments/Office/Models/Pen_2.obj" id="27_ui6d7"]
+[ext_resource type="ArrayMesh" uid="uid://btbl427f7d5ow" path="res://Assets/Enviroments/Office/Models/Pen_1.obj" id="28_eddwo"]
+[ext_resource type="ArrayMesh" uid="uid://xq6jy6dxrnin" path="res://Assets/Enviroments/Office/Models/M_Keyboard_Unwrapped.obj" id="29_akjvb"]
+[ext_resource type="ArrayMesh" uid="uid://xn83oslg8usp" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallShort.obj" id="30_h6ev0"]
+[ext_resource type="ArrayMesh" uid="uid://dvwisbdwh1pve" path="res://Assets/Enviroments/Office/Models/Pencil.obj" id="31_r6xot"]
+[ext_resource type="ArrayMesh" uid="uid://b6qm1c4cap1lg" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigWide90.obj" id="32_chjsk"]
+[ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="33_g2ukm"]
+[ext_resource type="ArrayMesh" uid="uid://dwhyn0k6mq2f7" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigShort.obj" id="34_2ne27"]
+[ext_resource type="PackedScene" uid="uid://c0mcd0ti8meoi" path="res://Assets/Enviroments/Garage/Models/M_BearTrap_AnimatedV6.fbx" id="35_b6vif"]
+[ext_resource type="PackedScene" uid="uid://cw2r637ao78m3" path="res://Assets/Enviroments/Garage/Models/M_BearTrap_Please.fbx" id="36_nmgoq"]
+[ext_resource type="ArrayMesh" uid="uid://cp8iqe1chhn0r" path="res://Assets/Enviroments/Garage/Models/M_Recycling_Unwrapped.obj" id="37_22jc1"]
+[ext_resource type="ArrayMesh" uid="uid://wpoqm2xfx13e" path="res://Assets/Enviroments/Office/Models/M_Rubbish_Unwrapped.obj" id="38_f0ol5"]
+[ext_resource type="ArrayMesh" uid="uid://b7rle2usk0rn1" path="res://Assets/Enviroments/Garage/Models/M_ParkingDrum_Simple.obj" id="39_jjcit"]
+[ext_resource type="ArrayMesh" uid="uid://b58ss2yuhoohr" path="res://Assets/Enviroments/Garage/Models/M_ParkingDrum_Unwrapped.obj" id="40_u4wo5"]
+[ext_resource type="ArrayMesh" uid="uid://bu313kufj02ai" path="res://Assets/Enviroments/Office/Models/Papers_1.obj" id="41_583rg"]
+[ext_resource type="ArrayMesh" uid="uid://nik4occeorhy" path="res://Assets/Enviroments/Garage/Models/M_GaragePole_Unwrapped.obj" id="42_lukb3"]
+[ext_resource type="ArrayMesh" uid="uid://nhw36fcpo3ej" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallMed.obj" id="43_scwd5"]
+[ext_resource type="ArrayMesh" uid="uid://nadp4pi30o8s" path="res://Assets/Enviroments/Garage/Models/M_Sign_Unwrapped.obj" id="44_ljhgf"]
+[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="45_qluct"]
+[ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="46_b2wba"]
+[ext_resource type="ArrayMesh" uid="uid://wbxpy65v8yqk" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigMed.obj" id="47_drn8v"]
+[ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Enviroments/Office/Models/Model_Cubicle_Unwrapped.obj" id="48_a3cmc"]
+[ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="49_5f24d"]
+[ext_resource type="ArrayMesh" uid="uid://60lu4pytckc0" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Unwrapped.obj" id="50_kig5x"]
+[ext_resource type="ArrayMesh" uid="uid://d0452uudpfhx" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Unwrapped_Old.obj" id="51_64w0q"]
+[ext_resource type="ArrayMesh" uid="uid://d1c70bqy0f5vs" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_WIP.obj" id="52_aoxue"]
+[ext_resource type="ArrayMesh" uid="uid://c8sbfu25waoph" path="res://Assets/Enviroments/Garage/Models/M_ParkBlock_Unwrapped.obj" id="53_o1ecv"]
+[ext_resource type="ArrayMesh" uid="uid://dn7j65ahy0pqh" path="res://Assets/Enviroments/Garage/Models/M_ParkBlock.obj" id="54_lr0a6"]
+[ext_resource type="ArrayMesh" uid="uid://bv5c7f38tyu3f" path="res://Assets/Enviroments/Garage/Models/M_Nut.obj" id="55_aqfha"]
+[ext_resource type="ArrayMesh" uid="uid://b4h0a2dnqditv" path="res://Assets/Enviroments/Garage/Models/M_Pipe_SmallLong.obj" id="56_nige3"]
+[ext_resource type="ArrayMesh" uid="uid://cbd5r41urmf3e" path="res://Assets/Enviroments/Garage/Models/M_Pipe_BigLong.obj" id="57_clx68"]
+[ext_resource type="ArrayMesh" uid="uid://c3bxnhjrvkhr0" path="res://Assets/Enviroments/Office/Models/Potted_Plant_1.obj" id="58_h3dvb"]
+[ext_resource type="ArrayMesh" uid="uid://bgxtjtyltfrkm" path="res://Assets/Enviroments/Garage/Models/M_ElectricalPipes_WIP.obj" id="59_ffolq"]
+[ext_resource type="PackedScene" uid="uid://4ltteu24q5yt" path="res://Assets/Characters/Killer/Models/Killer UVs.fbx" id="60_6lasj"]
+[ext_resource type="ArrayMesh" uid="uid://c66n866hhd8yo" path="res://Assets/Enviroments/Office/Models/M_DevCar.obj" id="61_42oho"]
+[ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Enviroments/Garage/Models/M_DevCar.obj" id="62_mk6xr"]
+[ext_resource type="ArrayMesh" uid="uid://chvbf1ic5fvss" path="res://Assets/Enviroments/Garage/Models/M_Button_Unwrapped.obj" id="63_ubxci"]
+[ext_resource type="ArrayMesh" uid="uid://dgy0esfqyj01s" path="res://Levels/Greyboxing/Models/NewOfficeMesh.obj" id="64_kuwdi"]
+[ext_resource type="ArrayMesh" uid="uid://cgr3y6t1xgkib" path="res://Assets/Enviroments/Office/Models/Mug_1.obj" id="65_oxftm"]
+[ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Enviroments/Office/Models/Sticky_Note.obj" id="66_1y3fd"]
+[ext_resource type="ArrayMesh" uid="uid://bip30krengfuq" path="res://Assets/Enviroments/Office/Models/Sticky_Notes.obj" id="67_7e85i"]
+[ext_resource type="ArrayMesh" uid="uid://dnlyqtr1mgfmg" path="res://Assets/Enviroments/Office/Models/Mug_2.obj" id="68_ycx7x"]
+[ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Assets/Enviroments/Office/Models/M_CarKeys_Unwrapped.obj" id="69_vbyly"]
+[ext_resource type="ArrayMesh" uid="uid://b5dq637ukfxap" path="res://Assets/Enviroments/Office/Models/PictureFrame_3.obj" id="70_g4auy"]
+[ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="71_rbwne"]
+[ext_resource type="ArrayMesh" uid="uid://6lgwc8xp6fyr" path="res://Assets/Enviroments/Garage/Models/M_FireAlarm.obj" id="72_jwewv"]
+[ext_resource type="ArrayMesh" uid="uid://yhmpw8jexwjb" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_GasIntake.obj" id="73_ltdqi"]
+[ext_resource type="ArrayMesh" uid="uid://bplsibnom3pl1" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_GasCap.obj" id="74_q01i3"]
+[ext_resource type="ArrayMesh" uid="uid://dvb4vdxujcrnh" path="res://Assets/Enviroments/Office/Models/PictureFrame_4.obj" id="75_rnnt7"]
+[ext_resource type="ArrayMesh" uid="uid://cyeucfyfhh5lw" path="res://Assets/Enviroments/Office/Models/M_SPAM_Unwrapped.obj" id="76_oafg1"]
+[ext_resource type="ArrayMesh" uid="uid://dmmktqfmr8d26" path="res://Assets/Enviroments/Office/Models/PictureFrame_1.obj" id="77_wkc5o"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Assets/Enviroments/Garage/Models/M_Battery_Unwrapped.obj" id="78_47te5"]
+[ext_resource type="ArrayMesh" uid="uid://dodrnmti3js1j" path="res://Assets/Enviroments/Office/Models/Tissue_Box.obj" id="79_d7ao6"]
+[ext_resource type="ArrayMesh" uid="uid://bhyefe7gw0h6e" path="res://Assets/Enviroments/Office/Models/Stapler.obj" id="80_j7vmw"]
+[ext_resource type="ArrayMesh" uid="uid://b36eb1e10kr0c" path="res://Assets/Enviroments/Garage/Models/M_Revolver_Unwrapped.obj" id="81_yyaw1"]
+[ext_resource type="ArrayMesh" uid="uid://cmg78l0jo6nfd" path="res://Assets/Enviroments/Office/Models/M_SmokeDetector_Unwrappeed.obj" id="82_ygtnt"]
+[ext_resource type="ArrayMesh" uid="uid://2ydn1886mm5j" path="res://Assets/Enviroments/Office/Models/M_Champaine_Unwrapped.obj" id="83_a74mc"]
+[ext_resource type="ArrayMesh" uid="uid://bdnxqw7y6lrq3" path="res://Assets/Enviroments/Office/Models/Folder_1.obj" id="84_e6s48"]
+[ext_resource type="ArrayMesh" uid="uid://bi5jikhfvlko6" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_Steering.obj" id="85_1kfsl"]
+[ext_resource type="ArrayMesh" uid="uid://bxy6p8xhkra6u" path="res://Assets/Enviroments/Office/Models/M_Box_Unwrapped.obj" id="86_k7kjt"]
+[ext_resource type="ArrayMesh" uid="uid://xr1akf1xrp74" path="res://Assets/Enviroments/Garage/Models/M_Camera_Unwrapped.obj" id="87_ht4rq"]
+[ext_resource type="ArrayMesh" uid="uid://dbyqsfydae3x2" path="res://Assets/Enviroments/Office/Models/Answering_Machine.obj" id="88_vsi16"]
+[ext_resource type="ArrayMesh" uid="uid://de18ibvgqj8t2" path="res://Assets/Enviroments/Garage/Models/M_FireExtinguisher.obj" id="89_epkeu"]
+[ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Enviroments/Office/Models/M_Lamp.obj" id="90_5561f"]
+[ext_resource type="ArrayMesh" uid="uid://b3kwfpvd2aejb" path="res://Assets/Enviroments/Office/Models/Small_Bin.obj" id="91_33y7u"]
+[ext_resource type="ArrayMesh" uid="uid://ilj3f1fqcesh" path="res://Assets/Enviroments/Garage/Models/M_GarageLightFixture.obj" id="92_74ibo"]
+[ext_resource type="ArrayMesh" uid="uid://trsc1io0hi0f" path="res://Assets/Enviroments/Office/Models/Folder_2.obj" id="93_4upic"]
+[ext_resource type="ArrayMesh" uid="uid://b4r2b8m0v8u2" path="res://Assets/Enviroments/Office/Models/Cardboard_Box.obj" id="94_pdqui"]
+[ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/Enviroments/Garage/Models/M_SpareTire_Unwrapped.obj" id="95_qr6f4"]
+[ext_resource type="ArrayMesh" uid="uid://bn6o8ek2en2kq" path="res://Assets/Enviroments/Garage/Models/M_TrafficCone_Unwrapped.obj" id="96_5y338"]
+[ext_resource type="ArrayMesh" uid="uid://bycg5gikuxbnv" path="res://Assets/Enviroments/Garage/Models/M_GarageLevelSign_Unwrapped.obj" id="97_5v0jg"]
+[ext_resource type="ArrayMesh" uid="uid://b1anxdux6c88j" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarInterior2.obj" id="98_2tuvq"]
+[ext_resource type="ArrayMesh" uid="uid://drmaajb32b5nv" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarDoorPlayer.obj" id="99_2p3cm"]
+[ext_resource type="ArrayMesh" uid="uid://d1uujwuku5qxr" path="res://Assets/Enviroments/Garage/Models/M_CardReader_Unwrapped.obj" id="100_y2s4a"]
+[ext_resource type="ArrayMesh" uid="uid://dc87a1r6wnx38" path="res://Assets/Enviroments/Garage/Models/M_HandicapSign.obj" id="101_m1jkp"]
+[ext_resource type="ArrayMesh" uid="uid://c6ak5v7ggvy53" path="res://Assets/Enviroments/Office/Models/M_Printer_Unwrapped.obj" id="102_fjdl1"]
+[ext_resource type="ArrayMesh" uid="uid://by22efj6mr3x6" path="res://Assets/Enviroments/Garage/Models/M_TicketDispenser_Unwrapped.obj" id="103_ice8u"]
+[ext_resource type="ArrayMesh" uid="uid://dxkwq1tjqi61k" path="res://Assets/Enviroments/Office/Models/M_MopBucket_Unwrapped.obj" id="104_qob38"]
+[ext_resource type="ArrayMesh" uid="uid://fjdmyp1lnv4c" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarHoodInterior.obj" id="105_jdlke"]
+[ext_resource type="ArrayMesh" uid="uid://bpumhcy83xlu5" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarHood.obj" id="106_m5iv2"]
+[ext_resource type="ArrayMesh" uid="uid://du7o11s86nsnj" path="res://Assets/Enviroments/Garage/Models/M_RoofRail_Unwrapped.obj" id="107_wlsdk"]
+[ext_resource type="ArrayMesh" uid="uid://3u7peb20bhf8" path="res://Assets/Enviroments/Garage/Models/M_Payphone.obj" id="108_bgj7h"]
+[ext_resource type="ArrayMesh" uid="uid://cpc1yhk6w1r27" path="res://Assets/Enviroments/Office/Models/M_Fridge_Unwrapped.obj" id="109_x0fva"]
+[ext_resource type="ArrayMesh" uid="uid://dakmq2i4i0jdy" path="res://Assets/Enviroments/Office/Models/M_Mop.obj" id="110_cxlpw"]
+[ext_resource type="ArrayMesh" uid="uid://5cpjdphq1kux" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarInterior3.obj" id="111_bnuhj"]
+[ext_resource type="ArrayMesh" uid="uid://d3v8yg66bjl2j" path="res://Assets/Enviroments/Garage/Models/M_ReflectiveSign_Unwrapped.obj" id="112_n5cxe"]
+[ext_resource type="ArrayMesh" uid="uid://b5bde62bdqnqy" path="res://Assets/Enviroments/Garage/Models/M_StopSign_Unwrapped.obj" id="113_lcyp3"]
+[ext_resource type="ArrayMesh" uid="uid://d0vq0ywub72aq" path="res://Assets/Enviroments/Garage/Models/M_YieldSign_Unwrapped.obj" id="114_i7ry1"]
+[ext_resource type="ArrayMesh" uid="uid://b7lf47ytya0od" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarInterior1.obj" id="115_b046m"]
+[ext_resource type="ArrayMesh" uid="uid://ptvd6sluv6bd" path="res://Assets/Enviroments/Garage/Models/M_Yield.obj" id="116_ct2gm"]
+[ext_resource type="PackedScene" uid="uid://37vndaeds3cb" path="res://Assets/Characters/Player/Models/M_PlayerARMS_UV.fbx" id="117_pqfmr"]
+[ext_resource type="ArrayMesh" uid="uid://dluvqun6263yi" path="res://Assets/Enviroments/Garage/Models/M_StopSign.obj" id="118_u78yv"]
+[ext_resource type="ArrayMesh" uid="uid://momowse0ljea" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarWindow.obj" id="119_8j3vh"]
+[ext_resource type="ArrayMesh" uid="uid://cdwye6cbxp270" path="res://Levels/Greyboxing/Models/EmergancyExitStairs.obj" id="120_cxvg4"]
+[ext_resource type="ArrayMesh" uid="uid://c2lyekdcrackv" path="res://Assets/Enviroments/Garage/Models/M_DirectionalArrow.obj" id="121_rngpe"]
+[ext_resource type="ArrayMesh" uid="uid://cato6yg652rfq" path="res://Levels/Greyboxing/Models/FloorStairs.obj" id="122_6hcde"]
+[ext_resource type="ArrayMesh" uid="uid://b5lmopa8xte4m" path="res://Assets/Enviroments/Garage/Models/M_TollBooth_Unwrapped.obj" id="123_hmgj7"]
+[ext_resource type="ArrayMesh" uid="uid://sjex55x1wgby" path="res://Assets/Enviroments/Garage/Models/M_BoomArm_Unwrapped.obj" id="124_ir8cd"]
+[ext_resource type="PackedScene" uid="uid://bkk74xsc4kcdc" path="res://Assets/Characters/Player/Models/M_PlayerWHOLE_UV.fbx" id="125_rnxyl"]
+[ext_resource type="ArrayMesh" uid="uid://bknpkxhpljfkd" path="res://Assets/Enviroments/Garage/Models/M_Fence.obj" id="126_qrru1"]
+[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="127_ypp6t"]
+[ext_resource type="ArrayMesh" uid="uid://cq8blcy8mb1gf" path="res://Assets/Enviroments/Garage/Models/M_SUV_Unwrapped.obj" id="128_uxqtw"]
+[ext_resource type="ArrayMesh" uid="uid://dqb7ymfxvofey" path="res://Assets/Enviroments/Garage/Models/M_NPCar_Unwrapped.obj" id="129_sklw7"]
+[ext_resource type="ArrayMesh" uid="uid://dbkbutiyvkc4o" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Models/M_CarBodyPlayer.obj" id="130_24cjg"]
+[ext_resource type="ArrayMesh" uid="uid://bdeeq8b6nte2q" path="res://Assets/Enviroments/Garage/Models/M_Truck_Unwrapped.obj" id="131_g31ic"]
+[ext_resource type="ArrayMesh" uid="uid://cclhgfvdbof4k" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="132_ipgny"]
+[ext_resource type="ArrayMesh" uid="uid://c4k3u1crwskga" path="res://Assets/Enviroments/Garage/Models/M_ParkingLine.obj" id="133_rlksr"]
+[ext_resource type="ArrayMesh" uid="uid://cn10101m7vf5o" path="res://Levels/Greyboxing/Models/ramp.obj" id="134_sdoml"]
+[ext_resource type="ArrayMesh" uid="uid://kufbvrmnis5" path="res://Assets/Enviroments/Garage/Models/M_GarageRailings.obj" id="135_a5c3q"]
+[ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Levels/Greyboxing/Models/ParkingGarageMesh.obj" id="136_2pcww"]
+[ext_resource type="PackedScene" uid="uid://g6wfee868h8d" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="137_xn14s"]
+
+[sub_resource type="Environment" id="Environment_lbnvx"]
+background_mode = 1
+background_color = Color(0.18, 0.19, 0.22, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.75, 0.8, 1)
+ambient_light_energy = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fas18"]
+albedo_color = Color(0.9, 0.15, 0.15, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_coci6"]
+material = SubResource("StandardMaterial3D_fas18")
+radius = 0.4
+height = 3.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_degnb"]
+albedo_color = Color(0.35, 0.36, 0.38, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5dfy6"]
+material = SubResource("StandardMaterial3D_degnb")
+size = Vector2(16262.8, 7653.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyuni"]
+size = Vector3(16262.8, 1, 7653.95)
+
+[node name="ModelLineup" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lbnvx")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.383022, -0.321394, 0, 0.642788, 0.766044, 0.5, -0.663414, 0.55667, 0, 0, 0)
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="M_Elevator_v6" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51139, 0.00073445, 0.0109021)
+
+[node name="M_Elevator_v6" parent="Models/M_Elevator_v6" instance=ExtResource("1_y5ex6")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_v6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611388, 1.64927, 0.000335084)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_v6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420127, 0.000335084)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_v6.fbx
+0.02 x 0.02 x 0.02"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_v5" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03416, 0.00073445, 0.0109021)
+
+[node name="M_Elevator_v5" parent="Models/M_Elevator_v5" instance=ExtResource("2_g0t62")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_v5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611388, 1.64927, 0.000335084)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_v5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420127, 0.000335084)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_v5.fbx
+0.02 x 0.02 x 0.02"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_Animated" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.55694, 0.00073445, 0.0109021)
+
+[node name="M_Elevator_Animated" parent="Models/M_Elevator_Animated" instance=ExtResource("3_x4wv4")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_Animated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611388, 1.64927, 0.000335084)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_Animated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420127, 0.000335084)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_Animated.fbx
+0.02 x 0.02 x 0.02"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_Animated (1)" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0797, 0.00073445, 0.0109021)
+
+[node name="M_Elevator_Animated (1)" parent="Models/M_Elevator_Animated (1)" instance=ExtResource("4_mibip")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_Animated (1)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.611388, 1.64927, 0.000335084)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_Animated (1)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420127, 0.000335084)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_Animated (1).fbx
+0.02 x 0.02 x 0.02"
+font_size = 48
+outline_size = 8
+
+[node name="M_DevCar_Animated1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6031, 0, 0.0275284)
+
+[node name="M_DevCar_Animated1" parent="Models/M_DevCar_Animated1" instance=ExtResource("5_8ccfg")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_DevCar_Animated1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.612025, 1.65, 0.00029511)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_DevCar_Animated1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41339, 0.00029511)
+pixel_size = 0.004125
+billboard = 1
+text = "M_DevCar_Animated1.fbx
+0.02 x 0.02 x 0.06"
+font_size = 48
+outline_size = 8
+
+[node name="M_DevCar_Animated" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1272, 0, 0.0275284)
+
+[node name="M_DevCar_Animated" parent="Models/M_DevCar_Animated" instance=ExtResource("6_5g58c")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_DevCar_Animated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.612025, 1.65, 0.00029511)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_DevCar_Animated"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00127467, 0.41339, 0.00029511)
+pixel_size = 0.004125
+billboard = 1
+text = "M_DevCar_Animated.fbx
+0.03 x 0.02 x 0.06"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallConnection" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6953, 0.067806, 0.035202)
+
+[node name="M_Pipe_SmallConnection" type="MeshInstance3D" parent="Models/M_Pipe_SmallConnection"]
+mesh = ExtResource("7_wfp1g")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallConnection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653516, 1.58219, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallConnection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.449517, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallConnection.obj
+0.11 x 0.12 x 0.07"
+font_size = 48
+outline_size = 8
+
+[node name="M_Mouse_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8092, 0, -0.139981)
+
+[node name="M_Mouse_Unwrapped" type="MeshInstance3D" parent="Models/M_Mouse_Unwrapped"]
+mesh = ExtResource("8_8v4hp")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Mouse_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.160423, 1.65, 0.211189)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Mouse_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49134, 0.439644, 0.211189)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Mouse_Unwrapped.obj
+0.10 x 0.04 x 0.14"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigConnection" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.922, 0.088353, 0.055041)
+
+[node name="M_Pipe_BigConnection" type="MeshInstance3D" parent="Models/M_Pipe_BigConnection"]
+mesh = ExtResource("9_7a1b7")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigConnection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669734, 1.56165, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigConnection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99189e-07, 0.465733, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigConnection.obj
+0.14 x 0.16 x 0.11"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_Small45" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.5463, 0.058434, 0.112644)
+
+[node name="M_Pipe_Small45" type="MeshInstance3D" parent="Models/M_Pipe_Small45"]
+mesh = ExtResource("10_16ymu")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_Small45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.654497, 1.59157, -0.0098515)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_Small45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003937, 0.501366, -0.0098515)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_Small45.obj
+0.12 x 0.16 x 0.21"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallSharp90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69452, 0.037044, 4.20559)
+
+[node name="M_Pipe_SmallSharp90" type="MeshInstance3D" parent="Models/M_Pipe_SmallSharp90"]
+mesh = ExtResource("11_4vkf8")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallSharp90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.794523, 1.61296, 0.117304)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallSharp90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07874, 0.433043, 0.117304)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallSharp90.obj
+0.23 x 0.07 x 0.23"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallOffset" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.28606, 0.058434, 4.36985)
+
+[node name="M_Pipe_SmallOffset" type="MeshInstance3D" parent="Models/M_Pipe_SmallOffset"]
+mesh = ExtResource("12_dx777")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.654497, 1.59157, -0.03566)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003937, 0.571301, -0.03566)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallOffset.obj
+0.12 x 0.23 x 0.26"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_Small90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.04061, 0.058405, 4.48325)
+
+[node name="M_Pipe_Small90" type="MeshInstance3D" parent="Models/M_Pipe_Small90"]
+mesh = ExtResource("13_rfamf")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_Small90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792173, 1.5916, -0.138834)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_Small90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064777, 0.454405, -0.138834)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_Small90.obj
+0.25 x 0.12 x 0.28"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_Big45" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6874, 0.088096, 4.37541)
+
+[node name="M_Pipe_Big45" type="MeshInstance3D" parent="Models/M_Pipe_Big45"]
+mesh = ExtResource("14_1o16p")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_Big45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.684159, 1.5619, -0.014853)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_Big45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003937, 0.554852, -0.014853)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_Big45.obj
+0.18 x 0.25 x 0.31"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallJunction" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4471, 0.085706, 4.37324)
+
+[node name="M_Pipe_SmallJunction" type="MeshInstance3D" parent="Models/M_Pipe_SmallJunction"]
+mesh = ExtResource("15_vbusj")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallJunction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767652, 1.56429, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallJunction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.481706, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallJunction.obj
+0.34 x 0.17 x 0.34"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigSharp90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4189, 0.05792, 4.20559)
+
+[node name="M_Pipe_BigSharp90" type="MeshInstance3D" parent="Models/M_Pipe_BigSharp90"]
+mesh = ExtResource("16_rrcvs")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigSharp90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.904152, 1.59208, 0.183416)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigSharp90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123116, 0.45392, 0.183416)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigSharp90.obj
+0.36 x 0.12 x 0.37"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigOffset" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.061, 0.088096, 4.45323)
+
+[node name="M_Pipe_BigOffset" type="MeshInstance3D" parent="Models/M_Pipe_BigOffset"]
+mesh = ExtResource("17_lbhq1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.684159, 1.5619, -0.053762)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003937, 0.660289, -0.053762)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigOffset.obj
+0.18 x 0.35 x 0.39"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_Big90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9469, 0.087789, 4.62295)
+
+[node name="M_Pipe_Big90" type="MeshInstance3D" parent="Models/M_Pipe_Big90"]
+mesh = ExtResource("18_2vtmj")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_Big90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.893905, 1.56221, -0.208683)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_Big90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.102414, 0.483789, -0.208683)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_Big90.obj
+0.38 x 0.18 x 0.42"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_Junction" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.6201, 0.088096, 4.42004)
+
+[node name="M_Pipe_Junction" type="MeshInstance3D" parent="Models/M_Pipe_Junction"]
+mesh = ExtResource("19_2pj2w")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_Junction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.684159, 1.5619, -0.00283399)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_Junction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003937, 0.539035, -0.00283399)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_Junction.obj
+0.18 x 0.23 x 0.42"
+font_size = 48
+outline_size = 8
+
+[node name="M_GasCanister_Compact" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2829, 0, 4.37628)
+
+[node name="M_GasCanister_Compact" type="MeshInstance3D" parent="Models/M_GasCanister_Compact"]
+mesh = ExtResource("20_ana6f")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GasCanister_Compact"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.670776, 1.65, 0.000756994)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GasCanister_Compact"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8532, 0.000756994)
+pixel_size = 0.004125
+billboard = 1
+text = "M_GasCanister_Compact.obj
+0.14 x 0.46 x 0.34"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigJunction" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61302, 0.085705, 8.86658)
+
+[node name="M_Pipe_BigJunction" type="MeshInstance3D" parent="Models/M_Pipe_BigJunction"]
+mesh = ExtResource("21_u3ayp")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigJunction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.713015, 1.5643, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigJunction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013005, 0.481705, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigJunction.obj
+0.23 x 0.17 x 0.48"
+font_size = 48
+outline_size = 8
+
+[node name="M_Tower_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4863, 0, 9.08172)
+
+[node name="M_Tower_Unwrapped" type="MeshInstance3D" parent="Models/M_Tower_Unwrapped"]
+mesh = ExtResource("22_o3ks6")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Tower_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.857668, 1.65, -0.222407)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Tower_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.536493, -0.222407)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Tower_Unwrapped.obj
+0.52 x 0.14 x 0.46"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallWide90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.73288, 0.0371, 9.16249)
+
+[node name="M_Pipe_SmallWide90" type="MeshInstance3D" parent="Models/M_Pipe_SmallWide90"]
+mesh = ExtResource("23_7gwig")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallWide90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08892, 1.6129, -0.266833)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallWide90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225908, 0.433101, -0.266833)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallWide90.obj
+0.53 x 0.07 x 0.53"
+font_size = 48
+outline_size = 8
+
+[node name="M_Monitor_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5384, -0.139667, 9.15552)
+
+[node name="M_Monitor_Unwrapped" type="MeshInstance3D" parent="Models/M_Monitor_Unwrapped"]
+mesh = ExtResource("24_kc723")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Monitor_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.868399, 1.78967, -0.23972)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Monitor_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07016, -0.23972)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Monitor_Unwrapped.obj
+0.54 x 0.53 x 0.57"
+font_size = 48
+outline_size = 8
+
+[node name="M_PipeHolster_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4744, 0.591148, 8.71717)
+
+[node name="M_PipeHolster_Unwrapped" type="MeshInstance3D" parent="Models/M_PipeHolster_Unwrapped"]
+mesh = ExtResource("25_0ibdm")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_PipeHolster_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767579, 1.05885, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_PipeHolster_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_PipeHolster_Unwrapped.obj
+0.34 x 0.59 x 0.18"
+font_size = 48
+outline_size = 8
+
+[node name="M_GasCanister_Alternate" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2127, 0, 8.79951)
+
+[node name="M_GasCanister_Alternate" type="MeshInstance3D" parent="Models/M_GasCanister_Alternate"]
+mesh = ExtResource("26_q5760")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GasCanister_Alternate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.670776, 1.65, 0.000756994)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GasCanister_Alternate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.988796, 0.000756994)
+pixel_size = 0.004125
+billboard = 1
+text = "M_GasCanister_Alternate.obj
+0.14 x 0.59 x 0.34"
+font_size = 48
+outline_size = 8
+
+[node name="Pen_2" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8079, -1e-06, 8.64776)
+
+[node name="Pen_2" type="MeshInstance3D" parent="Models/Pen_2"]
+mesh = ExtResource("27_ui6d7")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Pen_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62437, 1.65, -1.00024e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Pen_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002718, 1.03102, -1.00024e-06)
+pixel_size = 0.004125
+billboard = 1
+text = "Pen_2.obj
+0.04 x 0.64 x 0.04"
+font_size = 48
+outline_size = 8
+
+[node name="Pen_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.3434, 0, 8.66361)
+
+[node name="Pen_1" type="MeshInstance3D" parent="Models/Pen_1"]
+mesh = ExtResource("28_eddwo")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Pen_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616592, 1.65, -0.0090985)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Pen_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99189e-07, 1.04095, -0.0090985)
+pixel_size = 0.004125
+billboard = 1
+text = "Pen_1.obj
+0.03 x 0.64 x 0.05"
+font_size = 48
+outline_size = 8
+
+[node name="M_Keyboard_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.1854, 0, 8.53155)
+
+[node name="M_Keyboard_Unwrapped" type="MeshInstance3D" parent="Models/M_Keyboard_Unwrapped"]
+mesh = ExtResource("29_akjvb")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Keyboard_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925387, 1.65, 0.204549)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Keyboard_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.439871, 0.204549)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Keyboard_Unwrapped.obj
+0.65 x 0.04 x 0.21"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallShort" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0478, 0.037084, 8.98084)
+
+[node name="M_Pipe_SmallShort" type="MeshInstance3D" parent="Models/M_Pipe_SmallShort"]
+mesh = ExtResource("30_h6ev0")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallShort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637084, 1.61292, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallShort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433084, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallShort.obj
+0.07 x 0.07 x 0.70"
+font_size = 48
+outline_size = 8
+
+[node name="Pencil" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51404, 0, 13.3469)
+
+[node name="Pencil" type="MeshInstance3D" parent="Models/Pencil"]
+mesh = ExtResource("31_r6xot")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Pencil"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.614038, 1.65, -1.50036e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Pencil"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99189e-07, 1.12081, -1.50036e-06)
+pixel_size = 0.004125
+billboard = 1
+text = "Pencil.obj
+0.03 x 0.72 x 0.03"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigWide90" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79254, 0.05801, 14.1673)
+
+[node name="M_Pipe_BigWide90" type="MeshInstance3D" parent="Models/M_Pipe_BigWide90"]
+mesh = ExtResource("32_chjsk")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigWide90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36446, 1.59199, -0.417215)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigWide90"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353225, 0.45401, -0.417215)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigWide90.obj
+0.82 x 0.12 x 0.83"
+font_size = 48
+outline_size = 8
+
+[node name="M_Computer_Combined_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67593, 0.00677, 13.8596)
+
+[node name="M_Computer_Combined_Unwrapped" type="MeshInstance3D" parent="Models/M_Computer_Combined_Unwrapped"]
+mesh = ExtResource("33_g2ukm")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Computer_Combined_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.925387, 1.64323, -0.107439)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Computer_Combined_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108858, 1.07016, -0.107439)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Computer_Combined_Unwrapped.obj
+0.87 x 0.68 x 0.84"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigShort" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.777, 0.057984, 13.8833)
+
+[node name="M_Pipe_BigShort" type="MeshInstance3D" parent="Models/M_Pipe_BigShort"]
+mesh = ExtResource("34_2ne27")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigShort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.657984, 1.59202, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigShort"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453984, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigShort.obj
+0.12 x 0.12 x 1.10"
+font_size = 48
+outline_size = 8
+
+[node name="M_BearTrap_AnimatedV6" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1458, 0.0358145, 13.6424)
+
+[node name="M_BearTrap_AnimatedV6" parent="Models/M_BearTrap_AnimatedV6" instance=ExtResource("35_b6vif")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_BearTrap_AnimatedV6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41084, 1.61419, 0.0651372)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_BearTrap_AnimatedV6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254366, 0.7243, 0.0651372)
+pixel_size = 0.004125
+billboard = 1
+text = "M_BearTrap_AnimatedV6.fbx
+1.11 x 0.36 x 0.75"
+font_size = 48
+outline_size = 8
+
+[node name="M_BearTrap_Please" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7678, 0.00843821, 13.6424)
+
+[node name="M_BearTrap_Please" parent="Models/M_BearTrap_Please" instance=ExtResource("36_nmgoq")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_BearTrap_Please"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41987, 1.64156, 0.00684711)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_BearTrap_Please"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258883, 0.564491, 0.00684711)
+pixel_size = 0.004125
+billboard = 1
+text = "M_BearTrap_Please.fbx
+1.12 x 0.18 x 0.63"
+font_size = 48
+outline_size = 8
+
+[node name="M_Recycling_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.8788, 0, 13.6417)
+
+[node name="M_Recycling_Unwrapped" type="MeshInstance3D" parent="Models/M_Recycling_Unwrapped"]
+mesh = ExtResource("37_22jc1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Recycling_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.908839, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Recycling_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6568, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Recycling_Unwrapped.obj
+0.62 x 1.26 x 0.62"
+font_size = 48
+outline_size = 8
+
+[node name="M_Rubbish_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9964, 0, 13.6417)
+
+[node name="M_Rubbish_Unwrapped" type="MeshInstance3D" parent="Models/M_Rubbish_Unwrapped"]
+mesh = ExtResource("38_f0ol5")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Rubbish_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.908839, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Rubbish_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6568, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Rubbish_Unwrapped.obj
+0.62 x 1.26 x 0.62"
+font_size = 48
+outline_size = 8
+
+[node name="M_ParkingDrum_Simple" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.241, 0, 13.7686)
+
+[node name="M_ParkingDrum_Simple" type="MeshInstance3D" parent="Models/M_ParkingDrum_Simple"]
+mesh = ExtResource("39_jjcit")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ParkingDrum_Simple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03576, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ParkingDrum_Simple"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7163, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_ParkingDrum_Simple.obj
+0.87 x 1.32 x 0.87"
+font_size = 48
+outline_size = 8
+
+[node name="M_ParkingDrum_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6126, 0, 13.7686)
+
+[node name="M_ParkingDrum_Unwrapped" type="MeshInstance3D" parent="Models/M_ParkingDrum_Unwrapped"]
+mesh = ExtResource("40_u4wo5")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ParkingDrum_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03576, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ParkingDrum_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71936, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_ParkingDrum_Unwrapped.obj
+0.87 x 1.32 x 0.87"
+font_size = 48
+outline_size = 8
+
+[node name="Papers_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0825, -0.000117, 18.9806)
+
+[node name="Papers_1" type="MeshInstance3D" parent="Models/Papers_1"]
+mesh = ExtResource("41_583rg")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Papers_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1825, 1.65012, 0.120334)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Papers_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038219, 0.444516, 0.120334)
+pixel_size = 0.004125
+billboard = 1
+text = "Papers_1.obj
+1.09 x 0.05 x 1.33"
+font_size = 48
+outline_size = 8
+
+[node name="M_GaragePole_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15902, 0, 18.5042)
+
+[node name="M_GaragePole_Unwrapped" type="MeshInstance3D" parent="Models/M_GaragePole_Unwrapped"]
+mesh = ExtResource("42_lukb3")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GaragePole_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.670466, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GaragePole_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77974, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_GaragePole_Unwrapped.obj
+0.14 x 1.38 x 0.14"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallMed" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.76657, 0.037084, 19.1377)
+
+[node name="M_Pipe_SmallMed" type="MeshInstance3D" parent="Models/M_Pipe_SmallMed"]
+mesh = ExtResource("43_scwd5")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallMed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637084, 1.61292, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallMed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433084, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallMed.obj
+0.07 x 0.07 x 1.41"
+font_size = 48
+outline_size = 8
+
+[node name="M_Sign_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.031, 0, 18.4548)
+
+[node name="M_Sign_Unwrapped" type="MeshInstance3D" parent="Models/M_Sign_Unwrapped"]
+mesh = ExtResource("44_ljhgf")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Sign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32731, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Sign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.810186, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Sign_Unwrapped.obj
+1.45 x 0.41 x 0.04"
+font_size = 48
+outline_size = 8
+
+[node name="M_Chair_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6718, 0, 18.8472)
+
+[node name="M_Chair_Unwrapped" type="MeshInstance3D" parent="Models/M_Chair_Unwrapped"]
+mesh = ExtResource("45_qluct")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Chair_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01354, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Chair_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86936, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Chair_Unwrapped.obj
+0.83 x 1.47 x 0.83"
+font_size = 48
+outline_size = 8
+
+[node name="M_KillerPrimitive" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5766, 0, 18.5941)
+
+[node name="M_KillerPrimitive" type="MeshInstance3D" parent="Models/M_KillerPrimitive"]
+mesh = ExtResource("46_b2wba")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_KillerPrimitive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59124, 1.65, 0.055556)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_KillerPrimitive"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4047, 0.055556)
+pixel_size = 0.004125
+billboard = 1
+text = "M_KillerPrimitive.obj
+1.98 x 2.01 x 0.43"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigMed" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1258, 0.057984, 19.5345)
+
+[node name="M_Pipe_BigMed" type="MeshInstance3D" parent="Models/M_Pipe_BigMed"]
+mesh = ExtResource("47_drn8v")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigMed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.657984, 1.59202, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigMed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453984, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_BigMed.obj
+0.12 x 0.12 x 2.20"
+font_size = 48
+outline_size = 8
+
+[node name="Model_Cubicle_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0474, 0, 19.7331)
+
+[node name="Model_Cubicle_Unwrapped" type="MeshInstance3D" parent="Models/Model_Cubicle_Unwrapped"]
+mesh = ExtResource("48_a3cmc")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Model_Cubicle_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9636, 1.65, -0.149692)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Model_Cubicle_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.181798, 2.396, -0.149692)
+pixel_size = 0.004125
+billboard = 1
+text = "Model_Cubicle_Unwrapped.obj
+2.36 x 2.00 x 2.30"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_Simple_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.6862, 0.073445, 19.5239)
+
+[node name="M_Elevator_Simple_Unwrapped" type="MeshInstance3D" parent="Models/M_Elevator_Simple_Unwrapped"]
+mesh = ExtResource("49_5f24d")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_Simple_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73881, 1.57656, 0.024298)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_Simple_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80868, 0.024298)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_Simple_Unwrapped.obj
+2.28 x 2.49 x 2.23"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4638, 0.073445, 19.5239)
+
+[node name="M_Elevator_Unwrapped" type="MeshInstance3D" parent="Models/M_Elevator_Unwrapped"]
+mesh = ExtResource("50_kig5x")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73881, 1.57656, 0.0335085)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80868, 0.0335085)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_Unwrapped.obj
+2.28 x 2.49 x 2.25"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_Unwrapped_Old" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6388, 0.073445, 25.8233)
+
+[node name="M_Elevator_Unwrapped_Old" type="MeshInstance3D" parent="Models/M_Elevator_Unwrapped_Old"]
+mesh = ExtResource("51_64w0q")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_Unwrapped_Old"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73881, 1.57656, 0.0335085)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_Unwrapped_Old"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80868, 0.0335085)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_Unwrapped_Old.obj
+2.28 x 2.49 x 2.25"
+font_size = 48
+outline_size = 8
+
+[node name="M_Elevator_WIP" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.41642, 0.073445, 25.8233)
+
+[node name="M_Elevator_WIP" type="MeshInstance3D" parent="Models/M_Elevator_WIP"]
+mesh = ExtResource("52_aoxue")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Elevator_WIP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73881, 1.57656, 0.0335085)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Elevator_WIP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80868, 0.0335085)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Elevator_WIP.obj
+2.28 x 2.49 x 2.25"
+font_size = 48
+outline_size = 8
+
+[node name="M_ParkBlock_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2994, 0, 24.8721)
+
+[node name="M_ParkBlock_Unwrapped" type="MeshInstance3D" parent="Models/M_ParkBlock_Unwrapped"]
+mesh = ExtResource("53_o1ecv")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ParkBlock_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84416, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ParkBlock_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.579698, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_ParkBlock_Unwrapped.obj
+2.49 x 0.18 x 0.28"
+font_size = 48
+outline_size = 8
+
+[node name="M_ParkBlock" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2877, 0, 24.8721)
+
+[node name="M_ParkBlock" type="MeshInstance3D" parent="Models/M_ParkBlock"]
+mesh = ExtResource("54_lr0a6")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ParkBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84416, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ParkBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-07, 0.579698, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_ParkBlock.obj
+2.49 x 0.18 x 0.28"
+font_size = 48
+outline_size = 8
+
+[node name="M_Nut" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3366, 0.533984, 25.863)
+
+[node name="M_Nut" type="MeshInstance3D" parent="Models/M_Nut"]
+mesh = ExtResource("55_aqfha")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Nut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90475, 1.11602, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Nut"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929981, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Nut.obj
+2.61 x 1.07 x 2.26"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_SmallLong" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.1785, 0.037085, 26.1412)
+
+[node name="M_Pipe_SmallLong" type="MeshInstance3D" parent="Models/M_Pipe_SmallLong"]
+mesh = ExtResource("56_nige3")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_SmallLong"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637084, 1.61292, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_SmallLong"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.433085, 0)
+pixel_size = 0.004125
+billboard = 1
+text = "M_Pipe_SmallLong.obj
+0.07 x 0.07 x 2.82"
+font_size = 48
+outline_size = 8
+
+[node name="M_Pipe_BigLong" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7735, 0.057984, 26.9347)
+
+[node name="M_Pipe_BigLong" type="MeshInstance3D" parent="Models/M_Pipe_BigLong"]
+mesh = ExtResource("57_clx68")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Pipe_BigLong"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.657984, 1.59202, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Pipe_BigLong"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586383, 0)
+pixel_size = 0.00550416
+billboard = 1
+text = "M_Pipe_BigLong.obj
+0.12 x 0.12 x 4.40"
+font_size = 48
+outline_size = 8
+
+[node name="Potted_Plant_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5153, 0, 25.6902)
+
+[node name="Potted_Plant_1" type="MeshInstance3D" parent="Models/Potted_Plant_1"]
+mesh = ExtResource("58_h3dvb")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Potted_Plant_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78377, 1.65, 0.450766)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Potted_Plant_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216493, 5.40644, 0.450766)
+pixel_size = 0.00603397
+billboard = 1
+text = "Potted_Plant_1.obj
+2.80 x 4.83 x 2.82"
+font_size = 48
+outline_size = 8
+
+[node name="M_ElectricalPipes_WIP" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.4455, -1.60192, 25.4068)
+
+[node name="M_ElectricalPipes_WIP" type="MeshInstance3D" parent="Models/M_ElectricalPipes_WIP"]
+mesh = ExtResource("59_ffolq")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ElectricalPipes_WIP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4135, 3.25192, 1.91424)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ElectricalPipes_WIP"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322926, 3.13787, 1.91424)
+pixel_size = 0.00646998
+billboard = 1
+text = "M_ElectricalPipes_WIP.obj
+0.98 x 0.91 x 5.18"
+font_size = 48
+outline_size = 8
+
+[node name="Killer UVs" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7759, -0.0190697, 25.2869)
+
+[node name="Killer UVs" parent="Models/Killer UVs" instance=ExtResource("60_6lasj")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Killer UVs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2627, 1.66907, -0.138342)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Killer UVs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00568318, 5.02328, -0.138342)
+pixel_size = 0.00664254
+billboard = 1
+text = "Killer UVs.fbx
+5.31 x 4.37 x 0.83"
+font_size = 48
+outline_size = 8
+
+[node name="M_DevCar" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84592, 0, 36.6619)
+
+[node name="M_DevCar" type="MeshInstance3D" parent="Models/M_DevCar"]
+mesh = ExtResource("61_42oho")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_DevCar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94592, 1.65, 0.029511)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_DevCar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14338, 2.40673, 0.029511)
+pixel_size = 0.00695587
+billboard = 1
+text = "M_DevCar.obj
+2.41 x 1.74 x 5.56"
+font_size = 48
+outline_size = 8
+
+[node name="@Node3D@24" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.751, 0, 36.6619)
+
+[node name="M_DevCar" type="MeshInstance3D" parent="Models/@Node3D@24"]
+mesh = ExtResource("62_mk6xr")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/@Node3D@24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94592, 1.65, 0.029511)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/@Node3D@24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14338, 2.40673, 0.029511)
+pixel_size = 0.00695587
+billboard = 1
+text = "M_DevCar.obj
+2.41 x 1.74 x 5.56"
+font_size = 48
+outline_size = 8
+
+[node name="M_Button_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.7151, 3.40494, 33.9091)
+
+[node name="M_Button_Unwrapped" type="MeshInstance3D" parent="Models/M_Button_Unwrapped"]
+mesh = ExtResource("63_ubxci")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Button_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00496, -1.75494, 2.20244)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Button_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.22213, 2.20244)
+pixel_size = 0.0085124
+billboard = 1
+text = "M_Button_Unwrapped.obj
+6.81 x 6.81 x 4.40"
+font_size = 48
+outline_size = 8
+
+[node name="NewOfficeMesh" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5616, 0.008863, 35.9333)
+
+[node name="NewOfficeMesh" type="MeshInstance3D" parent="Models/NewOfficeMesh"]
+mesh = ExtResource("64_kuwdi")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/NewOfficeMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.49855, 1.64114, -0.243213)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/NewOfficeMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41668, 1.67713, -0.243213)
+pixel_size = 0.00870468
+billboard = 1
+text = "NewOfficeMesh.obj
+6.96 x 0.85 x 3.56"
+font_size = 48
+outline_size = 8
+
+[node name="Mug_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.3125, 0.059744, 38.0056)
+
+[node name="Mug_1" type="MeshInstance3D" parent="Models/Mug_1"]
+mesh = ExtResource("65_oxftm")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Mug_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.69658, 1.59026, 4.76837e-07)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Mug_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56327, 10.7883, 4.76837e-07)
+pixel_size = 0.0141496
+billboard = 1
+text = "Mug_1.obj
+11.32 x 9.49 x 8.19"
+font_size = 48
+outline_size = 8
+
+[node name="Sticky_Note" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.3395, -0.000335, 39.8541)
+
+[node name="Sticky_Note" type="MeshInstance3D" parent="Models/Sticky_Note"]
+mesh = ExtResource("66_1y3fd")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Sticky_Note"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50793, 1.65033, 0.0845189)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Sticky_Note"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8147e-06, 1.9922, 0.0845189)
+pixel_size = 0.015074
+billboard = 1
+text = "Sticky_Note.obj
+11.82 x 0.54 x 12.06"
+font_size = 48
+outline_size = 8
+
+[node name="Sticky_Notes" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.4079, -0.002738, 39.9873)
+
+[node name="Sticky_Notes" type="MeshInstance3D" parent="Models/Sticky_Notes"]
+mesh = ExtResource("67_7e85i")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Sticky_Notes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64269, 1.65274, 0.102846)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Sticky_Notes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00124884, 2.94629, 0.102846)
+pixel_size = 0.0154527
+billboard = 1
+text = "Sticky_Notes.obj
+12.09 x 1.46 x 12.36"
+font_size = 48
+outline_size = 8
+
+[node name="Mug_2" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.1067, -5e-06, 38.3541)
+
+[node name="Mug_2" type="MeshInstance3D" parent="Models/Mug_2"]
+mesh = ExtResource("68_ycx7x")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Mug_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.04501, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Mug_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88632, 12.6335, 0)
+pixel_size = 0.0158283
+billboard = 1
+text = "Mug_2.obj
+12.66 x 11.11 x 8.89"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarKeys_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.294, 0.198128, 38.6567)
+
+[node name="M_CarKeys_Unwrapped" type="MeshInstance3D" parent="Models/M_CarKeys_Unwrapped"]
+mesh = ExtResource("69_vbyly")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarKeys_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27067, 1.45187, 0.519601)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarKeys_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15771, 3.91403, 0.519601)
+pixel_size = 0.0162824
+billboard = 1
+text = "M_CarKeys_Unwrapped.obj
+13.03 x 2.55 x 10.53"
+font_size = 48
+outline_size = 8
+
+[node name="PictureFrame_3" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.921, 0.009431, 40.1423)
+
+[node name="PictureFrame_3" type="MeshInstance3D" parent="Models/PictureFrame_3"]
+mesh = ExtResource("70_g4auy")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/PictureFrame_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.46462, 1.64057, -1.61877)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/PictureFrame_3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358805, 14.9605, -1.61877)
+pixel_size = 0.0167075
+billboard = 1
+text = "PictureFrame_3.obj
+13.01 x 13.37 x 9.23"
+font_size = 48
+outline_size = 8
+
+[node name="PictureFrame_2" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33095, -0.012465, 58.2774)
+
+[node name="PictureFrame_2" type="MeshInstance3D" parent="Models/PictureFrame_2"]
+mesh = ExtResource("71_rbwne")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/PictureFrame_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43094, 1.66246, 0.0430093)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/PictureFrame_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04116, 14.0651, 0.0430093)
+pixel_size = 0.0177608
+billboard = 1
+text = "PictureFrame_2.obj
+9.58 x 12.35 x 14.21"
+font_size = 48
+outline_size = 8
+
+[node name="M_FireAlarm" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8421, 7.5, 51.2161)
+
+[node name="M_FireAlarm" type="MeshInstance3D" parent="Models/M_FireAlarm"]
+mesh = ExtResource("72_jwewv")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_FireAlarm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, -5.85, 2.06341)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_FireAlarm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.30001, 2.06341)
+pixel_size = 0.01875
+billboard = 1
+text = "M_FireAlarm.obj
+10.00 x 15.00 x 4.13"
+font_size = 48
+outline_size = 8
+
+[node name="M_GasIntake" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9965, -39.8055, 223.34)
+
+[node name="M_GasIntake" type="MeshInstance3D" parent="Models/M_GasIntake"]
+mesh = ExtResource("73_ltdqi")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GasIntake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.2387, 41.4555, -164.082)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GasIntake"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3497, 57.8524, -164.082)
+pixel_size = 0.0201417
+billboard = 1
+text = "M_GasIntake.obj
+7.02 x 16.11 x 16.08"
+font_size = 48
+outline_size = 8
+
+[node name="M_GasCap" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.2608, 8.02651, 51.2769)
+
+[node name="M_GasCap" type="MeshInstance3D" parent="Models/M_GasCap"]
+mesh = ExtResource("74_q01i3")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GasCap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66249, -6.37651, 8.01122)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GasCap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.659542, 10.3798, 8.01122)
+pixel_size = 0.0205427
+billboard = 1
+text = "M_GasCap.obj
+8.81 x 16.43 x 16.14"
+font_size = 48
+outline_size = 8
+
+[node name="PictureFrame_4" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.0189, 0.089053, 57.2365)
+
+[node name="PictureFrame_4" type="MeshInstance3D" parent="Models/PictureFrame_4"]
+mesh = ExtResource("75_rnnt7")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/PictureFrame_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18441, 1.56095, -1.46336)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/PictureFrame_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0306892, 16.2699, -1.46336)
+pixel_size = 0.0215378
+billboard = 1
+text = "PictureFrame_4.obj
+17.23 x 14.29 x 9.11"
+font_size = 48
+outline_size = 8
+
+[node name="M_SPAM_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.9763, 0, 59.4596)
+
+[node name="M_SPAM_Unwrapped" type="MeshInstance3D" parent="Models/M_SPAM_Unwrapped"]
+mesh = ExtResource("76_oafg1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_SPAM_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24263, 1.65, -0.340892)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_SPAM_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.9157, -0.340892)
+pixel_size = 0.0222274
+billboard = 1
+text = "M_SPAM_Unwrapped.obj
+7.29 x 17.78 x 15.81"
+font_size = 48
+outline_size = 8
+
+[node name="PictureFrame_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.063, 0.004451, 60.3916)
+
+[node name="PictureFrame_1" type="MeshInstance3D" parent="Models/PictureFrame_1"]
+mesh = ExtResource("77_wkc5o")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/PictureFrame_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.20969, 1.64555, -2.40669)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/PictureFrame_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361787, 22.6856, -2.40669)
+pixel_size = 0.0253237
+billboard = 1
+text = "PictureFrame_1.obj
+14.50 x 20.26 x 13.54"
+font_size = 48
+outline_size = 8
+
+[node name="M_Battery_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.527, 0, 59.8661)
+
+[node name="M_Battery_Unwrapped" type="MeshInstance3D" parent="Models/M_Battery_Unwrapped"]
+mesh = ExtResource("78_47te5")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Battery_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6, 1.65, -1.90735e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Battery_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.8055, -1.90735e-06)
+pixel_size = 0.0332651
+billboard = 1
+text = "M_Battery_Unwrapped.obj
+26.00 x 26.61 x 17.30"
+font_size = 48
+outline_size = 8
+
+[node name="Tissue_Box" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.34, -0.050111, 65.2278)
+
+[node name="Tissue_Box" type="MeshInstance3D" parent="Models/Tissue_Box"]
+mesh = ExtResource("79_d7ao6")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Tissue_Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.929, 1.70011, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Tissue_Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0744, 0)
+pixel_size = 0.0350292
+billboard = 1
+text = "Tissue_Box.obj
+16.66 x 17.66 x 28.02"
+font_size = 48
+outline_size = 8
+
+[node name="Stapler" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.244, -7.7e-05, 66.3508)
+
+[node name="Stapler" type="MeshInstance3D" parent="Models/Stapler"]
+mesh = ExtResource("80_j7vmw")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Stapler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26851, 1.65008, -0.59914)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Stapler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000308037, 13.6184, -0.59914)
+pixel_size = 0.0363388
+billboard = 1
+text = "Stapler.obj
+5.34 x 10.13 x 29.07"
+font_size = 48
+outline_size = 8
+
+[node name="M_Revolver_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72611, 7.09455, 106.661)
+
+[node name="M_Revolver_Unwrapped" type="MeshInstance3D" parent="Models/M_Revolver_Unwrapped"]
+mesh = ExtResource("81_yyaw1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Revolver_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82611, -5.44455, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Revolver_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6334, 0)
+pixel_size = 0.0368627
+billboard = 1
+text = "M_Revolver_Unwrapped.obj
+4.45 x 14.19 x 29.49"
+font_size = 48
+outline_size = 8
+
+[node name="M_SmokeDetector_Unwrappeed" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2993, 0, 106.916)
+
+[node name="M_SmokeDetector_Unwrappeed" type="MeshInstance3D" parent="Models/M_SmokeDetector_Unwrappeed"]
+mesh = ExtResource("82_ygtnt")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_SmokeDetector_Unwrappeed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_SmokeDetector_Unwrappeed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.8197, 0)
+pixel_size = 0.0375
+billboard = 1
+text = "M_SmokeDetector_Unwrappeed.obj
+30.00 x 7.22 x 30.00"
+font_size = 48
+outline_size = 8
+
+[node name="M_Champaine_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.678, 0, 96.7943)
+
+[node name="M_Champaine_Unwrapped" type="MeshInstance3D" parent="Models/M_Champaine_Unwrapped"]
+mesh = ExtResource("83_a74mc")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Champaine_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47874, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Champaine_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53674e-07, 35.4791, 0)
+pixel_size = 0.0395972
+billboard = 1
+text = "M_Champaine_Unwrapped.obj
+9.76 x 31.68 x 9.76"
+font_size = 48
+outline_size = 8
+
+[node name="Folder_1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.6803, -0.011561, 108.822)
+
+[node name="Folder_1" type="MeshInstance3D" parent="Models/Folder_1"]
+mesh = ExtResource("84_e6s48")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Folder_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7202, 1.66156, -1.83324)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Folder_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0170879, 5.48991, -1.83324)
+pixel_size = 0.0428433
+billboard = 1
+text = "Folder_1.obj
+34.27 x 1.37 x 30.15"
+font_size = 48
+outline_size = 8
+
+[node name="M_Steering" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.8295, -38.6615, 25.7144)
+
+[node name="M_Steering" type="MeshInstance3D" parent="Models/M_Steering"]
+mesh = ExtResource("85_1kfsl")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Steering"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.1877, 40.3115, 73.3172)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Steering"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.5411, 77.9754, 73.3172)
+pixel_size = 0.0443835
+billboard = 1
+text = "M_Steering.obj
+35.51 x 35.05 x 14.23"
+font_size = 48
+outline_size = 8
+
+[node name="M_Box_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.345, 0, 109.491)
+
+[node name="M_Box_Unwrapped" type="MeshInstance3D" parent="Models/M_Box_Unwrapped"]
+mesh = ExtResource("86_k7kjt")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Box_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6689, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Box_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.245, 0)
+pixel_size = 0.0526722
+billboard = 1
+text = "M_Box_Unwrapped.obj
+42.14 x 29.19 x 35.15"
+font_size = 48
+outline_size = 8
+
+[node name="M_Camera_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.451, 3.90318, 91.9156)
+
+[node name="M_Camera_Unwrapped" type="MeshInstance3D" parent="Models/M_Camera_Unwrapped"]
+mesh = ExtResource("87_ht4rq")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Camera_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.49598, -2.25318, 22.2514)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Camera_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76837e-07, 25.9033, 22.2514)
+pixel_size = 0.0556284
+billboard = 1
+text = "M_Camera_Unwrapped.obj
+11.79 x 24.47 x 44.50"
+font_size = 48
+outline_size = 8
+
+[node name="Answering_Machine" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.763, -4e-06, 108.431)
+
+[node name="Answering_Machine" type="MeshInstance3D" parent="Models/Answering_Machine"]
+mesh = ExtResource("88_vsi16")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Answering_Machine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1649, 1.65, 7.68879)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Answering_Machine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38554, 15.7012, 7.68879)
+pixel_size = 0.0605108
+billboard = 1
+text = "Answering_Machine.obj
+40.36 x 9.89 x 48.41"
+font_size = 48
+outline_size = 8
+
+[node name="M_FireExtinguisher" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 323.044, 0, 100.856)
+
+[node name="M_FireExtinguisher" type="MeshInstance3D" parent="Models/M_FireExtinguisher"]
+mesh = ExtResource("89_epkeu")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_FireExtinguisher"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0652, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_FireExtinguisher"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30747, 55.6004, 0)
+pixel_size = 0.062054
+billboard = 1
+text = "M_FireExtinguisher.obj
+29.55 x 49.64 x 17.88"
+font_size = 48
+outline_size = 8
+
+[node name="M_Lamp" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 370.902, 0, 114.678)
+
+[node name="M_Lamp" type="MeshInstance3D" parent="Models/M_Lamp"]
+mesh = ExtResource("90_5561f")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9851, 1.65, 1.19373)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 57.6197, 1.19373)
+pixel_size = 0.0643077
+billboard = 1
+text = "M_Lamp.obj
+28.77 x 51.45 x 47.91"
+font_size = 48
+outline_size = 8
+
+[node name="Small_Bin" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0391, 2e-06, 182.032)
+
+[node name="Small_Bin" type="MeshInstance3D" parent="Models/Small_Bin"]
+mesh = ExtResource("91_33y7u")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Small_Bin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1391, 1.65, -9.53674e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Small_Bin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.140963, 57.8724, -9.53674e-06)
+pixel_size = 0.0645897
+billboard = 1
+text = "Small_Bin.obj
+32.80 x 51.67 x 44.69"
+font_size = 48
+outline_size = 8
+
+[node name="M_GarageLightFixture" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.7991, 14.3977, 191.189)
+
+[node name="M_GarageLightFixture" type="MeshInstance3D" parent="Models/M_GarageLightFixture"]
+mesh = ExtResource("92_74ibo")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GarageLightFixture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.1012, -12.7477, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GarageLightFixture"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5603, 0)
+pixel_size = 0.0787531
+billboard = 1
+text = "M_GarageLightFixture.obj
+63.00 x 14.40 x 63.00"
+font_size = 48
+outline_size = 8
+
+[node name="Folder_2" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.809, -0.245557, 177.626)
+
+[node name="Folder_2" type="MeshInstance3D" parent="Models/Folder_2"]
+mesh = ExtResource("93_4upic")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Folder_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7084, 1.89556, 0.137169)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Folder_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65937, 9.81508, 0.137169)
+pixel_size = 0.0811226
+billboard = 1
+text = "Folder_2.obj
+64.90 x 1.78 x 36.15"
+font_size = 48
+outline_size = 8
+
+[node name="Cardboard_Box" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.935, -0.244121, 195.261)
+
+[node name="Cardboard_Box" type="MeshInstance3D" parent="Models/Cardboard_Box"]
+mesh = ExtResource("94_pdqui")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/Cardboard_Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9669, 1.89412, -0.0360222)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/Cardboard_Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.5535, -0.0360222)
+pixel_size = 0.0888423
+billboard = 1
+text = "Cardboard_Box.obj
+64.73 x 23.78 x 71.07"
+font_size = 48
+outline_size = 8
+
+[node name="M_SpareTire_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 321.955, 38.3849, 198.073)
+
+[node name="M_SpareTire_Unwrapped" type="MeshInstance3D" parent="Models/M_SpareTire_Unwrapped"]
+mesh = ExtResource("95_qr6f4")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_SpareTire_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4305, -36.7349, -7.62939e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_SpareTire_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.5973, -7.62939e-06)
+pixel_size = 0.0959622
+billboard = 1
+text = "M_SpareTire_Unwrapped.obj
+27.66 x 76.77 x 76.77"
+font_size = 48
+outline_size = 8
+
+[node name="M_TrafficCone_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 387.112, -1e-06, 186.484)
+
+[node name="M_TrafficCone_Unwrapped" type="MeshInstance3D" parent="Models/M_TrafficCone_Unwrapped"]
+mesh = ExtResource("96_5y338")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_TrafficCone_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.396, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_TrafficCone_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-06, 86.5669, 0)
+pixel_size = 0.0966149
+billboard = 1
+text = "M_TrafficCone_Unwrapped.obj
+53.59 x 77.29 x 53.59"
+font_size = 48
+outline_size = 8
+
+[node name="M_GarageLevelSign_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 488.596, 50, 159.588)
+
+[node name="M_GarageLevelSign_Unwrapped" type="MeshInstance3D" parent="Models/M_GarageLevelSign_Unwrapped"]
+mesh = ExtResource("97_5v0jg")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GarageLevelSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.6, -48.35, 0.100005)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GarageLevelSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 62, 0.100005)
+pixel_size = 0.125
+billboard = 1
+text = "M_GarageLevelSign_Unwrapped.obj
+100.00 x 100.00 x 0.00"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarInterior2" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 657.855, -0.130695, 167.694)
+
+[node name="M_CarInterior2" type="MeshInstance3D" parent="Models/M_CarInterior2"]
+mesh = ExtResource("98_2tuvq")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarInterior2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3592, 1.78069, 44.833)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarInterior2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.0924, 122.168, 44.833)
+pixel_size = 0.136202
+billboard = 1
+text = "M_CarInterior2.obj
+29.33 x 108.96 x 105.68"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarDoorPlayer" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 661.57, 44.5562, 265.021)
+
+[node name="M_CarDoorPlayer" type="MeshInstance3D" parent="Models/M_CarDoorPlayer"]
+mesh = ExtResource("99_2p3cm")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarDoorPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5522, -42.9062, -52.4365)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarDoorPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35964, 78.0418, -52.4365)
+pixel_size = 0.136828
+billboard = 1
+text = "M_CarDoorPlayer.obj
+43.19 x 109.46 x 105.79"
+font_size = 48
+outline_size = 8
+
+[node name="M_CardReader_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 722.26, -1.20025, 168.163)
+
+[node name="M_CardReader_Unwrapped" type="MeshInstance3D" parent="Models/M_CardReader_Unwrapped"]
+mesh = ExtResource("100_y2s4a")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CardReader_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7181, 2.85025, 12.4993)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CardReader_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000103951, 124.856, 12.4993)
+pixel_size = 0.138009
+billboard = 1
+text = "M_CardReader_Unwrapped.obj
+22.24 x 110.41 x 41.95"
+font_size = 48
+outline_size = 8
+
+[node name="M_HandicapSign" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.6815, -0.760585, 363.979)
+
+[node name="M_HandicapSign" type="MeshInstance3D" parent="Models/M_HandicapSign"]
+mesh = ExtResource("101_m1jkp")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_HandicapSign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.7815, 2.41058, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_HandicapSign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.2441, 0)
+pixel_size = 0.140454
+billboard = 1
+text = "M_HandicapSign.obj
+112.36 x 0.00 x 112.36"
+font_size = 48
+outline_size = 8
+
+[node name="M_Printer_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.295, 0, 339.733)
+
+[node name="M_Printer_Unwrapped" type="MeshInstance3D" parent="Models/M_Printer_Unwrapped"]
+mesh = ExtResource("102_fjdl1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Printer_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.8234, 1.65, 3.00268)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Printer_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.170813, 129.674, 3.00268)
+pixel_size = 0.144725
+billboard = 1
+text = "M_Printer_Unwrapped.obj
+60.11 x 115.78 x 69.88"
+font_size = 48
+outline_size = 8
+
+[node name="M_TicketDispenser_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.911, 0, 327.515)
+
+[node name="M_TicketDispenser_Unwrapped" type="MeshInstance3D" parent="Models/M_TicketDispenser_Unwrapped"]
+mesh = ExtResource("103_ice8u")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_TicketDispenser_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1, 1.65, 13.9767)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_TicketDispenser_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72205e-06, 143.082, 13.9767)
+pixel_size = 0.15969
+billboard = 1
+text = "M_TicketDispenser_Unwrapped.obj
+35.00 x 127.75 x 67.39"
+font_size = 48
+outline_size = 8
+
+[node name="M_MopBucket_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.822, 0, 336.693)
+
+[node name="M_MopBucket_Unwrapped" type="MeshInstance3D" parent="Models/M_MopBucket_Unwrapped"]
+mesh = ExtResource("104_qob38")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_MopBucket_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.185, 1.65, 1.90735e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_MopBucket_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76147, 150.106, 1.90735e-06)
+pixel_size = 0.167529
+billboard = 1
+text = "M_MopBucket_Unwrapped.obj
+94.69 x 134.02 x 57.79"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarHoodInterior" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525.885, -26.0604, 175.452)
+
+[node name="M_CarHoodInterior" type="MeshInstance3D" parent="Models/M_CarHoodInterior"]
+mesh = ExtResource("105_jdlke")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarHoodInterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8485, 27.7104, 183.653)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarHoodInterior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 84.9531, 183.653)
+pixel_size = 0.173121
+billboard = 1
+text = "M_CarHoodInterior.obj
+138.50 x 42.27 x 102.61"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarHood" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 707.431, 13.9011, 308.041)
+
+[node name="M_CarHood" type="MeshInstance3D" parent="Models/M_CarHood"]
+mesh = ExtResource("106_m5iv2")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarHood"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8485, -12.2511, 50.6844)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarHood"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1357, 50.6844)
+pixel_size = 0.173121
+billboard = 1
+text = "M_CarHood.obj
+138.50 x 18.42 x 101.86"
+font_size = 48
+outline_size = 8
+
+[node name="M_RoofRail_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 871.798, 2.90774, 386.816)
+
+[node name="M_RoofRail_Unwrapped" type="MeshInstance3D" parent="Models/M_RoofRail_Unwrapped"]
+mesh = ExtResource("107_wlsdk")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_RoofRail_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6691, -1.25774, -0.0789413)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_RoofRail_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, 28.8401, -0.0789413)
+pixel_size = 0.197349
+billboard = 1
+text = "M_RoofRail_Unwrapped.obj
+104.14 x 12.80 x 157.88"
+font_size = 48
+outline_size = 8
+
+[node name="M_Payphone" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 991.882, -8e-06, 312.19)
+
+[node name="M_Payphone" type="MeshInstance3D" parent="Models/M_Payphone"]
+mesh = ExtResource("108_bgj7h")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Payphone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.751, 1.65001, 14.5594)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Payphone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 198.158, 14.5594)
+pixel_size = 0.221158
+billboard = 1
+text = "M_Payphone.obj
+38.30 x 176.93 x 37.90"
+font_size = 48
+outline_size = 8
+
+[node name="M_Fridge_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1105.61, 0, 347.798)
+
+[node name="M_Fridge_Unwrapped" type="MeshInstance3D" parent="Models/M_Fridge_Unwrapped"]
+mesh = ExtResource("109_x0fva")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Fridge_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6, 1.65, 2.34597)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Fridge_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 201.865, 2.34597)
+pixel_size = 0.225296
+billboard = 1
+text = "M_Fridge_Unwrapped.obj
+80.00 x 180.24 x 84.69"
+font_size = 48
+outline_size = 8
+
+[node name="M_Mop" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1210.59, 1e-06, 326.056)
+
+[node name="M_Mop" type="MeshInstance3D" parent="Models/M_Mop"]
+mesh = ExtResource("110_cxlpw")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Mop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0123, 1.65, 1.90735e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Mop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2202, 207.81, 1.90735e-06)
+pixel_size = 0.231931
+billboard = 1
+text = "M_Mop.obj
+47.27 x 185.55 x 36.52"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarInterior3" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.2999, -1e-06, 662.242)
+
+[node name="M_CarInterior3" type="MeshInstance3D" parent="Models/M_CarInterior3"]
+mesh = ExtResource("111_bnuhj")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarInterior3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.3999, 1.65, -36.5798)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarInterior3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 138.637, -36.5798)
+pixel_size = 0.242082
+billboard = 1
+text = "M_CarInterior3.obj
+175.60 x 115.40 x 193.67"
+font_size = 48
+outline_size = 8
+
+[node name="M_ReflectiveSign_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.7, 0, 628.829)
+
+[node name="M_ReflectiveSign_Unwrapped" type="MeshInstance3D" parent="Models/M_ReflectiveSign_Unwrapped"]
+mesh = ExtResource("112_n5cxe")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ReflectiveSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.6, 1.65, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ReflectiveSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.7815, 0)
+pixel_size = 0.25
+billboard = 1
+text = "M_ReflectiveSign_Unwrapped.obj
+200.00 x 26.78 x 200.00"
+font_size = 48
+outline_size = 8
+
+[node name="M_StopSign_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 538.794, 0, 531.39)
+
+[node name="M_StopSign_Unwrapped" type="MeshInstance3D" parent="Models/M_StopSign_Unwrapped"]
+mesh = ExtResource("113_lcyp3")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_StopSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1943, 1.65, 1.20542)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_StopSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52588e-05, 237.927, 1.20542)
+pixel_size = 0.265544
+billboard = 1
+text = "M_StopSign_Unwrapped.obj
+81.19 x 212.44 x 7.53"
+font_size = 48
+outline_size = 8
+
+[node name="M_YieldSign_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 684.276, 0, 531.39)
+
+[node name="M_YieldSign_Unwrapped" type="MeshInstance3D" parent="Models/M_YieldSign_Unwrapped"]
+mesh = ExtResource("114_i7ry1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_YieldSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2575, 1.65, 1.20542)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_YieldSign_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28882e-05, 238.139, 1.20542)
+pixel_size = 0.26578
+billboard = 1
+text = "M_YieldSign_Unwrapped.obj
+79.31 x 212.62 x 7.53"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarInterior1" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 873.307, 0, 621.494)
+
+[node name="M_CarInterior1" type="MeshInstance3D" parent="Models/M_CarInterior1"]
+mesh = ExtResource("115_b046m")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarInterior1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.6856, 1.65, 17.503)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarInterior1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05589, 131.838, 17.503)
+pixel_size = 0.27542
+billboard = 1
+text = "M_CarInterior1.obj
+172.28 x 105.40 x 220.34"
+font_size = 48
+outline_size = 8
+
+[node name="M_Yield" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1068.76, 0, 531.39)
+
+[node name="M_Yield" type="MeshInstance3D" parent="Models/M_Yield"]
+mesh = ExtResource("116_ct2gm")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Yield"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2575, 1.65, 1.20542)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Yield"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 251.837, 1.20542)
+pixel_size = 0.281068
+billboard = 1
+text = "M_Yield.obj
+79.31 x 224.85 x 7.53"
+font_size = 48
+outline_size = 8
+
+[node name="M_PlayerARMS_UV" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1290.61, -168.826, 558.16)
+
+[node name="M_PlayerARMS_UV" parent="Models/M_PlayerARMS_UV" instance=ExtResource("117_pqfmr")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_PlayerARMS_UV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.837, 170.476, -20.8965)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_PlayerARMS_UV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 269.392, -20.8965)
+pixel_size = 0.283094
+billboard = 1
+text = "M_PlayerARMS_UV.fbx
+226.47 x 73.39 x 16.87"
+font_size = 48
+outline_size = 8
+
+[node name="M_StopSign" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1519.95, 0, 531.39)
+
+[node name="M_StopSign" type="MeshInstance3D" parent="Models/M_StopSign"]
+mesh = ExtResource("118_u78yv")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_StopSign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.255, 1.65, 1.20542)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_StopSign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 260.887, 1.20542)
+pixel_size = 0.291168
+billboard = 1
+text = "M_StopSign.obj
+93.31 x 232.93 x 7.53"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarWindow" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1718.36, -65.2544, 662.134)
+
+[node name="M_CarWindow" type="MeshInstance3D" parent="Models/M_CarWindow"]
+mesh = ExtResource("119_8j3vh")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.9732, 66.9044, -2.84442)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarWindow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 138.704, -2.84442)
+pixel_size = 0.326152
+billboard = 1
+text = "M_CarWindow.obj
+160.75 x 42.14 x 260.92"
+font_size = 48
+outline_size = 8
+
+[node name="EmergancyExitStairs" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2016.7, 119.241, 614.37)
+
+[node name="EmergancyExitStairs" type="MeshInstance3D" parent="Models/EmergancyExitStairs"]
+mesh = ExtResource("120_cxvg4")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/EmergancyExitStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.792, -117.591, -0.551086)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/EmergancyExitStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6647, 163.366, -0.551086)
+pixel_size = 0.331319
+billboard = 1
+text = "EmergancyExitStairs.obj
+265.05 x 250.80 x 169.98"
+font_size = 48
+outline_size = 8
+
+[node name="M_DirectionalArrow" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0787, -0.584293, 1043.2)
+
+[node name="M_DirectionalArrow" type="MeshInstance3D" parent="Models/M_DirectionalArrow"]
+mesh = ExtResource("121_rngpe")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_DirectionalArrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1787, 2.23429, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_DirectionalArrow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 36.3637, 0)
+pixel_size = 0.372702
+billboard = 1
+text = "M_DirectionalArrow.obj
+93.16 x 0.00 x 298.16"
+font_size = 48
+outline_size = 8
+
+[node name="FloorStairs" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.614, 77.2088, 1062.95)
+
+[node name="FloorStairs" type="MeshInstance3D" parent="Models/FloorStairs"]
+mesh = ExtResource("122_6hcde")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/FloorStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.6085, -75.5588, -12.3348)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/FloorStairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54846, 103.352, -12.3348)
+pixel_size = 0.39125
+billboard = 1
+text = "FloorStairs.obj
+163.11 x 143.00 x 313.00"
+font_size = 48
+outline_size = 8
+
+[node name="M_TollBooth_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 535.958, 2.1e-05, 1178.56)
+
+[node name="M_TollBooth_Unwrapped" type="MeshInstance3D" parent="Models/M_TollBooth_Unwrapped"]
+mesh = ExtResource("123_hmgj7")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_TollBooth_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.4386, 1.64998, -113.719)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_TollBooth_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28882e-05, 291.636, -113.719)
+pixel_size = 0.426798
+billboard = 1
+text = "M_TollBooth_Unwrapped.obj
+183.68 x 250.66 x 341.44"
+font_size = 48
+outline_size = 8
+
+[node name="M_BoomArm_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 749.228, 1.3e-05, 922.638)
+
+[node name="M_BoomArm_Unwrapped" type="MeshInstance3D" parent="Models/M_BoomArm_Unwrapped"]
+mesh = ExtResource("124_ir8cd")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_BoomArm_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1, 1.64999, -9.83703)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_BoomArm_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.5, 154.667, -9.83703)
+pixel_size = 0.4525
+billboard = 1
+text = "M_BoomArm_Unwrapped.obj
+362.00 x 111.23 x 37.36"
+font_size = 48
+outline_size = 8
+
+[node name="M_PlayerWHOLE_UV" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1317.07, -0.574459, 936.743)
+
+[node name="M_PlayerWHOLE_UV" parent="Models/M_PlayerWHOLE_UV" instance=ExtResource("125_rnxyl")]
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_PlayerWHOLE_UV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -113.837, 2.22446, -4.21589)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_PlayerWHOLE_UV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 412.725, -4.21589)
+pixel_size = 0.459989
+billboard = 1
+text = "M_PlayerWHOLE_UV.fbx
+226.47 x 367.99 x 76.82"
+font_size = 48
+outline_size = 8
+
+[node name="M_Fence" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1945.58, 0, 906.116)
+
+[node name="M_Fence" type="MeshInstance3D" parent="Models/M_Fence"]
+mesh = ExtResource("126_qrru1")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -403.983, 1.65, -5.99878)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.691, 133.296, -5.99878)
+pixel_size = 0.504228
+billboard = 1
+text = "M_Fence.obj
+403.38 x 84.89 x 12.00"
+font_size = 48
+outline_size = 8
+
+[node name="OfficeMesh" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2295.81, -5.26436, 1098.9)
+
+[node name="OfficeMesh" type="MeshInstance3D" parent="Models/OfficeMesh"]
+mesh = ExtResource("127_ypp6t")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/OfficeMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.315, 6.91436, 0.427704)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/OfficeMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.6437, 86.9493, 0.427704)
+pixel_size = 0.513024
+billboard = 1
+text = "OfficeMesh.obj
+328.14 x 32.43 x 410.42"
+font_size = 48
+outline_size = 8
+
+[node name="M_SUV_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2623.98, -35.219, 1127.33)
+
+[node name="M_SUV_Unwrapped" type="MeshInstance3D" parent="Models/M_SUV_Unwrapped"]
+mesh = ExtResource("128_uxqtw")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_SUV_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.716, 36.869, 2.34227)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_SUV_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 229.938, 2.34227)
+pixel_size = 0.588885
+billboard = 1
+text = "M_SUV_Unwrapped.obj
+206.23 x 138.19 x 471.11"
+font_size = 48
+outline_size = 8
+
+[node name="M_NPCar_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2971.18, 0, 1122.54)
+
+[node name="M_NPCar_Unwrapped" type="MeshInstance3D" parent="Models/M_NPCar_Unwrapped"]
+mesh = ExtResource("129_sklw7")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_NPCar_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.853, 1.65, 18.3901)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_NPCar_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 174.955, 18.3901)
+pixel_size = 0.617031
+billboard = 1
+text = "M_NPCar_Unwrapped.obj
+202.51 x 115.72 x 493.63"
+font_size = 48
+outline_size = 8
+
+[node name="M_CarBodyPlayer" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3311.15, 0, 1122.54)
+
+[node name="M_CarBodyPlayer" type="MeshInstance3D" parent="Models/M_CarBodyPlayer"]
+mesh = ExtResource("130_24cjg")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_CarBodyPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.7254, 1.65, 18.3901)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_CarBodyPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 174.955, 18.3901)
+pixel_size = 0.617031
+billboard = 1
+text = "M_CarBodyPlayer.obj
+178.25 x 115.72 x 493.63"
+font_size = 48
+outline_size = 8
+
+[node name="M_Truck_Unwrapped" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.34, -36.2389, 1697.01)
+
+[node name="M_Truck_Unwrapped" type="MeshInstance3D" parent="Models/M_Truck_Unwrapped"]
+mesh = ExtResource("131_g31ic")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Truck_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -263.44, 37.8889, -7.62939e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Truck_Unwrapped"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 241.649, -7.62939e-06)
+pixel_size = 0.6571
+billboard = 1
+text = "M_Truck_Unwrapped.obj
+525.68 x 142.33 x 223.62"
+font_size = 48
+outline_size = 8
+
+[node name="M_Killer_LowUV" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 952.085, 1.46522, 1626.41)
+
+[node name="M_Killer_LowUV" type="MeshInstance3D" parent="Models/M_Killer_LowUV"]
+mesh = ExtResource("132_ipgny")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_Killer_LowUV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -266.302, 0.184781, -1.74578)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_Killer_LowUV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 498.325, -1.74578)
+pixel_size = 0.664254
+billboard = 1
+text = "M_Killer_LowUV.obj
+531.40 x 436.02 x 78.94"
+font_size = 48
+outline_size = 8
+
+[node name="M_ParkingLine" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1392.64, -0.1, 1896.57)
+
+[node name="M_ParkingLine" type="MeshInstance3D" parent="Models/M_ParkingLine"]
+mesh = ExtResource("133_rlksr")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_ParkingLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5307, 1.75, 0)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_ParkingLine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 74.8302, 0)
+pixel_size = 0.77844
+billboard = 1
+text = "M_ParkingLine.obj
+27.86 x 0.00 x 622.75"
+font_size = 48
+outline_size = 8
+
+[node name="ramp" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1855, 10.9624, 1772.54)
+
+[node name="ramp" type="MeshInstance3D" parent="Models/ramp"]
+mesh = ExtResource("134_sdoml")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/ramp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260.702, -9.3124, 188.806)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/ramp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.3023, 224.562, 188.806)
+pixel_size = 0.940375
+billboard = 1
+text = "ramp.obj
+471.60 x 145.25 x 752.30"
+font_size = 48
+outline_size = 8
+
+[node name="M_GarageRailings" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3045.56, 0, 1586.82)
+
+[node name="M_GarageRailings" type="MeshInstance3D" parent="Models/M_GarageRailings"]
+mesh = ExtResource("135_a5c3q")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/M_GarageRailings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -752.477, 1.65, 2.98023e-06)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/M_GarageRailings"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -375, 340.45, 2.98023e-06)
+pixel_size = 0.942192
+billboard = 1
+text = "M_GarageRailings.obj
+753.75 x 250.00 x 3.25"
+font_size = 48
+outline_size = 8
+
+[node name="ParkingGarageMesh" type="Node3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8234.52, -7.98693, 5077.13)
+
+[node name="ParkingGarageMesh" type="MeshInstance3D" parent="Models/ParkingGarageMesh"]
+mesh = ExtResource("136_2pcww")
+
+[node name="Player3_3" type="MeshInstance3D" parent="Models/ParkingGarageMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4960.06, 9.63693, -477.556)
+mesh = SubResource("CapsuleMesh_coci6")
+
+[node name="Label" type="Label3D" parent="Models/ParkingGarageMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4277, 1953.28, -477.556)
+pixel_size = 12.4497
+billboard = 1
+text = "ParkingGarageMesh.obj
+9959.77 x 750.12 x 6028.76"
+font_size = 48
+outline_size = 8
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8111.38, 0, 3806.98)
+mesh = SubResource("PlaneMesh_5dfy6")
+
+[node name="FloorBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8111.38, -0.5, 3806.98)
+shape = SubResource("BoxShape3D_oyuni")
+
+[node name="Player" parent="." instance=ExtResource("137_xn14s")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 4, 0.1, -6)

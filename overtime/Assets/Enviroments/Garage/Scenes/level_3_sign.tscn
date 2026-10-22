@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnc61esadkg4v"]
 
-[ext_resource type="ArrayMesh" uid="uid://bycg5gikuxbnv" path="res://Assets/Enviroments/Garage/Models/M_GarageLevelSign_Unwrapped.obj" id="1_vfedk"]
-[ext_resource type="Texture2D" uid="uid://bd7miwwn2gh1" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png" id="2_11qhv"]
-[ext_resource type="Texture2D" uid="uid://dcyyk2e2avh7d" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_MaskMap (2).png" id="3_hldec"]
-[ext_resource type="Texture2D" uid="uid://5iwf168p4eq2" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_Normal (2).png" id="4_qilkc"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Garage/Models/M_GarageLevelSign_Unwrapped.obj" id="1_vfedk"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_BaseMap (2).png" id="2_11qhv"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_MaskMap (2).png" id="3_hldec"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Garage Level Signs Textures/M_GarageLevelSign_Unwrapped_DefaultMaterial_Normal (2).png" id="4_qilkc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v7ql"]
 transparency = 1
@@ -18,6 +18,6 @@ normal_texture = ExtResource("4_qilkc")
 [node name="Level3Sign" type="Node3D"]
 
 [node name="MGarageLevelSignUnwrapped" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0.0382935, 0, 0.0575719)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91467, 0, 2.87859)
 mesh = ExtResource("1_vfedk")
 surface_material_override/0 = SubResource("StandardMaterial3D_6v7ql")

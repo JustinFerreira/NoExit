@@ -1,13 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://dui50vqlopabk"]
 
 [ext_resource type="Script" path="res://Scripts/alarm_car_event.gd" id="1_e6u0y"]
-[ext_resource type="AudioStream" uid="uid://r41sbo6ihejx" path="res://Assets/Audio/SFX/CarAlarmSiren2.mp3" id="2_4aqup"]
-[ext_resource type="PackedScene" uid="uid://dtp51ktubdbiq" path="res://Assets/Enviroments/Garage/Scenes/SUVBrown.tscn" id="3_btt1t"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/CarAlarmSiren2.mp3" id="2_4aqup"]
+[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/SUVBrown.tscn" id="3_btt1t"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oagss"]
+[sub_resource type="BoxMesh" id="BoxMesh_u6ky1"]
+size = Vector3(437.181, 14.3026, 1590.05)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hlavp"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lr6vj"]
+points = PackedVector3Array(-218.59, -7.1513, -795.025, 218.59, 7.1513, 795.025, 218.59, -7.1513, 795.025, 218.59, 7.1513, -795.025, -218.59, 7.1513, 795.025, 218.59, -7.1513, -795.025, -218.59, -7.1513, 795.025, -218.59, 7.1513, -795.025)
 
 [sub_resource type="Animation" id="Animation_ifmqw"]
 resource_name = "CarAlarm"
@@ -96,31 +97,37 @@ _data = {
 
 [node name="AlarmCarEvent" type="Node3D"]
 script = ExtResource("1_e6u0y")
+sound = null
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(8.74361, 0, 0, 0, 0.286052, 0, 0, 0, 31.801, 0, 0, 11.2362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 561.81)
 visible = false
-mesh = SubResource("BoxMesh_oagss")
+mesh = SubResource("BoxMesh_u6ky1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(8.74361, 0, 0, 0, 0.286052, 0, 0, 0, 31.801, 0, 0, 11.2362)
-shape = SubResource("ConvexPolygonShape3D_hlavp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 561.81)
+shape = SubResource("ConvexPolygonShape3D_lr6vj")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42477, -0.393607)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 121.239, -19.6803)
 stream = ExtResource("2_4aqup")
+unit_size = 500.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33605, 1.80686, 4.35088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.8025, 90.343, 217.544)
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.0
+omni_range = 250.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28025, 1.87243, 4.35196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0125, 93.6215, 217.598)
 light_color = Color(1, 1, 0, 1)
 light_energy = 0.0
+omni_range = 250.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -128,6 +135,6 @@ libraries = {
 }
 
 [node name="SUV" parent="." instance=ExtResource("3_btt1t")]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, -0.438349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.9174)
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

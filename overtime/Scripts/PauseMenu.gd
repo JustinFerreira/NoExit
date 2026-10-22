@@ -8,47 +8,85 @@
 
 extends Control
 
+# Dark backdrop behind the menu (both pause menus): dims the frozen game,
+# darker toward the edges so the menu stands out.
+const DIM_SHADER := """
+shader_type canvas_item;
+uniform float center_alpha = 0.78;
+uniform float edge_alpha = 0.93;
+void fragment() {
+	float d = distance(UV, vec2(0.5)) * 1.41421;
+	// * COLOR.a keeps the node's fade (modulate) - without it the fade did nothing.
+	COLOR = vec4(0.0, 0.0, 0.0, mix(center_alpha, edge_alpha, smoothstep(0.2, 1.0, d)) * COLOR.a);
+}
+"""
+var _dim: ColorRect
+var _dim_tween: Tween
+
+## Eased fade of the dark backdrop (runs while the game is paused).
+func _fade_dim(to: float, time: float) -> void:
+	if _dim_tween and _dim_tween.is_valid():
+		_dim_tween.kill()
+	_dim_tween = create_tween().set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	_dim_tween.tween_property(_dim, "modulate:a", to, time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	if to <= 0.0:
+		_dim_tween.tween_callback(func(): _dim.visible = false)
+
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
+	_dim = ColorRect.new()
+	_dim.name = name + "Dim"   # sits beside this menu (one per pause menu)
+	_dim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var mat := ShaderMaterial.new()
+	mat.shader = Shader.new()
+	mat.shader.code = DIM_SHADER
+	_dim.material = mat
+	_dim.modulate.a = 0.0
+	_dim.visible = false
+	# Next to the menu, not inside it: the menu's Unpause animation hides the
+	# whole menu after 0.3s, which used to cut the fade-out off abruptly.
+	_attach_dim.call_deferred()
 
+## Puts the backdrop just behind this menu (deferred - the parent is still
+## setting up its children during _ready).
+func _attach_dim() -> void:
+	var parent := get_parent()
+	parent.add_child(_dim)
+	parent.move_child(_dim, get_index())
+
+## resume
+## Closes the pause menu. UiManager puts the game back exactly how it was
+## when it paused (mouse, crosshair, dialog, minigame state).
 func resume():
-	if PlayerManager.MinigameMode == true && PlayerManager.minigameTwo == false:
-		get_tree().paused = false
-		$AnimationPlayer.play("Unpause")
-		return
-	elif PlayerManager.MinigameMode == true && PlayerManager.minigameTwo == true:
-		get_tree().paused = false
-		$AnimationPlayer.play("Unpause")
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		return
-	if PlayerManager.multiDialog:
-		pass
-	else:
-		if PlayerManager.FreeRoam:
-			PlayerManager.player.CURSOR.visible = false
-		else:
-			if not PlayerManager.CursorInvisible:
-				PlayerManager.player.CURSOR.visible = true
-	if PlayerManager.dialoging == true: 
-		PlayerManager.RevealDialog()
-	get_tree().paused = false
 	$AnimationPlayer.play("Unpause")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	# A slow, soft fade back to the game.
+	_fade_dim(0.0, 0.7)
+	$SettingsMenu.visible = false
+	UiManager.close_screen("pause")
+
+## Esc closes the menu. (The dev menu does this through its Resume button's
+## shortcut; the regular menu has no Resume button.) The settings menu
+## handles its own Esc first.
+func _unhandled_input(event: InputEvent) -> void:
+	if not visible or not UiManager.is_open("pause") or has_node("PanelContainer/VBoxContainer/ResumeBtn"):
+		return
+	if event.is_action_pressed("ui_cancel") and not $SettingsMenu.visible:
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+		resume()
+		get_viewport().set_input_as_handled()
+
+## pause
+## Freezes the game and shows this menu (UiManager hides the HUD/dialog).
 func pause():
-	#if PlayerManager.DevMode:
-		#$ColorRect.visible = true
-	#$SettingsMenu.visible = false
+	if UiManager.is_open("pause"):
+		return
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
-	PlayerManager.player.CURSOR.visible = false
-	if PlayerManager.player.DIALOG.visible:
-		PlayerManager.HideDialog()
-	get_tree().paused = true
+	UiManager.open_screen("pause")
 	$AnimationPlayer.play("Pause")
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
+	_dim.visible = true
+	_fade_dim(1.0, 0.45)
 
 func _on_resume_btn_pressed() -> void:
 	#Button clikc sound
@@ -132,4 +170,4 @@ func _on_button_pressed() -> void:
 
 func _on_cursor_visible_toggled(toggled_on: bool) -> void:
 	PlayerManager.CursorInvisible = toggled_on
-	PlayerManager.player.CURSOR.visible = false
+	UiManager.refresh_cursor()

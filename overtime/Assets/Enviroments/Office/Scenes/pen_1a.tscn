@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bq87sfek8ftj7"]
 
-[ext_resource type="Texture2D" uid="uid://1rchxqes3a2t" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Albedo.png" id="1_d7r8l"]
-[ext_resource type="Texture2D" uid="uid://duvpr5karpi7" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Height.png" id="2_8crss"]
-[ext_resource type="Texture2D" uid="uid://buj03h2avaewf" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_MetallicRoughnessAO.png" id="3_2ukp1"]
-[ext_resource type="Texture2D" uid="uid://b8udb5iagoogo" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Normal.png" id="4_68ecc"]
-[ext_resource type="ArrayMesh" uid="uid://btbl427f7d5ow" path="res://Assets/Enviroments/Office/Models/Pen_1.obj" id="5_2fkll"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Albedo.png" id="1_d7r8l"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Height.png" id="2_8crss"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_MetallicRoughnessAO.png" id="3_2ukp1"]
+[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Normal.png" id="4_68ecc"]
+[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Pen_1.obj" id="5_2fkll"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53wg7"]
 albedo_texture = ExtResource("1_d7r8l")

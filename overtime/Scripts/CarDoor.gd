@@ -45,7 +45,7 @@ func _on_interacted(_body: Variant) -> void:
 	if unlocked == false:
 		#check for keys? currently un-needed feature which is being talked about
 		if PlayerManager.has_item("Car Keys") && unlocked == false:
-			PlayerManager.player.CURSOR.visible = false
+			UiManager.set_cursor_visible(false)
 			AnimationManager.HoodCollision.call_deferred("set_disabled", true)
 			#car door open sound
 			AudioManager.play_sound(AudioManager.CarDoorOpen)
@@ -86,7 +86,7 @@ func _on_interacted(_body: Variant) -> void:
 			pass
 	#Exiting car
 	elif PlayerManager.player.Incar == true:
-		PlayerManager.player.CURSOR.visible = false
+		UiManager.set_cursor_visible(false)
 		AnimationManager.HoodCollision.call_deferred("set_disabled", false)
 		#car entering turns off to show the direction of animation
 		AnimationManager.CarEntering = false
@@ -97,7 +97,7 @@ func _on_interacted(_body: Variant) -> void:
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
 	#Entering Car after Unlocked
 	elif PlayerManager.player.Incar == false && unlocked == true:
-		PlayerManager.player.CURSOR.visible = false
+		UiManager.set_cursor_visible(false)
 		AnimationManager.HoodCollision.call_deferred("set_disabled", true)
 		#car door open sound
 		AudioManager.play_sound(AudioManager.CarDoorOpen)

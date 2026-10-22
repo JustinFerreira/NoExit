@@ -15,7 +15,7 @@ extends Node3D
 func _ready() -> void:
 	
 	#Event Manager?
-	PlayerManager.player.CURSOR.visible = false
+	UiManager.set_cursor_visible(false)
 	PlayerManager.InAnimation = true
 
 	

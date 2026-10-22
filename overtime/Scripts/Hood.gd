@@ -62,14 +62,14 @@ func _on_interacted(_body: Variant) -> void:
 		SettingsManager.KillerDisabled = false
 		#get killer to designated area
 		PlayerManager.teleportEnemy = true
-		PlayerManager.player.CURSOR.visible = false
+		UiManager.set_cursor_visible(false)
 		
 	#Fix with EventManager? or LoopManager
 	if not PlayerManager.Loop0:
 		AnimationManager.HoodCollision.disabled = true
 		AnimationManager.CarCollision.disabled = true
-		$"../../HoodCam/HoodGame".visible = true
-		PlayerManager.hoodUI = $"../../HoodCam/HoodGame"
+		UiManager.register_panel("hood", $"../../HoodCam/HoodGame")
+		UiManager.show_panel("hood", true)
 		PlayerManager.minigameThree = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		PlayerManager.MiniGameModeOn()
