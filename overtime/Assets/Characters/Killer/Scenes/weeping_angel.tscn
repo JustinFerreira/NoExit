@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://mc370fyvslqj"]
 
 [ext_resource type="Script" path="res://Scripts/weeping_angel.gd" id="1_ryx8w"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png" id="1_yuttc"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Metalic_and_Rougness.png" id="2_56rci"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Emissive.png" id="3_rol6h"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Normal.png" id="4_pvw1a"]
-[ext_resource type="Material" path="res://Assets/Materials/Killer.tres" id="5_uye2g"]
+[ext_resource type="Texture2D" uid="uid://crtp1bonqkoio" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png" id="1_yuttc"]
+[ext_resource type="Texture2D" uid="uid://cdv21l6jetaj0" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Metalic_and_Rougness.png" id="2_56rci"]
+[ext_resource type="Texture2D" uid="uid://b8trah754qjr5" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Emissive.png" id="3_rol6h"]
+[ext_resource type="Texture2D" uid="uid://b8pdvalusug1f" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Normal.png" id="4_pvw1a"]
+[ext_resource type="Material" uid="uid://qjaaiigrcrv7" path="res://Assets/Materials/Killer.tres" id="5_uye2g"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/KillerWalk_Mesh.res" id="6_4x3ik"]
-[ext_resource type="ArrayMesh" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="6_peg66"]
+[ext_resource type="ArrayMesh" uid="uid://cclhgfvdbof4k" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="6_peg66"]
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/KillerWalk_Skin.res" id="7_5trfa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m64u"]
@@ -592,19 +592,7 @@ _data = {
 
 [node name="WeepingAngel" type="CharacterBody3D"]
 script = ExtResource("1_ryx8w")
-move_speed = 2.0
-use_gravity = true
-acceleration = 0.25
-repath_interval = 0.25
-repath_distance = 2.0
-model_faces_plus_z = true
-sight_range = 20.0
 sight_fov_degrees = 90.0
-sight_height_offset = 1.0
-can_kill_player = true
-face_height = 1.8
-kill_look_down_degrees = 35.0
-game_over_delay = 2.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 

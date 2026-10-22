@@ -1,13 +1,13 @@
 [gd_scene load_steps=1761 format=3 uid="uid://cjh20hhajf0di"]
 
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_nebtg"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="2_8m0w1"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/walk_in_wall.tscn" id="3_gv7s6"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Scenes/weeping_angel.tscn" id="4_j3eyv"]
-[ext_resource type="PackedScene" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_xjx6c"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Scenes/disapearing_enemy.tscn" id="6_yrpjy"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/flash_light.tscn" id="7_kle2n"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Office/Scenes/Box.tscn" id="8_lnh4u"]
+[ext_resource type="PackedScene" uid="uid://g6wfee868h8d" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="1_nebtg"]
+[ext_resource type="PackedScene" uid="uid://bck6fufv48blt" path="res://Assets/Enviroments/Garage/Scenes/garage_light.tscn" id="2_8m0w1"]
+[ext_resource type="PackedScene" uid="uid://c7oxqkwa88xnt" path="res://Assets/Enviroments/Garage/Scenes/walk_in_wall.tscn" id="3_gv7s6"]
+[ext_resource type="PackedScene" uid="uid://mc370fyvslqj" path="res://Assets/Characters/Killer/Scenes/weeping_angel.tscn" id="4_j3eyv"]
+[ext_resource type="PackedScene" uid="uid://b2jbahgstl1gh" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="5_xjx6c"]
+[ext_resource type="PackedScene" uid="uid://bdaiqxesutnix" path="res://Assets/Characters/Killer/Scenes/disapearing_enemy.tscn" id="6_yrpjy"]
+[ext_resource type="PackedScene" uid="uid://7427h33c4ho5" path="res://Assets/Enviroments/Garage/Scenes/flash_light.tscn" id="7_kle2n"]
+[ext_resource type="PackedScene" uid="uid://cjmh8scjiewro" path="res://Assets/Enviroments/Office/Scenes/Box.tscn" id="8_lnh4u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7h3s"]
 albedo_color = Color(0, 0, 0, 1)
@@ -6498,22 +6498,7 @@ points = PackedVector3Array(-6.07985, -252.96, -4172.88, 6.07985, 252.96, 4172.8
 [node name="Player" parent="." instance=ExtResource("1_nebtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62288, 17.1374, -25.7319)
 step_height = 0.3
-floor_snap_amount = 0.3
-floor_max_angle_degrees = 50.0
-max_stamina = 100.0
-stamina_drain_per_second = 10.0
-stamina_regen_per_second = 15.0
-stamina_regen_delay = 2.5
-fatigue_duration = 10.0
-fatigue_speed = 3.0
-crouch_speed = 2.5
-crouch_height_factor = 0.6
-crouch_toggle = false
 lean_distance = 0.45
-lean_angle_degrees = 12.0
-lean_while_sprinting = false
-move_transition_speed = 8.0
-look_back_speed = 4.5
 
 [node name="Walls" type="Node3D" parent="."]
 
