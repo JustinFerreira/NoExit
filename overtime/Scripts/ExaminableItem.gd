@@ -201,9 +201,12 @@ var _picking_up: bool = false
 var _hidden_meshes: Dictionary = {}   # MeshInstance3D -> [transparency, cast_shadow]
 
 # Background darkening
-var _dark_objects: Array[GeometryInstance3D] = []
-var _original_overrides: Dictionary = {}
-var _dark_tweens: Array[Tween] = []
+## How dark the world gets while examining (fraction of normal brightness).
+const DARKEN_AMOUNT := 0.1
+var _dark_slots: Array = []          # [node, "override"|"surface"|"csg", surface index, original material]
+var _dark_copies: Dictionary = {}    # real material (or "default") -> darkenable copy
+var _dark_originals: Dictionary = {} # copy -> [albedo colour, emission energy]
+var _dark_tween: Tween
 
 
 func _ready() -> void:
@@ -310,7 +313,7 @@ func end_focus() -> void:
 	UiManager.set_cursor_visible(true)
 
 	if darken_background:
-		_restore_background()
+		_undarken_background()
 
 	if store_in_box and PlayerManager.EquippedItem == "Box":
 		GameState.mark_collected(get_persist_id(), GameState.STORED)
@@ -676,12 +679,34 @@ func _set_collision_enabled(enabled: bool) -> void:
 func _darken_background() -> void:
 	_restore_background()
 	_collect_dark_targets(get_tree().root)
-	for obj in _dark_objects:
-		var dark_mat := obj.material_override as StandardMaterial3D
-		var t := create_tween()
-		t.tween_property(dark_mat, "albedo_color", dark_mat.albedo_color * 0.1, transition_time) \
+	# Fade every darkened copy down. Each starts as an exact copy of the real
+	# material (same textures, same lighting), so the first frame looks just
+	# like the normal scene - only the colour fades.
+	_dark_tween = create_tween().set_parallel(true)
+	for mat in _dark_originals:
+		var o: Array = _dark_originals[mat]
+		_dark_tween.tween_property(mat, "albedo_color", Color(o[0].r, o[0].g, o[0].b, 0.0) * DARKEN_AMOUNT + Color(0, 0, 0, o[0].a), transition_time) \
 			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-		_dark_tweens.append(t)
+		if mat.emission_enabled:
+			_dark_tween.tween_property(mat, "emission_energy_multiplier", o[1] * DARKEN_AMOUNT, transition_time) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+
+
+## Fades the world back to normal, then puts the real materials back.
+func _undarken_background() -> void:
+	if _dark_slots.is_empty():
+		return
+	if _dark_tween and _dark_tween.is_valid():
+		_dark_tween.kill()
+	_dark_tween = create_tween().set_parallel(true)
+	for mat in _dark_originals:
+		var o: Array = _dark_originals[mat]
+		_dark_tween.tween_property(mat, "albedo_color", o[0], transition_time) \
+			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+		if mat.emission_enabled:
+			_dark_tween.tween_property(mat, "emission_energy_multiplier", o[1], transition_time) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	_dark_tween.chain().tween_callback(_restore_background)
 
 
 func _collect_dark_targets(node: Node) -> void:
@@ -689,41 +714,74 @@ func _collect_dark_targets(node: Node) -> void:
 	if node == _pivot or node == _source_mesh or (node is MeshInstance3D and mesh_list.has(node)):
 		return
 	# Meshes, and CSG shapes too (the office light panels and cubicle walls
-	# are CSG - they used to stay fully lit). Only the top CSG node of a
-	# group draws anything, so that's the one that gets darkened.
+	# are CSG). Only the top CSG node of a group draws anything.
 	var is_target: bool = node is MeshInstance3D or (node is CSGShape3D and node.is_root_shape())
 	if is_target and (node.layers & 1) and node.visible:
-		_original_overrides[node] = node.material_override
-		node.material_override = _make_dark_material(node)
-		_dark_objects.append(node)
+		_darken_node(node)
 	for child in node.get_children():
 		_collect_dark_targets(child)
 
 
-func _make_dark_material(node: GeometryInstance3D) -> StandardMaterial3D:
-	var dark_mat := StandardMaterial3D.new()
-	dark_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	var source_mat: Material = node.material_override
-	if not source_mat and node is MeshInstance3D and node.mesh and node.mesh.get_surface_count() > 0:
-		source_mat = node.mesh.surface_get_material(0)
-	if not source_mat and node is CSGShape3D and "material" in node:
-		source_mat = node.material
-	if source_mat is StandardMaterial3D:
-		dark_mat.albedo_color = source_mat.albedo_color
-		dark_mat.albedo_texture = source_mat.albedo_texture
-	return dark_mat
+## Swaps each material this node draws with a darkenable copy, remembering
+## exactly what was there so it can be put back.
+func _darken_node(node: GeometryInstance3D) -> void:
+	if node.material_override:
+		var copy := _dark_copy(node.material_override)
+		if copy:
+			_dark_slots.append([node, "override", 0, node.material_override])
+			node.material_override = copy
+		return
+	if node is MeshInstance3D:
+		if node.mesh == null:
+			return
+		for i in node.mesh.get_surface_count():
+			var current: Material = node.get_surface_override_material(i)
+			var source: Material = current if current else node.mesh.surface_get_material(i)
+			var copy := _dark_copy(source)
+			if copy:
+				_dark_slots.append([node, "surface", i, current])
+				node.set_surface_override_material(i, copy)
+	elif node is CSGShape3D and "material" in node:
+		var copy := _dark_copy(node.material)
+		if copy:
+			_dark_slots.append([node, "csg", 0, node.material])
+			node.material = copy
 
 
+## One darkenable copy per real material (shared by everything using it).
+## null = Godot's default material. Custom shaders can't be darkened this
+## way and are left alone.
+func _dark_copy(source: Material) -> BaseMaterial3D:
+	var key = source if source else "default"
+	if _dark_copies.has(key):
+		return _dark_copies[key]
+	var copy: BaseMaterial3D = null
+	if source == null:
+		copy = StandardMaterial3D.new()
+	elif source is BaseMaterial3D:
+		copy = source.duplicate()
+	if copy:
+		_dark_copies[key] = copy
+		_dark_originals[copy] = [copy.albedo_color, copy.emission_energy_multiplier]
+	return copy
+
+
+## Puts every real material back straight away.
 func _restore_background() -> void:
-	for t in _dark_tweens:
-		if t and t.is_valid():
-			t.kill()
-	_dark_tweens.clear()
-	for obj in _dark_objects:
-		if is_instance_valid(obj):
-			obj.material_override = _original_overrides.get(obj)
-	_dark_objects.clear()
-	_original_overrides.clear()
+	if _dark_tween and _dark_tween.is_valid():
+		_dark_tween.kill()
+	_dark_tween = null
+	for slot in _dark_slots:
+		var node = slot[0]
+		if not is_instance_valid(node):
+			continue
+		match slot[1]:
+			"override": node.material_override = slot[3]
+			"surface": node.set_surface_override_material(slot[2], slot[3])
+			"csg": node.material = slot[3]
+	_dark_slots.clear()
+	_dark_copies.clear()
+	_dark_originals.clear()
 
 
 func _exit_tree() -> void:
