@@ -520,7 +520,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Shadow Lab"
 
-
 [node name="ShadowOffice" type="Button" parent="MainMenuSecondScreen/MarginContainer/VBoxContainer/ReviewRow"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -540,6 +539,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_qt4op")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_jpmis")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8magn")
 text = "Office Shadows"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_4lbyd")
