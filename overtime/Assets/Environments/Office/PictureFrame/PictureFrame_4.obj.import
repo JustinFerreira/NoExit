@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dvb4vdxujcrnh"
+path="res://.godot/imported/PictureFrame_4.obj-f1e39bdecedd8c919bb3501201b71cd7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/PictureFrame_4.obj-f1e39bdecedd8c919bb3501201b71cd7.mesh"]
+
+source_file="res://Assets/Environments/Office/PictureFrame/PictureFrame_4.obj"
+dest_files=["res://.godot/imported/PictureFrame_4.obj-f1e39bdecedd8c919bb3501201b71cd7.mesh", "res://.godot/imported/PictureFrame_4.obj-f1e39bdecedd8c919bb3501201b71cd7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

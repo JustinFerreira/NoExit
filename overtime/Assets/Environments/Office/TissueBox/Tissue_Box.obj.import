@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dodrnmti3js1j"
+path="res://.godot/imported/Tissue_Box.obj-2fbe2582a9989d615aa4597f069651cc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tissue_Box.obj-2fbe2582a9989d615aa4597f069651cc.mesh"]
+
+source_file="res://Assets/Environments/Office/TissueBox/Tissue_Box.obj"
+dest_files=["res://.godot/imported/Tissue_Box.obj-2fbe2582a9989d615aa4597f069651cc.mesh", "res://.godot/imported/Tissue_Box.obj-2fbe2582a9989d615aa4597f069651cc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

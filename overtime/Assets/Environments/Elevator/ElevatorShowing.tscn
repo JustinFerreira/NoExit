@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck6dwd23r45sh"]
+
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="1_xg2we"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="2_uvebj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="3_jbepe"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="4_4i2kn"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="5_h02ed"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Simple_Unwrapped.obj" id="6_p60e6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwtol"]
+albedo_texture = ExtResource("1_xg2we")
+metallic = 1.0
+metallic_texture = ExtResource("2_uvebj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_uvebj")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("3_jbepe")
+normal_enabled = true
+normal_texture = ExtResource("5_h02ed")
+ao_enabled = true
+ao_texture = ExtResource("2_uvebj")
+heightmap_texture = ExtResource("4_4i2kn")
+
+[node name="Elevator" type="Node3D"]
+
+[node name="MElevatorSimpleUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0606, 0, 18.0606)
+material_override = SubResource("StandardMaterial3D_pwtol")
+mesh = ExtResource("6_p60e6")
+
+[node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 2.64433, 0)
+visible = false
+use_collision = true
+
+[node name="DoorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2853, 92.493, 107.843)
+size = Vector3(108.421, 188.992, 11.6622)
+
+[node name="LeftWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, -98.738, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
+
+[node name="BackWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(-1, 8.74225e-08, 3.82136e-15, -2.34497e-22, -4.37114e-08, 1, 8.74225e-08, 1, 4.37114e-08, -3.84675, 107.956, -86.61)
+size = Vector3(218.24, 9.53725, 225.581)
+
+[node name="RightWallCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(0.00448543, 0.999989, 0.00143113, 0, -0.00143115, 0.999999, 0.99999, -0.00448543, -6.41933e-06, 119.833, 107.956, 16.8188)
+size = Vector3(218.24, 9.53725, 225.581)
+
+[node name="ButtonPanelCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.756, 100.926, 127.561)
+size = Vector3(46.5268, 213.655, 6.10485)
+
+[node name="RightFrontCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.928, 100.926, 120.92)
+size = Vector3(46.5268, 213.655, 6.10485)
+
+[node name="FloorCollision" type="CSGBox3D" parent="ElevatorCollisions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.0993, 0)
+size = Vector3(321.638, 14.4325, 357.592)

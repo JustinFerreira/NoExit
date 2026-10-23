@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbyqsfydae3x2"
+path="res://.godot/imported/Answering_Machine.obj-2a7c37154a9ab6bc908eaf61fe53eb57.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Answering_Machine.obj-2a7c37154a9ab6bc908eaf61fe53eb57.mesh"]
+
+source_file="res://Assets/Environments/Office/AnsweringMachine/Answering_Machine.obj"
+dest_files=["res://.godot/imported/Answering_Machine.obj-2a7c37154a9ab6bc908eaf61fe53eb57.mesh", "res://.godot/imported/Answering_Machine.obj-2a7c37154a9ab6bc908eaf61fe53eb57.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

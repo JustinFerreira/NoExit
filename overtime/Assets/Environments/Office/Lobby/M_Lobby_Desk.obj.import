@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://0t4hj380klxt"
+path="res://.godot/imported/M_Lobby_Desk.obj-e21ecd422bf95d5d4bed24dca6a7855a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Lobby_Desk.obj-e21ecd422bf95d5d4bed24dca6a7855a.mesh"]
+
+source_file="res://Assets/Environments/Office/Lobby/M_Lobby_Desk.obj"
+dest_files=["res://.godot/imported/M_Lobby_Desk.obj-e21ecd422bf95d5d4bed24dca6a7855a.mesh", "res://.godot/imported/M_Lobby_Desk.obj-e21ecd422bf95d5d4bed24dca6a7855a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

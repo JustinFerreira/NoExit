@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5bde62bdqnqy"
+path="res://.godot/imported/M_StopSign_Unwrapped.obj-ed4bc298ffb54aba705ac368fe46b69b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_StopSign_Unwrapped.obj-ed4bc298ffb54aba705ac368fe46b69b.mesh"]
+
+source_file="res://Assets/Environments/Garage/StopSign/M_StopSign_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_StopSign_Unwrapped.obj-ed4bc298ffb54aba705ac368fe46b69b.mesh", "res://.godot/imported/M_StopSign_Unwrapped.obj-ed4bc298ffb54aba705ac368fe46b69b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

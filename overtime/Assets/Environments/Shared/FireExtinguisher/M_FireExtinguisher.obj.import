@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://de18ibvgqj8t2"
+path="res://.godot/imported/M_FireExtinguisher.obj-1ee648e315b1c8b408887a421897c27f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_FireExtinguisher.obj-1ee648e315b1c8b408887a421897c27f.mesh"]
+
+source_file="res://Assets/Environments/Shared/FireExtinguisher/M_FireExtinguisher.obj"
+dest_files=["res://.godot/imported/M_FireExtinguisher.obj-1ee648e315b1c8b408887a421897c27f.mesh", "res://.godot/imported/M_FireExtinguisher.obj-1ee648e315b1c8b408887a421897c27f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

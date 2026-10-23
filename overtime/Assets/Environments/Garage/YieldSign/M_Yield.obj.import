@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ptvd6sluv6bd"
+path="res://.godot/imported/M_Yield.obj-e2c695f6cab280a51d7ab8827acb990d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Yield.obj-e2c695f6cab280a51d7ab8827acb990d.mesh"]
+
+source_file="res://Assets/Environments/Garage/YieldSign/M_Yield.obj"
+dest_files=["res://.godot/imported/M_Yield.obj-e2c695f6cab280a51d7ab8827acb990d.mesh", "res://.godot/imported/M_Yield.obj-e2c695f6cab280a51d7ab8827acb990d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

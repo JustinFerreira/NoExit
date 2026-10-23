@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://chaiu20v7k0we"]
+
+[ext_resource type="Texture2D" uid="uid://dchmfphg6wgg1" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_BaseColor.png" id="1_3fh77"]
+[ext_resource type="Texture2D" uid="uid://gikkql68hmpu" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_RMAO.png" id="2_8hrq1"]
+[ext_resource type="Texture2D" uid="uid://fxpcvlmgdhmu" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_Normal.png" id="3_5q5qx"]
+[ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Environments/Office/StickyNote/Sticky_Note.obj" id="4_dph4x"]
+[ext_resource type="Script" path="res://Scripts/Interactables/NoteItem.gd" id="5_xusxk"]
+[ext_resource type="Resource" uid="uid://baxbloik0xm1o" path="res://Assets/Notes/Test_Note.tres" id="6_ynv33"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="7_q3jm3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wby3x"]
+albedo_texture = ExtResource("1_3fh77")
+metallic = 1.0
+metallic_texture = ExtResource("2_8hrq1")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_8hrq1")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_5q5qx")
+ao_enabled = true
+ao_texture = ExtResource("2_8hrq1")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wn5e1"]
+points = PackedVector3Array(4.27111, 0.0909071, 5.70084, -7.61908, -0.291926, -6.0036, -7.61908, 0.0909071, -6.0036, -7.61908, -0.291926, 6.05566, 3.86533, -0.291926, -6.0036, 4.24786, 0.473741, 6.05566, 4.63159, 0.473741, -6.0036, 3.86533, -0.291926, 6.05566, -7.61908, 0.0909071, 6.05566, 4.63159, 0.473741, 6.05566, 4.24786, 0.473741, -6.0036, 4.27111, 0.0909071, -5.64873)
+
+[node name="Sticky Note" type="Node3D"]
+
+[node name="StickyNote" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -1.10899, -0.154601, 2.38418e-06)
+material_override = SubResource("StandardMaterial3D_wby3x")
+mesh = ExtResource("4_dph4x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StickyNote" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -3.01311e-06, 0.196473, -1.40934)
+script = ExtResource("5_xusxk")
+note = ExtResource("6_ynv33")
+take_on_read = true
+outline_material = ExtResource("7_q3jm3")
+mesh = NodePath("..")
+has_outline = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StickyNote/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.27374e-13)
+shape = SubResource("ConvexPolygonShape3D_wn5e1")

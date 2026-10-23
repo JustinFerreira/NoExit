@@ -1,197 +1,197 @@
-[gd_scene load_steps=986 format=4]
+[gd_scene load_steps=987 format=4]
 
-[ext_resource type="Script" path="res://Scripts/Office.gd" id="1_xmx28"]
-[ext_resource type="Script" path="res://Scripts/MarkingEmptyOfficeGreybox.gd" id="2_rpoce"]
+[ext_resource type="Script" path="res://Scripts/Levels/Office.gd" id="1_xmx28"]
+[ext_resource type="Script" path="res://Scripts/Levels/MarkingEmptyOfficeGreybox.gd" id="2_rpoce"]
 [ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="3_v5f0c"]
 [ext_resource type="Material" path="res://Assets/Materials/OfficeCarpet.tres" id="4_w5c1u"]
 [ext_resource type="Material" path="res://Assets/Materials/OfficeWalls.tres" id="5_m7as2"]
 [ext_resource type="Material" path="res://Assets/Materials/OfficeCeiling.tres" id="6_6rypo"]
-[ext_resource type="Texture2D" path="res://Levels/Greyboxing/office_ceiling_light.png" id="7_svhqg"]
+[ext_resource type="Texture2D" path="res://Levels/Greyboxing/Textures/office_ceiling_light.png" id="7_svhqg"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/SFX/BuzzingFluorescentLight.mp3" id="8_jbb3k"]
-[ext_resource type="Script" path="res://Scripts/BuzzingFluorescentLight.gd" id="9_ojxdf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Potted_Plant_1.obj" id="10_2p5bt"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_Albedo.png" id="11_vtdeb"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Potted Plant Textures/Potted_Plant_1_Material.003_MetallicRoughnessAO.png" id="12_jsk78"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Garage/Models/M_FireAlarm.obj" id="13_nsowy"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_BaseColor.png" id="14_jix65"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_Metalic_and_Rougness.png" id="15_j7077"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Alarm Textures/M_FireAlarm_Normal.png" id="16_pxnth"]
-[ext_resource type="Script" path="res://Scripts/FireAlarm.gd" id="17_c0u1n"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Other Textures/corkboard2.png" id="18_mta6s"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Other Textures/clock.png" id="19_p581l"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Other Textures/vent.png" id="20_tqvey"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Other Textures/office_door.png" id="21_mm42h"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Papers_1.obj" id="22_fegv5"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_Albedo.png" id="23_kb4ql"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_MetallicRoughnessAO.png" id="24_2bf1f"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Papers1 Textures/Papers_1_DefaultMaterial_Normal.png" id="25_bvgxr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Small_Bin.obj" id="26_2ok4o"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Small Bin Textures/Small_Bin_DefaultMaterial_Albedo.png" id="27_l2gmm"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Small Bin Textures/Small_Bin_DefaultMaterial_Height.png" id="28_fvvaf"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Small Bin Textures/Small_Bin_DefaultMaterial_MetallicRoughnessAO.png" id="29_c1rsv"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Small Bin Textures/Small_Bin_DefaultMaterial_Normal.png" id="30_u4hpk"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="31_wibkp"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="32_2qf2y"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Height.png" id="33_ymqnp"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="34_6glgq"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Model_Cubicle_Unwrapped.obj" id="35_ofujk"]
+[ext_resource type="Script" path="res://Scripts/Ambience/BuzzingFluorescentLight.gd" id="9_ojxdf"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PottedPlant/Potted_Plant_1.obj" id="10_2p5bt"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PottedPlant/Textures/Potted_Plant_1_Material.003_Albedo.png" id="11_vtdeb"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PottedPlant/Textures/Potted_Plant_1_Material.003_MetallicRoughnessAO.png" id="12_jsk78"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/FireAlarm/M_FireAlarm.obj" id="13_nsowy"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireAlarm/Textures/M_FireAlarm_BaseColor.png" id="14_jix65"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireAlarm/Textures/M_FireAlarm_Metalic_and_Rougness.png" id="15_j7077"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireAlarm/Textures/M_FireAlarm_Normal.png" id="16_pxnth"]
+[ext_resource type="Script" path="res://Scripts/Interactables/FireAlarm.gd" id="17_c0u1n"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CorkBoard/Textures/corkboard2.png" id="18_mta6s"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Clock/Textures/clock.png" id="19_p581l"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Common/Textures/vent.png" id="20_tqvey"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/office_door.png" id="21_mm42h"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Papers/Papers_1.obj" id="22_fegv5"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Papers/Textures/Papers_1_DefaultMaterial_Albedo.png" id="23_kb4ql"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Papers/Textures/Papers_1_DefaultMaterial_MetallicRoughnessAO.png" id="24_2bf1f"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Papers/Textures/Papers_1_DefaultMaterial_Normal.png" id="25_bvgxr"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/SmallBin/Small_Bin.obj" id="26_2ok4o"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/SmallBin/Textures/Small_Bin_DefaultMaterial_Albedo.png" id="27_l2gmm"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/SmallBin/Textures/Small_Bin_DefaultMaterial_Height.png" id="28_fvvaf"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/SmallBin/Textures/Small_Bin_DefaultMaterial_MetallicRoughnessAO.png" id="29_c1rsv"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/SmallBin/Textures/Small_Bin_DefaultMaterial_Normal.png" id="30_u4hpk"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="31_wibkp"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="32_2qf2y"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Height.png" id="33_ymqnp"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="34_6glgq"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="35_ofujk"]
 [ext_resource type="Material" path="res://Assets/Materials/Chair.tres" id="36_61lb2"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Chair_Unwrapped.obj" id="37_p5v83"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="37_p5v83"]
 [ext_resource type="Material" path="res://Assets/Materials/Computer.tres" id="38_4dyxw"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Computer_Combined_Unwrapped.obj" id="39_h1g87"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Tissue_Box.obj" id="40_28uc3"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_Albedo.png" id="41_2ylfn"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_MetallicRoughnessAO.png" id="42_obvnb"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Tissue Box Textures/Tissue_Box_Material.002_Normal.png" id="43_nndtl"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Folder_1.obj" id="44_cd348"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_Albedo.png" id="45_ugqt7"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_MetallicRoughnessAO.png" id="46_xg216"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder1 Textures/Folder_1_DefaultMaterial_Normal.png" id="47_p3bqh"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Folder_2.obj" id="48_4ff00"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Albedo.png" id="49_8tie8"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Height.png" id="50_djrkj"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_MetallicRoughnessAO.png" id="51_kkchw"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Folder2 Textures/Folder_2_DefaultMaterial_Normal.png" id="52_1u4wy"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_BaseColor.png" id="53_35js3"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_RMAO.png" id="54_k4iwt"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Sticky Notes Textures/Sticky_Notes_DefaultMaterial_Normal.png" id="55_faewt"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Sticky_Note.obj" id="56_57g8r"]
-[ext_resource type="Script" path="res://Scripts/NoteItem.gd" id="57_nj2pg"]
+[ext_resource type="ArrayMesh" uid="uid://dmk23drrefc4t" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="39_h1g87"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/TissueBox/Tissue_Box.obj" id="40_28uc3"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/TissueBox/Textures/Tissue_Box_Material.002_Albedo.png" id="41_2ylfn"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/TissueBox/Textures/Tissue_Box_Material.002_MetallicRoughnessAO.png" id="42_obvnb"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/TissueBox/Textures/Tissue_Box_Material.002_Normal.png" id="43_nndtl"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Folder/Folder_1.obj" id="44_cd348"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder1/Folder_1_DefaultMaterial_Albedo.png" id="45_ugqt7"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder1/Folder_1_DefaultMaterial_MetallicRoughnessAO.png" id="46_xg216"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder1/Folder_1_DefaultMaterial_Normal.png" id="47_p3bqh"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Folder/Folder_2.obj" id="48_4ff00"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder2/Folder_2_DefaultMaterial_Albedo.png" id="49_8tie8"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder2/Folder_2_DefaultMaterial_Height.png" id="50_djrkj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder2/Folder_2_DefaultMaterial_MetallicRoughnessAO.png" id="51_kkchw"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Folder/Textures/Folder2/Folder_2_DefaultMaterial_Normal.png" id="52_1u4wy"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_BaseColor.png" id="53_35js3"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_RMAO.png" id="54_k4iwt"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/StickyNote/Textures/Sticky Notes/Sticky_Notes_DefaultMaterial_Normal.png" id="55_faewt"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/StickyNote/Sticky_Note.obj" id="56_57g8r"]
+[ext_resource type="Script" path="res://Scripts/Interactables/NoteItem.gd" id="57_nj2pg"]
 [ext_resource type="Resource" path="res://Assets/Notes/Test_Note.tres" id="58_fampo"]
 [ext_resource type="Material" path="res://Assets/Materials/PerfectOutline.tres" id="59_dd80f"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug2B Textures/Mug_2_DefaultMaterial_BaseColor (1).png" id="60_850ew"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug2A Textures/Mug_2_DefaultMaterial_RMAO.png" id="61_sydll"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug2A Textures/Mug_2_DefaultMaterial_Normal.png" id="62_ox4pa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Mug_2.obj" id="63_70wsk"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_BaseColor.png" id="64_a34uj"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_RMAO.png" id="65_anfbp"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_Height.png" id="66_gk0pf"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Answering Machine Textures/Answering_Machine_DefaultMaterial_Normal.png" id="67_prhhn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Answering_Machine.obj" id="68_qjr0m"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Stapler Textures/Stapler_DefaultMaterial_BaseColor.png" id="69_ujef5"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Stapler Textures/Stapler_DefaultMaterial_RMAO.png" id="70_lw6kj"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Stapler Textures/Stapler_DefaultMaterial_Normal.png" id="71_2x7h6"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Stapler.obj" id="72_m3k2v"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Sticky_Notes.obj" id="73_jfiqj"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1A Textures/Mug_1_DefaultMaterial_BaseColor.png" id="74_f34o6"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1A Textures/Mug_1_DefaultMaterial_RMAO.png" id="75_cy1et"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1A Textures/Mug_1_DefaultMaterial_Normal.png" id="76_6s67r"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Mug_1.obj" id="77_sgum6"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_BaseColor (1).png" id="78_dcrta"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_RMAO (1).png" id="79_q33ud"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug1B Textures/Mug_1_DefaultMaterial_Normal (1).png" id="80_hwyld"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mug2A Textures/Mug_2_DefaultMaterial_BaseColor.png" id="81_nsifm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Garage/Models/M_FireExtinguisher.obj" id="82_kprxh"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_BaseColor.png" id="83_2yfla"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_Metalic_and_Rougness.png" id="84_kjxea"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Garage/Textures/Fire Exstinguisher Textures/M_FireExtinguisher_Normal.png" id="85_hnhvm"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame3 Textures/PictureFrame_3_Material.001_BaseColor.png" id="86_rolyl"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame3 Textures/PictureFrame_3_Material.001_RMAO.png" id="87_ncok8"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame3 Textures/PictureFrame_3_Material.001_Normal.png" id="88_ygcj3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_3.obj" id="89_lpcwy"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Albedo.png" id="90_belgn"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Height.png" id="91_8rxgi"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_MetallicRoughnessAO.png" id="92_cwipg"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1A Textures/Pen_1a_DefaultMaterial_Normal.png" id="93_811m3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Pen_1.obj" id="94_xfynt"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_Albedo.png" id="95_v10gh"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_MetallicRoughnessAO.png" id="96_5b0iy"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 1B Textures/Pen_1b_DefaultMaterial_Normal.png" id="97_fot62"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1A Textures/Pencil_1a_DefaultMaterial_Albedo.png" id="98_ro6ri"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1A Textures/Pencil_1a_DefaultMaterial_Normal.png" id="99_bqyn7"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1A Textures/Pencil_1a_DefaultMaterial_MetallicRoughnessAO.png" id="100_k0vx1"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Pencil.obj" id="101_r0llx"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug2B/Mug_2_DefaultMaterial_BaseColor (1).png" id="60_850ew"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug2A/Mug_2_DefaultMaterial_RMAO.png" id="61_sydll"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug2A/Mug_2_DefaultMaterial_Normal.png" id="62_ox4pa"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mug/Mug_2.obj" id="63_70wsk"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/AnsweringMachine/Textures/Answering_Machine_DefaultMaterial_BaseColor.png" id="64_a34uj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/AnsweringMachine/Textures/Answering_Machine_DefaultMaterial_RMAO.png" id="65_anfbp"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/AnsweringMachine/Textures/Answering_Machine_DefaultMaterial_Height.png" id="66_gk0pf"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/AnsweringMachine/Textures/Answering_Machine_DefaultMaterial_Normal.png" id="67_prhhn"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/AnsweringMachine/Answering_Machine.obj" id="68_qjr0m"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Stapler/Textures/Stapler_DefaultMaterial_BaseColor.png" id="69_ujef5"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Stapler/Textures/Stapler_DefaultMaterial_RMAO.png" id="70_lw6kj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Stapler/Textures/Stapler_DefaultMaterial_Normal.png" id="71_2x7h6"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Stapler/Stapler.obj" id="72_m3k2v"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/StickyNote/Sticky_Notes.obj" id="73_jfiqj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1A/Mug_1_DefaultMaterial_BaseColor.png" id="74_f34o6"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1A/Mug_1_DefaultMaterial_RMAO.png" id="75_cy1et"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1A/Mug_1_DefaultMaterial_Normal.png" id="76_6s67r"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mug/Mug_1.obj" id="77_sgum6"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1B/Mug_1_DefaultMaterial_BaseColor (1).png" id="78_dcrta"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1B/Mug_1_DefaultMaterial_RMAO (1).png" id="79_q33ud"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug1B/Mug_1_DefaultMaterial_Normal (1).png" id="80_hwyld"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mug/Textures/Mug2A/Mug_2_DefaultMaterial_BaseColor.png" id="81_nsifm"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/FireExtinguisher/M_FireExtinguisher.obj" id="82_kprxh"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireExtinguisher/Textures/M_FireExtinguisher_BaseColor.png" id="83_2yfla"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireExtinguisher/Textures/M_FireExtinguisher_Metalic_and_Rougness.png" id="84_kjxea"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/FireExtinguisher/Textures/M_FireExtinguisher_Normal.png" id="85_hnhvm"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame3/PictureFrame_3_Material.001_BaseColor.png" id="86_rolyl"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame3/PictureFrame_3_Material.001_RMAO.png" id="87_ncok8"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame3/PictureFrame_3_Material.001_Normal.png" id="88_ygcj3"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_3.obj" id="89_lpcwy"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1A/Pen_1a_DefaultMaterial_Albedo.png" id="90_belgn"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1A/Pen_1a_DefaultMaterial_Height.png" id="91_8rxgi"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1A/Pen_1a_DefaultMaterial_MetallicRoughnessAO.png" id="92_cwipg"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1A/Pen_1a_DefaultMaterial_Normal.png" id="93_811m3"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pen/Pen_1.obj" id="94_xfynt"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1B/Pen_1b_DefaultMaterial_Albedo.png" id="95_v10gh"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1B/Pen_1b_DefaultMaterial_MetallicRoughnessAO.png" id="96_5b0iy"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 1B/Pen_1b_DefaultMaterial_Normal.png" id="97_fot62"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1A/Pencil_1a_DefaultMaterial_Albedo.png" id="98_ro6ri"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1A/Pencil_1a_DefaultMaterial_Normal.png" id="99_bqyn7"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1A/Pencil_1a_DefaultMaterial_MetallicRoughnessAO.png" id="100_k0vx1"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pencil/Pencil.obj" id="101_r0llx"]
 [ext_resource type="Material" path="res://Assets/Materials/PictureFrame1.tres" id="102_xiu5l"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_1.obj" id="103_xaovx"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2A Textures/Pen_2a_DefaultMaterial_Albedo.png" id="104_lwpx8"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2A Textures/Pen_2a_DefaultMaterial_MetallicRoughnessAO.png" id="105_ock7x"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2A Textures/Pen_2a_DefaultMaterial_Normal.png" id="106_vjd37"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/Pen_2.obj" id="107_r6nxw"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_1.obj" id="103_xaovx"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2A/Pen_2a_DefaultMaterial_Albedo.png" id="104_lwpx8"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2A/Pen_2a_DefaultMaterial_MetallicRoughnessAO.png" id="105_ock7x"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2A/Pen_2a_DefaultMaterial_Normal.png" id="106_vjd37"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pen/Pen_2.obj" id="107_r6nxw"]
 [ext_resource type="Material" path="res://Assets/Materials/PictureFrame2.tres" id="108_6u68j"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_2.obj" id="109_ukgs3"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2B Textures/Pen_2b_DefaultMaterial_Albedo.png" id="110_drvu3"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2B Textures/Pen_2b_DefaultMaterial_MetallicRoughnessAO.png" id="111_xwsx2"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pen 2B Textures/Pen_2b_DefaultMaterial_Normal.png" id="112_b0df4"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_BaseColor.png" id="113_5vixm"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_RMAO.png" id="114_38777"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/PictureFrame4 Textures/PictureFrame_4_Material.001_Normal.png" id="115_uqn05"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/PictureFrame_4.obj" id="116_6v5wv"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_Albedo.png" id="117_kxmay"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png" id="118_h2snv"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Pencil 1B Textures/Pencil_1b_DefaultMaterial_Normal.png" id="119_rv5ax"]
-[ext_resource type="Script" path="res://Scripts/Cubicle.gd" id="120_vftjp"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_BaseColor.png" id="121_ohnpe"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Metalic_and_Rougness.png" id="122_4jxhs"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Height.png" id="123_53s6x"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Chair Textures/M_Chair_Normal.png" id="124_1hylt"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_BaseColor.png" id="125_tblb5"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Rougness.png" id="126_f662j"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean.png" id="127_fbnso"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Clean Computer Textures/M_Computer_Clean_Normal.png" id="128_ypehp"]
-[ext_resource type="Script" path="res://Scripts/ExaminableItem.gd" id="129_6ik4x"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_2.obj" id="109_ukgs3"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2B/Pen_2b_DefaultMaterial_Albedo.png" id="110_drvu3"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2B/Pen_2b_DefaultMaterial_MetallicRoughnessAO.png" id="111_xwsx2"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pen/Textures/Pen 2B/Pen_2b_DefaultMaterial_Normal.png" id="112_b0df4"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame4/PictureFrame_4_Material.001_BaseColor.png" id="113_5vixm"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame4/PictureFrame_4_Material.001_RMAO.png" id="114_38777"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PictureFrame/Textures/PictureFrame4/PictureFrame_4_Material.001_Normal.png" id="115_uqn05"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_4.obj" id="116_6v5wv"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1B/Pencil_1b_DefaultMaterial_Albedo.png" id="117_kxmay"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1B/Pencil_1b_DefaultMaterial_MetallicRoughnessAO.png" id="118_h2snv"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Pencil/Textures/Pencil 1B/Pencil_1b_DefaultMaterial_Normal.png" id="119_rv5ax"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Cubicle.gd" id="120_vftjp"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_BaseColor.png" id="121_ohnpe"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Metalic_and_Rougness.png" id="122_4jxhs"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Height.png" id="123_53s6x"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Normal.png" id="124_1hylt"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_BaseColor.png" id="125_tblb5"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_Rougness.png" id="126_f662j"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean.png" id="127_fbnso"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_Normal.png" id="128_ypehp"]
+[ext_resource type="Script" path="res://Scripts/Interactables/ExaminableItem.gd" id="129_6ik4x"]
 [ext_resource type="Material" path="res://Assets/Materials/Mug1A.tres" id="130_3do40"]
 [ext_resource type="Material" path="res://Assets/Materials/StickyNotes.tres" id="131_pmf6h"]
 [ext_resource type="Material" path="res://Assets/Materials/Mug2A.tres" id="132_qmn8l"]
 [ext_resource type="Material" path="res://Assets/Materials/Stapler.tres" id="133_s556j"]
 [ext_resource type="Material" path="res://Assets/Materials/CarKeys.tres" id="134_erlqr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_CarKeys_Unwrapped.obj" id="135_6k8vg"]
-[ext_resource type="Script" path="res://Scripts/CarKeys.gd" id="136_2yfqv"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/CarKeys/M_CarKeys_Unwrapped.obj" id="135_6k8vg"]
+[ext_resource type="Script" path="res://Scripts/Interactables/CarKeys.gd" id="136_2yfqv"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/SFX/Keys2.wav" id="137_sqlyn"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="138_cdhy4"]
 [ext_resource type="Material" path="res://Assets/Materials/BoxMaterial.tres" id="139_2tnft"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Box_Unwrapped.obj" id="140_l2uxg"]
-[ext_resource type="Script" path="res://Scripts/Box.gd" id="141_qx1cv"]
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="142_8c1xh"]
-[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="143_bv00y"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Box/M_Box_Unwrapped.obj" id="140_l2uxg"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Box.gd" id="141_qx1cv"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="142_8c1xh"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu.gd" id="143_bv00y"]
 [ext_resource type="FontFile" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="144_xsqp6"]
-[ext_resource type="Script" path="res://Scripts/SettingsMenu.gd" id="145_jsbty"]
+[ext_resource type="Script" path="res://Scripts/UI/SettingsMenu.gd" id="145_jsbty"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/background.png" id="146_fqm5a"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/slider_icon.png" id="147_yrldk"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/slider_sprite_sheet.png" id="148_yngun"]
-[ext_resource type="Script" path="res://Scripts/SliderBar.gd" id="149_cbv6m"]
-[ext_resource type="Script" path="res://Scripts/SettingsLabel.gd" id="150_cwi14"]
+[ext_resource type="Script" path="res://Scripts/UI/SliderBar.gd" id="149_cbv6m"]
+[ext_resource type="Script" path="res://Scripts/UI/SettingsLabel.gd" id="150_cwi14"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/checked.png" id="151_1fx3n"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/unchecked.png" id="152_0mnmn"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/x_button.png" id="153_nsw7f"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Settings Menu Assets/folder_overlay.png" id="154_b1f20"]
 [ext_resource type="Shader" path="res://Assets/Shaders/CRTFilter.gdshader" id="155_5yker"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="156_lu6tt"]
-[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="157_7j1og"]
-[ext_resource type="Script" path="res://Scripts/Dialog.gd" id="158_aieuu"]
+[ext_resource type="Script" path="res://Scripts/UI/GameOver.gd" id="157_7j1og"]
+[ext_resource type="Script" path="res://Scripts/Player/Dialog.gd" id="158_aieuu"]
 [ext_resource type="Texture2D" path="res://Assets/UI/LMB_icon.png" id="159_e7nha"]
 [ext_resource type="Texture2D" path="res://Assets/UI/Crosshair.png" id="160_vckjt"]
 [ext_resource type="Texture2D" path="res://Assets/UI/hand.png" id="161_72ec1"]
 [ext_resource type="Material" path="res://Assets/Materials/Player.tres" id="162_n6dtp"]
 [ext_resource type="Shader" path="res://Assets/Shaders/ps1_post_process.gdshader" id="163_02ugk"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="164_j33jr"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="165_oql0i"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="166_f3x5v"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="167_768jr"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="168_b2esh"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Elevator/Models/M_Elevator_Simple_Unwrapped.obj" id="169_fgjrs"]
-[ext_resource type="Script" path="res://Scripts/ElevatorButtonPanel.gd" id="170_l5acs"]
-[ext_resource type="Script" path="res://Scripts/ElevatorButton.gd" id="171_bvuf7"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="164_j33jr"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Metalic_and_Rougness.png" id="165_oql0i"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Emissive.png" id="166_f3x5v"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Height.png" id="167_768jr"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="168_b2esh"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Simple_Unwrapped.obj" id="169_fgjrs"]
+[ext_resource type="Script" path="res://Scripts/Elevator/ElevatorButtonPanel.gd" id="170_l5acs"]
+[ext_resource type="Script" path="res://Scripts/Elevator/ElevatorButton.gd" id="171_bvuf7"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/Music/elevator_wip.mp3" id="172_2fvsm"]
-[ext_resource type="Script" path="res://Scripts/ElevatorMusic.gd" id="173_dd11k"]
+[ext_resource type="Script" path="res://Scripts/Elevator/ElevatorMusic.gd" id="173_dd11k"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/SFX/ticking-clock-background-sound-effect-331707.mp3" id="174_61qjt"]
-[ext_resource type="Script" path="res://Scripts/ClockTicking.gd" id="175_elfnr"]
+[ext_resource type="Script" path="res://Scripts/Ambience/ClockTicking.gd" id="175_elfnr"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3" id="176_m537b"]
-[ext_resource type="Script" path="res://Scripts/PhoneRinging.gd" id="177_n1hxw"]
-[ext_resource type="Script" path="res://Scripts/NpcSounds.gd" id="178_4hs15"]
-[ext_resource type="Script" path="res://Scripts/NpcRandomDialogue.gd" id="179_1fif2"]
+[ext_resource type="Script" path="res://Scripts/Events/PhoneRinging.gd" id="177_n1hxw"]
+[ext_resource type="Script" path="res://Scripts/NPCs/NpcSounds.gd" id="178_4hs15"]
+[ext_resource type="Script" path="res://Scripts/NPCs/NpcRandomDialogue.gd" id="179_1fif2"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/NpcBody_Mesh.res" id="180_r3dbp"]
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/NpcBody_Skin.res" id="181_06efe"]
-[ext_resource type="Script" path="res://Scripts/DialogNpc.gd" id="181_loj42"]
+[ext_resource type="Script" path="res://Scripts/NPCs/DialogNpc.gd" id="181_loj42"]
 [ext_resource type="Shader" path="res://Assets/Shaders/ps1_model.gdshader" id="182_pexxo"]
 [ext_resource type="Texture2D" path="res://Assets/Characters/Player/Textures/M_PlayerWHOLE_UV_BaseColor.png" id="183_ulyg2"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_BaseMap.png" id="185_qq8dj"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png" id="186_dt3d7"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Bucket Textures/M_MopBucket_Unwrapped_DefaultMaterial_Normal.png" id="187_3rt4w"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_MopBucket_Unwrapped.obj" id="188_xcs8s"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_BaseColor.png" id="189_ylk4r"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Metalic_and_Rougness.png" id="190_gtooe"]
-[ext_resource type="Texture2D" path="res://Assets/Enviroments/Office/Textures/Mop Textures/M_Mop_Normal.png" id="191_kmocy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Enviroments/Office/Models/M_Mop.obj" id="192_fh88m"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop Bucket/M_MopBucket_Unwrapped_DefaultMaterial_BaseMap.png" id="185_qq8dj"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop Bucket/M_MopBucket_Unwrapped_DefaultMaterial_MaskMap.png" id="186_dt3d7"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop Bucket/M_MopBucket_Unwrapped_DefaultMaterial_Normal.png" id="187_3rt4w"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mop/M_MopBucket_Unwrapped.obj" id="188_xcs8s"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop/M_Mop_BaseColor.png" id="189_ylk4r"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop/M_Mop_Metalic_and_Rougness.png" id="190_gtooe"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Mop/Textures/Mop/M_Mop_Normal.png" id="191_kmocy"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mop/M_Mop.obj" id="192_fh88m"]
 [ext_resource type="PackedScene" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="player_scene"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rfx0m"]
@@ -8446,7 +8446,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8481,7 +8481,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8516,7 +8516,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8551,7 +8551,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8586,7 +8586,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8621,7 +8621,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8656,7 +8656,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8691,7 +8691,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8726,7 +8726,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8764,7 +8764,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8799,7 +8799,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8834,7 +8834,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8869,7 +8869,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle12"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8904,7 +8904,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8939,7 +8939,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -8974,7 +8974,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9009,7 +9009,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9044,7 +9044,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles3/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9082,7 +9082,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9117,7 +9117,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9152,7 +9152,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9187,7 +9187,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9222,7 +9222,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9257,7 +9257,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9292,7 +9292,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9327,7 +9327,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9362,7 +9362,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles2/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9400,7 +9400,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9435,7 +9435,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9470,7 +9470,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9505,7 +9505,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle12"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9540,7 +9540,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9575,7 +9575,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9610,7 +9610,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9645,7 +9645,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9680,7 +9680,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles4/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9718,7 +9718,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9753,7 +9753,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9788,7 +9788,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9823,7 +9823,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9858,7 +9858,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9893,7 +9893,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9928,7 +9928,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9963,7 +9963,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -9998,7 +9998,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles5/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10036,7 +10036,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10071,7 +10071,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10106,7 +10106,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10141,7 +10141,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle12"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10176,7 +10176,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10211,7 +10211,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10246,7 +10246,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10281,7 +10281,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10316,7 +10316,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles6/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10354,7 +10354,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10389,7 +10389,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10424,7 +10424,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10459,7 +10459,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10494,7 +10494,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10529,7 +10529,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10564,7 +10564,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10599,7 +10599,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10634,7 +10634,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles7/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10672,7 +10672,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10707,7 +10707,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10742,7 +10742,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10777,7 +10777,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle12"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10812,7 +10812,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10847,7 +10847,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10882,7 +10882,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10917,7 +10917,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10952,7 +10952,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles8/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -10990,7 +10990,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11025,7 +11025,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11060,7 +11060,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11095,7 +11095,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11130,7 +11130,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11165,7 +11165,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11200,7 +11200,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11235,7 +11235,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11270,7 +11270,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles9/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11308,7 +11308,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11343,7 +11343,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11378,7 +11378,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11413,7 +11413,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11448,7 +11448,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11483,7 +11483,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11518,7 +11518,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11553,7 +11553,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11588,7 +11588,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11623,7 +11623,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11658,7 +11658,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles11/Cubicle11"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11696,7 +11696,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11731,7 +11731,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11766,7 +11766,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11801,7 +11801,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11836,7 +11836,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11871,7 +11871,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11906,7 +11906,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11941,7 +11941,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -11976,7 +11976,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles15/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12014,7 +12014,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12049,7 +12049,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12084,7 +12084,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12119,7 +12119,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12154,7 +12154,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12189,7 +12189,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12224,7 +12224,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles16/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12262,7 +12262,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12297,7 +12297,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12332,7 +12332,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12367,7 +12367,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12402,7 +12402,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12437,7 +12437,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12472,7 +12472,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles17/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12510,7 +12510,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12545,7 +12545,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12580,7 +12580,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12615,7 +12615,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12650,7 +12650,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12685,7 +12685,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles23/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12723,7 +12723,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12758,7 +12758,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12793,7 +12793,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12828,7 +12828,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12863,7 +12863,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12898,7 +12898,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12933,7 +12933,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles18/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -12971,7 +12971,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13006,7 +13006,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13041,7 +13041,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13076,7 +13076,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13111,7 +13111,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13146,7 +13146,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13181,7 +13181,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles19/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13219,7 +13219,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13254,7 +13254,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13289,7 +13289,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13324,7 +13324,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13359,7 +13359,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13394,7 +13394,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13429,7 +13429,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles20/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13467,7 +13467,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13502,7 +13502,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13537,7 +13537,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13572,7 +13572,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13607,7 +13607,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13642,7 +13642,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13677,7 +13677,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles21/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13715,7 +13715,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13750,7 +13750,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13785,7 +13785,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13820,7 +13820,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13855,7 +13855,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13890,7 +13890,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13925,7 +13925,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles22/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13963,7 +13963,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle2"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -13998,7 +13998,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle3"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14033,7 +14033,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle4"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14068,7 +14068,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle5"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14103,7 +14103,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle6"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14138,7 +14138,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle7"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14173,7 +14173,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle8"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14208,7 +14208,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle9"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -14243,7 +14243,7 @@ material_override = ExtResource("36_61lb2")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/EmptyOfficeGreybox/Cubicles/RowOfCubicles25/Cubicle10"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.26013, -0.281974)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.26013, -0.281974)
 material_override = ExtResource("38_4dyxw")
 mesh = ExtResource("39_h1g87")
 
@@ -35207,7 +35207,7 @@ material_override = SubResource("StandardMaterial3D_njq4l")
 mesh = ExtResource("37_p5v83")
 
 [node name="MComputerCombinedUnwrapped" type="MeshInstance3D" parent="NavigationRegion3D/Cubicle"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.119922, 1.25773, -0.300331)
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, -0.119922, 1.25773, -0.300331)
 material_override = SubResource("StandardMaterial3D_le8xh")
 mesh = ExtResource("39_h1g87")
 

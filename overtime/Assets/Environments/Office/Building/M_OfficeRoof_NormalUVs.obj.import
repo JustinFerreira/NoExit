@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://durmiej5yn818"
+path="res://.godot/imported/M_OfficeRoof_NormalUVs.obj-00dabf78bb36c578ff8c3a696ac7f74e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_OfficeRoof_NormalUVs.obj-00dabf78bb36c578ff8c3a696ac7f74e.mesh"]
+
+source_file="res://Assets/Environments/Office/Building/M_OfficeRoof_NormalUVs.obj"
+dest_files=["res://.godot/imported/M_OfficeRoof_NormalUVs.obj-00dabf78bb36c578ff8c3a696ac7f74e.mesh", "res://.godot/imported/M_OfficeRoof_NormalUVs.obj-00dabf78bb36c578ff8c3a696ac7f74e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

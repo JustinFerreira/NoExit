@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ud7l6j6v3nv5"
+path="res://.godot/imported/M_Elevator_Animated.obj-8be7ba519b38327393f3b4797bb58ddf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Elevator_Animated.obj-8be7ba519b38327393f3b4797bb58ddf.mesh"]
+
+source_file="res://Assets/Environments/Elevator/M_Elevator_Animated.obj"
+dest_files=["res://.godot/imported/M_Elevator_Animated.obj-8be7ba519b38327393f3b4797bb58ddf.mesh", "res://.godot/imported/M_Elevator_Animated.obj-8be7ba519b38327393f3b4797bb58ddf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

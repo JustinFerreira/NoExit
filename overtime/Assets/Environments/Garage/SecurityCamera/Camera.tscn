@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://ggxuh5f2chv"]
+
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/SecurityCamera/Textures/M_Camera_Unwrapped_BaseColor.png" id="1_fwtqi"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/SecurityCamera/Textures/M_Camera_Unwrapped_Emissive.png" id="2_urent"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/SecurityCamera/Textures/M_Camera_Unwrapped_Height.png" id="3_bgq1c"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/SecurityCamera/Textures/M_Camera_Unwrapped_Metalic_and_Rougness.png" id="4_yp31j"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/SecurityCamera/Textures/M_Camera_Unwrapped_Normal.png" id="5_3e7sw"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/SecurityCamera/M_Camera_Unwrapped.obj" id="6_cxm2n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28tvf"]
+albedo_texture = ExtResource("1_fwtqi")
+metallic = 1.0
+metallic_texture = ExtResource("4_yp31j")
+emission_enabled = true
+emission_texture = ExtResource("2_urent")
+normal_enabled = true
+normal_texture = ExtResource("5_3e7sw")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_bgq1c")
+
+[node name="Camera" type="Node3D"]
+
+[node name="MCameraUnwrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28.5)
+material_override = SubResource("StandardMaterial3D_28tvf")
+mesh = ExtResource("6_cxm2n")

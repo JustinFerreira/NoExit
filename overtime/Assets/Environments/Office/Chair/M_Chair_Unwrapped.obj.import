@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dw1m807mehb7c"
+path="res://.godot/imported/M_Chair_Unwrapped.obj-de50d8f6e1744942ed14f2a64a3e193e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Chair_Unwrapped.obj-de50d8f6e1744942ed14f2a64a3e193e.mesh"]
+
+source_file="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Chair_Unwrapped.obj-de50d8f6e1744942ed14f2a64a3e193e.mesh", "res://.godot/imported/M_Chair_Unwrapped.obj-de50d8f6e1744942ed14f2a64a3e193e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

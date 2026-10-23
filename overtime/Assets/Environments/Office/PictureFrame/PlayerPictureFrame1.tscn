@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://crvgose10vq0k"]
+
+[ext_resource type="Material" path="res://Assets/Materials/PictureFrame1.tres" id="1_i6lp4"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_1.obj" id="2_o57ay"]
+[ext_resource type="Script" path="res://Scripts/Interactables/ExaminableItem.gd" id="3_a4uh0"]
+[ext_resource type="Material" path="res://Assets/Materials/PerfectOutline.tres" id="4_7mdxu"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1hcg8"]
+points = PackedVector3Array(0.897439, -0.158154, -7.22969, 0.000983442, 10.4351, 6.83962, 0.28881, 9.22261, 6.81458, -11.3221, -0.158154, -5.29976, -3.28358, 20.4223, -7.22821, -3.28358, 20.4223, 7.23824, 0.897439, -0.158154, 7.23968, -10.6779, 4.34433, -7.5511, 2.00213, 2.38223, -6.41538, -1.79459, 19.6641, -6.61286, -9.39201, -0.158154, -2.08419, 2.25966, 0.518496, 6.66405, -1.79339, 19.6684, 6.61064, 1.97527, 0.166569, -7.00647, -2.96279, 17.5275, 7.23824, 2.00213, 2.38223, 6.40066, -11.3221, 1.12913, -6.26403, -10.0336, 3.37937, -7.5511, -1.57228, 18.7915, -6.42607, -11, 3.37937, -6.90684, 1.97527, 0.166569, 7.00634, 2.25966, 0.518496, -6.66689, -11.3221, 0.806814, -5.62117, -2.11344, 19.9285, -6.88875, -11.0159, 0.29757, -5.99348, -1.57228, 18.7915, 6.4118, -2.11237, 19.9331, 6.88665, -11, 2.73674, -7.22821, -10.0336, 0.164173, -3.04843, -3.28358, 19.1351, 7.23824, -9.71416, 4.34433, -7.5511, -11.3221, 0.164173, -5.29976)
+
+[sub_resource type="Animation" id="Animation_m47hj"]
+resource_name = "PictureFrame1Fade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7b6mq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PictureFrame1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j005i"]
+_data = {
+"PictureFrame1Fade": SubResource("Animation_m47hj"),
+"RESET": SubResource("Animation_7b6mq")
+}
+
+[node name="Picture Frame" type="Node3D"]
+
+[node name="PictureFrame1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.02428, 0.0071266, -0.5151)
+material_override = ExtResource("1_i6lp4")
+mesh = ExtResource("2_o57ay")
+
+[node name="PictureFrame1" type="StaticBody3D" parent="PictureFrame1" node_paths=PackedStringArray("mesh", "mesh_list")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505392, -0.00699224, 1.98612)
+script = ExtResource("3_a4uh0")
+examine_dialog = "I like this item!"
+dialog_from_event_manager = "pictureframe1_normal_dialog"
+first_time_hint = "Press A, D or the arrow keys to rotate the object, W, S to tilt it"
+keys_hint_dialog = "I should grab my keys and get out of here"
+darken_background = false
+focus_distance = 0.8
+screen_offset = Vector2(0, 0)
+size_mode = 0
+screen_fill = 0.55
+scale_multiplier = 1.5
+front_axis = Vector3(1, 0, 0)
+examine_rotation_offset = Vector3(0, 0, 0)
+transition_time = 0.8
+examine_light_energy = 1.0
+spin_mode = 0
+spin_turns = 1.0
+rotate_speed_degrees = 120.0
+allow_tilt = true
+pickup_on_close = false
+store_in_box = true
+inventory_name = ""
+inventory_weight = 0.5
+inventory_equippable = false
+pickup_sound = null
+examine_sound = null
+flash_mode = 2
+spawn_condition = 1
+player_manager_reference = ""
+target_mesh = null
+target_material = null
+is_interactable = true
+outline_material = ExtResource("4_7mdxu")
+mesh = NodePath("..")
+mesh_list = []
+has_outline = true
+persist_id = ""
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PictureFrame1/PictureFrame1"]
+transform = Transform3D(1, 0, 5.64122e-16, 0, 1, 0, -5.64122e-16, 0, 1, 0, 0, -2.98023e-08)
+shape = SubResource("ConvexPolygonShape3D_1hcg8")
+
+[node name="PictureFrame1Fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j005i")
+}
+
+[connection signal="interacted" from="PictureFrame1/PictureFrame1" to="PictureFrame1/PictureFrame1" method="_on_interacted"]

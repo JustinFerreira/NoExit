@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mvi5u7fgyvi"
+path="res://.godot/imported/M_OfficeLight_Square.obj-0263b95ba5e8868951a5322de490a330.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_OfficeLight_Square.obj-0263b95ba5e8868951a5322de490a330.mesh"]
+
+source_file="res://Assets/Environments/Office/CeilingLight/M_OfficeLight_Square.obj"
+dest_files=["res://.godot/imported/M_OfficeLight_Square.obj-0263b95ba5e8868951a5322de490a330.mesh", "res://.godot/imported/M_OfficeLight_Square.obj-0263b95ba5e8868951a5322de490a330.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

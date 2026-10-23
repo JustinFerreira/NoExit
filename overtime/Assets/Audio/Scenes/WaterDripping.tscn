@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ucwb4r23x2rt"]
 
 [ext_resource type="AudioStream" path="res://Assets/Audio/SFX/drips.wav" id="1_gbe76"]
-[ext_resource type="Script" path="res://Scripts/WaterDripping.gd" id="2_gh34m"]
+[ext_resource type="Script" path="res://Scripts/Ambience/WaterDripping.gd" id="2_gh34m"]
 
 [node name="WaterDripping" type="AudioStreamPlayer3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9962, 17.6232, 0)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1sr5xq55iymx"
+path="res://.godot/imported/M_HourHand_Unwrapped.obj-817fec430932ff161ae01a8902bfcacd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_HourHand_Unwrapped.obj-817fec430932ff161ae01a8902bfcacd.mesh"]
+
+source_file="res://Assets/Environments/Office/Clock/M_HourHand_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_HourHand_Unwrapped.obj-817fec430932ff161ae01a8902bfcacd.mesh", "res://.godot/imported/M_HourHand_Unwrapped.obj-817fec430932ff161ae01a8902bfcacd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

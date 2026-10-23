@@ -1,0 +1,13 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3]
+
+[ext_resource type="Texture2D" uid="uid://c8dnrrgr8c7o3" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_RubbishBin_Unwrapped_DefaultMaterial_BaseMap.png" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://cnq7bnml04m7n" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_RubbishBin_Unwrapped_DefaultMaterial_ORM.png" id="2_orm"]
+[ext_resource type="Texture2D" uid="uid://bl85ilkmppcbo" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_RubbishBin_Unwrapped_DefaultMaterial_Normal.png" id="3_normal"]
+
+[resource]
+albedo_texture = ExtResource("1_base")
+orm_texture = ExtResource("2_orm")
+metallic = 1.0
+ao_enabled = true
+normal_enabled = true
+normal_texture = ExtResource("3_normal")

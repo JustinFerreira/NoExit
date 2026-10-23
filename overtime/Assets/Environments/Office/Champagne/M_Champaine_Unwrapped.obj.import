@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2ydn1886mm5j"
+path="res://.godot/imported/M_Champaine_Unwrapped.obj-df4e36069ccccd05c73a8b9af5c2ec0f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Champaine_Unwrapped.obj-df4e36069ccccd05c73a8b9af5c2ec0f.mesh"]
+
+source_file="res://Assets/Environments/Office/Champagne/M_Champaine_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Champaine_Unwrapped.obj-df4e36069ccccd05c73a8b9af5c2ec0f.mesh", "res://.godot/imported/M_Champaine_Unwrapped.obj-df4e36069ccccd05c73a8b9af5c2ec0f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

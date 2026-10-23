@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://despfmkk5dxqc"
+path="res://.godot/imported/M_RubbishBin_Unwrapped.obj-b04e52ac82b9b72a2893a3a8f14bfbda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_RubbishBin_Unwrapped.obj-b04e52ac82b9b72a2893a3a8f14bfbda.mesh"]
+
+source_file="res://Assets/Environments/Shared/RubbishBin/M_RubbishBin_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_RubbishBin_Unwrapped.obj-b04e52ac82b9b72a2893a3a8f14bfbda.mesh", "res://.godot/imported/M_RubbishBin_Unwrapped.obj-b04e52ac82b9b72a2893a3a8f14bfbda.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

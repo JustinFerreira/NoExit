@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dpqkv4awnch4n"
+path="res://.godot/imported/M_DevCar.obj-0e937ce04c6e8accfd7a3adc7e44e327.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_DevCar.obj-0e937ce04c6e8accfd7a3adc7e44e327.mesh"]
+
+source_file="res://Assets/Environments/Garage/PlayerCar/M_DevCar.obj"
+dest_files=["res://.godot/imported/M_DevCar.obj-0e937ce04c6e8accfd7a3adc7e44e327.mesh", "res://.godot/imported/M_DevCar.obj-0e937ce04c6e8accfd7a3adc7e44e327.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8bset3imotkx"
+path="res://.godot/imported/M_OfficeRoof_StackedUVs.obj-1aa10c2c316fb311dc33236573409457.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_OfficeRoof_StackedUVs.obj-1aa10c2c316fb311dc33236573409457.mesh"]
+
+source_file="res://Assets/Environments/Office/Building/M_OfficeRoof_StackedUVs.obj"
+dest_files=["res://.godot/imported/M_OfficeRoof_StackedUVs.obj-1aa10c2c316fb311dc33236573409457.mesh", "res://.godot/imported/M_OfficeRoof_StackedUVs.obj-1aa10c2c316fb311dc33236573409457.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

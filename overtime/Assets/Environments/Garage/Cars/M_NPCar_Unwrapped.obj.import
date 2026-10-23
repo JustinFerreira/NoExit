@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqb7ymfxvofey"
+path="res://.godot/imported/M_NPCar_Unwrapped.obj-a517ce379d2780d21ea4cc7d9e788d20.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_NPCar_Unwrapped.obj-a517ce379d2780d21ea4cc7d9e788d20.mesh"]
+
+source_file="res://Assets/Environments/Garage/Cars/M_NPCar_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_NPCar_Unwrapped.obj-a517ce379d2780d21ea4cc7d9e788d20.mesh", "res://.godot/imported/M_NPCar_Unwrapped.obj-a517ce379d2780d21ea4cc7d9e788d20.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

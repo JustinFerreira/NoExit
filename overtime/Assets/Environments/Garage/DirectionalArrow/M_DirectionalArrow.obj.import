@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2lyekdcrackv"
+path="res://.godot/imported/M_DirectionalArrow.obj-f7e5840ad882c63eb40ecfdd837cb0d8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_DirectionalArrow.obj-f7e5840ad882c63eb40ecfdd837cb0d8.mesh"]
+
+source_file="res://Assets/Environments/Garage/DirectionalArrow/M_DirectionalArrow.obj"
+dest_files=["res://.godot/imported/M_DirectionalArrow.obj-f7e5840ad882c63eb40ecfdd837cb0d8.mesh", "res://.godot/imported/M_DirectionalArrow.obj-f7e5840ad882c63eb40ecfdd837cb0d8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bmkpthtjj6kpm"
+path="res://.godot/imported/M_Lobby_Roof.obj-ca5a895e143c4b0d907cebce05f6930a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Lobby_Roof.obj-ca5a895e143c4b0d907cebce05f6930a.mesh"]
+
+source_file="res://Assets/Environments/Office/Lobby/M_Lobby_Roof.obj"
+dest_files=["res://.godot/imported/M_Lobby_Roof.obj-ca5a895e143c4b0d907cebce05f6930a.mesh", "res://.godot/imported/M_Lobby_Roof.obj-ca5a895e143c4b0d907cebce05f6930a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

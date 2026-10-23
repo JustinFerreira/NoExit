@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6ak5v7ggvy53"
+path="res://.godot/imported/M_Printer_Unwrapped.obj-58ea55a9a9591026934e41c13f23816b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Printer_Unwrapped.obj-58ea55a9a9591026934e41c13f23816b.mesh"]
+
+source_file="res://Assets/Environments/Office/Printer/M_Printer_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Printer_Unwrapped.obj-58ea55a9a9591026934e41c13f23816b.mesh", "res://.godot/imported/M_Printer_Unwrapped.obj-58ea55a9a9591026934e41c13f23816b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

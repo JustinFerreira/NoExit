@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c42whtah5m5m3"]
+
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkBlock/M_ParkBlock.obj" id="1_735r3"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_BaseColor.png" id="2_sgbf4"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Metalic_and_Rougness.png" id="3_ka2sr"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Normal.png" id="4_k3xme"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1c6r"]
+albedo_texture = ExtResource("2_sgbf4")
+metallic_texture = ExtResource("3_ka2sr")
+roughness_texture = ExtResource("3_ka2sr")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_k3xme")
+
+[node name="ParkBlock" type="Node3D"]
+
+[node name="MParkBlockUnwrapped" type="MeshInstance3D" parent="."]
+layers = 131072
+mesh = ExtResource("1_735r3")
+surface_material_override/0 = SubResource("StandardMaterial3D_p1c6r")

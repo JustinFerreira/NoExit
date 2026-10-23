@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfdnefg04vkvx"
+path="res://.godot/imported/Microwave close.mp3-1a6aff8b745216c6a7e78181d3b7f674.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Microwave/Microwave close.mp3"
+dest_files=["res://.godot/imported/Microwave close.mp3-1a6aff8b745216c6a7e78181d3b7f674.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

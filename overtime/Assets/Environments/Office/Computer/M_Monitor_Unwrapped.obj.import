@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d4almavsk0ivh"
+path="res://.godot/imported/M_Monitor_Unwrapped.obj-3b4c6f1d904bf98d149cac50b15c3c63.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Monitor_Unwrapped.obj-3b4c6f1d904bf98d149cac50b15c3c63.mesh"]
+
+source_file="res://Assets/Environments/Office/Computer/M_Monitor_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Monitor_Unwrapped.obj-3b4c6f1d904bf98d149cac50b15c3c63.mesh", "res://.godot/imported/M_Monitor_Unwrapped.obj-3b4c6f1d904bf98d149cac50b15c3c63.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

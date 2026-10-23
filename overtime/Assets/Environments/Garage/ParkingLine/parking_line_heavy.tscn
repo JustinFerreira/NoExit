@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cohln5revo0w"]
+
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkingLine/M_ParkingLine.obj" id="1_1dbi0"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingLine/Textures/M_ParkingLine_DefaultMaterial_BaseMap_Heavy.png" id="2_ublep"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingLine/Textures/M_ParkingLine_DefaultMaterial_MaskMap_Heavy.png" id="3_dd7s0"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingLine/Textures/M_ParkingLine_DefaultMaterial_Normal_Heavy.png" id="4_wg00j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmnk7"]
+transparency = 1
+albedo_texture = ExtResource("2_ublep")
+metallic = 1.0
+metallic_texture = ExtResource("3_dd7s0")
+roughness_texture = ExtResource("4_wg00j")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_wg00j")
+
+[node name="ParkingLineHeavy" type="Node3D"]
+
+[node name="MParkingLine" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1dbi0")
+surface_material_override/0 = SubResource("StandardMaterial3D_xmnk7")

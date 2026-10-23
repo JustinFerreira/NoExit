@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bn6o8ek2en2kq"
+path="res://.godot/imported/M_TrafficCone_Unwrapped.obj-03edf990c0e36bd901d46ba73e7e8ccd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_TrafficCone_Unwrapped.obj-03edf990c0e36bd901d46ba73e7e8ccd.mesh"]
+
+source_file="res://Assets/Environments/Garage/TrafficCone/M_TrafficCone_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_TrafficCone_Unwrapped.obj-03edf990c0e36bd901d46ba73e7e8ccd.mesh", "res://.godot/imported/M_TrafficCone_Unwrapped.obj-03edf990c0e36bd901d46ba73e7e8ccd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

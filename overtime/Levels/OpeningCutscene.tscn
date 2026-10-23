@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://ndph2guevtho"]
 
-[ext_resource type="Script" path="res://Scripts/OpeningCutScene.gd" id="1_4vnnq"]
+[ext_resource type="Script" path="res://Scripts/Levels/OpeningCutScene.gd" id="1_4vnnq"]
 [ext_resource type="PackedScene" path="res://Levels/Greyboxing/ParkingGarages/UnwrappedParkingGarage.tscn" id="2_54wop"]
 [ext_resource type="PackedScene" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="3_ei4b1"]
 [ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Scenes/Killer.tscn" id="5_rw1gg"]
-[ext_resource type="PackedScene" path="res://Assets/Enviroments/Garage/Scenes/PlayerCar/Scenes/PlayerCarSized.tscn" id="6_2gno0"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/PlayerCar/Scenes/PlayerCarSized.tscn" id="6_2gno0"]
 [ext_resource type="PackedScene" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="6_vwy3y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_1g3uw"]

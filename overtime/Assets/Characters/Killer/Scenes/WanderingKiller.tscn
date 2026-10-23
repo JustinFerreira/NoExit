@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bvwrlmkrq0rpr"]
 
-[ext_resource type="Script" path="res://Scripts/WanderingEnemy.gd" id="1_8i7p8"]
+[ext_resource type="Script" path="res://Scripts/Enemies/WanderingEnemy.gd" id="1_8i7p8"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/KillerStab_Mesh.res" id="3_6cmjl"]
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/KillerStab_Skin.res" id="4_o6kk3"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/KillerWalk_Mesh.res" id="8_27ixn"]

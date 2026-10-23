@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://df63p4gkori84"]
+
+[ext_resource type="Material" uid="uid://csuwr7n64oba" path="res://Assets/Materials/Stapler.tres" id="1_ajhvy"]
+[ext_resource type="ArrayMesh" uid="uid://bhyefe7gw0h6e" path="res://Assets/Environments/Office/Stapler/Stapler.obj" id="4_jr0hb"]
+[ext_resource type="Material" uid="uid://cwo0dk0bsf5e1" path="res://Assets/Materials/PerfectOutline.tres" id="4_ys5ta"]
+[ext_resource type="Script" path="res://Scripts/Interactables/ExaminableItem.gd" id="5_eysno"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rulnb"]
+points = PackedVector3Array(10.164, 5.70704, -1.6423, -15.7173, -3.78652, 2.22757, 12.5927, -4.22583, 2.43766, -16.4772, -2.84101, -2.63805, 11.2487, -3.74282, -2.40706, -14.63, 2.69417, 1.97612, 1.51225, 5.92506, -3.09959, 9.32481, 5.97921, 2.66847, -13.6976, 2.10943, -2.36404, -16.2605, -3.98173, -2.081, 10.7455, 3.61774, -3.09959, 11.2051, -4.22583, 2.89919, 9.82327, 6.38736, -3.09959, -14.9022, 0.868687, 2.23366, 6.05119, 5.81219, 2.57408, 10.6402, 4.3952, 2.3305, 12.0623, -2.25443, -2.10193, -16.2216, -2.21047, 1.87515, -15.2873, 1.29929, -2.0674, 11.6677, -1.45617, 2.89919, 10.7455, 4.54132, -3.09959, 8.4386, 3.15647, -3.09959, -15.3681, 1.30063, 1.87911, -13.162, 2.50402, -1.52467, 10.135, 5.69616, 1.878, -14.6048, -3.68529, -2.37954, -14.2562, 1.70458, -2.39171, -14.009, 2.10071, 2.14445, -14.1781, 2.11528, -1.96287, 11.6677, -3.76353, 2.89919, -16.3248, -2.23463, -1.64774, -15.7079, -2.93567, 2.22595)
+
+[sub_resource type="Animation" id="Animation_n6c5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stapler:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dvqf5"]
+resource_name = "StaplerFade"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stapler:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abrpa"]
+_data = {
+"RESET": SubResource("Animation_n6c5f"),
+"StaplerFade": SubResource("Animation_dvqf5")
+}
+
+[node name="Stapler" type="Node3D"]
+
+[node name="Stapler" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.07067, -2.71697, -1.37402e-05)
+material_override = ExtResource("1_ajhvy")
+mesh = ExtResource("4_jr0hb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stapler" node_paths=PackedStringArray("mesh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.02733e-05, 3.99521, 1.57437)
+script = ExtResource("5_eysno")
+dialog_from_event_manager = "stapler_normal_dialog"
+store_in_box = true
+flash_mode = 2
+outline_material = ExtResource("4_ys5ta")
+mesh = NodePath("..")
+has_outline = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stapler/StaticBody3D"]
+transform = Transform3D(1, 0, -6.80001e-16, 0, 1, 0, 6.80001e-16, 0, 1, 0, 0, -1.81899e-12)
+shape = SubResource("ConvexPolygonShape3D_rulnb")
+
+[node name="StaplerFade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_abrpa")
+}
+
+[connection signal="interacted" from="Stapler/StaticBody3D" to="Stapler/StaticBody3D" method="_on_interacted"]

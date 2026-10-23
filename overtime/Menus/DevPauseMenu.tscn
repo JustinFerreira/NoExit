@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://b6i75ojxg73j6"]
 
-[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_qni82"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseMenu.gd" id="1_qni82"]
 [ext_resource type="FontFile" uid="uid://41y7qinwa7cl" path="res://Assets/Fonts/Perfect_DOS_VGA_437.ttf" id="3_vnwb4"]
 [ext_resource type="PackedScene" uid="uid://bbptuv1do4fe" path="res://Menus/SettingsMenu.tscn" id="4_kfqge"]
 

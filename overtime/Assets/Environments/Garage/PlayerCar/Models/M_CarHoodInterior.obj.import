@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fjdmyp1lnv4c"
+path="res://.godot/imported/M_CarHoodInterior.obj-cce6ed9e2a0486fa96777d9484c80036.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_CarHoodInterior.obj-cce6ed9e2a0486fa96777d9484c80036.mesh"]
+
+source_file="res://Assets/Environments/Garage/PlayerCar/Models/M_CarHoodInterior.obj"
+dest_files=["res://.godot/imported/M_CarHoodInterior.obj-cce6ed9e2a0486fa96777d9484c80036.mesh", "res://.godot/imported/M_CarHoodInterior.obj-cce6ed9e2a0486fa96777d9484c80036.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

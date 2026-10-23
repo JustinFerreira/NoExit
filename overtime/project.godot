@@ -18,16 +18,16 @@ config/icon="res://Assets/Logos/GTFO.png"
 
 [autoload]
 
-GameState="*res://Scripts/GameState.gd"
-Journal="*res://Scripts/Journal.gd"
-AudioManager="*res://Scripts/AudioManager.gd"
-SettingsManager="*res://Scripts/SettingsManager.gd"
-PlayerManager="*res://Scripts/PlayerManager.gd"
-AnimationManager="*res://Scripts/AnimationManager.gd"
-CameraManager="*res://Scripts/CameraManager.gd"
-UiManager="*res://Scripts/UIManager.gd"
-EventManager="*res://Scripts/EventManager.gd"
-HelperManager="*res://Scripts/HelperManager.gd"
+GameState="*res://Scripts/Managers/GameState.gd"
+Journal="*res://Scripts/Managers/Journal.gd"
+AudioManager="*res://Scripts/Managers/AudioManager.gd"
+SettingsManager="*res://Scripts/Managers/SettingsManager.gd"
+PlayerManager="*res://Scripts/Managers/PlayerManager.gd"
+AnimationManager="*res://Scripts/Managers/AnimationManager.gd"
+CameraManager="*res://Scripts/Managers/CameraManager.gd"
+UiManager="*res://Scripts/Managers/UIManager.gd"
+EventManager="*res://Scripts/Managers/EventManager.gd"
+HelperManager="*res://Scripts/Managers/HelperManager.gd"
 
 [display]
 

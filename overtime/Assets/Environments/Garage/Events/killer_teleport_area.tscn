@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfwikhd0ml4k1"]
+
+[ext_resource type="Script" path="res://Scripts/Events/killer_teleport_area.gd" id="1_afmy2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6smdd"]
+size = Vector3(587.945, 16.3457, 519.645)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_12qgb"]
+points = PackedVector3Array(293.973, 8.17285, 259.823, 293.973, 8.17285, -259.823, -293.973, 8.17285, 259.823, 293.973, -8.17285, 259.823, 293.973, -8.17285, -259.823, -293.973, 8.17285, -259.823, -293.973, -8.17285, 259.823, -293.973, -8.17285, -259.823)
+
+[node name="KillerTelportArea" type="Node3D" node_paths=PackedStringArray("teleports")]
+script = ExtResource("1_afmy2")
+teleports = []
+activated = false
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+visible = false
+mesh = SubResource("BoxMesh_6smdd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConvexPolygonShape3D_12qgb")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

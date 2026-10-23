@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=4 uid="uid://cja1f1lpuu26i"]
 
-[ext_resource type="Script" path="res://Scripts/NpcRandomDialogue.gd" id="3_eepod"]
+[ext_resource type="Script" path="res://Scripts/NPCs/NpcRandomDialogue.gd" id="3_eepod"]
 [ext_resource type="Material" path="res://Assets/Materials/Player.tres" id="5_phi50"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/NpcBody_Mesh.res" id="10_dynvd"]
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/NpcBody_Skin.res" id="11_bm7rc"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://du7o11s86nsnj"
+path="res://.godot/imported/M_RoofRail_Unwrapped.obj-62e6e38a2aafc72c8d06ccae1119a22c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_RoofRail_Unwrapped.obj-62e6e38a2aafc72c8d06ccae1119a22c.mesh"]
+
+source_file="res://Assets/Environments/Garage/Cars/M_RoofRail_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_RoofRail_Unwrapped.obj-62e6e38a2aafc72c8d06ccae1119a22c.mesh", "res://.godot/imported/M_RoofRail_Unwrapped.obj-62e6e38a2aafc72c8d06ccae1119a22c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

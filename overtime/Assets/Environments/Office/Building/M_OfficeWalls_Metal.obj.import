@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4vucymaa54mr"
+path="res://.godot/imported/M_OfficeWalls_Metal.obj-cdd04c046626c5f45735a0219b7eff55.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_OfficeWalls_Metal.obj-cdd04c046626c5f45735a0219b7eff55.mesh"]
+
+source_file="res://Assets/Environments/Office/Building/M_OfficeWalls_Metal.obj"
+dest_files=["res://.godot/imported/M_OfficeWalls_Metal.obj-cdd04c046626c5f45735a0219b7eff55.mesh", "res://.godot/imported/M_OfficeWalls_Metal.obj-cdd04c046626c5f45735a0219b7eff55.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
