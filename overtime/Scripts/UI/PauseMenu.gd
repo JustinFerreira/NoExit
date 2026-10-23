@@ -47,6 +47,8 @@ func _ready() -> void:
 	# Next to the menu, not inside it: the menu's Unpause animation hides the
 	# whole menu after 0.3s, which used to cut the fade-out off abruptly.
 	_attach_dim.call_deferred()
+	if has_node("PanelContainer2/VBoxContainer"):
+		_build_lighting_tools()
 
 ## Puts the backdrop just behind this menu (deferred - the parent is still
 ## setting up its children during _ready).
@@ -138,6 +140,7 @@ func _on_dev_tools_btn_pressed() -> void:
 	AudioManager.play_sound(AudioManager.GetKeyPress())
 	
 	$PanelContainer.visible = false
+	_refresh_lighting_tools()
 	$PanelContainer2.visible = true
 
 
@@ -171,3 +174,117 @@ func _on_button_pressed() -> void:
 func _on_cursor_visible_toggled(toggled_on: bool) -> void:
 	PlayerManager.CursorInvisible = toggled_on
 	UiManager.refresh_cursor()
+
+
+# --- Lighting test tools (Dev Tools page) ---------------------------------
+# Only shown in levels with a LevelShadows node (e.g. Office Shadows).
+# Changes are live and not saved - the Output panel prints the values so
+# good ones can be copied into the LevelShadows inspector.
+
+const BRIGHTNESS_STEP := 0.25
+const AMBIENT_STEP := 0.1
+
+var _lighting_rows: Array[Control] = []
+var _brightness_label: Label
+var _ambient_label: Label
+var _ambient_check: CheckBox
+
+
+func _level_shadows() -> Node:
+	return get_tree().get_first_node_in_group("level_shadows")
+
+
+func _build_lighting_tools() -> void:
+	var box: VBoxContainer = $PanelContainer2/VBoxContainer
+	var btn_template: Button = box.get_node("BacktoScreen")
+	var check_template: CheckBox = box.get_node("FreeRoamBtn")
+
+	var row1 := _make_stepper_row(btn_template,
+		func(): _change_brightness(-BRIGHTNESS_STEP),
+		func(): _change_brightness(BRIGHTNESS_STEP))
+	_brightness_label = row1.get_child(1)
+
+	# Duplicate without signals (flags: groups | scripts | instancing).
+	_ambient_check = check_template.duplicate(2 | 4 | 8)
+	_ambient_check.name = "AmbientLightBtn"
+	_ambient_check.text = "Ambient Light"
+	_ambient_check.button_pressed = false
+	_ambient_check.toggled.connect(_on_ambient_toggled)
+
+	var row2 := _make_stepper_row(btn_template,
+		func(): _change_ambient(-AMBIENT_STEP),
+		func(): _change_ambient(AMBIENT_STEP))
+	_ambient_label = row2.get_child(1)
+
+	for c in [_spacer(), row1, _spacer(), _ambient_check, row2]:
+		box.add_child(c)
+		_lighting_rows.append(c)
+	_refresh_lighting_tools()
+
+
+func _spacer() -> Control:
+	var m := MarginContainer.new()
+	m.custom_minimum_size = Vector2(0, 10)
+	return m
+
+
+## [ - ]  label  [ + ]
+func _make_stepper_row(template: Button, on_minus: Callable, on_plus: Callable) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 24)
+	var minus: Button = template.duplicate(2 | 4 | 8)
+	minus.text = "-"
+	minus.pressed.connect(func():
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+		on_minus.call())
+	var label := Label.new()
+	label.add_theme_font_override("font", template.get_theme_font("font"))
+	label.add_theme_font_size_override("font_size", 32)
+	label.custom_minimum_size = Vector2(300, 0)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var plus: Button = template.duplicate(2 | 4 | 8)
+	plus.text = "+"
+	plus.pressed.connect(func():
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+		on_plus.call())
+	row.add_child(minus)
+	row.add_child(label)
+	row.add_child(plus)
+	return row
+
+
+func _refresh_lighting_tools() -> void:
+	if _lighting_rows.is_empty():
+		return
+	var ls = _level_shadows()
+	for c in _lighting_rows:
+		c.visible = ls != null
+	if ls == null:
+		return
+	_brightness_label.text = "Brightness %.2fx" % ls.brightness
+	_ambient_label.text = "Ambient %.1f" % ls.ambient_energy
+	_ambient_check.set_pressed_no_signal(ls.ambient_on)
+
+
+func _change_brightness(step: float) -> void:
+	var ls = _level_shadows()
+	if ls:
+		ls.set_brightness(maxf(0.0, ls.brightness + step))
+	_refresh_lighting_tools()
+
+
+func _on_ambient_toggled(toggled_on: bool) -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	var ls = _level_shadows()
+	if ls:
+		ls.set_ambient(toggled_on)
+	_refresh_lighting_tools()
+
+
+## Adjusting the amount also switches ambient on.
+func _change_ambient(step: float) -> void:
+	var ls = _level_shadows()
+	if ls:
+		ls.set_ambient(true, maxf(0.0, ls.ambient_energy + step))
+	_refresh_lighting_tools()

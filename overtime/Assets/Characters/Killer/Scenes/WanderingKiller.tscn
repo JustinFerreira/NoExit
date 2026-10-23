@@ -5,10 +5,10 @@
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/KillerStab_Skin.res" id="4_o6kk3"]
 [ext_resource type="ArrayMesh" path="res://Assets/Characters/Shared/KillerWalk_Mesh.res" id="8_27ixn"]
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/KillerWalk_Skin.res" id="9_taqp6"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png" id="10_pcksi"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Metalic_and_Rougness.png" id="11_pyded"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Emissive.png" id="12_etowh"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Normal.png" id="13_dtw1m"]
+[ext_resource type="Texture2D" uid="uid://crtp1bonqkoio" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_BaseColor.png" id="10_pcksi"]
+[ext_resource type="Texture2D" uid="uid://cdv21l6jetaj0" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Metalic_and_Rougness.png" id="11_pyded"]
+[ext_resource type="Texture2D" uid="uid://b8trah754qjr5" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Emissive.png" id="12_etowh"]
+[ext_resource type="Texture2D" uid="uid://b8pdvalusug1f" path="res://Assets/Characters/Killer/Textures/M_Killer_LowUV_Normal.png" id="13_dtw1m"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_24ohk"]
 points = PackedVector3Array(-31.3612, -60.182, -40.2182, 31.3612, 60.182, 40.2182, 31.3612, -60.182, 40.2182, 31.3612, 60.182, -40.2182, -31.3612, 60.182, 40.2182, 31.3612, -60.182, -40.2182, -31.3612, -60.182, 40.2182, -31.3612, 60.182, -40.2182)
@@ -1009,26 +1009,8 @@ _data = {
 "RESET": SubResource("Animation_i47nd")
 }
 
-[node name="Killer" type="CharacterBody3D" node_paths=PackedStringArray("wander_targets") groups=["enemy"]]
+[node name="Killer" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_8i7p8")
-wander_speed = 1.5
-chase_speed = 3.5
-arrival_threshold = 1.5
-lose_player_on_sight_lost = false
-wander_targets = []
-move_speed = 2.0
-use_gravity = true
-acceleration = 0.25
-repath_interval = 0.25
-repath_distance = 2.0
-model_faces_plus_z = true
-sight_range = 20.0
-sight_fov_degrees = 60.0
-sight_height_offset = 1.0
-can_kill_player = true
-face_height = 1.8
-kill_look_down_degrees = 35.0
-game_over_delay = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066829, 63.827, -0.0220254)

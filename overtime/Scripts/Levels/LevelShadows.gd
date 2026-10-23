@@ -2,6 +2,8 @@
 ## Overtime Studios
 ## Last updated 10/22/26 by Justin Ferreira
 ## Level Shadows
+## - Brightness / ambient light can be tested live from the dev pause
+##   menu's Dev Tools page.
 ## - Drop this node into any level to turn on shadows for its lights,
 ##   without editing every light by hand. Tweak the settings in the
 ##   inspector while the game runs to see the effect.
@@ -45,6 +47,24 @@ extends Node
 
 var _lights: Array[Light3D] = []
 
+## --- Live test controls (Dev Tools page in the dev pause menu) ---
+## Multiplies every light's brightness on top of energy_scale.
+var brightness: float = 1.0
+## Flat fill light everywhere - lifts every shadow (dark desks, corners).
+var ambient_on: bool = false
+var ambient_energy: float = 0.3
+var ambient_color: Color = Color(0.9, 0.9, 0.85)
+
+var _all_lights: Array[Light3D] = []
+var _base_energy: Dictionary = {}   # Light3D -> energy after apply()
+var _env: Environment
+var _env_orig: Dictionary = {}
+
+
+func _enter_tree() -> void:
+	# Lets the dev pause menu find this node.
+	add_to_group("level_shadows")
+
 
 func _ready() -> void:
 	# After the level's own _ready (lights get set up / swapped there).
@@ -82,3 +102,71 @@ func apply() -> void:
 			light.distance_fade_begin = shadow_fade_begin + shadow_fade_length + 200.0   # the light itself never fades
 			light.distance_fade_length = shadow_fade_length
 	print("LevelShadows: shadows on for %d lights" % _lights.size())
+	_all_lights.clear()
+	_base_energy.clear()
+	for l in level.find_children("*", "Light3D", true, false):
+		_all_lights.append(l)
+		_base_energy[l] = (l as Light3D).light_energy
+	_setup_environment(level)
+	_apply_brightness()
+	_apply_ambient()
+
+
+## Grabs the level's environment (a private copy, so changes don't stick to
+## the saved scene) and remembers its original ambient settings.
+func _setup_environment(level: Node) -> void:
+	var envs := level.find_children("*", "WorldEnvironment", true, false)
+	var we: WorldEnvironment
+	if envs.is_empty():
+		we = WorldEnvironment.new()
+		level.add_child(we)
+	else:
+		we = envs[0]
+	if we.environment == null:
+		we.environment = Environment.new()
+	else:
+		we.environment = we.environment.duplicate()
+	_env = we.environment
+	_env_orig = {
+		"source": _env.ambient_light_source,
+		"color": _env.ambient_light_color,
+		"energy": _env.ambient_light_energy,
+	}
+
+
+func set_brightness(value: float) -> void:
+	brightness = clampf(value, 0.0, 10.0)
+	_apply_brightness()
+	_print_values()
+
+
+func set_ambient(on: bool, energy: float = ambient_energy) -> void:
+	ambient_on = on
+	ambient_energy = clampf(energy, 0.0, 3.0)
+	_apply_ambient()
+	_print_values()
+
+
+func _apply_brightness() -> void:
+	for light in _all_lights:
+		if is_instance_valid(light):
+			light.light_energy = _base_energy[light] * brightness
+
+
+func _apply_ambient() -> void:
+	if _env == null:
+		return
+	if ambient_on:
+		_env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+		_env.ambient_light_color = ambient_color
+		_env.ambient_light_energy = ambient_energy
+	else:
+		_env.ambient_light_source = _env_orig.source
+		_env.ambient_light_color = _env_orig.color
+		_env.ambient_light_energy = _env_orig.energy
+
+
+## Printed so good values can be copied into the inspector afterwards.
+func _print_values() -> void:
+	print("LevelShadows: brightness x%.2f (energy_scale to bake in: %.2f) | ambient %s %.2f" % [
+		brightness, energy_scale * brightness, "ON" if ambient_on else "off", ambient_energy])
