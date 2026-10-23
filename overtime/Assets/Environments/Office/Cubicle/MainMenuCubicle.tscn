@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Metalic_and_Rougness.png" id="7_13vkg"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Height.png" id="8_ki18c"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Normal.png" id="9_2dj6x"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="10_ippv7"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="10_ippv7"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_BaseColor.png" id="11_kgolm"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_Rougness.png" id="12_18s6k"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean.png" id="13_jkt0l"]

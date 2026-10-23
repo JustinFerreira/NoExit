@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://xp82eoac5p0b"]
 
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigOffset.obj" id="1_ffinf"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigOffset.obj" id="1_ffinf"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_BaseColor.png" id="2_ayh0e"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="3_dlf01"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Normal.png" id="4_tx5kn"]

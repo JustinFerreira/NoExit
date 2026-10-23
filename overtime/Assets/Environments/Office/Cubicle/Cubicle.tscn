@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="1_o4x2v"]
 [ext_resource type="Material" uid="uid://ca205yux1xney" path="res://Assets/Materials/Cubicle.tres" id="1_unbtt"]
-[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="2_pogjx"]
+[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="2_pogjx"]
 [ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Environments/Office/Computer/M_Computer_Combined_Unwrapped.obj" id="3_10mdd"]
 [ext_resource type="Material" uid="uid://blbhl6rna6cvk" path="res://Assets/Materials/Chair.tres" id="4_2lc7y"]
 [ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]

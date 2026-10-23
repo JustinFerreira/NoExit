@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbd5r41urmf3e"
+path="res://.godot/imported/Old_M_Pipe_BigLong.obj-bff6e32cf6d2f5acae41b2741f3bf214.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Old_M_Pipe_BigLong.obj-bff6e32cf6d2f5acae41b2741f3bf214.mesh"]
+
+source_file="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigLong.obj"
+dest_files=["res://.godot/imported/Old_M_Pipe_BigLong.obj-bff6e32cf6d2f5acae41b2741f3bf214.mesh", "res://.godot/imported/Old_M_Pipe_BigLong.obj-bff6e32cf6d2f5acae41b2741f3bf214.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

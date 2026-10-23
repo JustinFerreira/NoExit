@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bgovjy3lglrq1"
+path="res://.godot/imported/Old_M_Pipe_Junction.obj-2f0b48bd91c2fb132d8146fe5461bd5b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Old_M_Pipe_Junction.obj-2f0b48bd91c2fb132d8146fe5461bd5b.mesh"]
+
+source_file="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Junction.obj"
+dest_files=["res://.godot/imported/Old_M_Pipe_Junction.obj-2f0b48bd91c2fb132d8146fe5461bd5b.mesh", "res://.godot/imported/Old_M_Pipe_Junction.obj-2f0b48bd91c2fb132d8146fe5461bd5b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

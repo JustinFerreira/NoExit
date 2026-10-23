@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://biouyo83gjcgi"
+path="res://.godot/imported/M_Cubicle_Unwrapped.obj-7a3059a46dd9ec7da6918d10d3ed99ec.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Cubicle_Unwrapped.obj-7a3059a46dd9ec7da6918d10d3ed99ec.mesh"]
+
+source_file="res://Assets/Environments/Office/Cubicle/M_Cubicle_Unwrapped.obj"
+dest_files=["res://.godot/imported/M_Cubicle_Unwrapped.obj-7a3059a46dd9ec7da6918d10d3ed99ec.mesh", "res://.godot/imported/M_Cubicle_Unwrapped.obj-7a3059a46dd9ec7da6918d10d3ed99ec.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="34_6glgq"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="35_ofujk"]
 [ext_resource type="Material" path="res://Assets/Materials/Chair.tres" id="36_61lb2"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="37_p5v83"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="37_p5v83"]
 [ext_resource type="Material" path="res://Assets/Materials/Computer.tres" id="38_4dyxw"]
 [ext_resource type="ArrayMesh" uid="uid://dmk23drrefc4t" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="39_h1g87"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/TissueBox/Tissue_Box.obj" id="40_28uc3"]
