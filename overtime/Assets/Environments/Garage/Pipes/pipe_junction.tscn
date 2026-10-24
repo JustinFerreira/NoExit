@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dqjqr5mgdf05u"]
 
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Junction.obj" id="1_f5y5p"]
+[ext_resource type="ArrayMesh" uid="uid://t8acb5fgnnxw" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Junction.obj" id="1_f5y5p"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_BaseColor.png" id="2_ugh2r"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="3_87h56"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Normal.png" id="4_w353k"]

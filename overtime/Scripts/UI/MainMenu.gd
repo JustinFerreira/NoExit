@@ -235,3 +235,15 @@ func _on_shadow_office_pressed() -> void:
 	PlayerManager.Loop1 = false
 	get_tree().change_scene_to_file("res://Levels/Fitted/Office_Shadows.tscn")
 	PlayerManager.MainMenu = false
+
+
+## Review level where everything is at its real size in metres (real-size player and killer).
+func _on_real_size_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.OpeningCutscene = false
+	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = false
+	PlayerManager.firstdialog = false
+	get_tree().change_scene_to_file("res://Levels/Review/RealSizeLevel.tscn")
+	PlayerManager.MainMenu = false

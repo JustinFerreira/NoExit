@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqtccb4evu6ma"]
 
-[ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="1_o4x2v"]
+[ext_resource type="ArrayMesh" uid="uid://biouyo83gjcgi" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Unwrapped.obj" id="1_o4x2v"]
 [ext_resource type="Material" uid="uid://ca205yux1xney" path="res://Assets/Materials/Cubicle.tres" id="1_unbtt"]
-[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="2_pogjx"]
-[ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Environments/Office/Computer/M_Computer_Combined_Unwrapped.obj" id="3_10mdd"]
+[ext_resource type="ArrayMesh" uid="uid://cfstfismu4fus" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="2_pogjx"]
+[ext_resource type="ArrayMesh" uid="uid://dmk23drrefc4t" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="3_10mdd"]
 [ext_resource type="Material" uid="uid://blbhl6rna6cvk" path="res://Assets/Materials/Chair.tres" id="4_2lc7y"]
 [ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="6_rvkpv"]
 
@@ -16,7 +16,7 @@ material_override = ExtResource("1_unbtt")
 mesh = ExtResource("1_o4x2v")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="ModelCubicleUnwrapped"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137866, 1.98605e-07, 0.000156581)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.137866, 1.98605e-05, 0.0156581)
 visible = false
 use_collision = true
 

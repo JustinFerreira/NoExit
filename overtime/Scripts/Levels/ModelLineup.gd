@@ -3,7 +3,12 @@ extends Node3D
 
 func _ready() -> void:
 	# only the models: the player's own UI animations must be left alone
-	for ap: AnimationPlayer in $Models.find_children("*", "AnimationPlayer", true, false):
+	var models: Node = get_node_or_null("Models")
+	if models == null:
+		models = find_child("Models", true, false)
+	if models == null:
+		return
+	for ap: AnimationPlayer in models.find_children("*", "AnimationPlayer", true, false):
 		var anims := ap.get_animation_list()
 		if anims.is_empty():
 			continue

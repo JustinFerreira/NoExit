@@ -75,12 +75,12 @@
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="85_budqr"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Normal.png" id="86_6nyj0"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigConnection.obj" id="87_btw18"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Junction.obj" id="88_hmahb"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Big90.obj" id="89_i4k3e"]
+[ext_resource type="ArrayMesh" uid="uid://t8acb5fgnnxw" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Junction.obj" id="88_hmahb"]
+[ext_resource type="ArrayMesh" uid="uid://5j8xt2bhbe4" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Big90.obj" id="89_i4k3e"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigMed.obj" id="90_578br"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_PipeHolster_Unwrapped.obj" id="91_isoov"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Small90.obj" id="92_l5ewr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigOffset.obj" id="93_a0r7d"]
+[ext_resource type="ArrayMesh" uid="uid://max7jnp6bmv8" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Small90.obj" id="92_l5ewr"]
+[ext_resource type="ArrayMesh" uid="uid://5lq3flmcp22d" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigOffset.obj" id="93_a0r7d"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigSharp90.obj" id="94_7pq8i"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallShort.obj" id="95_cwmrf"]
 [ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigWide90.obj" id="96_fwoam"]
@@ -240,7 +240,7 @@
 [ext_resource type="Script" path="res://Scripts/Minigames/BatteryPickup.gd" id="246_rf61t"]
 [ext_resource type="AudioStream" path="res://Assets/Audio/Stingers/spookystinger.mp3" id="247_5kepq"]
 [ext_resource type="Material" path="res://Assets/Materials/GasCanisterPickUp.tres" id="248_iakp7"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GasCanister/M_GasCanister_Compact.obj" id="249_5t0my"]
+[ext_resource type="ArrayMesh" uid="uid://d1jis6uxjvb3" path="res://Assets/Environments/Garage/GasCanister/M_Gas_Canister_Compact.obj" id="249_5t0my"]
 [ext_resource type="Script" path="res://Scripts/Minigames/GasCanister.gd" id="250_hmi2s"]
 [ext_resource type="Script" path="res://Scripts/Events/StalkingArea.gd" id="251_m7cx5"]
 [ext_resource type="Script" path="res://Scripts/Events/blood_ceiling_fall_event.gd" id="252_7o682"]
@@ -5905,7 +5905,7 @@ _data = {
 }
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_snysm"]
-points = PackedVector3Array(-0.0508644, 0.00403148, -0.147543, 0.0530682, 0.338024, 0.164026, -0.0500068, 0.339046, 0.165558, -0.0578239, 0.445943, -0.16145, 0.0779686, 0.417235, -0.145277, 0.061183, 0.0119709, 0.153611, 0.0604788, 0.0352643, -0.165928, -0.0639182, 0.0212118, 0.158893, -0.0381345, 0.446235, 0.0941572, -0.0692413, 0.438201, -0.142166, 0.0604606, 0.449561, -0.000157148, -0.0640352, 0.0277417, -0.159491, -0.0684174, 0.322125, 0.140204, 0.0652659, 0.328826, 0.153585, 0.0659061, 0.0193447, -0.141935, 0.0605955, 0.429258, -0.166257, 0.0416742, 0.409958, 0.144963, -0.0693682, 0.032167, -0.13564, 0.0658383, 0.0330443, 0.154971, 0.0608928, 0.0339003, 0.166783, -0.0506545, 0.0259046, -0.167945, -0.0637413, 0.449299, -0.00699458, -0.0572591, 0.00635708, 0.145703, 0.0540561, 0.00551792, -0.146568, 0.0608837, 0.451155, -0.146191, -0.068939, 0.0333517, 0.141248, -0.057578, 0.431091, -0.167773, -0.0504583, 0.0197265, 0.167002, 0.054189, 0.00495042, 0.146626, -0.0636481, 0.324956, 0.165131, -0.057811, 0.452966, -0.147381, 0.056189, 0.409958, 0.130437)
+points = PackedVector3Array(-5.08644, 0.403148, -14.7543, 5.30682, 33.8024, 16.4026, -5.00068, 33.9046, 16.5558, -5.78239, 44.5943, -16.145, 7.79686, 41.7235, -14.5277, 6.1183, 1.19709, 15.3611, 6.04788, 3.52643, -16.5928, -6.39182, 2.12118, 15.8893, -3.81345, 44.6235, 9.41572, -6.92413, 43.8201, -14.2166, 6.04606, 44.9561, -0.0157148, -6.40352, 2.77417, -15.9491, -6.84174, 32.2125, 14.0204, 6.52659, 32.8826, 15.3585, 6.59061, 1.93447, -14.1935, 6.05955, 42.9258, -16.6257, 4.16742, 40.9958, 14.4963, -6.93682, 3.2167, -13.564, 6.58383, 3.30443, 15.4971, 6.08928, 3.39003, 16.6783, -5.06545, 2.59046, -16.7945, -6.37413, 44.9299, -0.699458, -5.72591, 0.635708, 14.5703, 5.40561, 0.551792, -14.6568, 6.08837, 45.1155, -14.6191, -6.8939, 3.33517, 14.1248, -5.7578, 43.1091, -16.7773, -5.04583, 1.97265, 16.7002, 5.4189, 0.495042, 14.6626, -6.36481, 32.4956, 16.5131, -5.7811, 45.2966, -14.7381, 5.6189, 40.9958, 13.0437)
 
 [sub_resource type="Animation" id="Animation_057pp"]
 resource_name = "GasCanisterFade"
@@ -11834,7 +11834,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -11893,7 +11893,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -11952,7 +11952,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12011,7 +12011,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12070,7 +12070,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12129,7 +12129,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12188,7 +12188,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12247,7 +12247,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12306,7 +12306,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12365,7 +12365,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12424,7 +12424,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12483,7 +12483,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12542,7 +12542,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12601,7 +12601,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12663,7 +12663,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12722,7 +12722,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12781,7 +12781,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12840,7 +12840,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12899,7 +12899,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -12958,7 +12958,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13017,7 +13017,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13076,7 +13076,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13135,7 +13135,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13194,7 +13194,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13253,7 +13253,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13312,7 +13312,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13371,7 +13371,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13430,7 +13430,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes2/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13492,7 +13492,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13551,7 +13551,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13610,7 +13610,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13669,7 +13669,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13728,7 +13728,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13787,7 +13787,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13846,7 +13846,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13905,7 +13905,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -13964,7 +13964,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14023,7 +14023,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14082,7 +14082,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14141,7 +14141,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14200,7 +14200,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14259,7 +14259,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes4/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14321,7 +14321,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14380,7 +14380,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14439,7 +14439,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14498,7 +14498,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14557,7 +14557,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14616,7 +14616,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14675,7 +14675,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14734,7 +14734,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14793,7 +14793,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14852,7 +14852,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14911,7 +14911,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -14970,7 +14970,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15029,7 +15029,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15088,7 +15088,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes5/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15150,7 +15150,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15209,7 +15209,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15268,7 +15268,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15327,7 +15327,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15386,7 +15386,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15445,7 +15445,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15504,7 +15504,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15563,7 +15563,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15622,7 +15622,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15681,7 +15681,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15740,7 +15740,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15799,7 +15799,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15858,7 +15858,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15917,7 +15917,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes3/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -15979,7 +15979,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16038,7 +16038,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16097,7 +16097,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16156,7 +16156,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16215,7 +16215,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16274,7 +16274,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16333,7 +16333,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16392,7 +16392,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16451,7 +16451,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16510,7 +16510,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16569,7 +16569,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16628,7 +16628,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16687,7 +16687,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16746,7 +16746,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes6/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16808,7 +16808,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16867,7 +16867,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16926,7 +16926,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -16985,7 +16985,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17044,7 +17044,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17103,7 +17103,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17162,7 +17162,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17221,7 +17221,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17280,7 +17280,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17339,7 +17339,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17398,7 +17398,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17457,7 +17457,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17516,7 +17516,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17575,7 +17575,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes7/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17637,7 +17637,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17696,7 +17696,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17755,7 +17755,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17814,7 +17814,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17873,7 +17873,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17932,7 +17932,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -17991,7 +17991,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18050,7 +18050,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18109,7 +18109,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18168,7 +18168,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18227,7 +18227,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18286,7 +18286,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18345,7 +18345,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18404,7 +18404,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes8/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18466,7 +18466,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18525,7 +18525,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18584,7 +18584,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18643,7 +18643,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18702,7 +18702,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18761,7 +18761,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18820,7 +18820,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18879,7 +18879,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18938,7 +18938,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -18997,7 +18997,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19056,7 +19056,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19115,7 +19115,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19174,7 +19174,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19233,7 +19233,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes9/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19295,7 +19295,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19354,7 +19354,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19413,7 +19413,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19472,7 +19472,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19531,7 +19531,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19590,7 +19590,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19649,7 +19649,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19708,7 +19708,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19767,7 +19767,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19826,7 +19826,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19885,7 +19885,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -19944,7 +19944,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20003,7 +20003,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20062,7 +20062,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes10/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20124,7 +20124,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20183,7 +20183,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20242,7 +20242,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20301,7 +20301,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20360,7 +20360,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20419,7 +20419,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20478,7 +20478,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20537,7 +20537,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20596,7 +20596,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20655,7 +20655,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20714,7 +20714,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20773,7 +20773,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20832,7 +20832,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20891,7 +20891,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes11/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -20953,7 +20953,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21012,7 +21012,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21071,7 +21071,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21130,7 +21130,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21189,7 +21189,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21248,7 +21248,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21307,7 +21307,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21366,7 +21366,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21425,7 +21425,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21484,7 +21484,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21543,7 +21543,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21602,7 +21602,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21661,7 +21661,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21720,7 +21720,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes12/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21782,7 +21782,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21841,7 +21841,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21900,7 +21900,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -21959,7 +21959,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22018,7 +22018,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22077,7 +22077,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22136,7 +22136,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22195,7 +22195,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22254,7 +22254,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22313,7 +22313,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22372,7 +22372,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22431,7 +22431,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22490,7 +22490,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22549,7 +22549,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes13/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22611,7 +22611,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22670,7 +22670,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22729,7 +22729,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22788,7 +22788,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22847,7 +22847,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22906,7 +22906,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -22965,7 +22965,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23024,7 +23024,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23083,7 +23083,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23142,7 +23142,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23201,7 +23201,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23260,7 +23260,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23319,7 +23319,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23378,7 +23378,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes14/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23440,7 +23440,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23499,7 +23499,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23558,7 +23558,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23617,7 +23617,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection30/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23676,7 +23676,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection31/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23735,7 +23735,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23794,7 +23794,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23853,7 +23853,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23912,7 +23912,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -23971,7 +23971,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24030,7 +24030,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24089,7 +24089,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24148,7 +24148,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24207,7 +24207,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/LightPipes15/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24218,7 +24218,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24226,7 +24226,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24269,7 +24269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6685, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection30/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24277,7 +24277,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection30/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24320,7 +24320,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8981, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection56/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24328,7 +24328,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection56/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24371,7 +24371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.0154, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection73/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24379,7 +24379,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection73/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24422,7 +24422,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5194, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection74/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24430,7 +24430,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection74/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24473,7 +24473,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1011, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection75/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24481,7 +24481,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection75/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24524,7 +24524,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.5571, 4.51662, 25.1767)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection76/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24532,7 +24532,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection76/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24575,7 +24575,7 @@ transform = Transform3D(0.75471, 0, 0.656059, 0, 1, 0, -0.656059, 0, 0.75471, 30
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection16/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24583,7 +24583,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection16/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24626,7 +24626,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.3471, 4.517, 20.0599)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection17/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24634,7 +24634,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection17/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -24693,7 +24693,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection18/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24720,7 +24720,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection19/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24755,7 +24755,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection20/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24782,7 +24782,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection67/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24809,7 +24809,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection68/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24844,7 +24844,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection69/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24871,7 +24871,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection41/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24898,7 +24898,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection42/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24933,7 +24933,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection43/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24960,7 +24960,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection44/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -24987,7 +24987,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection45/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25022,7 +25022,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection46/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25049,7 +25049,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection21/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25076,7 +25076,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection22/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25111,7 +25111,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection23/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25130,7 +25130,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection24/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25165,7 +25165,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection25/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25200,7 +25200,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection26/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25219,7 +25219,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection27/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25254,7 +25254,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection28/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25289,7 +25289,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection29/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25300,7 +25300,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.416, 4.517, 20.0599)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection31/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -25308,7 +25308,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection31/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -25367,7 +25367,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection32/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25394,7 +25394,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection33/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25429,7 +25429,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection34/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25448,7 +25448,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection35/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25483,7 +25483,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection36/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25518,7 +25518,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection37/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25537,7 +25537,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection38/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25572,7 +25572,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection39/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25607,7 +25607,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection40/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25634,7 +25634,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection47/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25661,7 +25661,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection48/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25696,7 +25696,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection49/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25715,7 +25715,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection50/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25750,7 +25750,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection51/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25785,7 +25785,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection52/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25804,7 +25804,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection53/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25839,7 +25839,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection54/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25874,7 +25874,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection55/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25885,7 +25885,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.416, -0.587073, 20.0599)
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, 4.15242)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection57/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -25893,7 +25893,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 2.06918, 0.411364, -6.50919)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection57/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -25952,7 +25952,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection58/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -25979,7 +25979,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection59/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26014,7 +26014,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection60/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26033,7 +26033,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection61/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26068,7 +26068,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection62/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26103,7 +26103,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection63/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26122,7 +26122,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h0hcb")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection64/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26157,7 +26157,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection65/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26192,7 +26192,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -3.67072, 1.10899, 4.06756)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection66/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26219,7 +26219,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.229355, 0.23663, 2.91135)
 
 [node name="MPipeSmall90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection3/PipeSmall90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0842819, 0, 0.197752)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0842819, 0, 0.197752)
 mesh = ExtResource("92_l5ewr")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 
@@ -26227,7 +26227,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.164612, 0.63227, 2.90739)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection3/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26235,7 +26235,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171524, 0.511365, 3.49897)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection3/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -26259,7 +26259,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.156456, 0.620037, -3.79634)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection3/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26318,7 +26318,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.229355, 0.23663, 2.91135)
 
 [node name="MPipeSmall90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection7/PipeSmall90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0842819, 0, 0.197752)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0842819, 0, 0.197752)
 mesh = ExtResource("92_l5ewr")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 
@@ -26326,7 +26326,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.164612, 0.63227, 2.90739)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection7/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26334,7 +26334,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171524, 0.511365, 3.49897)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection7/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -26358,7 +26358,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.156456, 0.620037, -3.79634)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection7/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26417,7 +26417,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.229355, 0.23663, 2.91135)
 
 [node name="MPipeSmall90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection4/PipeSmall90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.0842819, 0, 0.197752)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0.0842819, 0, 0.197752)
 mesh = ExtResource("92_l5ewr")
 surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 
@@ -26425,7 +26425,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_yy1i6")
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.164612, 0.63227, 2.90739)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection4/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26433,7 +26433,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171524, 0.511365, 3.49897)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection4/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -26457,7 +26457,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cfh73")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.156456, 0.620037, -3.79634)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection4/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26500,7 +26500,7 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.3
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.059433, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection5/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26508,7 +26508,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, -0.550812, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection5/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26516,7 +26516,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.705696, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection5/PipeBig92"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26527,7 +26527,7 @@ transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.3
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.059433, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection6/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26535,7 +26535,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, -0.550812, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection6/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26543,7 +26543,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.705696, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection6/PipeBig92"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26554,7 +26554,7 @@ transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.059433, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection10/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26562,7 +26562,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, -0.550812, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection10/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26570,7 +26570,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.705696, 0.311598)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection10/PipeBig92"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -26637,7 +26637,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection1/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26760,7 +26760,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection8/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -26883,7 +26883,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection9/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -27006,7 +27006,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection2/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -27129,7 +27129,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection70/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -27252,7 +27252,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection71/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -27375,7 +27375,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_b2hkc")
 transform = Transform3D(0.0214659, 0, -0.99977, 0, 1, 0, 0.99977, 0, 0.0214659, -8.28414, 0.396918, 0.695868)
 
 [node name="MPipeJunction" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection72/PipeJunction"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("88_hmahb")
 surface_material_override/0 = SubResource("StandardMaterial3D_ibm3c")
 
@@ -27442,7 +27442,7 @@ transform = Transform3D(-1, -8.74228e-08, 4.37114e-08, 4.37114e-08, 1.91069e-15,
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.059433, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection11/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27450,7 +27450,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, -0.550812, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection11/PipeBig91"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27458,7 +27458,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 transform = Transform3D(1, 0, 0, 0, 1, 8.35187e-23, 0, 8.35187e-23, 1, 0, 0.705696, 0.286146)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection11/PipeBig92"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27477,7 +27477,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -98.63
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.403965, 0.297747, -0.257744)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection12/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -27517,7 +27517,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.426102, 0.912438, 6.98027)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection12/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27536,7 +27536,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.27
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.403965, 0.297747, -0.257744)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection13/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -27576,7 +27576,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.426102, 0.912438, 6.98027)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection13/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27595,7 +27595,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.08
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.403965, 0.297747, -0.257744)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection14/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -27635,7 +27635,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.426102, 0.912438, 6.98027)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection14/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -27654,7 +27654,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3823, 14.0666, 6.69057)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.403965, 0.297747, -0.257744)
 
 [node name="MPipeBigOffset" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection15/PipeBigOffset"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.144495, 0.0763807)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -0.144495, 0.0763807)
 mesh = ExtResource("93_a0r7d")
 surface_material_override/0 = SubResource("StandardMaterial3D_oa7w7")
 
@@ -27694,7 +27694,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_i2ijt")
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.426102, 0.912438, 6.98027)
 
 [node name="MPipeBig90" type="MeshInstance3D" parent="NavigationRegion3D/UnwrappedParkingGarage/Piipes/PipeSection15/PipeBig90"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0)
 mesh = ExtResource("89_i4k3e")
 surface_material_override/0 = SubResource("StandardMaterial3D_6uxuv")
 
@@ -50300,7 +50300,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.238, 0.177634, 44.571)
 
 [node name="GasCanisterObject" type="MeshInstance3D" parent="GasCanisterPickUp"]
-transform = Transform3D(2.64, 0, 0, 0, 2.64, 0, 0, 0, 2.64, 0, 0, 0)
+transform = Transform3D(0.0264, 0, 0, 0, 0.0264, 0, 0, 0, 0.0264, 0, 0, 0)
 material_override = ExtResource("248_iakp7")
 mesh = ExtResource("249_5t0my")
 

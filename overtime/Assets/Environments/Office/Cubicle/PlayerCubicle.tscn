@@ -6,17 +6,17 @@
 [ext_resource type="Material" path="res://Assets/Materials/PerfectOutline.tres" id="2_jjwqt"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Height.png" id="3_pcciy"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="4_28gse"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="5_qlqkf"]
+[ext_resource type="ArrayMesh" uid="uid://biouyo83gjcgi" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Unwrapped.obj" id="5_qlqkf"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_BaseColor.png" id="6_bh06i"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Metalic_and_Rougness.png" id="7_gbr5d"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Height.png" id="8_nkqd0"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Normal.png" id="9_a5emv"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="10_yakf6"]
+[ext_resource type="ArrayMesh" uid="uid://cfstfismu4fus" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="10_yakf6"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_BaseColor.png" id="11_5h0p4"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_Rougness.png" id="12_8gtsl"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean.png" id="13_xjinb"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Computer/Textures/Clean Computer/M_Computer_Clean_Normal.png" id="14_1kxfa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Computer_Combined_Unwrapped.obj" id="15_y6l3j"]
+[ext_resource type="ArrayMesh" uid="uid://dmk23drrefc4t" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="15_y6l3j"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/StickyNote/StickyNote.tscn" id="22_nemri"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/Folder/folder_1.tscn" id="23_jrv6m"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/PictureFrame/PlayerPictureFrame1.tscn" id="24_f14f0"]
@@ -241,7 +241,7 @@ material_override = SubResource("StandardMaterial3D_pe347")
 mesh = ExtResource("5_qlqkf")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="ModelCubicleUnwrapped"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137866, 1.98372e-07, 0.000156581)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0.137866, 1.98372e-05, 0.0156581)
 visible = false
 use_collision = true
 

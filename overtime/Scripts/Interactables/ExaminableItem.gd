@@ -685,6 +685,10 @@ func _darken_background() -> void:
 	_dark_tween = create_tween().set_parallel(true)
 	for mat in _dark_originals:
 		var o: Array = _dark_originals[mat]
+		if mat is ShaderMaterial:
+			_dark_tween.tween_method(_set_brightness.bind(mat), o[0], o[0] * DARKEN_AMOUNT, transition_time) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			continue
 		_dark_tween.tween_property(mat, "albedo_color", Color(o[0].r, o[0].g, o[0].b, 0.0) * DARKEN_AMOUNT + Color(0, 0, 0, o[0].a), transition_time) \
 			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 		if mat.emission_enabled:
@@ -701,6 +705,10 @@ func _undarken_background() -> void:
 	_dark_tween = create_tween().set_parallel(true)
 	for mat in _dark_originals:
 		var o: Array = _dark_originals[mat]
+		if mat is ShaderMaterial:
+			_dark_tween.tween_method(_set_brightness.bind(mat), float(mat.get_shader_parameter("brightness")), o[0], transition_time) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			continue
 		_dark_tween.tween_property(mat, "albedo_color", o[0], transition_time) \
 			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 		if mat.emission_enabled:
@@ -749,21 +757,43 @@ func _darken_node(node: GeometryInstance3D) -> void:
 
 
 ## One darkenable copy per real material (shared by everything using it).
-## null = Godot's default material. Custom shaders can't be darkened this
-## way and are left alone.
-func _dark_copy(source: Material) -> BaseMaterial3D:
+## null = Godot's default material. Custom shaders are darkened only if they
+## have a "brightness" uniform (like ps1_model.gdshader); others are left alone.
+func _dark_copy(source: Material) -> Material:
 	var key = source if source else "default"
 	if _dark_copies.has(key):
 		return _dark_copies[key]
-	var copy: BaseMaterial3D = null
+	var copy: Material = null
 	if source == null:
 		copy = StandardMaterial3D.new()
 	elif source is BaseMaterial3D:
 		copy = source.duplicate()
+	elif source is ShaderMaterial and _has_brightness(source):
+		copy = source.duplicate()
+	if copy is ShaderMaterial:
+		# an unset uniform reads as null, so give the copy its real value to fade from
+		var b = copy.get_shader_parameter("brightness")
+		b = 1.0 if b == null else float(b)
+		copy.set_shader_parameter("brightness", b)
+		_dark_originals[copy] = [b]
+	elif copy:
+		_dark_originals[copy] = [copy.albedo_color, copy.emission_energy_multiplier]
 	if copy:
 		_dark_copies[key] = copy
-		_dark_originals[copy] = [copy.albedo_color, copy.emission_energy_multiplier]
 	return copy
+
+
+func _set_brightness(value: float, mat: ShaderMaterial) -> void:
+	mat.set_shader_parameter("brightness", value)
+
+
+func _has_brightness(mat: ShaderMaterial) -> bool:
+	if mat.shader == null:
+		return false
+	for u in mat.shader.get_shader_uniform_list():
+		if u.name == "brightness":
+			return true
+	return false
 
 
 ## Puts every real material back straight away.
