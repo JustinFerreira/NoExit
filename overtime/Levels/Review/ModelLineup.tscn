@@ -1,268 +1,267 @@
-[gd_scene load_steps=300 format=3 uid="uid://d1xhaoxeg8upj"]
+[gd_scene load_steps=299 format=3 uid="uid://d1xhaoxeg8upj"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/ModelLineup.gd" id="1_wd2o3"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Clock/Textures/Hour Hand/M_HourHand_Unwrapped_DefaultMaterial_BaseMap.png" id="2_th1cn"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Clock/Textures/Hour Hand/M_HourHand_Unwrapped_DefaultMaterial_Normal.png" id="3_ukhpm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Clock/M_HourHand_Unwrapped.obj" id="4_3emh2"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Clock/Textures/Minute Hand/M_MinuteHand_Unwrapped_DefaultMaterial_BaseMap.png" id="5_7pt44"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Clock/M_MinuteHand_Unwrapped.obj" id="6_mmvpo"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallShort.obj" id="7_nikef"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PunchCardHolder/Textures/M_CardFolder_Unwrapped_DefaultMaterial_BaseMap.png" id="8_jmjky"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/PunchCardHolder/Textures/M_CardFolder_Unwrapped_DefaultMaterial_Normal.png" id="9_kyt8d"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PunchCardHolder/M_CardFolder_Unwrapped.obj" id="10_v2qxn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Small45.obj" id="11_62rhl"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallOffset.obj" id="12_csfdx"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Small90.obj" id="13_xhf0x"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigShort.obj" id="14_hiixk"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/TimePunch/Textures/M_TimePunch_Unwrapped_DefaultMaterial_BaseMap.png" id="15_vkxvy"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/TimePunch/Textures/M_TimePunch_Unwrapped_DefaultMaterial_Normal.png" id="16_54s5q"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/TimePunch/M_TimePunch_Unwrapped.obj" id="17_62csu"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Big45.obj" id="18_00b3l"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigOffset.obj" id="19_6s4qa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Big90.obj" id="20_1djn8"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Junction.obj" id="21_iplm4"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/GasCanister/Textures/M_GasCanister_Unwrapped_BaseColor.png" id="22_pw5le"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/GasCanister/Textures/M_GasCanister_Unwrapped_Normal.png" id="23_cdhaw"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GasCanister/M_Gas_Canister_Compact.obj" id="24_a3irr"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/ArmMenu/Animation_ArmMenu.fbx" id="25_0vo15"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallMed.obj" id="26_pw7d3"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_BaseColor.png" id="27_wbrdy"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Normal.png" id="28_lbquh"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Holster.obj" id="29_06hy0"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GasCanister/M_Gas_Canister_Extended.obj" id="30_xf8wo"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CeilingLight/Textures/Square/M_OfficeLight_Square_DefaultMaterial_BaseMap.png" id="31_gcgxi"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CeilingLight/Textures/Square/M_OfficeLight_Square_DefaultMaterial_Normal.png" id="32_ryuwb"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/CeilingLight/M_OfficeLight_Square.obj" id="33_04dqj"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigMed.obj" id="34_srnyr"]
-[ext_resource type="Material" path="res://Assets/Materials/Computer.tres" id="35_6jqqa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="36_nohw3"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CorkBoard/Textures/M_CorkBoard_Unwrapped_DefaultMaterial_BaseMap.png" id="37_8j858"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CorkBoard/Textures/M_CorkBoard_Unwrapped_DefaultMaterial_Normal.png" id="38_3n4t3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/CorkBoard/M_CorkBoard_Unwrapped.obj" id="39_87ii3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallLong.obj" id="40_4a6qp"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CeilingLight/Textures/Rectangle/M_OfficeLight_Simple_DefaultMaterial_BaseMap.png" id="41_mk6e0"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/CeilingLight/Textures/Rectangle/M_OfficeLight_Simple_DefaultMaterial_Normal.png" id="42_fhsaa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/CeilingLight/M_OfficeLight_Simple.obj" id="43_ngilq"]
+[ext_resource type="Texture2D" uid="uid://d0tfeoergt4n6" path="res://Assets/Environments/Office/Clock/Textures/Hour Hand/M_HourHand_Unwrapped_DefaultMaterial_BaseMap.png" id="2_th1cn"]
+[ext_resource type="Texture2D" uid="uid://cu5h0p6d05ory" path="res://Assets/Environments/Office/Clock/Textures/Hour Hand/M_HourHand_Unwrapped_DefaultMaterial_Normal.png" id="3_ukhpm"]
+[ext_resource type="ArrayMesh" uid="uid://c1sr5xq55iymx" path="res://Assets/Environments/Office/Clock/M_HourHand_Unwrapped.obj" id="4_3emh2"]
+[ext_resource type="Texture2D" uid="uid://xm0pk4sw5rcv" path="res://Assets/Environments/Office/Clock/Textures/Minute Hand/M_MinuteHand_Unwrapped_DefaultMaterial_BaseMap.png" id="5_7pt44"]
+[ext_resource type="ArrayMesh" uid="uid://b3bgd4vfqp1ni" path="res://Assets/Environments/Office/Clock/M_MinuteHand_Unwrapped.obj" id="6_mmvpo"]
+[ext_resource type="ArrayMesh" uid="uid://bp3xyf8os53ok" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallShort.obj" id="7_nikef"]
+[ext_resource type="Texture2D" uid="uid://dns4i1g20jihy" path="res://Assets/Environments/Office/PunchCardHolder/Textures/M_CardFolder_Unwrapped_DefaultMaterial_BaseMap.png" id="8_jmjky"]
+[ext_resource type="Texture2D" uid="uid://bc02lpy3mr2y5" path="res://Assets/Environments/Office/PunchCardHolder/Textures/M_CardFolder_Unwrapped_DefaultMaterial_Normal.png" id="9_kyt8d"]
+[ext_resource type="ArrayMesh" uid="uid://du8p3dy5qjd21" path="res://Assets/Environments/Office/PunchCardHolder/M_CardFolder_Unwrapped.obj" id="10_v2qxn"]
+[ext_resource type="ArrayMesh" uid="uid://c7bs8yae2ts3r" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Small45.obj" id="11_62rhl"]
+[ext_resource type="ArrayMesh" uid="uid://dx6s3tq0ynb3t" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallOffset.obj" id="12_csfdx"]
+[ext_resource type="ArrayMesh" uid="uid://max7jnp6bmv8" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Small90.obj" id="13_xhf0x"]
+[ext_resource type="ArrayMesh" uid="uid://dfifd04v5ds3b" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigShort.obj" id="14_hiixk"]
+[ext_resource type="Texture2D" uid="uid://ilopb2amb65a" path="res://Assets/Environments/Office/TimePunch/Textures/M_TimePunch_Unwrapped_DefaultMaterial_BaseMap.png" id="15_vkxvy"]
+[ext_resource type="Texture2D" uid="uid://ckp1qu4sui856" path="res://Assets/Environments/Office/TimePunch/Textures/M_TimePunch_Unwrapped_DefaultMaterial_Normal.png" id="16_54s5q"]
+[ext_resource type="ArrayMesh" uid="uid://dni13h0jb0htu" path="res://Assets/Environments/Office/TimePunch/M_TimePunch_Unwrapped.obj" id="17_62csu"]
+[ext_resource type="ArrayMesh" uid="uid://dnintuj5aeau0" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Big45.obj" id="18_00b3l"]
+[ext_resource type="ArrayMesh" uid="uid://5lq3flmcp22d" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigOffset.obj" id="19_6s4qa"]
+[ext_resource type="ArrayMesh" uid="uid://5j8xt2bhbe4" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Big90.obj" id="20_1djn8"]
+[ext_resource type="ArrayMesh" uid="uid://t8acb5fgnnxw" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Junction.obj" id="21_iplm4"]
+[ext_resource type="Texture2D" uid="uid://ddmplpodjmab2" path="res://Assets/Environments/Garage/GasCanister/Textures/M_GasCanister_Unwrapped_BaseColor.png" id="22_pw5le"]
+[ext_resource type="Texture2D" uid="uid://c7kadnkgs7vd" path="res://Assets/Environments/Garage/GasCanister/Textures/M_GasCanister_Unwrapped_Normal.png" id="23_cdhaw"]
+[ext_resource type="ArrayMesh" uid="uid://d1jis6uxjvb3" path="res://Assets/Environments/Garage/GasCanister/M_Gas_Canister_Compact.obj" id="24_a3irr"]
+[ext_resource type="PackedScene" uid="uid://ck0uns2ivpfel" path="res://Assets/Characters/Player/ArmMenu/Animation_ArmMenu.fbx" id="25_0vo15"]
+[ext_resource type="ArrayMesh" uid="uid://bsa2mngij0jie" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallMed.obj" id="26_pw7d3"]
+[ext_resource type="Texture2D" uid="uid://c8wwbbaesxok" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_BaseColor.png" id="27_wbrdy"]
+[ext_resource type="Texture2D" uid="uid://ckg8xeohmmqbw" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Normal.png" id="28_lbquh"]
+[ext_resource type="ArrayMesh" uid="uid://dvesuc0wsedxx" path="res://Assets/Environments/Garage/Pipes/M_Pipe_Holster.obj" id="29_06hy0"]
+[ext_resource type="ArrayMesh" uid="uid://c5m5mhhpd8oaa" path="res://Assets/Environments/Garage/GasCanister/M_Gas_Canister_Extended.obj" id="30_xf8wo"]
+[ext_resource type="Texture2D" uid="uid://cyqt0xfyjbq8f" path="res://Assets/Environments/Office/CeilingLight/Textures/Square/M_OfficeLight_Square_DefaultMaterial_BaseMap.png" id="31_gcgxi"]
+[ext_resource type="Texture2D" uid="uid://chxe2pjvbt71t" path="res://Assets/Environments/Office/CeilingLight/Textures/Square/M_OfficeLight_Square_DefaultMaterial_Normal.png" id="32_ryuwb"]
+[ext_resource type="ArrayMesh" uid="uid://mvi5u7fgyvi" path="res://Assets/Environments/Office/CeilingLight/M_OfficeLight_Square.obj" id="33_04dqj"]
+[ext_resource type="ArrayMesh" uid="uid://4jv78yiqmdmw" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigMed.obj" id="34_srnyr"]
+[ext_resource type="Material" uid="uid://xuslr4uu5kyr" path="res://Assets/Materials/Computer.tres" id="35_6jqqa"]
+[ext_resource type="ArrayMesh" uid="uid://dmk23drrefc4t" path="res://Assets/Environments/Office/Computer/M_Computer_Combined.obj" id="36_nohw3"]
+[ext_resource type="Texture2D" uid="uid://db7ouw4ghl41y" path="res://Assets/Environments/Office/CorkBoard/Textures/M_CorkBoard_Unwrapped_DefaultMaterial_BaseMap.png" id="37_8j858"]
+[ext_resource type="Texture2D" uid="uid://darhwajc8b58n" path="res://Assets/Environments/Office/CorkBoard/Textures/M_CorkBoard_Unwrapped_DefaultMaterial_Normal.png" id="38_3n4t3"]
+[ext_resource type="ArrayMesh" uid="uid://b0vn88po66mcp" path="res://Assets/Environments/Office/CorkBoard/M_CorkBoard_Unwrapped.obj" id="39_87ii3"]
+[ext_resource type="ArrayMesh" uid="uid://bqvoiintnkhn6" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallLong.obj" id="40_4a6qp"]
+[ext_resource type="Texture2D" uid="uid://dwo1k3pykw2qr" path="res://Assets/Environments/Office/CeilingLight/Textures/Rectangle/M_OfficeLight_Simple_DefaultMaterial_BaseMap.png" id="41_mk6e0"]
+[ext_resource type="Texture2D" uid="uid://hki3b0an3oti" path="res://Assets/Environments/Office/CeilingLight/Textures/Rectangle/M_OfficeLight_Simple_DefaultMaterial_Normal.png" id="42_fhsaa"]
+[ext_resource type="ArrayMesh" uid="uid://cuceaqcs7cuyr" path="res://Assets/Environments/Office/CeilingLight/M_OfficeLight_Simple.obj" id="43_ngilq"]
 [ext_resource type="Material" path="res://Assets/Environments/Shared/RubbishBin/RubbishBin_Material.tres" id="44_bqmd6"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/RubbishBin/M_RubbishBin_Unwrapped.obj" id="45_wlfxj"]
+[ext_resource type="ArrayMesh" uid="uid://despfmkk5dxqc" path="res://Assets/Environments/Shared/RubbishBin/M_RubbishBin_Unwrapped.obj" id="45_wlfxj"]
 [ext_resource type="Material" path="res://Assets/Environments/Garage/RecyclingBin/RecyclingBin_Material.tres" id="46_jtkf6"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/RecyclingBin/M_RecyclingBin_Unwrapped.obj" id="47_jwl2e"]
+[ext_resource type="ArrayMesh" uid="uid://dejx62ucxogrh" path="res://Assets/Environments/Garage/RecyclingBin/M_RecyclingBin_Unwrapped.obj" id="47_jwl2e"]
 [ext_resource type="Material" path="res://Assets/Environments/Garage/ParkingDrum/ParkingDrum_Material.tres" id="48_saihp"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkingDrum/M_ParkingDrum_Unwrapped.obj" id="49_w2uap"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_BaseColor.png" id="50_auq3f"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_Normal.png" id="51_abpfl"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkingDrum/Old_ParkingDrum.obj" id="52_tefx4"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Animations/RESIZED_Player Sleeping.fbx" id="53_jtdro"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_BaseColor.png" id="54_ckgr4"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Normal.png" id="55_yn3q0"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/M_Chair_Resized.obj" id="56_44hu4"]
+[ext_resource type="ArrayMesh" uid="uid://b58ss2yuhoohr" path="res://Assets/Environments/Garage/ParkingDrum/M_ParkingDrum_Unwrapped.obj" id="49_w2uap"]
+[ext_resource type="Texture2D" uid="uid://bwtorevyexwh8" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_BaseColor.png" id="50_auq3f"]
+[ext_resource type="Texture2D" uid="uid://c5o0ndcgepp2h" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_Normal.png" id="51_abpfl"]
+[ext_resource type="ArrayMesh" uid="uid://s1xmcgfo0emv" path="res://Assets/Environments/Garage/ParkingDrum/Old_ParkingDrum.obj" id="52_tefx4"]
+[ext_resource type="PackedScene" uid="uid://cfp1j8ct7dvtp" path="res://Assets/Characters/Player/Animations/RESIZED_Player Sleeping.fbx" id="53_jtdro"]
+[ext_resource type="Texture2D" uid="uid://qrid5wfad8b4" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_BaseColor.png" id="54_ckgr4"]
+[ext_resource type="Texture2D" uid="uid://4e5db3kqh1m3" path="res://Assets/Environments/Office/Chair/Textures/M_Chair_Normal.png" id="55_yn3q0"]
+[ext_resource type="ArrayMesh" uid="uid://d28aximfw71r7" path="res://Assets/Environments/Office/Chair/M_Chair_Resized.obj" id="56_44hu4"]
 [ext_resource type="Material" path="res://Assets/Environments/Garage/GaragePole/GaragePole_Material.tres" id="57_8ar8v"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GaragePole/M_GaragePole.obj" id="58_hk8hn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="59_e2n4p"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigLong.obj" id="60_xoa2l"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Models/RESIZED_Player Mixamo TPose.fbx" id="61_sofhp"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Nice Door/M_DoorHighPoly_DefaultMaterial_BaseMap.png" id="62_te6k1"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Nice Door/M_DoorHighPoly_DefaultMaterial_Normal.png" id="63_flb66"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Door/M_DoorHighPoly.obj" id="64_ofaau"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Door/M_DoorLowPoly.obj" id="65_ex3si"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Simple Door/M_DoorSim_Unwrapped_DefaultMaterial_BaseMap.png" id="66_k6lok"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Simple Door/M_DoorSim_Unwrapped_DefaultMaterial_Normal.png" id="67_pj0wr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Door/M_DoorSim_Unwrapped.obj" id="68_ttyfx"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Door Frame/M_DoorFrame_Unwrapped_DefaultMaterial_BaseMap.png" id="69_kle3k"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Door Frame/M_DoorFrame_Unwrapped_DefaultMaterial_Normal.png" id="70_dmv0r"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Door/M_DoorFrame_Unwrapped.obj" id="71_0wnsl"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Double Door Frame/M_DoubleDoorFrame_DefaultMaterial_BaseMap.png" id="72_s3dwf"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Door/Textures/Double Door Frame/M_DoubleDoorFrame_DefaultMaterial_Normal.png" id="73_7614v"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Door/M_DoubleDoorFrame.obj" id="74_02cbs"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/RESIZED_Killer Idle.fbx" id="75_qmjxi"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/RESIZED_Killer Walk Cycle.fbx" id="76_j8s5u"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="77_j1gsi"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="78_kt158"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Resized.obj" id="79_ai16l"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Unwrapped.obj" id="80_vedix"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="81_to1m1"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="82_e60r0"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Animated.obj" id="83_wehu3"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Unwrapped_BaseColor.png" id="84_hy1i2"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Unwrapped_Normal.png" id="85_44trj"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkBlock/M_ParkingBlock_Unwrapped.obj" id="86_q1cpw"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Models/RESIZED_Killer Mixamo TPose.fbx" id="87_8gurc"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ConcreteBarrier/Textures/M_ConcreteBarrier_Unwrapped_DefaultMaterial_BaseMap.png" id="88_iopqh"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ConcreteBarrier/Textures/M_ConcreteBarrier_Unwrapped_DefaultMaterial_Normal.png" id="89_b8sni"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ConcreteBarrier/M_ConcreteBarrier_Unwrapped.obj" id="90_fo0w7"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Lobby/Textures/Desk/M_Lobby_Desk_DefaultMaterial_BaseMap.png" id="91_r3ja8"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Lobby/Textures/Desk/M_Lobby_Desk_DefaultMaterial_Normal.png" id="92_qf8i8"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Lobby/M_Lobby_Desk.obj" id="93_v8aaa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Lobby/M_LobbyFloor_Unwrapped.obj" id="94_2m3tk"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Lobby/M_Lobby_Roof.obj" id="95_rvmmp"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_Office_Glass.obj" id="96_qt8yy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_OfficeWalls_Metal.obj" id="97_jace8"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_OfficeRoof_StackedUVs.obj" id="98_01ooy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_OfficeRoof_NormalUVs.obj" id="99_lrr2t"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_OfficeFloor_Unwrapped.obj" id="100_412ub"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Building/M_OfficeWalls_Unwrapped.obj" id="101_t67y2"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png" id="102_wbsd6"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkingDrum/M_ParkingDrum_Simple.obj" id="103_bw603"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_BaseColor.png" id="104_skbx7"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_Metalic_and_Rougness.png" id="105_dwijk"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_Normal.png" id="106_7xf7s"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GaragePole/M_GaragePole_Unwrapped.obj" id="107_lm3lr"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_BaseColor.png" id="108_q5txn"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_Metalic_and_Rougness.png" id="109_ir1q6"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_Normal.png" id="110_rgt62"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/RecyclingBin/M_Recycling_Unwrapped.obj" id="111_qun1g"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_BaseColor.png" id="112_dcm12"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_Metalic_and_Rougness.png" id="113_1oi0v"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_Normal.png" id="114_acrnt"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/RubbishBin/M_Rubbish_Unwrapped.obj" id="115_ua5mb"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Computer_Combined_Unwrapped.obj" id="116_wdikp"]
-[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="117_ls5cm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_PipeHolster_Unwrapped.obj" id="118_n8hrv"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/Cars/SudanBlack.tscn" id="119_vr1c1"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallConnection.obj" id="120_rj5xb"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Mouse_Unwrapped.obj" id="121_tlsu6"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigConnection.obj" id="122_wkxtm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Small45.obj" id="123_lt1q1"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallSharp90.obj" id="124_00m44"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallOffset.obj" id="125_mow76"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Small90.obj" id="126_xqbsm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Big45.obj" id="127_h2jof"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallJunction.obj" id="128_fdd0q"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigSharp90.obj" id="129_8jih8"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigOffset.obj" id="130_blgkf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Big90.obj" id="131_7ulbh"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Junction.obj" id="132_qa214"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GasCanister/M_GasCanister_Compact.obj" id="133_6pidr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigJunction.obj" id="134_oo1ey"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Tower_Unwrapped.obj" id="135_7hc81"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallWide90.obj" id="136_fy71s"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Monitor_Unwrapped.obj" id="137_60epn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GasCanister/M_GasCanister_Alternate.obj" id="138_6v842"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pen/Pen_2.obj" id="139_e0mcx"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pen/Pen_1.obj" id="140_iyqaf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Computer/M_Keyboard_Unwrapped.obj" id="141_k6sd4"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallShort.obj" id="142_i75wa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Pencil/Pencil.obj" id="143_or180"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigWide90.obj" id="144_m7dxy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigShort.obj" id="145_ulend"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Papers/Papers_1.obj" id="146_wbw7j"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallMed.obj" id="147_1sgj7"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Signs/M_Sign_Unwrapped.obj" id="148_d1smu"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="149_yynq5"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/Walking.fbx" id="150_od4cp"]
-[ext_resource type="ArrayMesh" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="151_vawxr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigMed.obj" id="152_5wtqa"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="153_7bbww"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Unwrapped.obj" id="154_5ylcg"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Elevator/Animations/M_Elevator_v4.fbx" id="155_dkc1y"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Elevator/M_Elevator_v6.fbx" id="156_1hbvy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Simple_Unwrapped.obj" id="157_i048a"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Elevator/M_Elevator_v5.fbx" id="158_245oi"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_WIP.obj" id="159_xflyf"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Elevator/M_Elevator_Animated.fbx" id="160_3pcib"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Elevator/M_Elevator_Animated (1).fbx" id="161_k2pqn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Elevator/M_Elevator_Unwrapped_Old.obj" id="162_mrlx4"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkBlock/M_ParkBlock_Unwrapped.obj" id="163_k32w1"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkBlock/M_ParkBlock.obj" id="164_74l6g"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Nut/M_Nut.obj" id="165_wqtli"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallLong.obj" id="166_2otqc"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigLong.obj" id="167_hmxih"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PottedPlant/Potted_Plant_1.obj" id="168_wta0o"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ElectricalPipes/M_ElectricalPipes_WIP.obj" id="169_nwden"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar.obj" id="170_kq4s7"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar_Animated1.fbx" id="171_srj1b"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar_Animated.fbx" id="172_ehw7p"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TollBooth/M_Button_Unwrapped.obj" id="173_fs2ku"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/NewOfficeMesh.obj" id="174_6f3cx"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mug/Mug_1.obj" id="175_qdsaq"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/StickyNote/Sticky_Note.obj" id="176_0od1j"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/StickyNote/Sticky_Notes.obj" id="177_lqoim"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mug/Mug_2.obj" id="178_i62of"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/CarKeys/M_CarKeys_Unwrapped.obj" id="179_60kc3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_3.obj" id="180_d351i"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_2.obj" id="181_m6kjg"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/FireAlarm/M_FireAlarm.obj" id="182_0cqyn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_GasIntake.obj" id="183_3vf47"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_GasCap.obj" id="184_b3mhy"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_4.obj" id="185_42l6m"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Spam/M_SPAM_Unwrapped.obj" id="186_mkfiq"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_1.obj" id="187_1186x"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Battery/M_Battery_Unwrapped.obj" id="188_t2dag"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/TissueBox/Tissue_Box.obj" id="189_tewcj"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Stapler/Stapler.obj" id="190_ge7tc"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Revolver/M_Revolver_Unwrapped.obj" id="191_8pf2u"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/SmokeDetector/M_SmokeDetector_Unwrappeed.obj" id="192_x6wpg"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Champagne/M_Champaine_Unwrapped.obj" id="193_bjriw"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Folder/Folder_1.obj" id="194_s2074"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_Steering.obj" id="195_jv4uj"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Box/M_Box_Unwrapped.obj" id="196_2ib4r"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/SecurityCamera/M_Camera_Unwrapped.obj" id="197_87j5m"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/AnsweringMachine/Answering_Machine.obj" id="198_jvpcw"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Shared/FireExtinguisher/M_FireExtinguisher.obj" id="199_rpls4"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Lamp/M_Lamp.obj" id="200_h7seu"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/SmallBin/Small_Bin.obj" id="201_3p1bg"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/GarageLight/M_GarageLightFixture.obj" id="202_ef6mm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Folder/Folder_2.obj" id="203_4widc"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Box/Cardboard_Box.obj" id="204_7g28j"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_SpareTire_Unwrapped.obj" id="205_l5qkr"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TrafficCone/M_TrafficCone_Unwrapped.obj" id="206_k2s30"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/LevelSign/M_GarageLevelSign_Unwrapped.obj" id="207_p5chx"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior2.obj" id="208_vie82"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarDoorPlayer.obj" id="209_var8j"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TollBooth/M_CardReader_Unwrapped.obj" id="210_goxe5"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/BearTrap/M_BearTrap_AnimatedV6.fbx" id="211_41yhh"]
-[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/BearTrap/M_BearTrap_Please.fbx" id="212_akg68"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/HandicapSign/M_HandicapSign.obj" id="213_h5gk8"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Printer/M_Printer_Unwrapped.obj" id="214_70q2r"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TollBooth/M_TicketDispenser_Unwrapped.obj" id="215_7lqpg"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mop/M_MopBucket_Unwrapped.obj" id="216_u1c2h"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarHood.obj" id="217_u2xk4"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarHoodInterior.obj" id="218_tbnkk"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_RoofRail_Unwrapped.obj" id="219_58bo3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Payphone/M_Payphone.obj" id="220_rs8yn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Fridge/M_Fridge_Unwrapped.obj" id="221_twxsn"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Mop/M_Mop.obj" id="222_tm3ro"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior3.obj" id="223_lxmx3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ReflectiveSign/M_ReflectiveSign_Unwrapped.obj" id="224_nsr0t"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/StopSign/M_StopSign_Unwrapped.obj" id="225_h0l86"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/YieldSign/M_YieldSign_Unwrapped.obj" id="226_y3qu5"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior1.obj" id="227_pf3uf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/YieldSign/M_Yield.obj" id="228_ukex5"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/StopSign/M_StopSign.obj" id="229_sa7t0"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarWindow.obj" id="230_athkn"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/EmergancyExitStairs.obj" id="231_xp2yv"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/DirectionalArrow/M_DirectionalArrow.obj" id="232_jihyg"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/FloorStairs.obj" id="233_7nvnf"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TollBooth/M_TollBooth_Unwrapped.obj" id="234_qws47"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/TollBooth/M_BoomArm_Unwrapped.obj" id="235_lh3fg"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Fence/M_Fence.obj" id="236_qslmf"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="237_vw044"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/REEXPORT killer walk ver3.fbx" id="238_ke1ip"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/Killer Walk Cycle.fbx" id="239_ems1w"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_SUV_Unwrapped.obj" id="240_itrv7"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarBodyPlayer.obj" id="241_c4qbi"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_NPCar_Unwrapped.obj" id="242_w4nv3"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_Truck_Unwrapped.obj" id="243_wud2p"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/Walk Backward.fbx" id="244_ya4n6"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Models/Killer UVs.fbx" id="245_7mlsm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="246_pw1ie"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/ParkingLine/M_ParkingLine.obj" id="247_fdbvv"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/ramp.obj" id="248_huitm"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Railings/M_GarageRailings.obj" id="249_r5w0u"]
-[ext_resource type="ArrayMesh" path="res://Levels/Greyboxing/Models/ParkingGarageMesh.obj" id="250_h0ru8"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Models/M_PlayerARMS_UV.fbx" id="251_ctoyt"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Sit To Type.fbx" id="252_8dw02"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Type To Sit.fbx" id="253_gk5h1"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/TypingFAST.fbx" id="254_1yvn0"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Typing.fbx" id="255_tlm37"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Old Man Idle.fbx" id="256_lkqfm"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Old Man Walk.fbx" id="257_hnti6"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animations/Walking.fbx" id="258_dec7d"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Models/M_PlayerWHOLE_UV.fbx" id="259_1stwn"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/killer walk anim ver1.fbx" id="260_twb1y"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Animations/killer walk anim ver2.fbx" id="261_6tobl"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="262_uumik"]
-[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="263_rr38y"]
+[ext_resource type="ArrayMesh" uid="uid://jx6q3wt6ssnh" path="res://Assets/Environments/Garage/GaragePole/M_GaragePole.obj" id="58_hk8hn"]
+[ext_resource type="ArrayMesh" uid="uid://cfstfismu4fus" path="res://Assets/Environments/Office/Chair/M_Chair_Unwrapped.obj" id="59_e2n4p"]
+[ext_resource type="ArrayMesh" uid="uid://c47k2md0r8ciw" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigLong.obj" id="60_xoa2l"]
+[ext_resource type="PackedScene" uid="uid://b1ppe1f02j64p" path="res://Assets/Characters/Player/Models/RESIZED_Player Mixamo TPose.fbx" id="61_sofhp"]
+[ext_resource type="Texture2D" uid="uid://cg76kxtvbpp85" path="res://Assets/Environments/Office/Door/Textures/Nice Door/M_DoorHighPoly_DefaultMaterial_BaseMap.png" id="62_te6k1"]
+[ext_resource type="Texture2D" uid="uid://bblmvljd2qy1a" path="res://Assets/Environments/Office/Door/Textures/Nice Door/M_DoorHighPoly_DefaultMaterial_Normal.png" id="63_flb66"]
+[ext_resource type="ArrayMesh" uid="uid://bbqbvfah88cfo" path="res://Assets/Environments/Office/Door/M_DoorHighPoly.obj" id="64_ofaau"]
+[ext_resource type="ArrayMesh" uid="uid://wghn6575okvl" path="res://Assets/Environments/Office/Door/M_DoorLowPoly.obj" id="65_ex3si"]
+[ext_resource type="Texture2D" uid="uid://d1tgjcpvdltak" path="res://Assets/Environments/Office/Door/Textures/Simple Door/M_DoorSim_Unwrapped_DefaultMaterial_BaseMap.png" id="66_k6lok"]
+[ext_resource type="Texture2D" uid="uid://b7r8sme4qhcyr" path="res://Assets/Environments/Office/Door/Textures/Simple Door/M_DoorSim_Unwrapped_DefaultMaterial_Normal.png" id="67_pj0wr"]
+[ext_resource type="ArrayMesh" uid="uid://d2j48j87gjqyb" path="res://Assets/Environments/Office/Door/M_DoorSim_Unwrapped.obj" id="68_ttyfx"]
+[ext_resource type="Texture2D" uid="uid://bjkt6yi4it2r" path="res://Assets/Environments/Office/Door/Textures/Door Frame/M_DoorFrame_Unwrapped_DefaultMaterial_BaseMap.png" id="69_kle3k"]
+[ext_resource type="Texture2D" uid="uid://dxmm0vqmp7nhb" path="res://Assets/Environments/Office/Door/Textures/Door Frame/M_DoorFrame_Unwrapped_DefaultMaterial_Normal.png" id="70_dmv0r"]
+[ext_resource type="ArrayMesh" uid="uid://cwa382spskluv" path="res://Assets/Environments/Office/Door/M_DoorFrame_Unwrapped.obj" id="71_0wnsl"]
+[ext_resource type="Texture2D" uid="uid://cah5ld7kxbyi" path="res://Assets/Environments/Office/Door/Textures/Double Door Frame/M_DoubleDoorFrame_DefaultMaterial_BaseMap.png" id="72_s3dwf"]
+[ext_resource type="Texture2D" uid="uid://c64qai0srnhot" path="res://Assets/Environments/Office/Door/Textures/Double Door Frame/M_DoubleDoorFrame_DefaultMaterial_Normal.png" id="73_7614v"]
+[ext_resource type="ArrayMesh" uid="uid://7h0txqwnkd6j" path="res://Assets/Environments/Office/Door/M_DoubleDoorFrame.obj" id="74_02cbs"]
+[ext_resource type="PackedScene" uid="uid://bfxwfalodcyxs" path="res://Assets/Characters/Killer/Animations/RESIZED_Killer Idle.fbx" id="75_qmjxi"]
+[ext_resource type="PackedScene" uid="uid://c5mx56qj3skli" path="res://Assets/Characters/Killer/Animations/RESIZED_Killer Walk Cycle.fbx" id="76_j8s5u"]
+[ext_resource type="Texture2D" uid="uid://bwgvtg168pukb" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="77_j1gsi"]
+[ext_resource type="Texture2D" uid="uid://bkdo3qi0884et" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="78_kt158"]
+[ext_resource type="ArrayMesh" uid="uid://dkigq636s4pg" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Resized.obj" id="79_ai16l"]
+[ext_resource type="ArrayMesh" uid="uid://biouyo83gjcgi" path="res://Assets/Environments/Office/Cubicle/M_Cubicle_Unwrapped.obj" id="80_vedix"]
+[ext_resource type="Texture2D" uid="uid://chpprxqupdilx" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_BaseColor.png" id="81_to1m1"]
+[ext_resource type="Texture2D" uid="uid://clw0rbvd4hay8" path="res://Assets/Environments/Elevator/Textures/M_Elevator_Unwrapped_Normal.png" id="82_e60r0"]
+[ext_resource type="ArrayMesh" uid="uid://ud7l6j6v3nv5" path="res://Assets/Environments/Elevator/M_Elevator_Animated.obj" id="83_wehu3"]
+[ext_resource type="Texture2D" uid="uid://cviwixognnoib" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Unwrapped_BaseColor.png" id="84_hy1i2"]
+[ext_resource type="Texture2D" uid="uid://dt5qdo6vtkk1c" path="res://Assets/Environments/Garage/ParkBlock/Textures/M_ParkBlock_Unwrapped_Normal.png" id="85_44trj"]
+[ext_resource type="ArrayMesh" uid="uid://tpy7k68gobqm" path="res://Assets/Environments/Garage/ParkBlock/M_ParkingBlock_Unwrapped.obj" id="86_q1cpw"]
+[ext_resource type="PackedScene" uid="uid://dhboj0tuyd1we" path="res://Assets/Characters/Killer/Models/RESIZED_Killer Mixamo TPose.fbx" id="87_8gurc"]
+[ext_resource type="Texture2D" uid="uid://bws1wcpfpf4ua" path="res://Assets/Environments/Garage/ConcreteBarrier/Textures/M_ConcreteBarrier_Unwrapped_DefaultMaterial_BaseMap.png" id="88_iopqh"]
+[ext_resource type="Texture2D" uid="uid://co7lqyg2wc26m" path="res://Assets/Environments/Garage/ConcreteBarrier/Textures/M_ConcreteBarrier_Unwrapped_DefaultMaterial_Normal.png" id="89_b8sni"]
+[ext_resource type="ArrayMesh" uid="uid://ebxkucqqmaki" path="res://Assets/Environments/Garage/ConcreteBarrier/M_ConcreteBarrier_Unwrapped.obj" id="90_fo0w7"]
+[ext_resource type="Texture2D" uid="uid://e7gy6215g40k" path="res://Assets/Environments/Office/Lobby/Textures/Desk/M_Lobby_Desk_DefaultMaterial_BaseMap.png" id="91_r3ja8"]
+[ext_resource type="Texture2D" uid="uid://cyeablcdxlb87" path="res://Assets/Environments/Office/Lobby/Textures/Desk/M_Lobby_Desk_DefaultMaterial_Normal.png" id="92_qf8i8"]
+[ext_resource type="ArrayMesh" uid="uid://0t4hj380klxt" path="res://Assets/Environments/Office/Lobby/M_Lobby_Desk.obj" id="93_v8aaa"]
+[ext_resource type="ArrayMesh" uid="uid://caabt6r34sehu" path="res://Assets/Environments/Office/Lobby/M_LobbyFloor_Unwrapped.obj" id="94_2m3tk"]
+[ext_resource type="ArrayMesh" uid="uid://bmkpthtjj6kpm" path="res://Assets/Environments/Office/Lobby/M_Lobby_Roof.obj" id="95_rvmmp"]
+[ext_resource type="ArrayMesh" uid="uid://dwruquhy8foj5" path="res://Assets/Environments/Office/Building/M_Office_Glass.obj" id="96_qt8yy"]
+[ext_resource type="ArrayMesh" uid="uid://c4vucymaa54mr" path="res://Assets/Environments/Office/Building/M_OfficeWalls_Metal.obj" id="97_jace8"]
+[ext_resource type="ArrayMesh" uid="uid://8bset3imotkx" path="res://Assets/Environments/Office/Building/M_OfficeRoof_StackedUVs.obj" id="98_01ooy"]
+[ext_resource type="ArrayMesh" uid="uid://durmiej5yn818" path="res://Assets/Environments/Office/Building/M_OfficeRoof_NormalUVs.obj" id="99_lrr2t"]
+[ext_resource type="ArrayMesh" uid="uid://drx1goh0cy2gu" path="res://Assets/Environments/Office/Building/M_OfficeFloor_Unwrapped.obj" id="100_412ub"]
+[ext_resource type="ArrayMesh" uid="uid://b2k51pfvnj4im" path="res://Assets/Environments/Office/Building/M_OfficeWalls_Unwrapped.obj" id="101_t67y2"]
+[ext_resource type="Texture2D" uid="uid://cnkc3ph0slmsx" path="res://Assets/Environments/Garage/ParkingDrum/Textures/M_ParkingDrum_Unwrapped_Metalic_and_Rougness.png" id="102_wbsd6"]
+[ext_resource type="ArrayMesh" uid="uid://b7rle2usk0rn1" path="res://Assets/Environments/Garage/ParkingDrum/M_ParkingDrum_Simple.obj" id="103_bw603"]
+[ext_resource type="Texture2D" uid="uid://bsmgh5juh5mkr" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_BaseColor.png" id="104_skbx7"]
+[ext_resource type="Texture2D" uid="uid://b4ydgeiirsbos" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_Metalic_and_Rougness.png" id="105_dwijk"]
+[ext_resource type="Texture2D" uid="uid://bniihfe3bi3vb" path="res://Assets/Environments/Garage/GaragePole/Textures/M_GaragePole_Unwrapped_Normal.png" id="106_7xf7s"]
+[ext_resource type="ArrayMesh" uid="uid://nik4occeorhy" path="res://Assets/Environments/Garage/GaragePole/M_GaragePole_Unwrapped.obj" id="107_lm3lr"]
+[ext_resource type="Texture2D" uid="uid://ii2t4136mdo8" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_BaseColor.png" id="108_q5txn"]
+[ext_resource type="Texture2D" uid="uid://cenqdr4odqogw" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_Metalic_and_Rougness.png" id="109_ir1q6"]
+[ext_resource type="Texture2D" uid="uid://cr1kjwjntb3s0" path="res://Assets/Environments/Garage/RecyclingBin/Textures/M_Recycling_Unwrapped_Normal.png" id="110_rgt62"]
+[ext_resource type="ArrayMesh" uid="uid://cp8iqe1chhn0r" path="res://Assets/Environments/Garage/RecyclingBin/M_Recycling_Unwrapped.obj" id="111_qun1g"]
+[ext_resource type="Texture2D" uid="uid://cdf17hi201brc" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_BaseColor.png" id="112_dcm12"]
+[ext_resource type="Texture2D" uid="uid://ti4ck41gu55s" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_Metalic_and_Rougness.png" id="113_1oi0v"]
+[ext_resource type="Texture2D" uid="uid://dmvxqm8wg7du2" path="res://Assets/Environments/Shared/RubbishBin/Textures/M_Rubbish_Unwrapped_Normal.png" id="114_acrnt"]
+[ext_resource type="ArrayMesh" uid="uid://wpoqm2xfx13e" path="res://Assets/Environments/Shared/RubbishBin/M_Rubbish_Unwrapped.obj" id="115_ua5mb"]
+[ext_resource type="ArrayMesh" uid="uid://bj0dammn4a8fc" path="res://Assets/Environments/Office/Computer/M_Computer_Combined_Unwrapped.obj" id="116_wdikp"]
+[ext_resource type="Texture2D" uid="uid://b88uvl4rnjido" path="res://Assets/Environments/Garage/Pipes/Textures/Pipe/M_Pipes_Unwrapped_Metalic_and_Rougness.png" id="117_ls5cm"]
+[ext_resource type="ArrayMesh" uid="uid://ru6rsialk0rv" path="res://Assets/Environments/Garage/Pipes/M_PipeHolster_Unwrapped.obj" id="118_n8hrv"]
+[ext_resource type="PackedScene" uid="uid://b4vv0dyjs7ty5" path="res://Assets/Environments/Garage/Cars/SudanBlack.tscn" id="119_vr1c1"]
+[ext_resource type="ArrayMesh" uid="uid://men1pmlhu3sh" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallConnection.obj" id="120_rj5xb"]
+[ext_resource type="ArrayMesh" uid="uid://bjhw4cfpfht08" path="res://Assets/Environments/Office/Computer/M_Mouse_Unwrapped.obj" id="121_tlsu6"]
+[ext_resource type="ArrayMesh" uid="uid://0rjix4c6yf2o" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigConnection.obj" id="122_wkxtm"]
+[ext_resource type="ArrayMesh" uid="uid://bo1s1khgdwy2u" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Small45.obj" id="123_lt1q1"]
+[ext_resource type="ArrayMesh" uid="uid://clcxn4nvv78du" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallSharp90.obj" id="124_00m44"]
+[ext_resource type="ArrayMesh" uid="uid://0dp6c0u4qc8l" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallOffset.obj" id="125_mow76"]
+[ext_resource type="ArrayMesh" uid="uid://0whymu2eert8" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Small90.obj" id="126_xqbsm"]
+[ext_resource type="ArrayMesh" uid="uid://2vtuy3s2aax4" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Big45.obj" id="127_h2jof"]
+[ext_resource type="ArrayMesh" uid="uid://cd7eknfw28rx1" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallJunction.obj" id="128_fdd0q"]
+[ext_resource type="ArrayMesh" uid="uid://oi4khbk7cnnf" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigSharp90.obj" id="129_8jih8"]
+[ext_resource type="ArrayMesh" uid="uid://bjjqmmul5ta2t" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigOffset.obj" id="130_blgkf"]
+[ext_resource type="ArrayMesh" uid="uid://b7xiihjdui480" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Big90.obj" id="131_7ulbh"]
+[ext_resource type="ArrayMesh" uid="uid://bgovjy3lglrq1" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_Junction.obj" id="132_qa214"]
+[ext_resource type="ArrayMesh" uid="uid://c4lxpig3fe0ym" path="res://Assets/Environments/Garage/GasCanister/M_GasCanister_Compact.obj" id="133_6pidr"]
+[ext_resource type="ArrayMesh" uid="uid://nxubrgqmesse" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigJunction.obj" id="134_oo1ey"]
+[ext_resource type="ArrayMesh" uid="uid://ds1xn22mdfgp7" path="res://Assets/Environments/Office/Computer/M_Tower_Unwrapped.obj" id="135_7hc81"]
+[ext_resource type="ArrayMesh" uid="uid://ce50pr3y58u7f" path="res://Assets/Environments/Garage/Pipes/M_Pipe_SmallWide90.obj" id="136_fy71s"]
+[ext_resource type="ArrayMesh" uid="uid://d4almavsk0ivh" path="res://Assets/Environments/Office/Computer/M_Monitor_Unwrapped.obj" id="137_60epn"]
+[ext_resource type="ArrayMesh" uid="uid://dbycyrk8r50pw" path="res://Assets/Environments/Garage/GasCanister/M_GasCanister_Alternate.obj" id="138_6v842"]
+[ext_resource type="ArrayMesh" uid="uid://c8ni3wet03s40" path="res://Assets/Environments/Office/Pen/Pen_2.obj" id="139_e0mcx"]
+[ext_resource type="ArrayMesh" uid="uid://btbl427f7d5ow" path="res://Assets/Environments/Office/Pen/Pen_1.obj" id="140_iyqaf"]
+[ext_resource type="ArrayMesh" uid="uid://xq6jy6dxrnin" path="res://Assets/Environments/Office/Computer/M_Keyboard_Unwrapped.obj" id="141_k6sd4"]
+[ext_resource type="ArrayMesh" uid="uid://xn83oslg8usp" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallShort.obj" id="142_i75wa"]
+[ext_resource type="ArrayMesh" uid="uid://dvwisbdwh1pve" path="res://Assets/Environments/Office/Pencil/Pencil.obj" id="143_or180"]
+[ext_resource type="ArrayMesh" uid="uid://b6qm1c4cap1lg" path="res://Assets/Environments/Garage/Pipes/M_Pipe_BigWide90.obj" id="144_m7dxy"]
+[ext_resource type="ArrayMesh" uid="uid://dwhyn0k6mq2f7" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigShort.obj" id="145_ulend"]
+[ext_resource type="ArrayMesh" uid="uid://bu313kufj02ai" path="res://Assets/Environments/Office/Papers/Papers_1.obj" id="146_wbw7j"]
+[ext_resource type="ArrayMesh" uid="uid://nhw36fcpo3ej" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallMed.obj" id="147_1sgj7"]
+[ext_resource type="ArrayMesh" uid="uid://nadp4pi30o8s" path="res://Assets/Environments/Garage/Signs/M_Sign_Unwrapped.obj" id="148_d1smu"]
+[ext_resource type="ArrayMesh" uid="uid://dw1m807mehb7c" path="res://Assets/Environments/Office/Chair/Old_M_Chair_Unwrapped.obj" id="149_yynq5"]
+[ext_resource type="PackedScene" uid="uid://bjvdnx44xhs6g" path="res://Assets/Characters/Killer/Animations/Walking.fbx" id="150_od4cp"]
+[ext_resource type="ArrayMesh" uid="uid://b32ujyosirafk" path="res://Assets/Characters/Killer/Models/M_KillerPrimitive.obj" id="151_vawxr"]
+[ext_resource type="ArrayMesh" uid="uid://wbxpy65v8yqk" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigMed.obj" id="152_5wtqa"]
+[ext_resource type="ArrayMesh" uid="uid://den82iky4fiub" path="res://Assets/Environments/Office/Cubicle/Model_Cubicle_Unwrapped.obj" id="153_7bbww"]
+[ext_resource type="ArrayMesh" uid="uid://60lu4pytckc0" path="res://Assets/Environments/Elevator/M_Elevator_Unwrapped.obj" id="154_5ylcg"]
+[ext_resource type="PackedScene" uid="uid://ch2urd43ynjrv" path="res://Assets/Environments/Elevator/Animations/M_Elevator_v4.fbx" id="155_dkc1y"]
+[ext_resource type="PackedScene" uid="uid://c2fuuq2arrwpu" path="res://Assets/Environments/Elevator/M_Elevator_v6.fbx" id="156_1hbvy"]
+[ext_resource type="ArrayMesh" uid="uid://bcgk2b6ciqmc0" path="res://Assets/Environments/Elevator/M_Elevator_Simple_Unwrapped.obj" id="157_i048a"]
+[ext_resource type="PackedScene" uid="uid://bultklkitrbci" path="res://Assets/Environments/Elevator/M_Elevator_v5.fbx" id="158_245oi"]
+[ext_resource type="ArrayMesh" uid="uid://d1c70bqy0f5vs" path="res://Assets/Environments/Elevator/M_Elevator_WIP.obj" id="159_xflyf"]
+[ext_resource type="PackedScene" uid="uid://c2pjqrfa5qf15" path="res://Assets/Environments/Elevator/M_Elevator_Animated.fbx" id="160_3pcib"]
+[ext_resource type="PackedScene" uid="uid://bbuobx83873ei" path="res://Assets/Environments/Elevator/M_Elevator_Animated (1).fbx" id="161_k2pqn"]
+[ext_resource type="ArrayMesh" uid="uid://d0452uudpfhx" path="res://Assets/Environments/Elevator/M_Elevator_Unwrapped_Old.obj" id="162_mrlx4"]
+[ext_resource type="ArrayMesh" uid="uid://c8sbfu25waoph" path="res://Assets/Environments/Garage/ParkBlock/M_ParkBlock_Unwrapped.obj" id="163_k32w1"]
+[ext_resource type="ArrayMesh" uid="uid://dn7j65ahy0pqh" path="res://Assets/Environments/Garage/ParkBlock/M_ParkBlock.obj" id="164_74l6g"]
+[ext_resource type="ArrayMesh" uid="uid://bv5c7f38tyu3f" path="res://Assets/Environments/Garage/Nut/M_Nut.obj" id="165_wqtli"]
+[ext_resource type="ArrayMesh" uid="uid://b4h0a2dnqditv" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_SmallLong.obj" id="166_2otqc"]
+[ext_resource type="ArrayMesh" uid="uid://cbd5r41urmf3e" path="res://Assets/Environments/Garage/Pipes/Old_M_Pipe_BigLong.obj" id="167_hmxih"]
+[ext_resource type="ArrayMesh" uid="uid://c3bxnhjrvkhr0" path="res://Assets/Environments/Office/PottedPlant/Potted_Plant_1.obj" id="168_wta0o"]
+[ext_resource type="ArrayMesh" uid="uid://bgxtjtyltfrkm" path="res://Assets/Environments/Garage/ElectricalPipes/M_ElectricalPipes_WIP.obj" id="169_nwden"]
+[ext_resource type="ArrayMesh" uid="uid://dpqkv4awnch4n" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar.obj" id="170_kq4s7"]
+[ext_resource type="PackedScene" uid="uid://cl0g34vg6slnl" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar_Animated1.fbx" id="171_srj1b"]
+[ext_resource type="PackedScene" uid="uid://ddq1erlq1lpmk" path="res://Assets/Environments/Garage/PlayerCar/M_DevCar_Animated.fbx" id="172_ehw7p"]
+[ext_resource type="ArrayMesh" uid="uid://chvbf1ic5fvss" path="res://Assets/Environments/Garage/TollBooth/M_Button_Unwrapped.obj" id="173_fs2ku"]
+[ext_resource type="ArrayMesh" uid="uid://dgy0esfqyj01s" path="res://Levels/Greyboxing/Models/NewOfficeMesh.obj" id="174_6f3cx"]
+[ext_resource type="ArrayMesh" uid="uid://cgr3y6t1xgkib" path="res://Assets/Environments/Office/Mug/Mug_1.obj" id="175_qdsaq"]
+[ext_resource type="ArrayMesh" uid="uid://c5uffhey5yaun" path="res://Assets/Environments/Office/StickyNote/Sticky_Note.obj" id="176_0od1j"]
+[ext_resource type="ArrayMesh" uid="uid://bip30krengfuq" path="res://Assets/Environments/Office/StickyNote/Sticky_Notes.obj" id="177_lqoim"]
+[ext_resource type="ArrayMesh" uid="uid://dnlyqtr1mgfmg" path="res://Assets/Environments/Office/Mug/Mug_2.obj" id="178_i62of"]
+[ext_resource type="ArrayMesh" uid="uid://2uc5vojj8abo" path="res://Assets/Environments/Office/CarKeys/M_CarKeys_Unwrapped.obj" id="179_60kc3"]
+[ext_resource type="ArrayMesh" uid="uid://b5dq637ukfxap" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_3.obj" id="180_d351i"]
+[ext_resource type="ArrayMesh" uid="uid://c6pasb6h37ioi" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_2.obj" id="181_m6kjg"]
+[ext_resource type="ArrayMesh" uid="uid://6lgwc8xp6fyr" path="res://Assets/Environments/Shared/FireAlarm/M_FireAlarm.obj" id="182_0cqyn"]
+[ext_resource type="ArrayMesh" uid="uid://yhmpw8jexwjb" path="res://Assets/Environments/Garage/PlayerCar/Models/M_GasIntake.obj" id="183_3vf47"]
+[ext_resource type="ArrayMesh" uid="uid://bplsibnom3pl1" path="res://Assets/Environments/Garage/PlayerCar/Models/M_GasCap.obj" id="184_b3mhy"]
+[ext_resource type="ArrayMesh" uid="uid://dvb4vdxujcrnh" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_4.obj" id="185_42l6m"]
+[ext_resource type="ArrayMesh" uid="uid://cyeucfyfhh5lw" path="res://Assets/Environments/Office/Spam/M_SPAM_Unwrapped.obj" id="186_mkfiq"]
+[ext_resource type="ArrayMesh" uid="uid://dmmktqfmr8d26" path="res://Assets/Environments/Office/PictureFrame/PictureFrame_1.obj" id="187_1186x"]
+[ext_resource type="ArrayMesh" uid="uid://bvlkb6o1bdw1k" path="res://Assets/Environments/Garage/Battery/M_Battery_Unwrapped.obj" id="188_t2dag"]
+[ext_resource type="ArrayMesh" uid="uid://dodrnmti3js1j" path="res://Assets/Environments/Office/TissueBox/Tissue_Box.obj" id="189_tewcj"]
+[ext_resource type="ArrayMesh" uid="uid://bhyefe7gw0h6e" path="res://Assets/Environments/Office/Stapler/Stapler.obj" id="190_ge7tc"]
+[ext_resource type="ArrayMesh" uid="uid://b36eb1e10kr0c" path="res://Assets/Environments/Garage/Revolver/M_Revolver_Unwrapped.obj" id="191_8pf2u"]
+[ext_resource type="ArrayMesh" uid="uid://cmg78l0jo6nfd" path="res://Assets/Environments/Office/SmokeDetector/M_SmokeDetector_Unwrappeed.obj" id="192_x6wpg"]
+[ext_resource type="ArrayMesh" uid="uid://2ydn1886mm5j" path="res://Assets/Environments/Office/Champagne/M_Champaine_Unwrapped.obj" id="193_bjriw"]
+[ext_resource type="ArrayMesh" uid="uid://bdnxqw7y6lrq3" path="res://Assets/Environments/Office/Folder/Folder_1.obj" id="194_s2074"]
+[ext_resource type="ArrayMesh" uid="uid://bi5jikhfvlko6" path="res://Assets/Environments/Garage/PlayerCar/Models/M_Steering.obj" id="195_jv4uj"]
+[ext_resource type="ArrayMesh" uid="uid://bxy6p8xhkra6u" path="res://Assets/Environments/Office/Box/M_Box_Unwrapped.obj" id="196_2ib4r"]
+[ext_resource type="ArrayMesh" uid="uid://xr1akf1xrp74" path="res://Assets/Environments/Garage/SecurityCamera/M_Camera_Unwrapped.obj" id="197_87j5m"]
+[ext_resource type="ArrayMesh" uid="uid://dbyqsfydae3x2" path="res://Assets/Environments/Office/AnsweringMachine/Answering_Machine.obj" id="198_jvpcw"]
+[ext_resource type="ArrayMesh" uid="uid://de18ibvgqj8t2" path="res://Assets/Environments/Shared/FireExtinguisher/M_FireExtinguisher.obj" id="199_rpls4"]
+[ext_resource type="ArrayMesh" uid="uid://bdsbjr55g073c" path="res://Assets/Environments/Office/Lamp/M_Lamp.obj" id="200_h7seu"]
+[ext_resource type="ArrayMesh" uid="uid://b3kwfpvd2aejb" path="res://Assets/Environments/Office/SmallBin/Small_Bin.obj" id="201_3p1bg"]
+[ext_resource type="ArrayMesh" uid="uid://ilj3f1fqcesh" path="res://Assets/Environments/Garage/GarageLight/M_GarageLightFixture.obj" id="202_ef6mm"]
+[ext_resource type="ArrayMesh" uid="uid://trsc1io0hi0f" path="res://Assets/Environments/Office/Folder/Folder_2.obj" id="203_4widc"]
+[ext_resource type="ArrayMesh" uid="uid://b4r2b8m0v8u2" path="res://Assets/Environments/Office/Box/Cardboard_Box.obj" id="204_7g28j"]
+[ext_resource type="ArrayMesh" uid="uid://ck1w537dq7hes" path="res://Assets/Environments/Garage/Cars/M_SpareTire_Unwrapped.obj" id="205_l5qkr"]
+[ext_resource type="ArrayMesh" uid="uid://bn6o8ek2en2kq" path="res://Assets/Environments/Garage/TrafficCone/M_TrafficCone_Unwrapped.obj" id="206_k2s30"]
+[ext_resource type="ArrayMesh" uid="uid://bycg5gikuxbnv" path="res://Assets/Environments/Garage/LevelSign/M_GarageLevelSign_Unwrapped.obj" id="207_p5chx"]
+[ext_resource type="ArrayMesh" uid="uid://b1anxdux6c88j" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior2.obj" id="208_vie82"]
+[ext_resource type="ArrayMesh" uid="uid://drmaajb32b5nv" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarDoorPlayer.obj" id="209_var8j"]
+[ext_resource type="ArrayMesh" uid="uid://d1uujwuku5qxr" path="res://Assets/Environments/Garage/TollBooth/M_CardReader_Unwrapped.obj" id="210_goxe5"]
+[ext_resource type="PackedScene" uid="uid://c0mcd0ti8meoi" path="res://Assets/Environments/Garage/BearTrap/M_BearTrap_AnimatedV6.fbx" id="211_41yhh"]
+[ext_resource type="PackedScene" uid="uid://cw2r637ao78m3" path="res://Assets/Environments/Garage/BearTrap/M_BearTrap_Please.fbx" id="212_akg68"]
+[ext_resource type="ArrayMesh" uid="uid://dc87a1r6wnx38" path="res://Assets/Environments/Garage/HandicapSign/M_HandicapSign.obj" id="213_h5gk8"]
+[ext_resource type="ArrayMesh" uid="uid://c6ak5v7ggvy53" path="res://Assets/Environments/Office/Printer/M_Printer_Unwrapped.obj" id="214_70q2r"]
+[ext_resource type="ArrayMesh" uid="uid://by22efj6mr3x6" path="res://Assets/Environments/Garage/TollBooth/M_TicketDispenser_Unwrapped.obj" id="215_7lqpg"]
+[ext_resource type="ArrayMesh" uid="uid://dxkwq1tjqi61k" path="res://Assets/Environments/Office/Mop/M_MopBucket_Unwrapped.obj" id="216_u1c2h"]
+[ext_resource type="ArrayMesh" uid="uid://bpumhcy83xlu5" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarHood.obj" id="217_u2xk4"]
+[ext_resource type="ArrayMesh" uid="uid://fjdmyp1lnv4c" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarHoodInterior.obj" id="218_tbnkk"]
+[ext_resource type="ArrayMesh" uid="uid://du7o11s86nsnj" path="res://Assets/Environments/Garage/Cars/M_RoofRail_Unwrapped.obj" id="219_58bo3"]
+[ext_resource type="ArrayMesh" uid="uid://3u7peb20bhf8" path="res://Assets/Environments/Garage/Payphone/M_Payphone.obj" id="220_rs8yn"]
+[ext_resource type="ArrayMesh" uid="uid://cpc1yhk6w1r27" path="res://Assets/Environments/Office/Fridge/M_Fridge_Unwrapped.obj" id="221_twxsn"]
+[ext_resource type="ArrayMesh" uid="uid://dakmq2i4i0jdy" path="res://Assets/Environments/Office/Mop/M_Mop.obj" id="222_tm3ro"]
+[ext_resource type="ArrayMesh" uid="uid://5cpjdphq1kux" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior3.obj" id="223_lxmx3"]
+[ext_resource type="ArrayMesh" uid="uid://d3v8yg66bjl2j" path="res://Assets/Environments/Garage/ReflectiveSign/M_ReflectiveSign_Unwrapped.obj" id="224_nsr0t"]
+[ext_resource type="ArrayMesh" uid="uid://b5bde62bdqnqy" path="res://Assets/Environments/Garage/StopSign/M_StopSign_Unwrapped.obj" id="225_h0l86"]
+[ext_resource type="ArrayMesh" uid="uid://d0vq0ywub72aq" path="res://Assets/Environments/Garage/YieldSign/M_YieldSign_Unwrapped.obj" id="226_y3qu5"]
+[ext_resource type="ArrayMesh" uid="uid://b7lf47ytya0od" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarInterior1.obj" id="227_pf3uf"]
+[ext_resource type="ArrayMesh" uid="uid://ptvd6sluv6bd" path="res://Assets/Environments/Garage/YieldSign/M_Yield.obj" id="228_ukex5"]
+[ext_resource type="ArrayMesh" uid="uid://dluvqun6263yi" path="res://Assets/Environments/Garage/StopSign/M_StopSign.obj" id="229_sa7t0"]
+[ext_resource type="ArrayMesh" uid="uid://momowse0ljea" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarWindow.obj" id="230_athkn"]
+[ext_resource type="ArrayMesh" uid="uid://cdwye6cbxp270" path="res://Levels/Greyboxing/Models/EmergancyExitStairs.obj" id="231_xp2yv"]
+[ext_resource type="ArrayMesh" uid="uid://c2lyekdcrackv" path="res://Assets/Environments/Garage/DirectionalArrow/M_DirectionalArrow.obj" id="232_jihyg"]
+[ext_resource type="ArrayMesh" uid="uid://cato6yg652rfq" path="res://Levels/Greyboxing/Models/FloorStairs.obj" id="233_7nvnf"]
+[ext_resource type="ArrayMesh" uid="uid://b5lmopa8xte4m" path="res://Assets/Environments/Garage/TollBooth/M_TollBooth_Unwrapped.obj" id="234_qws47"]
+[ext_resource type="ArrayMesh" uid="uid://sjex55x1wgby" path="res://Assets/Environments/Garage/TollBooth/M_BoomArm_Unwrapped.obj" id="235_lh3fg"]
+[ext_resource type="ArrayMesh" uid="uid://bknpkxhpljfkd" path="res://Assets/Environments/Garage/Fence/M_Fence.obj" id="236_qslmf"]
+[ext_resource type="ArrayMesh" uid="uid://bmm15qpxupka2" path="res://Levels/Greyboxing/Models/OfficeMesh.obj" id="237_vw044"]
+[ext_resource type="PackedScene" uid="uid://wj1oq3i756xs" path="res://Assets/Characters/Killer/Animations/REEXPORT killer walk ver3.fbx" id="238_ke1ip"]
+[ext_resource type="PackedScene" uid="uid://b3vowctxpje83" path="res://Assets/Characters/Killer/Animations/Killer Walk Cycle.fbx" id="239_ems1w"]
+[ext_resource type="ArrayMesh" uid="uid://cq8blcy8mb1gf" path="res://Assets/Environments/Garage/Cars/M_SUV_Unwrapped.obj" id="240_itrv7"]
+[ext_resource type="ArrayMesh" uid="uid://dbkbutiyvkc4o" path="res://Assets/Environments/Garage/PlayerCar/Models/M_CarBodyPlayer.obj" id="241_c4qbi"]
+[ext_resource type="ArrayMesh" uid="uid://dqb7ymfxvofey" path="res://Assets/Environments/Garage/Cars/M_NPCar_Unwrapped.obj" id="242_w4nv3"]
+[ext_resource type="ArrayMesh" uid="uid://bdeeq8b6nte2q" path="res://Assets/Environments/Garage/Cars/M_Truck_Unwrapped.obj" id="243_wud2p"]
+[ext_resource type="PackedScene" uid="uid://dcdhv5olucpkm" path="res://Assets/Characters/Killer/Animations/Walk Backward.fbx" id="244_ya4n6"]
+[ext_resource type="PackedScene" uid="uid://4ltteu24q5yt" path="res://Assets/Characters/Killer/Models/Killer UVs.fbx" id="245_7mlsm"]
+[ext_resource type="ArrayMesh" uid="uid://cclhgfvdbof4k" path="res://Assets/Characters/Killer/Models/M_Killer_LowUV.obj" id="246_pw1ie"]
+[ext_resource type="ArrayMesh" uid="uid://c4k3u1crwskga" path="res://Assets/Environments/Garage/ParkingLine/M_ParkingLine.obj" id="247_fdbvv"]
+[ext_resource type="ArrayMesh" uid="uid://cn10101m7vf5o" path="res://Levels/Greyboxing/Models/ramp.obj" id="248_huitm"]
+[ext_resource type="ArrayMesh" uid="uid://kufbvrmnis5" path="res://Assets/Environments/Garage/Railings/M_GarageRailings.obj" id="249_r5w0u"]
+[ext_resource type="ArrayMesh" uid="uid://iss3owvnittj" path="res://Levels/Greyboxing/Models/ParkingGarageMesh.obj" id="250_h0ru8"]
+[ext_resource type="PackedScene" uid="uid://37vndaeds3cb" path="res://Assets/Characters/Player/Models/M_PlayerARMS_UV.fbx" id="251_ctoyt"]
+[ext_resource type="PackedScene" uid="uid://d12iw34lx8jyo" path="res://Assets/Characters/Animations/Sit To Type.fbx" id="252_8dw02"]
+[ext_resource type="PackedScene" uid="uid://dhj8uq6of62rv" path="res://Assets/Characters/Animations/Type To Sit.fbx" id="253_gk5h1"]
+[ext_resource type="PackedScene" uid="uid://c88bij1noakg8" path="res://Assets/Characters/Animations/TypingFAST.fbx" id="254_1yvn0"]
+[ext_resource type="PackedScene" uid="uid://ks0tl23t5utm" path="res://Assets/Characters/Animations/Typing.fbx" id="255_tlm37"]
+[ext_resource type="PackedScene" uid="uid://b477l37ahb4q2" path="res://Assets/Characters/Animations/Old Man Idle.fbx" id="256_lkqfm"]
+[ext_resource type="PackedScene" uid="uid://33omexpol5yy" path="res://Assets/Characters/Animations/Old Man Walk.fbx" id="257_hnti6"]
+[ext_resource type="PackedScene" uid="uid://kkniyevfl8ek" path="res://Assets/Characters/Animations/Walking.fbx" id="258_dec7d"]
+[ext_resource type="PackedScene" uid="uid://bkk74xsc4kcdc" path="res://Assets/Characters/Player/Models/M_PlayerWHOLE_UV.fbx" id="259_1stwn"]
+[ext_resource type="PackedScene" uid="uid://cn0qs6ekgv8rp" path="res://Assets/Characters/Killer/Animations/killer walk anim ver1.fbx" id="260_twb1y"]
+[ext_resource type="PackedScene" uid="uid://c7jsb6rti1w6m" path="res://Assets/Characters/Killer/Animations/killer walk anim ver2.fbx" id="261_6tobl"]
+[ext_resource type="PackedScene" uid="uid://g6wfee868h8d" path="res://Assets/Characters/Player/Scenes/Player.tscn" id="262_uumik"]
 
 [sub_resource type="Environment" id="Environment_rujwr"]
 background_mode = 1
@@ -774,7 +773,7 @@ outline_size = 8
 [node name="NEW_Animation_ArmMenu" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 712.533, -116.589, 137.946)
 
-[node name="NEW_Animation_ArmMenu" type="Node3D" parent="Models/NEW_Animation_ArmMenu" instance=ExtResource("25_0vo15")]
+[node name="NEW_Animation_ArmMenu" parent="Models/NEW_Animation_ArmMenu" instance=ExtResource("25_0vo15")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_Animation_ArmMenu"]
@@ -1054,7 +1053,7 @@ outline_size = 8
 [node name="NEW_RESIZED_Player Sleeping" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1517.39, 0.032263, 469.146)
 
-[node name="NEW_RESIZED_Player Sleeping" type="Node3D" parent="Models/NEW_RESIZED_Player Sleeping" instance=ExtResource("53_jtdro")]
+[node name="NEW_RESIZED_Player Sleeping" parent="Models/NEW_RESIZED_Player Sleeping" instance=ExtResource("53_jtdro")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_RESIZED_Player Sleeping"]
@@ -1154,7 +1153,7 @@ outline_size = 8
 [node name="NEW_RESIZED_Player Mixamo TPose" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 778.602, -0.312206, 697.878)
 
-[node name="NEW_RESIZED_Player Mixamo TPose" type="Node3D" parent="Models/NEW_RESIZED_Player Mixamo TPose" instance=ExtResource("61_sofhp")]
+[node name="NEW_RESIZED_Player Mixamo TPose" parent="Models/NEW_RESIZED_Player Mixamo TPose" instance=ExtResource("61_sofhp")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_RESIZED_Player Mixamo TPose"]
@@ -1273,7 +1272,7 @@ outline_size = 8
 [node name="NEW_RESIZED_Killer Idle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.165, -0.01632, 1005.46)
 
-[node name="NEW_RESIZED_Killer Idle" type="Node3D" parent="Models/NEW_RESIZED_Killer Idle" instance=ExtResource("75_qmjxi")]
+[node name="NEW_RESIZED_Killer Idle" parent="Models/NEW_RESIZED_Killer Idle" instance=ExtResource("75_qmjxi")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_RESIZED_Killer Idle"]
@@ -1293,7 +1292,7 @@ outline_size = 8
 [node name="NEW_RESIZED_Killer Walk Cycle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.471, -0.146498, 1013.89)
 
-[node name="NEW_RESIZED_Killer Walk Cycle" type="Node3D" parent="Models/NEW_RESIZED_Killer Walk Cycle" instance=ExtResource("76_j8s5u")]
+[node name="NEW_RESIZED_Killer Walk Cycle" parent="Models/NEW_RESIZED_Killer Walk Cycle" instance=ExtResource("76_j8s5u")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_RESIZED_Killer Walk Cycle"]
@@ -1413,7 +1412,7 @@ outline_size = 8
 [node name="NEW_RESIZED_Killer Mixamo TPose" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2484.89, 0.797752, 868.811)
 
-[node name="NEW_RESIZED_Killer Mixamo TPose" type="Node3D" parent="Models/NEW_RESIZED_Killer Mixamo TPose" instance=ExtResource("87_8gurc")]
+[node name="NEW_RESIZED_Killer Mixamo TPose" parent="Models/NEW_RESIZED_Killer Mixamo TPose" instance=ExtResource("87_8gurc")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/NEW_RESIZED_Killer Mixamo TPose"]
@@ -1873,7 +1872,7 @@ outline_size = 8
 [node name="ScaleReference_SudanBlack" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1743.86, 31.9842, 8219.4)
 
-[node name="ScaleReference_SudanBlack" type="Node3D" parent="Models/ScaleReference_SudanBlack" instance=ExtResource("119_vr1c1")]
+[node name="ScaleReference_SudanBlack" parent="Models/ScaleReference_SudanBlack" instance=ExtResource("119_vr1c1")]
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/ScaleReference_SudanBlack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -138.753, 58.0158, 18.3901)
@@ -2575,7 +2574,7 @@ outline_size = 8
 [node name="Walking" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 682.354, 0.000512926, 9336.85)
 
-[node name="Walking" type="Node3D" parent="Models/Walking" instance=ExtResource("150_od4cp")]
+[node name="Walking" parent="Models/Walking" instance=ExtResource("150_od4cp")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Walking"]
@@ -2670,7 +2669,7 @@ outline_size = 8
 [node name="M_Elevator_v4" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.416, 0.073445, 9490.03)
 
-[node name="M_Elevator_v4" type="Node3D" parent="Models/M_Elevator_v4" instance=ExtResource("155_dkc1y")]
+[node name="M_Elevator_v4" parent="Models/M_Elevator_v4" instance=ExtResource("155_dkc1y")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_Elevator_v4"]
@@ -2689,7 +2688,7 @@ outline_size = 8
 [node name="M_Elevator_v6" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 273.194, 0.073445, 9490.03)
 
-[node name="M_Elevator_v6" type="Node3D" parent="Models/M_Elevator_v6" instance=ExtResource("156_1hbvy")]
+[node name="M_Elevator_v6" parent="Models/M_Elevator_v6" instance=ExtResource("156_1hbvy")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_Elevator_v6"]
@@ -2727,7 +2726,7 @@ outline_size = 8
 [node name="M_Elevator_v5" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 482.749, 0.073445, 9490.03)
 
-[node name="M_Elevator_v5" type="Node3D" parent="Models/M_Elevator_v5" instance=ExtResource("158_245oi")]
+[node name="M_Elevator_v5" parent="Models/M_Elevator_v5" instance=ExtResource("158_245oi")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_Elevator_v5"]
@@ -2765,7 +2764,7 @@ outline_size = 8
 [node name="M_Elevator_Animated" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 692.304, 0.073445, 9490.03)
 
-[node name="M_Elevator_Animated" type="Node3D" parent="Models/M_Elevator_Animated" instance=ExtResource("160_3pcib")]
+[node name="M_Elevator_Animated" parent="Models/M_Elevator_Animated" instance=ExtResource("160_3pcib")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_Elevator_Animated"]
@@ -2784,7 +2783,7 @@ outline_size = 8
 [node name="M_Elevator_Animated (1)" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 797.082, 0.073445, 9490.03)
 
-[node name="M_Elevator_Animated (1)" type="Node3D" parent="Models/M_Elevator_Animated (1)" instance=ExtResource("161_k2pqn")]
+[node name="M_Elevator_Animated (1)" parent="Models/M_Elevator_Animated (1)" instance=ExtResource("161_k2pqn")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_Elevator_Animated (1)"]
@@ -3012,7 +3011,7 @@ outline_size = 8
 [node name="M_DevCar_Animated1" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 997.949, 0, 9643.94)
 
-[node name="M_DevCar_Animated1" type="Node3D" parent="Models/M_DevCar_Animated1" instance=ExtResource("171_srj1b")]
+[node name="M_DevCar_Animated1" parent="Models/M_DevCar_Animated1" instance=ExtResource("171_srj1b")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_DevCar_Animated1"]
@@ -3031,7 +3030,7 @@ outline_size = 8
 [node name="M_DevCar_Animated" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.7025, 0, 9799.51)
 
-[node name="M_DevCar_Animated" type="Node3D" parent="Models/M_DevCar_Animated" instance=ExtResource("172_ehw7p")]
+[node name="M_DevCar_Animated" parent="Models/M_DevCar_Animated" instance=ExtResource("172_ehw7p")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_DevCar_Animated"]
@@ -3829,7 +3828,7 @@ outline_size = 8
 [node name="Animation_ArmMenu" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 364.753, -116.589, 10473)
 
-[node name="Animation_ArmMenu" type="Node3D" parent="Models/Animation_ArmMenu" instance=ExtResource("25_0vo15")]
+[node name="Animation_ArmMenu" parent="Models/Animation_ArmMenu" instance=ExtResource("25_0vo15")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Animation_ArmMenu"]
@@ -4171,7 +4170,7 @@ outline_size = 8
 [node name="M_BearTrap_AnimatedV6" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.584, 3.58145, 11025.3)
 
-[node name="M_BearTrap_AnimatedV6" type="Node3D" parent="Models/M_BearTrap_AnimatedV6" instance=ExtResource("211_41yhh")]
+[node name="M_BearTrap_AnimatedV6" parent="Models/M_BearTrap_AnimatedV6" instance=ExtResource("211_41yhh")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_BearTrap_AnimatedV6"]
@@ -4190,7 +4189,7 @@ outline_size = 8
 [node name="M_BearTrap_Please" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.282, 0.84382, 11025.3)
 
-[node name="M_BearTrap_Please" type="Node3D" parent="Models/M_BearTrap_Please" instance=ExtResource("212_akg68")]
+[node name="M_BearTrap_Please" parent="Models/M_BearTrap_Please" instance=ExtResource("212_akg68")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_BearTrap_Please"]
@@ -4361,7 +4360,7 @@ outline_size = 8
 [node name="RESIZED_Player Sleeping" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.462, 0.032263, 11343.5)
 
-[node name="RESIZED_Player Sleeping" type="Node3D" parent="Models/RESIZED_Player Sleeping" instance=ExtResource("53_jtdro")]
+[node name="RESIZED_Player Sleeping" parent="Models/RESIZED_Player Sleeping" instance=ExtResource("53_jtdro")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/RESIZED_Player Sleeping"]
@@ -4608,7 +4607,7 @@ outline_size = 8
 [node name="RESIZED_Player Mixamo TPose" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 814.324, -0.312206, 11601.1)
 
-[node name="RESIZED_Player Mixamo TPose" type="Node3D" parent="Models/RESIZED_Player Mixamo TPose" instance=ExtResource("61_sofhp")]
+[node name="RESIZED_Player Mixamo TPose" parent="Models/RESIZED_Player Mixamo TPose" instance=ExtResource("61_sofhp")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/RESIZED_Player Mixamo TPose"]
@@ -4798,7 +4797,7 @@ outline_size = 8
 [node name="RESIZED_Killer Idle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 963.049, -0.01632, 11947.1)
 
-[node name="RESIZED_Killer Idle" type="Node3D" parent="Models/RESIZED_Killer Idle" instance=ExtResource("75_qmjxi")]
+[node name="RESIZED_Killer Idle" parent="Models/RESIZED_Killer Idle" instance=ExtResource("75_qmjxi")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/RESIZED_Killer Idle"]
@@ -4817,7 +4816,7 @@ outline_size = 8
 [node name="RESIZED_Killer Walk Cycle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1170.35, -0.146498, 11955.5)
 
-[node name="RESIZED_Killer Walk Cycle" type="Node3D" parent="Models/RESIZED_Killer Walk Cycle" instance=ExtResource("76_j8s5u")]
+[node name="RESIZED_Killer Walk Cycle" parent="Models/RESIZED_Killer Walk Cycle" instance=ExtResource("76_j8s5u")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/RESIZED_Killer Walk Cycle"]
@@ -4988,7 +4987,7 @@ outline_size = 8
 [node name="RESIZED_Killer Mixamo TPose" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1301.73, 0.797752, 12190.4)
 
-[node name="RESIZED_Killer Mixamo TPose" type="Node3D" parent="Models/RESIZED_Killer Mixamo TPose" instance=ExtResource("87_8gurc")]
+[node name="RESIZED_Killer Mixamo TPose" parent="Models/RESIZED_Killer Mixamo TPose" instance=ExtResource("87_8gurc")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/RESIZED_Killer Mixamo TPose"]
@@ -5140,7 +5139,7 @@ outline_size = 8
 [node name="REEXPORT killer walk ver3" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 654.707, -0.290651, 12854)
 
-[node name="REEXPORT killer walk ver3" type="Node3D" parent="Models/REEXPORT killer walk ver3" instance=ExtResource("238_ke1ip")]
+[node name="REEXPORT killer walk ver3" parent="Models/REEXPORT killer walk ver3" instance=ExtResource("238_ke1ip")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/REEXPORT killer walk ver3"]
@@ -5159,7 +5158,7 @@ outline_size = 8
 [node name="Killer Walk Cycle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1004.24, -0.290666, 12854)
 
-[node name="Killer Walk Cycle" type="Node3D" parent="Models/Killer Walk Cycle" instance=ExtResource("239_ems1w")]
+[node name="Killer Walk Cycle" parent="Models/Killer Walk Cycle" instance=ExtResource("239_ems1w")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Killer Walk Cycle"]
@@ -5254,7 +5253,7 @@ outline_size = 8
 [node name="Walk Backward" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3499.49, -1.90694, 12854.7)
 
-[node name="Walk Backward" type="Node3D" parent="Models/Walk Backward" instance=ExtResource("244_ya4n6")]
+[node name="Walk Backward" parent="Models/Walk Backward" instance=ExtResource("244_ya4n6")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Walk Backward"]
@@ -5273,7 +5272,7 @@ outline_size = 8
 [node name="Killer UVs" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4252.81, -1.90697, 12854.7)
 
-[node name="Killer UVs" type="Node3D" parent="Models/Killer UVs" instance=ExtResource("245_7mlsm")]
+[node name="Killer UVs" parent="Models/Killer UVs" instance=ExtResource("245_7mlsm")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Killer UVs"]
@@ -5558,7 +5557,7 @@ outline_size = 8
 [node name="M_PlayerARMS_UV" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33457.8, -16882.6, 21739.3)
 
-[node name="M_PlayerARMS_UV" type="Node3D" parent="Models/M_PlayerARMS_UV" instance=ExtResource("251_ctoyt")]
+[node name="M_PlayerARMS_UV" parent="Models/M_PlayerARMS_UV" instance=ExtResource("251_ctoyt")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_PlayerARMS_UV"]
@@ -5577,7 +5576,7 @@ outline_size = 8
 [node name="Sit To Type" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58122.5, -57.5742, 20960)
 
-[node name="Sit To Type" type="Node3D" parent="Models/Sit To Type" instance=ExtResource("252_8dw02")]
+[node name="Sit To Type" parent="Models/Sit To Type" instance=ExtResource("252_8dw02")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Sit To Type"]
@@ -5596,7 +5595,7 @@ outline_size = 8
 [node name="Type To Sit" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79950.3, -57.5813, 21253.3)
 
-[node name="Type To Sit" type="Node3D" parent="Models/Type To Sit" instance=ExtResource("253_gk5h1")]
+[node name="Type To Sit" parent="Models/Type To Sit" instance=ExtResource("253_gk5h1")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Type To Sit"]
@@ -5615,7 +5614,7 @@ outline_size = 8
 [node name="TypingFAST" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100778, -57.5721, 21261.3)
 
-[node name="TypingFAST" type="Node3D" parent="Models/TypingFAST" instance=ExtResource("254_1yvn0")]
+[node name="TypingFAST" parent="Models/TypingFAST" instance=ExtResource("254_1yvn0")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/TypingFAST"]
@@ -5634,7 +5633,7 @@ outline_size = 8
 [node name="Typing" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120835, -57.5721, 21261.3)
 
-[node name="Typing" type="Node3D" parent="Models/Typing" instance=ExtResource("255_tlm37")]
+[node name="Typing" parent="Models/Typing" instance=ExtResource("255_tlm37")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Typing"]
@@ -5653,7 +5652,7 @@ outline_size = 8
 [node name="Old Man Idle" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141317, -58.1464, 23124.2)
 
-[node name="Old Man Idle" type="Node3D" parent="Models/Old Man Idle" instance=ExtResource("256_lkqfm")]
+[node name="Old Man Idle" parent="Models/Old Man Idle" instance=ExtResource("256_lkqfm")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Old Man Idle"]
@@ -5672,7 +5671,7 @@ outline_size = 8
 [node name="Old Man Walk" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165704, -145.777, 21446.5)
 
-[node name="Old Man Walk" type="Node3D" parent="Models/Old Man Walk" instance=ExtResource("257_hnti6")]
+[node name="Old Man Walk" parent="Models/Old Man Walk" instance=ExtResource("257_hnti6")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Old Man Walk"]
@@ -5691,7 +5690,7 @@ outline_size = 8
 [node name="Walking_271" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5500.99, -32.3489, 46608.7)
 
-[node name="Walking" type="Node3D" parent="Models/Walking_271" instance=ExtResource("258_dec7d")]
+[node name="Walking" parent="Models/Walking_271" instance=ExtResource("258_dec7d")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/Walking_271"]
@@ -5710,7 +5709,7 @@ outline_size = 8
 [node name="M_PlayerWHOLE_UV" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33596.2, -57.4459, 46611.6)
 
-[node name="M_PlayerWHOLE_UV" type="Node3D" parent="Models/M_PlayerWHOLE_UV" instance=ExtResource("259_1stwn")]
+[node name="M_PlayerWHOLE_UV" parent="Models/M_PlayerWHOLE_UV" instance=ExtResource("259_1stwn")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/M_PlayerWHOLE_UV"]
@@ -5729,7 +5728,7 @@ outline_size = 8
 [node name="killer walk anim ver1" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62786.5, -1995.72, 55273)
 
-[node name="killer walk anim ver1" type="Node3D" parent="Models/killer walk anim ver1" instance=ExtResource("260_twb1y")]
+[node name="killer walk anim ver1" parent="Models/killer walk anim ver1" instance=ExtResource("260_twb1y")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/killer walk anim ver1"]
@@ -5748,7 +5747,7 @@ outline_size = 8
 [node name="killer walk anim ver2" type="Node3D" parent="Models"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87921.6, 4.64258, 54087.8)
 
-[node name="killer walk anim ver2" type="Node3D" parent="Models/killer walk anim ver2" instance=ExtResource("261_6tobl")]
+[node name="killer walk anim ver2" parent="Models/killer walk anim ver2" instance=ExtResource("261_6tobl")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
 [node name="Person180cm" type="MeshInstance3D" parent="Models/killer walk anim ver2"]
@@ -5801,26 +5800,5 @@ mesh = SubResource("PlaneMesh_t50wx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90633.8, -0.5, 42411)
 shape = SubResource("BoxShape3D_x5kod")
 
-[node name="Player" type="CharacterBody3D" parent="." groups=["player"] instance=ExtResource("262_uumik")]
+[node name="Player" parent="." instance=ExtResource("262_uumik")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 200, 0.1, -300)
-collision_layer = 17
-script = ExtResource("263_rr38y")
-step_height = 0.36
-floor_snap_amount = 0.3
-floor_max_angle_degrees = 50.0
-max_stamina = 100.0
-stamina_drain_per_second = 10.0
-stamina_regen_per_second = 15.0
-stamina_regen_delay = 2.5
-fatigue_duration = 10.0
-fatigue_speed = 3.0
-crouch_speed = 2.5
-crouch_height_factor = 0.6
-crouch_toggle = false
-lean_distance = 0.53
-lean_angle_degrees = 12.0
-lean_while_sprinting = false
-move_transition_speed = 8.0
-look_back_degrees = 135.0
-look_back_pitch_degrees = -5.0
-look_back_speed = 4.5
