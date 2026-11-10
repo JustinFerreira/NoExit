@@ -3,9 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dk8knts44aw45"
-path="res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.ctex"
+path.s3tc="res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.s3tc.ctex"
+path.etc2="res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "656420a88ce92ddf48f772b54d143ba3"
@@ -14,11 +16,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Characters/Killer/Animations/RESIZED_Killer Idle_1.png"
-dest_files=["res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.ctex"]
+dest_files=["res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.s3tc.ctex", "res://.godot/imported/RESIZED_Killer Idle_1.png-491170cd3844e0478a885e41712dc666.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -34,4 +36,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
