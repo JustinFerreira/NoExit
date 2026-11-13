@@ -3871,6 +3871,7 @@ shape = SubResource("ConvexPolygonShape3D_fk8g7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2686.64, 1443.07, 167645)
 script = ExtResource("7_owbt3")
 item_name = "DoorTestKey"
+has_outline = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorPuzzleRoom/DoorKey"]
 material_override = SubResource("StandardMaterial3D_xgm7f")
@@ -4370,6 +4371,7 @@ shape = SubResource("ConvexPolygonShape3D_auydi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7377.45, 1473.48, 172747)
 script = ExtResource("7_owbt3")
 item_name = "BlueKey"
+has_outline = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorPuzzleRoom/BlueKey"]
 material_override = SubResource("StandardMaterial3D_m0m5v")
@@ -4382,6 +4384,7 @@ shape = SubResource("ConvexPolygonShape3D_gues3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6087.25, 1473.48, 173619)
 script = ExtResource("7_owbt3")
 item_name = "PurpleKey"
+has_outline = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorPuzzleRoom/PurpleKey"]
 material_override = SubResource("StandardMaterial3D_makg0")
@@ -4394,6 +4397,7 @@ shape = SubResource("ConvexPolygonShape3D_pbtv8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.153, 1473.48, 169613)
 script = ExtResource("7_owbt3")
 item_name = "OrangeKey"
+has_outline = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DoorPuzzleRoom/OrangeKey"]
 material_override = SubResource("StandardMaterial3D_kfavf")

@@ -63,6 +63,7 @@ var HotWireUI: Control:
 ## ---------------------------------------------------------------------
 var _screens: Array[String] = []          # open screens, last = on top
 var _screen_opts: Dictionary = {}         # id -> {pauses, mouse}
+var _screen_closed_physics_frame: int = -100   # when a screen last closed (see click_blocked)
 var _saved: Dictionary = {}               # game state before the first screen
 var _panels: Dictionary = {}              # id -> Control
 var _cursor_wanted := true                # what gameplay asked for
@@ -141,6 +142,7 @@ func open_screen(id: String, pauses: bool = true, mouse: bool = true) -> void:
 func close_screen(id: String) -> void:
 	if not id in _screens:
 		return
+	_screen_closed_physics_frame = Engine.get_physics_frames()
 	_screens.erase(id)
 	_screen_opts.erase(id)
 	if _screens.is_empty():
@@ -154,6 +156,12 @@ func is_open(id: String) -> bool:
 
 func any_screen_open() -> bool:
 	return not _screens.is_empty()
+
+## True while a click should not reach the world: a screen is open, or one
+## closed a moment ago (the click that closed a note must not also click
+## whatever the player is looking at).
+func click_blocked() -> bool:
+	return any_screen_open() or Engine.get_physics_frames() - _screen_closed_physics_frame <= 2
 
 ## The screen on top (the one getting input), or "".
 func top_screen() -> String:

@@ -51,7 +51,7 @@ var DEFS: Array[Dictionary] = [
 	_toggle("game/show_crosshair", "GAME", "Show Crosshair", true),
 	_toggle("game/show_stamina", "GAME", "Show Stamina Bar", true),
 	_option("game/dialog_speed", "GAME", "Text Speed", 1, ["Slow", "Normal", "Fast", "Very Fast"]),
-	_toggle("game/expanding_dialog", "GAME", "Expanding Text Box", false),
+	_toggle("game/expanding_dialog", "GAME", "Expanding Text Box", true),
 	_dev(_toggle("game/dev_mode", "GAME", "Dev Mode", false)),
 ]
 

@@ -61,6 +61,8 @@ var deaths: int = 0
 ## How an item left the world (see mark_collected).
 const PICKED_UP := "picked_up"   # put in the inventory
 const STORED := "stored"         # packed into the Box on the desk
+const OPENED := "opened"         # an AnimatedInteractable left open (fridge door, drawer)
+const SEARCHED := "searched"     # a SearchableInteractable already searched
 
 # flag name -> true. Only set flags are stored.
 var _flags: Dictionary = {}
@@ -133,6 +135,14 @@ func mark_collected(id: String, how: String = PICKED_UP) -> void:
 
 func is_collected(id: String) -> bool:
 	return _collected.has(id)
+
+## How an id was marked (PICKED_UP, OPENED, ...), or "" if it wasn't.
+func collected_how(id: String) -> String:
+	return _collected.get(id, "")
+
+## Forget one id (e.g. a door that was closed again).
+func unmark_collected(id: String) -> void:
+	_collected.erase(id)
 
 ## Ids of collected items, optionally only ones collected a certain way.
 func get_collected(how: String = "") -> Array:

@@ -32,18 +32,24 @@ var typewriter_timers: Dictionary = {}
 
 var activatedMouse: bool = false
 
-# Expanding text box (Settings > Game > Expanding Text Box): the character
-# panel starts narrow on the left and widens as the text types out.
+# Expanding text box (Settings > Game > Expanding Text Box): when the box
+# opens it starts as a sliver in the middle and quickly widens both ways to
+# full width (keeping the box's edge margins); the text only starts typing
+# once it's fully open. Later lines of the same conversation just type.
 var expanding_box: bool = false:
 	set(value):
 		expanding_box = value
 		if not value and is_node_ready():
-			_set_box_width(-1.0)
+			_finish_expand()
+## Seconds the box takes to open from the middle to full width.
+const EXPAND_TIME := 0.12
 var _box: MarginContainer
 var _box_margin_left := 30
 var _box_margin_right := 30
-var _box_width := 0.0
 var _wrap_mode := TextServer.AUTOWRAP_WORD_SMART
+var _expand_tween: Tween
+var _expand_done: Callable        # starts the typing once the box is open
+var _box_open := false           # box is up (later lines of the conversation don't re-expand)
 
 # The "click to continue" mouse icon. Other scripts just turn it on; it
 # waits here until the text has finished typing, then sits inside the
@@ -57,12 +63,14 @@ func _ready() -> void:
 	_box_margin_left = _box.get_theme_constant("margin_left")
 	_box_margin_right = _box.get_theme_constant("margin_right")
 	_wrap_mode = dialog_label_pic.autowrap_mode
-	# While the box is growing the text is laid out on one line, wider than the
-	# box: keep it pinned to the left edge and cut off at the box's edge.
-	dialog_label_pic.get_parent().grow_horizontal = Control.GROW_DIRECTION_END
+	# Nothing inside may poke out of the box while it is still opening.
 	character_panel.clip_contents = true
 	# connects animation player to animation finished
 	animation_player.connect("animation_finished", _on_animation_finished)
+	# the box starts closing: the next dialog opens it from the middle again
+	animation_player.animation_started.connect(func(anim: StringName) -> void:
+		if anim == &"hide":
+			_box_open = false)
 	
 	# Create typewriter timer
 	typewriter_timer = Timer.new()
@@ -97,7 +105,13 @@ func start_typewriter_effect(label: RichTextLabel, text: String, identifier: Str
 	
 	active_typewriters.append(identifier)
 	_timer.timeout.connect(_on_typewriter_timeout.bind(identifier))
-	_timer.start(typewriter_speed)
+	# A freshly opened box first expands from the middle; typing waits for it.
+	if expanding_box and label == dialog_label_pic and not _box_open:
+		_expand_box(_timer.start.bind(typewriter_speed))
+	else:
+		_timer.start(typewriter_speed)
+	if label == dialog_label_pic:
+		_box_open = true
 	
 	
 ## _on_typewriter_timeout
@@ -157,6 +171,7 @@ func stop_typewriter_effect(identifier: String) -> void:
 	
 
 func skip_all_typewriter_effects() -> void:
+	_finish_expand()   # a click while the box is opening opens it fully at once
 	for identifier in active_typewriters.duplicate():
 		if typewriter_timers.has(identifier):
 			var data = typewriter_timers[identifier]
@@ -394,38 +409,40 @@ func _on_animation_finished(anim_name: String):
 
 func _process(_delta: float) -> void:
 	_update_click_icon()
-	if not expanding_box or not character_panel.is_visible_in_tree():
-		return
-	var full := _box.size.x - _box_margin_left - _box_margin_right
-	# How wide the text typed so far is (one line - wrapping waits until the
-	# box is full width, otherwise unshown words would wrap the line early).
-	var label := dialog_label_pic
-	var shown_count := label.visible_characters
-	var parsed := label.get_parsed_text()
-	var shown := parsed if shown_count < 0 else parsed.substr(0, shown_count)
-	var font := label.get_theme_font("normal_font")
-	var font_size := label.get_theme_font_size("normal_font_size")
-	var widest := 0.0
-	for line in shown.split("\n"):
-		widest = maxf(widest, font.get_string_size(line, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x)
-	# + the label's own padding inside the panel (20 left, 16 right) + a bit.
-	var target := clampf(widest + 44.0, 48.0, full)
-	# Follow the text exactly (the typing is already smooth); a new line of
-	# dialog snaps it back small.
-	_box_width = target
-	_set_box_width(_box_width)
-	label.autowrap_mode = _wrap_mode if target >= full - 0.5 else TextServer.AUTOWRAP_OFF
+	# The box counts as closed once it's hidden, so the next dialog expands again.
+	if _box_open and not (visible and character_panel.visible):
+		_box_open = false
 
-## Sizes the panel to this width, growing from the left edge so the text
-## stays readable while it widens (-1 = normal full width).
-func _set_box_width(width: float) -> void:
-	var extra := 0.0
-	if width >= 0.0:
-		extra = maxf(_box.size.x - _box_margin_left - _box_margin_right - width, 0.0)
-	_box.add_theme_constant_override("margin_left", _box_margin_left)
-	_box.add_theme_constant_override("margin_right", int(_box_margin_right + extra))
-	if width < 0.0:
-		dialog_label_pic.autowrap_mode = _wrap_mode
+## Opens the box from a sliver in the middle to full width, then calls `done`
+## (which starts the typing).
+func _expand_box(done: Callable) -> void:
+	_finish_expand()
+	_expand_done = done
+	_set_box_open(0.0)
+	_expand_tween = create_tween()
+	_expand_tween.tween_method(_set_box_open, 0.0, 1.0, EXPAND_TIME) \
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	_expand_tween.tween_callback(_finish_expand)
+
+## Jumps the box to fully open and starts the typing if it was waiting.
+func _finish_expand() -> void:
+	if _expand_tween and _expand_tween.is_valid():
+		_expand_tween.kill()
+	_expand_tween = null
+	_set_box_open(1.0)
+	if _expand_done.is_valid():
+		var done := _expand_done
+		_expand_done = Callable()
+		done.call()
+
+## 0 = a sliver in the middle, 1 = full width (inside the normal edge
+## margins). Shrinks equally from both sides so it stays centred.
+func _set_box_open(amount: float) -> void:
+	var full := _box.size.x - _box_margin_left - _box_margin_right
+	var half_gap := maxf(full * (1.0 - amount), 0.0) * 0.5
+	_box.add_theme_constant_override("margin_left", int(_box_margin_left + half_gap))
+	_box.add_theme_constant_override("margin_right", int(_box_margin_right + half_gap))
+	dialog_label_pic.autowrap_mode = _wrap_mode
 
 ## ---------------------------------------------------------------------
 ## Click-to-continue icon

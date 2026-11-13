@@ -292,9 +292,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if not DIALOG.is_typing and PlayerManager.firstdialog:
 				PlayerManager.player.DIALOG.get_node("MouseClicking").visible = false
 				PlayerManager.player.DIALOG.get_node("MouseClicking").get_node("MouseClickingAnimationPlayer").stop()
-		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
+		if grabbed_object == null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 				get_mouse_world_pos(mouse)
-		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event.button_index == MOUSE_BUTTON_LEFT:
+		elif grabbed_object != null && PlayerManager.minigameThree == true && event.is_action_released("Interact") == false && event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 				release_grabbed_object()
 	if event.is_action_pressed("ui_cancel"):
 		if PlayerManager.minigameOne:
@@ -482,30 +482,66 @@ func _apply_step_assist(delta: float) -> void:
 	global_transform.origin.y += step_height
 
 
+## Aim assist for interacting: when the crosshair is just off an object,
+## extra rays this many degrees around it still find it (0 = exact aim only).
+@export var interact_assist_degrees: float = 4.0
+## Rings of assist rays, as fractions of interact_assist_degrees (inner first,
+## so the object nearest the crosshair wins).
+const _ASSIST_RINGS: Array[float] = [0.5, 1.0]
+const _ASSIST_RAYS_PER_RING: int = 8
+const _INTERACT_MAX_DISTANCE: float = 5.0
+
+func _can_use(collider: Object, point: Vector3) -> bool:
+	return is_instance_valid(collider) and collider is Interactable and collider.is_interactable \
+		and interact_ray.global_position.distance_to(point) <= _INTERACT_MAX_DISTANCE
+
+## What the player is aiming at: the exact crosshair hit if it's usable,
+## otherwise the nearest usable object hit by the assist rays around it.
+## Same reach as the interact ray; walls still block (the rays stop at them).
+func _find_interact_target() -> Object:
+	if interact_ray.is_colliding():
+		var c := interact_ray.get_collider()
+		if _can_use(c, interact_ray.get_collision_point()):
+			return c
+	if interact_assist_degrees <= 0.0:
+		return null
+	var from := interact_ray.global_position
+	var reach := interact_ray.global_basis * interact_ray.target_position
+	var length := reach.length()
+	if length <= 0.0:
+		return null
+	var forward := reach / length
+	var right := interact_ray.global_basis.x.normalized()
+	var up := forward.cross(right).normalized()
+	var space := get_world_3d().direct_space_state
+	for ring in _ASSIST_RINGS:
+		var angle := deg_to_rad(interact_assist_degrees * ring)
+		for k in _ASSIST_RAYS_PER_RING:
+			var around := TAU * k / _ASSIST_RAYS_PER_RING
+			var dir := (forward * cos(angle) + (right * cos(around) + up * sin(around)) * sin(angle)).normalized()
+			var query := PhysicsRayQueryParameters3D.create(from, from + dir * length, interact_ray.collision_mask, [get_rid()])
+			var hit := space.intersect_ray(query)
+			if hit and _can_use(hit.collider, hit.position):
+				return hit.collider
+	return null
+
 func _handle_interact_ray() -> void:
-	if not is_instance_valid(interact_ray) or not interact_ray.is_inside_tree():
-		return
-	
-	if not interact_ray.is_colliding():
+	if not is_instance_valid(interact_ray) or not interact_ray.is_inside_tree() or not interact_ray.enabled:
 		UiManager.set_cursor_hover(false)
 		if last_collider != null:
 			last_collider.hide_outline()
 			last_collider = null
 		return
-		
-	var collider = interact_ray.get_collider()
-	if not is_instance_valid(collider):
-		return
-	var collision_point = interact_ray.get_collision_point()
-	var distance = interact_ray.global_position.distance_to(collision_point)
-	
-	if distance <= 5.0 && collider is Interactable && collider.is_interactable:
+
+	var collider = _find_interact_target()
+
+	if collider != null:
 		UiManager.set_cursor_hover(true)
 		if last_collider != null && last_collider != collider:
 			last_collider.hide_outline()
 		if collider.show_outline():
 			last_collider = collider
-		if Input.is_action_just_pressed("Interact"):
+		if Input.is_action_just_pressed("Interact") and not UiManager.click_blocked():
 			collider.interact(owner)
 	else:
 		UiManager.set_cursor_hover(false)

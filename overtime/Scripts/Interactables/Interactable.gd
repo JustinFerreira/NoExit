@@ -37,6 +37,8 @@ signal interaction_succeeded
 		is_interactable = value
 		if not value and _outline_shown:
 			hide_outline()
+		else:
+			_refresh_outline()
 # Legacy - no longer used. Outline colour/width live in OutlineManager.
 @export var outline_material: Material
 # The mesh that need the be outlined
@@ -53,8 +55,14 @@ signal interaction_succeeded
 
 # variable to know if object is flashimg or not
 var _is_flashing: bool = false
-# true while the hover outline is showing (it wins over flashing)
+# true while the player is aiming at this object (hover: the outline flashes,
+# and it wins over everything else)
 var _outline_shown: bool = false
+# true while the player is within OutlineManager.NEAR_DISTANCE (steady outline)
+var _near: bool = false
+# brightness of the hover flash, animated by _hover_tween
+var _hover_alpha: float = 1.0
+var _hover_tween: Tween
 # while true no outline or flash is drawn at all (see set_outline_blocked)
 var _outline_blocked: bool = false
 # current brightness of the flash, animated 0 -> 1 -> 0 by _flash_tween
@@ -76,6 +84,12 @@ func _ready():
 	if has_outline:
 		if not mesh and get_parent() is MeshInstance3D:
 			mesh = get_parent()
+		if not mesh:
+			# or the first mesh under this object (e.g. a key whose mesh is its child)
+			for c in find_children("*", "MeshInstance3D", true, false):
+				if c.mesh and c.name != "OutlineMask":
+					mesh = c
+					break
 		if not mesh:
 			push_warning("%s: has_outline is on but no mesh was set or found on the parent." % name)
 			has_outline = false
@@ -108,6 +122,35 @@ func _setup_outline() -> void:
 	for m in targets:
 		if m.mesh:
 			_masks.append(OutlineManager.create_mask(m, _mask_material))
+	# lets OutlineManager give this object a steady outline when the player is close
+	OutlineManager.register(self)
+
+
+# get_outline_aabb
+# World-space box around the meshes this object outlines (used for the
+# "player is close" check).
+func get_outline_aabb() -> AABB:
+	var box := AABB()
+	var first := true
+	for m in [mesh] + mesh_list:
+		if not is_instance_valid(m) or m.mesh == null or not m.is_inside_tree():
+			continue
+		var b: AABB = m.global_transform * m.mesh.get_aabb()
+		box = b if first else box.merge(b)
+		first = false
+	if first and is_inside_tree():
+		box = AABB(global_position, Vector3.ZERO)
+	return box
+
+
+# set_near
+# OutlineManager calls this when the player comes within (or leaves)
+# NEAR_DISTANCE of this object.
+func set_near(near: bool) -> void:
+	if near == _near:
+		return
+	_near = near
+	_refresh_outline()
 
 # interact
 # this function is what is called when clicked by player
@@ -134,21 +177,43 @@ func mark_success() -> void:
 	interaction_succeeded.emit()
 
 # show_outline
-# turns on the outline for an object (hover). Returns false if this object
-# has no outline.
+# The player is aiming at this object (hover): the outline starts flashing.
+# Returns false if this object has no outline.
 func show_outline() -> bool:
 	if not has_outline or _outline_blocked:
 		return false
-	_outline_shown = true
+	if not _outline_shown:
+		_outline_shown = true
+		_start_hover_flash()
 	_refresh_outline()
 	return true
 
 # hide_outline
-# turns off the hover outline - goes back to flashing if it was flashing
+# The player stopped aiming at this object - back to the steady "close by"
+# outline, scripted flashing, or nothing.
 func hide_outline() -> void:
 	if not has_outline:
 		return
 	_outline_shown = false
+	_stop_hover_flash()
+	_refresh_outline()
+
+func _start_hover_flash() -> void:
+	_stop_hover_flash()
+	var half := OutlineManager.HOVER_FLASH_TIME * 0.5
+	_hover_tween = create_tween().set_loops()
+	_hover_tween.tween_method(_set_hover_alpha, 1.0, OutlineManager.HOVER_FLASH_MIN, half) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_hover_tween.tween_method(_set_hover_alpha, OutlineManager.HOVER_FLASH_MIN, 1.0, half) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _stop_hover_flash() -> void:
+	if _hover_tween and _hover_tween.is_valid():
+		_hover_tween.kill()
+	_hover_alpha = 1.0
+
+func _set_hover_alpha(alpha: float) -> void:
+	_hover_alpha = alpha
 	_refresh_outline()
 
 # start_flashing
@@ -185,6 +250,7 @@ func set_outline_blocked(blocked: bool) -> void:
 	_outline_blocked = blocked
 	if blocked:
 		_outline_shown = false
+		_stop_hover_flash()
 	_refresh_outline()
 
 # is_flashing
@@ -202,7 +268,14 @@ func _set_flash_alpha(alpha: float) -> void:
 func _refresh_outline() -> void:
 	if not _mask_material:
 		return
-	var strength := 1.0 if _outline_shown else (_flash_alpha if _is_flashing else 0.0)
+	# hover flash > scripted flashing > steady "close by" outline > nothing
+	var strength := 0.0
+	if _outline_shown:
+		strength = _hover_alpha
+	elif _is_flashing:
+		strength = _flash_alpha
+	elif _near and is_interactable:
+		strength = 1.0
 	_mask_material.set_shader_parameter("strength", strength)
 	# Hidden or removed objects (picked up, etc.) never draw an outline.
 	var on := strength > 0.001 and not _outline_blocked and is_inside_tree() and is_visible_in_tree()
@@ -221,6 +294,7 @@ func _notification(what: int) -> void:
 		NOTIFICATION_VISIBILITY_CHANGED:
 			_refresh_outline()
 		NOTIFICATION_PREDELETE:
+			OutlineManager.unregister(self)
 			# The masks live on the mesh, not on this node - remove them too.
 			for mask in _masks:
 				if is_instance_valid(mask):
@@ -231,6 +305,8 @@ func _notification(what: int) -> void:
 func _exit_tree() -> void:
 	if _flash_tween and _flash_tween.is_valid():
 		_flash_tween.kill()
+	_stop_hover_flash()
+	_near = false
 	_set_masks_on(false)
 
 # toggle_interactable

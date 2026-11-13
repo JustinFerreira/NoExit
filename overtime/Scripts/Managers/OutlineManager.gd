@@ -17,6 +17,11 @@
 ##      wall is in front.
 ##
 ## Change OUTLINE_COLOR / OUTLINE_WIDTH below to restyle every outline.
+##
+## When outlines show:
+##   - aiming at an object (hover): its outline flashes
+##   - player within NEAR_DISTANCE of an object: steady outline
+##   - scripted hints (Interactable.start_flashing): slow pulse
 
 extends Node
 class_name OutlineManager
@@ -24,6 +29,16 @@ class_name OutlineManager
 const OUTLINE_COLOR: Color = Color(0.6, 0.0156863, 0.0156863, 1.0)
 ## Thickness in pixels of the game's render resolution (1-8).
 const OUTLINE_WIDTH: float = 3.0
+
+## Objects whose meshes come within this distance (world units) of the
+## player's body get a steady outline.
+const NEAR_DISTANCE: float = 5.0
+## How often (seconds) the "close by" check runs.
+const NEAR_CHECK_INTERVAL: float = 0.1
+## Hover flash: seconds for one full bright -> dim -> bright flash.
+const HOVER_FLASH_TIME: float = 0.6
+## Hover flash: how dim the outline gets between flashes (0-1).
+const HOVER_FLASH_MIN: float = 0.15
 
 ## Render layer (1-20) only the mask camera sees.
 const MASK_LAYER: int = 20
@@ -39,6 +54,8 @@ const MASK_SHADER: Shader = preload("res://Assets/Shaders/OutlineMask.gdshader")
 const COMPOSITE_SHADER: Shader = preload("res://Assets/Shaders/OutlineComposite.gdshader")
 
 static var _instance: OutlineManager
+# Every outlined Interactable (keys only), for the "close by" check.
+static var _registered: Dictionary = {}
 
 var _viewport: SubViewport
 var _mask_camera: Camera3D
@@ -78,6 +95,14 @@ static func make_mask_material() -> ShaderMaterial:
 	mat.set_shader_parameter("depth_scale", DEPTH_SCALE)
 	mat.set_shader_parameter("strength", 0.0)
 	return mat
+
+
+## Interactable calls these so it gets the steady outline when the player is close.
+static func register(item: Interactable) -> void:
+	_registered[item] = true
+
+static func unregister(item: Interactable) -> void:
+	_registered.erase(item)
 
 
 ## Called by Interactable when a mask starts/stops showing.
@@ -138,7 +163,40 @@ func _ready() -> void:
 	add_child(_composite)
 
 
-func _process(_delta: float) -> void:
+var _near_timer: float = 0.0
+
+## Gives every outlined object within NEAR_DISTANCE of the player's body
+## (anywhere from the feet up to the eyes) a steady outline.
+func _update_near() -> void:
+	var player := PlayerManager.player as Node3D
+	var have_player := is_instance_valid(player) and player.is_inside_tree()
+	var feet := Vector3.ZERO
+	var eye := Vector3.ZERO
+	if have_player:
+		feet = player.global_position
+		var head := player.get_node_or_null("Head") as Node3D
+		eye = head.global_position if head else feet + Vector3.UP
+	for item in _registered.keys():
+		if not is_instance_valid(item):
+			_registered.erase(item)
+			continue
+		var near := false
+		if have_player and item.is_inside_tree() and item.is_interactable and item.is_visible_in_tree():
+			var box: AABB = item.get_outline_aabb()
+			# closest point of the object's box to the player's eyes...
+			var c := eye.clamp(box.position, box.end)
+			# ...and the closest point on the player's body to that
+			var body := Vector3(eye.x, clampf(c.y, feet.y, eye.y), eye.z)
+			near = body.distance_to(c) <= NEAR_DISTANCE
+		item.set_near(near)
+
+
+func _process(delta: float) -> void:
+	_near_timer -= delta
+	if _near_timer <= 0.0:
+		_near_timer = NEAR_CHECK_INTERVAL
+		_update_near()
+
 	# Drop masks whose objects were freed; only draw if one is on screen-able
 	# (e.g. a picked-up item's hidden parent hides its mask too).
 	var any_visible := false

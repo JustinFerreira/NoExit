@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7en3cv6vxepg"
+path="res://.godot/imported/M_Fridge_FreezerDoor.obj-07090ca82243119f1995c793d825705f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/M_Fridge_FreezerDoor.obj-07090ca82243119f1995c793d825705f.mesh"]
+
+source_file="res://Assets/Environments/Office/Fridge/M_Fridge_FreezerDoor.obj"
+dest_files=["res://.godot/imported/M_Fridge_FreezerDoor.obj-07090ca82243119f1995c793d825705f.mesh", "res://.godot/imported/M_Fridge_FreezerDoor.obj-07090ca82243119f1995c793d825705f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

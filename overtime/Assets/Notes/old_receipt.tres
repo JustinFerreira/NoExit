@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NoteData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/NoteData.gd" id="1_note"]
+
+[resource]
+script = ExtResource("1_note")
+id = "old_receipt"
+title = "Old Receipt"
+text = "A faded receipt, crumpled at the bottom of the bin.
+
+1x COFFEE (LG) ......... 2.49
+1x SANDWICH ............ 6.99
+
+TOTAL .................. 9.48
+
+The date and time have worn off."

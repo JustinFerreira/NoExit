@@ -247,3 +247,15 @@ func _on_real_size_pressed() -> void:
 	PlayerManager.firstdialog = false
 	get_tree().change_scene_to_file("res://Levels/Review/RealSizeLevel.tscn")
 	PlayerManager.MainMenu = false
+
+
+## Test room for the fridge (AnimatedInteractable), searchable bins and the 5 m outline.
+func _on_interactable_test_pressed() -> void:
+	AudioManager.play_sound(AudioManager.GetKeyPress())
+	AudioManager.cancel_music()
+	PlayerManager.OpeningCutscene = false
+	PlayerManager.Loop0 = false
+	PlayerManager.Loop1 = false
+	PlayerManager.firstdialog = false
+	get_tree().change_scene_to_file("res://Levels/Review/InteractableTest.tscn")
+	PlayerManager.MainMenu = false
