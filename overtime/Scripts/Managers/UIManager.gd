@@ -33,7 +33,6 @@ signal screen_closed(id: String)
 ## Look
 ## ---------------------------------------------------------------------
 const FONT_PATH := "res://Assets/Fonts/Perfect_DOS_VGA_437.ttf"
-const THEME_PATH := "res://Assets/UI/NoExitTheme.tres"
 ## Panel borders, selections, bars.
 const ACCENT := Color("#990404")
 ## Titles ("PAUSED", "END SHIFT", "Game Over").
@@ -49,14 +48,6 @@ const LAYER_HUD := 5
 const LAYER_MENU := 50
 const LAYER_GAME_OVER := 60
 const LAYER_BRIGHTNESS := 120
-
-## ---------------------------------------------------------------------
-## Legacy
-## ---------------------------------------------------------------------
-## Old name for the hotwire panel - use show_panel("hotwire", ...).
-var HotWireUI: Control:
-	get: return get_panel("hotwire")
-	set(value): register_panel("hotwire", value)
 
 ## ---------------------------------------------------------------------
 ## State
@@ -151,9 +142,11 @@ func close_screen(id: String) -> void:
 		_apply_screens()
 	screen_closed.emit(id)
 
+## True if that screen is open.
 func is_open(id: String) -> bool:
 	return id in _screens
 
+## True if any full-screen UI (pause, journal, ...) is open.
 func any_screen_open() -> bool:
 	return not _screens.is_empty()
 
@@ -184,6 +177,21 @@ func show_game_over() -> void:
 		player.GAMEOVER.visible = true
 	open_screen("game_over", true, true)
 	_saved.clear()   # nothing to go back to
+
+## Ends the current line of dialog for good (not just hidden): used when a
+## journal entry opens, so the line doesn't come back after closing it.
+## A multi-line conversation is left alone (it only hides, as for any screen).
+func dismiss_dialog() -> void:
+	var player = PlayerManager.player
+	if not is_instance_valid(player) or PlayerManager.multiDialog:
+		return
+	var d = player.DIALOG
+	if d.timer:
+		d.timer.stop()
+	d.skip_all_typewriter_effects()
+	d.visible = false
+	PlayerManager.dialoging = false
+	PlayerManager.finishedDialogAnimation = false
 
 func _save_game_state() -> void:
 	var player = PlayerManager.player
@@ -230,9 +238,6 @@ func set_cursor_visible(visible: bool) -> void:
 ## Re-check the crosshair after the "show cursor" setting changes.
 func refresh_cursor() -> void:
 	_apply_cursor()
-
-func is_cursor_wanted() -> bool:
-	return _cursor_wanted
 
 ## true = the hand (aiming at something usable), false = the crosshair.
 func set_cursor_hover(hand: bool) -> void:
@@ -289,11 +294,13 @@ func say_lines(lines: Array[String]) -> void:
 	if d:
 		d.player_interact_multi_dialog_pic(lines)
 
+## Shows the next line of multi-line dialog (or ends it).
 func next_line() -> void:
 	var d = _dialog()
 	if d:
 		d.show_next_dialog()
 
+## Hides the dialog box (plays its hide animation; reveal_dialog shows it again).
 func hide_dialog() -> void:
 	var d = _dialog()
 	if d == null:
@@ -304,6 +311,7 @@ func hide_dialog() -> void:
 		d.animation_player.play("hide")
 	PlayerManager.finishedDialogAnimation = false
 
+## Shows the dialog box again if there's dialog to show.
 func reveal_dialog() -> void:
 	var d = _dialog()
 	if d == null:
@@ -316,22 +324,21 @@ func reveal_dialog() -> void:
 ## Minigame panels
 ## ---------------------------------------------------------------------
 
+## Registers a minigame overlay under a name, for show_panel().
 func register_panel(id: String, panel: Control) -> void:
 	if panel:
 		_panels[id] = panel
 
+## The overlay registered under this name, or null.
 func get_panel(id: String) -> Control:
 	var p = _panels.get(id)
 	return p if is_instance_valid(p) else null
 
+## Shows or hides a registered minigame overlay.
 func show_panel(id: String, visible: bool) -> void:
 	var p := get_panel(id)
 	if p:
 		p.visible = visible
-
-func hide_all_panels() -> void:
-	for id in _panels:
-		show_panel(id, false)
 
 ## ---------------------------------------------------------------------
 ## HUD: inventory + stamina (built here so they share the game's look)
@@ -473,70 +480,3 @@ func _build_hud() -> void:
 	tip.add_theme_font_size_override("font_size", 12)
 	inner.add_child(tip)
 
-## ---------------------------------------------------------------------
-## Theme (the file is generated once; edit the .tres in the editor after)
-## ---------------------------------------------------------------------
-
-static func build_theme() -> Theme:
-	var t := Theme.new()
-	var font: Font = load(FONT_PATH)
-	t.default_font = font
-	t.default_font_size = 16
-
-	for type in ["Label", "RichTextLabel"]:
-		t.set_color("font_color", type, TEXT_COLOR)
-	t.set_color("default_color", "RichTextLabel", TEXT_COLOR)
-	t.set_font("normal_font", "RichTextLabel", font)
-
-	# Titles: Label with theme_type_variation = "TitleLabel"
-	t.add_type("TitleLabel")
-	t.set_type_variation("TitleLabel", "Label")
-	t.set_color("font_color", "TitleLabel", TITLE_COLOR)
-	t.set_font_size("font_size", "TitleLabel", 64)
-
-	# Buttons: text only, like the menus.
-	for type in ["Button", "CheckBox", "CheckButton", "OptionButton", "MenuButton"]:
-		t.set_color("font_color", type, Color(0.875, 0.875, 0.875))
-		t.set_color("font_hover_color", type, BUTTON_HOVER)
-		t.set_color("font_pressed_color", type, TITLE_COLOR)
-		t.set_color("font_focus_color", type, Color(0.875, 0.875, 0.875))
-		t.set_color("font_hover_pressed_color", type, TITLE_COLOR)
-	# A ticked checkbox keeps normal text (pressed red is for click feedback).
-	for type in ["CheckBox", "CheckButton"]:
-		t.set_color("font_pressed_color", type, Color(0.875, 0.875, 0.875))
-		t.set_color("font_hover_pressed_color", type, BUTTON_HOVER)
-	for style in ["normal", "hover", "pressed", "focus", "disabled", "hover_pressed"]:
-		t.set_stylebox(style, "Button", StyleBoxEmpty.new())
-
-	# Boxes: dark with the red border. Panel (the dialog box) gets it by
-	# default; PanelContainers are invisible (full-screen menus) unless they
-	# use the "FramePanel" variation (inventory, any new boxed UI).
-	var panel := StyleBoxFlat.new()
-	panel.bg_color = PANEL_BG
-	panel.border_color = ACCENT
-	panel.set_border_width_all(2)
-	panel.set_content_margin_all(12)
-	t.set_stylebox("panel", "Panel", panel)
-	t.set_stylebox("panel", "PanelContainer", StyleBoxEmpty.new())
-	t.add_type("FramePanel")
-	t.set_type_variation("FramePanel", "PanelContainer")
-	t.set_stylebox("panel", "FramePanel", panel)
-
-	# Lists (journal)
-	var sel := StyleBoxFlat.new()
-	sel.bg_color = ACCENT
-	t.set_stylebox("selected", "ItemList", sel)
-	t.set_stylebox("selected_focus", "ItemList", sel)
-	t.set_stylebox("panel", "ItemList", StyleBoxEmpty.new())
-	t.set_stylebox("focus", "ItemList", StyleBoxEmpty.new())
-	t.set_color("font_color", "ItemList", TEXT_COLOR)
-	t.set_color("font_selected_color", "ItemList", Color.WHITE)
-
-	# Progress bars (gas minigame etc.)
-	var pb_bg := StyleBoxFlat.new()
-	pb_bg.bg_color = Color(1, 1, 1, 0.15)
-	var pb_fill := StyleBoxFlat.new()
-	pb_fill.bg_color = ACCENT
-	t.set_stylebox("background", "ProgressBar", pb_bg)
-	t.set_stylebox("fill", "ProgressBar", pb_fill)
-	return t

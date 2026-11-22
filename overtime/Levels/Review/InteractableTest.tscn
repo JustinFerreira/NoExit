@@ -1,22 +1,32 @@
-[gd_scene load_steps=36 format=3]
+[gd_scene load_steps=57 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Levels/RealSizeLevel.gd" id="1_yly8b"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/Fridge/fridge.tscn" id="2_ubltv"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Fridge/Textures/M_Fridge_Texturing_DefaultMaterial_BaseMap.png" id="3_upiay"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Fridge/Textures/M_Fridge_Texturing_DefaultMaterial_MaskMap.png" id="4_8wg5s"]
 [ext_resource type="Texture2D" path="res://Assets/Environments/Office/Fridge/Textures/M_Fridge_Texturing_DefaultMaterial_Normal.png" id="5_m470p"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Fridge/M_Fridge_Body.obj" id="6_jkpwp"]
 [ext_resource type="Script" path="res://Scripts/Interactables/InventoryItem.gd" id="7_migra"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/Champagne/champagne.tscn" id="8_0q5vw"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Office/Spam/spam.tscn" id="9_a6o60"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Fridge/M_Fridge_Door.obj" id="10_02bw8"]
-[ext_resource type="Script" path="res://Scripts/Interactables/AnimatedInteractable.gd" id="11_derdq"]
-[ext_resource type="ArrayMesh" path="res://Assets/Environments/Office/Fridge/M_Fridge_FreezerDoor.obj" id="12_85dx5"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Garage/RecyclingBin/recycling_bin.tscn" id="13_5tcaa"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Office/Cubicle/Cubicle.tscn" id="14_7j3sr"]
 [ext_resource type="Script" path="res://Scripts/Interactables/SearchableInteractable.gd" id="14_cg5xb"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_BaseColor.png" id="15_2yy7h"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Shared/RubbishBin/RubbishBin.tscn" id="15_mdgt6"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Metalic_and_Rougness.png" id="16_2mch5"]
 [ext_resource type="PackedScene" path="res://Assets/Characters/Player/Scenes/Player_RealSize.tscn" id="16_8rbqs"]
-[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="17_nw5ce"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Height.png" id="17_cuiab"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Office/Cubicle/Textures/Clean Cubicle/M_Cubicle_Clean_Normal.png" id="18_kkxhe"]
+[ext_resource type="Script" path="res://Scripts/Interactables/HidingSpot.gd" id="20_83eqw"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/Cars/SudanBlack.tscn" id="20_1575c"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Cars/Textures/Sudan/M_NPCar_Unwrapped_DefaultMaterial_BaseMap_1.png" id="21_corp4"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Cars/Textures/Sudan/M_NPCar_Unwrapped_DefaultMaterial_MaskMap_2.png" id="22_ocu3q"]
+[ext_resource type="Texture2D" path="res://Assets/Environments/Garage/Cars/Textures/Sudan/M_NPCar_Unwrapped_DefaultMaterial_Normal_2.png" id="23_6r673"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_NPCar_Unwrapped.obj" id="24_c5uss"]
+[ext_resource type="Material" path="res://Assets/Materials/Tire.tres" id="25_1j04r"]
+[ext_resource type="ArrayMesh" path="res://Assets/Environments/Garage/Cars/M_SpareTire_Unwrapped.obj" id="26_fo1ck"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Killer/Scenes/Killer_RealSize.tscn" id="27_58vkp"]
+[ext_resource type="Script" path="res://Scripts/Enemies/Killer.gd" id="28_2hqip"]
 [ext_resource type="Resource" path="res://Assets/Notes/old_receipt.tres" id="note_old_receipt"]
 
 [sub_resource type="Environment" id="Environment_by2sm"]
@@ -114,6 +124,68 @@ size = Vector3(63.7678, 128.079, 63.7678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_q5fev"]
 size = Vector3(9.75749, 31.6778, 9.75749)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7alel"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("15_2yy7h")
+metallic = 1.0
+metallic_texture = ExtResource("16_2mch5")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("16_2mch5")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("18_kkxhe")
+ao_enabled = true
+ao_texture = ExtResource("16_2mch5")
+heightmap_texture = ExtResource("17_cuiab")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmsm6"]
+size = Vector3(88, 92, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6uu0h"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3kayw"]
+size = Vector2(88, 92)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysp7d"]
+albedo_texture = ExtResource("21_corp4")
+metallic = 1.0
+metallic_texture = ExtResource("22_ocu3q")
+roughness_texture = ExtResource("22_ocu3q")
+roughness_texture_channel = 2
+normal_enabled = true
+normal_texture = ExtResource("23_6r673")
+ao_enabled = true
+ao_texture = ExtResource("22_ocu3q")
+ao_texture_channel = 1
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ywqim"]
+points = PackedVector3Array(106.383, 74.4235, 88.877, 106.383, 58.765, 88.877, 43.7, 74.4235, -224.486, 77.1575, 7.7253, -207.651, -50.3145, -3.91766, 253.413, -89.494, 3.9238, -177.413, -57.694, 106.789, 45.8139, 82.859, -3.91766, 245.608, -18.9419, 58.765, 253.413, -73.7975, 74.4235, -208.779, 59.885, 107.579, -114.083, -105.17, 74.4235, 88.877, -89.494, -3.91766, 229.901, 75.0315, 58.765, 237.754, 58.7475, 106.642, 45.7303, -52.7925, 108.63, -124.074, -81.646, 50.948, 245.608, 75.0315, 74.4235, -208.779, -78.065, 21.2997, -221.425, 77.278, 0.3355, -83.7815, -2.79061, 113.462, 11.6225, 78.871, 21.4935, -220.184, -50.3145, 74.4235, -224.486, 82.859, 50.948, 245.608, -76.065, 0.3355, -83.7815, 31.6016, 113.889, -78.0015, 33.9441, 14.2975, 255.55, -68.64, 7.7253, -214.96, -73.7975, 58.765, 237.754, 37.4068, 105.597, 58.505, -58.9785, 107.847, -114.809, -36.991, 113.48, -70.473)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_45j5h"]
+size = Vector3(6, 30, 185)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7gr6"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eltah"]
+size = Vector2(185, 30)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_khj58"]
+vertices = PackedVector3Array(-5.8, 0.1, -0.9, -4.4, 0.1, -0.9, -4.4, 0.1, -1.2, -4.1, 0.1, -1.5, -3.6, 0.1, -9.6, -9.6, 0.1, -9.6, -9.6, 0.1, -0.0999994, -6.1, 0.1, 0, -6.1, 0.1, -0.599999, -3.5, 0.1, -1.5, 3.6, 0.1, -1.5, 3.7, 0.1, -9.6, 3.3, 0.1, 0.1, 3, 0.1, 0.400001, 3.2, 0.1, 0.8, 4.1, 0.1, -0.4, 3.3, 0.1, -0.4, 4.2, 0.1, -1.5, 8.2, 0.1, 1.2, 8.2, 0.1, 2.2, 9.6, 0.1, 2.2, 5.6, 0.1, 0.7, 4.5, 0.1, -0.8, 4.5, 0.1, -1.2, 7.9, 0.1, 0.900001, 9.6, 0.1, -9.6, 1.1, 0.1, 0.400001, 0.8, 0.1, 0.1, 0.6, 0.1, 0.400001, 2.5, 0.1, 1.3, 2.9, 0.1, 3.5, -3.1, 0.1, 2.3, -3.4, 0.1, 2.3, -3.5, 0.1, 9.6, 4.1, 0.1, 9.6, -0.8, 0.1, 0.1, -0.8, 0.1, -0.4, -2.8, 0.1, -0.4, -0.5, 0.1, 0.400001, -2.8, 0.1, 2, 4.3, 0.1, 3.7, 2.5, 0.1, 3.1, -9.6, 0.1, 1.5, -6.1, 0.1, 1.4, -4, 1.1, 0.1, -3.8, 1.1, 0.3, -3.8, 1.1, 0, -5.1, 1.1, 0, -4.23333, 1.1, 0, -4.66667, 1.3, 0, -4.55, 1.3, 0.0500002, -4.5, 0.1, 1.8, -5.1, 0.1, 1.6, -5.1, 0.1, 2, -4.2, 0.1, 2.2, -5.4, 0.1, 2.3, -5.8, 0.1, 2.3, -6.1, 0.1, 2, -9.6, 0.1, 9.6, 6.9, 1.5, 1.9, 6.9, 1.5, 2.5, 7, 1.4, 2.7, 7.4, 1.3, 2.6, 7.4, 1.3, 1.8, 7.2, 1.35, 1.7, 6.1, 1.55, 2.5, 6.1, 1.55, 1.9, 6.5, 1.55, 1.9, 4.3, 1.3, 1.5, 3.3, 1.05, 1.7, 3.6, 1.15, 2.8, 4.8, 1.45, 2.9, 5.2, 1.5, 1.7, 3.3, 1.05, 2.7, 8.2, 0.1, 3.2, 7.9, 0.1, 3.5, 9.6, 0.1, 9.6)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 6), PackedInt32Array(3, 6, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(8, 7, 6), PackedInt32Array(0, 8, 6), PackedInt32Array(4, 9, 3), PackedInt32Array(9, 4, 10), PackedInt32Array(10, 4, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(12, 16, 15), PackedInt32Array(17, 10, 11), PackedInt32Array(20, 19, 18), PackedInt32Array(15, 22, 14), PackedInt32Array(14, 22, 21), PackedInt32Array(23, 17, 24), PackedInt32Array(24, 17, 11), PackedInt32Array(24, 11, 25), PackedInt32Array(18, 24, 20), PackedInt32Array(20, 24, 25), PackedInt32Array(22, 23, 21), PackedInt32Array(21, 23, 24), PackedInt32Array(28, 27, 26), PackedInt32Array(14, 29, 13), PackedInt32Array(13, 29, 26), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 33), PackedInt32Array(33, 30, 34), PackedInt32Array(37, 36, 35), PackedInt32Array(28, 26, 29), PackedInt32Array(35, 38, 37), PackedInt32Array(37, 38, 39), PackedInt32Array(30, 40, 34), PackedInt32Array(28, 29, 38), PackedInt32Array(38, 29, 41), PackedInt32Array(39, 38, 31), PackedInt32Array(31, 38, 41), PackedInt32Array(31, 41, 30), PackedInt32Array(43, 42, 7), PackedInt32Array(7, 42, 6), PackedInt32Array(44, 46, 45), PackedInt32Array(46, 44, 48), PackedInt32Array(48, 44, 50), PackedInt32Array(48, 50, 49), PackedInt32Array(49, 50, 47), PackedInt32Array(53, 52, 51), PackedInt32Array(51, 54, 53), PackedInt32Array(53, 54, 55), PackedInt32Array(56, 55, 33), PackedInt32Array(54, 32, 55), PackedInt32Array(55, 32, 33), PackedInt32Array(42, 43, 57), PackedInt32Array(57, 56, 42), PackedInt32Array(42, 56, 58), PackedInt32Array(58, 56, 33), PackedInt32Array(64, 63, 59), PackedInt32Array(59, 63, 60), PackedInt32Array(60, 63, 61), PackedInt32Array(61, 63, 62), PackedInt32Array(66, 67, 65), PackedInt32Array(65, 67, 59), PackedInt32Array(65, 59, 60), PackedInt32Array(66, 65, 72), PackedInt32Array(72, 65, 71), PackedInt32Array(72, 71, 68), PackedInt32Array(68, 71, 70), PackedInt32Array(68, 70, 69), PackedInt32Array(70, 73, 69), PackedInt32Array(74, 19, 20), PackedInt32Array(74, 20, 75), PackedInt32Array(75, 20, 76), PackedInt32Array(40, 75, 34), PackedInt32Array(34, 75, 76)]
+geometry_parsed_geometry_type = 2
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"nav_source"
+cell_size = 0.1
+cell_height = 0.05
+agent_height = 2.3
+agent_radius = 0.4
+
 [node name="InteractableTest" type="Node3D"]
 script = ExtResource("1_yly8b")
 killer_follow_distance = 5.0
@@ -133,29 +205,28 @@ omni_range = 8.0
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_fc6ui")
 
-[node name="FloorBody" type="StaticBody3D" parent="."]
+[node name="FloorBody" type="StaticBody3D" parent="." groups=["nav_source"]]
 
 [node name="Shape" type="CollisionShape3D" parent="FloorBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_e4u6n")
 
-[node name="Wall" type="CSGBox3D" parent="."]
+[node name="Wall" type="CSGBox3D" parent="." groups=["nav_source"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -1)
 use_collision = true
 size = Vector3(8, 3, 0.2)
 material = SubResource("StandardMaterial3D_u27tg")
 
-[node name="Fridge" parent="." instance=ExtResource("2_ubltv")]
+[node name="Fridge" parent="." groups=["nav_source"] instance=ExtResource("2_ubltv")]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.5)
 
 [node name="MFridgeBody" parent="Fridge" index="0"]
 material_override = SubResource("StandardMaterial3D_7avkg")
-mesh = ExtResource("6_jkpwp")
 
 [node name="CollisionShape3D" parent="Fridge/MFridgeBody/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_4xr7l")
 
-[node name="Champagne" type="StaticBody3D" parent="Fridge/Contents" index="0" node_paths=PackedStringArray("mesh_list")]
+[node name="Champagne" type="StaticBody3D" parent="Fridge/Contents" index="0" node_paths=PackedStringArray("mesh", "mesh_list")]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 14, 74.3, -2)
 script = ExtResource("7_migra")
 item_name = "Champagne"
@@ -164,19 +235,20 @@ is_equippable = false
 pickup_sound = null
 remove_on_pickup = true
 is_interactable = true
-outline_material = null
+mesh = NodePath("Model/MChampaineUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
-[node name="Model" type="Node3D" parent="Fridge/Contents/Champagne" instance=ExtResource("8_0q5vw")]
+[node name="Model" parent="Fridge/Contents/Champagne" instance=ExtResource("8_0q5vw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/Contents/Champagne"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.8389, 0)
 shape = SubResource("BoxShape3D_up52r")
 
-[node name="Spam" type="StaticBody3D" parent="Fridge/Contents" index="1" node_paths=PackedStringArray("mesh_list")]
+[node name="Spam" type="StaticBody3D" parent="Fridge/Contents" index="1" node_paths=PackedStringArray("mesh", "mesh_list")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 41, 2)
 script = ExtResource("7_migra")
 item_name = "Spam"
@@ -185,19 +257,20 @@ is_equippable = false
 pickup_sound = null
 remove_on_pickup = true
 is_interactable = true
-outline_material = null
+mesh = NodePath("Model/MSpamUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
-[node name="Model" type="Node3D" parent="Fridge/Contents/Spam" instance=ExtResource("9_a6o60")]
+[node name="Model" parent="Fridge/Contents/Spam" instance=ExtResource("9_a6o60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.340892)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/Contents/Spam"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.89096, 0)
 shape = SubResource("BoxShape3D_gvorw")
 
-[node name="Frozen Spam" type="StaticBody3D" parent="Fridge/FreezerContents" index="0" node_paths=PackedStringArray("mesh_list")]
+[node name="Frozen Spam" type="StaticBody3D" parent="Fridge/FreezerContents" index="0" node_paths=PackedStringArray("mesh", "mesh_list")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 128.8, 0)
 script = ExtResource("7_migra")
 item_name = "Frozen Spam"
@@ -206,12 +279,13 @@ is_equippable = false
 pickup_sound = null
 remove_on_pickup = true
 is_interactable = true
-outline_material = null
+mesh = NodePath("Model/MSpamUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
-[node name="Model" type="Node3D" parent="Fridge/FreezerContents/Frozen Spam" instance=ExtResource("9_a6o60")]
+[node name="Model" parent="Fridge/FreezerContents/Frozen Spam" instance=ExtResource("9_a6o60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.340892)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fridge/FreezerContents/Frozen Spam"]
@@ -223,62 +297,24 @@ libraries = {
 "": SubResource("AnimationLibrary_skrqe")
 }
 
-[node name="FridgeDoorHinge" parent="Fridge" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16, 0, 33.63)
-
 [node name="MFridgeDoor" parent="Fridge/FridgeDoorHinge" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.16, 0, -33.63)
 material_override = SubResource("StandardMaterial3D_7avkg")
-mesh = ExtResource("10_02bw8")
 
-[node name="FridgeDoor" parent="Fridge/FridgeDoorHinge/MFridgeDoor" index="0" node_paths=PackedStringArray("animation_player", "contents", "locked_until_open", "mesh_list")]
-script = ExtResource("11_derdq")
-animation_player = NodePath("../../../AnimationPlayer")
-animation_name = &"open_fridge"
-can_close = true
-speed = 1.0
-open_sound = null
-close_sound = null
-contents = NodePath("../../../Contents")
-locked_until_open = []
-remember_open = true
-is_interactable = true
-outline_material = null
-mesh_list = []
-has_outline = true
-persist_id = ""
+[node name="FridgeDoor" parent="Fridge/FridgeDoorHinge/MFridgeDoor" index="0" node_paths=PackedStringArray("mesh")]
+mesh = NodePath("..")
+outline_after_use = false
 
 [node name="CollisionShape3D" parent="Fridge/FridgeDoorHinge/MFridgeDoor/FridgeDoor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 64.3904, 32.2368)
 shape = SubResource("BoxShape3D_s3cbk")
 
-[node name="FreezerDoorHinge" parent="Fridge" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.16, 0, 33.63)
-
 [node name="MFreezerDoor" parent="Fridge/FreezerDoorHinge" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.16, 0, -33.63)
 material_override = SubResource("StandardMaterial3D_7avkg")
-mesh = ExtResource("12_85dx5")
 
-[node name="FreezerDoor" parent="Fridge/FreezerDoorHinge/MFreezerDoor" index="0" node_paths=PackedStringArray("animation_player", "contents", "locked_until_open", "mesh_list")]
-script = ExtResource("11_derdq")
-animation_player = NodePath("../../../AnimationPlayer")
-animation_name = &"open_freezer"
-can_close = true
-speed = 1.0
-open_sound = null
-close_sound = null
-contents = NodePath("../../../FreezerContents")
-locked_until_open = []
-remember_open = true
-is_interactable = true
-outline_material = null
-mesh_list = []
-has_outline = true
-persist_id = ""
+[node name="FreezerDoor" parent="Fridge/FreezerDoorHinge/MFreezerDoor" index="0" node_paths=PackedStringArray("mesh")]
+mesh = NodePath("..")
+outline_after_use = false
 
 [node name="CollisionShape3D" parent="Fridge/FreezerDoorHinge/MFreezerDoor/FreezerDoor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 153.946, 32.2368)
 shape = SubResource("BoxShape3D_n17v2")
 
 [node name="FridgeHelp" type="Label3D" parent="."]
@@ -290,31 +326,32 @@ The items inside can only be taken once it's open."
 font_size = 48
 outline_size = 10
 
-[node name="Searchables" type="Node3D" parent="."]
+[node name="Searchables" type="Node3D" parent="." groups=["nav_source"]]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.6, 0, -0.4)
 
 [node name="RecyclingBin" type="Node3D" parent="Searchables"]
 
-[node name="Model" type="Node3D" parent="Searchables/RecyclingBin" instance=ExtResource("13_5tcaa")]
+[node name="Model" parent="Searchables/RecyclingBin" instance=ExtResource("13_5tcaa")]
 
 [node name="Search" type="StaticBody3D" parent="Searchables/RecyclingBin" node_paths=PackedStringArray("mesh", "mesh_list")]
 script = ExtResource("14_cg5xb")
 search_sound = null
 search_sound_volume_db = -8.0
 search_time = 0.0
-note = ExtResource("note_old_receipt")
+item_name = ""
 item_weight = 0.0
 is_equippable = false
 found_text = "Found %s."
+note = ExtResource("note_old_receipt")
 nothing_found_text = "There's nothing here."
 already_searched_text = "There's nothing else here."
 disable_after_search = false
 is_interactable = true
-outline_material = null
 mesh = NodePath("../Model/MRecyclingUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Searchables/RecyclingBin/Search"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 63.0397, 0)
@@ -323,7 +360,7 @@ shape = SubResource("BoxShape3D_bthjq")
 [node name="RubbishBin" type="Node3D" parent="Searchables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 0)
 
-[node name="Model" type="Node3D" parent="Searchables/RubbishBin" instance=ExtResource("15_mdgt6")]
+[node name="Model" parent="Searchables/RubbishBin" instance=ExtResource("15_mdgt6")]
 
 [node name="Search" type="StaticBody3D" parent="Searchables/RubbishBin" node_paths=PackedStringArray("mesh", "mesh_list")]
 script = ExtResource("14_cg5xb")
@@ -334,15 +371,16 @@ item_name = ""
 item_weight = 0.0
 is_equippable = false
 found_text = "Found %s."
+note = null
 nothing_found_text = "There's nothing here."
 already_searched_text = "There's nothing else here."
 disable_after_search = false
 is_interactable = true
-outline_material = null
 mesh = NodePath("../Model/MRubbishUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Searchables/RubbishBin/Search"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 63.0397, 0)
@@ -360,7 +398,7 @@ outline_size = 10
 [node name="Loose" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.8, 0, 1.5)
 
-[node name="Floor Champagne" type="StaticBody3D" parent="Loose" node_paths=PackedStringArray("mesh_list")]
+[node name="Floor Champagne" type="StaticBody3D" parent="Loose" node_paths=PackedStringArray("mesh", "mesh_list")]
 script = ExtResource("7_migra")
 item_name = "Floor Champagne"
 item_weight = 0.0
@@ -368,12 +406,13 @@ is_equippable = false
 pickup_sound = null
 remove_on_pickup = true
 is_interactable = true
-outline_material = null
+mesh = NodePath("Model/MChampaineUnwrapped")
 mesh_list = []
 has_outline = true
 persist_id = ""
+outline_after_use = false
 
-[node name="Model" type="Node3D" parent="Loose/Floor Champagne" instance=ExtResource("8_0q5vw")]
+[node name="Model" parent="Loose/Floor Champagne" instance=ExtResource("8_0q5vw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Loose/Floor Champagne"]
@@ -389,11 +428,10 @@ Aim at it: the outline flashes."
 font_size = 48
 outline_size = 10
 
-[node name="Player" type="CharacterBody3D" parent="." groups=["player"] instance=ExtResource("16_8rbqs")]
+[node name="Player" parent="." instance=ExtResource("16_8rbqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.05, 4.5)
-collision_layer = 17
-script = ExtResource("17_nw5ce")
-step_height = 0.3
+floor_max_angle = 0.872665
+floor_snap_length = 0.3
 floor_snap_amount = 0.3
 floor_max_angle_degrees = 50.0
 max_stamina = 100.0
@@ -405,12 +443,166 @@ fatigue_speed = 3.0
 crouch_speed = 2.5
 crouch_height_factor = 0.6
 crouch_toggle = false
-lean_distance = 0.35
 lean_angle_degrees = 12.0
 lean_while_sprinting = false
 move_transition_speed = 8.0
 look_back_degrees = 135.0
 look_back_pitch_degrees = -5.0
 look_back_speed = 4.5
+interact_assist_degrees = 4.0
+
+[node name="Cubicle" parent="." groups=["nav_source"] instance=ExtResource("14_7j3sr")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -4.5, 0, 0.6)
+
+[node name="ModelCubicleUnwrapped" parent="Cubicle" index="0"]
+material_override = SubResource("StandardMaterial3D_7alel")
+
+[node name="UnderDeskHidingSpot" type="StaticBody3D" parent="Cubicle/ModelCubicleUnwrapped" index="1" node_paths=PackedStringArray("hide_point", "entry_point", "mesh", "mesh_list")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 0, 0)
+script = ExtResource("20_83eqw")
+peek_out_distance = 0.6
+peek_side_distance = 0.3
+peek_up_distance = 0.05
+peek_turn_degrees = -20.0
+hide_point = NodePath("HidePoint")
+entry_point = NodePath("EntryPoint")
+enter_time = 0.9
+exit_time = 0.8
+look_yaw_limit = 70.0
+look_up_limit = 25.0
+look_down_limit = 40.0
+hide_sound = null
+unhide_sound = null
+peek_speed = 6.0
+hides_from_enemies = true
+is_interactable = true
+mesh = NodePath("OutlineShape")
+mesh_list = []
+has_outline = true
+persist_id = ""
+outline_after_use = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cubicle/ModelCubicleUnwrapped/UnderDeskHidingSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -27)
+shape = SubResource("BoxShape3D_dmsm6")
+
+[node name="OutlineShape" type="MeshInstance3D" parent="Cubicle/ModelCubicleUnwrapped/UnderDeskHidingSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, -25.5)
+material_override = SubResource("StandardMaterial3D_6uu0h")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_3kayw")
+
+[node name="HidePoint" type="Marker3D" parent="Cubicle/ModelCubicleUnwrapped/UnderDeskHidingSpot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 50, -85)
+
+[node name="EntryPoint" type="Marker3D" parent="Cubicle/ModelCubicleUnwrapped/UnderDeskHidingSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 55, 15)
+
+[node name="HideHelp" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6, 1.55, 0.3)
+pixel_size = 0.004
+billboard = 1
+text = "Hide under the desk: click under it.
+Press any movement key to come back out."
+font_size = 48
+outline_size = 10
+
+[node name="Car" parent="." groups=["nav_source"] instance=ExtResource("20_1575c")]
+transform = Transform3D(-4.37114e-10, 0, -0.01, 0, 0.01, 0, 0.01, 0, -4.37114e-10, 5.5, 0.32, 2.2)
+
+[node name="MeshInstance3D" parent="Car" index="0"]
+material_override = SubResource("StandardMaterial3D_ysp7d")
+mesh = ExtResource("24_c5uss")
+
+[node name="CollisionShape3D" parent="Car/MeshInstance3D/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ywqim")
+
+[node name="Tire_1" parent="Car" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.433, 6.40065, 149.515)
+material_override = ExtResource("25_1j04r")
+mesh = ExtResource("26_fo1ck")
+
+[node name="Tire_4" parent="Car" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.433, 6.40065, -124.122)
+material_override = ExtResource("25_1j04r")
+mesh = ExtResource("26_fo1ck")
+
+[node name="Tire_2" parent="Car" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.3395, 6.40065, 149.515)
+material_override = ExtResource("25_1j04r")
+mesh = ExtResource("26_fo1ck")
+
+[node name="Tire_3" parent="Car" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.3395, 6.40065, -123.357)
+material_override = ExtResource("25_1j04r")
+mesh = ExtResource("26_fo1ck")
+
+[node name="UnderCarHidingSpot" type="StaticBody3D" parent="Car" node_paths=PackedStringArray("hide_point", "entry_point", "mesh", "mesh_list")]
+script = ExtResource("20_83eqw")
+peek_out_distance = 0.95
+hide_point = NodePath("HidePoint")
+entry_point = NodePath("EntryPoint")
+enter_time = 0.9
+exit_time = 0.8
+look_yaw_limit = 60.0
+look_up_limit = 10.0
+look_down_limit = 15.0
+hide_sound = null
+unhide_sound = null
+peek_speed = 6.0
+hides_from_enemies = true
+is_interactable = true
+mesh = NodePath("OutlineShape")
+mesh_list = []
+has_outline = true
+persist_id = ""
+outline_after_use = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Car/UnderCarHidingSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, -17, 12)
+shape = SubResource("BoxShape3D_45j5h")
+
+[node name="OutlineShape" type="MeshInstance3D" parent="Car/UnderCarHidingSpot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102, -17, 12)
+material_override = SubResource("StandardMaterial3D_b7gr6")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_eltah")
+
+[node name="HidePoint" type="Marker3D" parent="Car/UnderCarHidingSpot"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, -17, 12)
+
+[node name="EntryPoint" type="Marker3D" parent="Car/UnderCarHidingSpot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, -7, 12)
+
+[node name="CarHelp" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1.9, 3.2)
+pixel_size = 0.004
+billboard = 1
+text = "Hide under the car: click the gap under its side.
+Q / E peek while hidden."
+font_size = 48
+outline_size = 10
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_khj58")
+
+[node name="Killer" type="CharacterBody3D" parent="." groups=["enemy"] instance=ExtResource("27_58vkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.05, 7)
+script = ExtResource("28_2hqip")
+move_speed = 2.0
+use_gravity = true
+acceleration = 0.25
+repath_interval = 0.25
+repath_distance = 2.0
+model_faces_plus_z = true
+sight_range = 20.0
+sight_fov_degrees = 60.0
+sight_height_offset = 1.88318
+can_kill_player = true
+face_height = 1.99396
+game_over_delay = 2.0
+catch_seen_hiding_chance = 0.75
 
 [editable path="Fridge"]
+[editable path="Cubicle"]
+[editable path="Car"]

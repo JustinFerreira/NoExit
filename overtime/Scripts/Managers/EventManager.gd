@@ -1,16 +1,14 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 5/4/26 by Justin Ferreira
-## Event Manager Script
-## - This script manages actual dialog that is going to be 
-## fed into where dialog is called, also specfic event functions
-## are held here so that triggering responses to these events can
-## be found and tweaked easier
+## Event Manager (autoload "EventManager")
+## - Every line of story dialog and hint text in one place (so writing can
+##   be tweaked without hunting through scripts), plus small story-state
+##   switches shared between scripts (elevator doors, came from garage...).
 
 extends Node
 
-# Loop Control
-# Milestone - lives in GameState as a flag now.
+## Loop Control
+## Milestone - lives in GameState as a flag now.
 var Loop0SteeringClicked: bool:
 	get: return GameState.has_flag(GameState.FLAG_LOOP0_STEERING_CLICKED)
 	set(value): GameState.set_flag(GameState.FLAG_LOOP0_STEERING_CLICKED, value)
@@ -22,10 +20,10 @@ var CameFromGarage: bool = false
 
 ## Janitor Dialog
 
-#didn't speak before elevator
+##didn't speak before elevator
 var janitor_didnt_speak_text: String = "Hey wait up!"
 
-#multidialog
+##multidialog
 var janitor_text_array: Array[String] = [
 	"Last day, right?",
 	"Quite a familiar sight, watching a kid turn their back on this, and pardon my French",
@@ -83,7 +81,7 @@ var office_wake_up_no_keys: String = "Where did I leave my keys?"
 
 ## Minigame
 
-#Hotwire 
+#Hotwire
 
 var hotwire_reminder: String = "I better hot wire my own car like I always do right under the steering wheel."
 
@@ -97,7 +95,6 @@ var battery_minigame_resetzone: String = "Oh I probbaly shouldn't do that"
 
 #Box Dialogs
 
-var box_pickup: String = "I've got to pack up all this stuff!"
 
 var box_pickup_hint: String = "With your box equipped now you can pick up these items from your desk. hold Tab to see Inventory, and see your Box is highlighted red as equipped items are highlighted red."
 
@@ -111,25 +108,25 @@ var keys_pickup_hint: String = "Use the scroll on the mouse to change your equip
 
 ## Examine Item Dialogs
 
-#Stapler 
+##Stapler
 var stapler_normal_dialog: String  = "Eh, I can probably take this. Corporate can cry about for all care."
 
-#Sticky Notes
+##Sticky Notes
 var stickynotes_normal_dialog: String  = "Maybe I can finally start drawing again. I mean, I got nothing else better to do in the mean time, so why not."
 
-#Mug1A
+##Mug1A
 var mug1a_normal_dialog: String  = "That was a fun pottery class. Wish I had more time to make something else besides a mug."
 
-#Mug2A
+##Mug2A
 var mug2a_normal_dialog: String  = "I forgot why I have two mugs. Well, guess it doesn't matter anymore."
 
-#Picture Frame 1
+##Picture Frame 1
 var pictureframe1_normal_dialog: String  = "What would they think? Probably go on some kind of tirade about “building their business with their own two hands,” or some meaningless garbage like that."
 
-#Battery Pickup
+##Battery Pickup
 var batterypickup_normal_dialog: String = "Awesome a battery"
 
-#Gas Canister Pickup
+##Gas Canister Pickup
 var gascanisterpickup_normal_dialog: String = "Awesome a gas canister"
 
 ## Office Elevator
@@ -147,6 +144,3 @@ var elevator_hint_2: String = "Use shift to toggle sprint"
 var elevator_no_keys: String = "Wait, I think I forgot my keys at my cubicle. Definitely need to grab those before leaving this hell hole"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.

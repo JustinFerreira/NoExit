@@ -63,7 +63,6 @@ volume_db = -15.687
 unit_size = 500.0
 bus = &"SFX"
 script = ExtResource("9_3hg43")
-min_volume_db = -60.0
 
 [node name="Npc" parent="." instance=ExtResource("10_41ucq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.3263, 17.0993, 305.353)

@@ -56,8 +56,9 @@ var _current_anim_player: AnimationPlayer
 var _ambient_timer: Timer
 
 func _ready() -> void:
-	super._ready()
 	root = npc_root if npc_root else _find_root()
+	_setup_npc_outline()
+	super._ready()
 	for p in [idle_animation_player, walk_animation_player]:
 		if p and not p.animation_finished.is_connected(_on_npc_animation_finished):
 			p.animation_finished.connect(_on_npc_animation_finished)
@@ -74,6 +75,30 @@ func _ready() -> void:
 ## Hook - your setup.
 func _npc_ready() -> void:
 	pass
+
+## NPCs outline like everything else (steady when close, flashing when
+## aimed at), around the character's visible animated meshes.
+func _setup_npc_outline() -> void:
+	var meshes: Array[MeshInstance3D] = []
+	for m in root.find_children("*", "MeshInstance3D", true, false):
+		if m.skin and m.mesh and m.is_visible_in_tree():
+			meshes.append(m)
+	if meshes.is_empty():
+		return
+	has_outline = true
+	mesh = meshes[0]
+	for m in meshes.slice(1):
+		if not mesh_list.has(m):
+			mesh_list.append(m)
+	# the click body may hang off a hidden helper mesh - keep that "visible"
+	# (on no render layer, so it's still never seen), or the outline would
+	# think the NPC is hidden
+	var n := get_parent()
+	while n and n != root:
+		if n is GeometryInstance3D and not n.visible:
+			n.layers = 0
+			n.visible = true
+		n = n.get_parent()
 
 ## No NPC Root set: the nearest node above this one that holds the
 ## character's Skeleton3D (works whether the NPC is a placed scene or was
@@ -96,9 +121,11 @@ func _on_interacted(_body: Variant) -> void:
 ## Animation
 ## ---------------------------------------------------------------------
 
+## Plays the idle animation (looping).
 func play_idle(speed_scale: float = 1.0) -> void:
 	_play_on(idle_animation_player, idle_animation, speed_scale)
 
+## Plays the walk animation (looping).
 func play_walk(speed_scale: float = 1.0) -> void:
 	_play_on(walk_animation_player, walk_animation, speed_scale)
 
@@ -117,9 +144,6 @@ func _on_npc_animation_finished(_anim_name: StringName) -> void:
 	if _current_anim_player and not _current_anim_player.is_playing():
 		_current_anim_player.play(_current_anim_player.assigned_animation)
 
-func is_walking() -> bool:
-	return _current_anim_player != null and _current_anim_player == walk_animation_player and walk_animation_player != idle_animation_player
-
 ## ---------------------------------------------------------------------
 ## Turning
 ## ---------------------------------------------------------------------
@@ -132,15 +156,12 @@ func face_direction(direction: Vector3) -> void:
 	flat = flat.normalized()
 	root.look_at(root.global_position + (-flat if model_faces_plus_z else flat), Vector3.UP)
 
+## Turns the NPC to face a world position (yaw only).
 func face_point(point: Vector3) -> void:
 	if root:
 		face_direction(point - root.global_position)
 
-## The yaw (radians) that would make the NPC face a point.
-func yaw_towards(point: Vector3) -> float:
-	var d := point - root.global_position
-	return atan2(d.x, d.z) if model_faces_plus_z else atan2(-d.x, -d.z)
-
+## How far the player is (INF if there's no player).
 func distance_to_player() -> float:
 	if root == null or PlayerManager.player == null:
 		return INF

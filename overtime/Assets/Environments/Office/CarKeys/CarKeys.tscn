@@ -61,8 +61,6 @@ inventory_name = "Car Keys"
 inventory_equippable = true
 pickup_sound = ExtResource("keys_sfx")
 examine_sound = ExtResource("stinger_sfx")
-flash_mode = 1
-outline_material = ExtResource("2_k7qgf")
 mesh = NodePath("..")
 has_outline = true
 

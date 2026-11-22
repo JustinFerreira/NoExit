@@ -10,5 +10,4 @@ extends ExaminableItem
 
 func _on_picked_up() -> void:
 	PlayerManager.gotGas_Canister = true
-	AnimationManager.GasIntakeFlash.start_flashing()
 	AnimationManager.GasIntakeFlash.toggle_interactable(true)

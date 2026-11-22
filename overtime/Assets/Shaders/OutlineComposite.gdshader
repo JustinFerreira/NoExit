@@ -12,7 +12,7 @@
 // - Band pixels where something is clearly in front of the object are
 //   skipped too, so the outline never paints over things in front of it.
 shader_type spatial;
-render_mode unshaded, depth_test_disabled, depth_draw_never, cull_disabled, shadows_disabled, ambient_light_disabled;
+render_mode unshaded, depth_test_disabled, depth_draw_never, cull_disabled, shadows_disabled, ambient_light_disabled, fog_disabled;
 
 uniform sampler2D mask_texture : filter_nearest, repeat_disable;
 uniform sampler2D depth_texture : hint_depth_texture, filter_nearest, repeat_disable;
@@ -28,10 +28,13 @@ uniform float depth_scale = 200.0;
 uniform float occlusion_tolerance = 0.5;
 uniform float occlusion_tolerance_ratio = 0.1;
 // How closely a mask pixel must match what the camera sees to count as a
-// visible part of the object (same surface, so this can be tight - it
-// only has to cover depth precision).
-uniform float visible_tolerance = 0.05;
-uniform float visible_tolerance_ratio = 0.01;
+// visible part of the object. Same surface, so this only has to cover the
+// mask's depth rounding (16-bit float of distance / depth_scale, about
+// 0.05% of the distance). Keep it tight: anything looser lets parts hidden
+// just behind a thin panel (a fridge door inside the fridge's side) count
+// as visible and get outlined through it.
+uniform float visible_tolerance = 0.005;
+uniform float visible_tolerance_ratio = 0.002;
 
 // Distance from the camera to whatever the game camera sees at this pixel.
 float scene_depth_at(vec2 uv, mat4 inv_projection) {

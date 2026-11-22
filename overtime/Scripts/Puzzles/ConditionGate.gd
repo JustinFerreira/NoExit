@@ -38,8 +38,8 @@ class_name ConditionGate
 ## anything else) that should appear/become solid.
 @export var doors_to_lock: Array[Door] = []
 
-# Conditions that have already reported success, so a repeat signal from
-# the same node doesn't get counted twice.
+## Conditions that have already reported success, so a repeat signal from
+## the same node doesn't get counted twice.
 var _met_conditions: Array[Interactable] = []
 
 
@@ -51,10 +51,9 @@ func _ready() -> void:
 		condition.interaction_succeeded.connect(_on_condition_succeeded.bind(condition))
 
 
-# _on_condition_succeeded
-# Called whenever one of required_conditions reports success. Once
-# enough distinct conditions have fired, flips every door in
-# doors_to_unlock/doors_to_lock.
+## Called whenever one of required_conditions reports success. Once
+## enough distinct conditions have fired, flips every door in
+## doors_to_unlock/doors_to_lock.
 func _on_condition_succeeded(condition: Interactable) -> void:
 	if condition in _met_conditions:
 		return
@@ -74,10 +73,11 @@ func _fire() -> void:
 			door.lock()
 
 
-# conditions_met / conditions_total
-# Handy if you want to hook up UI feedback, like a "2 / 3" counter.
+## conditions_met / conditions_total
+## Handy if you want to hook up UI feedback, like a "2 / 3" counter.
 func conditions_met() -> int:
 	return _met_conditions.size()
 
+## How many conditions there are to meet.
 func conditions_total() -> int:
 	return required_count if required_count > 0 else required_conditions.size()

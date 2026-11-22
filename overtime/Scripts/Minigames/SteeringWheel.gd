@@ -7,12 +7,10 @@
 
 extends Interactable
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	AnimationManager.SteeringWheelFlash = self
 	UiManager.register_panel("hotwire", $"../../Head/Car_Cam/Minigame")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	#Event Manager fix when finished minigame one it does this, unsure if the is_interactable even applies here.
 	if PlayerManager.minigameOnePassed:
@@ -20,7 +18,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_interacted(_body: Variant) -> void:
-	stop_flashing()
+	if RogueRun.active:
+		_rogue_start_car()
+		return
 	if PlayerManager.Loop0:
 		EventManager.Loop0SteeringClicked = true
 		AnimationManager.HoodFlash.is_interactable = true
@@ -33,19 +33,25 @@ func _on_interacted(_body: Variant) -> void:
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_battery_and_gas)
 		AudioManager.play_sound(AudioManager.Thud4)
-		stop_flashing()
 	elif PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and not PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_battery)
 		AudioManager.play_sound(AudioManager.Thud4)
-		stop_flashing()
 	elif PlayerManager.minigameOnePassed and not PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed:
 		PlayerManager.CharacterDialog(EventManager.need_gas)
 		AudioManager.play_sound(AudioManager.CarStartNoGas)
-		stop_flashing()
 	elif not PlayerManager.Loop0:
 		PlayerManager.minigameOne = true
 		PlayerManager.MiniGameModeOn()
-		
-		
-	
-	
+
+
+
+## Rogue mode: the car starts once this round's problems are all fixed
+## (round won); otherwise it says what's still wrong.
+func _rogue_start_car() -> void:
+	var missing := RogueRun.unfixed_problems()
+	if missing.is_empty():
+		AudioManager.play_sound(AudioManager.CarStart)
+		RogueRun.complete_round()
+		return
+	AudioManager.play_sound(AudioManager.CarStartNoGas if missing.has(RogueRun.GAS) else AudioManager.Thud4)
+	PlayerManager.CharacterDialog("It won't start. It still has %s." % RogueRun.describe(missing))

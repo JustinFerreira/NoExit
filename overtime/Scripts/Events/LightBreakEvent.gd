@@ -1,99 +1,61 @@
-extends Node3D
+## No Exit
+## Overtime Studios
+## Light Break Event (COMMON - see GarageEvent)
+## - When the director allows it, a ceiling light (group "Lights") shatters
+##   as the player walks under it: glass breaking from the light, it goes
+##   out for good (marked "broken" so a blackout doesn't relight it).
+## - Every light in the garage gets one of these at load (EventDirector);
+##   placed ones break the nearest working light above them.
 
-var activated = false
+extends "res://Scripts/Events/GarageEvent.gd"
 
-@export var light_search_height: float = 5.0  # How far above to look
-@export var max_search_radius: float = 10.0   # Max horizontal distance to consider
+## Only lights at most this far away sideways count (placed events).
+@export var max_search_radius: float = 10.0
+## The light this breaks (set for the per-light triggers; else the nearest).
+var light: Node3D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _init() -> void:
+	tier = Tier.COMMON
+	kind = "light_break"
+	kind_cooldown = 60.0
+	weight = 0.6
 
+func can_fire() -> bool:
+	return _target() != null
 
+func _fire() -> void:
+	var l := _target()
+	if l == null:
+		return
+	l.set_meta("broken", true)
+	HelperManager.set_light_panel_lit(l, false)
+	# the glass breaks up there, not in the player's ears
+	var snd := AudioStreamPlayer3D.new()
+	snd.stream = AudioManager.GetGlassBreak()
+	snd.bus = "SFX"
+	snd.max_distance = 40.0
+	l.add_child(snd)
+	snd.play()
+	snd.finished.connect(snd.queue_free)
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if not activated and (area.is_in_group("player") or area.name == "Player"):
-		var closest_light = get_closest_light_above()
-		if closest_light:
-			var omni_light = closest_light.get_node("OmniLight3D")
-			if omni_light and omni_light is OmniLight3D:
-					omni_light.visible = false
-					
-			_turn_off_mesh_emission(closest_light)
-			AudioManager.play_sound(AudioManager.GetGlassBreak())
-	activated = true
+## The light to break: ours, or the nearest unbroken one above (placed events).
+func _target() -> Node3D:
+	if light != null:
+		return light if is_instance_valid(light) and not light.has_meta("broken") else null
+	return get_closest_light_above()
 
-
-func get_closest_light_above() -> Node:
-	var all_lights = get_tree().get_nodes_in_group("Lights")
-	var valid_lights: Array = []
-	var area_center = global_position
-	
-	# First, filter lights that are above the Area3D
-	for light in all_lights:
-		if not is_instance_valid(light):
+func get_closest_light_above() -> Node3D:
+	var best: Node3D = null
+	var best_dist := INF
+	for l in get_tree().get_nodes_in_group("Lights"):
+		if not (l is Node3D) or not is_instance_valid(l) or l.has_meta("broken"):
 			continue
-			
-		var light_pos = light.global_position
-		
-		# Check if light is above the area's top
-		if light_pos.y > area_center.y:
-			# Check horizontal distance
-			var horizontal_dist = Vector2(
-				light_pos.x - area_center.x,
-				light_pos.z - area_center.z
-			).length()
-			
-			if horizontal_dist <= max_search_radius:
-				# Calculate the true 3D distance
-				var true_distance = area_center.distance_to(light_pos)
-				valid_lights.append({
-					"node": light,
-					"distance": true_distance  # Now using 3D distance
-				})
-	
-	# Sort by true 3D distance and return the closest
-	if valid_lights.size() > 0:
-		valid_lights.sort_custom(func(a, b): return a["distance"] < b["distance"])
-		return valid_lights[0]["node"]
-	
-	return null
-
-func _turn_off_mesh_emission(light_node: Node) -> void:
-	# Find the MeshInstance3D child
-	var mesh_instance = light_node.find_child("MeshInstance3D", true, false)
-	if not mesh_instance:
-		# Try to find any MeshInstance3D if not specifically named
-		for child in light_node.get_children():
-			if child is MeshInstance3D:
-				mesh_instance = child
-				break
-	
-	if mesh_instance and mesh_instance.mesh:
-		# Check if there's a surface material override
-		for i in range(mesh_instance.mesh.get_surface_count()):
-			var original_material = mesh_instance.get_surface_override_material(i)
-			if not original_material:
-				original_material = mesh_instance.mesh.surface_get_material(i)
-			
-			if original_material and original_material is StandardMaterial3D:
-				# Create a unique duplicate of the material
-				var new_material = original_material.duplicate()
-				
-				# Turn off emission on the duplicated material
-				new_material.emission_enabled = false
-				new_material.emission = Color.BLACK
-				
-				# Apply the new unique material as an override
-				mesh_instance.set_surface_override_material(i, new_material)
-				
-			elif original_material and original_material is ShaderMaterial:
-				# Create a unique duplicate for shader materials
-				var new_material = original_material.duplicate()
-				
-				# Turn off emission parameters
-				new_material.set_shader_parameter("emission_enabled", false)
-				new_material.set_shader_parameter("emission", Color.BLACK)
-				
-				# Apply the new unique material as an override
-				mesh_instance.set_surface_override_material(i, new_material)
+		var offset: Vector3 = l.global_position - global_position
+		if offset.y <= 0.0:
+			continue
+		if Vector2(offset.x, offset.z).length() > max_search_radius:
+			continue
+		if offset.length() < best_dist:
+			best_dist = offset.length()
+			best = l
+	return best

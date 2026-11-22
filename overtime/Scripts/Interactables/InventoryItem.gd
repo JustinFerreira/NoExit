@@ -55,6 +55,7 @@ signal picked_up
 
 func _ready() -> void:
 	super._ready()
+	add_to_group("enemy_passthrough")   # enemies don't trip over pickups
 	# Already picked up earlier (e.g. before leaving and coming back)?
 	_remove_if_collected.call_deferred()
 
@@ -66,9 +67,8 @@ func _remove_if_collected() -> void:
 			queue_free()
 
 
-# _on_interacted
-# Called by Interactable when the player clicks this item (wired up via
-# the node's Signals tab in the editor, same as every other Interactable).
+## Called by Interactable when the player clicks this item (wired up via
+## the node's Signals tab in the editor, same as every other Interactable).
 func _on_interacted(_body: Variant) -> void:
 	if item_name == "":
 		push_warning("%s: InventoryItem has no item_name set." % name)

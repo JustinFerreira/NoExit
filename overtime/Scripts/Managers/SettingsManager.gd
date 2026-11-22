@@ -75,11 +75,9 @@ var Loop1Pass: bool = false
 var MainMenuShader: ColorRect
 var PlayerShader: CanvasLayer
 
-# Old names kept for scripts that used them.
-var min_sensitivity: float = MIN_SENSITIVITY
-var max_sensitivity: float = MAX_SENSITIVITY
+## Old names kept for scripts that used them.
 
-# "section/key" -> current value
+## "section/key" -> current value
 var _values: Dictionary = {}
 var _defs_by_key: Dictionary = {}
 var _config := ConfigFile.new()
@@ -117,9 +115,11 @@ func _ready() -> void:
 ## Reading / changing settings
 ## ---------------------------------------------------------------------
 
+## A setting's current value.
 func get_value(key: String) -> Variant:
 	return _values.get(key)
 
+## Changes a setting and applies it straight away.
 func set_value(key: String, value: Variant) -> void:
 	if not _defs_by_key.has(key):
 		push_warning("SettingsManager: unknown setting '%s'." % key)
@@ -140,6 +140,7 @@ func get_defs_for_tab(tab: String) -> Array[Dictionary]:
 			result.append(def)
 	return result
 
+## Puts every setting on one settings tab back to its default.
 func reset_tab(tab: String) -> void:
 	for def in get_defs_for_tab(tab):
 		set_value(def.key, def.default)
@@ -149,6 +150,7 @@ func reset_tab(tab: String) -> void:
 ## Save / load
 ## ---------------------------------------------------------------------
 
+## Writes the settings to the user's settings file.
 func save_settings() -> void:
 	_save_timer.stop()
 	for key in _values:
@@ -158,6 +160,7 @@ func save_settings() -> void:
 	_config.set_value("loops", "loop1", Loop1Pass)
 	_config.save(SETTINGS_PATH)
 
+## Reads the settings file (defaults for anything missing) and applies them.
 func load_settings() -> void:
 	if _config.load(SETTINGS_PATH) == OK:
 		for key in _values:
@@ -182,7 +185,7 @@ func apply_player_settings(player) -> void:
 		_apply(key, player)
 
 
-# Settings saved by older versions of the game.
+## Settings saved by older versions of the game.
 func _migrate_old_settings() -> void:
 	if _config.has_section_key("video", "fullscreen") and not _config.has_section_key("video", "window_mode"):
 		_values["video/window_mode"] = 1 if _config.get_value("video", "fullscreen") else 0
@@ -278,7 +281,7 @@ static func _dev(def: Dictionary) -> Dictionary:
 	def.dev_only = true
 	return def
 
-# Makes a loaded/assigned value the right type and in range.
+## Makes a loaded/assigned value the right type and in range.
 func _clean(def: Dictionary, value: Variant) -> Variant:
 	match def.type:
 		Type.SLIDER:
@@ -293,8 +296,8 @@ func _set_bus_volume(bus: String, percent: float) -> void:
 	# percent / 100.0 (not / 100) - integer division turned 50 into 0 = silent.
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus), linear_to_db(percent / 100.0))
 
-# Full-screen pass that brightens/darkens everything (only shown when
-# Brightness isn't 100%).
+## Full-screen pass that brightens/darkens everything (only shown when
+## Brightness isn't 100%).
 func _build_brightness_layer() -> void:
 	_brightness_layer = CanvasLayer.new()
 	_brightness_layer.layer = UiManager.LAYER_BRIGHTNESS

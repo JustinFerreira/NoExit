@@ -60,8 +60,6 @@ dialog_from_event_manager = "box_pickup_hint"
 darken_background = true
 store_in_box = true
 examine_sound = ExtResource("stinger_sfx")
-flash_mode = 1
-outline_material = ExtResource("4_hmb2c")
 mesh = NodePath("..")
 has_outline = true
 

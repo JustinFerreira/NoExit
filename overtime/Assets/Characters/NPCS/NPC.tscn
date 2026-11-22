@@ -477,7 +477,6 @@ ambient_sounds = Array[AudioStream]([ExtResource("snd_kb1"), ExtResource("snd_kb
 ambient_min_interval = 1.0
 ambient_max_interval = 20.0
 is_interactable = true
-outline_material = null
 has_outline = false
 persist_id = ""
 

@@ -1,5 +1,10 @@
+## No Exit
+## Overtime Studios
+## Model Lineup
+## - Model review scene: loops every model's animation (under "Models")
+##   so animated models can be checked.
+
 extends Node3D
-## Model review scene: loops every model's animation so animated models can be checked.
 
 func _ready() -> void:
 	# only the models: the player's own UI animations must be left alone

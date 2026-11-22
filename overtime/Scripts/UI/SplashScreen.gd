@@ -9,7 +9,6 @@ extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if PlayerManager.DevMode == true:
 		get_tree().change_scene_to_file.call_deferred("res://Menus/MainMenu.tscn")
@@ -20,4 +19,4 @@ func _ready() -> void:
 func _on_animation_finished(anim_name: String):
 	if anim_name == "Splash":
 		get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
-		
+

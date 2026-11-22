@@ -27,7 +27,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_d8lqy")
 [node name="StaticBody3D" type="StaticBody3D" parent="MFireAlarm" node_paths=PackedStringArray("mesh_list")]
 script = ExtResource("5_bjp5u")
 is_interactable = true
-outline_material = null
 mesh_list = []
 has_outline = false
 persist_id = ""

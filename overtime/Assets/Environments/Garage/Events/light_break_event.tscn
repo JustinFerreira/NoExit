@@ -10,7 +10,6 @@ points = PackedVector3Array(-169.037, -25, -165.997, 169.037, 25, 165.997, 169.0
 
 [node name="LightBreakEvent" type="Node3D"]
 script = ExtResource("1_f7bqx")
-light_search_height = 5.0
 max_search_radius = 10.0
 
 [node name="Area3D" type="Area3D" parent="."]

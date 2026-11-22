@@ -16,6 +16,7 @@
 [ext_resource type="Skin" path="res://Assets/Characters/Shared/KillerReal_Skin.res" id="14_33knd"]
 [ext_resource type="Material" path="res://Assets/Characters/Shared/KillerReal_Material.tres" id="15_t1psh"]
 [ext_resource type="AnimationLibrary" path="res://Assets/Characters/Shared/KillerReal_Anims.res" id="16_dco2i"]
+[ext_resource type="AnimationLibrary" path="res://Assets/Characters/Shared/KillerReal_StabAnims.res" id="stab_lib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kev18"]
 radius = 0.35
@@ -1198,6 +1199,8 @@ _data = {
 
 [node name="Killer" type="CharacterBody3D" groups=["enemy"]]
 script = ExtResource("1_5swoi")
+stab_with_walk_model = true
+kill_style = 2
 move_speed = 2.0
 use_gravity = true
 acceleration = 0.25
@@ -1209,7 +1212,8 @@ sight_fov_degrees = 60.0
 sight_height_offset = 1.88318
 can_kill_player = true
 face_height = 1.99396
-kill_look_down_degrees = 35.0
+kill_look_down_degrees = 12.0
+kill_distance = 1.7
 game_over_delay = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -1223,11 +1227,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88318, 0)
 stream = ExtResource("2_co50u")
 script = ExtResource("3_gybgh")
 max_hearing_distance = 70.0
-min_volume_db = -80.0
 first_sound = ExtResource("4_jbsf1")
 second_sound = ExtResource("5_v5uef")
-gas_sound = ExtResource("6_x86w4")
-car_beep_sound = ExtResource("7_hjdvb")
 delay_between_sounds = 0.1
 
 [node name="MKillerLowUv" type="MeshInstance3D" parent="."]
@@ -1707,7 +1708,7 @@ libraries = {
 
 [node name="StabbingAnimation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ojsx6")
+"": ExtResource("stab_lib")
 }
 
 [node name="Armature" type="Node3D" parent="."]

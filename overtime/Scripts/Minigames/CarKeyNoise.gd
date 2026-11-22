@@ -1,107 +1,159 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/19/26 by Justin Ferreira
-## CarKeyNoise Script
-## - Script for a 3D noise node
-## this sound can only be heard from a certain distance
+## Car Key Noise
+## - The car's lock "chirp" when the player presses the key fob. Heard all
+##   over the floor the car is on (quieter the further away), and from other
+##   floors only through the openings - a ramp, the gaps by the barriers
+##   (SoundReach) - never straight through the concrete.
+## - Pressing it also flashes the car's headlights twice and lights its tail
+##   lights, so the car can be spotted too (_flash_lights).
 
 extends AudioStreamPlayer3D
 
-#editable field for sound strength
-@export var max_hearing_distance: float = 120.0
+const SoundReach = preload("res://Scripts/Audio/SoundReach.gd")
+
+## Beyond this (metres) it can't be heard at all.
+@export var max_hearing_distance: float = 170.0
+## How much quieter it is at max_hearing_distance than right next to it (dB).
+@export var falloff_db: float = 24.0
 @export var min_volume_db: float = -80.0
-@export var same_floor_threshold: float = 3.0
 
 var original_volume: float
-var nav: NavigationAgent3D
-var was_audible: bool = false  # Track if sound was audible in previous frame
+var was_audible: bool = false
+var _floor_db: float = 0.0
+var _frame: int = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.car_audio_player = self
 	original_volume = volume_db
-	
-	# Try to find the player node
-	#player_node = get_tree().get_first_node_in_group("player")
-	# OR if your player is stored in PlayerManager:
-	
-	# Get NavigationAgent3D
-	nav = get_node_or_null("NavigationAgent3D")
-	if nav:
-		nav.path_desired_distance = 1.0
-		nav.target_desired_distance = 1.5
+	# loudness is worked out here (distance + floors), not by the 3D falloff -
+	# it still comes from the car's direction
+	attenuation_model = AudioStreamPlayer3D.ATTENUATION_DISABLED
+	max_distance = 0.0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if PlayerManager.player:
-		update_volume_based_on_distance()
-
-
-## update_volume_based_on_distance
-## updates the volume of this node
-## according to a calculated distance
-func update_volume_based_on_distance():
-	var car_position = global_transform.origin
-	var player_position = PlayerManager.player.global_transform.origin
-	
-	# Calculate vertical distance
-	var vertical_distance = abs(car_position.y - player_position.y)
-	
-	# If not on same floor, mute completely
-	if vertical_distance > same_floor_threshold:
-		volume_db = min_volume_db
-		check_and_print_help()
+	var ears := SoundReach.listener()
+	if ears == Vector3.INF:
 		return
-	
-	# Calculate path distance to player
-	var path_distance = calculate_path_distance()
-	
-	# If within hearing range
-	if path_distance <= max_hearing_distance:
-		# Calculate volume based on path distance
-		volume_db = lerp(original_volume, min_volume_db, path_distance / max_hearing_distance)
-		was_audible = true  # Sound is audible
-	else:
-		# Too far away to hear
+	_frame += 1
+	if _frame % 4 == 0 or playing:
+		_floor_db = SoundReach.floor_offset_db(get_world_3d(), global_position, ears, _exclude())
+	var d := global_position.distance_to(ears)
+	if d > max_hearing_distance or _floor_db <= SoundReach.BLOCKED_DB:
 		volume_db = min_volume_db
-		check_and_print_help()
-
-## calculate_path_distance
-## calculate route to player so the sound
-## is onlt played within a certain distance
-## without this the sound can be heard from
-## above when this is not wanted
-func calculate_path_distance() -> float:
-	if not nav or not PlayerManager.player:
-		return global_transform.origin.distance_to(PlayerManager.player.global_transform.origin)
-	
-	# Update navigation target to player position
-	nav.target_position = PlayerManager.player.global_transform.origin
-	
-	# Get the full navigation path
-	var path = nav.get_current_navigation_path()
-	var total_distance = 0.0
-	
-	# Sum the distances between each point in the path
-	for i in range(path.size() - 1):
-		total_distance += path[i].distance_to(path[i + 1])
-	
-	return total_distance
-
-## check_and_print_help
-## changes was_audible to false
-func check_and_print_help():
-	if was_audible:
 		was_audible = false
+		return
+	volume_db = original_volume - falloff_db * (d / max_hearing_distance) + _floor_db
+	was_audible = true
 
-## playsound()
-## function use to play sound
-## or if distance to far Hint
-## dialog is put on screen
+func _exclude() -> Array[RID]:
+	var out: Array[RID] = []
+	var p = PlayerManager.player
+	if is_instance_valid(p):
+		out.append(p.get_rid())
+	var body := get_parent()
+	while body and not (body is CollisionObject3D):
+		body = body.get_parent()
+	if body is CollisionObject3D:
+		out.append(body.get_rid())
+	return out
+
 func playsound():
 	if not is_inside_tree():
 		return
-	if !was_audible:
+	if not was_audible:
 		PlayerManager.Hint(EventManager.car_distance)
-	self.play()
-	was_audible = true  # When we start playing, sound is audible
+	play()
+	_flash_lights()
+
+## ---------------------------------------------------------------------
+## Lights: two headlights at the hood end, two red tail lights at the other,
+## made the first time (sized from the car's own meshes).
+## ---------------------------------------------------------------------
+var _heads: Array[SpotLight3D] = []
+var _head_glows: Array[OmniLight3D] = []
+var _tails: Array[OmniLight3D] = []
+var _flash_tween: Tween
+
+func _flash_lights() -> void:
+	if _heads.is_empty():
+		_make_lights()
+	if _heads.is_empty():
+		return
+	if _flash_tween and _flash_tween.is_valid():
+		_flash_tween.kill()
+	_flash_tween = create_tween()
+	# blink, blink - tail lights on with them and a little longer
+	for i in 2:
+		_flash_tween.tween_callback(_set_lights.bind(true, true))
+		_flash_tween.tween_interval(0.22)
+		_flash_tween.tween_callback(_set_lights.bind(false, true))
+		_flash_tween.tween_interval(0.16)
+	_flash_tween.tween_interval(0.5)
+	_flash_tween.tween_callback(_set_lights.bind(false, false))
+
+func _set_lights(heads: bool, tails: bool) -> void:
+	for l in _heads:
+		l.light_energy = 9.0 if heads else 0.0
+	for g in _head_glows:
+		g.light_energy = 3.0 if heads else 0.0
+	for t in _tails:
+		t.light_energy = 2.5 if tails else 0.0
+
+func _make_lights() -> void:
+	var car := get_parent() as Node3D
+	if car == null:
+		return
+	var inv := car.global_transform.affine_inverse()
+	var box := AABB()
+	var first := true
+	for m in car.find_children("*", "MeshInstance3D", false, false):
+		if m.mesh == null or not m.visible:
+			continue
+		var b: AABB = inv * m.global_transform * m.get_aabb()
+		box = b if first else box.merge(b)
+		first = false
+	if first:
+		return
+	# front = toward the hood (car space), along the car's longer side
+	var center := box.get_center()
+	var long_x := box.size.x >= box.size.z
+	var fwd := Vector3.RIGHT if long_x else Vector3.BACK
+	var hood := car.get_node_or_null("Hood") as MeshInstance3D
+	if hood:
+		var hc: Vector3 = inv * hood.global_transform * hood.get_aabb().get_center()
+		if fwd.dot(hc - center) < 0.0:
+			fwd = -fwd
+	var side := Vector3.BACK if long_x else Vector3.RIGHT
+	var half_len: float = (box.size.x if long_x else box.size.z) * 0.5
+	var half_w: float = (box.size.z if long_x else box.size.x) * 0.5
+	var y := box.position.y + box.size.y * 0.38
+	for s in [-1.0, 1.0]:
+		var at: Vector3 = Vector3(center.x, y, center.z) + side * s * half_w * 0.65
+		var head := SpotLight3D.new()
+		head.light_color = Color(1.0, 0.96, 0.85)
+		head.spot_range = 30.0
+		head.spot_angle = 30.0
+		head.light_energy = 0.0
+		car.add_child(head)
+		head.position = at + fwd * (half_len + 0.4)
+		head.look_at(car.global_transform * (head.position + fwd * 10.0 + Vector3.DOWN * 0.6))
+		_heads.append(head)
+		var glow := OmniLight3D.new()
+		glow.light_color = head.light_color
+		glow.omni_range = 1.3
+		glow.light_energy = 0.0
+		car.add_child(glow)
+		glow.position = at + fwd * (half_len + 0.25)
+		_head_glows.append(glow)
+		var tail := OmniLight3D.new()
+		tail.light_color = Color(1.0, 0.08, 0.05)
+		tail.omni_range = 2.2
+		tail.light_energy = 0.0
+		car.add_child(tail)
+		tail.position = at - fwd * (half_len + 0.25)
+		_tails.append(tail)
+
+func _exit_tree() -> void:
+	if PlayerManager.car_audio_player == self:
+		PlayerManager.car_audio_player = null

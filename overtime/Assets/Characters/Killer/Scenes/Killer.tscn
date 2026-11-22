@@ -1801,11 +1801,8 @@ stream = ExtResource("2_1h4ge")
 unit_size = 500.0
 script = ExtResource("5_bslu2")
 max_hearing_distance = 70.0
-min_volume_db = -80.0
 first_sound = ExtResource("5_bk0qs")
 second_sound = ExtResource("4_mda3f")
-gas_sound = ExtResource("5_id06y")
-car_beep_sound = ExtResource("4_wmvh7")
 delay_between_sounds = 0.1
 
 [node name="MKillerLowUv" type="MeshInstance3D" parent="."]

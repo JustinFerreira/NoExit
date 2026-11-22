@@ -229,7 +229,6 @@ points = PackedVector3Array(-134.777, -134.777, -134.777, 134.777, 134.777, 134.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525988, 0, 0)
 script = ExtResource("1_jcpb1")
 is_interactable = true
-outline_material = ExtResource("2_jjwqt")
 mesh = NodePath("ModelCubicleUnwrapped")
 mesh_list = [NodePath("ModelCubicleUnwrapped"), NodePath("MChairUnwrapped"), NodePath("MComputerCombinedUnwrapped")]
 has_outline = true

@@ -9,7 +9,6 @@ stream = ExtResource("1_gbe76")
 unit_size = 500.0
 script = ExtResource("2_gh34m")
 max_hearing_distance = 50.0
-min_volume_db = -80.0
 min_interval = 1.0
 max_interval = 10.0
 min_pitch = 0.5

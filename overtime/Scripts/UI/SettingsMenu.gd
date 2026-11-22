@@ -11,7 +11,7 @@
 extends Control
 
 const TAB_PATH := "CenterContainer/ColorRect/TabContainer"
-# Where each tab's rows go (the VBoxes already in the scene).
+## Where each tab's rows go (the VBoxes already in the scene).
 const TAB_VBOXES := {
 	"VOLUME": "VOLUME/SoundSettingsVbox",
 	"VISUAL": "VISUAL/VisualSettingsVbox",
@@ -19,16 +19,16 @@ const TAB_VBOXES := {
 }
 const MUTED_COLOR := Color.RED
 const ACCENT := Color(0.6, 0.0156863, 0.0156863)
-# Brighter red for clickable text - ACCENT is too dark to read on black.
+## Brighter red for clickable text - ACCENT is too dark to read on black.
 const ACCENT_TEXT := Color("#d42020")
 
 @onready var tabs: TabContainer = get_node(TAB_PATH)
 
-# Templates copied from the scene's own Master Volume block and Mute box.
+## Templates copied from the scene's own Master Volume block and Mute box.
 var _slider_template: Control
 var _toggle_template: CheckBox
 var _font: Font
-# setting key -> the control showing it
+## setting key -> the control showing it
 var _widgets: Dictionary = {}
 var _option_labels: Dictionary = {}
 
@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
-# Close (X) button - connected in the scene.
+## Close (X) button - connected in the scene.
 func _on_button_pressed() -> void:
 	_close()
 
@@ -158,7 +158,7 @@ func _make_toggle(def: Dictionary) -> CheckBox:
 	return box
 
 
-# "Label:  < Choice >" - click the arrows to cycle through the choices.
+## "Label:  < Choice >" - click the arrows to cycle through the choices.
 func _make_option(def: Dictionary) -> Control:
 	var row := HBoxContainer.new()
 	row.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
@@ -204,8 +204,8 @@ func _make_text_button(text: String) -> Button:
 	return button
 
 
-# Puts a tab's VBox in a ScrollContainer at the same spot, so tabs with
-# lots of settings scroll instead of running off the folder.
+## Puts a tab's VBox in a ScrollContainer at the same spot, so tabs with
+## lots of settings scroll instead of running off the folder.
 func _wrap_in_scroll(box: VBoxContainer) -> void:
 	var tab := box.get_parent()
 	var scroll := ScrollContainer.new()
@@ -270,8 +270,8 @@ func _wrap_in_scroll(box: VBoxContainer) -> void:
 ## Keeping rows in sync
 ## ---------------------------------------------------------------------
 
-# A setting changed (from this menu, Reset, or code) - update its row
-# without firing its signal again.
+## A setting changed (from this menu, Reset, or code) - update its row
+## without firing its signal again.
 func _on_setting_changed(key: String, value: Variant) -> void:
 	var widget = _widgets.get(key)
 	if widget is HSlider and widget.value != value:
@@ -284,8 +284,8 @@ func _on_setting_changed(key: String, value: Variant) -> void:
 	if key == "audio/muted":
 		_refresh_mute_state()
 
-# The bar sprite and number listen to value_changed, which
-# set_value_no_signal skips - poke them directly.
+## The bar sprite and number listen to value_changed, which
+## set_value_no_signal skips - poke them directly.
 func _refresh_slider_visuals(slider: HSlider) -> void:
 	for sibling in slider.get_parent().get_children():
 		if sibling.has_method("update_sprite"):
@@ -297,7 +297,7 @@ func _show_option(key: String) -> void:
 	var def: Dictionary = SettingsManager._defs_by_key[key]
 	_option_labels[key].text = def.choices[SettingsManager.get_value(key)]
 
-# Muted: volume sliders locked and the Mute box red (also right on open).
+## Muted: volume sliders locked and the Mute box red (also right on open).
 func _refresh_mute_state() -> void:
 	var muted: bool = SettingsManager.get_value("audio/muted")
 	for key in ["audio/master_volume", "audio/music_volume", "audio/sfx_volume"]:
@@ -311,7 +311,7 @@ func _refresh_mute_state() -> void:
 			mute_box.remove_theme_color_override("font_color")
 
 
-# Keep the folder centered on wide windows.
+## Keep the folder centered on wide windows.
 func _center() -> void:
 	var view := get_viewport_rect().size
 	var shown := size * scale

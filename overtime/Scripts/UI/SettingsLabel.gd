@@ -14,6 +14,7 @@ func _ready():
 	slider.value_changed.connect(update_text)
 	update_text(slider.value)
 
+## Shows the slider's value as text.
 func update_text(value: float):
 	var clamped_value := clampf(value, slider.min_value, slider.max_value)
 	text = "%d%s" % [int(round(clamped_value)), suffix]

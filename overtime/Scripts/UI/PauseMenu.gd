@@ -1,15 +1,13 @@
 ## No Exit
 ## Overtime Studios
-## Last update 2/14/26 by Justin Ferreira
-## Pause Menu Script
-## - this script give functionality for both pause menus
-## allowing player or developer mutiple options for their
-## experience
+## Pause Menu
+## - Both pause menus (the normal one and the dev one): resume, settings,
+##   journal, quit, and the dev tools (free roam, shadows, visibility...).
 
 extends Control
 
-# Dark backdrop behind the menu (both pause menus): dims the frozen game,
-# darker toward the edges so the menu stands out.
+## Dark backdrop behind the menu (both pause menus): dims the frozen game,
+## darker toward the edges so the menu stands out.
 const DIM_SHADER := """
 shader_type canvas_item;
 uniform float center_alpha = 0.78;
@@ -49,6 +47,12 @@ func _ready() -> void:
 	_attach_dim.call_deferred()
 	if has_node("PanelContainer2/VBoxContainer"):
 		_build_lighting_tools()
+		# the dev menu's pages, flipped through with arrows (DevPages)
+		var dev_pages := Node.new()
+		dev_pages.name = "DevPages"
+		dev_pages.set_script(load("res://Scripts/UI/DevPages.gd"))
+		add_child(dev_pages)
+		dev_pages.setup(self)
 
 ## Puts the backdrop just behind this menu (deferred - the parent is still
 ## setting up its children during _ready).
@@ -93,7 +97,7 @@ func pause():
 func _on_resume_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	resume()
 	$SettingsMenu.visible = false
 
@@ -101,7 +105,7 @@ func _on_resume_btn_pressed() -> void:
 func _on_restart_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	resume()
 	PlayerManager.ResetPlayer()
 	get_tree().reload_current_scene()
@@ -114,7 +118,7 @@ func _on_quit_btn_pressed() -> void:
 func _on_settings_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	if PlayerManager.DevMode:
 		pass
 	$SettingsMenu.visible = true
@@ -123,7 +127,7 @@ func _on_settings_btn_pressed() -> void:
 func _on_main_menu_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 
@@ -131,14 +135,14 @@ func _on_main_menu_btn_pressed() -> void:
 func _on_disable_killer_btn_toggled(toggled_on: bool) -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	SettingsManager.KillerDisabled = toggled_on
 
 
 func _on_dev_tools_btn_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	$PanelContainer.visible = false
 	_refresh_lighting_tools()
 	$PanelContainer2.visible = true
@@ -147,7 +151,7 @@ func _on_dev_tools_btn_pressed() -> void:
 func _on_backto_screen_1_pressed() -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	$PanelContainer.visible = true
 	$PanelContainer2.visible = false
 
@@ -155,7 +159,7 @@ func _on_backto_screen_1_pressed() -> void:
 func _on_free_roam_btn_toggled(toggled_on: bool) -> void:
 	#Button clikc sound
 	AudioManager.play_sound(AudioManager.GetKeyPress())
-	
+
 	PlayerManager.FreeRoam = toggled_on
 	if PlayerManager.FreeRoam:
 		PlayerManager.player.enter_free_roam_mode()
@@ -166,9 +170,6 @@ func _on_free_roam_btn_toggled(toggled_on: bool) -> void:
 func _on_player_visible_btn_toggled(toggled_on: bool) -> void:
 	PlayerManager.player.visible = toggled_on
 
-
-func _on_button_pressed() -> void:
-	print("YOOOO")
 
 
 func _on_cursor_visible_toggled(toggled_on: bool) -> void:

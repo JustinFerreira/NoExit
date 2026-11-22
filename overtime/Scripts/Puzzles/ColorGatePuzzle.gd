@@ -32,10 +32,10 @@ class_name ColorGatePuzzle
 ## than this closes the group that has been open the longest.
 @export var max_open_groups: int = 2
 
-# Doors for each color, keyed by the same color names used in _open_order.
+## Doors for each color, keyed by the same color names used in _open_order.
 var _group_doors: Dictionary = {}
 
-# Colors currently open, oldest first - index 0 is the next one evicted.
+## Colors currently open, oldest first - index 0 is the next one evicted.
 var _open_order: Array[String] = []
 
 
@@ -57,10 +57,9 @@ func _connect_button(button: Interactable, color: String) -> void:
 	button.interacted.connect(_on_button_interacted.bind(color))
 
 
-# _on_button_interacted
-# A color already open is left alone - clicking its button again does
-# nothing. Otherwise it opens, and if that pushes us past
-# max_open_groups, the oldest-opened color gets closed to make room.
+## A color already open is left alone - clicking its button again does
+## nothing. Otherwise it opens, and if that pushes us past
+## max_open_groups, the oldest-opened color gets closed to make room.
 func _on_button_interacted(_body: Variant, color: String) -> void:
 	if color in _open_order:
 		return

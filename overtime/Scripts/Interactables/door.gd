@@ -82,7 +82,6 @@ signal door_locked
 var _default_collision_layer: int
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	_default_collision_layer = collision_layer
@@ -95,9 +94,8 @@ func _ready() -> void:
 			visible = false
 
 
-# _on_interacted
-# Called by Interactable when the player clicks this door (wired up via
-# the node's Signals tab in the editor, same as every other Interactable).
+## Called by Interactable when the player clicks this door (wired up via
+## the node's Signals tab in the editor, same as every other Interactable).
 func _on_interacted(_body: Variant) -> void:
 	if is_locked:
 		_try_unlock_with_key()
@@ -106,9 +104,8 @@ func _on_interacted(_body: Variant) -> void:
 	# doors that need extra behavior - opening/closing animations, etc.
 
 
-# _try_unlock_with_key
-# Checks the player's inventory for key_name. Unlocks the door if it's
-# found, otherwise plays the locked sound.
+## Checks the player's inventory for key_name. Unlocks the door if it's
+## found, otherwise plays the locked sound.
 func _try_unlock_with_key() -> void:
 	if key_name != "" and PlayerManager.has_item(key_name):
 		if consume_key_on_unlock:
@@ -118,9 +115,8 @@ func _try_unlock_with_key() -> void:
 		_play_locked_sound()
 
 
-# unlock
-# Public so other systems (switches, cutscenes, other puzzles) can
-# unlock this door directly without going through the key check.
+## Public so other systems (switches, cutscenes, other puzzles) can
+## unlock this door directly without going through the key check.
 func unlock() -> void:
 	if not is_locked:
 		return
@@ -133,9 +129,8 @@ func unlock() -> void:
 	door_unlocked.emit()
 
 
-# lock
-# Re-locks the door and restores its original collision layer so the
-# player is blocked by it again.
+## Re-locks the door and restores its original collision layer so the
+## player is blocked by it again.
 func lock() -> void:
 	if is_locked:
 		return
@@ -146,19 +141,17 @@ func lock() -> void:
 	door_locked.emit()
 
 
-# _play_locked_sound
-# Plays the exported locked_sound through AudioManager - same one-shot
-# sfx pattern used elsewhere (see CarDoor's AudioManager.play_sound
-# calls). Does nothing if no sound was assigned in the Inspector.
+## Plays the exported locked_sound through AudioManager - same one-shot
+## sfx pattern used elsewhere (see CarDoor's AudioManager.play_sound
+## calls). Does nothing if no sound was assigned in the Inspector.
 func _play_locked_sound() -> void:
 	if locked_sound:
 		AudioManager.play_sound(locked_sound)
 
 
-# _play_unlock_animation
-# Plays unlock_animation_name on unlock_animation_player if one was
-# assigned in the Inspector. Safe to leave both fields empty - doors
-# without an animation just skip this step.
+## Plays unlock_animation_name on unlock_animation_player if one was
+## assigned in the Inspector. Safe to leave both fields empty - doors
+## without an animation just skip this step.
 func _play_unlock_animation() -> void:
 	if unlock_animation_player and unlock_animation_player.has_animation(unlock_animation_name):
 		unlock_animation_player.play(unlock_animation_name)

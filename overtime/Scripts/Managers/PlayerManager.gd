@@ -1,68 +1,79 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 3/16/26 by Justin Ferreira
-## Player Manager Script
-## - this script keeps a lot of settings variables
-## also has modes, location of player,
-## enemy,
-## volume stuff
-## close up object variables
-## states of player
-## functions for major player functions and gameplay
+## Player Manager (autoload "PlayerManager")
+## - The shared "what is the player doing right now" state every script
+##   reads: settings copied from SettingsManager, which level they are in,
+##   the killer, dialog/minigame/hiding/examining modes, the inventory and
+##   the equipped item, and the killer-proximity values that drive the
+##   scary sounds (ProcessScared).
+## - Long-lived progress (loop, milestones, deaths, collected items) lives in
+##   GameState; the matching properties here just forward to it.
+## - The dialog helpers (Hint, CharacterDialog, ...) forward to UiManager.
 
 extends Node
 
+## Emitted whenever the equipped item changes ("" = nothing equipped).
 signal equipped_item_changed(item_name: String)
 
-## SETTINGS
+## SETTINGS (copied in from SettingsManager)
 
+## Mouse look sensitivity.
 var Sensitivity: float = 0.01
-
+## Sprint is hold-to-sprint (true) or toggle (false).
 var Hold_Shift: bool = false
 
-# Invert mouse up/down (set from the Invert Mouse Y setting).
+## Invert mouse up/down (set from the Invert Mouse Y setting).
 var InvertY: bool = false
 
+## Camera bob while walking.
 var HeadBob: bool = true
-
+## Developer shortcuts (all loops unlocked, dev pause menu). On by default
+## during development - turn off for release builds.
 var DevMode: bool = true
-
+## Free-roam mode (no story scripting).
 var FreeRoam: bool = false
-
+## Hide the crosshair/hand cursor.
 var CursorInvisible: bool = false
 
-## Location
+## Location (which level the player is in)
 
 var Office: bool = false
-
 var ParkingGarage: bool = false
-
-var NotClickOnBoxSpace: bool
-
 var MainMenu: bool = true
 
 ## Player
 
+## Set to make the killer jump to its teleport spot on its next update.
 var teleportEnemy: bool = false
-
+## True when the level has no killer (the scary sounds stay silent).
 var no_enemy: bool = true
-
+## The player node (set by the player / level).
 var player
 
-
-var scaredDistance: float = 0
-var scaredPitch: float = 1
-var scaredVolume = -80
-var scaredVolumeSteps = -80
+## How far (walking distance) the nearest enemy that can kill is - worked out
+## by ProcessScared() every frame, from every enemy (killer, weeping angel...).
+var scaredDistance: float = 999.0
+## How scared the player is: 0 = calm (nothing near) .. 1 = an enemy right
+## there. Eases toward the target so it never jumps (ProcessScared).
+var fear: float = 0.0
+## Fear starts this far from an enemy and is full this close (metres).
+const FEAR_FAR := 45.0
+const FEAR_NEAR := 6.0
+## Heartbeat / breathing from fear: they get FASTER much more than louder.
+var scaredPitch: float = 1        # heartbeat speed (1 = resting)
+var scaredVolume = -80            # heartbeat volume (dB)
+var breathTempo: float = 1.0      # breathing speed
+var breathVolume = -80            # breathing volume (dB)
+var scaredVolumeSteps = -80       # (old) killer step volume - unused now
 
 var sprint_engaged: bool = false
-
+## True from the moment an enemy catches the player.
 var dying: bool = false
+## Name of the item in hand ("" = nothing).
+var EquippedItem: String = ""
 
-var EquippedItem: String = ''
-
-# Ids of the items packed into the Box (GameState remembers them, so they
-# survive leaving the office). Only .size() and clearing are meaningful.
+## Ids of the items packed into the Box (GameState remembers them, so they
+## survive leaving the office). Only .size() and clearing are meaningful.
 var DeskItems: Array:
 	get: return GameState.get_collected(GameState.STORED)
 	set(value):
@@ -77,9 +88,7 @@ var Enemy: CharacterBody3D
 
 var stalking_mode: bool = false
 
-var killer_visible: bool = true
 
-var killer_audible: bool = true
 
 
 ## Janitor
@@ -105,12 +114,33 @@ var FirstOpen: bool = true
 var MinigameMode: bool = false
 
 var InAnimation: bool = false
+## A scripted sequence (the elevator ride) has the player: no moving, no
+## looking around, and enemies stand still (Enemy). See set_cutscene().
+var cutscene: bool = false
+var _cutscene_id: int = 0
+
+## Starts / ends a cutscene. Ends by itself after max_seconds whatever happens
+## (a scene that never says it's over must not leave the player stuck).
+func set_cutscene(on: bool, max_seconds: float = 30.0) -> void:
+	cutscene = on
+	InAnimation = on
+	_cutscene_id += 1
+	if on:
+		var id := _cutscene_id
+		get_tree().create_timer(max_seconds, true).timeout.connect(func():
+			if cutscene and _cutscene_id == id:
+				push_warning("cutscene never ended - giving control back")
+				set_cutscene(false))
+## Hiding (HidingSpot): the player is tucked into a hiding spot, no body or movement.
+var hiding: bool = false
+## ...and enemies can't see them there (Enemy.can_see_player).
+var hidden_from_enemies: bool = false
+var current_hiding_spot: Node = null
 
 ## Pass Checks
 
-var testing: bool = true
-# Milestones live in GameState as flags now - these just forward to it so
-# old code keeps working. Prefer GameState.has_flag()/set_flag() in new code.
+## Milestones live in GameState as flags now - these just forward to it so
+## old code keeps working. Prefer GameState.has_flag()/set_flag() in new code.
 var gotKeys: bool:
 	get: return GameState.has_flag(GameState.FLAG_GOT_KEYS)
 	set(value): GameState.set_flag(GameState.FLAG_GOT_KEYS, value)
@@ -124,16 +154,16 @@ var talkToJanitor: bool:
 	get: return GameState.has_flag(GameState.FLAG_TALK_TO_JANITOR)
 	set(value): GameState.set_flag(GameState.FLAG_TALK_TO_JANITOR, value)
 
-# Loop control - one value in GameState.loop now, so these three can never
-# disagree. Setting one true moves to that loop; setting the current one
-# false leaves it (back to "not in a run").
+## Loop control - one value in GameState.loop now, so these three can never
+## disagree. Setting one true moves to that loop; setting the current one
+## false leaves it (back to "not in a run").
 var OpeningCutscene: bool:
 	get: return GameState.loop == GameState.LOOP_OPENING
 	set(value): _set_loop_flag(GameState.LOOP_OPENING, value)
 var Loop0: bool:
 	get: return GameState.loop == 0
 	set(value): _set_loop_flag(0, value)
-# Loop1 means "past loop 0" (any later loop counts).
+## Loop1 means "past loop 0" (any later loop counts).
 var Loop1: bool:
 	get: return GameState.loop >= 1
 	set(value):
@@ -155,10 +185,6 @@ var minigameTwoPassed: bool:
 	get: return GameState.has_flag(GameState.FLAG_GAS_DONE)
 	set(value): GameState.set_flag(GameState.FLAG_GAS_DONE, value)
 
-## Gas minigame panel - lives in UiManager now (show_panel("gas_intake", ...)).
-var gasIntakeUI: Control:
-	get: return UiManager.get_panel("gas_intake")
-	set(value): UiManager.register_panel("gas_intake", value)
 var gasIntakeSweetSpot: MeshInstance3D
 var Gas_Canister: MeshInstance3D
 var actioning: bool = false
@@ -171,10 +197,6 @@ var minigameThreePassed: bool:
 var PositiveConnected: bool = false
 var NegativeConnected: bool = false
 
-## Hood minigame panel - lives in UiManager now (show_panel("hood", ...)).
-var hoodUI: Control:
-	get: return UiManager.get_panel("hood")
-	set(value): UiManager.register_panel("hood", value)
 var Hood: Interactable
 var Battery: MeshInstance3D
 var PositiveWire: StaticBody3D
@@ -191,14 +213,11 @@ var deaths: int:
 	set(value): GameState.deaths = value
 
 var Inventory: Array = []
-var MaxWeight: float = 10.0
-var CurrentWeight: float = 0.0
 
 ## Close Up Objects
 
 var examed: bool = false
 
-var closeup: bool = true
 var examining: bool = false
 var ExamingItem: ExaminableItem
 
@@ -206,25 +225,18 @@ var ExamingItem: ExaminableItem
 var OfficeLights: Array
 var ParkingGarageLights: Array
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
-# _set_loop_flag
-# Backs the old OpeningCutscene / Loop0 setters.
+## Backs the old OpeningCutscene / Loop0 setters.
 func _set_loop_flag(loop: int, value: bool) -> void:
 	if value:
 		GameState.loop = loop
 	elif GameState.loop == loop:
 		GameState.loop = GameState.LOOP_NONE
 
-		
 
-# AddToInventory
-# this function takes in the parameters
-# name, weight, equippable,
-# weight currently useless
-# then adds this to the inventory list
+## Adds an item to the inventory. equippable = it also goes straight into
+## the player's hand. (weight is stored with the item but nothing uses it yet.)
+## Picking something up also ends the killer's stalking.
 func AddToInventory(itemName: String, weight: float, equippable: bool = false):
 	var item: Dictionary
 	item.name = itemName
@@ -233,49 +245,45 @@ func AddToInventory(itemName: String, weight: float, equippable: bool = false):
 	if equippable:
 		EquippedItem = item.name
 		equipped_item_changed.emit(EquippedItem)
-	CurrentWeight += weight
-	#print(CurrentWeight)
 	Inventory.append(item)
 	if Enemy != null:
 		Enemy.exit_stalking_mode()
-	
-# RemoveItemByName
-# takes a name and tries to find it in the inventory
-# if found it will remove otherwise it will just return false
+
+## takes a name and tries to find it in the inventory
+## if found it will remove otherwise it will just return false
 func RemoveItemByName(itemName: String) -> bool:
 	for item in Inventory:
 		if item.name == itemName:
-			CurrentWeight -= item.weight
 			Inventory.erase(item)
-			#print(CurrentWeight)
 			return true
-	#print(CurrentWeight)
 	return false
-	
-# ResetPlayer
-# This function sets player stats all back to default
+
+## This function sets player stats all back to default
 func ResetPlayer() -> void:
 	Inventory = []
-	CurrentWeight = 0.0
 	sprint_engaged = false
 	dying = false
 	InAnimation = false
+	cutscene = false
+	hiding = false
+	hidden_from_enemies = false
+	current_hiding_spot = null
 	if player != null:
-		player = get_tree().current_scene.get_node("Player") 
+		player = get_tree().current_scene.get_node("Player")
 	EquippedItem = ''
 	# Inventory is empty again, so every picked-up / stored item comes back.
 	GameState.forget_collected()
 	examed = false
-	
+
 	if not Loop0:
 		AddToInventory("Box", 0.5, true)
 		AddToInventory("Car Keys", 0.5, true)
-	
+
 	## Location
-	
+
 	Office = false
 	ParkingGarage = false
-	
+
 	##Minigames avtives
 	MinigameMode = false
 	minigameOne = false
@@ -283,109 +291,99 @@ func ResetPlayer() -> void:
 	minigameThree = false
 	gotGas_Canister = false
 	gotBattery = false
-	
+
 	## Minigames passed
 	minigameOnePassed = false
 	minigameTwoPassed = false
 	minigameThreePassed = false
 	PositiveConnected = false
 	NegativeConnected = false
-	
+
 	Battery = null
 	PositiveWire = null
 	NegativeWire = null
-	
+
 	## Sound Mods
 	scaredPitch = 1
 	scaredVolume = -80
-	
+	fear = 0.0
+
 	## Objects
 	Gas_Canister = null
 	car_audio_player = null
-	
+
 	# Dialog
 	hint = false
 	dialoging = false
 	finishedDialogAnimation = false
 	multiDialog = false
 	startMultiDialog = true
-	
+
 	# Close Up
 	examining = false
-	
+
 	AudioManager.KillerShutUp = false
-	
+
 	# EventManager
 	EventManager.Comingfromelevator = false
 	EventManager.ElevatorDoorOpen = false
 	EventManager.CameFromGarage = false
-	
-	
+
+
 ## Dialog Functions
 
-# Hint
-# This function is for a type of red Dialog
-# that appears at the top of the screen 
+## This function is for a type of red Dialog
+## that appears at the top of the screen
 func Hint(text: String, duration: float = 10.0):
 	UiManager.hint(text, duration)
-	
-# Dialog
-# this is for basic dialog 
-# without a panel background
+
+## this is for basic dialog
+## without a panel background
 func Dialog(text: String):
 	UiManager.say_plain(text)
-	
-# HideDialog
-# this function hides all dialog
+
+## this function hides all dialog
 func HideDialog():
 	UiManager.hide_dialog()
-	
-# RevealDialog
-# this function shows dialog if it was suppose to
-# show up
+
+## this function shows dialog if it was suppose to
+## show up
 func RevealDialog():
 	UiManager.reveal_dialog()
-	
-# CharacterDialog
-# basic dialog with a panel behind it
+
+## basic dialog with a panel behind it
 func CharacterDialog(text: String):
 	UiManager.say(text)
 
-# CharacterHintDialog
-# this shows both Hint Dialog at the top of the screen
-# and character dialog with a panel at the bottom
+## this shows both Hint Dialog at the top of the screen
+## and character dialog with a panel at the bottom
 func CharacterHintDialog(characterText: String, hintText: String):
 	UiManager.say_with_hint(characterText, hintText)
 
-# NextDialog
-# used for MultiDialog to show the next dialog in the squence 
-# or just end the dialog if finished
+## used for MultiDialog to show the next dialog in the squence
+## or just end the dialog if finished
 func NextDialog():
 	UiManager.next_line()
-	
-# MultiDialog
-# This take an array of strings so that it can display
-# on piece of dialog one after another
+
+## This take an array of strings so that it can display
+## on piece of dialog one after another
 func MultiDialog(text_array: Array[String]):
 	UiManager.say_lines(text_array)
 
-# MiniGameModeOn
-# turns on MinigameMode and sets up for minigame
+## turns on MinigameMode and sets up for minigame
 func MiniGameModeOn():
 	MinigameMode = true
 	UiManager.set_cursor_visible(false)
 	AudioManager.stop_loop("step")
-	
-# MiniGameModeOff
-# turns MinigameMode off and sets player back up for game
+
+## turns MinigameMode off and sets player back up for game
 func MiniGameModeOff():
 	MinigameMode = false
 	UiManager.set_cursor_visible(true)
-	
-# TestConnection
-# This is for the Battery Mini Game
-# this is to see if the player has won also 
-# sets up net steps of minigame
+
+## This is for the Battery Mini Game
+## this is to see if the player has won also
+## sets up net steps of minigame
 func TestConnection():
 	AnimationManager.HideResetZones()
 	if PositiveConnected:
@@ -412,129 +410,97 @@ func TestConnection():
 		if PlayerManager.Hood.open == true:
 			AnimationManager.HoodAnimationPlayer.play_backwards("Hood")
 			PlayerManager.Hood.open = false
-		if not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
-			AnimationManager.DoorFlash.start_flashing()
-		if not PlayerManager.minigameTwoPassed and PlayerManager.has_item("Gas Canister"):
-			AnimationManager.GasIntakeFlash.start_flashing()
-		
-# ProcessScared
-# gets the values for volumes of sounds
-# related to killer and player proximity
-func ProcessScared():
-	if no_enemy:
+
+## Works out fear from the nearest enemy that can kill the player, then the
+## heartbeat / breathing speed and volume from it. Called every physics frame.
+func ProcessScared() -> void:
+	var target := 0.0
+	scaredDistance = 999.0
+	if not no_enemy and not cutscene and is_instance_valid(player) and player.is_inside_tree():
+		scaredDistance = _nearest_enemy_distance()
+		target = clampf((FEAR_FAR - scaredDistance) / (FEAR_FAR - FEAR_NEAR), 0.0, 1.0)
+	# rises quicker than it settles
+	var rate := 0.05 if target > fear else 0.012
+	fear = lerpf(fear, target, rate)
+	if fear < 0.02:
 		scaredVolume = -80
-		scaredVolumeSteps = -80
-		scaredPitch = 1
-		return -80
-		
-	if scaredDistance > 70:
-		scaredVolumeSteps = -80
-		scaredVolume = -80
-		scaredPitch = 1
-	elif scaredDistance > 45:
-		scaredVolumeSteps = 4 - scaredDistance
-		scaredVolume = -80
-		scaredPitch = 1
+		breathVolume = -80
 	else:
-		scaredVolumeSteps = 4 - scaredDistance
-		scaredVolume = 4 - scaredDistance
-		scaredPitch = 4 - (scaredDistance / 10)  
-		if scaredPitch < 3:
-			scaredPitch = 3
-		return 4 
-		
-# has_item
-# Checks player Inventory to see if they
-# have an item
+		var f := smoothstep(0.0, 1.0, fear)
+		# louder mostly as it gets rapid (fear past halfway)
+		scaredVolume = lerpf(-24.0, -5.0, pow(fear, 1.4))
+		breathVolume = lerpf(-28.0, -13.0, f)
+	scaredPitch = lerpf(1.0, 3.0, fear)
+	breathTempo = lerpf(1.0, 1.8, fear)
+
+## Walking distance to the nearest enemy that can kill (straight line, or
+## further if its path is longer - another floor feels far away).
+func _nearest_enemy_distance() -> float:
+	var best := 999.0
+	var me: Vector3 = player.global_position
+	for e in get_tree().get_nodes_in_group("enemy"):
+		if not (e is Node3D) or not e.is_inside_tree() or not e.is_visible_in_tree():
+			continue
+		if "can_kill_player" in e and not e.can_kill_player:
+			continue
+		var d: float = me.distance_to(e.global_position)
+		if "nav" in e and e.nav and not e.nav.is_navigation_finished() and e.has_method("path_distance"):
+			d = maxf(d, e.path_distance())
+		best = minf(best, d)
+	return best
+
+## Checks player Inventory to see if they
+## have an item
 func has_item(item_name: String) -> bool:
 	for item in Inventory:
 		if item.name == item_name:
 			return true
 	return false
 
-# KeyFobSound
-# checks if player has keys and if so
-# tries to play car beep sound
+## checks if player has keys and if so
+## tries to play car beep sound
+## The car is in this level (its key-fob sound player is still there - it's
+## freed with the garage, but the reference stays and still counts as true).
+func has_car_fob() -> bool:
+	return is_instance_valid(car_audio_player) and car_audio_player.is_inside_tree()
+
 func KeyFobSound():
+	if not has_car_fob():
+		return
 	if has_item("Car Keys"):
 		car_audio_player.playsound()
 	else:
 		CharacterDialog(EventManager.key_fob_no_keys)
-	
-	
-# EndFocus
-# stops the focus on an examine item
+
+
+## stops the focus on an examine item
 func EndFocus():
 	# Every ExaminableItem registers itself as ExamingItem when examined,
 	# so new items don't need to be listed here.
 	if ExamingItem and ExamingItem.should_stay_in_focus:
 		ExamingItem.end_focus()
-		
-# SwitchEquippedItem
-# changes the players equipped item
+
+## Equips the next (direction = true) or previous equippable item in the
+## inventory, wrapping round. Nothing equippable = nothing equipped.
 func SwitchEquippedItem(direction: bool):
-	if direction:
-		_switch_equipped_up()
-	else:
-		_switch_equipped_down()
+	_switch_equipped(1 if direction else -1)
 	UiManager.on_item_switched()
-		
-# _switch_equipped_up
-# assist in switching equip item this will switch item that are higher
-# in the list 
-func _switch_equipped_up():
-	if Inventory.size() == 0:
-		EquippedItem = ''
-		return
-	
-	var current_index = -1
-	# Find current equipped item index
-	if EquippedItem != '':
-		for i in range(Inventory.size()):
-			if Inventory[i].name == EquippedItem:
-				current_index = i
-				break
-	
-	# Search upwards from current position
-	var search_index = current_index
-	for i in range(Inventory.size()):
-		search_index = (search_index + 1) % Inventory.size()
-		if Inventory[search_index].equippable:
-			EquippedItem = Inventory[search_index].name
+
+func _switch_equipped(step: int) -> void:
+	var count := Inventory.size()
+	var current := -1
+	for i in count:
+		if Inventory[i].name == EquippedItem:
+			current = i
+			break
+	# with nothing equipped, start just outside the list so step lands on an end
+	if current == -1:
+		current = -1 if step > 0 else count
+	for i in count:
+		var index := posmod(current + step * (i + 1), count)
+		if Inventory[index].equippable:
+			EquippedItem = Inventory[index].name
 			equipped_item_changed.emit(EquippedItem)
 			return
-
-	# If no equippable items found
-	EquippedItem = ''
-	equipped_item_changed.emit(EquippedItem)
-
-# _switch_equipped_down
-# assist in switching equip item this will switch item that are lower
-# in the list 
-func _switch_equipped_down():
-	if Inventory.size() == 0:
-		EquippedItem = ''
-		return
-	
-	var current_index = -1
-	# Find current equipped item index
-	if EquippedItem != '':
-		for i in range(Inventory.size()):
-			if Inventory[i].name == EquippedItem:
-				current_index = i
-				break
-	
-	# Search downwards from current position
-	var search_index = current_index
-	for i in range(Inventory.size()):
-		search_index = (search_index - 1) % Inventory.size()
-		if search_index < 0:
-			search_index = Inventory.size() - 1
-		if Inventory[search_index].equippable:
-			EquippedItem = Inventory[search_index].name
-			equipped_item_changed.emit(EquippedItem)
-			return
-
-	# If no equippable items found
-	EquippedItem = ''
+	EquippedItem = ""
 	equipped_item_changed.emit(EquippedItem)

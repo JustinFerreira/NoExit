@@ -25,9 +25,8 @@ class_name SimpleCondition
 @export var reactivate_targets: Array[Interactable] = []
 
 
-# _on_interacted
-# Called by Interactable when the player clicks this object (wired up
-# via the node's Signals tab in the editor, same as every Interactable).
+## Called by Interactable when the player clicks this object (wired up
+## via the node's Signals tab in the editor, same as every Interactable).
 func _on_interacted(_body: Variant) -> void:
 	mark_success()
 	reactivate_others(reactivate_targets)

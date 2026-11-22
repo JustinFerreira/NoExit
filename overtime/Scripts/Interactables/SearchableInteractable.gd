@@ -59,6 +59,7 @@ func _ready() -> void:
 func _restore_state() -> void:
 	if GameState.collected_how(get_persist_id()) == GameState.SEARCHED:
 		has_been_searched = true
+		mark_used()
 		if disable_after_search:
 			_on_interaction_complete()
 

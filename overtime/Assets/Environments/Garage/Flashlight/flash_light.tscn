@@ -63,7 +63,6 @@ pickup_on_close = true
 inventory_name = "Flash Light"
 inventory_equippable = true
 examine_sound = ExtResource("stinger_sfx")
-outline_material = ExtResource("3_11npx")
 mesh = NodePath("..")
 has_outline = true
 

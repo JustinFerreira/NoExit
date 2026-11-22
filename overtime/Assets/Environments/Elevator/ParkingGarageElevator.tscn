@@ -157,7 +157,6 @@ max_db = -10.0
 bus = &"Music"
 script = ExtResource("9_dkb5w")
 max_hearing_distance = 4.0
-min_volume_db = -80.0
 
 [node name="ElevatorCollisions" type="CSGCombiner3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 2.64433, 0)
@@ -266,7 +265,6 @@ mesh = SubResource("BoxMesh_f2s4e")
 [node name="OutsideButton" type="StaticBody3D" parent="OutsideButton" node_paths=PackedStringArray("mesh_list")]
 script = ExtResource("10_geqg6")
 is_interactable = true
-outline_material = null
 mesh_list = []
 has_outline = false
 persist_id = ""
@@ -282,7 +280,6 @@ mesh = SubResource("BoxMesh_srkfe")
 [node name="InsideButton" type="StaticBody3D" parent="InsideButton" node_paths=PackedStringArray("mesh_list")]
 script = ExtResource("11_u228q")
 is_interactable = true
-outline_material = null
 mesh_list = []
 has_outline = false
 persist_id = ""

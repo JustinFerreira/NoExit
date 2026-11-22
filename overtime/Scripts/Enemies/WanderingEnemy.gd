@@ -8,7 +8,7 @@
 
 extends Enemy
 
-# ── Movement ──────────────────────────────────────────────────────────────────
+## ── Movement ──────────────────────────────────────────────────────────────────
 @export var wander_speed: float = 1.5
 @export var chase_speed: float = 3.5
 
@@ -19,7 +19,7 @@ extends Enemy
 ## If false it locks onto the player permanently once spotted (default).
 @export var lose_player_on_sight_lost: bool = false
 
-# ── Wander targets — drag Node3D objects here in the Inspector ────────────────
+## ── Wander targets — drag Node3D objects here in the Inspector ────────────────
 @export var wander_targets: Array[Node3D] = []
 
 # ── Internal state ────────────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ func _enemy_physics(_delta: float) -> void:
 func target_position(_target: Vector3) -> void:
 	pass
 
-# ── State switching ───────────────────────────────────────────────────────────
+## ── State switching ───────────────────────────────────────────────────────────
 func _update_state() -> void:
 	match state:
 		State.WANDERING:
@@ -59,7 +59,7 @@ func _update_state() -> void:
 				state = State.WANDERING
 				_pick_new_wander_target()
 
-# ── Wandering behaviour ───────────────────────────────────────────────────────
+## ── Wandering behaviour ───────────────────────────────────────────────────────
 func _do_wander() -> void:
 	if current_wander_target == null or not is_instance_valid(current_wander_target):
 		_pick_new_wander_target()
@@ -87,7 +87,7 @@ func _pick_new_wander_target() -> void:
 	current_wander_target = candidates[randi() % candidates.size()]
 	set_nav_target(current_wander_target.global_position)
 
-# ── Chasing behaviour ─────────────────────────────────────────────────────────
+## ── Chasing behaviour ─────────────────────────────────────────────────────────
 func _do_chase() -> void:
 	if not is_instance_valid(player):
 		state = State.WANDERING

@@ -1,6 +1,12 @@
+## No Exit
+## Overtime Studios
+## Real Size Level
+## - Real-size review levels (Real Size, Interactable Test): everything in
+##   metres, with the real-size player and killer. Free walking from the
+##   start, whether opened from Loop Select or straight from the editor, and
+##   the killer is fed the player's position like in the story levels.
+
 extends "res://Scripts/Levels/ModelLineup.gd"
-## Real-size review level: everything in metres, with the real-size player and killer.
-## Free walking from the start, whether opened from Loop Select or straight from the editor.
 
 ## How close the killer follows you here (the story levels use 20 m).
 @export var killer_follow_distance: float = 5.0

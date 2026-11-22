@@ -47,11 +47,11 @@ class_name ConditionDoor
 ## of 2", etc.
 @export var relock_required_count: int = 0
 
-# Conditions that have already reported success, so a repeat signal from
-# the same node doesn't get counted twice.
+## Conditions that have already reported success, so a repeat signal from
+## the same node doesn't get counted twice.
 var _met_conditions: Array[Interactable] = []
 
-# Same idea as _met_conditions, but for relock_conditions.
+## Same idea as _met_conditions, but for relock_conditions.
 var _relock_met_conditions: Array[Interactable] = []
 
 
@@ -72,11 +72,10 @@ func _ready() -> void:
 	door_locked.connect(_on_relocked)
 
 
-# _on_condition_succeeded
-# Called whenever one of required_conditions reports success. Once
-# enough distinct conditions have fired, unlocks the door - reusing all
-# of Door's normal unlock behavior (collision, sound, hide_on_unlock,
-# animation, etc.) for free.
+## Called whenever one of required_conditions reports success. Once
+## enough distinct conditions have fired, unlocks the door - reusing all
+## of Door's normal unlock behavior (collision, sound, hide_on_unlock,
+## animation, etc.) for free.
 func _on_condition_succeeded(condition: Interactable) -> void:
 	if condition in _met_conditions:
 		return
@@ -87,19 +86,19 @@ func _on_condition_succeeded(condition: Interactable) -> void:
 		unlock()
 
 
-# conditions_met / conditions_total
-# Handy if you want to hook up UI feedback, like a "2 / 3" counter.
+## conditions_met / conditions_total
+## Handy if you want to hook up UI feedback, like a "2 / 3" counter.
 func conditions_met() -> int:
 	return _met_conditions.size()
 
+## How many conditions there are to meet.
 func conditions_total() -> int:
 	return required_count if required_count > 0 else required_conditions.size()
 
 
-# _on_relock_condition_succeeded
-# Called whenever one of relock_conditions reports success. Once enough
-# distinct conditions have fired, re-locks the door - reusing all of
-# Door's normal lock() behavior for free.
+## Called whenever one of relock_conditions reports success. Once enough
+## distinct conditions have fired, re-locks the door - reusing all of
+## Door's normal lock() behavior for free.
 func _on_relock_condition_succeeded(condition: Interactable) -> void:
 	if condition in _relock_met_conditions:
 		return
@@ -110,20 +109,20 @@ func _on_relock_condition_succeeded(condition: Interactable) -> void:
 		lock()
 
 
-# relock_conditions_met / relock_conditions_total
-# Same as conditions_met/conditions_total above, but for relock_conditions.
+## relock_conditions_met / relock_conditions_total
+## Same as conditions_met/conditions_total above, but for relock_conditions.
 func relock_conditions_met() -> int:
 	return _relock_met_conditions.size()
 
+## How many relock conditions there are.
 func relock_conditions_total() -> int:
 	return relock_required_count if relock_required_count > 0 else relock_conditions.size()
 
 
-# _on_relocked
-# Fires whenever this door re-locks (door_locked, from Door.lock() -
-# either via relock_conditions above or a direct lock() call elsewhere).
-# Clears _met_conditions so required_conditions can be solved again -
-# the buttons themselves need to be put back into play separately, via
-# their own reactivate_targets (see SimpleCondition/UIConditionItem).
+## Fires whenever this door re-locks (door_locked, from Door.lock() -
+## either via relock_conditions above or a direct lock() call elsewhere).
+## Clears _met_conditions so required_conditions can be solved again -
+## the buttons themselves need to be put back into play separately, via
+## their own reactivate_targets (see SimpleCondition/UIConditionItem).
 func _on_relocked() -> void:
 	_met_conditions.clear()

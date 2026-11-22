@@ -90,6 +90,7 @@ func _find_animation_player() -> AnimationPlayer:
 func _restore_state() -> void:
 	if remember_open and GameState.collected_how(get_persist_id()) == GameState.OPENED:
 		_jump_to_open()
+		mark_used()
 	else:
 		_set_contents_locked(true)
 

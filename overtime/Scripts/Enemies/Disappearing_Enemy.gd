@@ -1,5 +1,7 @@
-## DisappearEnemy.gd
-## Visible when first seen, disappears permanently when player looks away
+## No Exit
+## Overtime Studios
+## Disappearing Enemy
+## - Visible when first seen, disappears permanently when the player looks away
 ## - built on Enemy (see Enemy.gd). sight_fov_degrees (Vision group) is the
 ##   half-angle of the PLAYER's view cone that counts as "seen".
 

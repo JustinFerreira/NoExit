@@ -40,20 +40,18 @@ func _ready() -> void:
 		push_warning("%s: UIConditionItem has no ui_panel assigned." % name)
 
 
-# _on_interacted
-# Called by Interactable when the player clicks this object (wired up
-# via the node's Signals tab in the editor, same as every Interactable).
-# Note: once one_shot has fired, _on_interaction_complete() sets
-# is_interactable to false, so the base Interactable.interact() stops
-# calling this at all - no extra guard needed here.
+## Called by Interactable when the player clicks this object (wired up
+## via the node's Signals tab in the editor, same as every Interactable).
+## Note: once one_shot has fired, _on_interaction_complete() sets
+## is_interactable to false, so the base Interactable.interact() stops
+## calling this at all - no extra guard needed here.
 func _on_interacted(_body: Variant) -> void:
 	if not ui_panel:
 		return
 	ui_panel.open()
 
 
-# _on_ui_confirmed
-# Called when the player clicks the button inside ui_panel.
+## Called when the player clicks the button inside ui_panel.
 func _on_ui_confirmed() -> void:
 	mark_success()
 	reactivate_others(reactivate_targets)

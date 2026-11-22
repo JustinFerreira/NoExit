@@ -33,6 +33,10 @@ const OUTLINE_WIDTH: float = 3.0
 ## Objects whose meshes come within this distance (world units) of the
 ## player's body get a steady outline.
 const NEAR_DISTANCE: float = 5.0
+## Seconds the "close by" outline takes to fade in when you come in range...
+const NEAR_FADE_IN_TIME: float = 0.4
+## ...and to fade out when you leave.
+const NEAR_FADE_OUT_TIME: float = 0.6
 ## How often (seconds) the "close by" check runs.
 const NEAR_CHECK_INTERVAL: float = 0.1
 ## Hover flash: seconds for one full bright -> dim -> bright flash.
@@ -60,7 +64,7 @@ static var _registered: Dictionary = {}
 var _viewport: SubViewport
 var _mask_camera: Camera3D
 var _composite: MeshInstance3D
-# Mask MeshInstance3Ds currently showing an outline.
+## Mask MeshInstance3Ds currently showing an outline.
 var _active: Dictionary = {}
 
 
@@ -79,6 +83,11 @@ static func create_mask(source: MeshInstance3D, mask_material: ShaderMaterial) -
 	var mask := MeshInstance3D.new()
 	mask.name = "OutlineMask"
 	mask.mesh = source.mesh
+	# skinned (animated) meshes: deform the mask with the same skeleton, or it
+	# would stay frozen in the rest pose while the character moves
+	if source.skin:
+		mask.skin = source.skin
+		mask.skeleton = NodePath("../" + str(source.skeleton)) if not source.skeleton.is_empty() else NodePath("")
 	mask.layers = MASK_BIT
 	mask.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	mask.material_override = mask_material
@@ -89,6 +98,7 @@ static func create_mask(source: MeshInstance3D, mask_material: ShaderMaterial) -
 	return mask
 
 
+## A new mask material for an outlined object (its strength = outline brightness).
 static func make_mask_material() -> ShaderMaterial:
 	var mat := ShaderMaterial.new()
 	mat.shader = MASK_SHADER
@@ -101,6 +111,7 @@ static func make_mask_material() -> ShaderMaterial:
 static func register(item: Interactable) -> void:
 	_registered[item] = true
 
+## Stops tracking an object (it was freed or lost its outline).
 static func unregister(item: Interactable) -> void:
 	_registered.erase(item)
 
@@ -142,6 +153,9 @@ func _ready() -> void:
 	_mask_camera.environment = env
 	_viewport.add_child(_mask_camera)
 	_mask_camera.current = true
+	# Every other camera never draws masks, from the moment it exists (cars,
+	# cutscenes and new levels switch cameras mid-frame).
+	get_tree().node_added.connect(_on_node_added)
 
 	var comp_mat := ShaderMaterial.new()
 	comp_mat.shader = COMPOSITE_SHADER
@@ -168,8 +182,13 @@ var _near_timer: float = 0.0
 ## Gives every outlined object within NEAR_DISTANCE of the player's body
 ## (anywhere from the feet up to the eyes) a steady outline.
 func _update_near() -> void:
-	var player := PlayerManager.player as Node3D
-	var have_player := is_instance_valid(player) and player.is_inside_tree()
+	# (checked before casting: right after a level is unloaded - the elevator,
+	# quitting to the menu - PlayerManager.player still points at the freed
+	# player, and casting a freed object is an error)
+	var player: Node3D = null
+	if is_instance_valid(PlayerManager.player):
+		player = PlayerManager.player as Node3D
+	var have_player := player != null and player.is_inside_tree()
 	var feet := Vector3.ZERO
 	var eye := Vector3.ZERO
 	if have_player:
@@ -191,6 +210,11 @@ func _update_near() -> void:
 		item.set_near(near)
 
 
+func _on_node_added(node: Node) -> void:
+	if node is Camera3D and node != _mask_camera:
+		node.cull_mask &= ~MASK_BIT
+
+
 func _process(delta: float) -> void:
 	_near_timer -= delta
 	if _near_timer <= 0.0:
@@ -207,14 +231,17 @@ func _process(delta: float) -> void:
 			any_visible = true
 
 	var camera := get_tree().root.get_camera_3d()
+	# The game camera draws the outline pass but never the masks. Done every
+	# frame, outlines showing or not: a mask can switch on later in the frame
+	# (its fade-in tween runs after this), and a new level's camera would
+	# then draw it as a solid blue shape for a frame.
+	if camera:
+		camera.cull_mask = (camera.cull_mask | COMPOSITE_BIT) & ~MASK_BIT
 	var on := any_visible and camera != null
 	_composite.visible = on
 	_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if on else SubViewport.UPDATE_DISABLED
 	if not on:
 		return
-
-	# The game camera draws the outline pass but never the masks.
-	camera.cull_mask = (camera.cull_mask | COMPOSITE_BIT) & ~MASK_BIT
 
 	# Mask camera matches the game camera exactly.
 	var size := Vector2i(get_tree().root.get_visible_rect().size)

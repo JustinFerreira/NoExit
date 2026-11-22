@@ -1,23 +1,18 @@
 ## No Exit
 ## Overtime Studios
 ## Last updated 2/14/26 by Josh Chisholm
-## Office Lights Script
-## - 
+## Office Lights
+## - Makes an OmniLight3D flicker: its brightness follows a noise texture
+##   over time. Not attached to any scene yet.
 
 extends OmniLight3D
 
+## Noise to read the flicker from (needs a NoiseTexture2D with a noise set).
 @export var noise: NoiseTexture2D
 var timePassed: float = 0.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if noise == null or noise.noise == null:
+		return
 	timePassed += delta
-	
-	var sampledNoise = noise.noise.get_noise_1d(timePassed*2)
-	light_energy = abs(sampledNoise * 10)
-	pass
+	light_energy = abs(noise.noise.get_noise_1d(timePassed * 2) * 10)

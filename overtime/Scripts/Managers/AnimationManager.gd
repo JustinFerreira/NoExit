@@ -1,52 +1,32 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated  5/4/26 by Justin Ferreira
-## AnimationManager Script
-## - This is a manager script which allows for all
-## animations to be held in the same place so they have
-## easier access in other scripts and to themselves
+## Animation Manager (autoload "AnimationManager")
+## - Holds the animation players, clickable parts and hint meshes of the car, the
+##   battery minigame and the elevators, so the scripts that set them up and
+##   the ones that trigger them can find each other, plus the handlers that
+##   run when those animations finish. loop_animation() keeps a hint
+##   animation looping.
 
 extends Node
 
 ## Animation Players
 
-# The Animation Player attached to the opening cutscne
-var OpeningCutSceneAnimationPlayer: AnimationPlayer 
+## The Animation Player attached to the opening cutscene
+var OpeningCutSceneAnimationPlayer: AnimationPlayer
 
-# The Animation Player attached to the car
+## The Animation Player attached to the car
 var GetInCarAnimationPlayer: AnimationPlayer
-
-# The Animation Player for clicking the mouse player helper
-var MouseClickingAnimationPlayer: AnimationPlayer
-
-## Flashing Animation Players
-
-var DoorFlashAnimationPlayer: AnimationPlayer
-var HoodFlashAnimationPlayer: AnimationPlayer
-
-var GasIntakeFlashAnimationPlayer: AnimationPlayer
-var WirePositiveFlashAnimationPlayer: AnimationPlayer
-var WireNegativeFlashAnimationPlayer: AnimationPlayer
-var PositiveBatteryFlashAnimationPlayer: AnimationPlayer
-var NegativeBatteryFlashAnimationPlayer: AnimationPlayer
+## The office elevator's outside button (outline pulse + door animation).
 var ElevatorDoorButtonAnimationPlayer: AnimationPlayer
-var ElevatorPanelAnimationPlayer: AnimationPlayer
-var PictureFrame1FlashAnimationPlayer: AnimationPlayer
-var StickyNotesFlashAnimationPlayer: AnimationPlayer
-var Mug1AFlashAnimationPlayer: AnimationPlayer
-var Mug2AFlashAnimationPlayer: AnimationPlayer
-var CarKeysFlashAnimationPlayer: AnimationPlayer
-var BatteryFlashAnimationPlayer: AnimationPlayer
-var GasCanisterFlashAnimationPlayer: AnimationPlayer
-var CubicleFlashAnimationPlayer: AnimationPlayer
-
-
+## Car gas cap and hood.
 var GasCapAnimationPlayer: AnimationPlayer
 var HoodAnimationPlayer: AnimationPlayer
 
 ## Meshes to toggle visiblity
 
-# Car Flash
+## The car's clickable parts (each registers itself). They outline like
+## everything else - steady when close, flashing when aimed at - these are
+## just so other scripts can switch them on and off.
 var SteeringWheelFlash: Interactable
 var DoorFlash: Interactable
 var HoodFlash: Interactable
@@ -56,13 +36,9 @@ var WireNegativeFlash: MeshInstance3D
 var PositiveBatteryFlash: MeshInstance3D
 var NegativeBatteryFlash: MeshInstance3D
 
-# Car Collisions
-var HoodCollision: CollisionShape3D 
+## Car Collisions
+var HoodCollision: CollisionShape3D
 var CarCollision: CollisionShape3D
-
-## Office Flash
-var ElevatorButtonFlash: MeshInstance3D
-var ElevatorPanelFlash: MeshInstance3D
 
 
 ## Car player nodes
@@ -93,15 +69,6 @@ var DoorClosed: bool = false
 var ElevatorFall: bool = false
 
 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-	
-	
-	
-	
 ## Reset Zone Functions
 
 ## RevealResetZones
@@ -126,66 +93,36 @@ func HideResetZones():
 	PositiveBatteryResetZone.visible = false
 
 
-
-
 ## Activation functions
 
-## ActivateMouseClickingAnimationPlayer
-## This function connections the animation player for the mouse clicking 
-## to the animation finished function for this specific animation
-func ActivateMouseClickingAnimationPlayer():
-	MouseClickingAnimationPlayer.connect("animation_finished", _on_MouseClicking_animation_finished)
+## Keeps an animation looping by playing it again every time it finishes
+## (the flashing hint animations aren't set to loop in their files) and
+## starts it. Safe to call again for the same player and animation.
+func loop_animation(player: AnimationPlayer, anim: String) -> void:
+	if player == null:
+		return
+	var key := "_loop_" + anim
+	if not player.has_meta(key):
+		player.set_meta(key, true)
+		player.animation_finished.connect(func(finished: StringName) -> void:
+			if finished == anim and is_instance_valid(player):
+				player.play(anim))
+	player.play(anim)
 
-## ActivateElevatorPanelFlashAnimationPlayer
-## This function connections the animation player for the elevator panel flash  
-## to the animation finished function for this specific animation
-func ActivateElevatorPanelFlashAnimationPlayer():
-	ElevatorPanelAnimationPlayer.connect("animation_finished", _on_ElevatorPanelFlash_animation_finished)
-	
 ## ActivateElevatorButtonAnimationPlayer
 ## This function connections the animation player for the elevator button flash
 ## to the animation finished function for this specific animation
 func ActivateElevatorButtonAnimationPlayer():
 	ElevatorDoorButtonAnimationPlayer.connect("animation_finished", _on_ElevatorButtonFlash_animation_finished)
 
-## ActivatePositiveBatteryFlashAnimationPlayer
-## This function connections the animation player for the positive battery flash  
-## to the animation finished function for this specific animation
-func ActivatePositiveBatteryFlashAnimationPlayer():
-	PositiveBatteryFlashAnimationPlayer.connect("animation_finished", _on_PositiveBatteryFlash_animation_finished)
-	
-## ActivateNegativeBatteryFlashAnimationPlayer
-## This function connections the animation player for the negative battery flash  
-## to the animation finished function for this specific animation
-func ActivateNegativeBatteryFlashAnimationPlayer():
-	NegativeBatteryFlashAnimationPlayer.connect("animation_finished", _on_NegativeBatteryFlash_animation_finished)
-
-## ActivateWireNegativeFlashAnimationPlayer
-## This function connections the animation player for the wire negative flash  
-## to the animation finished function for this specific animation
-func ActivateWireNegativeFlashAnimationPlayer():
-	WireNegativeFlashAnimationPlayer.connect("animation_finished", _on_WireNegativeFlash_animation_finished)
-
-## ActivateWirePositiveFlashAnimationPlayer
-## This function connections the animation player for the wire positive flash  
-## to the animation finished function for this specific animation
-func ActivateWirePositiveFlashAnimationPlayer():
-	WirePositiveFlashAnimationPlayer.connect("animation_finished", _on_WirePositiveFlash_animation_finished)
-
-## ActivateGasIntakeFlashAnimationPlayer
-## This function connections the animation player for the gas intake flash  
-## to the animation finished function for this specific animation
-func ActivateGasIntakeFlashAnimationPlayer():
-	GasIntakeFlashAnimationPlayer.connect("animation_finished", _on_GasIntakeFlash_animation_finished)
-
 ## ActivateHoodFlashAnimationPlayer
-## This function connections the animation player for the Hood flash  
+## This function connections the animation player for the Hood flash
 ## to the animation finished function for this specific animation
 func ActivateHoodAnimationPlayer():
 	HoodAnimationPlayer.connect("animation_finished", _on_Hood_animation_finished)
 
 ## ActivateCarAnimationPlayer
-## This function connections the animation player for the car flash  
+## This function connections the animation player for the car flash
 ## to the animation finished function for this specific animation
 func ActivateGetInCarAnimationPlayer():
 	GetInCarAnimationPlayer.connect("animation_finished", _on_GetInCar_animation_finished)
@@ -193,10 +130,9 @@ func ActivateGetInCarAnimationPlayer():
 
 ## On Animation Finished Functions
 
-## _on_GetInCar_animation_finished
-## This aniamtion player takes in a string which is the animation that just happened
-## depending on the animation that finsihed and its state there are different 
-## things that follow that animation
+## The car door animation finished: getting in hands control to the car
+## (and flashes whatever is next), getting out gives the player back their
+## body and flashes the next car task.
 func _on_GetInCar_animation_finished(anim_name: String):
 	## Car Door opening and Closing animation
 	## Animation of player getting in the Car
@@ -204,37 +140,13 @@ func _on_GetInCar_animation_finished(anim_name: String):
 		UiManager.set_cursor_visible(true)
 		AudioManager.play_sound(AudioManager.CarDoorClose)
 		PlayerManager.InAnimation = false
-			
+
 		PlayerManager.player.Incar = true
-		#GetInCarAnimationPlayer.play_backwards("NoExitProps")
 		PlayerManager.player.interact_ray.enabled = true
-		DoorFlash.start_flashing()
-		SteeringWheelFlash.start_flashing()
-		if PlayerManager.minigameOnePassed && PlayerManager.minigameTwoPassed && PlayerManager.minigameThreePassed:
-			SteeringWheelFlash.start_flashing()
-			
-			DoorFlash.stop_flashing()
-			
-			SteeringWheelFlash.start_flashing()
-			
-			pass
-		if !PlayerManager.minigameOnePassed && !PlayerManager.Loop0:
-			SteeringWheelFlash.start_flashing()
-			
-			DoorFlash.stop_flashing()
-			
-			SteeringWheelFlash.start_flashing()
-			
-			pass
+		var hotwire_next: bool = not PlayerManager.minigameOnePassed and not PlayerManager.Loop0
+		if hotwire_next:
 			PlayerManager.CharacterDialog(EventManager.hotwire_reminder)
 		if PlayerManager.Loop0:
-			
-			SteeringWheelFlash.start_flashing()
-			
-			DoorFlash.stop_flashing()
-			
-			SteeringWheelFlash.start_flashing()
-			
 			PlayerManager.CharacterDialog(EventManager.loop0_get_in_car)
 	## Exiting car animations
 	if anim_name == "GettinginCar" && PlayerManager.player.Incar && not CarEntering:
@@ -245,44 +157,17 @@ func _on_GetInCar_animation_finished(anim_name: String):
 		PlayerManager.player.head = PlayerManager.player.HEAD
 		PlayerManager.player.camera = PlayerManager.player.CAMERA
 		PlayerManager.player.interact_ray = PlayerManager.player.INTERACT_RAY
-		PlayerManager.player.interact_ray.enabled = false
 		PlayerManager.player.CAMERA.current = true
 		PlayerManager.player.AREA3D.monitoring = true
 		PlayerManager.player.AREA3D.monitorable = true
 		PlayerManager.player.COLLISIONSHAPE3D.disabled = false
 		PlayerManager.player.gravity = true
 		PlayerManager.player.interact_ray.enabled = true
-		
-		SteeringWheelFlash.stop_flashing()
-		
-		if not PlayerManager.Loop0 and not PlayerManager.minigameOnePassed or (PlayerManager.minigameOnePassed and PlayerManager.minigameTwoPassed and PlayerManager.minigameThreePassed):
-			
-			DoorFlash.start_flashing()
-			
-			pass
-		if not PlayerManager.minigameThreePassed && PlayerManager.has_item("Battery"):
-			
-			HoodFlash.start_flashing()
-			
-			pass
-		if not PlayerManager.minigameTwoPassed && PlayerManager.has_item("Gas Canister"):
-			
-			GasIntakeFlash.start_flashing()
-			
-			pass
-		if PlayerManager.Loop0 and EventManager.Loop0SteeringClicked:
-			
-			HoodFlash.start_flashing()
-			
-			pass
-		
-		
-		# Teleport player 5 meters next to the car
-		#PlayerManager.player.global_position = DoorFlash.global_position + Vector3(5, 0, 0)
 
-## _on_HoodFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
+
+
+## The hood finished opening: show the battery and wires and zoom in on them
+## (unless the battery is already done, or in Loop 0).
 func _on_Hood_animation_finished(anim_name: String):
 	if anim_name == "Hood":
 		if not PlayerManager.minigameThreePassed and not PlayerManager.Loop0:
@@ -291,66 +176,13 @@ func _on_Hood_animation_finished(anim_name: String):
 			PlayerManager.PositiveWire.visible = true
 			HoodAnimationPlayer.play("ZoomInbattery")
 
-##  _on_GasIntakeFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_GasIntakeFlash_animation_finished(anim_name: String):
-	if anim_name == "GasIntakeFlash":
-		GasIntakeFlashAnimationPlayer.play("GasIntakeFlash")
-
-## _on_WirePositiveFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_WirePositiveFlash_animation_finished(anim_name: String):
-	if anim_name == "WirePositiveFlash":
-		WirePositiveFlashAnimationPlayer.play("WirePositiveFlash")
-
-## _on_WireNegativeFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_WireNegativeFlash_animation_finished(anim_name: String):
-	if anim_name == "WireNegativeFlash":
-		WireNegativeFlashAnimationPlayer.play("WireNegativeFlash")
-
-## _on_PositiveBatteryFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_PositiveBatteryFlash_animation_finished(anim_name: String):
-	if anim_name == "PositiveBatteryFlash":
-		PositiveBatteryFlashAnimationPlayer.play("PositiveBatteryFlash")
-
-## _on_NegativeBatteryFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_NegativeBatteryFlash_animation_finished(anim_name: String):
-	if anim_name == "NegativeBatteryFlash":
-		NegativeBatteryFlashAnimationPlayer.play("NegativeBatteryFlash")
-
-## _on_ElevatorButtonFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
+## Office elevator door animation: when the doors finish closing
+## (DoorClosed) the elevator starts to fall.
 func _on_ElevatorButtonFlash_animation_finished(anim_name: String):
-	if anim_name == "OutlinePulse":
-		ElevatorDoorButtonAnimationPlayer.play("OutlinePulse")
 	if anim_name == "Take 001" && !DoorOpen:
 		DoorOpen = true
 	if anim_name == "Take 001" && DoorClosed:
 		ElevatorFall = true
 		AudioManager.play_sound(AudioManager.elevator_whitenoise)
 
-## _on_ElevatorPanelFlash_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func  _on_ElevatorPanelFlash_animation_finished(anim_name: String):
-	if anim_name == "ElevatorPanelFlash":
-		ElevatorPanelAnimationPlayer.play("ElevatorPanelFlash")
 
-## _on_MouseClicking_animation_finished
-## This function takes in a parameter that is a string which is the name of the aniamtion
-## when this function is called at the end of an animation it restarts that same animation
-func _on_MouseClicking_animation_finished(anim_name: String):
-	if anim_name == "MouseClicking" && MouseClickingAnimationPlayer != null:
-		MouseClickingAnimationPlayer.play("MouseClicking")
-
-
-		

@@ -473,7 +473,6 @@ mesh = ExtResource("3_u7x6o")
 
 [node name="DriverDoor" type="StaticBody3D" parent="DriverDoor" node_paths=PackedStringArray("mesh")]
 script = ExtResource("4_3ldg1")
-outline_material = ExtResource("5_ffxj2")
 mesh = NodePath("..")
 has_outline = true
 
@@ -487,7 +486,6 @@ mesh = ExtResource("6_jfqj7")
 
 [node name="Hood" type="StaticBody3D" parent="Hood" node_paths=PackedStringArray("mesh")]
 script = ExtResource("7_ax6x3")
-outline_material = ExtResource("5_ffxj2")
 mesh = NodePath("..")
 has_outline = true
 
@@ -502,7 +500,6 @@ mesh = ExtResource("11_l0me1")
 
 [node name="GasCap" type="StaticBody3D" parent="GasCap" node_paths=PackedStringArray("mesh")]
 script = ExtResource("13_n0en5")
-outline_material = ExtResource("5_ffxj2")
 mesh = NodePath("..")
 has_outline = true
 
@@ -516,7 +513,6 @@ mesh = ExtResource("13_3bkhn")
 
 [node name="SteeringWheel" type="StaticBody3D" parent="SteeringWheel" node_paths=PackedStringArray("mesh")]
 script = ExtResource("11_2tmgn")
-outline_material = ExtResource("5_ffxj2")
 mesh = NodePath("..")
 has_outline = true
 

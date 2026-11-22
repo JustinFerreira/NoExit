@@ -19,7 +19,7 @@ signal closed
 
 const FONT_PATH := "res://Assets/Fonts/Perfect_DOS_VGA_437.ttf"
 const ACCENT := Color("#990404")
-# Brighter red for text - ACCENT is too dark to read on black.
+## Brighter red for text - ACCENT is too dark to read on black.
 const ACCENT_TEXT := Color("#d42020")
 const TEXT_COLOR := Color(0.9, 0.9, 0.9)
 
@@ -43,6 +43,7 @@ func _ready() -> void:
 	_root.visible = false
 
 
+## True while the journal is showing.
 func is_open() -> bool:
 	return _mode != Mode.CLOSED
 
@@ -82,6 +83,7 @@ func open_journal() -> void:
 	_show_note(_shown_notes[last])
 
 
+## Closes the journal.
 func close() -> void:
 	if _mode == Mode.CLOSED:
 		return
@@ -117,6 +119,10 @@ func _open(mode: Mode) -> void:
 	var first := _mode == Mode.CLOSED
 	_mode = mode
 	_root.visible = true
+	# Any line of dialog on screen is finished with once a journal entry opens
+	# (otherwise it would come back after closing the journal).
+	if first:
+		UiManager.dismiss_dialog()
 	# UiManager pauses, hides the HUD/dialog and shows the mouse (hidden
 	# while just reading a note), and restores it all on close.
 	UiManager.open_screen("journal", pause_while_open, mode == Mode.JOURNAL)

@@ -1,44 +1,25 @@
 ## No Exit
 ## Overtime Studios
-## Last update 2/14/26 by Justin Ferreira
-## Phone ringing script
-## - this script makes a 3D sound play randomly
-## within a certain frame of time
+## Phone Ringing
+## - A 3D phone ring that plays once when the level starts, then again at a
+##   random moment 20-60 s after each ring ends.
 
 extends AudioStreamPlayer3D
 
+## How far away the ring can be heard.
 @export var max_hearing_distance: float = 80.0
-@export var min_volume_db: float = -80.0
-var random_play_timer: Timer = null
+## Seconds between rings (random in this range).
+@export var min_wait: float = 20.0
+@export var max_wait: float = 60.0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	max_distance = max_hearing_distance
-	# Start playing (optional - you can trigger it differently)
 	play()
-	finished.connect(play_at_random)
-	
-func play_at_random():
-	if random_play_timer and is_instance_valid(random_play_timer):
-		random_play_timer.stop()
-		random_play_timer.queue_free()
-	
-	# Create a new timer
-	random_play_timer = Timer.new()
-	random_play_timer.wait_time = randf_range(20.0, 60.0)
-	random_play_timer.one_shot = true
-	
-	# Connect the timeout signal
-	random_play_timer.timeout.connect(_on_random_play_timeout)
-	
-	add_child(random_play_timer)
-	random_play_timer.start()
-	
-	
-func _on_random_play_timeout():
-	play()
-	
-	# Clean up the timer
-	if random_play_timer and is_instance_valid(random_play_timer):
-		random_play_timer.queue_free()
-		random_play_timer = null
+	finished.connect(_ring_again_later)
+
+func _ring_again_later() -> void:
+	get_tree().create_timer(randf_range(min_wait, max_wait)).timeout.connect(_ring)
+
+func _ring() -> void:
+	if is_inside_tree():
+		play()

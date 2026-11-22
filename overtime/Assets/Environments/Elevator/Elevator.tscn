@@ -349,6 +349,7 @@ libraries = {
 [node name="ElevatorOutsideButtonFlash" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.333, 103.578, 123.642)
 visible = false
+layers = 0
 material_override = SubResource("StandardMaterial3D_atf6u")
 mesh = SubResource("BoxMesh_3ltjh")
 
@@ -368,6 +369,7 @@ libraries = {
 
 [node name="ElevatorPanelFlash" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.8665, 90.7835, 109.808)
+layers = 0
 material_override = SubResource("StandardMaterial3D_7pwgt")
 mesh = SubResource("BoxMesh_c444t")
 

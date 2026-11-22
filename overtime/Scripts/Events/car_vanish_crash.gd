@@ -1,13 +1,18 @@
-extends Node3D
+## No Exit
+## Overtime Studios
+## Ghost Car Event (LEGENDARY - once per playthrough, see GarageEvent)
+## - Starts invisible; when the director allows it, the car appears, crashes
+##   and vanishes ("VanishCar" animation) as the player walks in.
 
-var activated = false
+extends "res://Scripts/Events/GarageEvent.gd"
 
-# Called when the node enters the scene tree for the first time.
+func _init() -> void:
+	tier = Tier.LEGENDARY
+	kind = "ghost_car"
+	min_killer_distance = 30.0
+
 func _ready() -> void:
 	$AnimationPlayer.play("INVISIBLE")
 
-
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if not activated and (area.is_in_group("player") or area.name == "Player"):
-		$AnimationPlayer.play("VanishCar")
-		activated = true
+func _fire() -> void:
+	$AnimationPlayer.play("VanishCar")

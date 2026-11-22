@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cij8j1efhpoia" path="res://Assets/Environments/Elevator/ParkingGarageElevator.tscn" id="9_3agi4"]
 [ext_resource type="PackedScene" uid="uid://ucwb4r23x2rt" path="res://Assets/Audio/Scenes/WaterDripping.tscn" id="13_evl0o"]
 [ext_resource type="PackedScene" uid="uid://c1xfg88gshpto" path="res://Assets/Environments/Garage/Events/stalking_area.tscn" id="13_wl72n"]
-[ext_resource type="PackedScene" uid="uid://dnbe1s8gtna3g" path="res://Assets/Environments/Garage/BearTrap/stopping_trap.tscn" id="14_3mp4x"]
+[ext_resource type="PackedScene" uid="uid://dnbe1s8gtna3g" path="res://Assets/Environments/Garage/BearTrap/bear_trap.tscn" id="14_3mp4x"]
 [ext_resource type="PackedScene" uid="uid://b4vv0dyjs7ty5" path="res://Assets/Environments/Garage/Cars/SudanBlack.tscn" id="14_5y743"]
 [ext_resource type="PackedScene" uid="uid://duoospejbeo0t" path="res://Assets/Environments/Garage/PlayerCar/Scenes/PlayerCarSized.tscn" id="14_ejo3n"]
 [ext_resource type="PackedScene" uid="uid://dkn32km2rbo1c" path="res://Assets/Environments/Garage/GasCanister/GasCanisterPickUp.tscn" id="14_gvbgr"]
@@ -143,70 +143,69 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 957.795, 558.75, 1277.59)
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_3ahwl")
 
-[node name="UnwrappedParkingGarage" parent="NavigationRegion3D" node_paths=PackedStringArray("lights") instance=ExtResource("5_o1wft")]
+[node name="UnwrappedParkingGarage" parent="NavigationRegion3D" instance=ExtResource("5_o1wft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.3384, 0, 14.1346)
-lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="Car" parent="NavigationRegion3D" instance=ExtResource("14_ejo3n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2734.43, 42.0232, 756.08)
 
 [node name="BearTraps" type="Node3D" parent="NavigationRegion3D"]
 
-[node name="Stopping_Trap" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1785.52, 8.193, 1013.76)
 
-[node name="Stopping_Trap2" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap2" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -518.09, 8.0345, 2501.26)
 
-[node name="Stopping_Trap3" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap3" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -657.96, 266.001, 1999.55)
 
-[node name="Stopping_Trap4" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap4" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4355.04, 263.452, 743.33)
 
-[node name="Stopping_Trap5" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap5" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1615.23, 263.806, 619.11)
 
-[node name="Stopping_Trap6" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap6" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4603, 135.954, -646.53)
 
-[node name="Stopping_Trap7" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap7" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3566.57, 135.954, -1596.98)
 
-[node name="Stopping_Trap8" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap8" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4557.75, 8.193, 879.48)
 
-[node name="Stopping_Trap9" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap9" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -366.375, 8.10015, 1653.35)
 
-[node name="Stopping_Trap10" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap10" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3232.1, 8.193, 1338.55)
 
-[node name="Stopping_Trap11" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap11" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4812.38, 135.803, -113.002)
 
-[node name="Stopping_Trap12" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap12" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4125.6, 518.8, 814.475)
 
-[node name="Stopping_Trap13" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap13" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4482.13, 391.555, -299.2)
 
-[node name="Stopping_Trap14" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap14" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3942.25, 391.573, -2440.95)
 
-[node name="Stopping_Trap15" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap15" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1101.86, 135.954, -567.485)
 
-[node name="Stopping_Trap16" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap16" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1381.49, 10.2705, 787.88)
 
-[node name="Stopping_Trap17" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap17" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4646.09, 391.555, -218.297)
 
-[node name="Stopping_Trap18" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap18" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4018.63, 263.806, 1019.23)
 
-[node name="Stopping_Trap19" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
+[node name="BearTrap19" parent="NavigationRegion3D/BearTraps" instance=ExtResource("14_3mp4x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1044.76, 518.745, 599.89)
 
 [node name="AlarmCars" type="Node3D" parent="NavigationRegion3D"]

@@ -20,7 +20,9 @@
 ##      - Interactable > has_outline     = on (the mesh fills in
 ##        automatically from the parent ItemMesh)
 ##      - Examine > examine_dialog       = what the player says
-## 3. Optional: fill in the Pickup / Flashing / Spawn groups.
+## 3. Optional: fill in the Pickup / Spawn groups.
+## Outlines work like every Interactable: they fade in when the player is
+## close and flash while it's aimed at (no constant flashing).
 ## That's it. You do NOT need to:
 ##      - connect the `interacted` signal (done automatically)
 ##      - add a var to PlayerManager or set player_manager_reference
@@ -29,7 +31,7 @@
 ##
 ## Need custom behaviour? `extends ExaminableItem` and override the hooks at
 ## the bottom of this file (_can_examine, _on_examine_started, _on_picked_up,
-## _should_flash, ...). Don't override _on_interacted / _process unless you
+## ...). Don't override _on_interacted / _process unless you
 ## call super.
 
 extends Interactable
@@ -53,7 +55,6 @@ static var spin_enabled: bool = true
 
 enum SpinMode { USE_GLOBAL, ALWAYS, NEVER }
 enum SizeMode { FIT_TO_SCREEN, MULTIPLY_ORIGINAL }
-enum FlashMode { NEVER, UNTIL_PICKED_UP, WHEN_BOX_EQUIPPED }
 enum SpawnCondition { ALWAYS, LOOP_0_ONLY, AFTER_LOOP_0 }
 
 ## ---------------------------------------------------------------------
@@ -139,13 +140,8 @@ enum SpawnCondition { ALWAYS, LOOP_0_ONLY, AFTER_LOOP_0 }
 @export var hide_on_pickup: Node3D
 
 ## ---------------------------------------------------------------------
-## Flashing / Spawn
+## Spawn
 ## ---------------------------------------------------------------------
-@export_group("Flashing")
-## UNTIL_PICKED_UP: flashes whenever it can be clicked.
-## WHEN_BOX_EQUIPPED: flashes only while the Box is equipped (desk items).
-@export var flash_mode: FlashMode = FlashMode.NEVER
-
 @export_group("Spawn")
 ## Hide and disable this item depending on the loop.
 @export var spawn_condition: SpawnCondition = SpawnCondition.ALWAYS
@@ -159,7 +155,7 @@ enum SpawnCondition { ALWAYS, LOOP_0_ONLY, AFTER_LOOP_0 }
 @export var target_material: Material
 @export_group("")
 
-# Old name kept so existing code (EventManager dialog assignments, etc.) works.
+## Old name kept so existing code (EventManager dialog assignments, etc.) works.
 var normal_dialog: String:
 	get: return examine_dialog
 	set(value): examine_dialog = value
@@ -170,14 +166,14 @@ const EXAM_LAYER: int = 2
 enum State { IDLE, FLYING_IN, FOCUSED, RETURNING }
 var _state: State = State.IDLE
 
-# Kept for old callers - true while the examine view is open.
+## Kept for old callers - true while the examine view is open.
 var is_in_interaction: bool:
 	get: return _state != State.IDLE
 var should_stay_in_focus: bool:
 	get: return _state == State.FLYING_IN or _state == State.FOCUSED
 
-# Examine copy: a pivot at the mesh's visual centre with the mesh under it,
-# so moving/rotating/scaling the pivot always happens around the centre.
+## Examine copy: a pivot at the mesh's visual centre with the mesh under it,
+## so moving/rotating/scaling the pivot always happens around the centre.
 var _pivot: Node3D
 var _exam_mesh: MeshInstance3D
 var _exam_light: DirectionalLight3D
@@ -211,6 +207,7 @@ var _dark_tween: Tween
 
 func _ready() -> void:
 	super._ready()
+	add_to_group("enemy_passthrough")   # enemies don't trip over pickups
 	if not _passes_spawn_condition():
 		_remove_from_world()
 		return
@@ -239,9 +236,8 @@ func _remove_if_collected() -> void:
 		_remove_from_world()
 
 
-# _remove_from_world
-# Hides the item and makes it dead to clicks - used when it shouldn't be in
-# this loop, or was already collected.
+## Hides the item and makes it dead to clicks - used when it shouldn't be in
+## this loop, or was already collected.
 func _remove_from_world() -> void:
 	if player_manager_reference != "":
 		PlayerManager.set(player_manager_reference, null)
@@ -253,11 +249,6 @@ func _remove_from_world() -> void:
 
 
 func _process(delta: float) -> void:
-	if _should_flash():
-		start_flashing()
-	else:
-		stop_flashing()
-
 	if _state == State.FOCUSED:
 		_handle_rotation_input(delta)
 
@@ -309,7 +300,6 @@ func end_focus() -> void:
 	if not should_stay_in_focus:
 		return
 	PlayerManager.examining = false
-	PlayerManager.closeup = true
 	UiManager.set_cursor_visible(true)
 
 	if darken_background:
@@ -356,25 +346,6 @@ func _on_picked_up() -> void:
 
 func _on_examine_finished() -> void:
 	pass
-
-## Whether the item should flash this frame. Override for custom rules,
-## usually as `return super._should_flash() and <your condition>`.
-func _should_flash() -> bool:
-	if not is_interactable or PlayerManager.examining:
-		return false
-	var hide_node := _get_hide_node()
-	if hide_node and not hide_node.is_visible_in_tree():
-		return false
-	# The hover outline takes over while the player is aiming at it.
-	if PlayerManager.player and PlayerManager.player.interact_ray.get_collider() == self:
-		return false
-	match flash_mode:
-		FlashMode.UNTIL_PICKED_UP:
-			return true
-		FlashMode.WHEN_BOX_EQUIPPED:
-			return store_in_box and PlayerManager.EquippedItem == "Box"
-	return false
-
 
 ## ---------------------------------------------------------------------
 ## Fly in / out
@@ -511,13 +482,6 @@ func _handle_rotation_input(delta: float) -> void:
 	_user_q = Quaternion(basis.y, yaw) * Quaternion(basis.x, pitch) * _user_q
 	_apply_pivot()
 
-# Kept for old callers; rotation is now read from Input every frame.
-func rotate_left() -> void:
-	pass
-
-func rotate_right() -> void:
-	pass
-
 
 ## ---------------------------------------------------------------------
 ## Helpers
@@ -638,7 +602,7 @@ func _radius_vector() -> Vector3:
 	return aabb.size * 0.5
 
 
-# Where the pivot sits when the copy exactly overlaps the real mesh.
+## Where the pivot sits when the copy exactly overlaps the real mesh.
 func _source_global_pivot() -> Transform3D:
 	var src := _source_mesh.global_transform if _source_mesh else global_transform
 	return src.translated_local(_center_local)

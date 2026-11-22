@@ -886,7 +886,6 @@ random_lines = Array[String]([])
 ambient_min_interval = 1.0
 ambient_max_interval = 20.0
 is_interactable = true
-outline_material = null
 has_outline = false
 persist_id = ""
 

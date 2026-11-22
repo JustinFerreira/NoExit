@@ -57,8 +57,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52132, -0.0597944, 1.38009
 script = ExtResource("3_a2l26")
 dialog_from_event_manager = "mug1a_normal_dialog"
 store_in_box = true
-flash_mode = 1
-outline_material = ExtResource("4_pw4lu")
 mesh = NodePath("..")
 has_outline = true
 

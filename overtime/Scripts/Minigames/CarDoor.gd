@@ -1,17 +1,16 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated 1/19/26 by Justin Ferreira
+## Last updated 1/19/26 by Justin Ferreira
 ## CarDoor Script
 ## - The CarDoor script controls the interaction
 ## between the player and the door controling
-## its anmations and sounds. 
-## Also controling if the player is in the car or not 
+## its anmations and sounds.
+## Also controling if the player is in the car or not
 
 extends Interactable
 
 var unlocked: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
 	AnimationManager.DoorFlash = self
@@ -20,27 +19,18 @@ func _ready() -> void:
 		SettingsManager.KillerDisabled = true
 	#animation players assocaited with car door
 	AnimationManager.GetInCarAnimationPlayer = $"../../GetInCarAnimationPlayer"
-	
+
 	AnimationManager.ActivateGetInCarAnimationPlayer()
-	
+
 	AnimationManager.CarInteractRay = $"../../Head/Car_Cam/InteractRay"
 	AnimationManager.CarHead = $"../../Head"
 	CameraManager.CarCamera = $"../../Head/Car_Cam"
-	
+
 	if PlayerManager.OpeningCutscene:
 		return
-	else:
-		start_flashing()
 
 func _on_interacted(_body: Variant) -> void:
 	#(Event Manager function for car door interaction?)
-	#turning off flash for car objects when car animation is about to start
-	AnimationManager.HoodFlash.stop_flashing()
-	AnimationManager.DoorFlash.stop_flashing()
-	AnimationManager.SteeringWheelFlash.stop_flashing()
-	AnimationManager.GasIntakeFlash.stop_flashing()
-	
-	
 	#First time entering the car
 	if unlocked == false:
 		#check for keys? currently un-needed feature which is being talked about
@@ -50,10 +40,9 @@ func _on_interacted(_body: Variant) -> void:
 			#car door open sound
 			AudioManager.play_sound(AudioManager.CarDoorOpen)
 			#switching off player interact ray, collision, and gravity
-			
+
 			#Event Manager?
 			#Event Manager?
-			# PlayerManager.turnoffplayer()
 			PlayerManager.player.interact_ray.enabled = false
 			PlayerManager.player.AREA3D.monitoring = false
 			PlayerManager.player.AREA3D.monitorable = false
@@ -61,7 +50,7 @@ func _on_interacted(_body: Variant) -> void:
 			PlayerManager.player.gravity = false
 			#car entering turns on to show the direction of animation
 			#unlocked is true for no real reason unless playyer can forget keys which is being talked about
-			
+
 			#Event Manager?
 			#Event Manager?
 			AnimationManager.CarEntering = true
@@ -75,7 +64,7 @@ func _on_interacted(_body: Variant) -> void:
 			PlayerManager.InAnimation = true
 			#open door animation
 			AnimationManager.GetInCarAnimationPlayer.play("GettinginCar")
-			
+
 			#Event Manager?
 			#Event Manager?
 		else:
@@ -101,10 +90,9 @@ func _on_interacted(_body: Variant) -> void:
 		AnimationManager.HoodCollision.call_deferred("set_disabled", true)
 		#car door open sound
 		AudioManager.play_sound(AudioManager.CarDoorOpen)
-		
+
 		#Event Manager?
 		#Event Manager?
-		# PlayerManager.turnoffplayer()
 		PlayerManager.player.interact_ray.enabled = false
 		PlayerManager.player.AREA3D.monitoring = false
 		PlayerManager.player.AREA3D.monitorable = false
@@ -112,7 +100,7 @@ func _on_interacted(_body: Variant) -> void:
 		PlayerManager.player.gravity = false
 		#car entering turns on to show the direction of animation
 		#unlocked is true for no real reason unless playyer can forget keys which is being talked about
-		
+
 		#Event Manager?
 		#Event Manager?
 		AnimationManager.CarEntering = true
@@ -123,10 +111,10 @@ func _on_interacted(_body: Variant) -> void:
 		PlayerManager.player.interact_ray.enabled = false
 		PlayerManager.player.TbobON = false
 		CameraManager.CarCamera.current = true
-	
+
 		PlayerManager.InAnimation = true
 		#car entering turns on to show the direction of animation
 		AnimationManager.CarEntering = true
 		AnimationManager.GetInCarAnimationPlayer.play("GettinginCar")
-			
+
 # Example usage in a script attached to a MeshInstance

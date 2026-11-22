@@ -1,8 +1,8 @@
 ## No Exit
 ## Overtime Studios
-## Last upadated  5/4/26 by Justin Ferreira
+## Last updated  5/4/26 by Justin Ferreira
 ## Battery Script
-## - This script is attached to the Battery 
+## - This script is attached to the Battery
 ## for the battery minigame this script changes
 ## saves the battery instance into the playermanager
 ## so it can be used across other scripts and
@@ -12,7 +12,6 @@
 extends MeshInstance3D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#set up flashing for positive and negative zone of battery
 	#also setting up reset zones so visibilty for them can be toggled
@@ -21,18 +20,14 @@ func _ready() -> void:
 	AnimationManager.ResetZones.clear()
 	for Resetzone in get_tree().get_nodes_in_group("resetzone"):
 		AnimationManager.ResetZones.append(Resetzone)
-		
-	
+
+
 	AnimationManager.PositiveConnection = $PositiveConnection
 	AnimationManager.NegativeConnection = $NegativeConnection
 	AnimationManager.PositiveBatteryFlash = $PositiveBattery/PositiveBatteryFlash
 	AnimationManager.NegativeBatteryFlash = $NegativeBattery/NegativeBatteryFlash
-	AnimationManager.PositiveBatteryFlashAnimationPlayer = $PositiveBatteryFlashAnimationPlayer
-	AnimationManager.NegativeBatteryFlashAnimationPlayer = $NegativeBatteryFlashAnimationPlayer
-	AnimationManager.ActivatePositiveBatteryFlashAnimationPlayer()
-	AnimationManager.ActivateNegativeBatteryFlashAnimationPlayer()
-	AnimationManager.PositiveBatteryFlashAnimationPlayer.play("PositiveBatteryFlash")
-	AnimationManager.NegativeBatteryFlashAnimationPlayer.play("NegativeBatteryFlash")
-	
+	AnimationManager.loop_animation($PositiveBatteryFlashAnimationPlayer, "PositiveBatteryFlash")
+	AnimationManager.loop_animation($NegativeBatteryFlashAnimationPlayer, "NegativeBatteryFlash")
+
 	#giving the player battery itself so the player interactions work properly
 	PlayerManager.Battery = self

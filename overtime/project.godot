@@ -28,6 +28,7 @@ CameraManager="*res://Scripts/Managers/CameraManager.gd"
 UiManager="*res://Scripts/Managers/UIManager.gd"
 EventManager="*res://Scripts/Managers/EventManager.gd"
 HelperManager="*res://Scripts/Managers/HelperManager.gd"
+RogueRun="*res://Scripts/Managers/RogueRun.gd"
 
 [display]
 
@@ -145,6 +146,7 @@ override={
 3d_physics/layer_1="World"
 3d_physics/layer_5="Player"
 3d_physics/layer_6="PlayerTrigger"
+3d_physics/layer_7="Clickable"
 
 [rendering]
 

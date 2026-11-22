@@ -72,6 +72,9 @@
 [ext_resource type="PackedScene" path="res://Assets/Environments/Garage/YieldSign/YieldSign.tscn" id="71_gx3mg"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Garage/StopSign/StopSign.tscn" id="71_qpy50"]
 [ext_resource type="PackedScene" path="res://Assets/Environments/Garage/TrafficCone/TrafficCone.tscn" id="72_11lra"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/TollBooth/toll_booth.tscn" id="tb_model"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/TollBooth/boom_arm.tscn" id="tb_arm"]
+[ext_resource type="PackedScene" path="res://Assets/Environments/Garage/TollBooth/ticket_dispenser.tscn" id="tb_disp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js0h3"]
 albedo_texture = ExtResource("1_nuqwi")
@@ -319,9 +322,8 @@ size = Vector2(20.4712, 250)
 [sub_resource type="PlaneMesh" id="PlaneMesh_k3cga"]
 size = Vector2(20.4712, 250)
 
-[node name="UnwrappedParkingGarage" type="Node3D" node_paths=PackedStringArray("lights")]
+[node name="UnwrappedParkingGarage" type="Node3D"]
 script = ExtResource("1_nax11")
-lights = [NodePath("Lights/GarageLight"), NodePath("Lights/GarageLight2"), NodePath("Lights/GarageLight3"), NodePath("Lights/GarageLight4"), NodePath("Lights/GarageLight5"), NodePath("Lights/GarageLight6"), NodePath("Lights/GarageLight7"), NodePath("Lights/GarageLight8"), NodePath("Lights/GarageLight9"), NodePath("Lights/GarageLight10"), NodePath("Lights/GarageLight11"), NodePath("Lights/GarageLight12"), NodePath("Lights/GarageLight13"), NodePath("Lights/GarageLight14"), NodePath("Lights/GarageLight15"), NodePath("Lights/GarageLight16"), NodePath("Lights/GarageLight17"), NodePath("Lights/GarageLight18"), NodePath("Lights/GarageLight19"), NodePath("Lights/GarageLight20"), NodePath("Lights/GarageLight21"), NodePath("Lights/GarageLight22"), NodePath("Lights/GarageLight23"), NodePath("Lights/GarageLight24"), NodePath("Lights/GarageLight25"), NodePath("Lights/GarageLight26"), NodePath("Lights/GarageLight27"), NodePath("Lights/GarageLight28"), NodePath("Lights/GarageLight29"), NodePath("Lights/GarageLight30"), NodePath("Lights/GarageLight31"), NodePath("Lights/GarageLight32"), NodePath("Lights/GarageLight33"), NodePath("Lights/GarageLight34"), NodePath("Lights/GarageLight35"), NodePath("Lights/GarageLight36"), NodePath("Lights/GarageLight37"), NodePath("Lights/GarageLight38"), NodePath("Lights/GarageLight39"), NodePath("Lights/GarageLight40"), NodePath("Lights/GarageLight41"), NodePath("Lights/GarageLight42"), NodePath("Lights/GarageLight43"), NodePath("Lights/GarageLight44"), NodePath("Lights/GarageLight45"), NodePath("Lights/GarageLight46")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_js0h3")
@@ -11031,11 +11033,20 @@ transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -1, -1641.
 [node name="Booth" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 822.16, -13.1313, 1986.43)
 
-[node name="OfficeDoor10" parent="Booth" instance=ExtResource("41_i4vql")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28746, 138.527, -47.2042)
+[node name="TollBoothModel" parent="Booth" instance=ExtResource("tb_model")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 36, 158.6)
 
-[node name="OfficeDoor11" parent="Booth" instance=ExtResource("41_i4vql")]
-transform = Transform3D(1, 0, -1.50995e-07, 0, 1, 0, -1.50995e-07, 0, -1, 1.28746, 139.792, -57.7835)
+[node name="BoomArm1" parent="Booth" instance=ExtResource("tb_arm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -129, 21.8, -86.5)
+
+[node name="BoomArm2" parent="Booth" instance=ExtResource("tb_arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129, 21.8, 267.3)
+
+[node name="TicketDispenser1" parent="Booth" instance=ExtResource("tb_disp")]
+transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, -139, 21.8, -86.5)
+
+[node name="TicketDispenser2" parent="Booth" instance=ExtResource("tb_disp")]
+transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, 132.1, 21.8, 272.8)
 
 [node name="TollBooth" type="MeshInstance3D" parent="Booth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49441, 21.1056, 180.131)
@@ -11046,135 +11057,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5adco")
-
-[node name="TollBooth8" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49441, 257.128, 45.816)
-mesh = SubResource("BoxMesh_vvww6")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth8"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth8/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_mnffk")
-
-[node name="TollBooth9" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49441, 195.041, 107.549)
-transparency = 0.7
-mesh = SubResource("BoxMesh_lr52a")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth9"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth9/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_2gare")
-
-[node name="TollBooth2" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49441, 75.5255, 142.23)
-mesh = SubResource("BoxMesh_8j51l")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_03dst")
-
-[node name="TollBooth3" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49441, 136.257, -52.4105)
-mesh = SubResource("BoxMesh_a3dxs")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth3/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_3q6wv")
-
-[node name="TollBooth4" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 78.8105, 136.257, 11.111)
-mesh = SubResource("BoxMesh_tlsri")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth4/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_252jl")
-
-[node name="TollBooth11" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -333.442, 90.731, 11.111)
-mesh = SubResource("BoxMesh_75eaa")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth11"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth11/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_njopy")
-
-[node name="TollBooth14" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 333.294, 98.9565, 267.302)
-mesh = SubResource("BoxMesh_2khwk")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth14"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth14/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ghlhx")
-
-[node name="TollBooth12" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, -138.993, 69.8215, 11.111)
-mesh = SubResource("BoxMesh_fsucw")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth12"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth12/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_41n0y")
-
-[node name="TollBooth13" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37113e-08, 0, 1, 0, 1, 0, -1, 0, -4.37113e-08, 132.113, 69.255, 272.753)
-mesh = SubResource("BoxMesh_0sm5k")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth13"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth13/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_nrrf4")
-
-[node name="TollBooth5" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.8025, 136.257, 11.111)
-mesh = SubResource("BoxMesh_xtcyc")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth5/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_exdlc")
-
-[node name="TollBooth6" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 78.8105, 72.677, 86.6845)
-mesh = SubResource("BoxMesh_32ua6")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_x7rr1")
-
-[node name="TollBooth7" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75.8025, 72.677, 86.6845)
-mesh = SubResource("BoxMesh_bpqme")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Booth/TollBooth7"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Booth/TollBooth7/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fyxrk")
-
-[node name="Node3D" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.478, 193.163, 142.71)
-mesh = SubResource("BoxMesh_276y5")
-
-[node name="Node3D2" type="MeshInstance3D" parent="Booth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.7895, 193.349, 141.406)
-mesh = SubResource("BoxMesh_i6o1d")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -415.1, 342.95, 2091.1)

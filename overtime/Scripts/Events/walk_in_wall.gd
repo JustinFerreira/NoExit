@@ -1,12 +1,11 @@
-#I thought of a feature for a game im not
-#sure how to start implenting and needed help
-#trying to make it work in a game I'm making
-#in Godot. So this is for a horror game id like
-#to make a somewhat transporting mechanic but really
-#what i want to do is make it so that an end to a hallways
-#is black and looks like a deeper hallway but really its kinda
-#just segmenting parts of a bigger build but also it allows for
-#the
+## No Exit
+## Overtime Studios
+## Walk-In Wall ("WallBuddy")
+## - A seamless portal: the end of a hallway looks like it carries on into
+##   the dark, but walking into it moves the player to the paired wall
+##   (destination_wall_buddy) somewhere else in the level, keeping their
+##   position, speed and facing relative to the wall. Exit-only walls
+##   are just landing spots (straight displacement, no turning).
 
 extends Node3D
 class_name WallBuddy
@@ -63,7 +62,6 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 
 	# Reset bob so camera origin is clean before position changes
 	player.reset_headbob()
-	#print("Teleport entry position:  ", player.global_position)
 
 	if destination_wall_buddy.exit_only:
 		# Exit-only walls are elevator-style: same XZ, different Y.
@@ -71,7 +69,6 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 		# no portal math, no rotation change, player continues in the same direction.
 		var displacement = dest_mesh.global_position - source_mesh.global_position
 		player.global_position = player.global_position + displacement + destination_wall_buddy.exit_offset
-		#print("Teleport exit position:   ", player.global_position)
 		_start_cooldown()
 		return
 
@@ -100,7 +97,6 @@ func _apply_teleport(player: CharacterBody3D, source_mesh: Node3D, dest_mesh: No
 	new_pos.y = dest_mesh.global_position.y + relative_y
 	new_pos += destination_wall_buddy.exit_offset
 	player.global_position = new_pos
-	#print("Teleport exit position:   ", player.global_position)
 
 	# --- Velocity ---
 	var local_vel = source_mesh.global_transform.basis.inverse() * player.velocity

@@ -101,7 +101,6 @@ func apply() -> void:
 			light.distance_fade_shadow = shadow_fade_begin
 			light.distance_fade_begin = shadow_fade_begin + shadow_fade_length + 200.0   # the light itself never fades
 			light.distance_fade_length = shadow_fade_length
-	print("LevelShadows: shadows on for %d lights" % _lights.size())
 	_all_lights.clear()
 	_base_energy.clear()
 	for l in level.find_children("*", "Light3D", true, false):
@@ -134,12 +133,14 @@ func _setup_environment(level: Node) -> void:
 	}
 
 
+## Scales every light's energy (1 = as authored).
 func set_brightness(value: float) -> void:
 	brightness = clampf(value, 0.0, 10.0)
 	_apply_brightness()
 	_print_values()
 
 
+## Turns the flat ambient light on (with this energy) or back to the level's own.
 func set_ambient(on: bool, energy: float = ambient_energy) -> void:
 	ambient_on = on
 	ambient_energy = clampf(energy, 0.0, 3.0)

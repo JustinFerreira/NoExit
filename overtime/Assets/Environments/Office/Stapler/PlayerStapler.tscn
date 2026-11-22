@@ -57,8 +57,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.027
 script = ExtResource("5_eysno")
 dialog_from_event_manager = "stapler_normal_dialog"
 store_in_box = true
-flash_mode = 2
-outline_material = ExtResource("4_ys5ta")
 mesh = NodePath("..")
 has_outline = true
 

@@ -35,7 +35,6 @@ transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -3.01311
 script = ExtResource("5_xusxk")
 note = ExtResource("6_ynv33")
 take_on_read = true
-outline_material = ExtResource("7_q3jm3")
 mesh = NodePath("..")
 has_outline = true
 

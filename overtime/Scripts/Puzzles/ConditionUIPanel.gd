@@ -30,10 +30,9 @@ func _ready() -> void:
 		push_warning("%s: ConditionUIPanel has no confirm_button assigned." % name)
 
 
-# open
-# Shows the panel and frees the mouse so the player can click the
-# button. Also disables the player's current interact ray so clicking
-# through the UI doesn't also interact with world objects behind it.
+## Shows the panel and frees the mouse so the player can click the
+## button. Also disables the player's current interact ray so clicking
+## through the UI doesn't also interact with world objects behind it.
 func open() -> void:
 	visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -41,8 +40,7 @@ func open() -> void:
 		PlayerManager.player.interact_ray.enabled = false
 
 
-# close
-# Hides the panel and restores normal mouse/interact-ray behavior.
+## Hides the panel and restores normal mouse/interact-ray behavior.
 func close() -> void:
 	visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

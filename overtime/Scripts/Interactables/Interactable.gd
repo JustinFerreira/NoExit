@@ -1,37 +1,35 @@
 ## No Exit
 ## Overtime Studios
-## Last updated 10/18/26 by Justin Ferreira
-## - Interactable Script
-## this is is a parent class for many objects
-## having this as a parent allows for objects to have mutiple features
-## which are essential for gameplay
-## main feature being that the player can click on these objects adn there
-## will be some sort of reaction
-## there is also the ability to flash the outline of an object
-## Outlines are drawn as a screen-space effect by OutlineManager - change
-## the colour/width there.
+## Interactable (class_name Interactable)
+## - Base class for everything the player can click: the Player's interact
+##   ray emits `interacted`, which calls the subclass's _on_interacted().
+## - Outlines: with has_outline on, the object gets a red outline while the
+##   player is close (fading in/out), flashes while aimed at, and can be told
+##   to flash (start_flashing). Drawn as a screen-space effect by
+##   OutlineManager - change the colour/width there.
+## - mark_success() reports a real success (puzzles listen for it);
+##   get_persist_id() is the id GameState remembers it by.
 
 extends CollisionObject3D
 class_name Interactable
 
-# This allows for the clicking action the player takes to be sent to a function
-# that is set up on the child. This is found on the node and can be accessed in
-# the signals tab to easily establish this function.
+## This allows for the clicking action the player takes to be sent to a function
+## that is set up on the child. This is found on the node and can be accessed in
+## the signals tab to easily establish this function.
 signal interacted(body)
 
-# interaction_succeeded
-# A separate signal from `interacted` above. `interacted` just means the
-# player clicked this object - it fires no matter what the object's own
-# _on_interacted() decides to do with that click. interaction_succeeded
-# means this object's interaction actually succeeded (a puzzle piece was
-# solved, an item was picked up, etc). Anything that needs to react to a
-# real success - like ConditionDoor - should listen for this instead of
-# `interacted`. Call mark_success() below to emit it.
+## A separate signal from `interacted` above. `interacted` just means the
+## player clicked this object - it fires no matter what the object's own
+## _on_interacted() decides to do with that click. interaction_succeeded
+## means this object's interaction actually succeeded (a puzzle piece was
+## solved, an item was picked up, etc). Anything that needs to react to a
+## real success - like ConditionDoor - should listen for this instead of
+## `interacted`. Call mark_success() below to emit it.
 signal interaction_succeeded
 
-# turn on and off the objetcs interactivity
-# Turning it off also clears the hover outline, so nothing stays outlined
-# after it's been used / picked up.
+## turn on and off the objetcs interactivity
+## Turning it off also clears the hover outline, so nothing stays outlined
+## after it's been used / picked up.
 @export var is_interactable: bool = true:
 	set(value):
 		is_interactable = value
@@ -39,39 +37,46 @@ signal interaction_succeeded
 			hide_outline()
 		else:
 			_refresh_outline()
-# Legacy - no longer used. Outline colour/width live in OutlineManager.
-@export var outline_material: Material
-# The mesh that need the be outlined
-# Optional - leave empty to use this object's parent MeshInstance3D
+## The mesh that need the be outlined
+## Optional - leave empty to use this object's parent MeshInstance3D
 @export var mesh: MeshInstance3D
 @export var mesh_list: Array[MeshInstance3D]
-# Tick this to give the object an outline (on hover) and allow flashing.
+## Tick this to give the object an outline (on hover) and allow flashing.
 @export var has_outline: bool
-# Id GameState uses to remember this object (e.g. that it was picked up).
-# Leave empty to use "<level file>::<path in level>", which is unique as
-# long as you don't rename/move the node. Set one by hand if you want it
-# to survive renames, or to share one id between several levels.
+## Id GameState uses to remember this object (e.g. that it was picked up).
+## Leave empty to use "<level file>::<path in level>", which is unique as
+## long as you don't rename/move the node. Set one by hand if you want it
+## to survive renames, or to share one id between several levels.
 @export var persist_id: String = ""
+## Keep the close-by outline after the player has clicked this.
+## Off = once clicked it's only outlined while aimed at (the hover flash).
+@export var outline_after_use: bool = false
 
-# variable to know if object is flashimg or not
+## true once the player has clicked this (see mark_used)
+var was_used: bool = false
+
+## variable to know if object is flashimg or not
 var _is_flashing: bool = false
-# true while the player is aiming at this object (hover: the outline flashes,
-# and it wins over everything else)
+## true while the player is aiming at this object (hover: the outline flashes,
+## and it wins over everything else)
 var _outline_shown: bool = false
-# true while the player is within OutlineManager.NEAR_DISTANCE (steady outline)
+## true while the player is within OutlineManager.NEAR_DISTANCE (steady outline)
 var _near: bool = false
-# brightness of the hover flash, animated by _hover_tween
+## brightness of the "close by" outline, faded in/out by _near_tween
+var _near_alpha: float = 0.0
+var _near_tween: Tween
+## brightness of the hover flash, animated by _hover_tween
 var _hover_alpha: float = 1.0
 var _hover_tween: Tween
-# while true no outline or flash is drawn at all (see set_outline_blocked)
+## while true no outline or flash is drawn at all (see set_outline_blocked)
 var _outline_blocked: bool = false
-# current brightness of the flash, animated 0 -> 1 -> 0 by _flash_tween
+## current brightness of the flash, animated 0 -> 1 -> 0 by _flash_tween
 var _flash_alpha: float = 0.0
 var _flash_tween: Tween
-# One mask material per object, shared by its mask meshes. Its "strength"
-# is how bright this object's outline is right now.
+## One mask material per object, shared by its mask meshes. Its "strength"
+## is how bright this object's outline is right now.
 var _mask_material: ShaderMaterial
-# Invisible copies of the outlined meshes that OutlineManager draws from.
+## Invisible copies of the outlined meshes that OutlineManager draws from.
 var _masks: Array[MeshInstance3D] = []
 
 func _ready():
@@ -99,8 +104,7 @@ func _ready():
 func _on_interacted_callable() -> Callable:
 	return Callable(self, "_on_interacted")
 
-# get_persist_id
-# This object's id for GameState (see persist_id above).
+## This object's id for GameState (see persist_id above).
 func get_persist_id() -> String:
 	if persist_id != "":
 		return persist_id
@@ -109,9 +113,8 @@ func get_persist_id() -> String:
 		return str(get_path())
 	return "%s::%s" % [level.scene_file_path, level.get_path_to(self)]
 
-# _setup_outline
-# Makes the invisible mask copies OutlineManager uses to draw this
-# object's outline.
+## Makes the invisible mask copies OutlineManager uses to draw this
+## object's outline.
 func _setup_outline() -> void:
 	OutlineManager.get_instance(get_tree())
 	_mask_material = OutlineManager.make_mask_material()
@@ -126,9 +129,61 @@ func _setup_outline() -> void:
 	OutlineManager.register(self)
 
 
-# get_outline_aabb
-# World-space box around the meshes this object outlines (used for the
-# "player is close" check).
+## Outlines this object using `shape`: an invisible stand-in mesh (e.g. a box
+## over a button that's baked into a bigger model). The stand-in is kept
+## "visible" so the outline can draw, but on no render layer, so the camera
+## never shows it - only the outline appears. Call before super._ready().
+## front_toward: a point on the side the player looks from (e.g. inside the
+## elevator). If given, only the box's flat face on that side is outlined,
+## so the outline is a clean flat shape instead of tracing the box's depth.
+func use_outline_stand_in(shape: MeshInstance3D, front_toward: Variant = null) -> void:
+	shape.visible = true
+	shape.layers = 0
+	shape.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	mesh = shape if front_toward == null else _flat_face_of(shape, front_toward)
+	has_outline = true
+
+## An invisible box to outline with (see use_outline_stand_in), placed by `xf`
+## in `space`'s coordinates (e.g. where a button sits on an elevator model),
+## added under this object.
+func make_outline_shape(space: Node3D, xf: Transform3D) -> MeshInstance3D:
+	var m := MeshInstance3D.new()
+	m.name = "OutlineShape"
+	m.mesh = BoxMesh.new()
+	add_child(m)
+	m.global_transform = space.global_transform * xf
+	return m
+
+## A paper-thin copy of `shape` just inside its face toward `toward` (the
+## face across the box's thinnest side) - pulled most of the way in toward
+## the middle, where the button actually is, so the outline sits on the
+## button instead of floating in front of it. Never drawn either.
+func _flat_face_of(shape: MeshInstance3D, toward: Vector3) -> MeshInstance3D:
+	var box := shape.get_aabb()
+	var k := 0
+	var thinnest := INF
+	for i in 3:
+		var width: float = box.size[i] * shape.global_basis[i].length()
+		if width < thinnest:
+			thinnest = width
+			k = i
+	var center := box.get_center()
+	var face_center := center
+	var side := 1.0 if shape.to_local(toward)[k] > center[k] else -1.0
+	face_center[k] += side * box.size[k] * 0.5 * 0.2
+	var squash := Vector3.ONE
+	squash[k] = 0.01
+	var face := MeshInstance3D.new()
+	face.name = "OutlineFace"
+	face.mesh = shape.mesh
+	face.layers = 0
+	face.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	face.transform = Transform3D(Basis.from_scale(squash), face_center - squash * center)
+	shape.add_child.call_deferred(face)
+	return face
+
+## World-space box around the meshes this object outlines (used for the
+## "player is close" check).
 func get_outline_aabb() -> AABB:
 	var box := AABB()
 	var first := true
@@ -143,42 +198,70 @@ func get_outline_aabb() -> AABB:
 	return box
 
 
-# set_near
-# OutlineManager calls this when the player comes within (or leaves)
-# NEAR_DISTANCE of this object.
+## OutlineManager calls this when the player comes within (or leaves)
+## NEAR_DISTANCE of this object. The outline fades in / out
+## (OutlineManager.NEAR_FADE_IN_TIME / NEAR_FADE_OUT_TIME).
 func set_near(near: bool) -> void:
+	if near and _outline_spent():
+		near = false
 	if near == _near:
 		return
 	_near = near
+	if _near_tween and _near_tween.is_valid():
+		_near_tween.kill()
+	var target := 1.0 if near else 0.0
+	var full_time := OutlineManager.NEAR_FADE_IN_TIME if near else OutlineManager.NEAR_FADE_OUT_TIME
+	# only the part still left to fade (turning back halfway is quicker)
+	var time := full_time * absf(target - _near_alpha)
+	if time <= 0.0 or not is_inside_tree():
+		_set_near_alpha(target)
+		return
+	_near_tween = create_tween()
+	_near_tween.tween_method(_set_near_alpha, _near_alpha, target, time) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _set_near_alpha(alpha: float) -> void:
+	_near_alpha = alpha
 	_refresh_outline()
 
-# interact
-# this function is what is called when clicked by player
-# it checks if it is interactable if it is then it goes throught
-# with the _on_interacted function for that object
+## this function is what is called when clicked by player
+## it checks if it is interactable if it is then it goes throught
+## with the _on_interacted function for that object
 func interact(body):
 	if is_interactable == false:
 		pass
 	else:
+		mark_used()
 		interacted.emit(body)
 
-# _on_interaction_complete
-# turns off interactablity for an object
+## The player has clicked this: unless outline_after_use is on, its close-by
+## outline fades away and doesn't come back. Aiming at it still flashes.
+## Scripts restoring a saved state (a bin already searched, a door left open)
+## call it too.
+func mark_used() -> void:
+	was_used = true
+	if outline_after_use:
+		return
+	set_near(false)
+	_refresh_outline()
+
+func _outline_spent() -> bool:
+	return was_used and not outline_after_use
+
+## turns off interactablity for an object
 func _on_interaction_complete() -> void:
 	is_interactable = false
 	stop_flashing()
 
-# mark_success
-# Call this from a child script's _on_interacted() once it knows its
-# interaction actually succeeded. Emits interaction_succeeded so anything
-# listening for a real success (not just a click) can react - see
-# ConditionDoor.
+## Call this from a child script's _on_interacted() once it knows its
+## interaction actually succeeded. Emits interaction_succeeded so anything
+## listening for a real success (not just a click) can react - see
+## ConditionDoor.
 func mark_success() -> void:
 	interaction_succeeded.emit()
 
-# show_outline
-# The player is aiming at this object (hover): the outline starts flashing.
-# Returns false if this object has no outline.
+## The player is aiming at this object (hover): the outline starts flashing.
+## Returns false if this object has no outline.
 func show_outline() -> bool:
 	if not has_outline or _outline_blocked:
 		return false
@@ -188,9 +271,8 @@ func show_outline() -> bool:
 	_refresh_outline()
 	return true
 
-# hide_outline
-# The player stopped aiming at this object - back to the steady "close by"
-# outline, scripted flashing, or nothing.
+## The player stopped aiming at this object - back to the steady "close by"
+## outline, scripted flashing, or nothing.
 func hide_outline() -> void:
 	if not has_outline:
 		return
@@ -216,8 +298,7 @@ func _set_hover_alpha(alpha: float) -> void:
 	_hover_alpha = alpha
 	_refresh_outline()
 
-# start_flashing
-# Starts pulsing the outline on and off
+## Starts pulsing the outline on and off
 func start_flashing() -> void:
 	if not has_outline or _is_flashing:
 		return
@@ -230,8 +311,7 @@ func start_flashing() -> void:
 	_flash_tween.tween_method(_set_flash_alpha, 1.0, 0.0, 1.0)
 	_refresh_outline()
 
-# stop_flashing
-# Stops the pulsing outline
+## Stops the pulsing outline
 func stop_flashing() -> void:
 	if not _is_flashing:
 		return
@@ -241,11 +321,10 @@ func stop_flashing() -> void:
 	_flash_alpha = 0.0
 	_refresh_outline()
 
-# set_outline_blocked
-# Hides this object's outline and flashing completely until unblocked -
-# e.g. ExaminableItem blocks it while the item is up at the camera.
-# Blocking also forgets the hover outline, so it only comes back once the
-# player aims at the object again.
+## Hides this object's outline and flashing completely until unblocked -
+## e.g. ExaminableItem blocks it while the item is up at the camera.
+## Blocking also forgets the hover outline, so it only comes back once the
+## player aims at the object again.
 func set_outline_blocked(blocked: bool) -> void:
 	_outline_blocked = blocked
 	if blocked:
@@ -253,8 +332,7 @@ func set_outline_blocked(blocked: bool) -> void:
 		_stop_hover_flash()
 	_refresh_outline()
 
-# is_flashing
-# Check if currently flashing
+## Check if currently flashing
 func is_flashing() -> bool:
 	return _is_flashing
 
@@ -262,9 +340,8 @@ func _set_flash_alpha(alpha: float) -> void:
 	_flash_alpha = alpha
 	_refresh_outline()
 
-# _refresh_outline
-# Pushes the current outline brightness to the mask and tells
-# OutlineManager whether this object needs drawing.
+## Pushes the current outline brightness to the mask and tells
+## OutlineManager whether this object needs drawing.
 func _refresh_outline() -> void:
 	if not _mask_material:
 		return
@@ -274,8 +351,8 @@ func _refresh_outline() -> void:
 		strength = _hover_alpha
 	elif _is_flashing:
 		strength = _flash_alpha
-	elif _near and is_interactable:
-		strength = 1.0
+	elif is_interactable:
+		strength = _near_alpha
 	_mask_material.set_shader_parameter("strength", strength)
 	# Hidden or removed objects (picked up, etc.) never draw an outline.
 	var on := strength > 0.001 and not _outline_blocked and is_inside_tree() and is_visible_in_tree()
@@ -300,28 +377,28 @@ func _notification(what: int) -> void:
 				if is_instance_valid(mask):
 					mask.queue_free()
 
-# _exit_tree
-# Clean up when node exits
+## Clean up when node exits
 func _exit_tree() -> void:
 	if _flash_tween and _flash_tween.is_valid():
 		_flash_tween.kill()
 	_stop_hover_flash()
+	if _near_tween and _near_tween.is_valid():
+		_near_tween.kill()
 	_near = false
+	_near_alpha = 0.0
 	_set_masks_on(false)
 
-# toggle_interactable
-# takes in a bool parameter and sets
-# is_interactable to that
+## takes in a bool parameter and sets
+## is_interactable to that
 func toggle_interactable(state: bool):
 	is_interactable = state
 
-# reactivate_others
-# Shared helper for "button" scripts (SimpleCondition, UIConditionItem)
-# that expose their own exported reactivate_targets list and want to
-# restore a set of other Interactables to their original clickable state
-# when they fire - e.g. a relock trigger putting the buttons a
-# ConditionDoor already solved back into play so the puzzle can be
-# solved again.
+## Shared helper for "button" scripts (SimpleCondition, UIConditionItem)
+## that expose their own exported reactivate_targets list and want to
+## restore a set of other Interactables to their original clickable state
+## when they fire - e.g. a relock trigger putting the buttons a
+## ConditionDoor already solved back into play so the puzzle can be
+## solved again.
 func reactivate_others(targets: Array[Interactable]) -> void:
 	for target in targets:
 		if target == null:

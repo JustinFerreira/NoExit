@@ -1,88 +1,75 @@
-extends Node3D
+## No Exit
+## Overtime Studios
+## Light Flicker Event (COMMON - comes back after kind_cooldown, see GarageEvent)
+## - When the director allows it, the working lights around the player
+##   stutter on and off together - a few out of step - with a buzz of
+##   sparks - then settle back on. Broken lights stay dark.
+## - Every time it's a different length (FLAVOURS): a quick blip of just the
+##   lights around you, a short stutter, a long struggle with long dark spells,
+##   or now and then a really long one.
 
-var activated = false
+extends "res://Scripts/Events/GarageEvent.gd"
 
-var original_emission_data: Dictionary = {}
+const EventSounds = preload("res://Scripts/Events/EventSounds.gd")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+## [chance, seconds min, seconds max, radius (m), longest dark spell (s)]
+const FLAVOURS := [
+	[0.40, 0.5, 1.2, 18.0, 0.3],    # blip - the lights right around you
+	[0.35, 1.2, 2.5, 22.0, 0.5],    # short stutter
+	[0.20, 3.5, 6.0, 30.0, 1.0],    # long struggle
+	[0.05, 7.0, 10.0, 36.0, 1.6],   # really long - almost dies
+]
 
+func _init() -> void:
+	tier = Tier.COMMON
+	kind = "light_flicker"
+	kind_cooldown = 70.0
+	weight = 1.4
+	repeatable = true
 
-func _on_area_3d_area_entered(area: Area3D) -> void:
-	if area.is_in_group("player") or area.name == "Player":
-		if not activated:
-			for light in PlayerManager.ParkingGarageLights:
-				# Assuming light_panel_root is the Node3D root
-				# Find the OmniLight3D child (any depth)
-				var omni_light = light.get_node("OmniLight3D")
-				if omni_light and omni_light is OmniLight3D:
-					omni_light.visible = false
-				_turn_off_mesh_emission(light)
-				
-			await get_tree().create_timer(2).timeout
-			
-			for light in PlayerManager.ParkingGarageLights:
-				# Assuming light_panel_root is the Node3D root
-				# Find the OmniLight3D child (any depth)
-				var omni_light = light.get_node("OmniLight3D")
-				if omni_light and omni_light is OmniLight3D:
-					omni_light.visible = true
-				
-				_turn_on_mesh_emission(light)
-			activated = true
+func _pick_flavour() -> Array:
+	var r := randf()
+	for f in FLAVOURS:
+		r -= f[0]
+		if r <= 0.0:
+			return f
+	return FLAVOURS[0]
 
-func _turn_off_mesh_emission(light_node: Node) -> void:
-	var mesh_instance = light_node.find_child("MeshInstance3D", true, false)
-	if not mesh_instance:
-		for child in light_node.get_children():
-			if child is MeshInstance3D:
-				mesh_instance = child
-				break
-	
-	if mesh_instance and mesh_instance.mesh:
-		if not original_emission_data.has(light_node):
-			original_emission_data[light_node] = []
-		
-		for i in range(mesh_instance.mesh.get_surface_count()):
-			var original_material = mesh_instance.get_surface_override_material(i)
-			if not original_material:
-				original_material = mesh_instance.mesh.surface_get_material(i)
-			
-			if original_material and original_material is StandardMaterial3D:
-				# Create a duplicate material to avoid modifying the original
-				var new_material = original_material.duplicate()
-				
-				# Store original material reference
-				original_emission_data[light_node].append({
-					"surface": i,
-					"original_material": original_material,
-					"is_override": mesh_instance.get_surface_override_material(i) != null
-				})
-				
-				# Turn off emission on the duplicated material
-				new_material.emission_enabled = false
-				new_material.emission = Color.BLACK
-				
-				# Apply the duplicated material
-				mesh_instance.set_surface_override_material(i, new_material)
-
-func _turn_on_mesh_emission(light_node: Node) -> void:
-	if original_emission_data.has(light_node):
-		var mesh_instance = light_node.find_child("MeshInstance3D", true, false)
-		if not mesh_instance:
-			for child in light_node.get_children():
-				if child is MeshInstance3D:
-					mesh_instance = child
-					break
-		
-		if mesh_instance and mesh_instance.mesh:
-			for data in original_emission_data[light_node]:
-				if data["is_override"]:
-					# Restore the original override material
-					mesh_instance.set_surface_override_material(data["surface"], data["original_material"])
-				else:
-					# Clear the override to use the original mesh material
-					mesh_instance.set_surface_override_material(data["surface"], null)
-		
-		original_emission_data.erase(light_node)
+func _fire() -> void:
+	var p = PlayerManager.player
+	if not is_instance_valid(p):
+		return
+	var f := _pick_flavour()
+	var lights := []
+	for light in PlayerManager.ParkingGarageLights:
+		if is_instance_valid(light) and not light.has_meta("broken") \
+				and light.global_position.distance_to(p.global_position) < f[3]:
+			lights.append(light)
+	if lights.is_empty():
+		return
+	var length: float = randf_range(f[1], f[2])
+	EventSounds.play_at(get_tree(), AudioManager.ElectricSpark1, lights[0].global_position, -6.0 if length > 1.0 else -10.0, 40.0)
+	var end := Time.get_ticks_msec() + int(length * 1000.0)
+	# The lights mostly go together (so the whole area really drops dark),
+	# with a few out of step each time - all on their own, the area's light
+	# averaged out and it hardly looked like a flicker.
+	var on := true
+	while Time.get_ticks_msec() < end:
+		on = not on
+		for light in lights:
+			if is_instance_valid(light) and not light.has_meta("broken"):
+				HelperManager.set_light_panel_lit(light, on if randf() < 0.82 else not on)
+		var wait: float
+		if on:
+			# mostly a split second of light; on the long ones it sometimes
+			# seems to recover for a moment before it goes again
+			wait = randf_range(0.04, 0.16) if (randf() < 0.85 or f[4] < 0.5) else randf_range(0.3, 0.7)
+		else:
+			wait = randf_range(0.06, 0.22) if randf() < 0.7 else randf_range(0.25, f[4])
+		if randf() < 0.25:
+			EventSounds.play_at(get_tree(), AudioManager.GetSpark(), lights.pick_random().global_position, -12.0, 35.0)
+		await get_tree().create_timer(wait).timeout
+	await get_tree().create_timer(0.15).timeout
+	for light in lights:
+		if is_instance_valid(light) and not light.has_meta("broken"):
+			HelperManager.set_light_panel_lit(light, true)

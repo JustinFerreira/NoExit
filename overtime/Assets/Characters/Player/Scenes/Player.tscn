@@ -17,7 +17,7 @@
 albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wuiwm"]
-points = PackedVector3Array(-0.39882, -1.06557, -0.278285, 0.39882, 1.06557, 0.278285, 0.39882, -1.06557, 0.278285, 0.39882, 1.06557, -0.278285, -0.39882, 1.06557, 0.278285, 0.39882, -1.06557, -0.278285, -0.39882, -1.06557, 0.278285, -0.39882, 1.06557, -0.278285)
+points = PackedVector3Array(-0.39882, -1.655, -0.278285, 0.39882, 1.655, 0.278285, 0.39882, -1.655, 0.278285, 0.39882, 1.655, -0.278285, -0.39882, 1.655, 0.278285, 0.39882, -1.655, -0.278285, -0.39882, -1.655, 0.278285, -0.39882, 1.655, -0.278285)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_31uqn"]
 points = PackedVector3Array(-0.438702, -1.17213, -0.306113, 0.438702, 1.17213, 0.306113, 0.438702, -1.17213, 0.306113, 0.438702, 1.17213, -0.306113, -0.438702, 1.17213, 0.306113, 0.438702, -1.17213, -0.306113, -0.438702, -1.17213, 0.306113, -0.438702, 1.17213, -0.306113)
@@ -188,7 +188,7 @@ material_override = SubResource("StandardMaterial3D_ye13h")
 mesh = ExtResource("2_sf52k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, -1.59692e-07, 0, 1, 0, 1.59692e-07, 0, 1, 0, 1.05512, 0)
+transform = Transform3D(1, 0, -1.59692e-07, 0, 1, 0, 1.59692e-07, 0, 1, 0, 1.645, 0)
 shape = SubResource("ConvexPolygonShape3D_wuiwm")
 
 [node name="Head" type="Node3D" parent="."]
