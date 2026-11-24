@@ -6,7 +6,10 @@
 ##   buttons):
 ##     Paused     - the normal pause buttons
 ##     Dev Tools  - killer off, free roam, visibility..., which hand the
-##                  battery minigame shows (simple / arm model)
+##                  battery minigame shows (simple / arm model), and a jump
+##                  to any rogue round (in the office or the garage)
+##     Enemies    - the rogue round's enemies: pick your own line-up (types,
+##                  speeds, how many, illusions) and restart with it
 ##     Events     - the event director: when the next event can happen, how
 ##                  many of each kind went off, legendaries seen
 ##     Flags      - every true/false value in the game managers and on the
@@ -58,6 +61,7 @@ func setup(owner_menu: Control) -> void:
 	_add_page(menu.get_node("PanelContainer"), "Paused", true)
 	_add_page(menu.get_node("PanelContainer2"), "Dev Tools", true)
 	_add_page(_make_events_page(), "Events", false)
+	_add_page(_make_enemies_page(), "Enemies", false)
 	_add_page(_make_flags_page(), "Flags", false)
 	_add_page(_make_map_page(), "Event Map", false)
 	# Dev Tools: which hand the battery minigame shows
@@ -69,6 +73,40 @@ func setup(owner_menu: Control) -> void:
 	_hand_label(hand_btn)
 	tools.add_child(hand_btn)
 	tools.move_child(hand_btn, 4)
+	# Dev Tools: jump to any rogue round
+	var round_row := HBoxContainer.new()
+	round_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	round_row.add_theme_constant_override("separation", 10)
+	round_row.add_child(_label("Rogue round:", 18))
+	round_row.add_child(_button("-", func(): _set_jump_round(_jump_round - 1), 22))
+	_jump_label = _label("", 20, Color(1.0, 0.85, 0.3))
+	_jump_label.custom_minimum_size = Vector2(36, 0)
+	_jump_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	round_row.add_child(_jump_label)
+	round_row.add_child(_button("+", func(): _set_jump_round(_jump_round + 1), 22))
+	round_row.add_child(_button("Start (office)", func(): _jump(false), 16))
+	round_row.add_child(_button("Start (garage)", func(): _jump(true), 16))
+	tools.add_child(round_row)
+	tools.move_child(round_row, 5)
+	_set_jump_round(RogueRun.round_number + 1 if RogueRun.active else 1)
+	# Dev Tools: tune how far the key fob carries, live
+	var fob_row := HBoxContainer.new()
+	fob_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	fob_row.add_theme_constant_override("separation", 8)
+	fob_row.add_child(_label("Fob range:", 16))
+	fob_row.add_child(_button("-", func(): _fob_tune(-10.0, 0.0), 20))
+	_fob_range_label = _label("", 16, Color(1.0, 0.85, 0.3))
+	fob_row.add_child(_fob_range_label)
+	fob_row.add_child(_button("+", func(): _fob_tune(10.0, 0.0), 20))
+	fob_row.add_child(_label("falloff:", 16))
+	fob_row.add_child(_button("-", func(): _fob_tune(0.0, -1.0), 20))
+	_fob_falloff_label = _label("", 16, Color(1.0, 0.85, 0.3))
+	fob_row.add_child(_fob_falloff_label)
+	fob_row.add_child(_button("+", func(): _fob_tune(0.0, 1.0), 20))
+	fob_row.add_child(_button("Test fob", func(): _fob_test(), 16))
+	tools.add_child(fob_row)
+	tools.move_child(fob_row, 6)
+	_fob_tune(0.0, 0.0)
 	UiManager.screen_opened.connect(func(id): if id == "pause": show_page(0))
 	show_page(0)
 
@@ -125,8 +163,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		menu.resume()
 
 func _process(delta: float) -> void:
+	if _live and (not menu.visible or titles[_page] != "Event Map"):
+		_set_live(false)   # live only while the map is up
 	if not menu.visible:
 		return
+	if _live:
+		_map.queue_redraw()
+		_update_enemy_line()
 	# our own pages fade in and out with the menu, like the scene's pages
 	for k in range(2, pages.size()):
 		pages[k].modulate.a = menu.get_node("PanelContainer").modulate.a
@@ -136,8 +179,11 @@ func _process(delta: float) -> void:
 	_refresh = 0.3
 	match titles[_page]:
 		"Events": _update_events()
+		"Enemies": _update_enemies_status()
 		"Flags": _update_flags()
-		"Event Map": _map.queue_redraw()
+		"Event Map":
+			_map.queue_redraw()
+			_update_enemy_line()
 
 ## ---------------------------------------------------------------------
 ## Building blocks
@@ -361,14 +407,19 @@ func _make_map_page() -> Control:
 	for game in ["Battery", "Gas", "Tire", "Hot-wire"]:
 		var g: String = game
 		car_row.add_child(_button(g, func(): _car_action(g), 13))
+	_live_btn = _button("", func(): _set_live(not _live), 13)
+	car_row.add_child(_live_btn)
 	box.add_child(car_row)
+	_enemy_line = _label("", 11, Color(1.0, 0.45, 0.35))
+	box.add_child(_enemy_line)
+	_set_live(false)   # (labels the button)
 	_map = Control.new()
 	_map.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_map.mouse_filter = Control.MOUSE_FILTER_STOP
 	_map.draw.connect(_draw_map)
 	_map.gui_input.connect(_on_map_input)
 	box.add_child(_map)
-	_map_hint = _label("Left-click an event: go there and set it off.   Right-click: just go there.", 11, Color(0.7, 0.7, 0.7))
+	_map_hint = _label("Event: left-click go there + set it off, right-click just go.  Item: left-click go to it, right-click take it.", 11, Color(0.7, 0.7, 0.7))
 	box.add_child(_map_hint)
 	var legend := HBoxContainer.new()
 	legend.add_theme_constant_override("separation", 24)
@@ -376,6 +427,8 @@ func _make_map_page() -> Control:
 		legend.add_child(_label("● " + TIER_NAMES[t], 11, TIER_COLORS[t]))
 	legend.add_child(_label("▲ you", 11, Color(0.3, 1.0, 0.4)))
 	legend.add_child(_label("■ your car", 11, Color(1.0, 0.85, 0.2)))
+	legend.add_child(_label("◆ item", 11, Color(0.2, 0.9, 1.0)))
+	legend.add_child(_label("➤ enemy", 11, ENEMY_COLORS.stalker))
 	box.add_child(legend)
 	return p
 
@@ -477,13 +530,27 @@ func _draw_map() -> void:
 		if e.ev.fired and not e.ev.repeatable:
 			col = col.darkened(0.6)
 		_map.draw_circle(at, 5.0 if e == hover else 3.5, col)
+	# the enemies, live, pointing the way they face
+	_draw_enemies()
+	# items to pick up (the parts and anything else lying about)
+	var hover_item = _item_at(_map.get_local_mouse_position())
+	for it in _map_items():
+		if _deck_of(it.floor) != _map_deck:
+			continue
+		var ip := _to_map(Vector2(it.pos.x, it.pos.z))
+		var r := 6.0 if it == hover_item else 4.5
+		_map.draw_colored_polygon(PackedVector2Array([ip + Vector2(0, -r), ip + Vector2(r, 0), ip + Vector2(0, r), ip + Vector2(-r, 0)]), Color(0.2, 0.9, 1.0))
+		_map.draw_string(_font, ip + Vector2(6, 4), it.name.left(1), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(0.2, 0.9, 1.0))
+	if hover_item:
+		_map.draw_string(_font, _map.get_local_mouse_position() + Vector2(12, 8), hover_item.name, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(0.2, 0.9, 1.0))
 	# your car
 	var car := _player_car()
 	if car:
 		var cp: Vector3 = car.global_position
 		var here_car := _deck_of(cp.y - 0.5) == _map_deck
 		var cm := _to_map(Vector2(cp.x, cp.z))
-		_map.draw_rect(Rect2(cm - Vector2(6, 4), Vector2(12, 8)), Color(1.0, 0.85, 0.2, 1.0 if here_car else 0.35))
+		if Rect2(Vector2.ZERO, _map.size).grow(-4.0).has_point(cm):
+			_map.draw_rect(Rect2(cm - Vector2(6, 4), Vector2(12, 8)), Color(1.0, 0.85, 0.2, 1.0 if here_car else 0.35))
 	if is_instance_valid(PlayerManager.player):
 		var pp: Vector3 = PlayerManager.player.global_position
 		var c := _to_map(Vector2(pp.x, pp.z))
@@ -517,6 +584,14 @@ func _on_map_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		_map.queue_redraw()
 	elif event is InputEventMouseButton and event.pressed:
+		# items first: left-click goes to it, right-click takes it
+		var it = _item_at(event.position)
+		if it:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				_go_to_item(it)
+			else:
+				_take_item(it)
+			return
 		var e = _event_at(event.position)
 		if e == null:
 			return
@@ -695,3 +770,346 @@ func _safe_stand(near: Vector3, floor_y: float) -> Vector3:
 			if space.intersect_shape(body, 1).is_empty():
 				return feet
 	return Vector3(near.x, floor_y + 0.05, near.z)
+
+## ---------------------------------------------------------------------
+## Event map: items lying about (anything with an item name the player can
+## still pick up - the round's parts and the rest)
+## ---------------------------------------------------------------------
+
+var _items_cache: Array = []
+var _items_ms := -100000
+
+func _map_items() -> Array:
+	# (searching the whole level is slow - it's kept for a second)
+	if Time.get_ticks_msec() - _items_ms < 1000:
+		return _items_cache.filter(func(it): return is_instance_valid(it.node) and it.node.is_visible_in_tree())
+	_items_ms = Time.get_ticks_msec()
+	var out := []
+	_items_cache = out
+	var scene := get_tree().current_scene
+	if scene == null:
+		return out
+	var space: PhysicsDirectSpaceState3D = scene.get_viewport().get_world_3d().direct_space_state
+	for n in scene.find_children("*", "", true, false):
+		var nm := _item_name(n)
+		if not (n is Node3D) or nm == "":
+			continue
+		if not n.is_visible_in_tree() or ("is_interactable" in n and not n.is_interactable):
+			continue
+		var at: Vector3 = n.global_position
+		var hit := space.intersect_ray(PhysicsRayQueryParameters3D.create(at + Vector3.UP * 0.5, at + Vector3.DOWN * 4.0))
+		out.append({"node": n, "name": nm, "pos": at, "floor": hit.position.y if hit else at.y})
+	return out
+
+func _item_at(m: Vector2):
+	var best = null
+	var best_d := 9.0
+	for it in _map_items():
+		if _deck_of(it.floor) != _map_deck:
+			continue
+		var d := _to_map(Vector2(it.pos.x, it.pos.z)).distance_to(m)
+		if d < best_d:
+			best_d = d
+			best = it
+	return best
+
+## Stands the player next to an item (on its floor), looking at it.
+func _go_to_item(it: Dictionary) -> void:
+	menu.resume()
+	await get_tree().create_timer(0.3).timeout
+	_teleport(it.pos + Vector3(1.5, 0, 1.5), it.pos, it.floor)
+
+## The name an item goes into the inventory under ("" = not an item):
+## ExaminableItem's inventory_name, InventoryItem's item_name.
+func _item_name(n: Node) -> String:
+	if "inventory_name" in n and str(n.inventory_name) != "":
+		return str(n.inventory_name)
+	if "item_name" in n and str(n.item_name) != "":
+		return str(n.item_name)
+	return ""
+
+## Puts the item straight into the player's inventory (as if they picked it up).
+func _take_item(it: Dictionary) -> void:
+	var n: Node = it.node
+	if not is_instance_valid(n):
+		return
+	if "inventory_name" in n and str(n.inventory_name) != "":
+		# an ExaminableItem - its own pick-up needs the examine view, so the
+		# same steps by hand
+		PlayerManager.AddToInventory(n.inventory_name, n.inventory_weight, n.inventory_equippable)
+		var hide_node: Node = n._get_hide_node() if n.has_method("_get_hide_node") else n
+		if hide_node == null:
+			hide_node = n
+		hide_node.visible = false
+		n._on_interaction_complete()
+		n.mark_success()
+		if n.has_signal("picked_up"):
+			n.picked_up.emit()
+		if n.has_method("_on_picked_up"):
+			n._on_picked_up()
+	elif n.has_method("_on_interacted"):
+		n._on_interacted(PlayerManager.player)
+		AudioManager.play_sound(AudioManager.GetKeyPress())
+	_map.queue_redraw()
+
+## ---------------------------------------------------------------------
+## Dev Tools: jump to a rogue round (its problems, enemies and rules), in
+## the office or straight into the garage
+## ---------------------------------------------------------------------
+var _jump_round := 1
+var _jump_label: Label
+
+func _set_jump_round(n: int) -> void:
+	_jump_round = clampi(n, 1, 99)
+	if _jump_label:
+		_jump_label.text = str(_jump_round)
+
+func _jump(to_garage: bool) -> void:
+	menu.resume()
+	await get_tree().create_timer(0.3).timeout
+	RogueRun.dev_jump_to_round(_jump_round, to_garage)
+
+## ---------------------------------------------------------------------
+## Enemies page: build a rogue line-up by hand - each enemy's type (stalker,
+## hunter, angel, staring angel) and speed, how many, illusions - and restart
+## the round's garage with it (RogueRun.dev_plan). "Every round" keeps it for
+## the rounds after too; "Back to random" goes back to the rolled line-ups.
+## ---------------------------------------------------------------------
+const ENEMY_KINDS := ["stalker", "hunter", "angel", "starer"]
+const ENEMY_KIND_NAMES := {"stalker": "Stalker", "hunter": "Hunter", "angel": "Angel", "starer": "Staring angel"}
+const MAX_ENEMIES := 6
+
+var _lineup: Array = []          # [{kind, speed}] - kind "starer" = a staring angel
+var _lineup_rows: VBoxContainer
+var _lineup_status: Label
+var _illusions_btn: Button
+var _every_btn: Button
+var _lineup_illusions := false
+
+func _make_enemies_page() -> Control:
+	var p := _page_panel()
+	var box: VBoxContainer = p.get_child(0)
+	_lineup_status = _label("", 12)
+	box.add_child(_lineup_status)
+	_lineup_rows = VBoxContainer.new()
+	_lineup_rows.add_theme_constant_override("separation", 2)
+	box.add_child(_lineup_rows)
+	var opts := HBoxContainer.new()
+	opts.add_theme_constant_override("separation", 16)
+	opts.add_child(_button("+ Add enemy", func(): _lineup_add(), 14))
+	_illusions_btn = _button("", func(): _lineup_illusions = not _lineup_illusions; _lineup_refresh(), 14)
+	opts.add_child(_illusions_btn)
+	_every_btn = _button("", func(): RogueRun.dev_plan_every_round = not RogueRun.dev_plan_every_round; _lineup_refresh(), 14)
+	opts.add_child(_every_btn)
+	box.add_child(opts)
+	var go := HBoxContainer.new()
+	go.add_theme_constant_override("separation", 16)
+	go.add_child(_button("Apply: restart this round's garage", func(): _lineup_apply(), 14))
+	go.add_child(_button("Back to random", func(): _lineup_clear(), 14))
+	box.add_child(go)
+	_lineup_from_round()
+	return p
+
+## Starts the editor off from the dev line-up if there is one, else this
+## round's actual enemies.
+func _lineup_from_round() -> void:
+	var src: Array = RogueRun.dev_plan if not RogueRun.dev_plan.is_empty() else RogueRun.enemy_plan
+	_lineup.clear()
+	for e in src:
+		var kind: String = "starer" if e.get("starer", false) else str(e.kind)
+		_lineup.append({"kind": kind, "speed": float(e.get("speed", 1.0))})
+	if _lineup.is_empty():
+		_lineup.append({"kind": "stalker", "speed": 1.0})
+	_lineup_illusions = RogueRun.dev_illusions if not RogueRun.dev_plan.is_empty() else RogueRun.illusions
+	_lineup_refresh()
+
+func _lineup_refresh() -> void:
+	if _lineup_rows == null:
+		return
+	for c in _lineup_rows.get_children():
+		c.queue_free()
+	for i in _lineup.size():
+		var idx := i
+		var e: Dictionary = _lineup[i]
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 10)
+		row.add_child(_label("%d." % (i + 1), 14))
+		var kind_btn := _button(ENEMY_KIND_NAMES[e.kind], func(): _lineup_cycle(idx), 14)
+		kind_btn.custom_minimum_size = Vector2(150, 0)
+		row.add_child(kind_btn)
+		row.add_child(_label("speed", 12, Color(0.7, 0.7, 0.7)))
+		row.add_child(_button("-", func(): _lineup_speed(idx, -0.1), 16))
+		row.add_child(_label("%.1fx" % e.speed, 14, Color(1.0, 0.85, 0.3)))
+		row.add_child(_button("+", func(): _lineup_speed(idx, 0.1), 16))
+		if _lineup.size() > 1:
+			row.add_child(_button("remove", func(): _lineup.remove_at(idx); _lineup_refresh(), 12))
+		_lineup_rows.add_child(row)
+	_illusions_btn.text = "Illusions: %s" % ("on" if _lineup_illusions else "off")
+	_every_btn.text = "Every round: %s" % ("on" if RogueRun.dev_plan_every_round else "just the next")
+	_update_enemies_status()
+
+func _update_enemies_status() -> void:
+	if _lineup_status == null:
+		return
+	var now := []
+	for e in RogueRun.enemy_plan:
+		now.append("%s %.1fx" % [ENEMY_KIND_NAMES["starer" if e.get("starer", false) else str(e.kind)], float(e.get("speed", 1.0))])
+	var s := "Round %d enemies now: %s%s" % [RogueRun.round_number, ", ".join(now) if not now.is_empty() else "-", " + illusions" if RogueRun.illusions else ""]
+	if not RogueRun.active:
+		s = "Not in a rogue run - Apply starts one at round 1."
+	elif not RogueRun.dev_plan.is_empty():
+		s += "\nYour line-up is set for %s." % ("every round" if RogueRun.dev_plan_every_round else "the next round start")
+	_lineup_status.text = s
+
+func _lineup_cycle(i: int) -> void:
+	var k := ENEMY_KINDS.find(_lineup[i].kind)
+	_lineup[i].kind = ENEMY_KINDS[(k + 1) % ENEMY_KINDS.size()]
+	_lineup_refresh()
+
+func _lineup_speed(i: int, step: float) -> void:
+	_lineup[i].speed = clampf(snappedf(_lineup[i].speed + step, 0.1), 0.5, 2.5)
+	_lineup_refresh()
+
+func _lineup_add() -> void:
+	if _lineup.size() < MAX_ENEMIES:
+		_lineup.append({"kind": "hunter", "speed": 1.0})
+		_lineup_refresh()
+
+## The line-up as RogueRun wants it: [{kind, speed, starer}].
+func _lineup_plan() -> Array:
+	var out := []
+	for e in _lineup:
+		var starer: bool = e.kind == "starer"
+		out.append({"kind": "angel" if starer else e.kind, "speed": e.speed, "starer": starer})
+	return out
+
+func _lineup_apply() -> void:
+	RogueRun.dev_plan = _lineup_plan()
+	RogueRun.dev_illusions = _lineup_illusions
+	menu.resume()
+	await get_tree().create_timer(0.3).timeout
+	RogueRun.dev_jump_to_round(RogueRun.round_number if RogueRun.active else 1, true)
+
+func _lineup_clear() -> void:
+	RogueRun.dev_plan = []
+	RogueRun.dev_plan_every_round = false
+	_lineup_from_round()
+
+## ---------------------------------------------------------------------
+## Event map: the enemies - where each one is (live), which way it's facing,
+## what it's doing. "Live" lets the game run behind the map (the player held
+## still) so they can be watched moving; it pauses again on leaving the map.
+## ---------------------------------------------------------------------
+const ENEMY_COLORS := {
+	"stalker": Color(1.0, 0.3, 0.25), "hunter": Color(1.0, 0.3, 0.9),
+	"angel": Color(0.85, 0.85, 0.8), "starer": Color(0.45, 0.7, 1.0), "other": Color(1.0, 0.6, 0.2)}
+
+var _live := false
+var _live_btn: Button
+var _enemy_line: Label
+var _held_player := false
+
+func _set_live(on: bool) -> void:
+	if on == _live:
+		if _live_btn:
+			_live_btn.text = "Live: %s" % ("on" if _live else "off")
+		return
+	_live = on
+	if on:
+		# the game runs behind the map; the player is held where they are
+		_held_player = PlayerManager.InAnimation
+		PlayerManager.InAnimation = true
+		get_tree().paused = false
+	else:
+		PlayerManager.InAnimation = _held_player
+		if menu.visible and UiManager.is_open("pause"):
+			get_tree().paused = true
+	if _live_btn:
+		_live_btn.text = "Live: %s" % ("on" if _live else "off")
+
+## [kind, colour, what it's doing] for an enemy.
+func _enemy_info(e: Node) -> Array:
+	if "behavior" in e:
+		var hunt: bool = e.behavior == e.Behavior.HUNT
+		var doing := "wandering"
+		if e.killing:
+			doing = "killing"
+		elif e.is_hunting_hidden_player():
+			doing = "coming for your hiding spot"
+		elif e._looming:
+			doing = "looming"
+		elif hunt and e._locked_on:
+			doing = "chasing"
+		elif not hunt and e._lost_player():
+			doing = "lost you - wandering"
+		elif not hunt:
+			doing = "trailing" if e._hanging_back else "closing in"
+		var kind := "hunter" if hunt else "stalker"
+		return [kind, ENEMY_COLORS[kind], doing]
+	if "stare_sprint" in e:
+		var kind := "starer" if e.stare_sprint else "angel"
+		var doing := "sprinting" if e._sprinting > 0.0 else ("frozen (seen)" if e._frozen_for > 0.0 else "creeping")
+		return [kind, ENEMY_COLORS[kind], doing]
+	return ["other", ENEMY_COLORS.other, ""]
+
+func _draw_enemies() -> void:
+	var p = PlayerManager.player
+	var mouse := _map.get_local_mouse_position()
+	var hover_text := ""
+	for e in get_tree().get_nodes_in_group("enemy"):
+		if not (e is Node3D) or not e.is_inside_tree():
+			continue
+		var at: Vector3 = e.global_position
+		var here := _deck_of(at.y + 0.2) == _map_deck
+		var info := _enemy_info(e)
+		var col: Color = info[1]
+		if not here:
+			col.a = 0.25   # on another deck: faint
+		var c := _to_map(Vector2(at.x, at.z))
+		if not Rect2(Vector2.ZERO, _map.size).grow(-4.0).has_point(c):
+			continue   # off this deck's picture (another deck, framed differently)
+		var fwd3: Vector3 = e.global_basis.z if e.get("model_faces_plus_z") else -e.global_basis.z
+		var fwd := Vector2(fwd3.x, fwd3.z)
+		fwd = fwd.normalized() if fwd.length() > 0.01 else Vector2.UP
+		var side := Vector2(-fwd.y, fwd.x)
+		_map.draw_colored_polygon(PackedVector2Array([c + fwd * 11.0, c - fwd * 6.0 + side * 7.0, c - fwd * 3.0, c - fwd * 6.0 - side * 7.0]), col)
+		if here and c.distance_to(mouse) < 12.0:
+			var speed: float = e.speed_mult if "speed_mult" in e else (e.walk_speed / e.WALK_SPEED if "walk_speed" in e else 1.0)
+			hover_text = "%s %.1fx - %s - %.0f m away" % [ENEMY_KIND_NAMES.get(info[0], info[0]) if info[0] != "other" else str(e.name), speed, info[2], at.distance_to(p.global_position) if is_instance_valid(p) else 0.0]
+	if hover_text != "":
+		_map.draw_string(_font, mouse + Vector2(12, 22), hover_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color(1.0, 0.55, 0.5))
+
+## The line above the map: every enemy, its deck and what it's doing.
+func _update_enemy_line() -> void:
+	if _enemy_line == null:
+		return
+	var parts := []
+	for e in get_tree().get_nodes_in_group("enemy"):
+		if not (e is Node3D) or not e.is_inside_tree():
+			continue
+		var info := _enemy_info(e)
+		var name_s: String = ENEMY_KIND_NAMES.get(info[0], str(e.name))
+		parts.append("%s: deck %d, %s" % [name_s, _deck_of(e.global_position.y + 0.2) + 1, info[2]])
+	_enemy_line.text = "Enemies - " + ("   |   ".join(parts) if not parts.is_empty() else "none")
+
+## ---------------------------------------------------------------------
+## Dev Tools: the key fob's range (garage units it carries) and falloff (dB
+## quieter per doubling of distance), changed live - and a button to press
+## the fob from wherever you are
+## ---------------------------------------------------------------------
+const CarKeyNoise = preload("res://Scripts/Minigames/CarKeyNoise.gd")
+var _fob_range_label: Label
+var _fob_falloff_label: Label
+
+func _fob_tune(range_step: float, falloff_step: float) -> void:
+	CarKeyNoise.max_hearing_distance = clampf(CarKeyNoise.max_hearing_distance + range_step, 20.0, 250.0)
+	CarKeyNoise.rolloff_db = clampf(CarKeyNoise.rolloff_db + falloff_step, 2.0, 24.0)
+	if _fob_range_label:
+		_fob_range_label.text = "%.0f" % CarKeyNoise.max_hearing_distance
+		_fob_falloff_label.text = "%.0f dB" % CarKeyNoise.rolloff_db
+
+func _fob_test() -> void:
+	menu.resume()
+	await get_tree().create_timer(0.4).timeout
+	if PlayerManager.has_car_fob():
+		PlayerManager.car_audio_player.playsound()

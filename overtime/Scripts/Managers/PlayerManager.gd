@@ -249,6 +249,94 @@ func AddToInventory(itemName: String, weight: float, equippable: bool = false):
 	if Enemy != null:
 		Enemy.exit_stalking_mode()
 
+## ---------------------------------------------------------------------
+## Coins and stamina charges (found by searching - see Scripts/Loot/)
+## ---------------------------------------------------------------------
+
+## Emitted when the coin count changes.
+signal coins_changed(coins: int)
+## Coins found (shown in the inventory strip, not an inventory item).
+var coins: int = 0
+
+func add_coins(amount: int) -> void:
+	coins = maxi(coins + amount, 0)
+	coins_changed.emit(coins)
+	UiManager.refresh_inventory()
+
+const STAMINA_CHARGE := "Stamina Charge"
+
+## A stamina charge goes in the inventory. It's put in hand only if nothing
+## else is (so finding one doesn't swap the keys out); the first one found
+## says how to use it.
+func add_stamina_charge() -> void:
+	var first := not has_item(STAMINA_CHARGE)
+	Inventory.append({"name": STAMINA_CHARGE, "weight": 0.0, "equippable": true})
+	if EquippedItem == "":
+		EquippedItem = STAMINA_CHARGE
+		equipped_item_changed.emit(EquippedItem)
+	UiManager.refresh_inventory()
+	if first and not _told_stamina_charge:
+		_told_stamina_charge = true
+		Hint("Stamina Charge: hold it (Z / X) and press F to refill your stamina")
+var _told_stamina_charge := false
+
+func stamina_charge_count() -> int:
+	var n := 0
+	for item in Inventory:
+		if item.name == STAMINA_CHARGE:
+			n += 1
+	return n
+
+## F with a stamina charge in hand: stamina full, the tiredness gone, one
+## charge used up. Works on any level.
+func use_stamina_charge() -> void:
+	if EquippedItem != STAMINA_CHARGE or not is_instance_valid(player):
+		return
+	if not RemoveItemByName(STAMINA_CHARGE):
+		return
+	player.stamina = player.max_stamina
+	player.fatigue_time_left = 0.0
+	AudioManager.play_sound(AudioManager.ItemPickup, -8.0)
+	# none left: hand goes to the next thing
+	if not has_item(STAMINA_CHARGE):
+		_switch_equipped(1)
+	UiManager.refresh_inventory()
+
+## ---------------------------------------------------------------------
+## Shields (found by searching): a second chance. Caught with one, the enemy
+## is stunned and knocked back instead (Enemy.kill) and the shield breaks.
+## ---------------------------------------------------------------------
+
+## Emitted when the shield count changes. used = one just broke saving them.
+signal shields_changed(shields: int, used: bool)
+const MAX_SHIELDS := 3
+var shields: int = 0
+## After a shield saves them, nothing can catch them again for this long
+## (so a second enemy right there doesn't take the next one straight away).
+const SHIELD_GRACE := 1.5
+var _shield_grace_until := 0
+
+## Adds a shield. False (nothing added) if they already carry MAX_SHIELDS.
+func add_shield() -> bool:
+	if shields >= MAX_SHIELDS:
+		return false
+	shields += 1
+	shields_changed.emit(shields, false)
+	return true
+
+## Right after a shield saved them: kills don't land.
+func shield_protected() -> bool:
+	return Time.get_ticks_msec() < _shield_grace_until
+
+## Caught: uses a shield if they have one. True = they're saved.
+func use_shield() -> bool:
+	if shields <= 0:
+		return false
+	shields -= 1
+	_shield_grace_until = Time.get_ticks_msec() + int(SHIELD_GRACE * 1000.0)
+	shields_changed.emit(shields, true)
+	return true
+
 ## takes a name and tries to find it in the inventory
 ## if found it will remove otherwise it will just return false
 func RemoveItemByName(itemName: String) -> bool:
@@ -261,6 +349,10 @@ func RemoveItemByName(itemName: String) -> bool:
 ## This function sets player stats all back to default
 func ResetPlayer() -> void:
 	Inventory = []
+	coins = 0
+	coins_changed.emit(coins)
+	shields = 0
+	shields_changed.emit(shields, false)
 	sprint_engaged = false
 	dying = false
 	InAnimation = false
@@ -498,9 +590,13 @@ func _switch_equipped(step: int) -> void:
 		current = -1 if step > 0 else count
 	for i in count:
 		var index := posmod(current + step * (i + 1), count)
-		if Inventory[index].equippable:
+		# (several of the same thing, like stamina charges, are one stop)
+		if Inventory[index].equippable and Inventory[index].name != EquippedItem:
 			EquippedItem = Inventory[index].name
 			equipped_item_changed.emit(EquippedItem)
 			return
+	# nothing else to switch to: keep holding what's in hand (if still had)
+	if current >= 0 and current < count and Inventory[current].equippable:
+		return
 	EquippedItem = ""
 	equipped_item_changed.emit(EquippedItem)

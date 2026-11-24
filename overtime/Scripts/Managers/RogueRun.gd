@@ -35,10 +35,11 @@ const PROBLEM_NAMES := {GAS: "an empty gas tank", BATTERY: "a dead battery", TIR
 const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Tire"}
 
 @export_group("Difficulty")
-## Extra killer speed per round (0.12 = 12% faster each round).
-@export var killer_speed_per_round: float = 0.12
+## Extra killer speed per round from the speed rounds on (0.06 = 6% faster
+## each round).
+@export var killer_speed_per_round: float = 0.06
 ## The killer never gets faster than this many times its normal speed.
-@export var killer_speed_max: float = 2.0
+@export var killer_speed_max: float = 1.5
 ## How far short of the player the killer stops in round 1 (the story uses
 ## 20); it closes in by follow_distance_per_round every round after.
 @export var follow_distance_start: float = 20.0
@@ -68,6 +69,7 @@ const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Ti
 
 ## True while a run is going.
 const EventDirector = preload("res://Scripts/Events/EventDirector.gd")
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 var active := false
 ## The current round (1 = first).
@@ -96,12 +98,34 @@ func _ready() -> void:
 ## Starts a new run at round 1 (from the main menu or the game over screen).
 func start_run() -> void:
 	active = true
+	_last_lineup = ""
 	GameState.clear_preloads()
 	EventDirector.new_run()   # rare garage events can happen again
 	round_number = 1
 	GameState.forget_notes()
 	PlayerManager.deaths = 0
+	PlayerManager.coins = 0   # coins last the whole run (kept between rounds)
 	_begin_round()
+
+## Dev (Enemies page): a line-up of its own - [{kind, speed, starer}] - used
+## instead of the rolled one at the next round start (or every round).
+var dev_plan: Array = []
+var dev_illusions := false
+var dev_plan_every_round := false
+
+## Dev: jumps straight to round `n` (starting a run if there isn't one) - its
+## problems, enemies and rules are rolled as for that round. In the office,
+## or straight into the garage.
+func dev_jump_to_round(n: int, to_garage: bool = false) -> void:
+	if not active:
+		active = true
+		_last_lineup = ""
+		GameState.clear_preloads()
+		EventDirector.new_run()
+		GameState.forget_notes()
+		PlayerManager.deaths = 0
+	round_number = maxi(n, 1)
+	_begin_round(GARAGE if to_garage else OFFICE)
 
 ## The car started: the round is won, on to the next one (back in the office).
 func complete_round() -> void:
@@ -123,14 +147,16 @@ func quit_run() -> void:
 	if active:
 		end_run()
 
-func _begin_round() -> void:
+func _begin_round(level: String = OFFICE) -> void:
 	problems = roll_problems(round_number)
 	tire_fixed = not problems.has(TIRE)
 	GameState.clear_all_flags()
 	GameState.loop = 1
 	SettingsManager.KillerDisabled = false
 	PlayerManager.MainMenu = false
+	var coins := PlayerManager.coins
 	PlayerManager.ResetPlayer()       # fresh inventory, nothing fixed
+	PlayerManager.add_coins(coins)    # ...but the coins found so far stay
 	PlayerManager.RemoveItemByName("Box")   # story item - just the keys in rogue mode
 	PlayerManager.talkToJanitor = true   # (the janitor decides when he loads - see janitor_talks_this_round)
 	PlayerManager.player = null       # nothing to carry over between rounds
@@ -138,9 +164,15 @@ func _begin_round() -> void:
 	AudioManager.cancel_loop_sfx()
 	AudioManager.KillerShutUp = false
 	get_tree().paused = false
-	enemy_plan = plan_enemies(round_number)
+	enemy_plan = plan_round(round_number)
+	# the dev menu's own line-up (Enemies page) wins - once, or every round
+	if not dev_plan.is_empty():
+		enemy_plan = dev_plan.duplicate(true)
+		illusions = dev_illusions
+		if not dev_plan_every_round:
+			dev_plan = []
 	round_started.emit(round_number, problems)
-	GameState.change_level(OFFICE)   # the office wakes the player up at their desk
+	GameState.change_level(level)   # the office wakes the player up at their desk
 
 ## Picks this round's problems: 1 in round 1, up to all 3 from round 5.
 func roll_problems(round_index: int) -> Array[String]:
@@ -188,14 +220,36 @@ func describe(list: Array[String]) -> String:
 ## ---------------------------------------------------------------------
 
 ## How much faster than normal the killer is this round.
+## How long a shield stuns an enemy (Enemy.stun_from): random every time,
+## from a range that shrinks as the rounds get harder - stun_time_easy in
+## round 1 down to stun_time_hard from STUN_HARD_ROUND on. Always kept
+## within STUN_LIMITS. (Story mode: the round 1 range.)
+@export var stun_time_easy := Vector2(10.0, 30.0)
+@export var stun_time_hard := Vector2(2.0, 8.0)
+const STUN_HARD_ROUND := 12
+const STUN_LIMITS := Vector2(2.0, 30.0)
+
+func stun_time() -> float:
+	var k := 0.0
+	if active:
+		k = clampf(float(round_number - 1) / float(STUN_HARD_ROUND - 1), 0.0, 1.0)
+	var lo := lerpf(stun_time_easy.x, stun_time_hard.x, k)
+	var hi := lerpf(stun_time_easy.y, stun_time_hard.y, k)
+	return clampf(randf_range(lo, hi), STUN_LIMITS.x, STUN_LIMITS.y)
+
 func killer_speed_scale() -> float:
 	if not active:
 		return 1.0
-	return minf(1.0 + killer_speed_per_round * (round_number - 1), killer_speed_max)
+	# no speeding up until the speed rounds (see plan_enemies) - then a little
+	# each round
+	if round_number < SPEED_ROUND:
+		return 1.0
+	return minf(1.0 + killer_speed_per_round * (round_number - SPEED_ROUND + 1), killer_speed_max)
 
 ## How far short of the player the killer stops this round.
 func killer_follow_distance() -> float:
-	return maxf(follow_distance_start - follow_distance_per_round * (round_number - 1), 0.0)
+	# never so close it idles within its own reach (KILLER_KILL_REACH)
+	return maxf(follow_distance_start - follow_distance_per_round * (round_number - 1), 9.0)
 
 ## Chance a part spawns in the toll booth this round. Round 1 always (the
 ## hint sends the player there); after that hub_chance_start for round 2,
@@ -270,7 +324,8 @@ func setup_garage(garage: Node) -> void:
 	if car_node:
 		points_of_interest.append(car_node.global_position)
 	for prob in problems:
-		var part := _part_node(garage, prob)
+		# (asking _part_node for the tire would make another spare tire)
+		var part: Node3D = garage.find_child("SpareTire", true, false) if prob == TIRE else _part_node(garage, prob)
 		if part:
 			points_of_interest.append(part.global_position)
 	var the_booth = garage.get_tree().get_first_node_in_group("toll_booth")
@@ -436,36 +491,89 @@ func _save_best(rounds_survived: int) -> void:
 ##               parts; it only locks on once it SEES the player, and gives
 ##               up a while after losing sight of them
 ##   "angel"   - the weeping angel (moves only while unseen; never wanders)
-## Each gets its own speed (times normal), so a round can bring a slow
-## stalker or a very fast angel. Rounds 1-3 have one enemy (never the angel
-## in round 1); from round 4 a second is more and more likely, from round 9
-## sometimes a third.
+## Each gets its own speed (times normal) - close to normal until the speed
+## rounds, then sometimes a very fast angel.
 
 ## This round's enemies: [{kind, speed}] (rolled in _begin_round).
 var enemy_plan: Array = []
 
+## The rounds bring one new challenge at a time (and each round picks from
+## the ones unlocked so far - the newest most often), before anything gets
+## fast:
+const ANGEL_ROUND := 3        # the weeping angel
+const STARER_ROUND := 5       # an angel that sprints if you stare at it too long
+const ILLUSION_ROUND := 6     # illusions: a waving decoy at the edge of your view mid-chase
+const PACK_ROUND := 7         # a pack of 2-3 angels round the garage
+const PAIR_ROUND := 8         # two enemies
+const SPEED_ROUND := 9        # speed: faster variants, and they speed up each round
+const TRIO_ROUND := 11        # sometimes three
+
+## Illusions can happen this round (see Illusion.gd).
+var illusions := false
+
+## The last round's line-up (see plan_round).
+var _last_lineup := ""
+
+## This round's enemies - never the same line-up as last round (the same
+## kinds, a staring angel or not, illusions or not): it re-rolls until it's
+## different. In rounds 1-2 (stalker or hunter only) they alternate.
+func plan_round(r: int) -> Array:
+	var plan := plan_enemies(r)
+	for i in 30:
+		if lineup_of(plan) != _last_lineup:
+			break
+		plan = plan_enemies(r)
+	_last_lineup = lineup_of(plan)
+	return plan
+
+## What kind of round a plan makes, e.g. "angel*+hunter +illusions".
+func lineup_of(plan: Array) -> String:
+	var kinds := []
+	for e in plan:
+		kinds.append(str(e.kind) + ("*" if e.get("starer", false) else ""))
+	kinds.sort()
+	return "+".join(kinds) + (" +illusions" if illusions else "")
+
 func plan_enemies(r: int) -> Array:
-	var count := 1
-	if r >= 4 and randf() < clampf(0.2 + 0.1 * (r - 4), 0.0, 0.8):
-		count = 2
-	if r >= 9 and randf() < clampf(0.15 + 0.05 * (r - 9), 0.0, 0.5):
-		count = 3
+	var themes := ["killer"]
+	if r >= ANGEL_ROUND: themes.append("angel")
+	if r >= STARER_ROUND: themes.append("starer")
+	if r >= ILLUSION_ROUND: themes.append("illusion")
+	if r >= PACK_ROUND: themes.append("pack")
+	if r >= PAIR_ROUND: themes.append("pair")
+	# the newest one most often, the rest evenly
+	var theme: String = themes.back() if randf() < 0.45 else themes.pick_random()
+	illusions = theme == "illusion" or (r >= ILLUSION_ROUND and randf() < 0.3)
+	var fast := r >= SPEED_ROUND
 	var out := []
-	var has_angel := false
-	for i in count:
-		var kind := "stalker"
-		var roll := randf()
-		if r >= 2 and not has_angel and roll < 0.22:
-			kind = "angel"
-			has_angel = true
-		elif roll < 0.61:
-			kind = "hunter"
-		var speed := randf_range(0.7, 1.9) if kind == "angel" else randf_range(0.8, 1.25)
-		out.append({"kind": kind, "speed": speed})
+	match theme:
+		"killer", "illusion":
+			out.append(_killer_entry(fast))
+		"angel":
+			out.append(_angel_entry(fast, false))
+		"starer":
+			out.append(_angel_entry(fast, true))
+		"pack":
+			for i in randi_range(2, 3):
+				out.append(_angel_entry(fast, i == 0 and r >= STARER_ROUND and randf() < 0.5))
+		"pair":
+			out.append(_killer_entry(fast))
+			out.append(_angel_entry(fast, randf() < 0.4) if randf() < 0.5 else _killer_entry(fast))
+	if r >= TRIO_ROUND and out.size() < 3 and randf() < 0.35:
+		out.append(_killer_entry(fast) if randf() < 0.6 else _angel_entry(fast, randf() < 0.5))
 	return out
+
+func _killer_entry(fast: bool) -> Dictionary:
+	return {"kind": "hunter" if randf() < 0.5 else "stalker",
+		"speed": randf_range(0.95, 1.3) if fast else randf_range(0.9, 1.05)}
+
+func _angel_entry(fast: bool, starer: bool) -> Dictionary:
+	return {"kind": "angel", "starer": starer,
+		"speed": randf_range(0.9, 1.9) if fast else randf_range(0.85, 1.1)}
 
 ## Seconds the player has been standing still (see _physics_process).
 var still_time := 0.0
+var _step_timer := 0.0
 var _last_player_pos := Vector3.INF
 
 func _physics_process(delta: float) -> void:
@@ -482,6 +590,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		still_time = 0.0
 	_last_player_pos = at
+	# footsteps enemies can hear: louder sprinting, near silent crouched
+	_step_timer -= delta
+	if still_time == 0.0 and _step_timer <= 0.0 and not PlayerManager.hiding and not PlayerManager.MinigameMode:
+		_step_timer = 0.45
+		var loud := EnemyNoise.STEP_WALK
+		if "is_sprinting" in p and p.is_sprinting:
+			loud = EnemyNoise.STEP_SPRINT
+		elif "is_crouching" in p and p.is_crouching:
+			loud = EnemyNoise.STEP_CROUCH
+		EnemyNoise.make(get_tree(), at, loud, true)
 
 ## How long the player may stand still this round before enemies can get them.
 func still_limit() -> float:
@@ -507,6 +625,11 @@ func kill_allowed() -> bool:
 ## ---------------------------------------------------------------------
 ## Setting the enemies up in the garage
 ## ---------------------------------------------------------------------
+## How far (garage units) and how wide (half-angle, degrees) a rogue killer sees.
+const KILLER_SIGHT_RANGE := 55.0
+const KILLER_SIGHT_FOV := 70.0
+## How close (garage units) a rogue killer gets you from, when it may.
+const KILLER_KILL_REACH := 5.0
 const KILLER_SCRIPT := "Enemies/Killer.gd"
 const ANGEL_SCRIPT := "Enemies/weeping_angel.gd"
 
@@ -529,12 +652,15 @@ func _setup_enemies(garage: Node) -> void:
 	var plan: Array = enemy_plan if not enemy_plan.is_empty() else plan_enemies(round_number)
 	var used: Array[Node3D] = []
 	var killers_used := 0
+	var angels_used := 0
 	for entry in plan:
 		var e: Node3D = null
 		if entry.kind == "angel":
-			e = angel
-			if e:
+			if angel:
+				e = angel if angels_used == 0 else _another_angel(angel)
+				angels_used += 1
 				e.walk_speed = e.WALK_SPEED * entry.speed
+				e.stare_sprint = entry.get("starer", false)
 		elif killer:
 			if killers_used == 0:
 				e = killer
@@ -544,6 +670,11 @@ func _setup_enemies(garage: Node) -> void:
 			killers_used += 1
 			e.behavior = e.Behavior.HUNT if entry.kind == "hunter" else e.Behavior.STALK
 			e.speed_mult = entry.speed
+			# rogue killers see much further than the story's (20 units)
+			e.sight_range = KILLER_SIGHT_RANGE
+			e.sight_fov_degrees = KILLER_SIGHT_FOV
+			# catches the player from KILLER_KILL_REACH away (its reach is scaled by its size)
+			e.kill_reach = KILLER_KILL_REACH / maxf(e.global_basis.get_scale().y, 0.01)
 			e.follow_distance = killer_follow_distance()
 		if e:
 			used.append(e)
@@ -551,6 +682,12 @@ func _setup_enemies(garage: Node) -> void:
 	for e in [killer, angel] + others:
 		if is_instance_valid(e) and not used.has(e):
 			_bench(e)
+	# illusions this round: a waving decoy at the edge of the view mid-chase
+	if illusions and killers_used > 0:
+		var ill := Node.new()
+		ill.name = "Illusions"
+		ill.set_script(load("res://Scripts/Enemies/Illusion.gd"))
+		garage.add_child(ill)
 	# start far from the player, and from each other
 	var map: RID = garage.get_viewport().get_world_3d().navigation_map
 	var p = PlayerManager.player
@@ -571,7 +708,7 @@ func _setup_enemies(garage: Node) -> void:
 				best_d = d
 				best = q
 		if best != Vector3.INF:
-			e.global_position = best + Vector3.UP * 0.1
+			e.global_position = HelperManager.floor_at(e.get_world_3d(), best, [e.get_rid()])
 			e.velocity = Vector3.ZERO
 			taken.append(best)
 
@@ -589,6 +726,12 @@ func _another_killer(killer: Node3D) -> Node3D:
 		e = killer.duplicate()
 	killer.get_parent().add_child(e)
 	e.global_transform = killer.global_transform
+	return e
+
+## Another weeping angel (a pack): a copy of the level's one.
+func _another_angel(angel: Node3D) -> Node3D:
+	var e: Node3D = angel.duplicate()
+	angel.get_parent().add_child(e)
 	return e
 
 ## Takes an enemy out of this round: hidden, still, out of the way and out

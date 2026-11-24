@@ -144,6 +144,25 @@ var _last_seen := Vector3.INF
 var _wander_to := Vector3.INF
 var _wander_for := 0.0
 
+## Something made a noise (EnemyNoise.make): a hunter that isn't chasing anyone
+## goes to see what it was - or, if it was the player and close, it's onto
+## them. A stalker that's lost the player goes to look too.
+const HEAR_LOCK_ON := 15.0
+func hear(at: Vector3, by_player: bool) -> void:
+	if killing or holding or is_hunting_hidden_player():
+		return
+	if behavior == Behavior.HUNT and _locked_on:
+		return
+	if behavior == Behavior.STALK and not _lost_player():
+		return
+	if by_player and behavior == Behavior.HUNT and not PlayerManager.hiding and global_position.distance_to(at) < HEAR_LOCK_ON:
+		_locked_on = true
+		_unseen_for = 0.0
+		_last_seen = at
+		return
+	_wander_to = NavigationServer3D.map_get_closest_point(get_world_3d().navigation_map, at)
+	_wander_for = 0.0
+
 ## A stalker has lost the player: they hid and it didn't see where.
 func _lost_player() -> bool:
 	return behavior == Behavior.STALK and PlayerManager.hiding and not is_hunting_hidden_player()

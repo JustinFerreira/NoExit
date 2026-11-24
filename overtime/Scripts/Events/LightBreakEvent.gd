@@ -8,6 +8,7 @@
 ##   placed ones break the nearest working light above them.
 
 extends "res://Scripts/Events/GarageEvent.gd"
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 ## Only lights at most this far away sideways count (placed events).
 @export var max_search_radius: float = 10.0
@@ -28,6 +29,7 @@ func _fire() -> void:
 	if l == null:
 		return
 	l.set_meta("broken", true)
+	EnemyNoise.make(get_tree(), l.global_position, EnemyNoise.LIGHT_BREAK)
 	HelperManager.set_light_panel_lit(l, false)
 	# the glass breaks up there, not in the player's ears
 	var snd := AudioStreamPlayer3D.new()

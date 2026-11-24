@@ -145,3 +145,12 @@ func nav_map_updated(tree: SceneTree, map: RID, max_frames: int = 60) -> void:
 		await tree.physics_frame
 		if NavigationServer3D.map_get_iteration_id(map) > start:
 			return
+
+## The floor right under `at` (within 2 units up / 3 down), or `at` itself if
+## there's none - for putting an enemy's feet on the floor (the nav mesh
+## floats above it; placed there it drops in).
+func floor_at(world: World3D, at: Vector3, exclude: Array[RID] = []) -> Vector3:
+	var q := PhysicsRayQueryParameters3D.create(at + Vector3.UP * 2.0, at + Vector3.DOWN * 3.0, 0xFFFFFFFF, exclude)
+	q.collide_with_areas = false
+	var hit := world.direct_space_state.intersect_ray(q)
+	return hit.position + Vector3.UP * 0.02 if hit else at

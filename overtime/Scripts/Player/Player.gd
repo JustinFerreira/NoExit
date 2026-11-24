@@ -255,6 +255,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.KeyFobSound()
 		elif PlayerManager.Office && PlayerManager.EquippedItem == "Car Keys":
 			PlayerManager.Hint("Can only use this in the parking garage")
+		elif PlayerManager.EquippedItem == PlayerManager.STAMINA_CHARGE and not PlayerManager.MinigameMode and not PlayerManager.hiding:
+			PlayerManager.use_stamina_charge()
 	if event.is_action_pressed("scrollUp"):
 		PlayerManager.SwitchEquippedItem(true)
 	if event.is_action_pressed("scrollDown"):

@@ -13,6 +13,7 @@
 ##   sounds like something (someone) is setting them off.
 
 extends "res://Scripts/Events/GarageEvent.gd"
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 ## Alarm sound (replaces the AudioStreamPlayer3D's stream if set).
 @export var sound: AudioStream
@@ -92,6 +93,7 @@ func sound_alarm() -> void:
 	var length := 7.0
 	if audio.stream and audio.stream.get_length() > 0.0:
 		length = audio.stream.get_length() / maxf(audio.pitch_scale, 0.01)
+	EnemyNoise.make(get_tree(), global_position, EnemyNoise.CAR_ALARM)
 	audio.play()
 	var flashes := maxi(1, roundi(length / FLASH_PERIOD))
 	var half := length / (2.0 * flashes)

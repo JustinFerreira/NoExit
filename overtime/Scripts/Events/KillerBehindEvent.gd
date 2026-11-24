@@ -3,7 +3,8 @@
 ## Killer Behind Event (COMMON - comes back after kind_cooldown, see GarageEvent)
 ## - One of the enemies in the level (picked at random - the killer, or any
 ##   other) is moved, unseen, to a spot behind the player, out of sight in the
-##   fog, much closer than it was. One soft footstep where it now stands is
+##   fog (16-24 garage units back, on the floor), much closer than it was. One
+##   soft footstep where it now stands is
 ##   the only clue. Turn round and it's there.
 ## - Only when it can happen unseen: the enemy must be off the player's screen
 ##   where it is now, and the new spot behind them out of view too.
@@ -15,7 +16,7 @@ const EventSounds = preload("res://Scripts/Events/EventSounds.gd")
 const STEP := preload("res://Assets/Audio/SFX/Footsteps/LeftStep2.wav")
 
 ## How far behind the player it turns up (metres, random in this range).
-const BEHIND := Vector2(9.0, 14.0)
+const BEHIND := Vector2(16.0, 24.0)   # (garage units - about 8-12 m real)
 
 func _init() -> void:
 	tier = Tier.COMMON
@@ -67,7 +68,10 @@ func _spot_behind() -> Vector3:
 			var hit: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(cam.global_position, head, 0xFFFFFFFF, [p.get_rid()]))
 			if hit.is_empty():
 				continue   # they'd see it appear
-		return at
+		# its feet right on the floor (the nav mesh floats above it - placed
+		# there it dropped in from a little height)
+		var floor_hit: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(at + Vector3.UP * 1.0, at + Vector3.DOWN * 2.0, 0xFFFFFFFF, [p.get_rid()]))
+		return floor_hit.position + Vector3.UP * 0.02 if floor_hit else at
 	return Vector3.INF
 
 func _fire() -> void:

@@ -148,3 +148,42 @@ static func listener() -> Vector3:
 	if is_instance_valid(p) and p.is_inside_tree() and p.CAMERA:
 		return p.CAMERA.global_position
 	return Vector3.INF
+
+## ---------------------------------------------------------------------
+## How a sound reaches the listener (used by the key fob): {distance, db}.
+##   A direct line (any of the rays from the sound - from it and from above
+##   it - gets through: open floor, through the bars, a gap) - the straight
+##   distance, a little quieter the more of the rays something's in the way
+##   of (THROUGH_BARS_DB at worst).
+##   Otherwise the sound goes round, along the walking route (up a ramp,
+##   round a wall): that route's length, AROUND_DB quieter - and WALLED_IN_DB
+##   more if the listener is walled in (the stairs).
+##   No route either: blocked (db = BLOCKED_DB).
+## ---------------------------------------------------------------------
+const THROUGH_BARS_DB := -8.0
+const AROUND_DB := -10.0
+const WALLED_IN_DB := -12.0
+const ROUTE_MAX := 140.0
+
+static func reach(world: World3D, from: Vector3, to: Vector3, exclude: Array[RID] = []) -> Dictionary:
+	var space := world.direct_space_state
+	var total := RAYS_PER_START * 2
+	var clear := _clear_rays(space, from, to, exclude, [0.8, 2.6])
+	if clear > 0:
+		var blocked_share := 1.0 - float(clear) / float(total)
+		return {"distance": from.distance_to(to), "db": THROUGH_BARS_DB * blocked_share}
+	var map := world.navigation_map
+	var a := NavigationServer3D.map_get_closest_point(map, from)
+	var b := NavigationServer3D.map_get_closest_point(map, to)
+	var path := NavigationServer3D.map_get_path(map, a, b, true)
+	if path.size() < 2 or path[path.size() - 1].distance_to(b) > 3.0:
+		return {"distance": INF, "db": BLOCKED_DB}
+	var length := from.distance_to(a) + to.distance_to(b)
+	for i in range(path.size() - 1):
+		length += path[i].distance_to(path[i + 1])
+	if length > ROUTE_MAX:
+		return {"distance": INF, "db": BLOCKED_DB}
+	var db := AROUND_DB
+	if _walled_in(space, to, exclude):
+		db += WALLED_IN_DB
+	return {"distance": length, "db": db}

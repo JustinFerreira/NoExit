@@ -9,6 +9,7 @@
 ##   (EventDirector).
 
 extends "res://Scripts/Events/GarageEvent.gd"
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 const EventSounds = preload("res://Scripts/Events/EventSounds.gd")
 const RING := preload("res://Assets/Audio/SFX/office_phone-ring_medium-loudaif-14604.mp3")
@@ -28,6 +29,7 @@ func _fire() -> void:
 	_make_pickup()
 	# the ring sound is several rings long: let it go 8-14 s (a few rings)
 	_ring = EventSounds.play_at(get_tree(), RING, _phone_mesh().global_position + Vector3.UP * 2.0, 0.0, 45.0)
+	EnemyNoise.make(get_tree(), _phone_mesh().global_position, EnemyNoise.PAYPHONE)
 	var until := Time.get_ticks_msec() + int(randf_range(RING_TIME.x, RING_TIME.y) * 1000.0)
 	while not _answered and is_instance_valid(_ring) and _ring.playing and Time.get_ticks_msec() < until:
 		await get_tree().process_frame

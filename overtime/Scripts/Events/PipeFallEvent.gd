@@ -9,6 +9,7 @@
 ##   falls once. Fine with the killer nearby.
 
 extends "res://Scripts/Events/GarageEvent.gd"
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 const EventSounds = preload("res://Scripts/Events/EventSounds.gd")
 const CRASH := preload("res://Assets/Audio/SFX/MetalCrash.mp3")
@@ -106,6 +107,7 @@ func _fire() -> void:
 	await tw.finished
 	var end_now: Vector3 = hinge + (Basis(turn_axis, swing * down_sign) * along)
 	EventSounds.play_at(get_tree(), CRASH, end_now if hits_floor else near, 2.0 if hits_floor else -2.0, 55.0)
+	EnemyNoise.make(get_tree(), end_now if hits_floor else near, EnemyNoise.PIPE_FALL)
 	_steam(near, (-along.normalized() + Vector3.DOWN * 0.6).normalized(), BLAST_TIME + LEAK_TIME, 1.0)
 
 ## Steam out of the broken joint at `at`, blowing along `dir`: a hard blast

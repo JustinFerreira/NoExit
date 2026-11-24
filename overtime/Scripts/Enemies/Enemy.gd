@@ -137,6 +137,9 @@ func _physics_process(delta: float) -> void:
 	if use_gravity:
 		apply_gravity(delta)
 	_update_passthrough(delta)
+	if _stun_left > 0.0:
+		_stunned_physics(delta)
+		return
 	if killing or holding:
 		velocity.x = 0.0
 		velocity.z = 0.0
@@ -159,8 +162,149 @@ func _physics_process(delta: float) -> void:
 	var before := global_position
 	move_and_slide()
 	_step_up(wish, global_position - before, delta)
+	_check_stuck(wish, global_position - before, delta)
 	_check_catch_hidden_player()
 
+
+## ---------------------------------------------------------------------
+## Stunned (a shield saved the player - see kill())
+## ---------------------------------------------------------------------
+## Knocked back away from the player, then dazed on the spot: no moving, no
+## catching anyone. Played on the model itself (any enemy, any rig): a jolt
+## back on the hit, a stagger as it slides back, then a groggy sway with its
+## walk frozen and a few sparks circling its head, then it straightens up.
+
+## Seconds it's out of it (knock-back included): RogueRun.stun_time(), random
+## each time - shorter in the harder rounds (2 to 30 seconds).
+var _stun_total := 3.0
+## Knock-back: how far (in its own heights) and how long it slides.
+const STUN_PUSH := 1.3
+const STUN_PUSH_TIME := 0.45
+const STUN_RECOVER := 0.45   # straightening up at the end
+
+var _stun_left := 0.0
+var _stun_dir := Vector3.ZERO   # flat, away from the player
+var _stun_speed := 0.0
+var _stun_pose: Dictionary = {}   # visual child -> its transform before
+var _stun_anims: Dictionary = {}  # AnimationPlayer -> its speed before
+var _stun_fx: Node3D
+
+func is_stunned() -> bool:
+	return _stun_left > 0.0
+
+## Stuns it, knocked away from `from` (the player).
+func stun_from(from: Vector3) -> void:
+	var d := global_position - from
+	d.y = 0.0
+	_stun_dir = d.normalized() if d.length() > 0.01 else global_basis.z.normalized()
+	_stun_speed = 2.0 * STUN_PUSH * body_height() / STUN_PUSH_TIME   # (slows to 0 over the push)
+	if _stun_left <= 0.0:
+		_stun_pose.clear()
+		for c in get_children():
+			if c is Node3D and not (c is CollisionShape3D or c is NavigationAgent3D or c is AudioStreamPlayer3D):
+				_stun_pose[c] = c.transform
+		_stun_anims.clear()
+		for ap in find_children("*", "AnimationPlayer", true, false):
+			_stun_anims[ap] = ap.speed_scale
+	_stun_total = RogueRun.stun_time()
+	_stun_left = _stun_total
+	AudioManager.play_sound(AudioManager.HeavyDamage, -4.0)
+	_make_stun_fx()
+
+func _stunned_physics(delta: float) -> void:
+	_stun_left = maxf(_stun_left - delta, 0.0)
+	var t := _stun_total - _stun_left   # time since the hit
+	# knock-back: fast, slowing to a stop (walls stop it)
+	_stun_speed = move_toward(_stun_speed, 0.0, delta * _stun_speed_decel())
+	velocity.x = _stun_dir.x * _stun_speed
+	velocity.z = _stun_dir.z * _stun_speed
+	move_and_slide()
+	# the walk frozen while it's out of it
+	for ap in _stun_anims:
+		if is_instance_valid(ap):
+			ap.speed_scale = 0.0
+	# the pose: lean back (away from the player) and sway
+	var back := 0.0
+	var side := 0.0
+	if t < 0.12:
+		back = lerpf(0.0, 28.0, t / 0.12)                       # the jolt
+	elif t < STUN_PUSH_TIME + 0.2:
+		back = lerpf(28.0, 16.0, (t - 0.12) / (STUN_PUSH_TIME + 0.08))   # staggering back
+	else:
+		var w := t - STUN_PUSH_TIME - 0.2
+		back = 12.0 + sin(w * 3.1) * 6.0                       # groggy sway
+		side = sin(w * 2.3) * 8.0
+	if _stun_left < STUN_RECOVER:
+		var k := _stun_left / STUN_RECOVER   # straightening up
+		back *= k
+		side *= k
+	_pose_stunned(back, side)
+	if is_instance_valid(_stun_fx):
+		# over its head, wherever the lean has put it
+		var lean := Basis(Vector3.UP.cross(_stun_dir).normalized(), deg_to_rad(back)) * Basis(_stun_dir, deg_to_rad(side))
+		_stun_fx.global_position = global_position + lean * (Vector3.UP * body_height() * 1.05)
+		_stun_fx.rotate_y(delta * 4.0)
+	if _stun_left <= 0.0:
+		_end_stun()
+
+func _stun_speed_decel() -> float:
+	return 2.0 * STUN_PUSH * body_height() / (STUN_PUSH_TIME * STUN_PUSH_TIME)
+
+## Tips the model (about its feet): `back` degrees away from the player,
+## `side` degrees across.
+func _pose_stunned(back: float, side: float) -> void:
+	var inv := global_basis.orthonormalized().inverse()
+	var away: Vector3 = inv * Vector3.UP.cross(_stun_dir)          # tips the top along _stun_dir
+	var across: Vector3 = inv * _stun_dir                            # tips it sideways
+	var tilt := Basis(away.normalized(), deg_to_rad(back)) * Basis(across.normalized(), deg_to_rad(side))
+	for c in _stun_pose:
+		if is_instance_valid(c):
+			c.transform = Transform3D(tilt, Vector3.ZERO) * _stun_pose[c]
+
+func _end_stun() -> void:
+	for c in _stun_pose:
+		if is_instance_valid(c):
+			c.transform = _stun_pose[c]
+	_stun_pose.clear()
+	for ap in _stun_anims:
+		if is_instance_valid(ap):
+			ap.speed_scale = _stun_anims[ap]
+	_stun_anims.clear()
+	velocity = Vector3.ZERO
+	if is_instance_valid(_stun_fx):
+		_stun_fx.queue_free()
+
+## A few faint sparks circling its head while it's dazed.
+func _make_stun_fx() -> void:
+	if is_instance_valid(_stun_fx):
+		return
+	_stun_fx = Node3D.new()
+	_stun_fx.name = "StunSparks"
+	get_tree().current_scene.add_child(_stun_fx)
+	var r := body_height() * 0.16
+	var glow := Gradient.new()
+	glow.colors = PackedColorArray([Color(1.0, 0.95, 0.7, 1.0), Color(1.0, 0.8, 0.3, 0.0)])
+	var tex := GradientTexture2D.new()
+	tex.gradient = glow
+	tex.fill = GradientTexture2D.FILL_RADIAL
+	tex.fill_from = Vector2(0.5, 0.5)
+	tex.fill_to = Vector2(1.0, 0.5)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = tex
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	var quad := QuadMesh.new()
+	quad.size = Vector2.ONE * body_height() * 0.07
+	for i in 4:
+		var m := MeshInstance3D.new()
+		m.mesh = quad
+		m.material_override = mat
+		m.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		var a := TAU * i / 4.0
+		m.position = Vector3(cos(a) * r, sin(a * 2.0) * r * 0.15, sin(a) * r)
+		_stun_fx.add_child(m)
 
 ## ---------------------------------------------------------------------
 ## Hiding (see HidingSpot)
@@ -284,15 +428,56 @@ var _dragging_out := false
 ## (metres, times its size): it stands there, looming, facing them, until
 ## they stand still too long or get trapped.
 const HOLD_OFF := 3.5
+const HOLD_OFF_SLACK := 2.0
+var _looming := false
 
 func _hold_off_if_no_kill() -> void:
 	if not RogueRun.active or RogueRun.kill_allowed() or not is_instance_valid(player) or is_hunting_hidden_player():
 		return
 	var d := global_position - player.global_position
-	if Vector2(d.x, d.z).length() < HOLD_OFF * global_basis.get_scale().y:
+	var far := Vector2(d.x, d.z).length()
+	var s := global_basis.get_scale().y
+	# stops at HOLD_OFF, sets off again only once they're a good bit further
+	# (no stop-start shuffling while they edge about)
+	if far < HOLD_OFF * s or (_looming and far < (HOLD_OFF + HOLD_OFF_SLACK) * s):
+		_looming = true
 		velocity.x = 0.0
 		velocity.z = 0.0
-		face_point(player.global_position)
+		turn_toward(player.global_position - global_position, get_physics_process_delta_time())
+	else:
+		_looming = false
+
+## ---------------------------------------------------------------------
+## Getting unstuck: trying to walk but hardly moving (caught on a corner, a
+## car, a prop) for STUCK_TIME, it re-plans its path and steps sideways for
+## a moment.
+## ---------------------------------------------------------------------
+const STUCK_TIME := 0.6
+const SIDESTEP_TIME := 0.6
+var _stuck_for := 0.0
+var _sidestep := Vector3.ZERO
+var _sidestep_time := 0.0
+
+func _check_stuck(wish: Vector3, moved: Vector3, delta: float) -> void:
+	_sidestep_time = maxf(_sidestep_time - delta, 0.0)
+	var want := wish.length()
+	if want < 0.8 or Vector2(moved.x, moved.z).length() > want * delta * 0.35:
+		_stuck_for = 0.0
+		return
+	_stuck_for += delta
+	if _stuck_for < STUCK_TIME:
+		return
+	_stuck_for = 0.0
+	_sidestep = wish.normalized().cross(Vector3.UP) * (1.0 if randf() < 0.5 else -1.0)
+	# away from whatever it's pressing on, if it knows
+	if get_slide_collision_count() > 0:
+		var n := get_slide_collision(0).get_normal()
+		n.y = 0.0
+		if n.length() > 0.1:
+			_sidestep = (n.normalized() + _sidestep).normalized()
+	_sidestep_time = SIDESTEP_TIME
+	if _nav_target != Vector3.INF and nav:
+		_apply_nav_target(_nav_target)
 
 ## Hooks - override these in your enemy.
 func _enemy_ready() -> void:
@@ -364,7 +549,11 @@ func move_along_nav(speed: float = move_speed) -> bool:
 	if direction.length_squared() < 0.000001:
 		return true
 	direction = direction.normalized()
-	face_direction(direction)
+	# stepping round something it got stuck on (see _check_stuck)
+	if _sidestep_time > 0.0:
+		direction = (direction + _sidestep).normalized()
+	# turns smoothly towards where it's going instead of snapping round
+	turn_toward(direction, get_physics_process_delta_time())
 	var target_velocity := direction * speed
 	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * maxf(speed, 1.0))
 	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * maxf(speed, 1.0))
@@ -381,6 +570,18 @@ func face_direction(direction: Vector3) -> void:
 	# look_at() points -Z at the target; flip it for models whose front is +Z.
 	var look_point := global_position + (-flat if model_faces_plus_z else flat)
 	look_at(look_point, Vector3.UP)
+
+## turn_toward
+## Like face_direction, but turning at most TURN_RATE a second (walking).
+const TURN_RATE := 540.0
+func turn_toward(direction: Vector3, delta: float) -> void:
+	var flat := Vector3(direction.x, 0.0, direction.z)
+	if flat.length_squared() < 0.000001:
+		return
+	var want := atan2(flat.x, flat.z) if model_faces_plus_z else atan2(-flat.x, -flat.z)
+	var r := global_rotation
+	r.y = rotate_toward(r.y, want, deg_to_rad(TURN_RATE) * delta)
+	global_rotation = r
 
 ## face_point
 ## Turns (yaw only) to face a world position.
@@ -562,6 +763,15 @@ func kill() -> void:
 	# dragged out of a hiding spot) can be caught - see RogueRun.kill_allowed
 	if not _dragging_out and not RogueRun.kill_allowed():
 		return
+	# a shield: the player lives, this enemy is stunned and knocked back
+	if is_stunned() or PlayerManager.shield_protected() or PlayerManager.dying:
+		return
+	if PlayerManager.use_shield():
+		_dragging_out = false
+		holding = false
+		PlayerManager.InAnimation = false   # (dragged out of a hiding spot: free to run)
+		stun_from(PlayerManager.player.global_position if is_instance_valid(PlayerManager.player) else global_position - global_basis.z)
+		return
 	_dragging_out = false
 	killing = true
 	holding = false
@@ -570,6 +780,9 @@ func kill() -> void:
 	PlayerManager.HideDialog()
 	PlayerManager.dying = true
 	PlayerManager.InAnimation = true
+	# caught while getting into the car: the getting-in stops, the player is
+	# back on their feet with their own eyes
+	_pull_out_of_car()
 	if PlayerManager.minigameTwo:
 		PlayerManager.minigameTwo = false
 		UiManager.show_panel("gas_intake", false)
@@ -595,6 +808,30 @@ func kill() -> void:
 				global_position, spot, kill_turn_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		await _turn_player_to_face(spot)
 	_play_kill()
+
+## Caught mid-way into the car (the getting-in animation): stop it and give
+## the player back their own head, camera and body, so the kill plays as usual.
+func _pull_out_of_car() -> void:
+	var p = PlayerManager.player
+	if not is_instance_valid(p) or not ("HEAD" in p):
+		return
+	var anim = AnimationManager.get("GetInCarAnimationPlayer")
+	var entering: bool = is_instance_valid(anim) and anim.is_playing() and AnimationManager.CarEntering
+	if not entering and not p.Incar:
+		return
+	if is_instance_valid(anim):
+		anim.stop()
+	AnimationManager.CarEntering = false
+	p.Incar = false
+	p.head = p.HEAD
+	p.camera = p.CAMERA
+	p.interact_ray = p.INTERACT_RAY
+	p.CAMERA.current = true
+	p.COLLISIONSHAPE3D.disabled = false
+	p.gravity = true
+	p.TbobON = true
+	p.AREA3D.monitoring = true
+	p.AREA3D.monitorable = true
 
 ## How far in front of the player this kill happens. Override for kills that
 ## need another distance (Killer's crush).

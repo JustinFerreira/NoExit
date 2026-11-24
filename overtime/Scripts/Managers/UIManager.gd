@@ -65,6 +65,12 @@ var _stamina_bar: Control
 var _stamina_fill: ColorRect
 var _stamina_alpha := 0.0
 var _stamina_hide_timer := 0.0
+## Shields: symbols under the stamina bar (ShieldHud.gd), shown only when
+## one is found or used, or while the inventory is held open.
+var _shield_hud: Control
+var _shield_alpha := 0.0
+var _shield_hide_timer := 0.0
+const SHIELD_SHOW_TIME := 2.5
 var _inventory: PanelContainer
 var _inventory_row: HBoxContainer
 var _inventory_held := false        # Tab is down
@@ -76,6 +82,7 @@ func _ready() -> void:
 	_build_hud()
 	# Z/X switching: update the strip right away (and flash it up if closed).
 	PlayerManager.equipped_item_changed.connect(_on_equipped_item_changed)
+	PlayerManager.shields_changed.connect(_on_shields_changed)
 
 
 func _process(delta: float) -> void:
@@ -86,6 +93,7 @@ func _process(delta: float) -> void:
 		_scene_id = id
 		_reset_for_new_scene()
 	_fade_stamina(delta)
+	_fade_shields(delta)
 	if _inventory_peek > 0.0:
 		_inventory_peek -= delta
 		if _inventory_peek <= 0.0 and not _inventory_held:
@@ -109,6 +117,8 @@ func _reset_for_new_scene() -> void:
 			_panels.erase(k)
 	show_inventory(false)
 	_stamina_alpha = 0.0
+	_shield_alpha = 0.0
+	_shield_hide_timer = 0.0
 	_hud.visible = true
 
 ## ---------------------------------------------------------------------
@@ -382,16 +392,29 @@ func refresh_inventory() -> void:
 func _fill_inventory() -> void:
 	for c in _inventory_row.get_children():
 		c.queue_free()
+	# coins: a count beside the items, not an item themselves
+	var coins := Label.new()
+	coins.text = "Coins: %d   |" % PlayerManager.coins
+	coins.add_theme_color_override("font_color", BUTTON_HOVER)
+	_inventory_row.add_child(coins)
 	if PlayerManager.Inventory.is_empty():
 		var empty := Label.new()
 		empty.text = "Inventory empty"
 		empty.add_theme_color_override("font_color", BUTTON_HOVER)
 		_inventory_row.add_child(empty)
 		return
+	# several of the same thing (stamina charges) show once, with a count
+	var counts := {}
+	var order: Array[String] = []
 	for item in PlayerManager.Inventory:
+		if not counts.has(item.name):
+			order.append(item.name)
+		counts[item.name] = counts.get(item.name, 0) + 1
+	for item_name in order:
 		var label := Label.new()
-		var equipped: bool = item.name == PlayerManager.EquippedItem
-		label.text = ("[%s]" if equipped else " %s ") % item.name
+		var equipped: bool = item_name == PlayerManager.EquippedItem
+		var shown: String = item_name if counts[item_name] == 1 else "%s x%d" % [item_name, counts[item_name]]
+		label.text = ("[%s]" if equipped else " %s ") % shown
 		label.add_theme_color_override("font_color", ACCENT_TEXT if equipped else TEXT_COLOR)
 		_inventory_row.add_child(label)
 
@@ -407,6 +430,20 @@ func update_stamina(ratio: float, fatigued: bool, in_use: bool, enabled: bool) -
 	if in_use:
 		_stamina_hide_timer = 1.5
 	_stamina_bar.set_meta("enabled", enabled)
+
+func _on_shields_changed(count: int, used: bool) -> void:
+	if _shield_hud == null:
+		return
+	_shield_hud.set_count(count, used)
+	_shield_hide_timer = SHIELD_SHOW_TIME + (1.0 if used else 0.0)
+
+func _fade_shields(delta: float) -> void:
+	if _shield_hud == null:
+		return
+	_shield_hide_timer = maxf(_shield_hide_timer - delta, 0.0)
+	var want := (_shield_hide_timer > 0.0 or (_inventory and _inventory.visible)) and is_instance_valid(PlayerManager.player)
+	_shield_alpha = move_toward(_shield_alpha, 1.0 if want else 0.0, delta * 4.0)
+	_shield_hud.modulate.a = _shield_alpha
 
 func _fade_stamina(delta: float) -> void:
 	if _stamina_bar == null:
@@ -445,6 +482,14 @@ func _build_hud() -> void:
 	_stamina_fill.offset_top = 1.0
 	_stamina_fill.offset_bottom = -1.0
 	_stamina_bar.add_child(_stamina_fill)
+
+	# Shields: symbols just under the stamina bar.
+	_shield_hud = Control.new()
+	_shield_hud.name = "Shields"
+	_shield_hud.set_script(load("res://Scripts/UI/ShieldHud.gd"))
+	_shield_hud.position = Vector2(16.0, 30.0)
+	_shield_hud.modulate.a = 0.0
+	_hud.add_child(_shield_hud)
 
 	# Inventory: a panel across the top centre, like the dialog box.
 	var top := MarginContainer.new()

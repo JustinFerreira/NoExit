@@ -7,6 +7,7 @@
 ##   The jaws open as they pry (set_jaws_open), then the trap is gone.
 
 extends Node3D
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 var activated: bool = false
 
@@ -32,6 +33,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	activated = true
 	$StaticBody3D.is_interactable = true
 	AudioManager.play_sound(AudioManager.BearTrap)
+	EnemyNoise.make(get_tree(), global_position, EnemyNoise.BEAR_TRAP, true)
 	AudioManager.play_sound(AudioManager.HeavyDamage)
 	PlayerManager.player.trapped = true
 	_snap_jaws()

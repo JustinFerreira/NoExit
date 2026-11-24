@@ -30,6 +30,9 @@ func _ready() -> void:
 		return
 
 func _on_interacted(_body: Variant) -> void:
+	# getting in with a killer right there: it gets them first
+	if not PlayerManager.player.Incar and _killer_catches():
+		return
 	#(Event Manager function for car door interaction?)
 	#First time entering the car
 	if unlocked == false:
@@ -118,3 +121,20 @@ func _on_interacted(_body: Variant) -> void:
 		AnimationManager.GetInCarAnimationPlayer.play("GettinginCar")
 
 # Example usage in a script attached to a MeshInstance
+
+## Getting in with a killer close by (CAR_CATCH_RANGE, and allowed to kill -
+## RogueRun.kill_allowed): it catches the player instead - the door never
+## opens. Returns true if it did.
+const CAR_CATCH_RANGE := 9.0
+func _killer_catches() -> bool:
+	var p = PlayerManager.player
+	if not is_instance_valid(p) or PlayerManager.dying or not RogueRun.kill_allowed():
+		return false
+	for e in get_tree().get_nodes_in_group("enemy"):
+		if not e.has_method("kill") or not e.can_kill_player or e.killing:
+			continue
+		if e.global_position.distance_to(p.global_position) <= CAR_CATCH_RANGE:
+			AudioManager.cancel_loop_sfx()
+			e.kill()
+			return true
+	return false

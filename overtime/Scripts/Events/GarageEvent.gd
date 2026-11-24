@@ -126,7 +126,7 @@ func _send_killers_away() -> void:
 		var spot := _far_spot(k, p.global_position)
 		if spot == Vector3.INF:
 			continue
-		k.global_position = spot
+		k.global_position = HelperManager.floor_at(k.get_world_3d(), spot, [k.get_rid()])
 		if "velocity" in k:
 			k.velocity = Vector3.ZERO
 
