@@ -15,6 +15,8 @@ const ElevatorRide = preload("res://Scripts/Elevator/ElevatorRide.gd")
 @onready var player_camera: Camera3D = $Player/Head/Camera3D
 
 func _ready() -> void:
+	# the bins under the desks can be searched (coins, stamina charges, notes)
+	load("res://Scripts/Loot/LootSpots.gd").attach_bins(self)
 	if RogueRun.active and not EventManager.Comingfromelevator:
 		_setup_rogue_round()   # a new round (riding back up mid-round arrives by elevator as usual)
 		return

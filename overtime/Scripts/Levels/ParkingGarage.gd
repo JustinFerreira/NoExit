@@ -34,6 +34,10 @@ func _ready() -> void:
 	GetCar(player_car, attached_objects)
 	# every car can be hidden under
 	load("res://Scripts/Environment/CarHiding.gd").attach(self)
+	# the bins can be searched, and a few dead bodies lie about (Scripts/Loot/)
+	var loot = load("res://Scripts/Loot/LootSpots.gd")
+	loot.attach_bins(self)
+	loot.spawn_bodies(self)
 	# the bear traps go somewhere new every time
 	_scatter_bear_traps()
 	# the security cameras follow the player

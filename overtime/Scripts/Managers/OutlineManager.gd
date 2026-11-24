@@ -22,6 +22,7 @@
 ##   - aiming at an object (hover): its outline flashes
 ##   - player within NEAR_DISTANCE of an object: steady outline
 ##   - scripted hints (Interactable.start_flashing): slow pulse
+##   - never while in a minigame (PlayerManager.MinigameMode)
 
 extends Node
 class_name OutlineManager
@@ -237,7 +238,9 @@ func _process(delta: float) -> void:
 	# then draw it as a solid blue shape for a frame.
 	if camera:
 		camera.cull_mask = (camera.cull_mask | COMPOSITE_BIT) & ~MASK_BIT
-	var on := any_visible and camera != null
+	# No outlines at all while playing a minigame - the car's other minigames
+	# (hood, door, gas cap...) would otherwise glow round the edges of it.
+	var on := any_visible and camera != null and not PlayerManager.MinigameMode
 	_composite.visible = on
 	_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if on else SubViewport.UPDATE_DISABLED
 	if not on:

@@ -1,26 +1,34 @@
 ## No Exit
 ## Overtime Studios
 ## Car Key Noise
-## - The car's lock "chirp" when the player presses the key fob. Heard all
-##   over the floor the car is on (quieter the further away), and from other
-##   floors only through the openings - a ramp, the gaps by the barriers
-##   (SoundReach) - never straight through the concrete.
+## - The car's lock "chirp" when the player presses the key fob. It fades with
+##   distance like real sound; with a clear line (open floor, through the
+##   bars) it's heard straight across, otherwise it goes round along the
+##   walking route (up a ramp, round a wall) and is quieter for it - never
+##   straight through the concrete (SoundReach.reach).
 ## - Pressing it also flashes the car's headlights twice and lights its tail
 ##   lights, so the car can be spotted too (_flash_lights).
 
 extends AudioStreamPlayer3D
+const EnemyNoise = preload("res://Scripts/Enemies/EnemyNoise.gd")
 
 const SoundReach = preload("res://Scripts/Audio/SoundReach.gd")
 
-## Beyond this (metres) it can't be heard at all.
-@export var max_hearing_distance: float = 170.0
-## How much quieter it is at max_hearing_distance than right next to it (dB).
-@export var falloff_db: float = 24.0
+## How far it carries (garage units): past this it can't be heard at all, and
+## it fades out to silence over the last FADE_SHARE of it. Shared by every
+## car and kept between levels, so the dev menu can tune it live (Dev Tools:
+## "Fob range" / "falloff").
+static var max_hearing_distance: float = 120.0
+## Full volume out to this far (garage units)...
+const REF_DISTANCE := 8.0
+## ... then this much quieter (dB) every time the distance doubles.
+static var rolloff_db: float = 10.0
+const FADE_SHARE := 0.3
 @export var min_volume_db: float = -80.0
 
 var original_volume: float
 var was_audible: bool = false
-var _floor_db: float = 0.0
+var _reach := {"distance": INF, "db": -60.0}
 var _frame: int = 0
 
 func _ready() -> void:
@@ -37,13 +45,19 @@ func _process(_delta: float) -> void:
 		return
 	_frame += 1
 	if _frame % 4 == 0 or playing:
-		_floor_db = SoundReach.floor_offset_db(get_world_3d(), global_position, ears, _exclude())
-	var d := global_position.distance_to(ears)
-	if d > max_hearing_distance or _floor_db <= SoundReach.BLOCKED_DB:
+		_reach = SoundReach.reach(get_world_3d(), global_position, ears, _exclude())
+	var d: float = _reach.distance
+	if d > max_hearing_distance or _reach.db <= SoundReach.BLOCKED_DB:
 		volume_db = min_volume_db
 		was_audible = false
 		return
-	volume_db = original_volume - falloff_db * (d / max_hearing_distance) + _floor_db
+	# fades like real sound: rolloff_db quieter every time the distance
+	# doubles (past ref_distance) - plus what it loses on the way
+	volume_db = original_volume - rolloff_db * log(maxf(d, REF_DISTANCE) / REF_DISTANCE) / log(2.0) + _reach.db
+	# and dies away to nothing over the last stretch of its range
+	var fade_from := max_hearing_distance * (1.0 - FADE_SHARE)
+	if d > fade_from:
+		volume_db = lerpf(volume_db, min_volume_db, clampf((d - fade_from) / (max_hearing_distance - fade_from), 0.0, 1.0))
 	was_audible = true
 
 func _exclude() -> Array[RID]:
@@ -65,6 +79,7 @@ func playsound():
 		PlayerManager.Hint(EventManager.car_distance)
 	play()
 	_flash_lights()
+	EnemyNoise.make(get_tree(), global_position, EnemyNoise.KEY_FOB)
 
 ## ---------------------------------------------------------------------
 ## Lights: two headlights at the hood end, two red tail lights at the other,

@@ -241,6 +241,33 @@ func _load_notes() -> void:
 			push_warning("GameState: two notes use the id '%s'." % note.id)
 		else:
 			_notes[note.id] = note
+	# the random notes found by searching, from the one sheet
+	for entry in RANDOM_NOTES.NOTES:
+		var note := NoteData.new()
+		note.title = entry.title
+		note.text = entry.text
+		note.id = "random_" + str(entry.title).to_lower().replace(" ", "_")
+		if _notes.has(note.id):
+			push_warning("GameState: two random notes are called '%s'." % note.title)
+			continue
+		_notes[note.id] = note
+		_random_note_ids.append(note.id)
+
+## The random notes sheet (searching bins and bodies) - see RandomNotes.gd.
+const RANDOM_NOTES := preload("res://Assets/Notes/RandomNotes.gd")
+var _random_note_ids: Array[String] = []
+
+## A random note from the sheet the player hasn't found yet (null if they
+## have them all).
+func random_unfound_note() -> NoteData:
+	_load_notes()
+	var left: Array[String] = []
+	for id in _random_note_ids:
+		if not has_note(id):
+			left.append(id)
+	if left.is_empty():
+		return null
+	return _notes[left.pick_random()]
 
 
 ## ---------------------------------------------------------------------
