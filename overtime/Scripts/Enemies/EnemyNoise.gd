@@ -20,8 +20,13 @@ const PIPE_FALL := 60.0
 const BEAR_TRAP := 50.0
 const LIGHT_BREAK := 45.0
 const PAYPHONE := 40.0
+<<<<<<< HEAD
 const STEP_SPRINT := 36.0
 const STEP_WALK := 16.0
+=======
+const STEP_SPRINT := 30.0
+const STEP_WALK := 12.0
+>>>>>>> origin/main
 const STEP_CROUCH := 4.0
 
 static func make(tree: SceneTree, at: Vector3, loudness: float, by_player := false) -> void:

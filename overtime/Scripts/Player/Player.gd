@@ -257,8 +257,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.Hint("Can only use this in the parking garage")
 		elif PlayerManager.EquippedItem == PlayerManager.STAMINA_CHARGE and not PlayerManager.MinigameMode and not PlayerManager.hiding:
 			PlayerManager.use_stamina_charge()
+<<<<<<< HEAD
 		elif PlayerManager.EquippedItem == PlayerManager.SNACK and not PlayerManager.MinigameMode and not PlayerManager.hiding:
 			PlayerManager.eat_snack()
+=======
+>>>>>>> origin/main
 	if event.is_action_pressed("scrollUp"):
 		PlayerManager.SwitchEquippedItem(true)
 	if event.is_action_pressed("scrollDown"):

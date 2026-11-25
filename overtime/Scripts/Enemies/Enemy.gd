@@ -194,9 +194,14 @@ var _stun_fx: Node3D
 func is_stunned() -> bool:
 	return _stun_left > 0.0
 
+<<<<<<< HEAD
 ## Stuns it, knocked away from `from` (the player), for `time` seconds
 ## (-1 = RogueRun.stun_time(), a shield's stun).
 func stun_from(from: Vector3, time: float = -1.0) -> void:
+=======
+## Stuns it, knocked away from `from` (the player).
+func stun_from(from: Vector3) -> void:
+>>>>>>> origin/main
 	var d := global_position - from
 	d.y = 0.0
 	_stun_dir = d.normalized() if d.length() > 0.01 else global_basis.z.normalized()
@@ -209,7 +214,11 @@ func stun_from(from: Vector3, time: float = -1.0) -> void:
 		_stun_anims.clear()
 		for ap in find_children("*", "AnimationPlayer", true, false):
 			_stun_anims[ap] = ap.speed_scale
+<<<<<<< HEAD
 	_stun_total = RogueRun.stun_time() if time < 0.0 else maxf(time, STUN_PUSH_TIME + STUN_RECOVER)
+=======
+	_stun_total = RogueRun.stun_time()
+>>>>>>> origin/main
 	_stun_left = _stun_total
 	AudioManager.play_sound(AudioManager.HeavyDamage, -4.0)
 	_make_stun_fx()
@@ -767,7 +776,11 @@ func kill() -> void:
 	if not _dragging_out and not RogueRun.kill_allowed():
 		return
 	# a shield: the player lives, this enemy is stunned and knocked back
+<<<<<<< HEAD
 	if is_stunned() or PlayerManager.shield_protected() or PlayerManager.dying or PlayerManager.grabbed:
+=======
+	if is_stunned() or PlayerManager.shield_protected() or PlayerManager.dying:
+>>>>>>> origin/main
 		return
 	if PlayerManager.use_shield():
 		_dragging_out = false
@@ -775,11 +788,14 @@ func kill() -> void:
 		PlayerManager.InAnimation = false   # (dragged out of a hiding spot: free to run)
 		stun_from(PlayerManager.player.global_position if is_instance_valid(PlayerManager.player) else global_position - global_basis.z)
 		return
+<<<<<<< HEAD
 	# rogue mode: a grab is a hit, not (yet) the end - it takes health, then
 	# they mash F to break free (none left, or they don't: killed)
 	var struggle := false
 	if RogueRun.grabs_hurt():
 		struggle = PlayerManager.take_damage(RogueRun.grab_damage())
+=======
+>>>>>>> origin/main
 	_dragging_out = false
 	killing = true
 	holding = false
@@ -829,6 +845,7 @@ func kill() -> void:
 		PlayerManager.lose_all_health()
 	_play_kill()
 
+<<<<<<< HEAD
 ## ---------------------------------------------------------------------
 ## Grabbed (rogue mode - see RogueRun "Grabs")
 ## ---------------------------------------------------------------------
@@ -893,6 +910,8 @@ func _break_free() -> void:
 func _after_grab() -> void:
 	pass
 
+=======
+>>>>>>> origin/main
 ## Caught mid-way into the car (the getting-in animation): stop it and give
 ## the player back their own head, camera and body, so the kill plays as usual.
 func _pull_out_of_car() -> void:

@@ -287,6 +287,7 @@ func stamina_charge_count() -> int:
 			n += 1
 	return n
 
+<<<<<<< HEAD
 ## ---------------------------------------------------------------------
 ## Office food and drink (rogue office - OfficeJobs.gd)
 ## ---------------------------------------------------------------------
@@ -334,6 +335,8 @@ func drink_coffee() -> void:
 func caffeinated() -> bool:
 	return Time.get_ticks_msec() < _caffeine_until
 
+=======
+>>>>>>> origin/main
 ## F with a stamina charge in hand: stamina full, the tiredness gone, one
 ## charge used up. Works on any level.
 func use_stamina_charge() -> void:
@@ -384,6 +387,7 @@ func use_shield() -> bool:
 	shields_changed.emit(shields, true)
 	return true
 
+<<<<<<< HEAD
 ## ---------------------------------------------------------------------
 ## Health: 100, knocked down by enemy grabs (Enemy.kill - rogue mode; the
 ## story's enemies still kill in one go). Shown by the screen's red tint and
@@ -459,6 +463,8 @@ func heal_full() -> void:
 func grant_grace(seconds: float) -> void:
 	_shield_grace_until = maxi(_shield_grace_until, Time.get_ticks_msec() + int(seconds * 1000.0))
 
+=======
+>>>>>>> origin/main
 ## takes a name and tries to find it in the inventory
 ## if found it will remove otherwise it will just return false
 func RemoveItemByName(itemName: String) -> bool:
@@ -475,8 +481,11 @@ func ResetPlayer() -> void:
 	coins_changed.emit(coins)
 	shields = 0
 	shields_changed.emit(shields, false)
+<<<<<<< HEAD
 	grabbed = false
 	heal_full()
+=======
+>>>>>>> origin/main
 	sprint_engaged = false
 	dying = false
 	InAnimation = false

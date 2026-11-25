@@ -35,6 +35,7 @@ const PROBLEM_NAMES := {GAS: "an empty gas tank", BATTERY: "a dead battery", TIR
 const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Tire"}
 
 @export_group("Difficulty")
+<<<<<<< HEAD
 ## Rogue killers' speed, times the story's (every round - their chase,
 ## trailing and lunge).
 @export var killer_speed_base: float = 1.1
@@ -43,6 +44,13 @@ const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Ti
 @export var killer_speed_per_round: float = 0.07
 ## The killer never gets faster than this many times its normal speed.
 @export var killer_speed_max: float = 1.6
+=======
+## Extra killer speed per round from the speed rounds on (0.06 = 6% faster
+## each round).
+@export var killer_speed_per_round: float = 0.06
+## The killer never gets faster than this many times its normal speed.
+@export var killer_speed_max: float = 1.5
+>>>>>>> origin/main
 ## How far short of the player the killer stops in round 1 (the story uses
 ## 20); it closes in by follow_distance_per_round every round after.
 @export var follow_distance_start: float = 20.0
@@ -185,7 +193,10 @@ func start_run() -> void:
 	GameState.forget_notes()
 	PlayerManager.deaths = 0
 	PlayerManager.coins = 0   # coins last the whole run (kept between rounds)
+<<<<<<< HEAD
 	office_data = {}          # a new office staff, no requests yet
+=======
+>>>>>>> origin/main
 	_begin_round()
 
 ## Dev (Enemies page): a line-up of its own - [{kind, speed, starer}] - used
@@ -322,12 +333,20 @@ func stun_time() -> float:
 func killer_speed_scale() -> float:
 	if not active:
 		return 1.0
+<<<<<<< HEAD
 	# a grab doesn't kill any more, so it's quicker than the story's from the
 	# start; no speeding up until the speed rounds (see plan_enemies) - then a
 	# little each round
 	if round_number < SPEED_ROUND:
 		return killer_speed_base
 	return minf(killer_speed_base + killer_speed_per_round * (round_number - SPEED_ROUND + 1), killer_speed_max)
+=======
+	# no speeding up until the speed rounds (see plan_enemies) - then a little
+	# each round
+	if round_number < SPEED_ROUND:
+		return 1.0
+	return minf(1.0 + killer_speed_per_round * (round_number - SPEED_ROUND + 1), killer_speed_max)
+>>>>>>> origin/main
 
 ## How far short of the player the killer stops this round.
 func killer_follow_distance() -> float:
@@ -648,7 +667,11 @@ func plan_enemies(r: int) -> Array:
 
 func _killer_entry(fast: bool) -> Dictionary:
 	return {"kind": "hunter" if randf() < 0.5 else "stalker",
+<<<<<<< HEAD
 		"speed": randf_range(1.05, 1.35) if fast else randf_range(0.95, 1.1)}
+=======
+		"speed": randf_range(0.95, 1.3) if fast else randf_range(0.9, 1.05)}
+>>>>>>> origin/main
 
 func _angel_entry(fast: bool, starer: bool) -> Dictionary:
 	return {"kind": "angel", "starer": starer,
@@ -711,8 +734,13 @@ func kill_allowed() -> bool:
 ## Setting the enemies up in the garage
 ## ---------------------------------------------------------------------
 ## How far (garage units) and how wide (half-angle, degrees) a rogue killer sees.
+<<<<<<< HEAD
 const KILLER_SIGHT_RANGE := 70.0
 const KILLER_SIGHT_FOV := 85.0
+=======
+const KILLER_SIGHT_RANGE := 55.0
+const KILLER_SIGHT_FOV := 70.0
+>>>>>>> origin/main
 ## How close (garage units) a rogue killer gets you from, when it may.
 const KILLER_KILL_REACH := 5.0
 const KILLER_SCRIPT := "Enemies/Killer.gd"

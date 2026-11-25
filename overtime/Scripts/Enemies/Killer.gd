@@ -147,7 +147,11 @@ var _wander_for := 0.0
 ## Something made a noise (EnemyNoise.make): a hunter that isn't chasing anyone
 ## goes to see what it was - or, if it was the player and close, it's onto
 ## them. A stalker that's lost the player goes to look too.
+<<<<<<< HEAD
 const HEAR_LOCK_ON := 24.0
+=======
+const HEAR_LOCK_ON := 15.0
+>>>>>>> origin/main
 func hear(at: Vector3, by_player: bool) -> void:
 	if killing or holding or is_hunting_hidden_player():
 		return

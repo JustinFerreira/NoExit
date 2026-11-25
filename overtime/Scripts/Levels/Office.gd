@@ -17,9 +17,12 @@ const ElevatorRide = preload("res://Scripts/Elevator/ElevatorRide.gd")
 func _ready() -> void:
 	# the bins under the desks can be searched (coins, stamina charges, notes)
 	load("res://Scripts/Loot/LootSpots.gd").attach_bins(self)
+<<<<<<< HEAD
 	# rogue mode: the extra rooms behind the back wall and the people in them
 	if RogueRun.active:
 		_add_office_life()
+=======
+>>>>>>> origin/main
 	if RogueRun.active and not EventManager.Comingfromelevator:
 		_setup_rogue_round()   # a new round (riding back up mid-round arrives by elevator as usual)
 		return
