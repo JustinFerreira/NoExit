@@ -35,11 +35,14 @@ const PROBLEM_NAMES := {GAS: "an empty gas tank", BATTERY: "a dead battery", TIR
 const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Tire"}
 
 @export_group("Difficulty")
-## Extra killer speed per round from the speed rounds on (0.06 = 6% faster
+## Rogue killers' speed, times the story's (every round - their chase,
+## trailing and lunge).
+@export var killer_speed_base: float = 1.1
+## Extra killer speed per round from the speed rounds on (0.07 = 7% faster
 ## each round).
-@export var killer_speed_per_round: float = 0.06
+@export var killer_speed_per_round: float = 0.07
 ## The killer never gets faster than this many times its normal speed.
-@export var killer_speed_max: float = 1.5
+@export var killer_speed_max: float = 1.6
 ## How far short of the player the killer stops in round 1 (the story uses
 ## 20); it closes in by follow_distance_per_round every round after.
 @export var follow_distance_start: float = 20.0
@@ -54,9 +57,10 @@ const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Ti
 @export var min_distance_from_car: float = 10.0
 
 @export_group("Enemies")
-## Rounds 1..lenient_rounds are forgiving: an enemy can only kill the player
-## if they're caught in a trap or have stood still too long (still_limit) -
-## otherwise it closes in and looms (Enemy.HOLD_OFF) but can't touch them.
+## Rounds 1..lenient_rounds are forgiving: an enemy can grab the player any
+## time it only hurts (grab_survivable), but a grab that would kill them needs
+## them caught in a trap or standing still too long (still_limit) - otherwise
+## it closes in and looms (Enemy.HOLD_OFF) but can't touch them.
 @export var lenient_rounds: int = 4
 ## Rounds 1..minigame_safe_rounds: nobody can be killed during a minigame.
 @export var minigame_safe_rounds: int = 5
@@ -66,6 +70,82 @@ const PROBLEM_ITEMS := {GAS: "Gas Canister", BATTERY: "Battery", TIRE: "Spare Ti
 @export var still_limit_min: float = 3.5
 ## Enemies start at least this far from the player (garage units).
 @export var enemy_spawn_distance: float = 60.0
+## A wandering (hunter) killer picking where to look next heads for near
+## the player's real spot (within hunch_radius) this often: hunch_chance_start
+## in round 1, more each round, up to hunch_chance_max.
+@export var hunch_chance_start: float = 0.3
+@export var hunch_chance_per_round: float = 0.03
+@export var hunch_chance_max: float = 0.6
+@export var hunch_radius: float = 14.0
+
+func hunch_chance() -> float:
+	return minf(hunch_chance_start + hunch_chance_per_round * (round_number - 1), hunch_chance_max)
+
+@export_group("Grabs")
+## Being caught is a grab, not the end: it takes grab_damage off the
+## player's 100 health (none left = dead), then they mash F to break free
+## (Enemy._struggle) - fail and they're killed. From one_hit_round on, a grab
+## kills outright again.
+@export var one_hit_round: int = 25
+## Health a grab takes in round 1, more each round, up to grab_damage_max.
+@export var grab_damage_start: float = 25.0
+@export var grab_damage_per_round: float = 1.5
+@export var grab_damage_max: float = 50.0
+## Extra health every grab already this round takes on top (health coming
+## back doesn't undo it - the next grab still hits harder), up to
+## grab_damage_cap all told.
+@export var grab_damage_per_grab: float = 8.0
+@export var grab_damage_cap: float = 75.0
+## F presses needed to break free: struggle_presses_start in round 1, more
+## each round and more for every time they've already been grabbed this
+## round - never more than struggle_presses_max.
+@export var struggle_presses_start: int = 7
+@export var struggle_presses_per_round: float = 0.5
+@export var struggle_presses_per_grab: int = 3
+@export var struggle_presses_max: int = 26
+## Seconds they get to do it: struggle_time_start in round 1, less each
+## round and each grab this round, never under struggle_time_min.
+@export var struggle_time_start: float = 3.5
+@export var struggle_time_per_round: float = 0.08
+@export var struggle_time_per_grab: float = 0.3
+@export var struggle_time_min: float = 2.2
+## Broken free: the enemy is staggered back this long (random in range;
+## shorter in hard rounds) and nothing can grab them for ESCAPE_GRACE.
+@export var escape_stun_easy := Vector2(3.0, 5.0)
+@export var escape_stun_hard := Vector2(1.5, 2.5)
+const ESCAPE_GRACE := 1.5
+
+## Grabs so far this round (each makes the next struggle harder).
+var grabs_this_round := 0
+
+## The office's people this run - the staff roster and their lost-item
+## requests (Scripts/Office/OfficeQuests.gd keeps it). Empty on a new run.
+var office_data := {}
+
+## Does a grab hurt (and can be struggled out of) instead of killing? Rogue
+## mode, before one_hit_round.
+func grabs_hurt() -> bool:
+	return active and round_number < one_hit_round
+
+## Would a grab right now leave the player alive (it only hurts)?
+func grab_survivable() -> bool:
+	return grabs_hurt() and PlayerManager.health > grab_damage()
+
+func grab_damage() -> float:
+	var base := minf(grab_damage_start + grab_damage_per_round * (round_number - 1), grab_damage_max)
+	return minf(base + grab_damage_per_grab * grabs_this_round, grab_damage_cap)
+
+## F presses needed to break free from this grab (call before counting it).
+func struggle_presses() -> int:
+	var n := struggle_presses_start + int(struggle_presses_per_round * (round_number - 1)) + struggle_presses_per_grab * grabs_this_round
+	return mini(n, struggle_presses_max)
+
+func struggle_time() -> float:
+	return maxf(struggle_time_start - struggle_time_per_round * (round_number - 1) - struggle_time_per_grab * grabs_this_round, struggle_time_min)
+
+func escape_stun_time() -> float:
+	var k := clampf(float(round_number - 1) / float(STUN_HARD_ROUND - 1), 0.0, 1.0) if active else 0.0
+	return randf_range(lerpf(escape_stun_easy.x, escape_stun_hard.x, k), lerpf(escape_stun_easy.y, escape_stun_hard.y, k))
 
 ## True while a run is going.
 const EventDirector = preload("res://Scripts/Events/EventDirector.gd")
@@ -105,6 +185,7 @@ func start_run() -> void:
 	GameState.forget_notes()
 	PlayerManager.deaths = 0
 	PlayerManager.coins = 0   # coins last the whole run (kept between rounds)
+	office_data = {}          # a new office staff, no requests yet
 	_begin_round()
 
 ## Dev (Enemies page): a line-up of its own - [{kind, speed, starer}] - used
@@ -150,6 +231,7 @@ func quit_run() -> void:
 func _begin_round(level: String = OFFICE) -> void:
 	problems = roll_problems(round_number)
 	tire_fixed = not problems.has(TIRE)
+	grabs_this_round = 0
 	GameState.clear_all_flags()
 	GameState.loop = 1
 	SettingsManager.KillerDisabled = false
@@ -240,11 +322,12 @@ func stun_time() -> float:
 func killer_speed_scale() -> float:
 	if not active:
 		return 1.0
-	# no speeding up until the speed rounds (see plan_enemies) - then a little
-	# each round
+	# a grab doesn't kill any more, so it's quicker than the story's from the
+	# start; no speeding up until the speed rounds (see plan_enemies) - then a
+	# little each round
 	if round_number < SPEED_ROUND:
-		return 1.0
-	return minf(1.0 + killer_speed_per_round * (round_number - SPEED_ROUND + 1), killer_speed_max)
+		return killer_speed_base
+	return minf(killer_speed_base + killer_speed_per_round * (round_number - SPEED_ROUND + 1), killer_speed_max)
 
 ## How far short of the player the killer stops this round.
 func killer_follow_distance() -> float:
@@ -565,7 +648,7 @@ func plan_enemies(r: int) -> Array:
 
 func _killer_entry(fast: bool) -> Dictionary:
 	return {"kind": "hunter" if randf() < 0.5 else "stalker",
-		"speed": randf_range(0.95, 1.3) if fast else randf_range(0.9, 1.05)}
+		"speed": randf_range(1.05, 1.35) if fast else randf_range(0.95, 1.1)}
 
 func _angel_entry(fast: bool, starer: bool) -> Dictionary:
 	return {"kind": "angel", "starer": starer,
@@ -619,15 +702,17 @@ func kill_allowed() -> bool:
 	if PlayerManager.MinigameMode and round_number <= minigame_safe_rounds:
 		return false
 	if round_number <= lenient_rounds:
-		return player_trapped() or player_still_long()
+		# a grab that only hurts is fine any time; one that would finish them
+		# off still needs them trapped or standing still too long
+		return player_trapped() or player_still_long() or grab_survivable()
 	return true
 
 ## ---------------------------------------------------------------------
 ## Setting the enemies up in the garage
 ## ---------------------------------------------------------------------
 ## How far (garage units) and how wide (half-angle, degrees) a rogue killer sees.
-const KILLER_SIGHT_RANGE := 55.0
-const KILLER_SIGHT_FOV := 70.0
+const KILLER_SIGHT_RANGE := 70.0
+const KILLER_SIGHT_FOV := 85.0
 ## How close (garage units) a rogue killer gets you from, when it may.
 const KILLER_KILL_REACH := 5.0
 const KILLER_SCRIPT := "Enemies/Killer.gd"
@@ -746,10 +831,15 @@ func _bench(e: Node3D) -> void:
 	for a in e.find_children("*", "AudioStreamPlayer3D", true, false):
 		a.stop()
 
-## Somewhere for a wandering enemy to head next: mostly near a point of
+## Somewhere for a wandering enemy to head next: sometimes a hunch - near
+## where the player really is (hunch_chance), mostly near a point of
 ## interest (the car, a part, the toll booth), otherwise anywhere nearby.
 func next_wander_point(e: Node3D) -> Vector3:
 	var map: RID = e.get_world_3d().navigation_map
+	var p = PlayerManager.player
+	if is_instance_valid(p) and not PlayerManager.hiding and randf() < hunch_chance():
+		var guess: Vector3 = p.global_position + Vector3(randf_range(0.0, hunch_radius), 0.0, 0.0).rotated(Vector3.UP, randf() * TAU)
+		return NavigationServer3D.map_get_closest_point(map, guess)
 	if not points_of_interest.is_empty() and randf() < 0.6:
 		var poi: Vector3 = points_of_interest.pick_random()
 		var near := poi + Vector3(randf_range(3.0, 8.0), 0.0, 0.0).rotated(Vector3.UP, randf() * TAU)

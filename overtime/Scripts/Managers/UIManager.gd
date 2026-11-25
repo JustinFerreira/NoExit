@@ -98,6 +98,7 @@ func _process(delta: float) -> void:
 		_inventory_peek -= delta
 		if _inventory_peek <= 0.0 and not _inventory_held:
 			_inventory.visible = false
+	_hide_inventory_if_busy()
 
 
 ## Called by the Player in its _ready(): a fresh level, a fresh player.
@@ -354,16 +355,39 @@ func show_panel(id: String, visible: bool) -> void:
 ## HUD: inventory + stamina (built here so they share the game's look)
 ## ---------------------------------------------------------------------
 
-## Shows the inventory strip (Tab). Ignored while a screen is open.
+## Shows the inventory strip (Tab). Ignored while a screen is open or the
+## game has the player (inventory_allowed).
 func show_inventory(visible: bool) -> void:
 	if _inventory == null:
 		return
 	_inventory_held = visible
 	_inventory_peek = 0.0
-	if visible and any_screen_open():
+	if visible and not inventory_allowed():
 		visible = false
 	_inventory.visible = visible
 	if visible:
+		_fill_inventory()
+
+## Can the inventory strip show right now? Not over a screen, nor while
+## the game has the player: a cutscene, a scripted animation (the janitor
+## walking over, a kill), or dying.
+func inventory_allowed() -> bool:
+	if any_screen_open():
+		return false
+	return not (PlayerManager.cutscene or PlayerManager.InAnimation or PlayerManager.dying)
+
+## Every frame: a cutscene / animation starting while the strip is open
+## (Tab held, or a switch peek) hides it straight away; still holding Tab
+## once it's over brings it back.
+func _hide_inventory_if_busy() -> void:
+	if _inventory == null:
+		return
+	var allowed := inventory_allowed()
+	if _inventory.visible and not allowed:
+		_inventory.visible = false
+		_inventory_peek = 0.0
+	elif _inventory_held and allowed and not _inventory.visible and is_instance_valid(PlayerManager.player):
+		_inventory.visible = true
 		_fill_inventory()
 
 ## Equipped item changed (Z/X, picking something up): redraw the strip if
@@ -379,7 +403,7 @@ func on_item_switched() -> void:
 		return
 	if _inventory.visible:
 		_fill_inventory()
-	elif not any_screen_open() and is_instance_valid(PlayerManager.player):
+	elif inventory_allowed() and is_instance_valid(PlayerManager.player):
 		_inventory.visible = true
 		_fill_inventory()
 		_inventory_peek = 1.5
@@ -459,6 +483,12 @@ func _build_hud() -> void:
 	_hud.name = "HUD"
 	_hud.layer = LAYER_HUD
 	add_child(_hud)
+
+	# Health: the screen's red tint and cracks (DamageOverlay.gd).
+	var damage := CanvasLayer.new()
+	damage.name = "DamageOverlay"
+	damage.set_script(load("res://Scripts/UI/DamageOverlay.gd"))
+	add_child(damage)
 
 	# Stamina: small bar in the top-left corner, clear of the dialog box.
 	_stamina_bar = Control.new()

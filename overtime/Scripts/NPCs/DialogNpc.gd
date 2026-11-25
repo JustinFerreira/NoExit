@@ -69,6 +69,35 @@ var _drag_yaw_offset: float = 0.0             # bucket yaw relative to "handle t
 const REPATH_INTERVAL := 0.25
 var _repath_timer := 0.0
 
+## Cleaning up (rogue office - OfficeLife sends him: go_clean): walks to the
+## mess at clean_speed, steps up onto it, takes the mop out of his bucket
+## (MOP_TAKE_TIME), swishes it round over the mess for CLEAN_TIME seconds
+## (the mess shrinks away under it), puts the mop back and goes back to
+## wandering. Talking to the player comes first.
+@export var clean_speed: float = 2.4
+const CLEAN_TIME := 4.5
+const MOP_TAKE_TIME := 0.7
+## How far in front of him the mop head works (level units), how wide it
+## swishes side to side, and how fast.
+const MOP_REACH := 1.0
+const MOP_SWISH := 0.75
+const MOP_SWISH_SPEED := 5.0
+var _clean_target: Node3D = null
+var _clean_left := 0.0
+## "walk" (to the mess), "approach" (the last steps onto it), "take" (mop
+## out of the bucket), "mop", "stow" (mop back in)
+var _clean_phase := ""
+var _clean_t := 0.0
+var _stand_at := Vector3.ZERO
+var _mop: Node3D
+var _mop_in_hand := false
+var _mop_from := Transform3D()
+
+const NpcAvoid := preload("res://Scripts/NPCs/NpcAvoid.gd")
+const Dance := preload("res://Scripts/NPCs/Dance.gd")
+## Dancing (the fire alarm - Dance.gd): everything else waits.
+var _dance := {}
+
 func _npc_ready() -> void:
 	# The janitor's own inspector slots feed the NPC animation helpers.
 	walk_animation_player = animation_player_walk
@@ -93,9 +122,14 @@ func _npc_ready() -> void:
 	PlayerManager.talkToJanitor = RogueRun.active and not RogueRun.janitor_talks_this_round()
 
 	set_new_wander_target()
+	root.add_to_group("npc_body")   # (NPCs walk round him - NpcAvoid)
+	add_to_group("office_dancer")   # (the fire alarm party - Dance.gd)
 	_setup_dragged_props.call_deferred()
 
 func _process(delta: float) -> void:
+	if not _dance.is_empty():
+		_update_dragged_props(delta)
+		return
 	if is_rotating:
 		# Smoothly rotate toward target rotation
 		var current_rotation = root.rotation.y
@@ -120,6 +154,10 @@ func _process(delta: float) -> void:
 		else:
 			walk_to_player(delta)
 
+	# Cleaning up a mess (OfficeLife sent him)
+	elif _clean_target != null and not is_interacting and not PlayerManager.multiDialog:
+		_clean_step(delta)
+
 	# Handle wandering if not interacting AND not in dialog
 	elif is_wandering and not is_interacting and not is_walking_to_player and not PlayerManager.multiDialog:
 		wander(delta)
@@ -128,6 +166,11 @@ func _process(delta: float) -> void:
 	# player, so the two animations never fight over the skeleton).
 	if is_walking_to_player:
 		play_walk(fast_walk_speed_scale)
+	elif _clean_target != null:
+		if _clean_phase in ["walk", "approach"]:
+			play_walk(fast_walk_speed_scale * 0.7)
+		else:
+			play_idle()
 	elif is_wandering:
 		play_walk(normal_walk_speed_scale)
 	else:
@@ -149,6 +192,13 @@ func _setup_dragged_props() -> void:
 			_drag_props.append(n)
 	if _drag_props.is_empty():
 		return
+	# nobody walks into the bucket (NpcAvoid) - he steers round it himself
+	_drag_props[0].add_to_group("npc_obstacle")
+	_drag_props[0].set_meta("avoid_radius", 0.85)
+	_drag_props[0].set_meta("avoid_owner", root)
+	for n in _drag_props:
+		if n.name == "MMop":
+			_mop = n
 	var bucket_gt: Transform3D = _drag_props[0].global_transform
 	for n in _drag_props:
 		_drag_offsets.append(bucket_gt.affine_inverse() * n.global_transform)
@@ -185,7 +235,7 @@ func _update_dragged_props(delta: float) -> void:
 	var bucket_scale := gt.basis.get_scale()
 	gt = Transform3D(Basis(Vector3.UP, yaw) * Basis.from_scale(bucket_scale), pos)
 	for i in _drag_props.size():
-		if is_instance_valid(_drag_props[i]):
+		if is_instance_valid(_drag_props[i]) and not (_mop_in_hand and _drag_props[i] == _mop):
 			_drag_props[i].global_transform = gt * _drag_offsets[i]
 
 ## walk_to_player
@@ -247,8 +297,9 @@ func walk_to_player(delta: float) -> void:
 			# Start the multi-dialog with camera rotation
 			start_multi_dialog_with_camera()
 		else:
-			# Move the NPC
-			root.global_transform.origin = new_position
+			# Move the NPC (round other NPCs and his bucket)
+			direction = _avoid_dir(direction)
+			root.global_transform.origin = NpcAvoid.separate(root, npc_position + direction * move_distance)
 
 			# Make the NPC face the direction it's moving
 			if direction.length() > 0:
@@ -289,8 +340,9 @@ func wander(delta: float) -> void:
 		var current_location = root.global_transform.origin
 		var direction = (next_location - current_location).normalized()
 
-		# Move the NPC
-		root.global_transform.origin += direction * wander_speed * delta
+		# Move the NPC (round other NPCs and his bucket)
+		direction = _avoid_dir(direction)
+		root.global_transform.origin = NpcAvoid.separate(root, root.global_transform.origin + direction * wander_speed * delta)
 
 		# Make the NPC face the direction it's moving
 		if direction.length() > 0:
@@ -304,6 +356,177 @@ func wander(delta: float) -> void:
 	# Check if we need a new target (even if not finished with current path)
 	if wander_timer <= 0:
 		set_new_wander_target()
+
+## The fire alarm party: stops where he is (mop back in the bucket if he
+## was mopping - he goes back to it after) and dances for `seconds`. Not
+## while he's stopping the player at the elevator.
+func dance(seconds: float) -> void:
+	if not _dance.is_empty() or is_walking_to_player or _tracking_view or PlayerManager.multiDialog:
+		return
+	var sk := root.get_node_or_null("Skeleton3D") as Skeleton3D
+	if sk == null or animation_player_walk == null:
+		return
+	if _clean_target != null and _clean_phase in ["take", "mop", "stow"]:
+		_stow_mop_now()
+		if is_instance_valid(_clean_target) and _clean_target.has_method("set_dirt"):
+			_clean_target.set_dirt(1.0)
+		_clean_phase = "walk"
+	if animation_player_idle:
+		animation_player_idle.stop()
+	_dance = Dance.start(sk, animation_player_walk)
+	await get_tree().create_timer(seconds).timeout
+	if not is_inside_tree():
+		return
+	Dance.stop(_dance)
+	_dance = {}
+
+## Free to go and clean something? (Just wandering - not talking, not
+## walking up to the player, not cleaning already.)
+func can_clean() -> bool:
+	return _clean_target == null and is_wandering and not is_interacting and not is_walking_to_player and not _tracking_view
+
+## Go and clean up `mess` (an OfficeMess). False if he's busy.
+func go_clean(mess: Node3D) -> bool:
+	if not can_clean() or not is_instance_valid(mess):
+		return false
+	_clean_target = mess
+	_clean_phase = "walk"
+	_clean_t = 0.0
+	is_wandering = false
+	nav_agent.target_position = mess.global_position
+	return true
+
+## The way he's heading, bent round other NPCs (NpcAvoid) and round his own
+## bucket if it's in front of him.
+func _avoid_dir(dir: Vector3) -> Vector3:
+	dir.y = 0.0
+	if dir.length() < 0.0001:
+		return dir
+	var out := NpcAvoid.steer(root, root.global_position, dir.normalized())
+	if not _drag_props.is_empty() and is_instance_valid(_drag_props[0]):
+		var to_b: Vector3 = _drag_props[0].global_position - root.global_position
+		to_b.y = 0.0
+		if to_b.length() < 2.2 and to_b.length() > 0.001 and out.dot(to_b.normalized()) > 0.3:
+			out = (out + out.cross(Vector3.UP).normalized() * 1.2).normalized()
+	return out
+
+func _clean_step(delta: float) -> void:
+	if not is_instance_valid(_clean_target):
+		_stow_mop_now()
+		_stop_cleaning()
+		return
+	var here := root.global_position
+	var at := _clean_target.global_position
+	var flat_to := Vector3(at.x - here.x, 0.0, at.z - here.z)
+	match _clean_phase:
+		"walk":
+			if flat_to.length() < 3.0 or nav_agent.is_navigation_finished():
+				# the last steps: up onto the mess, the mop's reach short of its middle
+				var back := -flat_to.normalized() if flat_to.length() > 0.01 else root.global_transform.basis.z
+				_stand_at = Vector3(at.x, here.y, at.z) + back * MOP_REACH
+				_clean_phase = "approach"
+				return
+			var next := nav_agent.get_next_path_position()
+			var dir := next - here
+			dir.y = 0.0
+			if dir.length() > 0.001:
+				dir = _avoid_dir(dir.normalized())
+				root.global_position = NpcAvoid.separate(root, here + dir * clean_speed * delta)
+				face_direction(dir)
+		"approach":
+			var to := Vector3(_stand_at.x - here.x, 0.0, _stand_at.z - here.z)
+			var step := clean_speed * 0.6 * delta
+			if to.length() <= step:
+				root.global_position = Vector3(_stand_at.x, here.y, _stand_at.z)
+				face_point(at)
+				_start_take()
+			else:
+				root.global_position += to.normalized() * step
+				face_direction(to)
+		"take":
+			_clean_t += delta
+			face_point(at)
+			if is_instance_valid(_mop):
+				var k := clampf(_clean_t / MOP_TAKE_TIME, 0.0, 1.0)
+				_mop.global_transform = _mop_from.interpolate_with(_mop_pose(0.0), ease(k, -1.8))
+			if _clean_t >= MOP_TAKE_TIME:
+				_clean_phase = "mop"
+				_clean_t = 0.0
+		"mop":
+			_clean_t += delta
+			if is_instance_valid(_mop):
+				_mop.global_transform = _mop_pose(_clean_t)
+			if _clean_target.has_method("set_dirt"):
+				_clean_target.set_dirt(1.0 - _clean_t / CLEAN_TIME)
+			if _clean_t >= CLEAN_TIME:
+				_clean_target.clean()
+				_clean_phase = "stow"
+				_clean_t = 0.0
+				if is_instance_valid(_mop):
+					_mop_from = _mop.global_transform
+		"stow":
+			_clean_t += delta
+			if is_instance_valid(_mop):
+				var k := clampf(_clean_t / MOP_TAKE_TIME, 0.0, 1.0)
+				_mop.global_transform = _mop_from.interpolate_with(_mop_in_bucket(), ease(k, -1.8))
+			if _clean_t >= MOP_TAKE_TIME:
+				_stow_mop_now()
+				_stop_cleaning()
+
+## Reaches into the bucket for the mop.
+func _start_take() -> void:
+	_clean_phase = "take"
+	_clean_t = 0.0
+	if is_instance_valid(_mop):
+		_mop_in_hand = true
+		_mop_from = _mop.global_transform
+
+## Where the mop sits in the bucket right now.
+func _mop_in_bucket() -> Transform3D:
+	var i := _drag_props.find(_mop)
+	if i < 0 or _drag_props.is_empty():
+		return _mop.global_transform
+	return _drag_props[0].global_transform * _drag_offsets[i]
+
+## The mop back in the bucket, at once (done, or interrupted).
+func _stow_mop_now() -> void:
+	if _mop_in_hand and is_instance_valid(_mop):
+		_mop.global_transform = _mop_in_bucket()
+	_mop_in_hand = false
+
+## The mop in his hands at swish time `t`: the handle from just in front
+## of his hips down to the head on the floor over the mess, swinging side
+## to side (and a little to and fro).
+func _mop_pose(t: float) -> Transform3D:
+	var fwd := Vector3.FORWARD
+	if is_instance_valid(_clean_target):
+		fwd = Vector3(_clean_target.global_position.x - root.global_position.x, 0.0, _clean_target.global_position.z - root.global_position.z)
+	fwd = fwd.normalized() if fwd.length() > 0.001 else Vector3.FORWARD
+	var right := fwd.cross(Vector3.UP).normalized()
+	var grip := _grip_point() + fwd * 0.45
+	var head := root.global_position + fwd * MOP_REACH + right * sin(t * MOP_SWISH_SPEED) * MOP_SWISH + fwd * cos(t * MOP_SWISH_SPEED * 0.5) * 0.25
+	head.y = 0.02
+	var y := (grip - head).normalized()
+	var x := (right - y * right.dot(y)).normalized()
+	var z := x.cross(y).normalized()
+	var sc := _mop.global_transform.basis.get_scale().x if is_instance_valid(_mop) else 1.0
+	return Transform3D(Basis(x, y, z).scaled(Vector3.ONE * sc), head)
+
+## About where his hands are (hips height, from the skeleton).
+func _grip_point() -> Vector3:
+	var sk := root.get_node_or_null("Skeleton3D") as Skeleton3D
+	if sk:
+		var i := sk.find_bone("mixamorig_Hips")
+		if i >= 0:
+			return sk.global_transform * sk.get_bone_global_pose(i).origin
+	return root.global_position + Vector3.UP * 1.7
+
+func _stop_cleaning() -> void:
+	_clean_target = null
+	_clean_phase = ""
+	_clean_left = 0.0
+	is_wandering = true
+	set_new_wander_target()
 
 ## set_new_wander_target
 ## picks a random position for the npc
@@ -365,6 +588,14 @@ func talkToPlayer():
 	set_outline_blocked(true)   # no outline on him during the scene
 	mark_used()                 # nor the close-by one after it (hover still flashes)
 	AudioManager.cancel_loop_sfx()
+	# drop any cleaning - the mess waits for someone else (or later)
+	if is_instance_valid(_clean_target) and "claimed" in _clean_target:
+		_clean_target.claimed = false
+		if _clean_target.has_method("set_dirt"):
+			_clean_target.set_dirt(1.0)
+	_stow_mop_now()
+	_clean_target = null
+	_clean_phase = ""
 	is_walking_to_player = true
 	is_wandering = false
 

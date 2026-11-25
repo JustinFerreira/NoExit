@@ -287,6 +287,53 @@ func stamina_charge_count() -> int:
 			n += 1
 	return n
 
+## ---------------------------------------------------------------------
+## Office food and drink (rogue office - OfficeJobs.gd)
+## ---------------------------------------------------------------------
+
+## A snack from the vending machine: hold it, F to eat - SNACK_HEAL health.
+const SNACK := "Snack"
+const SNACK_HEAL := 25.0
+## Coffee: stamina full, and it runs down at CAFFEINE_DRAIN of the usual
+## rate for CAFFEINE_TIME seconds (Player._update_stamina).
+const CAFFEINE_TIME := 90.0
+const CAFFEINE_DRAIN := 0.5
+var _caffeine_until := 0
+
+func add_snack() -> void:
+	Inventory.append({"name": SNACK, "weight": 0.0, "equippable": true})
+	if EquippedItem == "":
+		EquippedItem = SNACK
+		equipped_item_changed.emit(EquippedItem)
+	UiManager.refresh_inventory()
+
+## F with a snack in hand: eaten, some health back (not if already full).
+func eat_snack() -> void:
+	if EquippedItem != SNACK:
+		return
+	if health >= MAX_HEALTH:
+		UiManager.say("I'm not hungry.")
+		return
+	if not RemoveItemByName(SNACK):
+		return
+	var before := health
+	health = minf(health + SNACK_HEAL, MAX_HEALTH)
+	health_changed.emit(health, before - health)   # (negative: healing)
+	AudioManager.play_sound(AudioManager.ItemPickup, -8.0)
+	if not has_item(SNACK):
+		SwitchEquippedItem(true)
+	UiManager.refresh_inventory()
+
+func drink_coffee() -> void:
+	_caffeine_until = Time.get_ticks_msec() + int(CAFFEINE_TIME * 1000.0)
+	if is_instance_valid(player):
+		player.stamina = player.max_stamina
+		player.fatigue_time_left = 0.0
+
+## Still buzzing from a coffee?
+func caffeinated() -> bool:
+	return Time.get_ticks_msec() < _caffeine_until
+
 ## F with a stamina charge in hand: stamina full, the tiredness gone, one
 ## charge used up. Works on any level.
 func use_stamina_charge() -> void:
@@ -337,6 +384,81 @@ func use_shield() -> bool:
 	shields_changed.emit(shields, true)
 	return true
 
+## ---------------------------------------------------------------------
+## Health: 100, knocked down by enemy grabs (Enemy.kill - rogue mode; the
+## story's enemies still kill in one go). Shown by the screen's red tint and
+## cracks (DamageOverlay.gd); none left = dead. Full again every round
+## (ResetPlayer), and it comes back on its own once the player has kept
+## clear of every enemy for a while (REGEN_*, _regen). Coming back doesn't
+## undo the grabs: each one this round still makes the next worse
+## (RogueRun.grab_damage / struggle_presses / struggle_time).
+## ---------------------------------------------------------------------
+
+## Emitted when health changes. hit = how much was just lost (0 = reset to
+## full, negative = coming back on its own - see _regen).
+signal health_changed(health: float, hit: float)
+const MAX_HEALTH := 100.0
+var health: float = MAX_HEALTH
+## True while an enemy holds the player and they're mashing F to get free
+## (Enemy._struggle) - nobody else can grab them meanwhile.
+var grabbed := false
+
+## Health comes back once the player has been at least REGEN_DISTANCE
+## (metres) from every enemy for REGEN_DELAY seconds straight, at REGEN_RATE
+## a second until full. Getting closer than that starts the wait again.
+const REGEN_DISTANCE := 20.0
+const REGEN_DELAY := 10.0
+const REGEN_RATE := 5.0
+## Seconds they've been clear of every enemy so far.
+var regen_wait := 0.0
+
+func _process(delta: float) -> void:
+	_regen(delta)
+
+func _regen(delta: float) -> void:
+	if health >= MAX_HEALTH or health <= 0.0 or dying or grabbed or cutscene or not is_instance_valid(player):
+		regen_wait = 0.0
+		return
+	if _enemy_within(REGEN_DISTANCE):
+		regen_wait = 0.0
+		return
+	regen_wait += delta
+	if regen_wait < REGEN_DELAY:
+		return
+	var before := health
+	health = minf(health + REGEN_RATE * delta, MAX_HEALTH)
+	health_changed.emit(health, before - health)   # negative: healing
+
+## Is any enemy closer than `metres` to the player?
+func _enemy_within(metres: float) -> bool:
+	var at: Vector3 = player.global_position
+	for e in get_tree().get_nodes_in_group("enemy"):
+		if e is Node3D and e.is_inside_tree() and e.global_position.distance_to(at) < metres:
+			return true
+	return false
+
+## Takes `amount` off. True if they're still alive afterwards.
+func take_damage(amount: float) -> bool:
+	var before := health
+	health = clampf(health - amount, 0.0, MAX_HEALTH)
+	regen_wait = 0.0
+	health_changed.emit(health, before - health)
+	return health > 0.0
+
+## Health to 0 (killed outright).
+func lose_all_health() -> void:
+	take_damage(health)
+
+func heal_full() -> void:
+	health = MAX_HEALTH
+	regen_wait = 0.0
+	health_changed.emit(health, 0.0)
+
+## Nothing can grab them for `seconds` (just escaped a grab, or a shield
+## saved them) - same window as the shield's.
+func grant_grace(seconds: float) -> void:
+	_shield_grace_until = maxi(_shield_grace_until, Time.get_ticks_msec() + int(seconds * 1000.0))
+
 ## takes a name and tries to find it in the inventory
 ## if found it will remove otherwise it will just return false
 func RemoveItemByName(itemName: String) -> bool:
@@ -353,6 +475,8 @@ func ResetPlayer() -> void:
 	coins_changed.emit(coins)
 	shields = 0
 	shields_changed.emit(shields, false)
+	grabbed = false
+	heal_full()
 	sprint_engaged = false
 	dying = false
 	InAnimation = false

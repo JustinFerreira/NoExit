@@ -17,6 +17,8 @@
 ##     _play_kill()            - the kill itself (default: a lunge at the
 ##                               player's face, then game over)
 ##     play_drag_out(time)     - pulling a hidden player out (default: stand)
+##     _after_grab()           - the player broke free of a grab (rogue
+##                               mode): undo what _before_kill_turn set up
 ## What you get for free:
 ##   player / camera           - found automatically (retried until found)
 ##   nav                       - the NavigationAgent3D child, if there is one
@@ -192,8 +194,9 @@ var _stun_fx: Node3D
 func is_stunned() -> bool:
 	return _stun_left > 0.0
 
-## Stuns it, knocked away from `from` (the player).
-func stun_from(from: Vector3) -> void:
+## Stuns it, knocked away from `from` (the player), for `time` seconds
+## (-1 = RogueRun.stun_time(), a shield's stun).
+func stun_from(from: Vector3, time: float = -1.0) -> void:
 	var d := global_position - from
 	d.y = 0.0
 	_stun_dir = d.normalized() if d.length() > 0.01 else global_basis.z.normalized()
@@ -206,7 +209,7 @@ func stun_from(from: Vector3) -> void:
 		_stun_anims.clear()
 		for ap in find_children("*", "AnimationPlayer", true, false):
 			_stun_anims[ap] = ap.speed_scale
-	_stun_total = RogueRun.stun_time()
+	_stun_total = RogueRun.stun_time() if time < 0.0 else maxf(time, STUN_PUSH_TIME + STUN_RECOVER)
 	_stun_left = _stun_total
 	AudioManager.play_sound(AudioManager.HeavyDamage, -4.0)
 	_make_stun_fx()
@@ -764,7 +767,7 @@ func kill() -> void:
 	if not _dragging_out and not RogueRun.kill_allowed():
 		return
 	# a shield: the player lives, this enemy is stunned and knocked back
-	if is_stunned() or PlayerManager.shield_protected() or PlayerManager.dying:
+	if is_stunned() or PlayerManager.shield_protected() or PlayerManager.dying or PlayerManager.grabbed:
 		return
 	if PlayerManager.use_shield():
 		_dragging_out = false
@@ -772,13 +775,18 @@ func kill() -> void:
 		PlayerManager.InAnimation = false   # (dragged out of a hiding spot: free to run)
 		stun_from(PlayerManager.player.global_position if is_instance_valid(PlayerManager.player) else global_position - global_basis.z)
 		return
+	# rogue mode: a grab is a hit, not (yet) the end - it takes health, then
+	# they mash F to break free (none left, or they don't: killed)
+	var struggle := false
+	if RogueRun.grabs_hurt():
+		struggle = PlayerManager.take_damage(RogueRun.grab_damage())
 	_dragging_out = false
 	killing = true
 	holding = false
-	PlayerManager.deaths += 1
 	AudioManager.play_sound(AudioManager.StringStinger)
 	PlayerManager.HideDialog()
 	PlayerManager.dying = true
+	PlayerManager.grabbed = struggle
 	PlayerManager.InAnimation = true
 	# caught while getting into the car: the getting-in stops, the player is
 	# back on their feet with their own eyes
@@ -807,7 +815,83 @@ func kill() -> void:
 			tw.tween_method(func(v: Vector3): global_position = v,
 				global_position, spot, kill_turn_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		await _turn_player_to_face(spot)
+		if struggle:
+			var presses := RogueRun.struggle_presses()
+			var time := RogueRun.struggle_time()
+			RogueRun.grabs_this_round += 1
+			if await _struggle(presses, time):
+				_break_free()
+				return
+	PlayerManager.grabbed = false
+	PlayerManager.deaths += 1
+	# the screen goes red (DamageOverlay) - not for the story's scripted deaths
+	if not (PlayerManager.OpeningCutscene or PlayerManager.Loop0):
+		PlayerManager.lose_all_health()
 	_play_kill()
+
+## ---------------------------------------------------------------------
+## Grabbed (rogue mode - see RogueRun "Grabs")
+## ---------------------------------------------------------------------
+const STRUGGLE_HUD := preload("res://Scripts/UI/StruggleHud.gd")
+
+## Holding the player, face to face: they have `time` seconds to press F
+## `presses` times. The view shakes with every press and narrows as the
+## time runs out. True = they broke free.
+func _struggle(presses: int, time: float) -> bool:
+	var p = PlayerManager.player
+	var cam: Camera3D = p.CAMERA
+	var hud := STRUGGLE_HUD.new()
+	get_tree().root.add_child(hud)
+	var roll := cam.rotation.z
+	var fov := cam.fov
+	var got := 0
+	var left := time
+	var shake := 0.0
+	var t := 0.0
+	while left > 0.0 and got < presses:
+		await get_tree().process_frame
+		if not is_instance_valid(self) or not is_instance_valid(p) or not is_instance_valid(cam):
+			if is_instance_valid(hud):
+				hud.queue_free()
+			return false
+		if get_tree().paused:
+			continue
+		var dt := get_process_delta_time()
+		left -= dt
+		t += dt
+		if Input.is_action_just_pressed("Keysound"):   # F
+			got += 1
+			shake = 1.0
+			hud.kick()
+		shake = move_toward(shake, 0.0, dt * 6.0)
+		var tight := 1.0 - left / time
+		cam.rotation.z = roll + deg_to_rad(sin(t * 55.0) * 3.0 * shake + sin(t * 9.0) * (0.5 + 1.5 * tight))
+		cam.fov = fov - 7.0 * tight
+		hud.set_state(float(got) / float(presses), left / time)
+	cam.rotation.z = roll
+	cam.fov = fov
+	var free := got >= presses
+	hud.finish(free)
+	return free
+
+## Broke free: the player can move again (and can't be grabbed for a
+## moment), this enemy staggers back.
+func _break_free() -> void:
+	var p = PlayerManager.player
+	killing = false
+	PlayerManager.grabbed = false
+	PlayerManager.dying = false
+	PlayerManager.InAnimation = false
+	PlayerManager.grant_grace(RogueRun.ESCAPE_GRACE)
+	if is_instance_valid(p):
+		remove_collision_exception_with(p)
+	_after_grab()
+	stun_from(p.global_position if is_instance_valid(p) else global_position - global_basis.z, RogueRun.escape_stun_time())
+
+## The player broke free: undo whatever _before_kill_turn set up (the kill
+## model swapped in...). Default: nothing.
+func _after_grab() -> void:
+	pass
 
 ## Caught mid-way into the car (the getting-in animation): stop it and give
 ## the player back their own head, camera and body, so the kill plays as usual.
@@ -1043,7 +1127,7 @@ func _check_reach_kill() -> void:
 		return
 	if not RogueRun.kill_allowed():
 		return
-	if PlayerManager.dying or PlayerManager.hiding or ("Incar" in player and player.Incar):
+	if PlayerManager.dying or PlayerManager.grabbed or PlayerManager.hiding or PlayerManager.shield_protected() or is_stunned() or ("Incar" in player and player.Incar):
 		return
 	var d := player.global_position - global_position
 	if absf(d.y) < 1.5 * global_basis.get_scale().y and Vector2(d.x, d.z).length() <= kill_reach * global_basis.get_scale().y:

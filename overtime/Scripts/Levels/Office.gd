@@ -17,6 +17,9 @@ const ElevatorRide = preload("res://Scripts/Elevator/ElevatorRide.gd")
 func _ready() -> void:
 	# the bins under the desks can be searched (coins, stamina charges, notes)
 	load("res://Scripts/Loot/LootSpots.gd").attach_bins(self)
+	# rogue mode: the extra rooms behind the back wall and the people in them
+	if RogueRun.active:
+		_add_office_life()
 	if RogueRun.active and not EventManager.Comingfromelevator:
 		_setup_rogue_round()   # a new round (riding back up mid-round arrives by elevator as usual)
 		return
@@ -68,6 +71,21 @@ func _ready() -> void:
 		animation_player.connect("animation_finished", _on_animation_finished)
 		cutscene_camera.current = true
 		animation_player.play("WakingUp")
+
+## Rogue mode: the new rooms (OfficeWing.gd), the office going about its
+## day - workers, their errands, messes, wanted items and the shop
+## (OfficeLife.gd) - and the office jobs and stations: mail, copies,
+## coffee, the vending machine, the desk computer (OfficeJobs.gd).
+func _add_office_life() -> void:
+	var wing := Node3D.new()
+	wing.set_script(load("res://Scripts/Office/OfficeWing.gd"))
+	add_child(wing)
+	var life := Node.new()
+	life.set_script(load("res://Scripts/Office/OfficeLife.gd"))
+	add_child(life)
+	var jobs := Node.new()
+	jobs.set_script(load("res://Scripts/Office/OfficeJobs.gd"))
+	add_child(jobs)
 
 func _on_animation_finished(anim_name: String):
 

@@ -135,9 +135,9 @@ enum Behavior { STALK, HUNT }
 var behavior: Behavior = Behavior.STALK
 ## Times its normal speed (rogue rounds vary it).
 var speed_mult := 1.0
-const WANDER_SPEED := 1.4
-const CHASE_SPEED := 3.6
-const LOSE_SIGHT_TIME := 6.0
+const WANDER_SPEED := 1.7
+const CHASE_SPEED := 3.9
+const LOSE_SIGHT_TIME := 10.0
 var _locked_on := false
 var _unseen_for := 0.0
 var _last_seen := Vector3.INF
@@ -147,7 +147,7 @@ var _wander_for := 0.0
 ## Something made a noise (EnemyNoise.make): a hunter that isn't chasing anyone
 ## goes to see what it was - or, if it was the player and close, it's onto
 ## them. A stalker that's lost the player goes to look too.
-const HEAR_LOCK_ON := 15.0
+const HEAR_LOCK_ON := 24.0
 func hear(at: Vector3, by_player: bool) -> void:
 	if killing or holding or is_hunting_hidden_player():
 		return
@@ -196,7 +196,7 @@ func _hunt(delta: float) -> void:
 		_wander_to = RogueRun.next_wander_point(self)
 		_wander_for = 0.0
 	set_nav_target(_wander_to)
-	move_along_nav(WANDER_SPEED * speed_mult)
+	move_along_nav(WANDER_SPEED * scale_now)
 
 ## While it hangs back, walking up closer than this to it (metres, a clear
 ## line between them) makes it lunge: it rushes them and kills them. It gives
@@ -289,6 +289,17 @@ func _before_kill_turn() -> void:
 		$Skeleton3D.visible = true
 		$Skeleton3D/killer_UV_unwrapped.visible = true
 	face_point(PlayerManager.player.global_position)
+
+## The player broke free of its grab (rogue mode): back to its walking model
+## and walk, and no lunging straight back in.
+func _after_grab() -> void:
+	if StabbingAnimator.is_playing():
+		StabbingAnimator.stop()
+	if not stab_with_walk_model:
+		$Skeleton3D.visible = false
+		$Armature.visible = true
+	_lunging = false
+	_hanging_back = false
 
 ## Dragging a hidden player out: reach in, grab, yank (if this killer has the
 ## hand-keyed "DragOut" for its walking model), sped to fit `time`.

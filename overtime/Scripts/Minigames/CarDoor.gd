@@ -128,11 +128,13 @@ func _on_interacted(_body: Variant) -> void:
 const CAR_CATCH_RANGE := 9.0
 func _killer_catches() -> bool:
 	var p = PlayerManager.player
-	if not is_instance_valid(p) or PlayerManager.dying or not RogueRun.kill_allowed():
+	if not is_instance_valid(p) or PlayerManager.dying or not RogueRun.kill_allowed() or PlayerManager.shield_protected():
 		return false
 	for e in get_tree().get_nodes_in_group("enemy"):
 		if not e.has_method("kill") or not e.can_kill_player or e.killing:
 			continue
+		if e.has_method("is_stunned") and e.is_stunned():
+			continue   # staggered (a shield, or they broke free): no grab
 		if e.global_position.distance_to(p.global_position) <= CAR_CATCH_RANGE:
 			AudioManager.cancel_loop_sfx()
 			e.kill()

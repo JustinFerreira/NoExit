@@ -22,12 +22,16 @@
 ##   "note"  - a random note from RandomNotes.gd the player hasn't read yet
 ##   "shield" - a second chance: caught with one, the enemy is stunned and
 ##             knocked back instead (carry up to PlayerManager.MAX_SHIELDS = 3)
+##   "wanted" - something an office worker lost (rogue mode, garage only):
+##             one of the open requests nobody's found yet - see
+##             Scripts/Office/OfficeQuests.gd. Nothing if none are open.
 ## A new inventory item is just a new "item" line here (then add it to tables).
 const ITEMS := {
 	"coins": {"type": "coins"},
 	"stamina_charge": {"type": "item", "name": "Stamina Charge", "equip": true},
 	"note": {"type": "note"},
 	"shield": {"type": "shield"},
+	"wanted": {"type": "wanted"},
 }
 
 ## ---------------------------------------------------------------------
@@ -44,6 +48,7 @@ const TABLES := {
 		{"item": "stamina_charge", "chance": 0.12},
 		{"item": "note", "chance": 0.10},
 		{"item": "shield", "chance": 0.04},
+		{"item": "wanted", "chance": 0.15},
 	],
 	"office_bin": [
 		{"item": "coins", "chance": 0.30, "min": 1, "max": 3},
@@ -56,6 +61,7 @@ const TABLES := {
 		{"item": "stamina_charge", "chance": 0.45},
 		{"item": "note", "chance": 0.35},
 		{"item": "shield", "chance": 0.20},
+		{"item": "wanted", "chance": 0.35},
 	],
 }
 

@@ -52,9 +52,13 @@ process_mode = 3
 script = ExtResource("1_x34de")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1284.0
-offset_bottom = 722.0
-color = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.81, 0, 0, 1)
 
 [node name="Control" type="Control" parent="."]
 process_mode = 3
@@ -83,7 +87,7 @@ layout_mode = 2
 [node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_astw6")
 theme_override_font_sizes/font_size = 62
 text = "Game Over
@@ -96,8 +100,10 @@ layout_mode = 2
 [node name="RestartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
-theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.25, 0.02, 0.02, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_astw6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x11hh")
@@ -120,8 +126,10 @@ layout_mode = 2
 [node name="MainMenuBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
-theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.25, 0.02, 0.02, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_astw6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_x11hh")
@@ -144,8 +152,10 @@ layout_mode = 2
 [node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(0.517647, 0.458824, 0.458824, 1)
-theme_override_colors/font_pressed_color = Color(0.537255, 0.0156863, 0.0156863, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.25, 0.02, 0.02, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_astw6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_62gok")

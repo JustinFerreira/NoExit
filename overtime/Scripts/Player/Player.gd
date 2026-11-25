@@ -257,6 +257,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			PlayerManager.Hint("Can only use this in the parking garage")
 		elif PlayerManager.EquippedItem == PlayerManager.STAMINA_CHARGE and not PlayerManager.MinigameMode and not PlayerManager.hiding:
 			PlayerManager.use_stamina_charge()
+		elif PlayerManager.EquippedItem == PlayerManager.SNACK and not PlayerManager.MinigameMode and not PlayerManager.hiding:
+			PlayerManager.eat_snack()
 	if event.is_action_pressed("scrollUp"):
 		PlayerManager.SwitchEquippedItem(true)
 	if event.is_action_pressed("scrollDown"):
@@ -900,7 +902,9 @@ func _update_stamina(delta: float, running: bool) -> void:
 	_exertion = move_toward(_exertion, 1.0 if puffed else 0.0, delta * (0.25 if puffed else 0.12))
 	if running:
 		_time_since_sprint = 0.0
-		stamina = maxf(stamina - stamina_drain_per_second * delta, 0.0)
+		# (coffee from the office kitchen makes it last longer for a while)
+		var drain := stamina_drain_per_second * (PlayerManager.CAFFEINE_DRAIN if PlayerManager.caffeinated() else 1.0)
+		stamina = maxf(stamina - drain * delta, 0.0)
 		if stamina <= 0.0:
 			# Ran dry: fatigued, no sprint, no regen until it wears off.
 			fatigue_time_left = fatigue_duration

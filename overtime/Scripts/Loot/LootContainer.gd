@@ -12,6 +12,7 @@
 extends SearchableInteractable
 
 const LOOT_SHEET := preload("res://Scripts/Loot/LootSheet.gd")
+const OFFICE_QUESTS := preload("res://Scripts/Office/OfficeQuests.gd")
 
 ## Which table in LootSheet.TABLES to roll ("trash", "office_bin", "body"...).
 @export var table: String = "trash"
@@ -65,6 +66,12 @@ func _on_interacted(_body: Variant) -> void:
 					found.append("a Shield" if got_n == 1 else "%d Shields" % got_n)
 				else:
 					shield_left = true
+			"wanted":
+				# something an office worker lost (garage only, open requests)
+				var w := OFFICE_QUESTS.garage_drop()
+				if w != "":
+					PlayerManager.AddToInventory(w, 0.0, false)
+					found.append("someone's %s" % w)
 			"note":
 				if found_note == null:
 					found_note = GameState.random_unfound_note()
